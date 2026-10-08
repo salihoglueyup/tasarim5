@@ -23,6 +23,8 @@ import { LOCALES, buildMetadata, BASE_URL } from '@/lib/seo';
 import { resolveTopicalEntityGraph, extractKeyFactsAndKpis } from '@/lib/seoEngine';
 import type { Metadata } from 'next';
 import { getDictionary } from '@/lib/i18n';
+import { localePath } from '@/lib/i18n/localePath';
+import { isBlogLang, getLocalizedPost, getLocalizedPostMetas } from '@/lib/blog/blogLocale';
 
 import { POSTS, POSTS_META, CATEGORIES } from '@/data/posts';
 import { getAuthor, resolveAuthorSlug } from '@/data/authors';
@@ -58,6 +60,24 @@ export async function generateMetadata({
   params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
   const { lang, slug } = await params;
+
+  // en/ru/ar: çeviri belleğinden gelen sürüm. Eksik çeviri varsa sayfa indekslenmez.
+  const localized = isBlogLang(lang) ? getLocalizedPost(slug, lang) : null;
+  if (localized) {
+    return buildMetadata({
+      title: localized.title,
+      description: localized.description,
+      path: `/blog/${slug}`,
+      lang,
+      ogType: 'article',
+      ogImageType: 'article',
+      datePublished: new Date(localized.post.datePublished).toISOString(),
+      dateModified: new Date(localized.post.dateModified || localized.post.datePublished).toISOString(),
+      authorName: 'Alo Yönetim',
+      noindex: localized.missing > 0 ? true : undefined,
+    });
+  }
+
   let post = await prisma.post.findUnique({
     where: { slug },
     include: { author: true },
@@ -95,8 +115,10 @@ export async function generateMetadata({
   });
 }
 
-function formatDate(iso: string | Date): string {
-  return new Date(iso).toLocaleDateString('tr-TR', {
+const DATE_LOCALES: Record<string, string> = { tr: 'tr-TR', en: 'en-GB', ru: 'ru-RU', ar: 'ar' };
+
+function formatDate(iso: string | Date, lang: string = 'tr'): string {
+  return new Date(iso).toLocaleDateString(DATE_LOCALES[lang] ?? 'tr-TR', {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -115,7 +137,52 @@ export default async function BlogDetail({
   const cacheKeyPost = `blog_post_detail_${slug}`;
   let post: any = null;
 
-  try {
+  // en/ru/ar: içerik DB'den değil statik kaynaktan ve çeviri belleğinden gelir (bkz. blogLocale.ts)
+  const localized = isBlogLang(lang) ? getLocalizedPost(slug, lang) : null;
+  let localizedRelated: any[] = [];
+  let localizedPrev: { title: string; slug: string } | null = null;
+  let localizedNext: { title: string; slug: string } | null = null;
+  if (localized && isBlogLang(lang)) {
+    const sp = localized.post;
+    // Yeni çevrilen sayfalarda yalnızca kurucunun adı kişi olarak gösterilir; diğer yazar kimlikleri kurumsal "Alo Yönetim" olarak yazılır.
+    const original = getAuthor(resolveAuthorSlug(sp.author))!;
+    const resolved = original.slug === 'eyup-salihoglu' ? original : (getAuthor('alo-yonetim') ?? original);
+    post = {
+      id: `static-${sp.slug}`,
+      slug: sp.slug,
+      title: localized.title,
+      description: localized.description,
+      tldr: localized.tldr,
+      content: JSON.stringify(
+        localized.content.map((b) => (b.type === 'cta' && b.href.startsWith('/') ? { ...b, href: localePath(b.href, lang) } : b)),
+      ),
+      image: sp.image,
+      pillar: sp.pillar,
+      published: true,
+      categoryId: sp.category,
+      tags: JSON.stringify([]),
+      datePublished: new Date(sp.datePublished),
+      dateModified: new Date(sp.dateModified || sp.datePublished),
+      author: {
+        slug: resolved.slug,
+        name: resolved.slug === 'alo-yonetim' ? 'Alo Yönetim' : resolved.name,
+        avatar: resolved.image ?? '/images/eyup-salihoglu.webp',
+        bio: '',
+      },
+      category: localized.category ? { slug: localized.category.slug, name: localized.category.name } : null,
+    };
+    const metas = getLocalizedPostMetas(lang);
+    localizedRelated = metas
+      .filter((m) => m.meta.slug !== sp.slug && m.meta.category === sp.category)
+      .slice(0, 3)
+      .map((m) => ({ slug: m.meta.slug, title: m.title, image: m.meta.image }));
+    const ordered = [...metas].sort((a, b) => new Date(a.meta.datePublished).getTime() - new Date(b.meta.datePublished).getTime());
+    const at = ordered.findIndex((m) => m.meta.slug === sp.slug);
+    if (at > 0) localizedPrev = { title: ordered[at - 1].title, slug: ordered[at - 1].meta.slug };
+    if (at >= 0 && at < ordered.length - 1) localizedNext = { title: ordered[at + 1].title, slug: ordered[at + 1].meta.slug };
+  }
+
+  if (!post) try {
     const cachedPost = await redis.get(cacheKeyPost);
     if (cachedPost) {
       post = JSON.parse(cachedPost);
@@ -201,7 +268,7 @@ export default async function BlogDetail({
   const author = post.author;
   const category = post.category;
   
-  let related: any[] = await prisma.post.findMany({
+  let related: any[] = localized ? localizedRelated : await prisma.post.findMany({
     where: { 
       categoryId: post.categoryId, 
       id: { not: post.id },
@@ -222,7 +289,7 @@ export default async function BlogDetail({
   }).catch(() => []);
 
   // Faz 24: Veritabanı boşsa veya offline ise hafif statik metadata ile doldur
-  if (!related || related.length === 0) {
+  if (!localized && (!related || related.length === 0)) {
     related = POSTS_META.filter((p) => p.slug !== post.slug && (p.category === post.categoryId || !post.categoryId))
       .slice(0, 3)
       .map((p, idx) => ({
@@ -237,7 +304,7 @@ export default async function BlogDetail({
       }));
   }
 
-  const [prevPost, nextPost] = await Promise.all([
+  const [prevPost, nextPost] = localized ? [localizedPrev, localizedNext] : await Promise.all([
     prisma.post.findFirst({
       where: {
         published: true,
@@ -277,14 +344,17 @@ export default async function BlogDetail({
   const entityGraph = resolveTopicalEntityGraph(plainText || post.title);
   const keyFacts = extractKeyFactsAndKpis(plainText || post.title);
 
-  const dynamicAbout = [
-    { name: category?.name || 'Tesis Yönetimi', sameAs: 'https://tr.wikipedia.org/wiki/Tesis_yönetimi' },
-    { name: 'ISO 41001:2018 Entegre Tesis Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
-    { name: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)', sameAs: 'https://www.wikidata.org/wiki/Q161851' },
-    ...entityGraph.about.map((a) => ({ name: a.name, sameAs: a.sameAs })),
-  ];
+  // Entity grafı Türkçe metne göre kurulur; en/ru/ar'da yalnızca kategori adı kullanılır.
+  const dynamicAbout = lang !== 'tr'
+    ? [{ name: category?.name || 'Facility management' }]
+    : [
+        { name: category?.name || 'Tesis Yönetimi', sameAs: 'https://tr.wikipedia.org/wiki/Tesis_yönetimi' },
+        { name: 'ISO 41001:2018 Entegre Tesis Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
+        { name: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)', sameAs: 'https://www.wikidata.org/wiki/Q161851' },
+        ...entityGraph.about.map((a) => ({ name: a.name, sameAs: a.sameAs })),
+      ];
 
-  const dynamicMentions = entityGraph.mentions.map((m) => ({ name: m.name, sameAs: m.sameAs }));
+  const dynamicMentions = lang !== 'tr' ? [] : entityGraph.mentions.map((m) => ({ name: m.name, sameAs: m.sameAs }));
 
   const articleLd = {
     ...blogPostingSchema({
@@ -302,9 +372,11 @@ export default async function BlogDetail({
       about: dynamicAbout,
       mentions: dynamicMentions,
       author: author
-        ? { 
-            name: author.name, 
-            jobTitle: 'Kıdemli Tesis Yönetimi Uzmanı', 
+        ? lang !== 'tr'
+          ? { name: author.name, url: localePath(`/blog/yazar/${author.slug}`, lang) }
+          : {
+            name: author.name,
+            jobTitle: 'Kıdemli Tesis Yönetimi Uzmanı',
             url: `/blog/yazar/${author.slug}`,
             alumniOf: [{ name: 'İstanbul Üniversitesi', sameAs: 'https://tr.wikipedia.org/wiki/İstanbul_Üniversitesi' }],
             knowsAbout: ['Tesis Yönetimi', 'Bina Güvenliği', 'Aidat Hukuku', 'Site Yönetimi']
@@ -349,22 +421,26 @@ export default async function BlogDetail({
                   )}
                 </div>
                 <div className="text-xs">
-                  {formatDate(post.datePublished)}
+                  {formatDate(post.datePublished, lang)}
                   {post.dateModified && new Date(post.dateModified).getTime() !== new Date(post.datePublished).getTime() && (
-                    <span> • Güncellenme: {formatDate(post.dateModified)}</span>
+                    <span> • {t('blgx_updated')}: {formatDate(post.dateModified, lang)}</span>
                   )}
                   {' '}• {minutes} {t('blog_read_min')}
                 </div>
               </div>
             </div>
-            {category && (
+            {category && (lang === 'tr' ? (
               <Link
                 href={`/blog/kategori/${category.slug}`}
                 className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white font-bold px-4 py-1.5 rounded-full text-xs"
               >
                 {category.name}
               </Link>
-            )}
+            ) : (
+              <span className="bg-slate-900/10 dark:bg-white/10 text-slate-900 dark:text-white font-bold px-4 py-1.5 rounded-full text-xs">
+                {category.name}
+              </span>
+            ))}
           </div>
 
           {/* Cover */}
@@ -384,7 +460,7 @@ export default async function BlogDetail({
           </div>
 
           {/* Google AI Overviews & Gemini TL;DR Grounding Card */}
-          {(post.tldr || post.description || post.summary) && (
+          {(post.tldr || post.description || post.summary) && (lang === 'tr' ? (
             <ArticleAiOverviewCard
               title={post.title}
               tldr={post.tldr || post.description || post.summary}
@@ -392,15 +468,22 @@ export default async function BlogDetail({
               category={category?.name}
               slug={slug}
             />
-          )}
+          ) : (
+            <div className="rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-[var(--color-surface)] p-6 shadow-xs">
+              <div className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-500">{t('blgx_tldr_title')}</div>
+              <p className="tldr text-base leading-relaxed text-slate-800 dark:text-slate-200">{post.tldr || post.description}</p>
+            </div>
+          ))}
 
-          {/* Google AI & Gemini Key Takeaways Box (Wave 66) */}
-          <BlogAiTakeawaysSeo
-            title={post.title}
-            slug={slug}
-            category={category?.name}
-            lang={lang}
-          />
+          {/* Google AI & Gemini Key Takeaways Box (Wave 66) — içeriği Türkçe, yalnızca Türkçe sayfada */}
+          {lang === 'tr' && (
+            <BlogAiTakeawaysSeo
+              title={post.title}
+              slug={slug}
+              category={category?.name}
+              lang={lang}
+            />
+          )}
 
 
 
@@ -410,7 +493,14 @@ export default async function BlogDetail({
           </div>
 
           {/* Body with smart cross-linking */}
-          <PostBody htmlContent={post.content} title={post.title} currentUrl={path} locale={lang} />
+          <PostBody
+            htmlContent={post.content}
+            title={post.title}
+            currentUrl={path}
+            locale={lang}
+            ctaBadge={t('blgx_cta_blk_badge')}
+            ctaNote={t('blgx_cta_blk_note')}
+          />
 
           {/* AI Search Key Facts & Quantitative Signals */}
           {(() => {
@@ -437,7 +527,7 @@ export default async function BlogDetail({
 
             const displayedFacts = selectedFacts.length >= 2 ? selectedFacts : keyFacts.slice(0, 4);
 
-            return displayedFacts.length > 0 ? (
+            return lang === 'tr' && displayedFacts.length > 0 ? (
               <div className="bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-7 shadow-xs">
                 <div className="flex items-center justify-between gap-3 mb-4 pb-3.5 border-b border-[var(--color-outline)]/60 dark:border-white/10">
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-900 dark:text-white">
@@ -463,7 +553,7 @@ export default async function BlogDetail({
           {/* Tags */}
           {tags.length > 0 && (
             <div className="flex flex-wrap items-center gap-2 pt-6 border-t border-[var(--color-outline)]/60 dark:border-white/10">
-              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mr-1">Etiketler:</span>
+              <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mr-1">{t('blgx_tags')}:</span>
               {tags.map((tag: string) => (
                 <Link
                   key={tag}
@@ -480,18 +570,20 @@ export default async function BlogDetail({
           <ShareButtons path={path} title={post.title} />
 
           {/* Zengin İç/Dış Link & Yasal Mevzuat Otorite Ekosistemi (Faz 14) */}
-          <BlogArticleEcosystemSeo
-            title={post.title}
-            content={post.content || ''}
-            tags={tags}
-            categoryName={post.category?.name}
-            lang={lang}
-          />
+          {lang === 'tr' && (
+            <BlogArticleEcosystemSeo
+              title={post.title}
+              content={post.content || ''}
+              tags={tags}
+              categoryName={post.category?.name}
+              lang={lang}
+            />
+          )}
 
           {/* Author Box */}
           {author && (
             <div itemScope itemType="https://schema.org/Person" className="flex items-start gap-6 bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 p-6 md:p-8 rounded-3xl mt-6 shadow-xs">
-               <meta itemProp="jobTitle" content="Yazar" />
+               <meta itemProp="jobTitle" content={t('blgx_author')} />
                <meta itemProp="url" content={`/blog/yazar/${author.slug}`} />
                {author.avatar ? (
                  <Image itemProp="image" src={author.avatar} alt={author.name} width={80} height={80} className="w-20 h-20 rounded-full object-cover shrink-0 border border-slate-200/80 dark:border-white/10" />
@@ -515,8 +607,8 @@ export default async function BlogDetail({
           <div className="flex items-center gap-3.5 p-5 rounded-3xl bg-emerald-500/5 dark:bg-emerald-950/20 border border-emerald-500/20 text-xs text-slate-700 dark:text-slate-300 shadow-2xs">
             <Icon name="verified_user" className="text-emerald-600 dark:text-emerald-400 text-xl shrink-0" />
             <div>
-              <span className="font-bold text-slate-900 dark:text-white">Mevzuat & Hukuki Uyumluluk Denetimi: </span>
-              Bu içerik 634 sayılı Kat Mülkiyeti Kanunu, 5188 sayılı Özel Güvenlik Kanunu ve ISO 41001 Tesis Yönetim Standartları uyarınca <strong>Alo Yönetim Hukuk & Operasyon Denetim Kurulu</strong> tarafından teknik ve hukuki incelemeden geçirilmiştir.
+              <span className="font-bold text-slate-900 dark:text-white">{t('blgx_review_title')}</span>
+              {t('blgx_review_body')}
             </div>
           </div>
 
@@ -546,7 +638,7 @@ export default async function BlogDetail({
                 <Link href={`/blog/${prevPost.slug}`} className="flex-1 p-6 rounded-2xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.02] dark:hover:bg-white/[0.05] border border-slate-200 dark:border-white/10 transition-colors group flex flex-col items-start text-left">
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-2">
                     <Icon name="arrow_back" className="text-[16px] group-hover:-translate-x-1 transition-transform" />
-                    Önceki Yazı
+                    {t('blgx_prev')}
                   </span>
                   <span className="font-bold text-slate-900 dark:text-white line-clamp-2">{prevPost.title}</span>
                 </Link>
@@ -555,7 +647,7 @@ export default async function BlogDetail({
               {nextPost ? (
                 <Link href={`/blog/${nextPost.slug}`} className="flex-1 p-6 rounded-2xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.02] dark:hover:bg-white/[0.05] border border-slate-200 dark:border-white/10 transition-colors group flex flex-col items-end text-right">
                   <span className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-2 flex items-center gap-2">
-                    Sonraki Yazı
+                    {t('blgx_next')}
                     <Icon name="arrow_forward" className="text-[16px] group-hover:translate-x-1 transition-transform" />
                   </span>
                   <span className="font-bold text-slate-900 dark:text-white line-clamp-2">{nextPost.title}</span>
@@ -586,20 +678,20 @@ export default async function BlogDetail({
             <div className="relative z-10 flex flex-col gap-4">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-700 dark:text-slate-400 text-xs font-bold w-fit">
                 <Icon name="verified" className="text-[15px]" />
-                Hızlı Fiyat & Bütçe
+                {t('blgx_cta_badge')}
               </span>
               <h3 className="text-xl font-extrabold text-slate-900 dark:text-white leading-snug">
-                Siteniz İçin Şeffaf Teklif Alın
+                {t('blgx_cta_title')}
               </h3>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                634 sayılı KMK'ya tam uyumlu işletme projesi, 5188 lisanslı güvenlik ve %30'a varan merkezi bütçe tasarrufu.
+                {t('blgx_cta_text')}
               </p>
               <div className="flex flex-col gap-2.5 pt-2">
                 <Link
                   href="/teklif-al"
                   className="w-full py-3.5 px-5 rounded-2xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-sm text-center shadow-md transition-all active:scale-[0.98] flex items-center justify-center gap-2"
                 >
-                  <span>10 Dakikada Teklif Al</span>
+                  <span>{t('blgx_cta_btn')}</span>
                   <Icon name="arrow_forward" className="text-base" />
                 </Link>
                 <a
@@ -609,7 +701,7 @@ export default async function BlogDetail({
                   className="w-full py-3 px-5 rounded-2xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-500/15 dark:hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30 font-semibold text-xs text-center transition-colors flex items-center justify-center gap-2"
                 >
                   <Icon name="chat" className="text-base" />
-                  <span>WhatsApp Destek Hattı</span>
+                  <span>{t('blgx_wa')}</span>
                 </a>
               </div>
             </div>
@@ -623,15 +715,15 @@ export default async function BlogDetail({
                 <Icon name="calculate" className="text-2xl" />
               </div>
               <div>
-                <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">KMK Aidat Hesaplayıcı</h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Arsa payı ve ortak gider simülasyonu</p>
+                <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">{t('blgx_calc_title')}</h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400">{t('blgx_calc_desc')}</p>
               </div>
             </div>
             <Link
               href="/hesaplayici"
               className="relative z-10 w-full py-2.5 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 text-white font-bold text-xs flex items-center justify-between transition-all shadow-xs group-hover:shadow-md"
             >
-              <span>Hesaplayıcıyı Başlat</span>
+              <span>{t('blgx_calc_btn')}</span>
               <Icon name="arrow_forward" className="text-base transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -641,7 +733,7 @@ export default async function BlogDetail({
             <div className="flex flex-col gap-0.5">
               <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>7/24 Çağrı Merkezi</span>
+                <span>{t('blgx_call_label')}</span>
               </div>
               <a href="tel:+902165504848" className="text-lg font-black text-slate-900 dark:text-white hover:text-slate-500 dark:hover:text-slate-400 transition-colors font-mono tracking-tight">
                 0216 550 48 48
@@ -650,8 +742,8 @@ export default async function BlogDetail({
             <a
               href="tel:+902165504848"
               className="w-11 h-11 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500 text-emerald-600 dark:text-emerald-400 hover:text-white border border-emerald-500/20 flex items-center justify-center transition-all shadow-2xs hover:scale-105 active:scale-95 shrink-0"
-              aria-label="Telefonla ara"
-              title="Doğrudan Ara: 0216 550 48 48"
+              aria-label={t('blgx_call_aria')}
+              title="0216 550 48 48"
             >
               <Icon name="call" className="text-xl" />
             </a>

@@ -22,7 +22,12 @@ export function slugifyHeading(text: string): string {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
-  return `heading-${clean || 'section'}`;
+  if (!clean) {
+    // Kiril/Arap alfabesi gibi ASCII dışı başlıklarda boş kalmasın: Unicode harf/rakamlarla id üret
+    const uni = text.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, '-').replace(/(^-|-$)/g, '');
+    return `heading-${uni || 'section'}`;
+  }
+  return `heading-${clean}`;
 }
 
 /**
@@ -52,10 +57,19 @@ export function getBlockParseCacheSize(): number {
  * JSON formatında saklanan blog bloklarını (PostBlock[]) veya ham string girdiyi
  * semantik, modern ve zengin HTML'e dönüştüren çekirdek derleyici motoru.
  */
-export function renderPostBlocksToHtml(rawContent: string | PostBlock[] | any): string {
+export interface BlogRenderLabels {
+  /** CTA kutusu rozeti (varsayılan Türkçe). */
+  ctaBadge?: string;
+  /** CTA kutusu alt notu (varsayılan Türkçe). */
+  ctaNote?: string;
+}
+
+export function renderPostBlocksToHtml(rawContent: string | PostBlock[] | any, labels?: BlogRenderLabels): string {
   if (!rawContent) return '';
 
-  const cacheKey = typeof rawContent === 'string' ? rawContent : null;
+  const ctaBadge = labels?.ctaBadge ?? 'Alo Yönetim Profesyonel Çözüm';
+  const ctaNote = labels?.ctaNote ?? 'Keşif ve şeffaf bütçe teklifi için bize ulaşın.';
+  const cacheKey = typeof rawContent === 'string' ? `${rawContent}\u0000${ctaBadge}\u0000${ctaNote}` : null;
   if (cacheKey && BLOCK_PARSE_CACHE.has(cacheKey)) {
     return BLOCK_PARSE_CACHE.get(cacheKey)!;
   }
@@ -181,10 +195,10 @@ export function renderPostBlocksToHtml(rawContent: string | PostBlock[] | any): 
             <div class="space-y-2 text-center md:text-left relative z-10">
               <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider w-fit">
                 <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                <span>Alo Yönetim Profesyonel Çözüm</span>
+                <span>${ctaBadge}</span>
               </div>
               <p class="text-lg md:text-xl font-extrabold m-0 text-slate-900 dark:text-white leading-snug">${text}</p>
-              <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 m-0 font-normal">Ücretsiz keşif ve 10 dakikada şeffaf bütçe teklifi.</p>
+              <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 m-0 font-normal">${ctaNote}</p>
             </div>
             <a href="${href}" class="relative z-10 inline-flex items-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 !text-white dark:!text-slate-950 text-white font-bold rounded-2xl transition-all shadow-md hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap text-sm md:text-base !no-underline no-underline shrink-0">
               <span>${label} →</span>

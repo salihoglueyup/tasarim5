@@ -13,12 +13,14 @@ import Pagination from '@/components/ui/primitives/Pagination';
 import Icon from '@/components/ui/branding/Icon';
 const PAGE_SIZE = 6;
 
-function formatDate(iso: string | Date): string {
-  return new Date(iso).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
+const DATE_LOCALES: Record<string, string> = { tr: 'tr-TR', en: 'en-GB', ru: 'ru-RU', ar: 'ar' };
+
+function formatDate(iso: string | Date, lang: string): string {
+  return new Date(iso).toLocaleDateString(DATE_LOCALES[lang] ?? 'tr-TR', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
 export default function BlogListClient({ posts, categories }: { posts: any[], categories: any[] }) {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const searchParams = useSearchParams();
 
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -108,8 +110,8 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
             type="search"
             value={query}
             onChange={(e) => { setQuery(e.target.value); setPage(1); }}
-            placeholder="Yazılarda ara: aidat, güvenlik, havuz…"
-            aria-label="Blog içinde ara"
+            placeholder={t('blgx_search_ph')}
+            aria-label={t('blgx_search_aria')}
             className="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-full pl-12 pr-5 py-3.5 text-sm focus:outline-none focus:border-slate-900 dark:focus:border-white transition-colors"
           />
         </div>
@@ -120,7 +122,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
             onClick={() => { setActiveCategory('all'); setPage(1); }}
             className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all border ${activeCategory === 'all' ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 border-slate-900 dark:border-white shadow-md scale-105' : 'bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-white/10 hover:bg-gray-50'}`}
           >
-            Tümü
+            {t('blgx_all')}
           </button>
           {categories.map((cat) => (
             <button
@@ -143,13 +145,13 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
                     <div className="w-full aspect-[16/9] bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative border border-gray-200/50 shadow-sm">
                       <Image src={post.image || '/images/hero-poster-v5.webp'} alt={post.title} width={800} height={450} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px" quality={75} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                       <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-slate-900 font-bold px-4 py-1.5 rounded-full text-xs shadow-sm">
-                        {post.category?.name || 'Kategori Yok'}
+                        {post.category?.name || t('blgx_nocat')}
                       </div>
                     </div>
                     <div className="flex items-center gap-4 mb-3 text-gray-500 font-light text-sm">
                       <span className="flex items-center gap-1.5">
                         <Icon name="calendar_today" className="text-[16px]" />
-                        {formatDate(post.datePublished)}
+                        {formatDate(post.datePublished, language)}
                       </span>
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors leading-tight">
@@ -166,7 +168,7 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
         {filtered.length === 0 && (
           <div className="text-center py-20 text-gray-500">
             <Icon name="inbox" className="text-4xl mb-3" />
-            <p>Aramanıza uygun yazı bulunamadı.</p>
+            <p>{t('blgx_none')}</p>
           </div>
         )}
 

@@ -17,7 +17,7 @@ export default function BlogFAQExtractor({ htmlContent }: BlogFAQExtractorProps)
 
   // H2 veya H3 etiketi içinde soru işareti (?) ile biten başlıkları ve 
   // hemen ardındaki <p> etiketini yakalayan Regex.
-  const regex = /<h[23][^>]*>(.*?\?)<\/h[23]>[\s\S]*?<p[^>]*>(.*?)<\/p>/gi;
+  const regex = /<h[23][^>]*>(.*?[?؟])<\/h[23]>[\s\S]*?<p[^>]*>(.*?)<\/p>/gi;
   
   const faqs: { question: string; answer: string }[] = [];
   let match;

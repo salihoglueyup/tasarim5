@@ -3,6 +3,7 @@
 // Bu dosya yalnızca bağımlılığı olmayan saf veri modüllerini import eder (@/lib/seo ile döngüsel bağımlılığı önler).
 
 import { TRANSLATED_TERM_SLUGS } from '@/data/dictionaryTranslated'; // bağımlılığı olmayan saf veri modülü
+import blogCoverage from '@/i18n/blog/coverage.json'; // scripts/blog-i18n.mjs status ile üretilir
 
 export type IndexLocale = 'tr' | 'en' | 'ru' | 'ar';
 
@@ -28,14 +29,17 @@ const CORE_TRANSLATED = [
 // Sözlükte çevrilmiş 20 temel terim sayfası + sözlük ana sayfası (en/ru/ar)
 const GLOSSARY_TRANSLATED = ['/sozluk', ...TRANSLATED_TERM_SLUGS.map((slug) => `/sozluk/${slug}`)] as const;
 
+// Blog: yalnızca çeviri belleğinde eksiksiz çevrilmiş yazılar (ve kategoriler çevrildiyse liste sayfası) indekslenir.
+const BLOG_TRANSLATED = blogCoverage.categoriesTranslated ? ['/blog', ...blogCoverage.translatedSlugs.map((slug) => `/blog/${slug}`)] : [];
+
 const SERVICE_TRANSLATED = ['/hizmetler/peyzaj-ve-bahce-bakimi', '/hizmetler/hasere-ve-dezenfeksiyon', '/hizmetler/havuz-bakimi-ve-hijyen', '/hizmetler/temizlik-ve-hijyen', '/hizmetler/aidat-takibi', '/hizmetler/teknik-bakim', '/hizmetler/hukuk-ve-icra-danismanligi', '/hizmetler/guvenlik-yonetimi', '/hizmetler/site-yonetimi', '/hizmetler/tesis-yonetimi', '/hizmetler/tesis-yonetimi/plaza-yonetimi', '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', '/hizmetler/tesis-yonetimi/rehber', '/hizmetler/tesis-yonetimi/acik-veri'] as const;
 
 export const TRANSLATED_PATHS: Record<Exclude<IndexLocale, 'tr'>, readonly string[]> = {
   // teklif-al: form etiketleri ve metinler çeviri anahtarlarına bağlı (en/ru/ar doğrulandı).
   // /sss: arayüz metinleri çeviri anahtarlarında, SSS maddeleri DB'deki _en/_ru/_ar alanlarından gelir.
-  en: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', ...GLOSSARY_TRANSLATED, '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', '/istihdam-koprusu', '/kurumsal/kalite-belgelerimiz', '/surdurulebilirlik', '/surdurulebilirlik/ges-projeleri', '/kurumsal/surdurulebilirlik', ...SERVICE_TRANSLATED],
-  ru: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', ...GLOSSARY_TRANSLATED, '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', '/istihdam-koprusu', '/kurumsal/kalite-belgelerimiz', '/surdurulebilirlik', '/surdurulebilirlik/ges-projeleri', '/kurumsal/surdurulebilirlik', ...SERVICE_TRANSLATED],
-  ar: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', ...GLOSSARY_TRANSLATED, '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', '/istihdam-koprusu', '/kurumsal/kalite-belgelerimiz', '/surdurulebilirlik', '/surdurulebilirlik/ges-projeleri', '/kurumsal/surdurulebilirlik', ...SERVICE_TRANSLATED],
+  en: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', ...GLOSSARY_TRANSLATED, ...BLOG_TRANSLATED, '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', '/istihdam-koprusu', '/kurumsal/kalite-belgelerimiz', '/surdurulebilirlik', '/surdurulebilirlik/ges-projeleri', '/kurumsal/surdurulebilirlik', ...SERVICE_TRANSLATED],
+  ru: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', ...GLOSSARY_TRANSLATED, ...BLOG_TRANSLATED, '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', '/istihdam-koprusu', '/kurumsal/kalite-belgelerimiz', '/surdurulebilirlik', '/surdurulebilirlik/ges-projeleri', '/kurumsal/surdurulebilirlik', ...SERVICE_TRANSLATED],
+  ar: [...CORE_TRANSLATED, '/teklif-al', '/sss', '/hesaplayici', ...GLOSSARY_TRANSLATED, ...BLOG_TRANSLATED, '/sektorel-cozumler', '/kurumsal/vizyon-misyon', '/kurumsal/kalite-politikamiz', '/istihdam-koprusu', '/kurumsal/kalite-belgelerimiz', '/surdurulebilirlik', '/surdurulebilirlik/ges-projeleri', '/kurumsal/surdurulebilirlik', ...SERVICE_TRANSLATED],
 };
 
 /** Türkçe dahil tüm dillerde noindex olacak yol kalıpları (ince/şablon sayfalar). */

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { List, ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export interface TocHeading {
   id: string;
@@ -22,6 +23,7 @@ export function TableOfContents({
   className = '',
   collapsibleOnMobile = true,
 }: TableOfContentsProps) {
+  const { t } = useLanguage();
   const [headings, setHeadings] = useState<TocHeading[]>(initialHeadings || []);
   const [activeId, setActiveId] = useState<string>('');
   const [isOpenMobile, setIsOpenMobile] = useState<boolean>(false);
@@ -88,7 +90,7 @@ export function TableOfContents({
 
   return (
     <nav
-      aria-label="Makale İçindekiler Tablosu"
+      aria-label={t('blgx_toc_aria')}
       className={`p-5 rounded-3xl bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 shadow-sm ${className}`}
     >
       <div
@@ -97,7 +99,7 @@ export function TableOfContents({
       >
         <div className="flex items-center gap-2">
           <List className="w-4 h-4 text-slate-500 dark:text-slate-400" />
-          <span>İçindekiler</span>
+          <span>{t('blgx_toc')}</span>
           <span className="text-[11px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-white/10 font-bold text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-white/10 shadow-2xs">
             {headings.length}
           </span>
@@ -106,7 +108,7 @@ export function TableOfContents({
           type="button"
           className="lg:hidden text-slate-400 hover:text-slate-900 dark:hover:text-white p-1"
           aria-expanded={isOpenMobile}
-          aria-label="İçindekiler tablosunu aç/kapat"
+          aria-label={t('blgx_toc_toggle')}
         >
           <ChevronRight
             className={`w-4 h-4 transition-transform duration-200 ${isOpenMobile ? 'rotate-90' : ''}`}

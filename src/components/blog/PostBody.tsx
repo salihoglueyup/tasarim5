@@ -22,14 +22,18 @@ export default function PostBody({
   title = 'Alo Yönetim',
   currentUrl,
   locale,
+  ctaBadge,
+  ctaNote,
 }: {
   htmlContent: string;
   title?: string;
   currentUrl?: string;
   locale?: string;
+  ctaBadge?: string;
+  ctaNote?: string;
 }) {
   // 1. JSON bloklarını veya ham metni semantik zengin HTML'e dönüştür
-  const parsedHtml = renderPostBlocksToHtml(htmlContent);
+  const parsedHtml = renderPostBlocksToHtml(htmlContent, { ctaBadge, ctaNote });
 
   // 2. İçeriği otomatik linkle (self-referencing döngüleri ve dil silosunu koruyarak)
   const processedHtml = autoLinkHtml(parsedHtml, currentUrl, 8, locale);

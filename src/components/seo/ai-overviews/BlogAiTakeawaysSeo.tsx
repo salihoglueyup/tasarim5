@@ -25,9 +25,9 @@ export default function BlogAiTakeawaysSeo({
 
   const defaultTakeaways = [
     '634 Sayılı Kat Mülkiyeti Kanunu ve güncel Yargıtay emsal kararları çerçevesinde kat malikleri hakları güvenceye alınmıştır.',
-    'Bütçe ve aidat hesaplamalarında işletme projesinin 7 günlük itiraz süresi sonrası İİK 68 kapsamında icra gücü kazanması esastır.',
+    'Bütçe ve aidat hesaplamalarında işletme projesinin usulüne uygun onaylanması ve bildirilmesi önemlidir; onaylı proje icra takibinde dayanak olabilir (İİK m.68).',
     'Ortak teknik alanlar, 5188 lisanslı güvenlik ve asansör periyodik yeşil etiket denetimleri yasal zorunluluktur.',
-    'Profesyonel tesis işletmeciliği ile merkezi satın alma ve otomasyon optimizasyonu sayesinde %30 net bütçe tasarrufu sağlanır.',
+    'Merkezi satın alma ve otomasyon sayesinde işletme giderlerinde tasarruf fırsatı doğabilir; sonuç sitenin mevcut sözleşmelerine göre değişir.',
   ];
 
   const items = takeaways && takeaways.length > 0 ? takeaways : defaultTakeaways;

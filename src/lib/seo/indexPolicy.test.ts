@@ -89,7 +89,10 @@ describe('İndeksleme politikası (indexPolicy.ts)', () => {
       expect(urls).toContain(`${BASE_URL}/ru/teklif-al`);
       expect(urls).toContain(`${BASE_URL}/en/teklif-al`);
       expect(urls).toContain(`${BASE_URL}/ar/teklif-al`);
-      expect(urls.some((u) => /\/(en|ru|ar)\/(blog|bolgeler)\//.test(u))).toBe(false);
+      // Blog: yalnızca çeviri belleğinde eksiksiz çevrilmiş yazılar sitemap'e girer; arşiv sayfaları ve bölgeler girmez.
+      expect(urls).toContain(`${BASE_URL}/en/blog`);
+      expect(urls.some((u) => /\/(en|ru|ar)\/bolgeler\//.test(u))).toBe(false);
+      expect(urls.some((u) => /\/(en|ru|ar)\/blog\/(kategori|etiket|yazar)\//.test(u))).toBe(false);
     });
   });
 });

@@ -265,7 +265,7 @@ export const POSTS: Post[] = [
       {
         "type": "ol",
         "items": [
-          "Hukuki Güvence Sunar: Noter onaylı işletme projesi tebligatı ve KMK m.20 icra takipleri uzman hukukçularca yürütülür.",
+          "Hukuki Güvence Sunar: İşletme projesi tebligatı ve KMK m.20 icra takipleri uzman hukukçularca yürütülür.",
           "Toplu Tedarik Gücü Sağlar: Birden çok projeyi yönetmenin getirdiği satın alma hacmi ile asansör, kimyasal ve sigorta gibi kalemlerde maliyet avantajı hedeflenir.",
           "7/24 Şeffaf Mobil Takip Sağlar: Sakinler tüm gelir-gider faturalarını ve denetim raporlarını cep telefonu uygulamasından anlık görebilir.",
           "İşveren Risklerini Azaltır: Kapıcı, güvenlik ve temizlik personelinin kıdem tazminatı ve SGK sorumlulukları kurumsal işveren yapısı altında yürütülür.",
@@ -296,10 +296,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Yetkisiz Bekçi Çalıştırmak: 5188 lisansı olmayan kişilere üniforma giydirip güvenlik hizmeti verdirmek yüz binlerce liralık idari para cezalarına yol açar. Çözüm: Valilik izinli kurumsal güvenlik firmasıyla çalışmaktır.",
-          "İşletme Projesini Tebliğ Etmemek: KMK m.37 uyarınca taahhütlü mektupla veya imza karşılığı tebliğ edilmeyen aidat bütçesi hukuken kesinleşmez ve icra takipleri iptal olur.",
+          "Yetkisiz Bekçi Çalıştırmak: 5188 lisansı olmayan kişilere üniforma giydirip güvenlik hizmeti verdirmek çok yüksek idari para cezalarına yol açabilir. Çözüm: Valilik izinli kurumsal güvenlik firmasıyla çalışmaktır.",
+          "İşletme Projesini Tebliğ Etmemek: KMK m.37 uyarınca usulüne uygun tebliğ edilmeyen aidat bütçesi hukuken kesinleşmeyebilir ve icra takipleri iptal olabilir. 7579 sayılı Kanun ile 2026'da onay usulü değiştiği için güncel kuralları kontrol edin.",
           // claims-guard-ignore: üçüncü taraf (asansör bakım firması) zorunluluğu
-        "Bakımları Belgesiz Münferit Ustalara Yaptırmak: TSE HYB belgesi olmayan ustalara yapılan asansör ve hidrofor bakımları olası can kayıplarında yöneticiye hapis cezası sorumluluğu doğurur.",
+        "Bakımları Belgesiz Münferit Ustalara Yaptırmak: Gerekli belgeye sahip olmayan kişilere yaptırılan asansör ve hidrofor bakımları olası can kayıplarında yöneticiye cezai sorumluluk doğurabilir.",
           "Gecikme Tazminatını Yanlış Uygulamak: KMK m.20 uyarınca aidat gecikme tazminatı aylık %5 (yıllık %60) olarak hesaplanmalıdır; farklı oranlar mahkemeden döner."
         ]
       },
@@ -313,7 +313,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Kaç daireli binalar tesis yönetimine ihtiyaç duyar?\nCevap: 8 bağımsız bölümden büyük tüm binalarda kanunen yönetici seçimi zorunludur. Ancak merkezi ısıtma, asansör, jeneratör ve ortak güvenlik ihtiyacı olan 20 daire ve üzeri tüm yapılarda profesyonel tesis yönetimi vazgeçilmez bir gerekliliktir."
+        "text": "Soru: Kaç daireli binalar tesis yönetimine ihtiyaç duyar?\nCevap: 8'den fazla bağımsız bölümü olan binalarda kanunen yönetici seçimi zorunludur. Merkezi ısıtma, asansör, jeneratör ve ortak güvenlik ihtiyacı olan, genellikle 20 daire ve üzeri yapılarda profesyonel tesis yönetimi pratikte vazgeçilmez hale gelir."
       },
       {
         "type": "cta",
@@ -363,7 +363,7 @@ export const POSTS: Post[] = [
         "items": [
           "HVAC ve Merkezi İklimlendirme: Chiller soğutma grupları, kazan daireleri, klima santralleri ve fan-coil filtre bakımları.",
           "Elektrik ve Enerji Altyapısı: Yüksek gerilim trafo işletme sorumluluğu, kompanzasyon panosu reaktif ceza takibi ve transfer panolu jeneratör bakımı.",
-          "Dikey Taşıma Sistemleri: TSE onaylı A Tipi Muayene Kuruluşları ile yeşil etiket asansör denetimleri ve yürüyen merdiven kontrolleri.",
+          "Dikey Taşıma Sistemleri: akredite A Tipi Muayene Kuruluşları ile yeşil etiket asansör denetimleri ve yürüyen merdiven kontrolleri.",
           "Yangın ve Güvenlik Otomasyonu: Yangın hidrant hatları, sprinkler pompaları, duman tahliye damperleri ve acil anons testleri.",
           "Sıhhi Tesisat ve Arıtma: Su depoları periyodik dezenfeksiyonu, hidrofor basınç ayarları ve pis su terfi pompaları kontrolleri."
         ]
@@ -380,7 +380,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "5188 Lisanslı Özel Güvenlik: 7/24 fiziki koruma, CCTV çevre güvenlik kameraları izleme ve plaka tanıma sistemi (PTS) yönetimi (Grup şirketimiz 3G Özel Güvenlik güvencesiyle).",
-          "Endüstriyel Hijyen ve Temizlik: Ortak alanlar, merdivenler, otoparklar, çöp şutları ve cam cephelerin Sağlık Bakanlığı onaylı kimyasallarla temizliği.",
+          "Endüstriyel Hijyen ve Temizlik: Ortak alanlar, merdivenler, otoparklar, çöp şutları ve cam cephelerin ruhsatlı kimyasallarla temizliği.",
           "VIP Concierge ve Resepsiyon: Lobi karşılama, kargo/kurye kabul otomasyonu, VIP transfer ve sakin talep yönetimi.",
           "Peyzaj ve Bahçe Bakımı: Çim biçme, mevsimlik budama, otomatik sulama sistemi yönetimi ve bitki besleme.",
           "Vektör İlaçlama ve Sıfır Atık: Haşere kontrolü ve Çevre Şehircilik Bakanlığı Sıfır Atık Yönetmeliği uyumlu geri dönüşüm ayrıştırması."
@@ -435,8 +435,8 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Kritik Arıza Müdahale: Asansör mahsur kalması ve ana elektrik kesintilerinde hızlı müdahale.",
-          "Standart Talep Çözümü: Ampul değişimi, kapı hidroliği ayarı veya temizlik taleplerinde maksimum 2 saatte çözüm.",
-          "Şeffaf Bütçe Raporlaması: Her ayın 5'inde bir önceki ayın tüm banka ve harcama ekstrelerinin mobil uygulamada yayınlanması."
+          "Standart Talep Çözümü: Ampul değişimi, kapı hidroliği ayarı veya temizlik taleplerinde üzerinde anlaşılan hedef süre içinde çözüm.",
+          "Şeffaf Bütçe Raporlaması: Her ay düzenli olarak bir önceki ayın banka ve harcama ekstrelerinin mobil uygulamada yayınlanması."
         ]
       },
       {
@@ -449,7 +449,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Entegre yönetim modeli apartmanlara uygun mudur?\nCevap: Evet, 20 daireli bir butik apartmandan 2.000 konutlu mega yaşam alanlarına kadar her ölçekteki bina entegre yönetim avantajlarından yararlanabilir."
+        "text": "Soru: Entegre yönetim modeli apartmanlara uygun mudur?\nCevap: Evet, küçük apartmanlardan büyük yaşam alanlarına kadar her ölçekteki bina entegre yönetim avantajlarından yararlanabilir."
       },
       {
         "type": "cta",
@@ -494,9 +494,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Eğitim ve Sertifikasyon: Grup şirketimiz Alo Güvenlik (guvenlikkursu.com) bünyesinde yetiştirilmiş, kriz ve öfke kontrolü eğitimli güvenlik görevlileri.",
-          "Saha Operasyonu ve Devriye: Grup şirketimiz 3G Özel Güvenlik (3gguvenlik.com) güvencesiyle RFID tur kontrol kalemleri ve GPS devriye takibi.",
-          "Elektronik Entegrasyon: Plaka tanıma sistemleri (PTS), bariyer otomasyonu, çevre güvenlik kameraları ve yüz tanıma turnikeleri."
+          "Eğitim ve Sertifikasyon: Grup şirketimiz Alo Güvenlik (guvenlikkursu.com) bünyesinde yetiştirilmiş güvenlik görevlileri.",
+          "Saha Operasyonu ve Devriye: Grup şirketimiz 3G Özel Güvenlik (3gguvenlik.com) desteğiyle RFID tur kontrol sistemiyle devriye takibi.",
+          "Elektronik Entegrasyon: Plaka tanıma sistemleri (PTS), bariyer otomasyonu ve çevre güvenlik kameraları."
         ]
       },
       {
@@ -505,14 +505,14 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toplu yaşam alanlarında hijyen standartları doğrudan halk sağlığı konusudur. Sağlık Bakanlığı onaylı biyosidal ürünler ve renk kodlu mikrofiber temizlik bezleri ile çapraz bulaşma riskleri azaltılır."
+        "text": "Toplu yaşam alanlarında hijyen standartları doğrudan halk sağlığı konusudur. Ruhsatlı biyosidal ürünler ve renk kodlu mikrofiber temizlik bezleri ile çapraz bulaşma riskleri azaltılır."
       },
       {
         "type": "ul",
         "items": [
           "Blok Girişleri ve Merdivenler: Günlük paspaslama, tırabzan dezenfeksiyonu ve cam silimi.",
           "Kapalı Otoparklar: Binicili zemin yıkama makineleriyle egzoz isi ve yağ lekelerinin temizlenmesi.",
-          "Çöp Toplama ve Şut Dezenfeksiyonu: Her gün belirlenen saatlerde kapıdan çöp alımı ve çöp odalarının ozonla kokusuzlaştırılması."
+          "Çöp Toplama ve Şut Dezenfeksiyonu: Her gün belirlenen saatlerde kapıdan çöp alımı ve çöp odalarının dezenfeksiyonu."
         ]
       },
       {
@@ -521,7 +521,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rezidans ve iş merkezlerinin vitrini lobilerdir. Çok dilli karşılama personeli, gelen kargoları akıllı kargo dolaplarına teslim eder ve sakine SMS ile teslimat şifresi iletir. Vale hizmetleri ve misafir yönlendirmeleri otel konforunda yürütülür."
+        "text": "Rezidans ve iş merkezlerinin vitrini lobilerdir. Karşılama personeli gelen kargoları teslim alıp kayıt altına alır ve sakine bildirir. Misafir yönlendirmeleri otel nezaketinde yürütülür."
       },
       {
         "type": "h2",
@@ -529,7 +529,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Yeşil alanlar sitelerin en büyük prestij kaynağıdır. Ziraat mühendislerimiz kontrolünde çim biçme, mevsimlik çiçeklendirme, ağaç budama, gübreleme ve otomatik sulama nozullarının periyodik açı ayarları yapılır."
+        "text": "Yeşil alanlar sitelerin en büyük prestij kaynağıdır. Peyzaj ekiplerimizce çim biçme, mevsimlik çiçeklendirme, ağaç budama, gübreleme ve otomatik sulama nozullarının periyodik açı ayarları yapılır."
       },
       {
         "type": "h2",
@@ -537,7 +537,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Haşere, kemirgen ve sivrisineklere karşı Sağlık Bakanlığı onaylı periyodik ilaçlama yapılır. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Sıfır Atık Yönetmeliği kapsamında kağıt, cam, plastik ve organik atıklar ayrıştırılarak lisanslı geri dönüşüm tesislerine teslim edilir."
+        "text": "Haşere, kemirgen ve sivrisineklere karşı ruhsatlı ürünlerle periyodik ilaçlama yapılır. Çevre, Şehircilik ve İklim Değişikliği Bakanlığı Sıfır Atık Yönetmeliği ilkelerine uygun olarak kağıt, cam, plastik ve organik atıklar ayrıştırılır ve geri dönüşüme verilir."
       },
       {
         "type": "h2",
@@ -545,7 +545,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm destek hizmetlerimiz aylık gizli denetimler, dijital karekodlu temizlik kontrol noktaları ve sakin anketleri ile puanlanır. Düşük memnuniyet alan noktalarda personel ve süreç iyileştirmesi yapılır."
+        "text": "Destek hizmetlerimiz düzenli denetimler ve sakin geri bildirimleriyle izlenir. Düşük memnuniyet alan noktalarda personel ve süreç iyileştirmesi yapılır."
       },
       {
         "type": "h2",
@@ -553,11 +553,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Temizlik personeli iş kazası geçirirse sorumluluk kime aittir?\nCevap: Profesyonel yönetim şirketi bünyesinde bordrolanan personellerin tüm İSG ve SGK sorumluluğu şirkete aittir; kat maliklerine şahsi rücu riski oluşmaz."
+        "text": "Soru: Temizlik personeli iş kazası geçirirse sorumluluk kime aittir?\nCevap: Profesyonel yönetim şirketi bünyesinde bordrolanan personeller için İSG ve SGK yükümlülükleri işveren sıfatıyla şirkete aittir."
       },
       {
         "type": "p",
-        "text": "Soru: Güvenlik görevlilerinin nöbet çizelgeleri nasıl denetlenir?\nCevap: RFID devriye tur kontrol noktaları ve 7/24 operasyon merkezimizden anlık GPS telemetrisi ile nöbet aksamaları anında tespit edilir."
+        "text": "Soru: Güvenlik görevlilerinin nöbet çizelgeleri nasıl denetlenir?\nCevap: Nöbet ve devriye kayıtları RFID devriye kontrol noktalarıyla izlenir, devriye aksamaları tespit edilebilir."
       },
       {
         "type": "cta",
@@ -605,7 +605,7 @@ export const POSTS: Post[] = [
           "Kazan Dairesi ve Brülör Bakımları: Yanma verimliliği analizleri ile doğalgaz tüketiminin düşürülmesi hedeflenir.",
           "Chiller ve Soğutma Kuleleri: Gaz kaçak testleri, kondenser kimyasal yıkamaları ve glikol donma testleri.",
           "Klima Santralleri (AHU) ve Fan-Coil: Filtre değişimleri, serpantin dezenfeksiyonu ve hava debisi optimizasyonu.",
-          "Isı Pay Ölçer ve Kalorimetre Okuma: Dairelerin tüketimlerinin KMK m.42 uyarınca adil faturalandırılması."
+          "Isı Pay Ölçer ve Kalorimetre Okuma: Dairelerin tüketimlerinin adil faturalandırılması."
         ]
       },
       {
@@ -619,9 +619,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Trafo İşletme Sorumluluğu: EMO onaylı Yüksek Gerilim İşletme Sorumluluğu mühendislik sözleşmesi ve trafo yağı dielektrik testleri.",
+          "Trafo İşletme Sorumluluğu: Yüksek Gerilim İşletme Sorumluluğu mühendislik hizmeti ve trafo yağı dielektrik testleri.",
           "Reaktif Ceza Önleme: Kompanzasyon panolarındaki kondansatörlerin telemetri ile izlenerek dağıtım şirketi cezası riskinin azaltılması.",
-          "Jeneratör ve Transfer Panosu: Şebeke kesintisinde 8 saniye içinde otomatik devreye girme testi ve 250 saatlik yağ/filtre bakımları."
+          "Jeneratör ve Transfer Panosu: Şebeke kesintisinde otomatik devreye girme testi ve üretici önerisine göre periyodik yağ/filtre bakımları."
         ]
       },
       {
@@ -630,7 +630,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansör İşletme ve Bakım Yönetmeliği gereğince tüm asansörler aylık yetkili servis bakımından geçmeli ve Sanayi Bakanlığı akredite A Tipi Muayene Kuruluşları (TSE, MMO) tarafından yılda bir kez denetlenerek Yeşil Bilgi Etiketi almalıdır. Kırmızı etiketli asansörlerin tespiti ve revizyonu şirketimiz koordinasyonunda yürütülür."
+        "text": "Asansör İşletme ve Bakım Yönetmeliği gereğince tüm asansörler aylık yetkili servis bakımından geçmeli ve akredite A Tipi Muayene Kuruluşları tarafından yılda bir kez denetlenerek Yeşil Bilgi Etiketi almalıdır. Kırmızı etiketli asansörlerin tespiti ve revizyonu şirketimiz koordinasyonunda yürütülür."
       },
       {
         "type": "h2",
@@ -638,7 +638,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Binaların Yangından Korunması Hakkında Yönetmelik gereğince dizel ve elektrikli yangın pompaları haftalık otomatik test edilir. Yangın hidrant debileri, ıslak borulu sprinkler hatları, duman tahliye damperleri ve acil kaçış aydınlatmaları sürekli faal tutulur."
+        "text": "Binaların Yangından Korunması Hakkında Yönetmelik gereğince dizel ve elektrikli yangın pompaları belirli aralıklarla otomatik test edilir. Yangın hidrant debileri, ıslak borulu sprinkler hatları, duman tahliye damperleri ve acil kaçış aydınlatmaları sürekli faal tutulur."
       },
       {
         "type": "h2",
@@ -646,7 +646,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "İçme ve kullanma suyu depoları yılda en az 2 kez Sağlık Bakanlığı onaylı dezenfektanlarla temizlenir, klorlama cihazları kontrol edilir. Otopark tabanlarındaki foseptik ve pis su terfi pompaları seviye flatörleri su baskınlarına karşı çift pompalı yedekli çalıştırılır."
+        "text": "İçme ve kullanma suyu depoları periyodik olarak ruhsatlı dezenfektanlarla temizlenir, klorlama cihazları kontrol edilir. Otopark tabanlarındaki foseptik ve pis su terfi pompaları seviye flatörleri su baskınlarına karşı yedekli pompalarla çalıştırılır."
       },
       {
         "type": "h2",
@@ -654,15 +654,15 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Kırmızı etiketli asansör çalıştırılırsa yöneticinin cezai sorumluluğu nedir?\nCevap: Kırmızı etiketli asansörün mühürlenmesi gerekir. Mührün koparılıp çalıştırılması halinde olası bir kazada yönetici TCK kapsamında taksirle adam yaralama veya öldürme suçundan hapis cezası ile yargılanır."
+        "text": "Soru: Kırmızı etiketli asansör çalıştırılırsa yöneticinin cezai sorumluluğu nedir?\nCevap: Kırmızı etiketli asansör kullanılmamalıdır. Çalıştırılmaya devam edilir ve kaza olursa yönetici, Türk Ceza Kanunu kapsamında taksirle yaralama veya öldürme nedeniyle yargılanabilir."
       },
       {
         "type": "p",
-        "text": "Soru: Jeneratör bakımı ne sıklıkla yapılmalıdır?\nCevap: Jeneratörler haftalık 10 dakika yüksüz çalıştırılmalı, 6 ayda bir akü ve şarj ünitesi kontrol edilmeli ve yılda bir (veya 250 çalışma saatinde bir) tam periyodik filtre/yağ bakımı yapılmalıdır."
+        "text": "Soru: Jeneratör bakımı ne sıklıkla yapılmalıdır?\nCevap: Bakım sıklığı üreticinin kullanım kılavuzuna göre belirlenir. Genel olarak düzenli yüksüz çalıştırma testleri, akü ve şarj ünitesi kontrolü ile periyodik filtre/yağ bakımı yapılır."
       },
       {
         "type": "cta",
-        "text": "Tesisiniz için 7/24 nöbetçi teknik servis ve bakım anlaşması yapın.",
+        "text": "Tesisiniz için teknik servis ve bakım anlaşması yapın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Teknik Bakım Hizmetlerimiz"
       }
@@ -729,7 +729,7 @@ export const POSTS: Post[] = [
           "Gelir/Gider Rolü: Mülk yönetimi gelir oluşturur (kira); tesis yönetimi giderleri optimize eder (ortak aidat bütçesi).",
           "Teknik Rol: Mülk yönetimi daire içi tadilatları koordine eder; tesis yönetimi ana trafo, yangın ve asansör altyapısını işletir.",
           "Güvenlik ve İSG: Mülk yönetimi sözleşme güvencesi sağlar; tesis yönetimi 5188 fiziki güvenlik ve acil tahliye süreçlerini yönetir.",
-          "Süreklilik: Mülk yönetimi kiracı değişimlerinde aktiftir; tesis yönetimi 365 gün 7/24 kesintisiz sahadadır."
+          "Süreklilik: Mülk yönetimi kiracı değişimlerinde aktiftir; tesis yönetimi sürekli sahadadır."
         ]
       },
       {
@@ -750,11 +750,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Dairem boş kaldığında aidatını kim öder?\nCevap: Daire boş olduğunda aidat ve ortak gider avansını mülk sahibi ödemekle yükümlüdür. Mülk yönetim hizmetimiz ile dairenin boş kalma süresi minimuma indirilir."
+        "text": "Soru: Dairem boş kaldığında aidatını kim öder?\nCevap: Daire boş olduğunda aidat ve ortak gider avansını mülk sahibi ödemekle yükümlüdür. Mülk yönetim hizmetimiz dairenin boş kalma süresinin azaltılmasına yardımcı olur."
       },
       {
         "type": "p",
-        "text": "Soru: Yurt dışında yaşayan mülk sahipleri için hangi paket uygundur?\nCevap: Hem mülk yönetimi (kira tahsilatı ve vergi) hem de tesis yönetimi (aidat ve bakım takibi) hizmetlerinin bir arada sunulduğu VIP Portföy Yönetim Paketimiz tavsiye edilir."
+        "text": "Soru: Yurt dışında yaşayan mülk sahipleri için hangi paket uygundur?\nCevap: Hem mülk yönetimi (kira tahsilatı ve vergi) hem de tesis yönetimi (aidat ve bakım takibi) hizmetlerinin bir arada sunulduğu bir paket düşünülebilir."
       },
       {
         "type": "cta",
@@ -785,7 +785,7 @@ export const POSTS: Post[] = [
     "content": [
       {
         "type": "p",
-        "text": "Birçok bina ve site sakini, profesyonel yönetim şirketlerine ödenen hizmet bedelini bir maliyet kalemi olarak görür. Oysa kurumsal bir tesis yönetim şirketiyle çalışmak; sağladığı enerji tasarrufu, toplu satın alma indirimleri, yasal ceza önleme mekanizmaları ve gayrimenkul değer artışıyla kendi maliyetini fazlasıyla amorti eden en karlı gayrimenkul yatırımıdır."
+        "text": "Birçok bina ve site sakini, profesyonel yönetim şirketlerine ödenen hizmet bedelini bir maliyet kalemi olarak görür. Oysa kurumsal bir tesis yönetim şirketiyle çalışmak; sağladığı enerji tasarrufu, toplu satın alma indirimleri, yasal ceza önleme mekanizmaları ve gayrimenkul değer artışıyla kendi maliyetinin karşılanmasına katkı sağlayabilir."
       },
       {
         "type": "h2",
@@ -796,27 +796,27 @@ export const POSTS: Post[] = [
         "items": [
           "Gayrimenkul Değerinin Korunması: Düzenli bakılan, temiz, yeşil alanı korunan ve güvenlik hizmeti alan sitelerde değerin korunmasına katkı sağlanır.",
           "Ortak Alan Bütçesinde Tasarruf Fırsatı: Toplu elektrik tedariki, toptan kimyasal alımları ve jeneratör yakıt anlaşmaları ile giderlerin düşürülmesi hedeflenir.",
-          "Pahalı Cihaz Ömürlerinin İki Katına Çıkması: Asansör, trafo, hidrofor ve chiller gruplarına yapılan kestirimci bakım sayesinde milyonluk ani yenileme masrafları engellenir.",
-          "Düzenli Aidat Tahsilatı: KMK m.20 kapsamında noter ihtarı ve ilamsız icra takipleriyle borçların diğer maliklere yansımasının önüne geçilmesi hedeflenir.",
+          "Pahalı Cihaz Ömürlerinin Uzatılması: Asansör, trafo, hidrofor ve chiller gruplarına yapılan kestirimci ve planlı bakım ile ani ve yüksek maliyetli yenileme masraflarının azaltılması hedeflenir.",
+          "Düzenli Aidat Tahsilatı: KMK m.20 kapsamında ihtar ve ilamsız icra takipleriyle borçların diğer maliklere yansımasının önüne geçilmesi hedeflenir.",
           "Komşuluk Huzuru ve Tarafsızlık: Aidat isteme, gürültü ikazı ve kural koyma tartışmaları komşular arasından çıkar; kurumsal ve tarafsız yönetimce yürütülür.",
           "Yasal Uyum ve Ceza Riskinin Azaltılması: Kaçak bekçi çalıştırma, İSG ihlalleri veya asansör kırmızı etiket cezaları kurumsal denetimle azaltılır.",
           "7/24 Şeffaf Mobil Finansal Takip: Kat malikleri her bir kuruşun nereye harcandığını, kasa mevcudunu ve banka hesap ekstrelerini mobil uygulamadan anlık görür.",
-          "Acil Müdahale SLA Taahhüdü: Asansörde mahsur kalma, ana boru patlaması veya elektrik kesintilerine karşı nöbetçi teknik ekipler anında müdahale eder.",
-          "Personel Kıdem Tazminatı ve SGK Güvencesi: Kapıcı ve temizlikçilerin kıdem fonu ayrılır; işten çıkışlarda site sakinlerinin karşısına sürpriz toplu tazminat faturaları çıkmaz.",
-          "Sürdürülebilirlik ve Sıfır Atık: Çevre dostu enerji kullanımı ve Sıfır Atık Yönetmeliği'ne uygun atık yönetimi ile siteniz modern çevre standartlarına yaklaşır."
+          "Acil Müdahale SLA Taahhüdü: Asansörde mahsur kalma, ana boru patlaması veya elektrik kesintilerine karşı teknik ekipler hızlı müdahale eder.",
+          "Personel Kıdem Tazminatı ve SGK Takibi: Kapıcı ve temizlikçilerin SGK ve kıdem tazminatı yükümlülükleri kurumsal işveren yapısı altında planlı biçimde yönetilir.",
+          "Sürdürülebilirlik ve Sıfır Atık: Çevre dostu enerji kullanımının yanı sıra atık yönetimi Sıfır Atık Yönetmeliği ilkelerine uygun şekilde planlanır."
         ]
       },
       {
         "type": "quote",
-        "text": "Profesyonel yönetim bir masraf değil; mülkünüzün değerini koruyan ve her ay bütçenizi artıya geçiren kurumsal bir kalkandır."
+        "text": "Profesyonel yönetim bir masraf değil; mülkünüzün değerinin korunmasına katkı sağlayan kurumsal bir destektir."
       },
       {
         "type": "h2",
-        "text": "Rakamlarla Profesyonel Yönetimin Yatırım Getirisi (ROI)"
+        "text": "Profesyonel Yönetimin Maliyet Etkisi Nasıl Değerlendirilir?"
       },
       {
         "type": "p",
-        "text": "100 daireli ortalama bir sitede profesyonel tesis yönetimine geçildiğinde: Yıllık elektrik faturalarında ~180.000 TL, asansör ve kimyasal toplu alımlarında ~120.000 TL, önleyici bakım sayesinde engellenen cihaz arızalarında ~250.000 TL olmak üzere toplamda yıllık 550.000 TL'yi aşan net tasarruf sağlanmaktadır."
+        "text": "Profesyonel tesis yönetimine geçildiğinde sağlanabilecek tasarruf miktarı sitenin büyüklüğüne, mevcut sözleşmelerine ve tüketimine göre değiştiği için somut bir rakam vaat edilmemektedir. Teklif aşamasında sitenizin kendi verileriyle değerlendirme yapılır."
       },
       {
         "type": "h2",
@@ -824,11 +824,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Yönetim şirketinin sözleşme süresi ne kadardır?\nCevap: Genellikle sözleşmeler 1 yıllık Genel Kurul dönemleri için imzalanır. Kat Malikleri Kurulu memnun kaldığı sürece sözleşmeyi uzatır veya memnuniyetsizlik halinde yenilememe hakkına sahiptir."
+        "text": "Soru: Yönetim şirketinin sözleşme süresi ne kadardır?\nCevap: Sözleşme süresi tarafların anlaşmasıyla belirlenir ve çoğu zaman yıllık dönemler için yapılır. Kat Malikleri Kurulu memnun kaldığı sürece sözleşmeyi uzatır veya memnuniyetsizlik halinde yenilememe hakkına sahiptir."
       },
       {
         "type": "p",
-        "text": "Soru: Site adına açılan banka hesabındaki para yönetim şirketine mi ait olur?\nCevap: Kesinlikle hayır. Banka hesabı sitenin kendi vergi kimlik numarası adına açılır. Yönetim şirketi sadece genel kurul kararı ve işletme projesi limitleri dahilinde yetkili vekildir; denetçiler hesabı anlık izleyebilir."
+        "text": "Soru: Site adına açılan banka hesabındaki para yönetim şirketine mi ait olur?\nCevap: Hayır. Banka hesabı site veya bina adına açılır. Yönetim şirketi sadece kat malikleri kurulu kararları ve işletme projesi çerçevesinde yetkili temsilcidir; kat malikleri ve denetçi hesap hareketlerini inceleyebilir."
       },
       {
         "type": "cta",
@@ -874,19 +874,19 @@ export const POSTS: Post[] = [
         "items": [
           "Kararları Uygulamak: Kat malikleri kurulu tarafından alınan kararların karar defterine işlenmesi ve eksiksiz tatbik edilmesi.",
           "Koruma ve Bakım Tedbirleri: Ana gayrimenkulün gayesine uygun olarak kullanılması, korunması, bakımı ve onarımı için gereken tüm tedbirlerin zamanında alınması.",
-          "İşletme Projesi (Bütçe) Tanzimi: KMK m.37 gereğince bir yıllık tahmini gelir-gider bütçesinin hazırlanıp tüm bağımsız bölüm maliklerine taahhütlü tebliğ edilmesi.",
-          "Aidat ve Avans Tahsilatı: Ortak gider paylarının toplanması, ödemeyen kat maliklerine karşı noter ihtarı çekilmesi ve icra takibi açılması.",
+          "İşletme Projesi (Bütçe) Tanzimi: KMK m.37 gereğince bir yıllık tahmini gelir-gider bütçesinin hazırlanıp kat malikleri kuruluna sunulması ve onaylatılması.",
+          "Aidat ve Avans Tahsilatı: Ortak gider paylarının toplanması, ödemeyen kat maliklerine ihtar çekilmesi ve icra takibi açılması.",
           "Banka Hesabı Açılması: Site veya bina adına müstakil banka hesabı açılması ve tüm paranın bu hesapta şeffafça işletilmesi.",
           "Genel Kurul Çağrıları: Kat malikleri kurulunun olağan ve olağanüstü toplantılara usulüne uygun olarak davet edilmesi."
         ]
       },
       {
         "type": "h2",
-        "text": "2. Mali ve İdari Şeffaflık Yükümlülüğü (KMK m.38 & m.39)"
+        "text": "2. Mali ve İdari Şeffaflık Yükümlülüğü"
       },
       {
         "type": "p",
-        "text": "Yönetim şirketi; vekil sıfatıyla yürüttüğü faaliyetlerin hesabını vermekle mükelleftir. Yıl içinde denetçilerin yapacağı 3 aylık periyodik denetimlere tüm faturaları, banka dekontlarını ve sözleşmeleri eksiksiz sunmak zorundadır."
+        "text": "Yönetim şirketi; vekil sıfatıyla yürüttüğü faaliyetlerin hesabını vermekle mükelleftir. Yıl içinde denetçilerin yapacağı denetimlere tüm faturaları, banka dekontlarını ve sözleşmeleri eksiksiz sunmak zorundadır."
       },
       {
         "type": "h2",
@@ -894,7 +894,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tesiste çalışan güvenlik, temizlik ve teknik personelin SGK giriş-çıkış bildirimleri, maaş bordroları, kıdem ve ihbar tazminatı fonları ve 6331 Sayılı İş Sağlığı ve Güvenliği eğitimleri şirketimizin sorumluluğundadır. Olası iş kazalarında mülk sahipleri hukuken korunur."
+        "text": "Tesiste çalışan güvenlik, temizlik ve teknik personelin SGK giriş-çıkış bildirimleri, maaş bordroları, kıdem ve ihbar tazminatı fonları ve 6331 Sayılı İş Sağlığı ve Güvenliği eğitimleri şirketimizin sorumluluğundadır."
       },
       {
         "type": "h2",
@@ -902,7 +902,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Karar defterini notere tasdik ettirmemek, site aidatlarını şahsi hesaplarda tutmak veya işletme projesi olmaksızın usulsüz para toplamak Türk Ceza Kanunu kapsamında Güveni Kötüye Kullanma suçunu oluşturabilir. Profesyonel yönetim şirketi tüm bu riskleri kurumsal güvence altına alır."
+        "text": "Site aidatlarını şahsi hesaplarda tutmak veya yetkisiz para toplamak, somut olayın koşullarına göre Türk Ceza Kanunu kapsamında güveni kötüye kullanma suçunu gündeme getirebilir. Kurumsal yönetim bu riskleri azaltmaya yardımcı olur."
       },
       {
         "type": "h2",
@@ -914,7 +914,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Denetçi yönetim şirketini nasıl denetler?\nCevap: Denetçi KMK m.41 uyarınca en az üç ayda bir kasa, banka hesapları, gelir-gider makbuzları ve karar defterini inceler ve raporunu kat malikleri kuruluna sunar."
+        "text": "Soru: Denetçi yönetim şirketini nasıl denetler?\nCevap: Denetçi KMK uyarınca belirli aralıklarla kasa, banka hesapları, gelir-gider makbuzları ve karar defterini inceler ve raporunu kat malikleri kuruluna sunar."
       },
       {
         "type": "cta",
@@ -926,7 +926,7 @@ export const POSTS: Post[] = [
   },
   {
     "slug": "tesis-yonetim-plani-nasil-hazirlanir-adim-adim-rehber",
-    "title": "Tesis Yönetim Planı Nasıl Hazırlanir? Adım Adım İşletme ve Bütçe Planlama Rehberi",
+    "title": "Tesis Yönetim Planı Nasıl Hazırlanır? Adım Adım İşletme ve Bütçe Planlama Rehberi",
     "description": "Kat Mülkiyeti Kanunu Madde 28 uyarınca tüm kat maliklerini bağlayan sözleşme hükmündeki Tesis Yönetim Planı hazırlama, ortak alan kuralları ve işletme projesi rehberi.",
     "category": "tesis-yonetimi",
     "tags": [
@@ -959,7 +959,7 @@ export const POSTS: Post[] = [
           "Bölüm 3: Yönetim Organları ve Seçimler: Kat malikleri kurulu toplanma zamanları, temsilciler kurulu yapısı, yönetici ve denetçinin görev süreleri ve yetkileri.",
           "Bölüm 4: Ortak Giderlere Katılma Baremleri: Güvenlik ve temizlik personel giderlerinin eşit mi yoksa arsa payı oranında mı bölüneceği, ortak elektrik ve doğalgaz paylaştırma kriterleri.",
           "Bölüm 5: Bağımsız Bölüm Sakinlerinin Hak ve Yasakları: Gürültü saatleri, evcil hayvan besleme şartları, dış cephe tadilat ve balkon kapatma sınırları.",
-          "Bölüm 6: İhtilafların Çözümü ve Arabuluculuk: Sulh Hukuk Mahkemeleri ve zorunlu arabuluculuk süreçleri."
+          "Bölüm 6: İhtilafların Çözümü ve Arabuluculuk: Mahkeme ve arabuluculuk süreçleri."
         ]
       },
       {
@@ -980,7 +980,7 @@ export const POSTS: Post[] = [
           "Mimari Proje ve Mahal İncelemesi: Tesisin ortak alanlarının tapu projesine uygunluğunun denetlenmesi.",
           "Hukuki Taslak Metin Yazımı: Siteye özgü ihtiyaçların KMK emredici hükümlerine uygun olarak kaleme alınması.",
           "Kat Malikleri İstişaresi: Maliklerin görüş ve taleplerinin toplanarak taslağın olgunlaştırılması.",
-          "Genel Kurul Onayı ve Noter Tasdiki: Kurulda 4/5 oy çoğunluğuyla kabul edilerek noterden tescili.",
+          "Genel Kurul Onayı ve Noter Tasdiki: Kurulda gerekli çoğunlukla (genel yapılarda 4/5, toplu yapılarda 2/3) kabul edilmesi ve gerekli noter işlemlerinin tamamlanması.",
           "Tapu Sicil Müdürlüğü Tescili: Değişikliğin Tapu Müdürlüğü ana kütüğüne işlenerek bağlayıcılık kazanması."
         ]
       },
@@ -991,9 +991,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "KMK Emredici Hükümlerine Aykırı Maddeler: Kanuna aykırı koyulan maddeler (örneğin \"aidat ödemeyenin suyu kesilir\" gibi) mahkemece kendiliğinden hükümsüz sayılır.",
-          "Otopark Tahsislerinin Hatalı Yapılması: Eklenti olmayan ortak alan otoparklarının belirli dairelere tapusuz mülkiyet gibi tahsis edilmesi ileride tapu iptal davalarına yol açar.",
-          "Toplu Yapı Temsilciler Kurulu Yetkisinin Belirsiz Bırakılması: Ek Madde 69-74'e uygun kurul tanımlanmadığında bloklar arası yetki çatışması yaşanır."
+          "KMK Emredici Hükümlerine Aykırı Maddeler: Kanuna aykırı koyulan maddeler (örneğin \"aidat ödemeyenin suyu kesilir\" gibi) mahkemece kendiliğinden hükümsüz sayılabilir.",
+          "Otopark Tahsislerinin Hatalı Yapılması: Eklenti olmayan ortak alan otoparklarının belirli dairelere tapusuz mülkiyet gibi tahsis edilmesi ileride uyuşmazlıklara yol açabilir.",
+          "Toplu Yapı Temsilciler Kurulu Yetkisinin Belirsiz Bırakılması: KMK m.66-70'e uygun kurul tanımlanmadığında bloklar arası yetki çatışması yaşanır."
         ]
       },
       {
@@ -1002,11 +1002,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Yönetim planında evcil hayvan yasağı varsa köpek beslenebilir mi?\nCevap: Yönetim planında açıkça \"bağımsız bölümlerde evcil hayvan beslenemez\" hükmü varsa ve bu tescilliyse, Yargıtay yerleşik içtihatlarına göre komşuların şikayeti halinde tahliye kararı verilir."
+        "text": "Soru: Yönetim planında evcil hayvan yasağı varsa köpek beslenebilir mi?\nCevap: Yönetim planında açıkça \"bağımsız bölümlerde evcil hayvan beslenemez\" hükmü varsa ve bu tescilliyse komşular dava açabilir; sonuç somut olaya ve mahkemenin değerlendirmesine bağlıdır. Bir avukatın görüşünü alın."
       },
       {
         "type": "p",
-        "text": "Soru: Yeni ev alan kişi eski yönetim planına uymak zorunda mıdır?\nCevap: Evet. KMK m.28 uyarınca yönetim planı tapu kütüğüne tescil edildiği için gayrimenkulü sonradan satın alan herkesi ve kiracıları doğrudan bağlar."
+        "text": "Soru: Yeni ev alan kişi eski yönetim planına uymak zorunda mıdır?\nCevap: Evet. KMK m.28 uyarınca yönetim planı bağımsız bölümü sonradan edinenleri bağlar, kiracılar da bu kurallara uymak zorundadır."
       },
       {
         "type": "cta",
@@ -1038,7 +1038,7 @@ export const POSTS: Post[] = [
     "content": [
       {
         "type": "p",
-        "text": "Modern metropollerde A+ rezidans projeleri, yalnızca bir barınma alanı değil; sakinlerine 5 yıldızlı otel konforunda 7/24 kesintisiz hizmet sunan prestijli yaşam merkezleridir. Ancak lüks bir rezidansın piyasa değerini koruması ve sakin memnuniyetini en üst düzeyde tutması, uluslararası standartlarda profesyonel entegre tesis yönetimi ile mümkündür."
+        "text": "Modern metropollerde A+ rezidans projeleri, yalnızca bir barınma alanı değil; sakinlerine otel konforuna yakın, kesintisiz hizmet sunan prestijli yaşam merkezleridir. Ancak lüks bir rezidansın piyasa değerini koruması ve sakin memnuniyetini en üst düzeyde tutması, uluslararası standartlarda profesyonel entegre tesis yönetimi ile mümkündür."
       },
       {
         "type": "h2",
@@ -1051,23 +1051,23 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Akıllı Kargo Dolabı Entegrasyonu: Kuryelerin daire katlarına çıkışını engelleyerek anlık SMS ve şifre ile kargo teslimi.",
-          "Çok Dilli Resepsiyon Kadrosu: Türkçe, İngilizce, Arapça ve Rusça dillerinde akıcı VIP danışma hizmeti.",
+          "Kargo Teslim Düzeni: Kuryelerin daire katlarına çıkışını azaltan kayıtlı teslim ve sakine anlık SMS bildirimi.",
+          "Resepsiyon Kadrosu: Misafir ve sakinlerle iletişimde profesyonel danışma hizmeti.",
           "Vale ve Kapalı Otopark PTS: Plaka tanıma sistemi ile misafir ve sakin araçlarının otopark kat yetkilendirmesi.",
-          "Kuru Temizleme ve Daire İçi Hizmet Koordinasyonu: Rezidans sakinlerine özel kuru temizleme, terzi ve temizlik rezervasyonları."
+          "Daire İçi Hizmet Koordinasyonu: Sakinlerin talep ettiği hizmetlerin koordinasyonu."
         ]
       },
       {
         "type": "h2",
-        "text": "2. 5188 Lisanslı Özel Güvenlik ve Biyometrik Geçiş Sistemleri"
+        "text": "2. 5188 Lisanslı Özel Güvenlik ve Geçiş Kontrol Sistemleri"
       },
       {
         "type": "p",
-        "text": "Lüks rezidanslarda mahremiyet ve güvenlik en kritik önceliktir. T.C. İçişleri Bakanlığı 5188 sayılı kanun kapsamında lisanslı özel güvenlik personelimiz ve grup şirketimiz 3G Özel Güvenlik desteğiyle tesis 7/24 güvence altındadır."
+        "text": "Lüks rezidanslarda mahremiyet ve güvenlik en kritik önceliktir. T.C. İçişleri Bakanlığı 5188 sayılı kanun kapsamında lisanslı özel güvenlik personelimiz ve grup şirketimiz 3G Özel Güvenlik desteğiyle tesis güvenliği 7/24 organize edilir."
       },
       {
         "type": "quote",
-        "text": "Rezidans güvenliği sadece kapıdaki görevli değil; yapay zeka destekli çevre güvenlik kameraları, asansör kat yetkilendirme kartları ve yangın erken uyarı sistemlerinin entegre çalışmasıdır."
+        "text": "Rezidans güvenliği sadece kapıdaki görevli değil; çevre güvenlik kameraları, asansör kat yetkilendirme kartları ve yangın erken uyarı sistemlerinin entegre çalışmasıdır."
       },
       {
         "type": "h2",
@@ -1075,7 +1075,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kapalı ve açık yüzme havuzları, fitness salonları, sauna ve buhar odaları Sağlık Bakanlığı Biyosidal Ürünler Yönetmeliği standartlarına göre günlük olarak klor, pH ve mikrobiyolojik testlerden geçirilir."
+        "text": "Kapalı ve açık yüzme havuzları, fitness salonları, sauna ve buhar odalarında su kalitesi (klor, pH vb.) düzenli ölçümlerle izlenir ve tesisler ilgili mevzuata uygun işletilir."
       },
       {
         "type": "h2",
@@ -1083,7 +1083,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rezidans sakinleri mobil uygulama üzerinden tek tıkla arıza kaydı oluşturabilir. Nöbetçi rezidans teknisyenlerimiz sigorta atması, su sızıntısı veya klima arızalarına hızla daire kapısında müdahale etmeyi hedefler."
+        "text": "Rezidans sakinleri mobil uygulama üzerinden tek tıkla arıza kaydı oluşturabilir. Teknik ekiplerimiz sigorta atması, su sızıntısı veya klima arızalarına hızla daire kapısında müdahale etmeyi hedefler."
       },
       {
         "type": "h2",
@@ -1099,11 +1099,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Rezidans aidatları neden normal apartmanlardan yüksektir?\nCevap: 7/24 lobide concierge, çift vardiya güvenlik, kapalı havuz ısıtması, fitness antrenörü, jeneratör yakıtı ve bina otomasyonu gibi kesintisiz lüks hizmetlerin işletme maliyetleri bütçeye yansır."
+        "text": "Soru: Rezidans aidatları neden normal apartmanlardan yüksektir?\nCevap: Concierge, güvenlik, havuz ısıtması, jeneratör yakıtı ve bina otomasyonu gibi hizmetlerin işletme maliyetleri bütçeye yansır."
       },
       {
         "type": "p",
-        "text": "Soru: Kargo ve kurye güvenliği rezidansta nasıl sağlanır?\nCevap: Dışarıdan gelen kuryeler güvenlik lobisinde durdurulur; paketler barkodla kayıt altına alınır ve sakine SMS şifresi iletilerek temas riski azaltılır."
+        "text": "Soru: Kargo ve kurye güvenliği rezidansta nasıl sağlanır?\nCevap: Dışarıdan gelen kuryelerin paketleri güvenlik lobisinde kayıt altına alınır ve sakine bildirim yapılarak temas riski azaltılır."
       },
       {
         "type": "cta",
@@ -1143,7 +1143,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Chiller soğutma grupları, klima santralleri (AHU) ve VRF sistemleri; çalışma saatleri, dış hava sıcaklığı ve doluluk sensörlerine göre otomatik olarak modüle edilir. Gece ve hafta sonu bekleme modları ile gereksiz tüketim engellenir."
+        "text": "Bina otomasyonu bulunan plazalarda chiller soğutma grupları, klima santralleri (AHU) ve VRF sistemleri; çalışma saatleri, dış hava sıcaklığı ve doluluk sensörlerine göre otomatik olarak modüle edilebilir. Gece ve hafta sonu bekleme modları gereksiz tüketimin önlenmesine yardımcı olur."
       },
       {
         "type": "h2",
@@ -1156,9 +1156,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Endüktif ve kapasitif oranların günlük 7/24 uzaktan telemetri ile izlenmesi",
+          "Endüktif ve kapasitif oranların uzaktan telemetri ile izlenmesi",
           "Harmonik filtreler ve kondansatör kademe bakımlarının periyodik yapılması",
-          "TEDAŞ/EPDK faturalarının yasal tarife uygunluk denetimi"
+          "Elektrik faturalarının tarife uygunluğunun kontrolü"
         ]
       },
       {
@@ -1167,7 +1167,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Uluslararası çevre sertifikasyonları, kurumsal çok uluslu kiracıların plaza seçimindeki en önemli kriteridir. Düşük karbon ayak izi, gri su geri kazanım sistemleri ve LED aydınlatma otomasyonu ile plazanızın LEED Gold/Platinum değerini koruyoruz."
+        "text": "LEED ve BREEAM gibi uluslararası çevre sertifikasyonları, kurumsal çok uluslu kiracıların plaza seçiminde önemli kriterlerden biridir. Enerji verimliliği, su geri kazanımı ve LED aydınlatma otomasyonu bu standartlara uyuma katkı sağlayabilir; sertifikasyonun kendisi ayrı bir başvuru ve denetim gerektirir."
       },
       {
         "type": "h2",
@@ -1175,7 +1175,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Plaza sakinlerinin ve kurumsal kiracıların gider paylaşımları, bağımsız bölüm metrekareleri ve ısı pay ölçer endekslerine göre şeffaf yazılımımız üzerinden adil biçimde faturalandırılır."
+        "text": "Plaza sakinlerinin ve kurumsal kiracıların gider paylaşımları, bağımsız bölüm metrekareleri ve ısı pay ölçer endekslerine göre şeffaf yazılım üzerinden adil biçimde faturalandırılır."
       },
       {
         "type": "h2",
@@ -1191,7 +1191,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Reaktif enerji cezası nedir ve nasıl engellenir?\nCevap: Tesisin şebekeden çektiği endüktif veya kapasitif reaktif güç yasal sınırları (%20 endüktif, %15 kapasitif) aştığında dağıtım şirketi ağır ceza faturası keser. Otomatik kompanzasyon panosu ve anlık telemetri ile bu cezanın önüne geçilmesi hedeflenir."
+        "text": "Soru: Reaktif enerji cezası nedir ve nasıl engellenir?\nCevap: Tesisin şebekeden çektiği endüktif veya kapasitif reaktif güç yasal sınırları (güncel mevzuata göre %20 endüktif, %15 kapasitif) aştığında dağıtım şirketi ek bedel faturası keser. Otomatik kompanzasyon panosu ve anlık telemetri ile bu bedelin önüne geçilmesi hedeflenir."
       },
       {
         "type": "p",
@@ -1226,7 +1226,7 @@ export const POSTS: Post[] = [
     "content": [
       {
         "type": "p",
-        "text": "Yüzlerce hatta binlerce bağımsız bölümden oluşan mega toplu konut projelerinde amatör veya münferit blok yönetimleri; fahiş maliyetlere, tahsilat krizlerine ve bakım aksaklıklarına yol açar. Alo Yönetim merkezi yönetim modeli bu kaosu ortadan kaldırır."
+        "text": "Yüzlerce hatta binlerce bağımsız bölümden oluşan mega toplu konut projelerinde amatör veya münferit blok yönetimleri; fahiş maliyetlere, tahsilat krizlerine ve bakım aksaklıklarına yol açar. Alo Yönetim merkezi yönetim modeli bu sorunları azaltmayı hedefler."
       },
       {
         "type": "h2",
@@ -1234,7 +1234,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "634 Sayılı Kat Mülkiyeti Kanunu Ek Madde 69-74 uyarınca toplu yapı yönetim planı hazırlanır. Blok kat malikleri kurulları kendi temsilcilerini seçer; toplu yapı temsilciler kurulu ise profesyonel yöneticiyi yetkilendirir."
+        "text": "634 Sayılı Kat Mülkiyeti Kanunu m.66-70 uyarınca toplu yapı yönetim planı hazırlanır. Blok kat malikleri kurulları kendi temsilcilerini seçer; toplu yapı temsilciler kurulu ise profesyonel yöneticiyi yetkilendirir."
       },
       {
         "type": "h2",
@@ -1244,9 +1244,9 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Toplu Asansör Bakım Anlaşması: Çok sayıda asansör için tek sözleşmeyle parça ve bakımda maliyet avantajı",
-          "Ortak Elektrik ve Doğalgaz İndirimi: Serbest tüketici statüsüyle en uygun birim fiyat tedariki",
-          "Endüstriyel Kimyasal & Temizlik Malzemesi: Fabrikadan doğrudan toptan tedarik",
-          "Merkezi Güvenlik ve Temizlik Vardiya Optimizasyonu: Gereksiz personel maliyetlerinin elenmesi"
+          "Ortak Elektrik ve Doğalgaz İndirimi: Serbest tüketici statüsünün uygulanabildiği hâllerde daha uygun birim fiyat arayışı",
+          "Endüstriyel Kimyasal & Temizlik Malzemesi: Toptan tedarik",
+          "Merkezi Güvenlik ve Temizlik Vardiya Optimizasyonu: Gereksiz personel maliyetlerinin azaltılması"
         ]
       },
       {
@@ -1255,7 +1255,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm sakinler mobil uygulama üzerinden aidatlarını kredi kartıyla komisyonsuz ödeyebilir, bütçe harcamalarını ve faturaları kalem kalem anlık inceleyebilir."
+        "text": "Tüm sakinler mobil uygulama üzerinden aidatlarını kredi kartıyla ödeyebilir, bütçe harcamalarını ve faturaları kalem kalem anlık inceleyebilir."
       },
       {
         "type": "h2",
@@ -1263,7 +1263,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Büyük sitelerde en çok yaşanan şikayet \"Bizim bloğa temizlikçi az geliyor, diğer blok daha iyi bakılıyor\" serzenişidir. Dijital QR kodlu kontrol noktaları ile her bloğun temizlik, teknik ve güvenlik devriye saatleri harita üzerinden anlık denetlenir."
+        "text": "Büyük sitelerde en çok yaşanan şikayet \"Bizim bloğa temizlikçi az geliyor, diğer blok daha iyi bakılıyor\" serzenişidir. Kontrol noktası uygulamasıyla her bloğun temizlik, teknik ve güvenlik devriye saatleri izlenebilir."
       },
       {
         "type": "h2",
@@ -1271,7 +1271,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Günde on binlerce aracın ve kuryenin giriş yaptığı mega sitelerde çift bariyerli PTS (Plaka Tanıma Sistemi), misafir karekod geçiş sistemi ve grup şirketimiz 3G Özel Güvenlik desteğiyle nizamiye yığılmalarının azaltılması hedeflenir."
+        "text": "Günde on binlerce aracın ve kuryenin giriş yaptığı mega sitelerde PTS (Plaka Tanıma Sistemi) ve misafir geçiş yönetimi ile grup şirketimiz 3G Özel Güvenlik desteğiyle nizamiye yığılmalarının azaltılması hedeflenir."
       },
       {
         "type": "h2",
@@ -1283,7 +1283,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Toplu konutlarda aidatını ödemeyen bloklara karşı ne yapılır?\nCevap: KMK Ek Madde 73 gereğince ortak gider borcunu ödemeyen bağımsız bölümler hakkında doğrudan toplu yapı yönetimi icra takibi açabilir."
+        "text": "Soru: Toplu konutlarda aidatını ödemeyen bloklara karşı ne yapılır?\nCevap: Yönetim planı ve KMK hükümleri çerçevesinde ortak gider borcunu ödemeyen bağımsız bölümler hakkında toplu yapı yönetimi icra takibi başlatabilir."
       },
       {
         "type": "cta",
@@ -1322,7 +1322,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tesis içerisindeki forklift yolları, kimyasal depolama alanları ve yüksek gerilim trafo merkezleri sürekli denetlenir. Risk analizi ve acil durum tahliye tatbikatları 6 ayda bir güncellenir."
+        "text": "Tesis içerisindeki forklift yolları, kimyasal depolama alanları ve yüksek gerilim trafo merkezleri sürekli denetlenir. Risk analizi ve acil durum tahliye tatbikatları periyodik olarak güncellenir."
       },
       {
         "type": "h2",
@@ -1330,7 +1330,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Binaların Yangından Korunması Hakkında Yönetmelik gereğince yangın pompaları haftalık otomatik test edilir, hidrant debileri ve köpüklü söndürme sistemleri belgelendirilir."
+        "text": "Binaların Yangından Korunması Hakkında Yönetmelik gereğince yangın pompaları belirli aralıklarla otomatik test edilir, hidrant debileri ve köpüklü söndürme sistemleri kayıt altına alınır."
       },
       {
         "type": "h2",
@@ -1338,7 +1338,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "TIR ve kamyon kantar tartımları, sevkiyat irsaliye kontrolleri ve x-ray ziyaretçi taramaları grup şirketimiz 3G Özel Güvenlik tarafından yürütülür."
+        "text": "Araç giriş-çıkış kayıtları, sevkiyat irsaliye kontrolleri ve ziyaretçi kontrolleri grup şirketimiz 3G Özel Güvenlik desteğiyle yürütülür."
       },
       {
         "type": "h2",
@@ -1346,7 +1346,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Sanayi atıkları, kontamine ambalajlar ve atık yağlar Çevre Kanunu ve Sıfır Atık Yönetmeliği uyarınca MOTAT (Mobil Atık Takip Sistemi) üzerinden lisanslı bertaraf tesislerine sevk edilir."
+        "text": "Sanayi atıkları, kontamine ambalajlar ve atık yağlar çevre mevzuatı uyarınca MOTAT (Mobil Atık Takip Sistemi) üzerinden lisanslı bertaraf tesislerine sevk edilir."
       },
       {
         "type": "h2",
@@ -1354,7 +1354,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Buhar kazanları, basınçlı hava kompresörleri, kule tipi soğutma sistemleri ve endüstriyel arıtma tesisleri sertifikalı mühendis ve tekniker kadromuzla 7/24 vardiyalı işletilir."
+        "text": "Buhar kazanları, basınçlı hava kompresörleri, kule tipi soğutma sistemleri ve endüstriyel arıtma tesisleri teknik kadro tarafından vardiyalı olarak işletilir."
       },
       {
         "type": "h2",
@@ -1362,7 +1362,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Fabrikalarda yangın pompası testleri ne sıklıkla yapılmalıdır?\nCevap: Yangın pompaları haftalık otomatik test çalışmasına tabi tutulmalı, debi ve basınç testleri ise 3 ayda bir kayıt altına alınmalıdır."
+        "text": "Soru: Fabrikalarda yangın pompası testleri ne sıklıkla yapılmalıdır?\nCevap: Yangın pompaları yönetmeliğin ve üreticinin öngördüğü aralıklarla test edilmeli, debi ve basınç testleri ise kayıt altına alınmalıdır."
       },
       {
         "type": "p",
@@ -1397,7 +1397,7 @@ export const POSTS: Post[] = [
     "content": [
       {
         "type": "p",
-        "text": "Site veya tesis yönetimini profesyonel bir şirkete devretmek, mülkünüzün değerini artırırken aidat ihtilaflarını ve teknik arıza risklerini ortadan kaldırır. Ancak piyasada yetkin olmayan merdiven altı firmalara karşı dikkatli olunmalıdır."
+        "text": "Site veya tesis yönetimini profesyonel bir şirkete devretmek, mülkünüzün değerini artırırken aidat ihtilaflarını ve teknik arıza risklerini azaltmaya yardımcı olur. Ancak piyasada yetkin olmayan merdiven altı firmalara karşı dikkatli olunmalıdır."
       },
       {
         "type": "h2",
@@ -1415,7 +1415,7 @@ export const POSTS: Post[] = [
           "7. Acil teknik arıza müdahale SLA taahhüdü",
           "8. Sakinlere özel 7/24 mobil aidat, arıza ve otopark takip yazılımı",
           "9. Hukuki icra ve aidat takip departmanının şirket bünyesinde bulunması",
-          "10. Noter onaylı devir teslim tutanağı ve eksiksiz demirbaş sayım protokolü"
+          "10. Tutanakla yapılan devir teslim ve eksiksiz demirbaş sayım protokolü"
         ]
       },
       {
@@ -1424,7 +1424,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teklif almadan önce bağımsız bölüm sayısı, blok yapısı, ortak alan cihaz envanteri ve güvenlik noktalarını içeren teknik bir şartname hazırlanmalıdır. Sitemizdeki online RFP jeneratörünü ücretsiz kullanabilirsiniz."
+        "text": "Teklif almadan önce bağımsız bölüm sayısı, blok yapısı, ortak alan cihaz envanteri ve güvenlik noktalarını içeren teknik bir şartname hazırlanmalıdır."
       },
       {
         "type": "h2",
@@ -1432,7 +1432,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Yeni yönetim şirketi göreve başlarken noter onaylı karar defteri, işletme defteri, geçmiş banka ekstreleri, SGK dosyaları ve ortak alan anahtarları tutanakla teslim alınır; kasa sayımı yapılarak eksiklikler tespit edilir."
+        "text": "Yeni yönetim şirketi göreve başlarken karar defteri, işletme defteri, geçmiş banka ekstreleri, SGK dosyaları ve ortak alan anahtarları tutanakla teslim alınır; kasa sayımı yapılarak eksiklikler tespit edilir."
       },
       {
         "type": "h2",
@@ -1448,15 +1448,15 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Yönetim şirketi sözleşmesi kaç yıllık yapılmalıdır?\nCevap: KMK uyarınca yöneticiler olağan genel kurul dönemleri için (genellikle 1 yıl) seçilir. Sözleşmeler 1 yıllık yapılır ve genel kurul onayıyla yenilenir."
+        "text": "Soru: Yönetim şirketi sözleşmesi kaç yıllık yapılmalıdır?\nCevap: Yönetici, kat malikleri kurulu kararıyla seçilir; sözleşme süresi sözleşmede belirlenir, çoğu zaman 1 yıllık yapılır ve kurul onayıyla yenilenir."
       },
       {
         "type": "p",
-        "text": "Soru: Yönetim şirketinden memnun kalınmazsa sözleşme nasıl feshedilir?\nCevap: Kat Malikleri Kurulu salt çoğunlukla olağanüstü toplanarak yönetici azli kararı alabilir ve sözleşmeyi haklı nedenle feshedebilir."
+        "text": "Soru: Yönetim şirketinden memnun kalınmazsa sözleşme nasıl feshedilir?\nCevap: Kat Malikleri Kurulu gerekli çoğunlukla toplanarak yöneticiyi görevden alma kararı alabilir; sözleşmenin feshi ise sözleşme hükümlerine ve haklı neden bulunup bulunmadığına göre değerlendirilir."
       },
       {
         "type": "cta",
-        "text": "Siteniz için ücretsiz ihale şartnamesi oluşturun.",
+        "text": "Siteniz için tesis yönetimi rehberimizi inceleyin.",
         "href": "/hizmetler/tesis-yonetimi/rehber",
         "label": "Tesis Yönetimi Rehberimizi İnceleyin"
       }
@@ -1465,7 +1465,7 @@ export const POSTS: Post[] = [
   {
     "slug": "5188-ozel-guvenlik-gorevlisi-egitimi-ve-kimlik-yenileme-rehberi-2026",
     "title": "5188 Sayılı Özel Güvenlik Görevlisi Eğitimi ve Kimlik Yenileme Rehberi (2026)",
-    "description": "5188 sayılı kanun kapsamında silahlı ve silahsız özel güvenlik eğitimi, 5 yılda bir kimlik kartı yenileme sınavı, sağlık raporu şartları ve kariyer fırsatları.",
+    "description": "5188 sayılı kanun kapsamında silahlı ve silahsız özel güvenlik eğitimi, 5 yılda bir kimlik kartı yenileme, sağlık raporu şartları ve kariyer fırsatları.",
     "category": "guvenlik",
     "tags": [
       "özel güvenlik eğitimi",
@@ -1480,11 +1480,11 @@ export const POSTS: Post[] = [
     "dateModified": "2026-02-24T18:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1582139329536-e7284fece509?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "5188 sayılı Kanun kapsamında özel güvenlik görevlisi olmak veya 5 yılda bir kimlik kartını yenilemek için Emniyet Genel Müdürlüğü denetiminde yetkili kurumlardan eğitim almak ve ÖGG sınavını başarıyla geçmek şarttır.",
+    "tldr": "5188 sayılı Kanun kapsamında özel güvenlik görevlisi olmak veya 5 yılda bir kimlik kartını yenilemek için Emniyet Genel Müdürlüğü denetiminde yetkili kurumlardan eğitim almak ve gerekli sınavlarda başarılı olmak şarttır.",
     "content": [
       {
         "type": "p",
-        "text": "Toplu yaşam alanlarında, rezidanslarda, plazalarda ve kamu kurumlarında can ve mal güvenliğinin sağlanması, profesyonel ve eğitimli özel güvenlik personeli ile mümkündür. T.C. İçişleri Bakanlığı Emniyet Genel Müdürlüğü Özel Güvenlik Denetleme Başkanlığı denetiminde yürütülen 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun; özel güvenlik görevlilerinin temel eğitimlerini, silah taşıma yetkilerini ve 5 yılda bir zorunlu olan kimlik kartı yenileme süreçlerini net kurallara bağlamıştır."
+        "text": "Toplu yaşam alanlarında, rezidanslarda, plazalarda ve kamu kurumlarında can ve mal güvenliğinin sağlanması, profesyonel ve eğitimli özel güvenlik personeli ile mümkündür. T.C. İçişleri Bakanlığı Emniyet Genel Müdürlüğü denetiminde yürütülen 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun; özel güvenlik görevlilerinin temel eğitimlerini, silah taşıma yetkilerini ve 5 yılda bir zorunlu olan kimlik kartı yenileme süreçlerini net kurallara bağlamıştır."
       },
       {
         "type": "h2",
@@ -1497,9 +1497,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Silahsız Özel Güvenlik Eğitimi: En az ortaokul (8 yıllık ilköğretim) mezunu ve 18 yaşını doldurmuş olmak şarttır. Toplam 100 saatlik teorik ve pratik müfredatı kapsar (Güvenlik Hukuku, Güvenlik Tedbirleri, Yangın, İlkyardım, Uyuşturucu Bilgisi, Etkili İletişim ve Kalabalık Yönetimi).",
-          "Silahlı Özel Güvenlik Eğitimi: En az lise mezunu ve 21 yaşını doldurmuş olmak gerekir. 100 saatlik temel eğitime ek olarak 20 saatlik teorik silah bilgisi ve poligonda 25 mermi gerçek atış eğitimi ile toplam 120 saattir.",
-          "Tam Teşekküllü Devlet Hastanesi Sağlık Kurulu Raporu: Psikiyatri, Nöroloji, Göz, KBB ve Ortopedi branşlarından \"Silahlı/Silahsız Özel Güvenlik Görevlisi Olur\" ibareli heyet raporu zorunludur."
+          "Silahsız Özel Güvenlik Eğitimi: Başvuru şartları (yaş, öğrenim durumu vb.) 5188 sayılı Kanun ve uygulama yönetmeliğinde belirlenir. Temel eğitim yaklaşık 100 ders saatidir ve güvenlik hukuku, yangın, ilkyardım, etkili iletişim gibi derslerden oluşur.",
+          "Silahlı Özel Güvenlik Eğitimi: Temel eğitime ek olarak silah bilgisi ve gerçek atış dersi eklenir, toplam yaklaşık 120 ders saatine ulaşır. Başvuru şartları için güncel mevzuatı kontrol edin.",
+          "Sağlık Raporu: Mevzuatın aradığı şekilde yetkili sağlık kuruluşundan alınmış, \"özel güvenlik görevlisi olur\" ibareli sağlık raporu gerekir; kapsamı için güncel mevzuatı kontrol edin."
         ]
       },
       {
@@ -1508,15 +1508,15 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Özel Güvenlik Görevlisi Kimlik Kartı süresi 5 yıldır. Süresi dolan görevlilerin mesleki haklarını kaybetmemesi ve görevden uzaklaştırılmaması için kimlik geçerlilik tarihinden en az 6 ay önce yenileme kursuna kayıt olması gerekir. Silahsız adaylar için 50 saat, silahlı adaylar için 60 saatlik eğitim verilir. Yenileme sınavında baraj puanı aranmaz; sınava eksiksiz katılmak kimliğin 5 yıl daha uzatılması için yeterlidir."
+        "text": "Özel Güvenlik Görevlisi Kimlik Kartı süresi 5 yıldır. EGM dokümanlarına göre yenileme için en az 60 ders saatlik yenileme eğitimi gerekir; görevlilerin mesleki haklarını kaybetmemesi için süreleri yakından takip etmesi, güncel kuralları ve başvuru takvimini Emniyet Genel Müdürlüğü veya yetkili kurumdan teyit etmesi gerekir."
       },
       {
         "type": "h2",
-        "text": "3. Alo Güvenlik Eğitimi ve Kadıköy Şubesi Güvencesi"
+        "text": "3. Alo Güvenlik Eğitimi"
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz Alo Güvenlik (guvenlikkursu.com), İstanbul Kadıköy merkezli modern derslikleri, uzman emniyet müdürü eğitmen kadrosu ve simülasyon poligonları ile yılda binlerce güvenlik görevlisine sertifika kazandırmaktadır. Kursiyerlerimize eğitim sonrası Alo Yönetim ve 3G Güvenlik bünyesindeki elit rezidans ve plaza projelerinde doğrudan istihdam imkanı sunulmaktadır."
+        "text": "Grup şirketimiz Alo Güvenlik (guvenlikkursu.com), Emniyet Genel Müdürlüğü onaylı bir özel güvenlik eğitim kurumudur. Kurs ve başvuru bilgileri için sitesini ziyaret edebilirsiniz."
       },
       {
         "type": "h2",
@@ -1537,11 +1537,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Özel güvenlik kimlik kartı ne kadar sürede çıkar?\nCevap: Yazılı sınav sonuçlarının açıklanması ve Valilik İl Emniyet Müdürlüğü Güvenlik Soruşturması ve Arşiv Araştırması sürecinin tamamlanması ortalama 45-60 gün sürer."
+        "text": "Soru: Özel güvenlik kimlik kartı ne kadar sürede çıkar?\nCevap: Süre, yazılı sınav sonuçlarının açıklanmasına ve Valilik İl Emniyet Müdürlüğü Güvenlik Soruşturması ve Arşiv Araştırması sürecinin tamamlanmasına bağlıdır."
       },
       {
         "type": "p",
-        "text": "Soru: Kimlik süresi dolduktan sonra güvenlik görevlisi çalışmaya devam edebilir mi?\nCevap: Hayır. Kimlik süresi bittiği gün görevlinin çalışma yetkisi askıya alınır; çalıştırılması halinde site yönetimine ve şirkete 5188 uyarınca ağır idari para cezası uygulanır."
+        "text": "Soru: Kimlik süresi dolduktan sonra güvenlik görevlisi çalışmaya devam edebilir mi?\nCevap: Hayır. Kimlik süresi dolmuş görevli çalıştırılamaz; çalıştırılması halinde site yönetimine ve şirkete 5188 sayılı Kanun'da öngörülen idari yaptırımlar uygulanabilir."
       },
       {
         "type": "cta",
@@ -1573,7 +1573,7 @@ export const POSTS: Post[] = [
     "content": [
       {
         "type": "p",
-        "text": "Bir konut sitesinin veya rezidansın huzuru, kapıdaki güvenlik hizmetinin niteliğiyle doğrudan ilişkilidir. Piyasadaki yetkisiz taşeronlar veya belgesiz danışmanlık firmaları, kat maliklerini hem ağır idari para cezalarıyla hem de güvenlik zafiyetleriyle baş başa bırakabilir. Bu nedenle kurumsal bir özel güvenlik şirketi seçimi hayati önem taşır."
+        "text": "Bir konut sitesinin veya rezidansın huzuru, kapıdaki güvenlik hizmetinin niteliğiyle doğrudan ilişkilidir. Piyasadaki yetkisiz taşeronlar veya belgesiz danışmanlık firmaları, kat maliklerini hem idari para cezalarıyla hem de güvenlik zafiyetleriyle baş başa bırakabilir. Bu nedenle kurumsal bir özel güvenlik şirketi seçimi hayati önem taşır."
       },
       {
         "type": "h2",
@@ -1583,12 +1583,12 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "1. T.C. İçişleri Bakanlığı Faaliyet İzin Belgesi: Şirketin 5188 sayılı kanun kapsamında resmi güvenlik hizmeti verme yetkisi tescilli olmalıdır.",
-          "2. 3. Şahıs Mali Mesuliyet Sigortası: Hırsızlık, sabotaj veya personelin ihmalinden doğabilecek zararlar için en az 10 Milyon TL teminatlı poliçe.",
-          "3. 3G Özel Güvenlik (3gguvenlik.com) Operasyonel Güvencesi: Grup şirketimiz bünyesinde 7/24 nöbetçi süpervizör araçları ve telsizli denetim ağı.",
-          "4. Personel Eğitim ve Sertifikasyonu: Tüm personelin Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, öfke kontrolü ve kriz yönetimi eğitimli olması.",
-          "5. RFID / GPS Destekli Akıllı Devriye Tur Sistemi: Güvenlik görevlisinin gece devriyelerinin saniye saniye merkezden telemetri ile izlenmesi.",
-          "6. Yapay Zeka Destekli PTS ve Kamera Entegrasyonu: Giriş yapan araçların ve ziyaretçilerin otomatik plaka ve yüz tanıma yazılımlarıyla kaydı.",
-          "7. Yedek Personel Taahhüdü: İzin, rapor veya ani ayrılmalarda 24 saat içinde yedek personel ataması yapılır.",
+          "2. 3. Şahıs Mali Mesuliyet Sigortası: Hırsızlık, sabotaj veya personelin ihmalinden doğabilecek zararlar için yeterli teminatlı poliçe.",
+          "3. 3G Özel Güvenlik (3gguvenlik.com) Operasyonel Güvencesi: Grup şirketimiz bünyesinde saha denetimi ve süpervizör desteği.",
+          "4. Personel Eğitim ve Sertifikasyonu: Tüm personelin lisanslı ve eğitimli olması; eğitimlerin Alo Güvenlik (guvenlikkursu.com) gibi yetkili kurumlardan alınması.",
+          "5. RFID Destekli Devriye Takibi: Güvenlik görevlisinin devriyelerinin kontrol noktaları üzerinden kayıt altına alınması.",
+          "6. PTS ve Kamera Entegrasyonu: Giriş yapan araçların plaka tanıma sistemiyle kaydı.",
+          "7. Yedek Personel Taahhüdü: İzin, rapor veya ani ayrılmalarda yedek personel planı.",
           "8. Bordro ve SGK Şeffaflığı: Görevlilerin maaş, fazla mesai ve SGK primlerinin zamanında ödendiğine dair aylık dökümün yönetime sunulması."
         ]
       },
@@ -1598,11 +1598,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "quote",
-        "text": "5188 lisansı ve Valilik Özel Güvenlik İzni (ÖGİ) olmadan üniforma giydirilen bekçiler, site yönetimine bağımsız bölüm başına yüz binlerce liralık idari para cezası doğurur."
+        "text": "5188 lisansı ve Valilik Özel Güvenlik İzni (ÖGİ) olmadan üniforma giydirilen bekçiler, site yönetimine idari para cezası doğurabilir."
       },
       {
         "type": "p",
-        "text": "Emniyet ve Jandarma ekiplerinin yaptığı habersiz denetimlerde, lisanssız görevli çalıştıran apartman yöneticileri hakkında TCK ve 5188 kapsamında adli işlem başlatılmaktadır."
+        "text": "Emniyet ve Jandarma ekiplerinin yaptığı denetimlerde, lisanssız görevli çalıştıran apartman yöneticileri hakkında 5188 kapsamında idari ve gerektiğinde adli işlem uygulanabilir."
       },
       {
         "type": "h2",
@@ -1610,7 +1610,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Sitede özel güvenlik çalıştırmak için kat malikleri kurulu kararı gerekir mi?\nCevap: Evet. Kat Malikleri Kurulu'nda özel güvenlik hizmeti alınması yönünde karar alınmalı ve ardından Valilik Özel Güvenlik Komisyonu'na müracaat edilmelidir."
+        "text": "Soru: Sitede özel güvenlik çalıştırmak için kat malikleri kurulu kararı gerekir mi?\nCevap: Evet. Kat Malikleri Kurulu'nda özel güvenlik hizmeti alınması yönünde karar alınmalı ve ardından Valilik nezdindeki yetkili özel güvenlik birimine başvurulmalıdır."
       },
       {
         "type": "p",
@@ -1618,7 +1618,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "3G Güvenlik güvencesiyle siteniz için ücretsiz güvenlik keşfi talep edin.",
+        "text": "3G Güvenlik desteğiyle siteniz için güvenlik keşfi talep edin.",
         "href": "https://3gguvenlik.com/",
         "label": "3G Güvenlik Resmi Sitesi"
       }
@@ -1653,14 +1653,14 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Mülkiyeti Kanunu Madde 20/2 açık hükmü gereğince: \"Gider veya avans payını ödemeyen kat maliki, ödemede geciktiği günler için aylık yüzde beş hesabıyla gecikme tazminatı ödemekle yükümlüdür.\" Bu tazminat yasal faizden tamamen bağımsızdır ve yıllık %60 gibi caydırıcı bir orana karşılık gelir."
+        "text": "Kat Mülkiyeti Kanunu Madde 20/2 açık hükmü gereğince: \"Gider veya avans payını ödemeyen kat maliki, ödemede geciktiği günler için aylık yüzde beş hesabıyla gecikme tazminatı ödemekle yükümlüdür.\" Bu tazminat yasal faizden tamamen bağımsızdır ve yıllık bazda yüksek, caydırıcı bir orana karşılık gelir."
       },
       {
         "type": "ul",
         "items": [
           "Gecikme Tazminatının Başlangıç Tarihi: Aidatın son ödeme gününü takip eden ilk gündür.",
           "Genel Kurul Kararı Olmasa Bile Geçerlilik: Kanun emredici olduğu için genel kurulda karar alınmamış olsa dahi aylık %5 tazminat kanunen tahsil edilir.",
-          "Yargıtay Emsal Kararları: Yargıtay Hukuk Genel Kurulu ve 20. Hukuk Dairesi kararları uyarınca gecikme tazminatı borcun aslıyla birlikte takibe konur."
+          "Yargıtay İçtihatları: Yargıtay uygulamasına göre gecikme tazminatı borcun aslıyla birlikte takibe konur."
         ]
       },
       {
@@ -1686,7 +1686,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat malikinin ortak gider borcundan, bağımsız bölümde oturan kiracı da ödemekle yükümlü olduğu kira miktarı kadar müteselsilen sorumludur. İcra dairesi İİK 89/1 haciz ihbarnamesi ile kiracının kira ödemesini doğrudan site banka hesabına aktarmasını emredebilir."
+        "text": "Kat malikinin ortak gider borcundan, bağımsız bölümde oturan kiracı da ödemekle yükümlü olduğu kira miktarı kadar müteselsilen sorumludur. İcra dairesi haciz ihbarnamesi ile kiracıya kira ödemesini doğrudan site banka hesabına yatırmasını emredebilir."
       },
       {
         "type": "h2",
@@ -1702,7 +1702,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Borçlunun takibe itiraz etmesi halinde açılan itirazın iptali davasında haksız çıkan borçlu, ana borç ve gecikme tazminatına ek olarak borcun en az %20'si oranında icra inkar tazminatı ödemeye mahkum edilir."
+        "text": "Borçlunun takibe itiraz etmesi halinde açılan itirazın iptali davasında haksız çıkan borçlu, alacak likit ise ana borç ve gecikme tazminatına ek olarak borcun en az %20'si oranında icra inkar tazminatı ödemeye mahkum edilebilir."
       },
       {
         "type": "h2",
@@ -1744,7 +1744,7 @@ export const POSTS: Post[] = [
     "content": [
       {
         "type": "p",
-        "text": "Bir konut sitesinde veya apartmanda güvenlik görevlisi bulundurabilmek için yalnızca bir şirketle anlaşmak veya eleman işe almak yeterli değildir. 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun Madde 3 gereğince, güvenliğin sağlanacağı tesis için yetkili mülki idare amirliğinden (Valilik) Özel Güvenlik İzni (ÖGİ) alınması yasal bir zorunluluktur."
+        "text": "Bir konut sitesinde veya apartmanda güvenlik görevlisi bulundurabilmek için yalnızca bir şirketle anlaşmak veya eleman işe almak yeterli değildir. 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun gereğince, güvenliğin sağlanacağı tesis için yetkili mülki idare amirliğinden (Valilik) Özel Güvenlik İzni (ÖGİ) alınması yasal bir zorunluluktur."
       },
       {
         "type": "h2",
@@ -1753,9 +1753,9 @@ export const POSTS: Post[] = [
       {
         "type": "ol",
         "items": [
-          "Kat Malikleri Kurulu Kararı: Karar defterine \"Sitemizde 5188 sayılı kanun kapsamında özel güvenlik hizmeti alınmasına ve Valiliğe başvurulmasına\" dair karar yazılır ve noterden tasdik ettirilir.",
+          "Kat Malikleri Kurulu Kararı: Karar defterine \"Sitemizde 5188 sayılı kanun kapsamında özel güvenlik hizmeti alınmasına ve Valiliğe başvurulmasına\" dair karar yazılır ve gerekli noter işlemleri tamamlanır.",
           "Müracaat Dosyası Tanzimi: Sitenin tapu bilgileri, bağımsız bölüm sayısı, vaziyet planı, risk analiz formu ve güvenlik noktalarını gösteren kroki hazırlanır.",
-          "İl Özel Güvenlik Komisyonu İncelemesi: Emniyet, Jandarma, Ticaret Odası ve Valilik temsilcilerinden oluşan komisyon dosyayı inceler ve yerinde keşif yapar.",
+          "İl Özel Güvenlik Komisyonu İncelemesi: Komisyon dosyayı inceler ve yerinde keşif yapar.",
           "Komisyon Kararı ve Valilik Onayı: Komisyonun uygun görmesi halinde Valilik makamı Özel Güvenlik İzin Belgesi düzenler.",
           "Özel Güvenlik Mali Mesuliyet Sigortası: Görev yapacak personel sayısı kadar sigorta poliçesi tanzim edilerek Valiliğe teslim edilir."
         ]
@@ -1766,7 +1766,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "5188 Sayılı Kanun Madde 20 uyarınca: Özel güvenlik izni almadan özel güvenlik görevlisi istihdam eden veya hizmet alan kişi ve yöneticilere doğrudan idari para cezası uygulanır ve faaliyet men edilir."
+        "text": "5188 Sayılı Kanun uyarınca: Özel güvenlik izni almadan özel güvenlik görevlisi istihdam eden veya hizmet alan kişi ve yöneticilere idari para cezası uygulanır ve faaliyet durdurulabilir."
       },
       {
         "type": "h2",
@@ -1774,11 +1774,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: ÖGİ belgesi kaç yılda bir yenilenir?\nCevap: Özel Güvenlik İzin Belgesi süresiz olarak verilir; ancak personel sayısı veya silah durumu değiştiğinde komisyondan revizyon kararı alınmalıdır."
+        "text": "Soru: ÖGİ belgesi kaç yılda bir yenilenir?\nCevap: Özel Güvenlik İzin Belgesinin geçerlilik süresi ve revizyon şartları mevzuatla belirlenir; personel sayısı veya silah durumu değiştiğinde komisyondan revizyon kararı alınmalıdır."
       },
       {
         "type": "p",
-        "text": "Soru: ÖGİ başvuru sürecini kim takip eder?\nCevap: Alo Yönetim ve grup şirketimiz 3G Güvenlik, tüm dosya hazırlık ve Valilik takip süreçlerini site yönetimi adına vekaleten yürütmektedir."
+        "text": "Soru: ÖGİ başvuru sürecini kim takip eder?\nCevap: Alo Yönetim ve grup şirketimiz 3G Güvenlik, dosya hazırlık ve Valilik takip süreçlerinde site yönetimi adına destek verebilir."
       },
       {
         "type": "cta",
@@ -1792,7 +1792,7 @@ export const POSTS: Post[] = [
   {
     "slug": "ozel-guvenlik-sirketi-ve-site-guvenlik-yonetimi-2026",
     "title": "Özel Güvenlik Şirketi ve Entegre Site Güvenlik Yönetimi: Nizamiye, Kamera ve Devriye Rehberi",
-    "description": "Sitelerde 7/24 entegre güvenlik operasyonu: nizamiyede kimlik kontrolü, AI plaka tanıma, çevre güvenlik kameraları ve acil durum müdahale protokolleri.",
+    "description": "Sitelerde 7/24 entegre güvenlik operasyonu: nizamiyede kimlik kontrolü, plaka tanıma, çevre güvenlik kameraları ve acil durum müdahale protokolleri.",
     "category": "guvenlik",
     "tags": [
       "site güvenlik yönetimi",
@@ -1806,11 +1806,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Entegre site güvenliği; eğitimli 5188 personeli, AI destekli çevre güvenlik kameraları, akıllı plaka tanıma bariyerleri ve 7/24 operasyon merkezi takibi ile kusursuz bir kalkan oluşturur.",
+    "tldr": "Entegre site güvenliği; eğitimli 5188 personeli, çevre güvenlik kameraları, akıllı plaka tanıma bariyerleri ve 7/24 operasyon merkezi takibi ile sağlam bir koruma oluşturur.",
     "content": [
       {
         "type": "p",
-        "text": "Modern toplu konut ve rezidanslarda güvenlik, yalnızca kapıda duran bir bekçiden ibaret değildir. Teknolojik elektronik güvenlik altyapısı ile fiziksel insan gücünün kusursuz bir uyum içinde çalıştığı Entegre Güvenlik Yönetim Sistemi, sakinlerin evlerinde huzur içinde yaşamasının anahtarıdır."
+        "text": "Modern toplu konut ve rezidanslarda güvenlik, yalnızca kapıda duran bir bekçiden ibaret değildir. Teknolojik elektronik güvenlik altyapısı ile fiziksel insan gücünün uyum içinde çalıştığı Entegre Güvenlik Yönetim Sistemi, sakinlerin evlerinde huzur içinde yaşamasının anahtarıdır."
       },
       {
         "type": "h2",
@@ -1825,16 +1825,16 @@ export const POSTS: Post[] = [
         "items": [
           "Sakin Araçları İçin Hızlı Geçiş: Plaka Tanıma Sistemi (PTS) veya UHF RFID etiketler ile beklemesiz otomatik bariyer açılışı.",
           "Misafir ve Kurye Teyit Protokolü: Daire sakini interkom veya mobil uygulama üzerinden onay vermeden yabancı araçların siteye girişi engellenir.",
-          "Kargo Kabul ve Güvenlik Odası: Kuryelerin kat aralarında kontrolsüz dolaşımı sınırlandırılarak kargolar lobi akıllı dolaplarına teslim alınır."
+          "Kargo Kabul ve Güvenlik Odası: Kuryelerin kat aralarında kontrolsüz dolaşımı sınırlandırılarak kargolar lobide teslim alınır ve kayıt altına alınır."
         ]
       },
       {
         "type": "h2",
-        "text": "2. 7/24 CCTV İzleme ve AI Akıllı Video Analizi"
+        "text": "2. 7/24 CCTV İzleme ve Akıllı Video Analizi"
       },
       {
         "type": "p",
-        "text": "Kör nokta bırakmayacak şekilde yerleştirilen IP kameralar; sınır ihlali, şüpheli paket, ters yön araç hareketi ve yangın dumanı durumlarında güvenlik merkezine anlık sesli alarm üretir."
+        "text": "Kör nokta bırakmayacak şekilde yerleştirilen IP kameralar güvenlik merkezinden izlenir; video analitik özelliği olan sistemlerde sınır ihlali, şüpheli paket, ters yön araç hareketi ve yangın dumanı durumlarında sesli alarm üretilebilir."
       },
       {
         "type": "h2",
@@ -1842,7 +1842,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Sitenin yangın merdivenleri, kapalı otoparkları, sığınakları ve çevre çitleri boyunca yerleştirilen RFID kontrol noktaları, güvenlik görevlilerimiz tarafından saat başı taranır ve raporlar mobil merkeze aktarılır."
+        "text": "Sitenin yangın merdivenleri, kapalı otoparkları, sığınakları ve çevre çitleri boyunca yerleştirilen RFID kontrol noktaları, güvenlik görevlilerimiz tarafından periyodik olarak taranır ve kayıtlar raporlanır."
       },
       {
         "type": "cta",
@@ -1911,7 +1911,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Yönetim kurulunun hazırladığı işletme projesine 7 gün içinde noterden veya elden imza karşılığı itiraz edilebilir. Genel kurulda kabul edilen bütçeye karşı ise, toplantıya katılıp muhalefet şerhi koyan malikler 1 ay, katılmayanlar ise 6 ay içinde KMK m.33 uyarınca Sulh Hukuk Mahkemesi'nde \"Hakimin Müdahalesi\" davası açabilir."
+        "text": "Kat malikleri kurulu kararlarına karşı KMK m.33'te öngörülen sürelerde Sulh Hukuk Mahkemesi'nde dava açılabilir (süreler, malikin toplantıya katılıp katılmadığına ve kararın nasıl bildirildiğine göre değişir). 7579 sayılı Kanun ile işletme projesinin onay usulü değiştiği için güncel kuralları bir avukata teyit ettirin."
       },
       {
         "type": "h2",
@@ -1923,7 +1923,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "İşletme giderlerinden (personel, elektrik, temizlik vb.) kiracı ve ev sahibi müteselsilen sorumludur; demirbaş ve ana gayrimenkul yenileme giderleri ise yalnızca ev sahibine (kat malikine) aittir."
+        "text": "İşletme giderlerinden (personel, elektrik, temizlik vb.) kat maliki sorumludur, kiracı da ödemekle yükümlü olduğu kira miktarı kadar müteselsilen sorumludur (KMK m.22); demirbaş ve ana gayrimenkul yenileme giderleri ise yalnızca ev sahibine (kat malikine) aittir."
       },
       {
         "type": "h3",
@@ -1931,13 +1931,13 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Yönetici işletme projesini hazırlar ve tebliğ eder; ancak itiraz halinde nihai bütçe Kat Malikleri Genel Kurulu tarafından oylanarak karara bağlanır."
+        "text": "Yönetici işletme projesini hazırlar; 7579 sayılı Kanun'dan sonra işletme projesi kat malikleri kurulunda onaylanır."
       },
       {
         "type": "cta",
         "text": "Sitenizin aidat bütçesini optimize etmek ve şeffaf yönetim teklifi almak için bize ulaşın.",
         "href": "/teklif-al",
-        "label": "Ücretsiz Aidat Analizi İsteyin"
+        "label": "Aidat Analizi İsteyin"
       }
     ]
   },
@@ -1977,7 +1977,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Noter Onaylı Karar Defteri: Yöneticinin seçildiği Genel Kurul divan tutanağı ve karar defteri fotokopisi.",
-          "Kesinleşmiş İşletme Projesi: KMK m.37 gereğince maliklere tebliğ edilmiş yıllık tahmini bütçe.",
+          "Onaylı İşletme Projesi: KMK m.37 gereğince hazırlanmış, usulüne uygun onaylanmış ve maliklere bildirilmiş yıllık tahmini bütçe.",
           "Banka Hesap Dökümleri: Borçlunun hangi aylara ait aidatı yatırmadığını ispatlayan resmi ekstre.",
           "Noter İhtarnamesi veya Yazılı Tebligat: Yargıtay şart koşmasa da borçluya son bir ödeme ihtarı çekilmesi iyi niyet göstergesidir."
         ]
@@ -2004,7 +2004,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Borçlu takibe haksız olarak itiraz ederse takip durur. Bu durumda site yönetimi Sulh Hukuk veya İcra Hukuk Mahkemesinde İtirazın İptali Davası açar. Borçlu haksız çıktığında ana borç, %5 gecikme tazminatı ve yargılama giderlerine ek olarak asgari %20 İcra İnkar Tazminatı ödemeye mahkum edilir."
+        "text": "Borçlu takibe haksız olarak itiraz ederse takip durur. Bu durumda site yönetimi Sulh Hukuk Mahkemesinde İtirazın İptali Davası açar. Borçlu haksız çıktığında ana borç, %5 gecikme tazminatı ve yargılama giderlerine ek olarak asgari %20 İcra İnkar Tazminatı ödemeye mahkum edilebilir."
       },
       {
         "type": "h2",
@@ -2012,7 +2012,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Takip açılırken ödenen başvurma harcı, peşin harç, tebligat masrafları ve kanuni avukatlık vekalet ücreti tamamen borçlu kat malikine yükletilir. Site bütçesinden tek bir kuruş masraf çıkmaz."
+        "text": "Takip açılırken ödenen başvurma harcı, peşin harç, tebligat masrafları ve kanuni avukatlık vekalet ücreti kural olarak borçlu kat malikinden tahsil edilir."
       },
       {
         "type": "h2",
@@ -2028,11 +2028,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: İcra takibi ne kadar sürede sonuçlanır?\nCevap: İtiraz edilmeyen dosyalarda tebligattan sonraki 10 gün içinde banka ve araç hacizleri tatbik edilir. İtiraz halinde dava süreci 4-8 ay sürebilir."
+        "text": "Soru: İcra takibi ne kadar sürede sonuçlanır?\nCevap: İtiraz edilmeyen dosyalarda takip kesinleştikten sonra hacizler uygulanabilir. İtiraz halinde dava süreci mahkemenin iş yüküne göre değişir ve uzun sürebilir."
       },
       {
         "type": "p",
-        "text": "Soru: Kiracı evden ayrılırsa eski aidat borcu kime kalır?\nCevap: KMK uyarınca kat maliki asıl borçludur. Kiracı çıksa bile gayrimenkulün sahibi borcun tamamından şahsen ve dairesiyle sorumludur."
+        "text": "Soru: Kiracı evden ayrılırsa eski aidat borcu kime kalır?\nCevap: KMK uyarınca kat maliki asıl borçludur. Kiracı çıksa bile gayrimenkulün sahibi borçtan sorumlu olmaya devam eder."
       },
       {
         "type": "cta",
@@ -2061,7 +2061,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-03-28T10:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "6306 sayılı Kanun ile kentsel dönüşümde karar çoğunluğu salt çoğunluğa (yarıdan bir fazla) indirilmiştir. Riskli yapı tespiti, bakanlık lisanslı kuruluşlarca yapılır ve kesinleştiğinde 60+30 günlük tahliye süreci başlar.",
+    "tldr": "7471 sayılı Kanun ile 6306 sayılı Kanun kapsamındaki kentsel dönüşümde karar çoğunluğu salt çoğunluğa (yarıdan bir fazla) indirilmiştir. Riskli yapı tespiti, lisanslı kuruluşlarca yapılır ve kesinleştiğinde 60+30 günlük tahliye süreci başlar.",
     "content": [
       {
         "type": "p",
@@ -2073,7 +2073,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kentsel dönüşüm süreci, apartmandaki kat maliklerinden sadece birinin Çevre, Şehircilik ve İklim Değişikliği Bakanlığı lisanslı yapı denetim kuruluşlarına başvurmasıyla başlar. Diğer maliklerin onayına gerek yoktur."
+        "text": "Kentsel dönüşüm süreci, apartmandaki kat maliklerinden sadece birinin Çevre, Şehircilik ve İklim Değişikliği Bakanlığı lisanslı kuruluşlara başvurmasıyla başlar. Diğer maliklerin onayına gerek yoktur."
       },
       {
         "type": "ul",
@@ -2114,7 +2114,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Riskli yapı maliklerine ve kiracılarına Çevre, Şehircilik ve İklim Değişikliği Bakanlığı tarafından 18 ila 48 ay boyunca geri ödemesiz aylık kira yardımı sağlanır. Ayrıca tüm tapu, noter, belediye harç ve vergi muafiyetleri uygulanır."
+        "text": "Riskli yapı maliklerine ve kiracılarına Çevre, Şehircilik ve İklim Değişikliği Bakanlığı tarafından kira yardımı yapılabilir; kapsamı ve süresi mevzuatla belirlenir. Ayrıca belirli harç ve vergi muafiyetleri uygulanır."
       },
       {
         "type": "h2",
@@ -2130,11 +2130,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Kentsel dönüşüme katılmayan azınlık maliklerin hisseleri ne olur?\nCevap: Salt çoğunluk sağlandıktan sonra dönüşüme katılmayan maliklerin arsa payları Çevre ve Şehircilik İl Müdürlüğü tarafından açık artırma ile diğer paydaşlara satılır."
+        "text": "Soru: Kentsel dönüşüme katılmayan azınlık maliklerin hisseleri ne olur?\nCevap: Salt çoğunluk sağlandıktan sonra dönüşüme katılmayan maliklerin payları rayiç bedel üzerinden öncelikle diğer paydaşlara satılabilir; satış süreci mevzuata göre yürütülür."
       },
       {
         "type": "p",
-        "text": "Soru: Riskli yapı tespit raporu masrafını kim öder?\nCevap: Başvuruyu yapan kat maliki öder; ancak bina riskli çıktığında ve yıkım kararı kesinleştiğinde bu masraf diğer kat maliklerinden arsa payları oranında tahsil edilir."
+        "text": "Soru: Riskli yapı tespit raporu masrafını kim öder?\nCevap: Raporu talep eden taraf öder; masrafın nasıl paylaşılacağı mevzuata ve malikler arasındaki anlaşmaya göre belirlenir."
       },
       {
         "type": "cta",
@@ -2166,7 +2166,7 @@ export const POSTS: Post[] = [
     "content": [
       {
         "type": "p",
-        "text": "Türkiye'nin sismik hareketliliği ve özellikle Marmara Bölgesi'ndeki beklenen büyük deprem riski, apartman ve site yönetimlerinin binalarını teknik olarak denetlemesini zorunlu kılmaktadır. Doğru bir deprem risk analizi, can güvenliğini korumanın ve gerekli güçlendirme veya kentsel dönüşüm kararlarını almanın tek bilimsel yoludur."
+        "text": "Türkiye'nin sismik hareketliliği ve özellikle Marmara Bölgesi'ndeki beklenen büyük deprem riski, apartman ve site yönetimlerinin binalarını teknik olarak denetlemesini zorunlu kılmaktadır. Doğru bir deprem risk analizi, can güvenliğini korumanın ve gerekli güçlendirme veya kentsel dönüşüm kararlarını almanın temel bilimsel yoludur."
       },
       {
         "type": "h2",
@@ -2188,7 +2188,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "6306 Sayılı Kentsel Dönüşüm Kanunu kapsamında düzenlenen \"Riskli Yapı Tespit Raporu\", tapuya şerh düşüldükten sonra kat maliklerine 60 + 30 günlük tahliye ve yıkım süresi tanır. Alo Yönetim olarak, bina sakinleri adına lisanslı kuruluşlarla test sürecini organize ediyor ve güçlendirme / yeniden yapım süreçlerinde tarafsız yönetim danışmanlığı sunuyoruz."
+        "text": "6306 Sayılı Kentsel Dönüşüm Kanunu kapsamında düzenlenen \"Riskli Yapı Tespit Raporu\", tapuya şerh düşüldükten sonra kat maliklerine 60 + 30 günlük tahliye ve yıkım süresi tanır. Alo Yönetim, bina sakinleri adına lisanslı kuruluşlarla test sürecinin organize edilmesinde destek verebilir ve güçlendirme / yeniden yapım süreçlerinde tarafsız yönetim danışmanlığı sunabilir."
       },
       {
         "type": "h2",
@@ -2197,7 +2197,7 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Otomatik Deprem Sensörlü Gaz Kesme Valfleri: Sismik sarsıntıyı algılayarak ana doğalgaz hattını 0.5 saniyede kesen emniyet ventilleri.",
+          "Sismik Sensörlü Otomatik Gaz Kesme Valfleri: Sismik sarsıntıyı algılayarak ana doğalgaz hattını kesen emniyet ventilleri.",
           "Jeneratör ve Yangın Hidroforu Güvenliği: Sarsıntı anında devrilmeye karşı yaylı sismik izolatörler ve esnek boru kompansatörleri.",
           "Tahliye Yolları ve Toplanma Alanı: Yangın merdivenlerinin sürekli açık tutulması, fosforlu acil çıkış yönlendirmeleri ve afet çantası istasyonları."
         ]
@@ -2212,7 +2212,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Hayır. Lisanslı mühendisler tarafından doğru noktalardan ve standart boyutlarda alınan karot delikleri, yüksek mukavemetli epoksi tamir harçları ile doldurularak kolonun mukavemeti korunur."
+        "text": "Hayır. Lisanslı mühendisler tarafından doğru noktalardan ve standart boyutlarda alınan karot delikleri, yüksek mukavemetli epoksi tamir harçları ile doldurularak kolonun mukavemetinin korunması hedeflenir."
       },
       {
         "type": "h3",
@@ -2220,7 +2220,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Hayır. Bilgi amaçlı deprem dayanıklılık raporu için yönetim kurulu kararı yeterlidir; 6306 sayılı resmi riskli yapı tespiti için ise tek bir kat malikinin başvurusu kanunen yeterlidir."
+        "text": "Hayır. Bilgi amaçlı deprem dayanıklılık raporu için kararın nasıl alınacağı yönetim planına ve KMK'ya göre belirlenir; 6306 sayılı resmi riskli yapı tespiti için ise tek bir kat malikinin başvurusu kanunen yeterlidir."
       },
       {
         "type": "cta",
@@ -2261,10 +2261,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Sıvı ve Granül Klor (%56 ve %90 Triklor/Diklor): Bakteri, mantar ve virüsleri yok eden ana dezenfektandır. Açık havuzlarda 1.0 - 3.0 ppm, kapalı havuzlarda 1.0 - 1.5 ppm serbest klor seviyesi korunmalıdır.",
-          "pH Düşürücü (Sodyum Bisülfat / Sıvı Sülfürik Asit): Şebeke suyunun yüksek pH değerini 7.2 - 7.6 ideal bandına çeker. pH 7.8 üzerine çıktığında klor dezenfeksiyon gücünün %70'ini kaybeder.",
-          "Yosun Önleyici (Algisit - Kuaterner Amonyum): Havuz tabanında ve derz aralarında fotosentez kaynaklı yeşil/siyah yosun oluşumunu engeller. Haftada 100 m³ su için 500-1000 ml uygulanır.",
-          "Çöktürücü ve Sıvı Parlatıcı (Topaklayıcı - Polialüminyum Klorür): Kum filtresinin tutamayacağı 0.1-5 mikron boyutundaki organik kirleri birleştirerek dibe çöktürür veya filtrede tutar."
+          "Sıvı ve Granül Klor (%56 ve %90 Triklor/Diklor): Bakteri, mantar ve virüsleri yok eden ana dezenfektandır. Serbest klor seviyesi, ilgili yüzme havuzu mevzuatında belirlenen aralıkta korunmalıdır.",
+          "pH Düşürücü (Sodyum Bisülfat / Sıvı Sülfürik Asit): Şebeke suyunun yüksek pH değerini ideal banda (genellikle 7.2 - 7.6) çeker. pH çok yükseldiğinde klorun dezenfeksiyon gücü belirgin biçimde düşer.",
+          "Yosun Önleyici (Algisit - Kuaterner Amonyum): Havuz tabanında ve derz aralarında fotosentez kaynaklı yeşil/siyah yosun oluşumunu engeller. Ürün etiketinde belirtilen dozda uygulanır.",
+          "Çöktürücü ve Sıvı Parlatıcı (Topaklayıcı - Polialüminyum Klorür): Kum filtresinin tutmakta zorlandığı çok küçük organik kirleri birleştirerek dibe çöktürür veya filtrede tutar."
         ]
       },
       {
@@ -2273,7 +2273,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Havuzda aşırı klor kokusu ve göz yanması hissediliyorsa bu klorun çokluğundan değil, yetersiz dezenfeksiyon sonucu oluşan \"bağlı klor (kloramin)\" varlığından kaynaklanır. Bağlı kloru yok etmek için normal dozun 3-5 katı klor verilerek şok klorlama yapılır ve havuz suyu 24 saat dinlendirilir."
+        "text": "Havuzda aşırı klor kokusu ve göz yanması hissediliyorsa bu klorun çokluğundan değil, yetersiz dezenfeksiyon sonucu oluşan \"bağlı klor (kloramin)\" varlığından kaynaklanır. Bağlı kloru yok etmek için üreticinin veya uzmanın önerdiği şekilde yüksek dozda klor verilerek şok klorlama yapılır ve bu sürede havuz kullanıma kapatılır."
       },
       {
         "type": "h2",
@@ -2283,8 +2283,8 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Klor ve asit bidonları kesinlikle aynı odada yan yana depolanmamalıdır; temasları halinde ölümcül zehirli klor gazı açığa çıkar.",
-          "Kimyasal dozaj pompalarının emiş hortumları ve enjektörleri her ay kireç tıkanıklığına karşı asit banyosu ile temizlenmelidir.",
-          "Havuz operatörleri kimyasal transferinde nitril eldiven, koruyucu gözlük ve gaz maskesi kullanmalıdır."
+          "Kimyasal dozaj pompalarının emiş hortumları ve enjektörleri kireç tıkanıklığına karşı periyodik olarak asit banyosu ile temizlenmelidir.",
+          "Havuz operatörleri kimyasal transferinde nitril eldiven, koruyucu gözlük ve uygun solunum maskesi kullanmalıdır."
         ]
       },
       {
@@ -2297,7 +2297,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Yüksek pH veya yetersiz klor sebebiyle yosun patlaması oluşur. Önce pH 7.2'ye düşürülür, ardından şok klor ve yosun önleyici verilip filtre 24 saat ters yıkama ile çalıştırılır."
+        "text": "Yüksek pH veya yetersiz klor sebebiyle yosun patlaması oluşur. Önce pH ayarlanır, ardından uzman önerisine göre şok klor ve yosun önleyici verilip filtre ters yıkama ile çalıştırılır."
       },
       {
         "type": "h3",
@@ -2305,7 +2305,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Güneşin UV ışınlarının kloru uçurmasını önler. Ancak 50 ppm üzerine çıktığında \"klor kilitlenmesi\" yaparak klorun mikrop öldürmesini durdurur; bu durumda havuza taze su basılmalıdır."
+        "text": "Güneşin UV ışınlarının kloru uçurmasını önler. Ancak yüksek seviyelere çıktığında \"klor kilitlenmesi\" yaparak klorun mikrop öldürmesini durdurur; bu durumda havuza taze su basılmalıdır."
       },
       {
         "type": "cta",
@@ -2319,7 +2319,7 @@ export const POSTS: Post[] = [
   {
     "slug": "site-yonetimine-gecis-rehberi",
     "title": "Müteahhitten Site Yönetimine Geçiş: Geçici Yönetim Devir Teslimi ve Genel Kurul Rehberi",
-    "description": "İnşaatı tamamlanan yeni sitelerde müteahhit geçici yönetiminden kat malikleri yönetimine geçiş süreci: KMK Ek Madde 69, devir teslim tutanakları ve işletme projesi.",
+    "description": "İnşaatı tamamlanan yeni sitelerde müteahhit geçici yönetiminden kat malikleri yönetimine geçiş süreci: KMK m.69, devir teslim tutanakları ve işletme projesi.",
     "category": "yonetim",
     "tags": [
       "müteahhitten devir teslim",
@@ -2334,7 +2334,7 @@ export const POSTS: Post[] = [
     "dateModified": "2026-02-24T20:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "İskan alan yeni projelerde müteahhidin atadığı geçici yönetim en geç bağımsız bölümlerin üçte ikisinin fiilen tesliminden itibaren 1 yıl içinde ilk Kat Malikleri Genel Kurulunu toplayarak yönetimi devretmek zorundadır.",
+    "tldr": "İskan alan yeni projelerde müteahhidin atadığı geçici yönetim, KMK m.69 ve yönetim planı çerçevesinde ilk Kat Malikleri Genel Kurulunu toplayarak yönetimi devretmek zorundadır.",
     "content": [
       {
         "type": "p",
@@ -2342,11 +2342,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "1. Geçici Yönetimin Yasal Süresi ve KMK Ek Madde 69"
+        "text": "1. Geçici Yönetimin Yasal Süresi ve KMK m.69"
       },
       {
         "type": "p",
-        "text": "634 Sayılı Kat Mülkiyeti Kanunu Ek Madde 69 gereğince: Toplu yapılarda geçici yönetim, bağımsız bölümlerin teslim tarihinden itibaren başlar ve en geç yapının tamamlanmasından veya bağımsız bölümlerin 2/3'ünün tesliminden itibaren 1 yıl içinde ilk olağanüstü genel kurulu toplayarak asıl yönetimi seçtirmekle yükümlüdür."
+        "text": "634 Sayılı Kat Mülkiyeti Kanunu m.69 gereğince: Toplu yapılarda geçici yönetim, yapı ruhsatından ilk kat malikleri toplantısına kadar görev yapar ve en geç toplu yapının tamamlanmasından bir yıl sonra sona ermelidir."
       },
       {
         "type": "h2",
@@ -2358,7 +2358,7 @@ export const POSTS: Post[] = [
           "Mimari, Statik, Mekanik ve Elektrik As-Built Projeleri: Binanın uygulanan son revizyonlu mühendislik paftaları.",
           "Yapı Kullanma İzin Belgesi (İskan) ve Sığınak/İtfaiye Raporları: Ortak alanların yasal uygunluk onayları.",
           "Ortak Alan Elektrik, Su ve Doğalgaz Şantiye Aboneliklerinin Tesis Aboneliğine Dönüştürülmesi.",
-          "Müteahhit Firma Garanti Taahhütnameleri: Dış cephe izolasyonu, asansörler, jeneratör ve kazanların 2-5 yıllık garanti belgeleri.",
+          "Müteahhit Firma Garanti Taahhütnameleri: Dış cephe izolasyonu, asansörler, jeneratör ve kazanların garanti belgeleri.",
           "Noter Tasdikli Karar Defteri ve İşletme Defteri: Tüm geçmiş fatura ve makbuz dökümleriyle birlikte teslim.",
           "Ortak Mahaller Anahtar ve Şifre Teslim Tutanağı: Trafo, sığınak, çatı, yangın kontrol odası ve hidrofor dairesi.",
           "Banka Hesap Bakiyeleri ve Toplanan Avansların Devri: Kasa ve banka hesaplarının yeni seçilen kurula aktarımı."
@@ -2382,7 +2382,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat maliklerinin 1/3'ünün yazılı çağrısıyla Olağanüstü Genel Kurul toplanır ve KMK m.29 uyarınca mevcut geçici yönetim azledilerek yeni yönetim kurulu seçilir."
+        "text": "Kat maliklerinin kanuni oranı temsil eden yazılı çağrısıyla Olağanüstü Genel Kurul toplanabilir; KMK uyarınca mevcut geçici yönetim azledilerek yeni yönetim kurulu seçilir."
       },
       {
         "type": "h3",
@@ -2416,11 +2416,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Profesyonel güvenlik yönetimi; fiziksel güvenlik personeli ile ileri teknoloji elektronik sistemleri birleştirerek mülk değerini artırır ve 7/24 huzurlu yaşam alanı sunar.",
+    "tldr": "Profesyonel güvenlik yönetimi; fiziksel güvenlik personeli ile ileri teknoloji elektronik sistemleri birleştirerek mülk değerinin korunmasına katkı sağlar ve 7/24 huzurlu yaşam alanı sunar.",
     "content": [
       {
         "type": "p",
-        "text": "Konut sitelerinde ve ticari plazalarda profesyonel güvenlik yönetimi; yalnızca fiziki insan gücünden ibaret olmayıp, caydırıcı teknoloji altyapısı, standart operasyon prosedürleri (SOP) ve 7/24 denetim ağının kusursuz entegrasyonudur."
+        "text": "Konut sitelerinde ve ticari plazalarda profesyonel güvenlik yönetimi; yalnızca fiziki insan gücünden ibaret olmayıp, caydırıcı teknoloji altyapısı, standart operasyon prosedürleri (SOP) ve 7/24 denetim ağının uyumlu entegrasyonudur."
       },
       {
         "type": "h2",
@@ -2429,10 +2429,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "5188 Lisanslı Fiziki Güvenlik Kadrosu: T.C. İçişleri Bakanlığı onaylı, üniformalı, Alo Güvenlik (guvenlikkursu.com) akreditasyonlu ve adli sicil taramalı uzman personeller.",
-          "Elektronik Güvenlik ve AI Video Analizi: Yüksek çözünürlüklü IP CCTV kameralar, yapay zeka sınır ihlal algoritmaları, plaka tanıma sistemi (PTS) ve parmak izi/yüz tanıma turnikeleri.",
-          "Perimetre (Çevre) Koruma Kalkanı: Duvar üstü jiletli teller, kızılötesi lazer bariyerler, mikrofonik kablo algılayıcıları ve yüksek lümenli LED çevre aydınlatması.",
-          "3G Güvenlik (3gguvenlik.com) Operasyonel Denetimi: 7/24 sahada dolaşan mobil süpervizör ekipleri, anlık telsiz kontrolü ve ani gece tatbikatları."
+          "5188 Lisanslı Fiziki Güvenlik Kadrosu: T.C. İçişleri Bakanlığı kurallarına göre lisanslı, üniformalı, eğitimli ve adli sicil kontrolünden geçmiş personeller.",
+          "Elektronik Güvenlik ve Video Analizi: Yüksek çözünürlüklü IP CCTV kameralar, video analitik, plaka tanıma sistemi (PTS) ve turnikeli geçiş kontrolü.",
+          "Perimetre (Çevre) Koruma: Gerektiğinde çevre algılama sistemleri ve yeterli çevre aydınlatması.",
+          "3G Güvenlik (3gguvenlik.com) Operasyonel Denetimi: Saha denetimi ve süpervizör desteği."
         ]
       },
       {
@@ -2444,8 +2444,8 @@ export const POSTS: Post[] = [
         "items": [
           "Sakin Araçları: PTS kameraları veya RFID etiketler ile beklemesiz otomatik bariyer geçişi.",
           "Misafir ve Kuryeler: Daire sakini interkom veya mobil uygulama üzerinden teyit vermeden yabancı araçların içeri alınmaması.",
-          "Kargo ve Paket Kabulü: Kuryelerin blok aralarında kontrolsüz dolaşımını engelleyen lobi akıllı dolap teslimatı.",
-          "Taşınma ve Nakliye Yönetimi: Çarşamba ve hafta sonu saat kısıtlamalarına uygun kontrollü taşınma protokolü."
+          "Kargo ve Paket Kabulü: Kuryelerin blok aralarında kontrolsüz dolaşımını engelleyen lobide kayıtlı teslimat.",
+          "Taşınma ve Nakliye Yönetimi: Yönetim planındaki gün ve saat kısıtlamalarına uygun kontrollü taşınma protokolü."
         ]
       },
       {
@@ -2466,7 +2466,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, ancak Valilikten Özel Güvenlik İzni (ÖGİ) almak, SGK ve kıdem tazminatı yüklerini taşımak zorundadır. 3G Güvenlik gibi lisanslı bir şirketle çalışmak tüm hukuki ve operasyonel riskleri devreder."
+        "text": "Evet, ancak Valilikten Özel Güvenlik İzni (ÖGİ) almak, SGK ve kıdem tazminatı yüklerini taşımak zorundadır. 3G Güvenlik gibi lisanslı bir şirketle çalışmak işveren yükümlülüklerini şirkete devreder."
       },
       {
         "type": "h3",
@@ -2474,13 +2474,13 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm personelin SGK bildirgeleri, maaş bordroları ve devriye raporları her ay şeffaf biçimde site yönetim kuruluna sunulur."
+        "text": "Tüm personelin SGK bildirgeleri, maaş bordroları ve devriye raporları düzenli olarak şeffaf biçimde site yönetim kuruluna sunulur."
       },
       {
         "type": "cta",
-        "text": "Sitenizin güvenlik açıklarını ücretsiz risk analiziyle tespit edin.",
+        "text": "Sitenizin güvenlik açıklarını risk analiziyle tespit edin.",
         "href": "/teklif-al",
-        "label": "Ücretsiz Güvenlik Keşfi İsteyin"
+        "label": "Güvenlik Keşfi İsteyin"
       }
     ],
     "dateModified": "2026-02-24T19:15:00.000Z"
@@ -2534,7 +2534,7 @@ export const POSTS: Post[] = [
           "Acil Teknik Arızalara Müdahale: Sahada hızlı uzman teknisyen müdahalesi hedeflenir.",
           "Güvenlik ve Lobi Nöbet Sürekliliği: Vardiya doluluğu hedefi ve yedek personel ikamesi.",
           "Aidat Tahsilat Performansı: Düzenli tahsilat ve şeffaf raporlama.",
-          "Sakin Talep Çözüm Süresi: Mobil uygulama üzerinden iletilen taleplere 2 saat içinde ilk geri bildirim."
+          "Sakin Talep Çözüm Süresi: Mobil uygulama üzerinden iletilen taleplere ilk geri bildirim hedeflenir."
         ]
       },
       {
@@ -2555,7 +2555,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Denetim Kurulu veya bağımsız denetçiler, banka hesaplarını ve karar defterlerini 3 ayda bir denetleyerek rapor hazırlar."
+        "text": "Kat Malikleri Denetim Kurulu veya bağımsız denetçiler, banka hesaplarını ve karar defterlerini düzenli aralıklarla denetleyerek rapor hazırlar."
       },
       {
         "type": "cta",
@@ -2569,7 +2569,7 @@ export const POSTS: Post[] = [
   {
     "slug": "temizlik-ve-hijyen-hizmeti-rehberi-2026",
     "title": "Toplu Konut ve Plazalarda Profesyonel Temizlik ve Hijyen Yönetimi Rehberi (2026)",
-    "description": "Sitelerde endüstriyel temizlik standartları: Renk kodlu mikrofiber bezler, zemin cila bakımı, çöp şutu dezenfeksiyonu ve Sağlık Bakanlığı onaylı hijyen protokolleri.",
+    "description": "Sitelerde endüstriyel temizlik standartları: Renk kodlu mikrofiber bezler, zemin cila bakımı, çöp şutu dezenfeksiyonu ve ruhsatlı ürünlerle hijyen protokolleri.",
     "category": "yonetim",
     "tags": [
       "site temizlik yönetimi",
@@ -2583,7 +2583,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:20:00+03:00",
     "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Profesyonel temizlik yönetimi; renk kodlu çapraz bulaşma önleme sistemleri, endüstriyel zemin bakım makineleri ve Sağlık Bakanlığı onaylı kimyasallarla sağlıklı yaşam alanları sunar.",
+    "tldr": "Profesyonel temizlik yönetimi; renk kodlu çapraz bulaşma önleme sistemleri, endüstriyel zemin bakım makineleri ve ruhsatlı kimyasallarla sağlıklı yaşam alanları sunar.",
     "content": [
       {
         "type": "p",
@@ -2625,7 +2625,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm temizlik kadromuzun SGK bildirgeleri, İSG eğitim sertifikaları ve sağlık muayene kartları her ay site yönetimine teslim edilir."
+        "text": "Temizlik kadromuzun SGK bildirgeleri, İSG eğitim sertifikaları ve sağlık muayene kayıtları düzenli olarak site yönetimine sunulur."
       },
       {
         "type": "h3",
@@ -2633,7 +2633,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Hayır, tüm ürünler TSE ve Sağlık Bakanlığı onaylı, biyolojik olarak parçalanabilir çevre dostu formülasyonlardır."
+        "text": "Kullanılan ürünler ilgili mevzuata uygun ruhsatlı ürünlerdir; ürün seçimi sitenin ihtiyaçlarına ve güvenlik bilgi formlarına (SDS) göre yapılır."
       },
       {
         "type": "cta",
@@ -2665,7 +2665,7 @@ export const POSTS: Post[] = [
     "content": [
       {
         "type": "p",
-        "text": "Binaların elektro-mekanik tesisatları, bir canlının dolaşım ve sinir sistemi gibidir. Elektrik trafoları, kompanzasyon panoları, kazan daireleri, hidroforlar, jeneratörler ve asansörler düzenli muayene edilmediğinde ani sistem çökmelerine, yangınlara ve yüz binlerce liralık amortisman kayıplarına yol açar."
+        "text": "Binaların elektro-mekanik tesisatları, bir canlının dolaşım ve sinir sistemi gibidir. Elektrik trafoları, kompanzasyon panoları, kazan daireleri, hidroforlar, jeneratörler ve asansörler düzenli muayene edilmediğinde ani sistem çökmelerine, yangınlara ve yüksek maliyetli amortisman kayıplarına yol açabilir."
       },
       {
         "type": "h2",
@@ -2677,7 +2677,7 @@ export const POSTS: Post[] = [
           "Aylık Rutin Bakımlar: Asansör yetkili servis revizyonları, hidrofor basınç şalterleri, yangın ihbar buton ve duman dedektörü testleri.",
           "3 Aylık Bakımlar: Chiller gaz basınçları, klima santralleri filtre değişimleri, kompanzasyon pano kondansatör ölçümleri.",
           "6 Aylık Bakımlar: Doğalgaz brülör baca gazı emisyon testleri, pis su dalgıç pompa mekanik temizliği, jeneratör akü yük testleri.",
-          "Yıllık Yasal Bakımlar: Trafo yağı izolasyon ve dielektrik testi, paratoner topraklama geçiş direnci ölçümü, A Tipi MMO asansör yeşil etiket muayenesi."
+          "Yıllık Yasal Bakımlar: Trafo yağı izolasyon ve dielektrik testi, paratoner topraklama geçiş direnci ölçümü, A Tipi muayene kuruluşu asansör yeşil etiket muayenesi."
         ]
       },
       {
@@ -2690,7 +2690,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Teknik Servis ve SLA Güvencesi"
+        "text": "3. Acil Teknik Servis ve SLA Güvencesi"
       },
       {
         "type": "p",
@@ -2714,11 +2714,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Mülkiyeti Kanunu uyarınca asansörün yıllık A Tipi muayenesini yaptırmak ve yeşil etiketi almak site yöneticisinin yasal sorumluluğundadır."
+        "text": "Asansör İşletme ve Bakım Yönetmeliği uyarınca asansörün periyodik kontrolünü yaptırmak ve yeşil etiketi almak bina yöneticisinin / asansör işletmecisinin sorumluluğundadır."
       },
       {
         "type": "cta",
-        "text": "Tesisiniz için 7/24 teknik bakım ve mekanik işletme teklifi alın.",
+        "text": "Tesisiniz için teknik bakım ve mekanik işletme teklifi alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Teknik Bakım Teklifi Al"
       }
@@ -2746,7 +2746,7 @@ export const POSTS: Post[] = [
     "content": [
       {
         "type": "p",
-        "text": "Toplu konut projelerinde ve rezidanslarda yeşil alanlar, sakinlerin şehir stresinden uzaklaştığı en değerli ortak yaşam alanlarıdır. Bakımsız, kurumuş çimler veya budanmamış ağaçlar site prestijini düşürürken; ziraat mühendisleri kontrolünde yönetilen peyzaj alanları sitenin gayrimenkul değerinin korunmasına katkı sağlar."
+        "text": "Toplu konut projelerinde ve rezidanslarda yeşil alanlar, sakinlerin şehir stresinden uzaklaştığı en değerli ortak yaşam alanlarıdır. Bakımsız, kurumuş çimler veya budanmamış ağaçlar site prestijini düşürürken; uzman peyzaj ekiplerince yönetilen peyzaj alanları sitenin gayrimenkul değerinin korunmasına katkı sağlar."
       },
       {
         "type": "h2",
@@ -2799,7 +2799,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Siteniz için ziraat mühendisi denetimli peyzaj bakım teklifi alın.",
+        "text": "Siteniz için uzman denetimli peyzaj bakım teklifi alın.",
         "href": "/hizmetler/peyzaj-ve-bahce-bakimi",
         "label": "Peyzaj Hizmetlerimizi İnceleyin"
       }
@@ -2809,7 +2809,7 @@ export const POSTS: Post[] = [
   {
     "slug": "havuz-bakimi-ve-hijyen-hizmeti-rehberi-2026",
     "title": "Sitelerde Yüzme Havuzu Bakımı ve Hijyen Rehberi: Günlük Ölçümler ve Biyosidal Standartlar",
-    "description": "Açık ve kapalı yüzme havuzlarında Sağlık Bakanlığı onaylı hijyen yönetimi: serbest klor, pH dengeleme, çöktürücü, ters yıkama ve mikrobiyolojik testler.",
+    "description": "Açık ve kapalı yüzme havuzlarında mevzuata uygun hijyen yönetimi: serbest klor, pH dengeleme, çöktürücü, ters yıkama ve mikrobiyolojik testler.",
     "category": "teknik",
     "tags": [
       "havuz bakımı",
@@ -2823,24 +2823,24 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:50:00+03:00",
     "image": "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?q=80&w=2070&auto=format&fit=crop",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Yüzme havuzu bakımı; günlük klor ve pH ölçümleri, haftalık filtre ters yıkamaları ve aylık akredite laboratuvar testleri ile halk sağlığını güvenceye alır.",
+    "tldr": "Yüzme havuzu bakımı; düzenli klor ve pH ölçümleri, filtre ters yıkamaları ve mevzuatın öngördüğü laboratuvar testleri ile halk sağlığının korunmasına katkı sağlar.",
     "content": [
       {
         "type": "p",
-        "text": "Sitelerdeki yüzme havuzları, yaz aylarında çocukların ve yetişkinlerin en yoğun sosyalleştiği alanlardır. Ancak yetersiz klorlama veya hatalı pH seviyeleri; mantar, kulak enfeksiyonları, konjonktivit ve ölümcül Lejyoner bakterisi risklerine yol açabilir."
+        "text": "Sitelerdeki yüzme havuzları, yaz aylarında çocukların ve yetişkinlerin en yoğun sosyalleştiği alanlardır. Ancak yetersiz klorlama veya hatalı pH seviyeleri; mantar, kulak enfeksiyonları, konjonktivit ve Lejyoner bakterisi gibi risklere yol açabilir."
       },
       {
         "type": "h2",
-        "text": "1. Günlük Yasal Havuz Parametreleri (Sağlık Bakanlığı Standartları)"
+        "text": "1. Günlük Havuz Parametrelerinin Takibi (Sağlık Bakanlığı Yönetmeliği)"
       },
       {
         "type": "ul",
         "items": [
-          "Serbest Klor (Açık Havuz): 1.0 - 3.0 ppm (mg/lt) aralığında tutulmalıdır.",
-          "Serbest Klor (Kapalı Havuz): 1.0 - 1.5 ppm (mg/lt) aralığında tutulmalıdır.",
-          "pH Değeri: 7.2 - 7.6 ideal aralığında olmalıdır. Yüksek pH klorun mikrop öldürücü gücünü yok eder.",
-          "Siyanürik Asit (Stabilizatör): Açık havuzlarda maksimum 50 ppm seviyesinde tutulmalıdır.",
-          "Bağlı Klor (Kloramin): Maksimum 0.2 ppm olmalıdır; üzeri klor kokusu ve tahriş nedenidir."
+          "Serbest Klor: Yönetmeliğin ek tablosunda verilen aralıkta (açık ve kapalı havuzlar için ayrı değerlerle) tutulmalıdır.",
+          "Serbest klor ölçümleri havuz açıkken düzenli olarak yapılmalı ve kayıt altına alınmalıdır.",
+          "pH Değeri: Yönetmelikte belirtilen aralıkta tutulmalıdır. Yüksek pH klorun mikrop öldürücü gücünü azaltır.",
+          "Siyanürik Asit (Stabilizatör): Açık havuzlarda aşırı birikmemesi için düzenli kontrol edilmelidir.",
+          "Bağlı Klor (Kloramin): Düşük tutulmalıdır; yüksek seviyeler klor kokusu ve tahriş nedenidir."
         ]
       },
       {
@@ -2850,19 +2850,19 @@ export const POSTS: Post[] = [
       {
         "type": "ol",
         "items": [
-          "Kum Filtresi Ters Yıkama (Backwash): Haftada en az 2 kez filtrenin ters çalıştırılarak biriken organik tortunun kanala atılması.",
-          "Durulama (Rinse): Ters yıkama sonrası kum yatağının oturtulması için 1 dakika durulama yapılması.",
-          "Dip Süpürgesi ve Havuz Robotu: Her sabah açılış öncesi tabana çöken partiküllerin otomatik robotlarla temizlenmesi.",
+          "Kum Filtresi Ters Yıkama (Backwash): Basınç farkına göre düzenli olarak filtrenin ters çalıştırılarak biriken organik tortunun kanala atılması.",
+          "Durulama (Rinse): Ters yıkama sonrası kum yatağının oturtulması için kısa süreli durulama yapılması.",
+          "Dip Süpürgesi ve Havuz Robotu: Açılış öncesi tabana çöken partiküllerin, gerekirse otomatik robotlarla temizlenmesi.",
           "Savak Kanalı ve Denge Tankı Temizliği: Savak ızgaralarının dezenfeksiyonu ve denge tankı dip çamurunun tahliyesi."
         ]
       },
       {
         "type": "h2",
-        "text": "3. Akredite Laboratuvar Mikrobiyolojik Testleri"
+        "text": "3. Laboratuvar Mikrobiyolojik Testleri"
       },
       {
         "type": "p",
-        "text": "Ayda bir kez Sağlık Bakanlığı onaylı halk sağlığı laboratuvarlarına numune verilerek E.Coli, Toplam Koliform, Pseudomonas Aeruginosa ve Koloni Sayımı analizleri yaptırılır ve sonuçlar havuz panosuna asılır."
+        "text": "Mevzuatın öngördüğü sıklıkta numune verilerek mikrobiyolojik analizler (E.Coli, toplam koliform, Pseudomonas aeruginosa vb.) yaptırılır ve sonuçlar kayıt altında tutulur."
       },
       {
         "type": "h2",
@@ -2874,7 +2874,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" uyarınca havuz işleten sitelerde sertifikalı havuz operatörü zorunludur."
+        "text": "Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" içindeki sorumlu kişi ve havuz suyu operatörü görevlendirme şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -2882,7 +2882,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Havuz nem alma santrali (dehumidifier) bağıl nemi %50-60 seviyesinde tutmalı ve taze hava beslemesi sağlanmalıdır."
+        "text": "Havuz nem alma santrali (dehumidifier) bağıl nemi uygun aralıkta tutmalı ve taze hava beslemesi sağlanmalıdır."
       },
       {
         "type": "cta",
@@ -2896,7 +2896,7 @@ export const POSTS: Post[] = [
   {
     "slug": "hasere-ve-dezenfeksiyon-hizmeti-rehberi-2026",
     "title": "Toplu Konutlarda Biyosidal Haşere İlaçlama ve Dezenfeksiyon Rehberi (2026)",
-    "description": "Sitelerde periyodik böcek ve kemirgen ilaçlama: Sağlık Bakanlığı onaylı biyosidal ürünler, kokusuz ULV sisleme, jel ilaçlama ve çöp şutu dezenfeksiyonu.",
+    "description": "Sitelerde periyodik böcek ve kemirgen ilaçlama: ruhsatlı biyosidal ürünler, kokusuz ULV sisleme, jel ilaçlama ve çöp şutu dezenfeksiyonu.",
     "category": "teknik",
     "tags": [
       "haşere ilaçlama",
@@ -2935,15 +2935,15 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kullanılan tüm kimyasallar Dünya Sağlık Örgütü (WHO) standartlarında ve Sağlık Bakanlığı Biyosidal Ürün Ruhsatnamesine sahip olmalıdır. İlaçlama sonrası site yönetimine Ek-1 Biyosidal Ürün Uygulama Belgesi teslim edilir."
+        "text": "Kullanılan tüm kimyasallar ilgili mevzuata göre ruhsatlı olmalıdır. İlaçlama sonrası site yönetimine uygulama kaydı/raporu teslim edilir."
       },
       {
         "type": "h2",
-        "text": "3. Çöp Şutu ve Ortak Alan Ozonlama Hijyeni"
+        "text": "3. Çöp Şutu ve Ortak Alan Hijyeni"
       },
       {
         "type": "p",
-        "text": "Toplu konutlarda koku ve bakteri kaynağı olan çöp toplama odaları ve şut boruları yüksek basınçlı sıcak suyla yıkanır ve ozon jeneratörleri ile sterilize edilir."
+        "text": "Toplu konutlarda koku ve bakteri kaynağı olan çöp toplama odaları ve şut boruları yüksek basınçlı sıcak suyla yıkanır ve dezenfekte edilir."
       },
       {
         "type": "h2",
@@ -2955,7 +2955,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi terk etmeye veya eşyaları toplamaya gerek yoktur; ULV sisleme yapılan alanlar ise 2 saat kapalı tutulup havalandırılmalıdır."
+        "text": "Jel ilaçlama uygulamasında evi terk etmeye veya eşyaları toplamaya gerek yoktur; ULV sisleme yapılan alanlar ise ürün talimatına göre kapalı tutulup havalandırılmalıdır."
       },
       {
         "type": "h3",
@@ -2963,7 +2963,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre ilaçlaması ilkbahar-sonbahar dönemlerinde ayda 1, kapalı alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre ilaçlaması sezon dönemlerinde, kapalı alanlar ise düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -2995,7 +2995,7 @@ export const POSTS: Post[] = [
     "content": [
       {
         "type": "p",
-        "text": "Toplu yapı ve site yönetimleri; Kat Mülkiyeti Kanunu, İş Kanunu, Türk Borçlar Kanunu, İcra ve İflas Kanunu ve İSG Kanunu gibi çok sayıda karmaşık mevzuatla iç içedir. Hukuki altyapısı olmadan alınan kararlar, tebliğ edilmemiş bütçeler veya hatalı personel fesihleri site bütçelerine yüz binlerce liralık dava ve tazminat faturaları çıkarır."
+        "text": "Toplu yapı ve site yönetimleri; Kat Mülkiyeti Kanunu, İş Kanunu, Türk Borçlar Kanunu, İcra ve İflas Kanunu ve İSG Kanunu gibi çok sayıda karmaşık mevzuatla iç içedir. Hukuki altyapısı olmadan alınan kararlar, usulüne uygun bildirilmemiş bütçeler veya hatalı personel fesihleri site bütçelerine büyük dava ve tazminat faturaları çıkarabilir."
       },
       {
         "type": "h2",
@@ -3004,8 +3004,8 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Genel Kurul Kararlarının İptali Davaları: Usulüne uygun çağrı yapılmayan toplantı kararları mahkemece iptal edilir.",
-          "İşletme Projesinin İptali ve Aidatların Tahsil Edilememesi: Tebligatsız bütçeler kesinleşmez, açılan icra takipleri düşer.",
+          "Genel Kurul Kararlarının İptali Davaları: Usulüne uygun çağrı yapılmayan toplantı kararları mahkemece iptal edilebilir.",
+          "İşletme Projesinin İptali ve Aidatların Tahsil Edilememesi: Usulüne uygun onaylanıp bildirilmeyen bütçeler tahsilatı zorlaştırır, icra takipleri itirazla karşılaşabilir.",
           "Kapıcı ve Güvenlik Kıdem Tazminatı Davaları: Fazla mesai ve bordro eksiklikleri yüzünden yüklü işçi tazminatları doğar.",
           "Ortak Alan İhlalleri ve Müdahalenin Men'i Davaları: Otopark gaspı, kaçak eklenti ve sığınak işgalleri komşuluk krizine dönüşür."
         ]
@@ -3016,7 +3016,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim bünyesindeki uzman gayrimenkul hukukçuları ve icra departmanımız sitenizi korur:"
+        "text": "Alo Yönetim bünyesindeki uzman gayrimenkul hukukçuları ve icra departmanımız sitenize destek verir:"
       },
       {
         "type": "ol",
@@ -3033,7 +3033,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kapıcı ve temizlik personeli işten ayrılırken ibraname, kıdem/ihbar bordroları ve yıllık izin mutabakatları noter ve arabulucu huzurunda tanzim edilerek sitenin sonradan tazminat davasına maruz kalması engellenir."
+        "text": "Kapıcı ve temizlik personeli işten ayrılırken ibraname, kıdem/ihbar bordroları ve yıllık izin mutabakatları usulüne uygun tanzim edilerek sitenin sonradan tazminat davasına maruz kalma riski azaltılır."
       },
       {
         "type": "h2",
@@ -3041,7 +3041,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Ortak yerlere izinsiz klima motoru takılması, sığınağın depoya dönüştürülmesi veya gürültü ihlallerinde mahkemeden Hakimin Müdahalesi ve eski hale getirme kararı alınır."
+        "text": "Ortak yerlere izinsiz klima motoru takılması, sığınağın depoya dönüştürülmesi veya gürültü ihlallerinde mahkemeden Hakimin Müdahalesi ve eski hale getirme kararı alınabilir."
       },
       {
         "type": "h2",
@@ -3053,7 +3053,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Genel kurul kararına karşı dava açma süresi ne kadardır?\nCevap: Toplantıya katılıp aykırı oy kullananlar için karar tarihinden itibaren 1 ay; toplantıya katılmayanlar için ise kararı öğrendikten itibaren 1 ay (ve her halükarda 6 ay) içinde Sulh Hukuk Mahkemesinde iptal davası açılmalıdır."
+        "text": "Soru: Genel kurul kararına karşı dava açma süresi ne kadardır?\nCevap: Sulh Hukuk Mahkemesinde iptal davası açma süreleri kısadır ve toplantıya katılıp katılmadığınıza ve kararın nasıl bildirildiğine göre değişir (KMK m.33); gecikmeden bir avukata danışın."
       },
       {
         "type": "cta",
@@ -3067,7 +3067,7 @@ export const POSTS: Post[] = [
   {
     "slug": "aidat-gec-odemesi-durumunda-ne-yapilir-2026",
     "title": "Aidat Gecikmesinde Yasal Süreç: KMK m.20 Aylık %5 Gecikme Tazminatı ve İcra Takibi Rehberi",
-    "description": "Ödenmeyen site aidatlarında yöneticinin izleyeceği adımlar: SMS/ihtarname çekilmesi, aylık %5 yasal gecikme tazminatı, ilamsız icra takibi ve kiracı tahliyesi.",
+    "description": "Ödenmeyen site aidatlarında yöneticinin izleyeceği adımlar: SMS/ihtarname çekilmesi, aylık %5 yasal gecikme tazminatı ve ilamsız icra takibi.",
     "category": "yonetim",
     "tags": [
       "aidat gecikme tazminatı",
@@ -3081,7 +3081,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-07T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2011",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "KMK m.20 uyarınca aidatını vadesinde ödemeyen malik veya kiracıya aylık %5 gecikme tazminatı uygulanır; yönetici genel kurul kararına gerek olmaksızın doğrudan icra takibi başlatabilir.",
+    "tldr": "KMK m.20 uyarınca aidatını vadesinde ödemeyen kat malikine aylık %5 gecikme tazminatı uygulanır; yönetici genel kurul kararına gerek olmaksızın doğrudan icra takibi başlatabilir.",
     "content": [
       {
         "type": "p",
@@ -3093,7 +3093,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "634 Sayılı Kanun Madde 20/c bendi uyarınca: \"Gider veya avans payını ödemeyen kat maliki hakkında, diğer kat maliklerinden her biri veya yönetici tarafından, yönetim planına, bu Kanuna ve genel hükümlere göre dava açılabilir, icra takibi yapılabilir. Gider ve avans payının tamamını ödemeyen kat maliki ödemede geciktiği günler için aylık yüzde beş hesabıyla gecikme tazminatı ödemekle yükümlüdür.\""
+        "text": "634 Sayılı Kanun Madde 20 uyarınca gider veya avans payını ödemeyen kat maliki hakkında yönetici ya da diğer kat malikleri tarafından dava açılabilir veya icra takibi yapılabilir; ödemede geciktiği günler için aylık yüzde beş hesabıyla gecikme tazminatı ödenir."
       },
       {
         "type": "h2",
@@ -3114,7 +3114,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız yere icra takibine itiraz etmesi durumunda, İcra Mahkemesi veya Sulh Hukuk Mahkemesi'nde açılan \"İtirazın İptali\" davasında borçlu, asıl alacak ve gecikme tazminatına ek olarak %20 icra inkar tazminatı ve tüm avukatlık vekalet ücretlerini ödemeye mahkum edilir."
+        "text": "Borçlunun haksız yere icra takibine itiraz etmesi durumunda, Sulh Hukuk Mahkemesi'nde açılan \"İtirazın İptali\" davasında borçlu, asıl alacak ve gecikme tazminatına ek olarak %20 icra inkar tazminatı ve tüm avukatlık vekalet ücretlerini ödemeye mahkum edilebilir."
       },
       {
         "type": "h2",
@@ -3126,7 +3126,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 gereğince kat maliki ile kiracı müteselsilen sorumludur. Yönetim icra takibini doğrudan ev sahibine veya kiracıya yöneltebilir."
+        "text": "Evet. Kat maliki asıl borçludur; kiracı da KMK m.22 uyarınca ödemekle yükümlü olduğu kira miktarı kadar müteselsilen sorumludur. Yönetim icra takibini ev sahibine veya kiracıya yöneltebilir."
       },
       {
         "type": "h3",
@@ -3134,7 +3134,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Yargıtay içtihatlarına göre asansör kartının iptali veya suyunun kesilmesi suç teşkil edebilir; tahsilat yalnızca yasal icra yoluyla yapılmalıdır."
+        "text": "Yargıtay içtihatlarına göre asansör kartının iptali veya suyun kesilmesi hukuka aykırı sayılabilir ve sorumluluk doğurabilir; tahsilat yalnızca yasal icra yoluyla yapılmalıdır."
       },
       {
         "type": "cta",
@@ -3162,11 +3162,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Ataşehir bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Ataşehir bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ataşehir, Anadolu Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Ataşehir, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -3175,10 +3175,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "İstanbul Finans Merkezi (İFM) kulelerinde çoklu x-ray ve biyometrik turnike geçişleri",
-          "Batı Ataşehir lüks rezidanslarında çift bariyerli yüksek hızlı Plaka Tanıma Sistemi (PTS)",
-          "Kadıköy merkezli Alo Güvenlik (guvenlikkursu.com) üssünden hızlı nöbetçi personel takviyesi",
-          "3G Güvenlik 7/24 mobil süpervizör araçlarıyla periyodik gece denetimleri ve telsiz koordinasyonu"
+          "Bölgedeki iş merkezi kulelerinde kontrollü turnike geçişi ve ziyaretçi kaydı",
+          "Ataşehir bölgesindeki rezidanslarda Plaka Tanıma Sistemi (PTS) ile hızlı araç geçişi",
+          "Alo Güvenlik (guvenlikkursu.com) bünyesinde yetişen personelle ihtiyaç halinde takviye planı",
+          "3G Güvenlik süpervizör desteğiyle periyodik saha denetimleri"
         ]
       },
       {
@@ -3187,7 +3187,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -3195,7 +3195,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Ataşehir bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Ataşehir bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -3207,7 +3207,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm personel Alo Güvenlik akreditasyonlu, 5188 kimlikli, VIP protokol karşılama ve yabancı dil eğitimine sahip profesyonellerden seçilir."
+        "text": "Tüm personel, 5188 kimlikli, eğitimli profesyonellerden seçilir."
       },
       {
         "type": "h3",
@@ -3215,7 +3215,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Sakin araç plakaları Alo Yönetim mobil yazılımına tanımlanır ve bariyerler 0.3 saniyede otomatik açılarak araç kuyruğunu engeller."
+        "text": "Sakin araç plakaları Alo Yönetim mobil yazılımına tanımlanır ve bariyerler otomatik açılarak araç kuyruğunun azaltılması hedeflenir."
       },
       {
         "type": "cta",
@@ -3245,11 +3245,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Ataşehir bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ataşehir bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Ataşehir bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -3270,7 +3270,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -3282,7 +3282,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -3290,7 +3290,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -3319,11 +3319,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Ataşehir bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ataşehir bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Ataşehir bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -3332,10 +3332,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -3356,7 +3356,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -3364,7 +3364,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -3393,11 +3393,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Ataşehir bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ataşehir bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Ataşehir bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -3407,18 +3407,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -3438,7 +3438,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -3468,11 +3468,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Ataşehir bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ataşehir bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Ataşehir bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -3493,7 +3493,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Ataşehir projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Ataşehir projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -3513,7 +3513,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -3541,7 +3541,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Ataşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Ataşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -3554,10 +3554,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Finans kulelerinde EMO onaylı Yüksek Gerilim (Y.G.) Trafo İşletme Sorumluluğu ve yağ izolasyon testleri",
+          "Yüksek Gerilim (Y.G.) Trafo İşletme Sorumluluğu ve yağ izolasyon testleri",
           "Kompanzasyon panolarının telemetri ile uzaktan izlenerek reaktif elektrik cezası riskinin azaltılması",
           "BMS (Bina Yönetim Sistemi) üzerinden Chiller ve VRF klima santrallerinin çalışma saatlerine göre optimizasyonu",
-          "Dizel jeneratörlerin haftalık otomatik yük transfer testleri ve akü empedans ölçümleri"
+          "Dizel jeneratörlerin periyodik otomatik yük transfer testleri ve akü empedans ölçümleri"
         ]
       },
       {
@@ -3570,11 +3570,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Ataşehir bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Ataşehir bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -3586,7 +3586,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "A Tipi Akredite Muayene Kuruluşu (MMO) yıllık denetimleri öncesinde mühendislerimiz 87 maddelik revizyonu tamamlayarak kesintisiz yeşil etiket sağlar."
+        "text": "A Tipi Akredite Muayene Kuruluşu yıllık denetimleri öncesinde teknik ekiplerimiz asansörlerin ön kontrolünü yaparak yeşil etiket sürecini destekler."
       },
       {
         "type": "h3",
@@ -3594,11 +3594,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, 1 kV ve üzeri elektrik trafosuna sahip tüm ticari plazalarda EMO tescilli elektrik mühendisi bulundurmak yasal zorunluluktur."
+        "text": "Yüksek gerilim tesislerinde mevzuat gereği işletme sorumlusu mühendis görevlendirilmesi gerekebilir; ayrıntılar için güncel kuralları kontrol edin."
       },
       {
         "type": "cta",
-        "text": "Ataşehir'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Ataşehir'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Ataşehir Teknik Servis Teklifi Al"
       }
@@ -3623,11 +3623,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Ataşehir bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ataşehir bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Ataşehir bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -3638,8 +3638,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -3648,7 +3648,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Ataşehir projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Ataşehir projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -3668,7 +3668,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -3697,11 +3697,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Ataşehir bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ataşehir (Anadolu Yakası), İstanbul Finans Merkezi ve Batı Ataşehir kuleleri ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Ataşehir, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konutlar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -3710,9 +3710,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Ataşehir sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Ataşehir sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -3722,7 +3722,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Ataşehir bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Ataşehir bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -3734,7 +3734,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -3742,7 +3742,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Ataşehir'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Ataşehir'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",
@@ -3770,11 +3770,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Bakırköy bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Bakırköy bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Bakırköy, Avrupa Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Bakırköy, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -3783,10 +3783,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Ataköy ve Florya sahil sitelerinde deniz bandı perimetre çiti lazer ışın bariyerleri",
-          "Yeşilköy ve Yeşilyurt villa sitelerinde 3G Güvenlik mobil devriye araçları ile saatlik ring kontrolleri",
-          "Mega sahil konutlarında misafir araçlarının UYAP ve Emniyet asayiş entegrasyonlu dijital kaydı",
-          "Açık yüzme havuzu ve sosyal tesis alanlarında yabancı girişini engelleyen kartlı turnike güvenliği"
+          "Sahil bandındaki sitelerde perimetre çit güvenliği ve çevre algılama sistemleri",
+          "Villa sitelerinde mobil devriye ve periyodik ring kontrolleri",
+          "Mega sahil konutlarında misafir araçlarının dijital kaydı",
+          "Açık yüzme havuzu ve sosyal tesis alanlarında yabancı girişinin kartlı turnike ile kontrolü"
         ]
       },
       {
@@ -3795,7 +3795,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -3803,7 +3803,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Bakırköy bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Bakırköy bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -3815,7 +3815,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Sahil yürüyüş yoluna cepheli sitelerde jiletli tel üzeri darbe algılayıcı sensörler ve gece görüşlü termal IP kameralar kullanılır."
+        "text": "Sahil yürüyüş yoluna cepheli sitelerde çevre algılama sistemleri ve gece görüşlü kameralar kullanılabilir."
       },
       {
         "type": "h3",
@@ -3823,7 +3823,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Devriye personeli RFID kontrol noktalarını saat başı okutur ve veriler anlık olarak yönetim paneline telemetri ile düşer."
+        "text": "Devriye personeli RFID kontrol noktalarını periyodik olarak okutur ve kayıtlar yönetim paneline aktarılır."
       },
       {
         "type": "cta",
@@ -3853,11 +3853,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Bakırköy bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Bakırköy bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Bakırköy bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -3878,7 +3878,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -3890,7 +3890,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -3898,7 +3898,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -3927,11 +3927,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Bakırköy bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Bakırköy bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Bakırköy bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -3940,10 +3940,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -3964,7 +3964,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -3972,7 +3972,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -4001,11 +4001,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Bakırköy bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Bakırköy bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Bakırköy bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -4015,18 +4015,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -4046,7 +4046,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -4076,11 +4076,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Bakırköy bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Bakırköy bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Bakırköy bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -4101,7 +4101,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bakırköy projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Bakırköy projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -4121,7 +4121,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -4149,7 +4149,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Bakırköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Bakırköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -4163,7 +4163,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Marmara Denizi tuz ve nem korozyonuna karşı Chiller serpantinlerinin korozyon önleyici özel kimyasallarla yıkanması",
-          "Sahil binalarında asansör taşıyıcı halatlarının ve raylarının manyetik korozyon tarama testleri",
+          "Sahil binalarında asansör taşıyıcı halatlarının ve raylarının kontrolleri",
           "Paslanmaz çelik su depoları ve hidrofor terfi pompalarının kavitasyon ve salmastra bakımları",
           "Elektrik panolarında tuz buharı ark riskine karşı termal kamera ile klemens sıkılık kontrolleri"
         ]
@@ -4178,11 +4178,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Bakırköy bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Bakırköy bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -4194,7 +4194,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Dış ünite serpantinleri tuz birikiminden dolayı her 3 ayda bir koruyucu kaplama ile yıkanmalıdır."
+        "text": "Dış ünite serpantinleri tuz birikimine göre periyodik olarak koruyucu kaplama ile yıkanmalıdır."
       },
       {
         "type": "h3",
@@ -4202,11 +4202,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Çift flatörlü yedekli dalgıç drenaj pompaları her ay otomatik su basma testine tabi tutulur."
+        "text": "Yedekli dalgıç drenaj pompaları su baskınlarına karşı periyodik olarak test edilir."
       },
       {
         "type": "cta",
-        "text": "Bakırköy'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Bakırköy'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Bakırköy Teknik Servis Teklifi Al"
       }
@@ -4231,11 +4231,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Bakırköy bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Bakırköy bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Bakırköy bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -4246,8 +4246,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -4256,7 +4256,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bakırköy projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Bakırköy projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -4276,7 +4276,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -4305,11 +4305,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Bakırköy bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Bakırköy (Avrupa Yakası), Ataköy sahil bandı ve Florya villaları ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Bakırköy, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki rezidanslar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -4318,9 +4318,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Bakırköy sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Bakırköy sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -4330,7 +4330,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Bakırköy bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Bakırköy bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -4342,7 +4342,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -4350,7 +4350,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bakırköy'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Bakırköy'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",
@@ -4378,11 +4378,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Başakşehir bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Başakşehir bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Başakşehir, Avrupa Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Başakşehir, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -4391,10 +4391,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Kayaşehir ve Bahçeşehir mega sitelerinde 4-5 farklı nizamiye kapısının IP telsiz ağıyla merkezi senkronizasyonu",
-          "Geniş park, gölet ve çocuk oyun alanlarında yaya ve bisikletli özel güvenlik devriyeleri",
-          "Kurye ve nakliye araçlarının girişinde daire sakinine SMS ile tek kullanımlık onay kodu gönderimi",
-          "Kapalı otopark blok altlarında RFID tur kalemi ile 24 saat kesintisiz devriye disiplini"
+          "Mega sitelerde birden fazla nizamiye kapısının merkezi koordinasyonu",
+          "Geniş park, gölet ve çocuk oyun alanlarında yaya özel güvenlik devriyeleri",
+          "Kurye ve nakliye araçlarının girişinde daire sakinine bildirim yapılması",
+          "Kapalı otopark blok altlarında RFID tur kalemi ile devriye takibi"
         ]
       },
       {
@@ -4403,7 +4403,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -4411,7 +4411,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Başakşehir bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Başakşehir bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -4423,15 +4423,15 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Ana komuta merkezinden izlenen 200+ kamera ve çoklu nizamiye ekipleri ile vardiyalı 5188 kadrosu yönetilir."
+        "text": "Ana komuta merkezinden izlenen kameralar ve çoklu nizamiye ekipleri ile vardiyalı 5188 kadrosu yönetilir."
       },
       {
         "type": "h3",
-        "text": "Bahçeşehir'deki sitelerde kargo güvenliği nasıl çözülür?"
+        "text": "Mega sitelerde kargo güvenliği nasıl çözülür?"
       },
       {
         "type": "p",
-        "text": "Lobi akıllı kargo istasyonları ile kuryelerin blok aralarında kontrolsüz dolaşımı sınırlandırılır."
+        "text": "Lobide kayıtlı kargo teslimi ile kuryelerin blok aralarında kontrolsüz dolaşımı sınırlandırılır."
       },
       {
         "type": "cta",
@@ -4461,11 +4461,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Başakşehir bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Başakşehir bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Başakşehir bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -4486,7 +4486,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -4498,7 +4498,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -4506,7 +4506,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -4535,11 +4535,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Başakşehir bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Başakşehir bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Başakşehir bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -4548,10 +4548,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -4572,7 +4572,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -4580,7 +4580,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -4609,11 +4609,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Başakşehir bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Başakşehir bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Başakşehir bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -4623,18 +4623,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -4654,7 +4654,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -4684,11 +4684,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Başakşehir bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Başakşehir bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Başakşehir bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -4709,7 +4709,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Başakşehir projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Başakşehir projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -4729,7 +4729,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -4757,7 +4757,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Başakşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Başakşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -4771,9 +4771,9 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Kaskad doğalgaz kazan dairelerinde baca gazı analizleri ile yakıt verimliliğinin artırılması",
-          "Çevre ve Şehircilik Bakanlığı lisanslı yazılımla adil ve şeffaf merkezi ısı pay ölçer endeks okuması",
-          "Mega sitelerde yüksek hidrofor basma yüksekliği (MSS) kalibrasyonu ile her kata eşit su basıncı",
-          "Merkezi yangın algılama santrallerinde duman damperleri ve basınçlandırma fanlarının haftalık testi"
+          "Adil ve şeffaf merkezi ısı pay ölçer endeks okuması",
+          "Yüksek binalarda hidrofor basınç ayarı ile her kata dengeli su basıncı",
+          "Merkezi yangın algılama santrallerinde duman damperleri ve basınçlandırma fanlarının periyodik testi"
         ]
       },
       {
@@ -4786,11 +4786,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Başakşehir bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Başakşehir bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -4814,7 +4814,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Başakşehir'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Başakşehir'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Başakşehir Teknik Servis Teklifi Al"
       }
@@ -4839,11 +4839,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Başakşehir bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Başakşehir bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Başakşehir bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -4854,8 +4854,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -4864,7 +4864,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Başakşehir projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Başakşehir projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -4884,7 +4884,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -4913,11 +4913,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Başakşehir bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Başakşehir (Avrupa Yakası), Kayaşehir ve Bahçeşehir mega toplu konutları ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Başakşehir, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki rezidanslar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -4926,9 +4926,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Başakşehir sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Başakşehir sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -4938,7 +4938,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Başakşehir bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Başakşehir bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -4950,7 +4950,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -4958,7 +4958,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Başakşehir'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Başakşehir'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",
@@ -4986,11 +4986,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Beşiktaş bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Beşiktaş bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beşiktaş, Avrupa Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Beşiktaş, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -4999,10 +4999,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Levent, Etiler ve Bebek rezidanslarında İngilizce bilen VIP karşılama ve concierge entegre güvenlik",
-          "Biyometrik yüz tanıma ve akıllı kartlı turnikeler ile yetkisiz katlara erişimin engellenmesi",
-          "Konsolosluk ve şirket genel merkezleri çevresinde üst düzey gizlilik ve KVKK uyumlu kamera kaydı",
-          "Vale ve lüks araç kapalı otopark girişlerinde hassas yönlendirme ve park disiplini protokolleri"
+          "Rezidanslarda VIP karşılama ve concierge entegre güvenlik",
+          "Akıllı kartlı turnikeler ile yetkisiz katlara erişimin engellenmesi",
+          "Gizlilik ve KVKK uyumlu kamera kaydı",
+          "Vale ve kapalı otopark girişlerinde yönlendirme ve park disiplini protokolleri"
         ]
       },
       {
@@ -5011,7 +5011,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -5019,7 +5019,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Beşiktaş bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Beşiktaş bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -5031,7 +5031,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Güvenlik VIP koruma, protokol görgüsü, kriz iletişimi ve ileri ilk yardım eğitimli personeller görev alır."
+        "text": "Lisanslı ve eğitimli personeller görev alır."
       },
       {
         "type": "h3",
@@ -5039,7 +5039,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Karekodlu dijital ziyaretçi yazılımı ile kimlik bırakmadan temassız ve KVKK uyumlu geçiş sağlanır."
+        "text": "Dijital ziyaretçi kaydı ile KVKK uyumlu geçiş sağlanır."
       },
       {
         "type": "cta",
@@ -5069,11 +5069,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Beşiktaş bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beşiktaş bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Beşiktaş bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -5094,7 +5094,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -5106,7 +5106,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -5114,7 +5114,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -5143,11 +5143,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Beşiktaş bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beşiktaş bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Beşiktaş bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -5156,10 +5156,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -5180,7 +5180,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -5188,7 +5188,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -5217,11 +5217,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Beşiktaş bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beşiktaş bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Beşiktaş bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -5231,18 +5231,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -5262,7 +5262,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -5292,11 +5292,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Beşiktaş bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beşiktaş bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Beşiktaş bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -5317,7 +5317,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Beşiktaş projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Beşiktaş projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -5337,7 +5337,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -5365,7 +5365,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Beşiktaş bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Beşiktaş bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -5379,9 +5379,9 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "BMS (Bina Otomasyon Sistemi) ile VRF/Chiller iklimlendirme ve taze hava debisi optimizasyonu",
-          "Yüksek hızlı kule asansörlerinde manyetik halat muayenesi ve A Tipi MMO yeşil etiket sürekliliği",
-          "Yangın sprinkler sistemleri ve duman tahliye şaftlarının otomatik senaryo testleri",
-          "Fan-coil ünitelerinde antibakteriyel filtre dezenfeksiyonu ile iç ortam hava kalitesinin korunması"
+          "Yüksek hızlı kule asansörlerinde halat muayenesi ve A Tipi muayene kuruluşu yeşil etiket sürekliliği",
+          "Yangın sprinkler sistemleri ve duman tahliye şaftlarının periyodik senaryo testleri",
+          "Fan-coil ünitelerinde filtre bakımı ve dezenfeksiyonu ile iç ortam hava kalitesinin korunması"
         ]
       },
       {
@@ -5394,11 +5394,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Beşiktaş bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Beşiktaş bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -5410,7 +5410,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Beşiktaş bölgesinde konuşlu teknik ekiplerimiz kritik iklimlendirme arızalarına hızla müdahale etmeyi hedefler."
+        "text": "Beşiktaş bölgesindeki teknik ekiplerimiz kritik iklimlendirme arızalarına hızla müdahale etmeyi hedefler."
       },
       {
         "type": "h3",
@@ -5418,11 +5418,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kule sularına periyodik biyosidal klorlama ve 6 ayda bir akredite laboratuvar numune testleri uygulanır."
+        "text": "Kule sularına periyodik biyosidal klorlama ve laboratuvar numune testleri uygulanır."
       },
       {
         "type": "cta",
-        "text": "Beşiktaş'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Beşiktaş'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Beşiktaş Teknik Servis Teklifi Al"
       }
@@ -5447,11 +5447,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Beşiktaş bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beşiktaş bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Beşiktaş bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -5462,8 +5462,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -5472,7 +5472,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Beşiktaş projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Beşiktaş projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -5492,7 +5492,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -5521,11 +5521,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Beşiktaş bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beşiktaş (Avrupa Yakası), Levent plazaları, Etiler ve Bebek rezidansları ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Beşiktaş, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki rezidanslar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -5534,9 +5534,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Beşiktaş sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Beşiktaş sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -5546,7 +5546,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Beşiktaş bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Beşiktaş bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -5558,7 +5558,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -5566,7 +5566,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Beşiktaş'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Beşiktaş'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",
@@ -5594,11 +5594,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Beylikdüzü bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beylikdüzü, Avrupa Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Beylikdüzü, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -5607,10 +5607,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Yakuplu, Adnan Kahveci ve Beykent sitelerinde kozmopolit sakin yapısına uygun çok dilli güvenlik iletişimi",
-          "Geniş parsel çevre duvarlarında kızılötesi projektörler ve kör nokta bırakmayan IP kamera ağı",
-          "Karekodlu misafir davet sistemi ile nizamiyede beklemesiz hızlı geçiş otomasyonu",
-          "3G Güvenlik mobil araçlarıyla gece otopark ve çevre sokak koordinasyonlu devriye desteği"
+          "Kozmopolit sakin yapısına uygun güvenlik iletişimi",
+          "Geniş parsel çevre duvarları boyunca aydınlatma ve kör nokta bırakmayacak şekilde konumlandırılmış IP kamera ağı",
+          "Misafir davet / ön kayıt sistemi ile nizamiyede beklemesiz hızlı geçiş",
+          "3G Güvenlik desteğiyle gece otopark ve çevre sokak devriye desteği"
         ]
       },
       {
@@ -5619,7 +5619,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -5627,7 +5627,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Beylikdüzü bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Beylikdüzü bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -5639,7 +5639,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "1774 Sayılı Kimlik Bildirme Kanunu'na tam uyumlu biçimde dijital pasaport/kimlik kaydı oluşturulur."
+        "text": "Kimlik bildirme mevzuatına ve KVKK'ya uygun biçimde misafir kaydı oluşturulur."
       },
       {
         "type": "h3",
@@ -5647,7 +5647,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Saat başı RFID tur kontrol noktaları taranır ve şüpheli hareketlerde anlık 3G Güvenlik süpervizörü yönlendirilir."
+        "text": "RFID tur kontrol noktaları periyodik olarak taranır ve şüpheli hareketlerde 3G Güvenlik süpervizörü yönlendirilir."
       },
       {
         "type": "cta",
@@ -5677,11 +5677,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beylikdüzü bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Beylikdüzü bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -5702,7 +5702,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -5714,7 +5714,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -5722,7 +5722,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -5751,11 +5751,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beylikdüzü bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Beylikdüzü bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -5764,10 +5764,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -5788,7 +5788,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -5796,7 +5796,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -5825,11 +5825,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beylikdüzü bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Beylikdüzü bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -5839,18 +5839,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -5870,7 +5870,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -5900,11 +5900,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beylikdüzü bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Beylikdüzü bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -5925,7 +5925,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Beylikdüzü projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Beylikdüzü projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -5945,7 +5945,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -5973,7 +5973,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Beylikdüzü bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -5989,7 +5989,7 @@ export const POSTS: Post[] = [
           "Beylikdüzü'nün yüksek rüzgar ve fırtına şartlarına dayanıklı çatı izolasyonu ve yağmur iniş boruları bakımı",
           "Çift pompalı frekans invertörlü hidrofor sistemleri ile üst katlarda su basıncı dalgalanmalarının önlenmesi",
           "Dış cephe kompozit ve cam panellerinin rüzgar kaynaklı gevşemelerine karşı periyodik mekanik kontrol",
-          "Jeneratör kışlık ısıtıcı ve akü şarj ünitelerinin fırtınalı havalara karşı 7/24 hazır tutulması"
+          "Jeneratör kışlık ısıtıcı ve akü şarj ünitelerinin fırtınalı havalara karşı hazır tutulması"
         ]
       },
       {
@@ -6002,11 +6002,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Beylikdüzü bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Beylikdüzü bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -6030,7 +6030,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Beylikdüzü'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Beylikdüzü'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Beylikdüzü Teknik Servis Teklifi Al"
       }
@@ -6055,11 +6055,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beylikdüzü bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Beylikdüzü bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -6070,8 +6070,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -6080,7 +6080,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Beylikdüzü projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Beylikdüzü projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -6100,7 +6100,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -6129,11 +6129,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Beylikdüzü (Avrupa Yakası), Yakuplu, Adnan Kahveci ve Beykent geniş parsel siteleri ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Beylikdüzü, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki rezidanslar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -6142,9 +6142,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Beylikdüzü sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Beylikdüzü sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -6154,7 +6154,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Beylikdüzü bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Beylikdüzü bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -6166,7 +6166,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -6174,7 +6174,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Beylikdüzü'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Beylikdüzü'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",
@@ -6188,7 +6188,7 @@ export const POSTS: Post[] = [
   {
     "slug": "hukuk-ve-i-cra-danismanligi-hizmeti-rehberi-2026",
     "title": "Site ve Rezidanslarda Hukuk ve İcra Danışmanlığı Hizmeti Rehberi (2026)",
-    "description": "Site yönetimlerinde hukuki risk yönetimi: KMK davaları, genel kurul iptal davaları, İİK 68/b kesinleşmiş işletme projesi icra takipleri ve iş hukuku danışmanlığı.",
+    "description": "Site yönetimlerinde hukuki risk yönetimi: KMK davaları, genel kurul iptal davaları, İİK m.68 kapsamında işletme projesine dayalı icra takipleri ve iş hukuku danışmanlığı.",
     "category": "yonetim",
     "tags": [
       "site hukuk danışmanlığı",
@@ -6215,18 +6215,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İcra ve Tahsilat Takibi: Vadesi geçen aidat ve demirbaş alacaklarının UYAP üzerinden ilamsız veya ilamlı icra takipleriyle tahsili.",
-          "Genel Kurul Divan ve Hukuki Süreç Yönetimi: Çağrı mektupları, vekaletnameler, hazirun cetveli ve karar defterinin KMK m.29-32'ye tam uyumlu tanzimi.",
+          "Genel Kurul Divan ve Hukuki Süreç Yönetimi: Çağrı mektupları, vekaletnameler, hazirun cetveli ve karar defterinin KMK'ya uygun tanzimi.",
           "İş Hukuku ve Personel Sözleşmeleri: Kapıcı, temizlik ve teknik personelin iş sözleşmeleri, fazla mesai, yıllık izin ve kıdem tazminatı ihtilaflarının çözümü.",
           "Yönetim Planı Tadilatı ve Tapu Tescili: KMK m.28 ve m.70 uyarınca (genel yapılarda 4/5, toplu yapılarda 2/3 oy çokluğu ile) yönetim planının güncel mevzuata göre revize edilmesi."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İİK Madde 68/b: İşletme Projesinin İlam Hükmünde Olması"
+        "text": "2. İİK Madde 68: İşletme Projesinin Dayanak Olması"
       },
       {
         "type": "p",
-        "text": "Kesinleşmiş işletme projeleri ve kat malikleri kurulu kararları, İcra ve İflas Kanunu Madde 68/1 anlamında borç ikrarını içeren resmi belge niteliğindedir. Bu sayede itirazlar İcra Hukuk Mahkemesi'nde hızla kaldırılır."
+        "text": "İşletme projeleri ve kat malikleri kurulu kararları, mevzuatın aradığı şartlar sağlandığında İcra ve İflas Kanunu Madde 68 kapsamında itirazların kaldırılmasına dayanak olabilir."
       },
       {
         "type": "h2",
@@ -6238,7 +6238,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toplantıya katılıp muhalif kalanlar 1 ay içinde, toplantıya katılmayanlar ise kararı öğrendikten sonra 1 ay ve her halükarda 6 ay içinde Sulh Hukuk Mahkemesi'nde iptal davası açabilir."
+        "text": "Sulh Hukuk Mahkemesi'nde iptal davası açma süreleri kısadır ve malikin toplantıya katılıp katılmadığına ve kararın nasıl bildirildiğine göre değişir (KMK m.33)."
       },
       {
         "type": "h3",
@@ -6246,7 +6246,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Yönetici kat malikleri kurulunu temsilen tüzel kişilik benzeri yetkiyle doğrudan vekil sıfatıyla icra takibi açabilir."
+        "text": "Yönetici, kat malikleri kurulu adına KMK m.20 çerçevesinde icra takibi açabilir."
       },
       {
         "type": "cta",
@@ -6260,7 +6260,7 @@ export const POSTS: Post[] = [
   {
     "slug": "isletme-projesi-nedir-ve-nasil-hazirlanir-2026",
     "title": "Site İşletme Projesi Nedir ve Nasıl Hazırlanır? KMK m.37 Adım Adım Bütçe Rehberi (2026)",
-    "description": "Apartman ve sitelerde işletme projesi hazırlama rehberi: Tahmini gelir-gider bütçesi, arsa payı hesaplama tablosu, tebligat usulü ve 7 günlük kesinleşme süresi.",
+    "description": "Apartman ve sitelerde işletme projesi hazırlama rehberi: Tahmini gelir-gider bütçesi, arsa payı hesaplama tablosu ve onay usulü.",
     "category": "yonetim",
     "tags": [
       "işletme projesi hazırlama",
@@ -6274,11 +6274,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-07T09:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "İşletme projesi; ana gayrimenkulün 1 yıllık tahmini gelir ve giderlerini gösteren ve KMK m.37 uyarınca her kat malikine tebliğ edilerek kesinleşen yasal bütçe belgesidir.",
+    "tldr": "İşletme projesi; ana gayrimenkulün 1 yıllık tahmini gelir ve giderlerini gösteren ve KMK m.37 uyarınca kat malikleri kurulunca onaylanan (7579 sayılı Kanun'dan itibaren) yasal bütçe belgesidir.",
     "content": [
       {
         "type": "p",
-        "text": "Kat Mülkiyeti Kanunu'na göre yönetilen tüm bina ve sitelerde aidat toplayabilmenin ve yasal takip yapabilmenin birinci şartı usulüne uygun hazırlanmış bir \"İşletme Projesi\"dir. Kat Malikleri Kurulu tarafından kabul edilmiş bir bütçe yoksa, yönetici gecikmeksizin bir işletme projesi hazırlamakla yükümlüdür."
+        "text": "Kat Mülkiyeti Kanunu'na göre yönetilen tüm bina ve sitelerde aidat toplayabilmenin ve yasal takip yapabilmenin birinci şartı usulüne uygun hazırlanmış bir \"İşletme Projesi\"dir. Kat Malikleri Kurulu tarafından kabul edilmiş bir bütçe yoksa, yönetici gecikmeksizin geçici bir işletme projesi hazırlar ve en geç 3 ay içinde kurula onaylatır (7579 sayılı Kanun)."
       },
       {
         "type": "h2",
@@ -6295,15 +6295,15 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "2. İşletme Projesinin Tebliği ve 7 Günlük Kesinleşme Süreci"
+        "text": "2. İşletme Projesinin Onayı ve Bildirimi"
       },
       {
         "type": "ol",
         "items": [
-          "1. Adım: Hazırlanan işletme projesi tüm kat maliklerine veya bağımsız bölümlerinde fiilen oturanlara imza karşılığı veya taahhütlü mektupla tebliğ edilir.",
-          "2. Adım: Tebliğden itibaren 7 gün içinde kat malikleri projeye yazılı olarak itiraz edebilir.",
-          "3. Adım: İtiraz edilmezse işletme projesi KESİNLEŞİR ve İİK m.68/1 uyarınca ilam niteliği kazanır.",
-          "4. Adım: İtiraz edilirse, durum Kat Malikleri Kurulu tarafından incelenir ve kesin karar verilir."
+          "1. Adım: Hazırlanan işletme projesi (veya geçici proje) tüm kat maliklerine bildirilir.",
+          "2. Adım: Proje kat malikleri kurulunda görüşülür; itirazlar ve değişiklik önerileri kurulda değerlendirilir.",
+          "3. Adım: Kurulca onaylanan işletme projesi, mevzuatın aradığı şartlar sağlandığında İİK m.68/1 kapsamında icra takibinde dayanak olabilir.",
+          "4. Adım: Geçici proje en geç 3 ay içinde Kat Malikleri Kurulu tarafından aynen veya değiştirilerek kabul edilmelidir."
         ]
       },
       {
@@ -6316,7 +6316,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tebliğ edilmemiş işletme projesine dayanılarak icra takibi yapıldığında borçlunun itirazı halinde icra durur; bu nedenle tebligat ispatı zorunludur."
+        "text": "Usulüne uygun onaylanıp bildirilmemiş işletme projesine dayanılarak icra takibi yapıldığında borçlu itiraz edebilir ve takip durabilir; bu nedenle onay ve bildirim ispatı önemlidir."
       },
       {
         "type": "h3",
@@ -6324,7 +6324,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Yönetici \"Ek İşletme Projesi (Ek Bütçe)\" hazırlayarak aynı usulle tebliğ eder ve ek aidat/demirbaş avansı toplar."
+        "text": "Yönetici \"Ek İşletme Projesi (Ek Bütçe)\" hazırlayarak aynı usulle kurula sunar ve ek aidat/demirbaş avansı toplar."
       },
       {
         "type": "cta",
@@ -6352,11 +6352,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Kadıköy bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Kadıköy bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kadıköy, Anadolu Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Kadıköy, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -6365,8 +6365,8 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Bağdat Caddesi, Caddebostan ve Suadiye kentsel dönüşüm rezidanslarında VIP lobi & güvenlik entegrasyonu",
-          "Kadıköy merkezli Alo Güvenlik (guvenlikkursu.com) üssümüzden anlık eğitimli personel ve operasyon güvencesi",
+          "Kentsel dönüşüm rezidanslarında VIP lobi ve güvenlik entegrasyonu",
+          "Alo Güvenlik (guvenlikkursu.com) bünyesinde yetişen personelle operasyon desteği",
           "Yeraltı çok katlı otoparklarında asansör kat kilit sistemi ile dairelere yabancı geçişinin durdurulması",
           "Kurye ve teslimat görevlilerinin lobi kargo odasında karşılanarak daire kapılarına çıkışının denetlenmesi"
         ]
@@ -6377,7 +6377,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -6385,7 +6385,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Kadıköy bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Kadıköy bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -6401,11 +6401,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h3",
-        "text": "Bağdat Caddesi'nde güvenlik personeli ne kadar sürede temin edilir?"
+        "text": "Kadıköy'de güvenlik personeli ne kadar sürede temin edilir?"
       },
       {
         "type": "p",
-        "text": "Kadıköy merkezimiz sayesinde acil personel ihtiyaçları hızla sahaya sevk edilir."
+        "text": "Acil personel ihtiyaçları için sahaya yönlendirme planlaması yapılır; süre ihtiyaca ve bölgeye göre değişir."
       },
       {
         "type": "cta",
@@ -6435,11 +6435,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Kadıköy bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kadıköy bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Kadıköy bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -6460,7 +6460,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -6472,7 +6472,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -6480,7 +6480,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -6509,11 +6509,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Kadıköy bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kadıköy bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Kadıköy bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -6522,10 +6522,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -6546,7 +6546,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -6554,7 +6554,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -6583,11 +6583,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Kadıköy bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kadıköy bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Kadıköy bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -6597,18 +6597,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -6628,7 +6628,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -6658,11 +6658,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Kadıköy bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kadıköy bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Kadıköy bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -6683,7 +6683,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kadıköy projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Kadıköy projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -6703,7 +6703,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -6731,7 +6731,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Kadıköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Kadıköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -6744,7 +6744,7 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Kentsel dönüşüm binalarında asansör A Tipi MMO yeşil etiket muayenesine eksiksiz hazırlık",
+          "Kentsel dönüşüm binalarında asansör A Tipi muayene kuruluşu yeşil etiket muayenesine eksiksiz hazırlık",
           "Merkezi su yumuşatma cihazlarında reçine rejenerasyonu ve tuz tankı periyodik kontrolleri",
           "Kapalı otoparklarda Karbonmonoksit (CO) egzoz tahliye jet fanlarının otomatik sensör kalibrasyonu",
           "Güneş enerjisi (GES) ve ısı pompası hibrit sistemlerinin periyodik verimlilik ölçümleri"
@@ -6760,11 +6760,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Kadıköy bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Kadıköy bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -6776,7 +6776,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Şebeke suyunun kirecini kırarak kombi, kazan, boyler ve daire içi armatürlerin ömrünü 3 kat uzatır."
+        "text": "Şebeke suyunun kirecini kırarak kombi, kazan, boyler ve daire içi armatürlerin ömrünün uzamasına yardımcı olur."
       },
       {
         "type": "h3",
@@ -6784,11 +6784,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "CO sensörleri 50 ppm eşik değerini aştığında fanlar otomatik çalışarak zehirli gazı dışarı atar."
+        "text": "CO sensörleri belirlenen eşik değerini aştığında fanlar otomatik çalışarak zehirli gazı dışarı atar."
       },
       {
         "type": "cta",
-        "text": "Kadıköy'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Kadıköy'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Kadıköy Teknik Servis Teklifi Al"
       }
@@ -6813,11 +6813,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Kadıköy bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kadıköy bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Kadıköy bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -6828,8 +6828,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -6838,7 +6838,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kadıköy projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Kadıköy projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -6858,7 +6858,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -6887,11 +6887,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Kadıköy bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kadıköy (Anadolu Yakası), Bağdat Caddesi ve Caddebostan kentsel dönüşüm binaları ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Kadıköy, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konutlar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -6900,9 +6900,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Kadıköy sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Kadıköy sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -6912,7 +6912,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Kadıköy bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Kadıköy bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -6924,7 +6924,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -6932,7 +6932,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kadıköy'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Kadıköy'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",
@@ -6960,11 +6960,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Kartal bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Kartal bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kartal, Anadolu Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Kartal, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -6973,10 +6973,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Kartal sahil kuleleri ve Dragos eteklerinde karma ticari/konut projelerinde ayrıştırılmış güvenlik hatları",
-          "Sahil yolu araç girişlerinde yoğun saatlerde araç birikmesini önleyen yüksek hızlı PTS bariyerleri",
-          "Kapalı otopark, fitness ve açık havuz sosyal tesislerinde parmak izi/kartlı turnike denetimi",
-          "3G Güvenlik 7/24 motorize devriye ekipleriyle geniş parsel çevre çiti ve yangın merdiveni kontrolleri"
+          "Sahil kulelerinde ve karma ticari/konut projelerinde ayrıştırılmış güvenlik hatları",
+          "Sahil yolu araç girişlerinde yoğun saatlerde araç birikmesini önleyen PTS bariyerleri",
+          "Kapalı otopark, fitness ve açık havuz sosyal tesislerinde kartlı turnike denetimi",
+          "3G Güvenlik devriye desteğiyle geniş parsel çevre çiti ve yangın merdiveni kontrolleri"
         ]
       },
       {
@@ -6985,7 +6985,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -6993,7 +6993,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Kartal bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Kartal bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -7005,7 +7005,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alışveriş caddesi müşterilerinin konut katlarına ve otoparkına geçişi kartlı turnikelerle tamamen engellenir."
+        "text": "Alışveriş caddesi müşterilerinin konut katlarına ve otoparkına geçişi kartlı turnikelerle kontrol altına alınır."
       },
       {
         "type": "h3",
@@ -7013,7 +7013,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her 6 ayda bir kat sakinleri ve güvenlik ekipleriyle kontrollü yangın merdiveni tahliye tatbikatı yapılır."
+        "text": "Periyodik olarak kat sakinleri ve güvenlik ekipleriyle kontrollü yangın merdiveni tahliye tatbikatı yapılır."
       },
       {
         "type": "cta",
@@ -7043,11 +7043,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Kartal bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kartal bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Kartal bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -7068,7 +7068,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -7080,7 +7080,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -7088,7 +7088,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -7117,11 +7117,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Kartal bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kartal bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Kartal bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -7130,10 +7130,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -7154,7 +7154,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -7162,7 +7162,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -7191,11 +7191,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Kartal bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kartal bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Kartal bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -7205,18 +7205,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -7236,7 +7236,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -7266,11 +7266,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Kartal bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kartal bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Kartal bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -7291,7 +7291,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kartal projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Kartal projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -7311,7 +7311,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -7339,7 +7339,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Kartal bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Kartal bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -7352,7 +7352,7 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "30+ katlı gökdelenlerde yüksek hızlı dikey taşıma (asansör) fren, halat ve paraşüt sistemleri bakımı",
+          "Yüksek katlı gökdelenlerde yüksek hızlı dikey taşıma (asansör) fren, halat ve paraşüt sistemleri bakımı",
           "Merkezi Chiller iklimlendirme gruplarında frekans konvertörlü enerji tasarruf modülasyonu",
           "Yüksek kat hidrofor hatlarında aşırı basınç patlamalarını önleyen Basınç Düşürücü Vana (PRV) kalibrasyonu",
           "Trafo yüksek gerilim hücresi SF6 gaz basınçları ve kompanzasyon kondansatör kademe testleri"
@@ -7368,11 +7368,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Kartal bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Kartal bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -7384,7 +7384,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Düzenli manyetik korozyon testi ve özel sentetik halat yağlayıcıları kullanılarak sürtünme aşınması önlenir."
+        "text": "Düzenli halat muayenesi ve özel sentetik halat yağlayıcıları kullanılarak sürtünme aşınması önlenir."
       },
       {
         "type": "h3",
@@ -7392,11 +7392,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alt katlara inen 15-20 barlık hidrofor basıncını daireler için güvenli olan 4 bara düşürerek boru patlamalarını engeller."
+        "text": "Alt katlara inen yüksek hidrofor basıncını daireler için güvenli seviyeye düşürerek boru patlamalarının önlenmesine yardımcı olur."
       },
       {
         "type": "cta",
-        "text": "Kartal'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Kartal'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Kartal Teknik Servis Teklifi Al"
       }
@@ -7421,11 +7421,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Kartal bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kartal bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Kartal bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -7436,8 +7436,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -7446,7 +7446,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kartal projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Kartal projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -7466,7 +7466,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -7495,11 +7495,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Kartal bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Kartal (Anadolu Yakası), Kartal sahil kuleleri ve Dragos etekleri ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Kartal, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki rezidanslar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -7508,9 +7508,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Kartal sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Kartal sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -7520,7 +7520,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Kartal bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Kartal bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -7532,7 +7532,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -7540,7 +7540,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kartal'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Kartal'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",
@@ -7568,31 +7568,31 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-07T11:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "KMK m.34-40 uyarınca yönetici, kat malikleri kurulunun vekili hükmündedir. KMK m.40 uyarınca yönetim planında aksi kararlaştırılmadıkça yönetici uygun bir ücret talep etme hakkına sahiptir.",
+    "tldr": "KMK uyarınca yönetici, kat malikleri kurulunun vekili hükmündedir. Yönetim planında aksi kararlaştırılmadıkça yönetici uygun bir ücret talep etme hakkına sahiptir.",
     "content": [
       {
         "type": "p",
-        "text": "634 Sayılı Kat Mülkiyeti Kanunu (KMK) Madde 34 uyarınca, 8 veya daha fazla bağımsız bölüme sahip tüm binalarda yönetici atanması kanunen zorunludur. Yönetici, kat malikleri kurulu tarafından seçilir ve kurulun vekili sıfatıyla ana gayrimenkulü idare eder. Kanun yöneticilere ağır sorumluluklar yüklerken aynı zamanda çok önemli yasal haklar ve yetkiler tanımıştır."
+        "text": "634 Sayılı Kat Mülkiyeti Kanunu (KMK) uyarınca, sekizden fazla bağımsız bölüme sahip tüm binalarda yönetici atanması kanunen zorunludur. Yönetici, kat malikleri kurulu tarafından seçilir ve kurulun vekili sıfatıyla ana gayrimenkulü idare eder. Kanun yöneticilere ağır sorumluluklar yüklerken aynı zamanda çok önemli yasal haklar ve yetkiler tanımıştır."
       },
       {
         "type": "h2",
-        "text": "1. Yöneticinin Hukuki Konumu ve Vekalet İlişkisi (KMK m.38)"
+        "text": "1. Yöneticinin Hukuki Konumu ve Vekalet İlişkisi"
       },
       {
         "type": "p",
-        "text": "Kanunun 38. maddesi açıkça belirtir: \"Yönetici, kat maliklerine karşı aynen bir vekil gibi sorumludur.\" Yönetici kat malikleri kurulu kararlarını yerine getirmek, ortak parayı korumak ve her zaman hesap vermeye hazır olmakla yükümlüdür."
+        "text": "Kanun, yöneticinin kat maliklerine karşı vekil gibi sorumlu olduğunu belirtir. Yönetici kat malikleri kurulu kararlarını yerine getirmek, ortak parayı korumak ve her zaman hesap vermeye hazır olmakla yükümlüdür."
       },
       {
         "type": "h2",
-        "text": "2. Yöneticinin Yasal Hakları (KMK Madde 40)"
+        "text": "2. Yöneticinin Yasal Hakları"
       },
       {
         "type": "ul",
         "items": [
           "Ücret Talep Etme Hakkı: Yönetim planında aksi kararlaştırılmadıkça, yönetici kat maliklerince belirlenen uygun bir yönetim ücreti talep edebilir.",
-          "Gider Payı Muafiyeti: Kat malikleri arasından seçilen yönetici, aksi kararlaştırılmadıkça normal yönetim giderlerinin (aidat) yarısına katılmaz.",
-          "Vekaletname Aranmaksızın Dava Açma Hakkı: KMK m.35 uyarınca yönetici, borcunu ödemeyen maliklere karşı noter vekaletnamesi olmadan doğrudan icra takibi açabilir.",
-          "Haklı Nedenle Görevi Bırakma (İstifa) Hakkı: Yönetici haklı sebeplerle kat malikleri kurulunu olağanüstü toplantıya çağırarak istifa edebilir."
+          "Gider Payı: Yönetici ücreti ve gider payı muafiyeti gibi hususların yönetim planında düzenlenmesi önerilir.",
+          "Vekaletname Aranmaksızın Dava Açma Hakkı: KMK uyarınca yönetici, ortak gider borçlularına karşı doğrudan icra takibi açabilir.",
+          "Haklı Nedenle Görevi Bırakma (İstifa) Hakkı: Haklı sebeplerle görevi bırakmak isteyen yönetici kat malikleri kurulunu toplantıya çağırabilir."
         ]
       },
       {
@@ -7601,7 +7601,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Yönetici; karar defterini notere kapatmamak, işletme bütçesini tebliğ etmemek veya ortak parayı şahsi hesabında kullanmaktan dolayı Türk Ceza Kanunu kapsamında Güveni Kötüye Kullanma suçundan hapis cezası riskiyle karşı karşıya kalabilir."
+        "text": "Yönetici; karar defterini notere onaylatmamak, işletme bütçesini usulüne uygun onaylatıp bildirmemek veya ortak parayı şahsi hesabında kullanmak halinde, somut olaya göre Türk Ceza Kanunu kapsamında güveni kötüye kullanma gibi suçlar gündeme gelebilir."
       },
       {
         "type": "h2",
@@ -7609,7 +7609,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat malikleri kurulu, kendi aralarından bir yönetici seçmek yerine KMK m.34 kapsamında dışarıdan kurumsal bir tesis yönetim şirketini yönetici olarak atayabilir. Bu sayede tüm cezai ve idari riskler kurumsal firmaya devredilmiş olur."
+        "text": "Kat malikleri kurulu, kendi aralarından bir yönetici seçmek yerine KMK m.34 kapsamında dışarıdan kurumsal bir tesis yönetim şirketini yönetici olarak atayabilir. Bu sayede operasyonel ve idari yükümlülükler kurumsal firmaya devredilir; ancak sorumluluk dağılımı sözleşmede açıkça belirlenmelidir."
       },
       {
         "type": "h2",
@@ -7633,7 +7633,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Yöneticilik risklerinizi profesyonel bir yönetim şirketine devredin.",
+        "text": "Yöneticilik sorumluluklarınızı profesyonel bir yönetim şirketiyle paylaşın.",
         "href": "/teklif-al",
         "label": "Profesyonel Yönetim Teklifi Al"
       }
@@ -7657,11 +7657,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Maltepe bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Maltepe bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Maltepe, Anadolu Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Maltepe, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -7670,10 +7670,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Zümrütevler ve Dragos yamaç sitelerinde eğimli çevre duvarları boyunca kızılötesi lazer koruma kalkanı",
-          "Site sakinlerinin aidat durumuyla entegre sosyal tesis ve açık havuz akıllı geçiş turnikeleri",
-          "Alo Güvenlik ve 3G Güvenlik ortak denetim ağıyla haftalık habersiz gece süpervizör baskınları",
-          "Kargo ve paket kabulünde barkodlu güvenlik yazılımı ile daire sakinine anlık teslimat bildirimi"
+          "Eğimli çevre duvarları boyunca çevre algılama sistemleri",
+          "Sosyal tesis ve açık havuz alanlarında kartlı geçiş turnikeleri",
+          "Alo Güvenlik ve 3G Güvenlik ortak denetim ağıyla periyodik gece süpervizör denetimleri",
+          "Kargo ve paket kabulünde kayıt altına alma ve daire sakinine teslimat bildirimi"
         ]
       },
       {
@@ -7682,7 +7682,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -7690,7 +7690,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Maltepe bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Maltepe bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -7702,7 +7702,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Perimetre sensörleri, çevre aydınlatması ve 3G Güvenlik devriye ekipleriyle 24 saat kesintisiz devriye atılır."
+        "text": "Perimetre sensörleri, çevre aydınlatması ve 3G Güvenlik devriye ekipleriyle devriye atılır."
       },
       {
         "type": "h3",
@@ -7710,7 +7710,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Hayır, Alo Güvenlik yedek havuzundan aynı nitelikte personel 2 saat içinde göreve başlar."
+        "text": "Yedek personel planı ile aksama riski azaltılır; devir süreleri sözleşmede belirlenir."
       },
       {
         "type": "cta",
@@ -7740,11 +7740,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Maltepe bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Maltepe bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Maltepe bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -7765,7 +7765,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -7777,7 +7777,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -7785,7 +7785,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -7814,11 +7814,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Maltepe bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Maltepe bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Maltepe bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -7827,10 +7827,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -7851,7 +7851,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -7859,7 +7859,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -7888,11 +7888,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Maltepe bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Maltepe bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Maltepe bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -7902,18 +7902,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -7933,7 +7933,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -7963,11 +7963,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Maltepe bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Maltepe bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Maltepe bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -7988,7 +7988,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Maltepe projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Maltepe projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -8008,7 +8008,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -8036,7 +8036,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Maltepe bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Maltepe bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -8049,9 +8049,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "7/24 nöbetçi acil teknik servis ile hızlı yerinde müdahale taahhüdü",
-          "İçme ve kullanım suyu depolarında yılda 2 kez Sağlık Bakanlığı onaylı ozonlama ve dezenfeksiyon",
-          "Şiddetli yağışlarda kapalı otopark su basmalarını önleyen çift flatörlü foseptik dalgıç pompaları",
+          "Acil teknik servis ile hızlı yerinde müdahale hedefi",
+          "İçme ve kullanım suyu depolarında periyodik temizlik ve dezenfeksiyon",
+          "Şiddetli yağışlarda kapalı otopark su basmalarını önleyen yedekli foseptik dalgıç pompaları",
           "Hidrofor genleşme tankı membran kontrolleri ile koç darbesi ve tesisat patlamalarının önlenmesi"
         ]
       },
@@ -8065,11 +8065,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Maltepe bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Maltepe bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -8081,7 +8081,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Sağlık Bakanlığı yönetmeliği uyarınca en az 6 ayda bir akredite biyosidal ekiplerce temizlenip dezenfekte edilmelidir."
+        "text": "Su depoları ilgili mevzuata uygun şekilde periyodik olarak temizlenip dezenfekte edilmelidir."
       },
       {
         "type": "h3",
@@ -8093,7 +8093,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Maltepe'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Maltepe'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Maltepe Teknik Servis Teklifi Al"
       }
@@ -8118,11 +8118,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Maltepe bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Maltepe bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Maltepe bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -8133,8 +8133,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -8143,7 +8143,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Maltepe projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Maltepe projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -8163,7 +8163,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -8192,11 +8192,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Maltepe bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Maltepe (Anadolu Yakası), Zümrütevler ve Dragos yamaç konut projeleri ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Maltepe, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki rezidanslar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -8205,9 +8205,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Maltepe sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Maltepe sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -8217,7 +8217,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Maltepe bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Maltepe bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -8229,7 +8229,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -8237,7 +8237,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Maltepe'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Maltepe'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",
@@ -8265,11 +8265,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Sarıyer bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Sarıyer bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Sarıyer, Avrupa Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Sarıyer, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -8278,10 +8278,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Zekeriyaköy, Tarabya ve Yeniköy orman kenarı villa sitelerinde termal radar ve fiber optik çevre çiti",
-          "Geniş araziye yayılan sitelerde 3G Güvenlik bünyesindeki ATV motorize devriye ve K9 koruma ekipleri",
-          "Maslak finans ve iş kulelerinde VIP x-ray cihazı, metal kapı dedektörü ve kurumsal resepsiyon",
-          "Site ana giriş nizamiyesinde misafirlerin plakasıyla birlikte araç altı görüntüleme aynası/kamerası kontrolü"
+          "Orman kenarı villa sitelerinde çevre algılama ve termal kamera destekli çevre güvenliği",
+          "Geniş araziye yayılan sitelerde 3G Güvenlik desteğiyle motorize devriye",
+          "İş kulelerinde ziyaretçi kontrol noktaları ve kurumsal resepsiyon",
+          "Site ana giriş nizamiyesinde misafir araç plakası kaydı ve gerektiğinde araç kontrolü"
         ]
       },
       {
@@ -8290,7 +8290,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -8298,7 +8298,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Sarıyer bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Sarıyer bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -8310,15 +8310,15 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Çevre çitine entegre fiber optik algılama kabloları ve termal kameralar ile çite temas anında güvenlik uyarılır."
+        "text": "Çevre çitine entegre algılama sistemleri ve termal kameralar ile çite temas anında güvenlik uyarılabilir."
       },
       {
         "type": "h3",
-        "text": "Maslak plazalarında x-ray operatörleri nasıl eğitilir?"
+        "text": "Plazalarda x-ray operatörleri nasıl eğitilir?"
       },
       {
         "type": "p",
-        "text": "Alo Güvenlik bünyesinde bagaj tarama, şüpheli paket ve tehlikeli madde tespiti simülasyonlarıyla eğitilirler."
+        "text": "İlgili mevzuata uygun eğitim almış operatörler görevlendirilir."
       },
       {
         "type": "cta",
@@ -8348,11 +8348,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Sarıyer bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Sarıyer bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Sarıyer bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -8373,7 +8373,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -8385,7 +8385,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -8393,7 +8393,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -8422,11 +8422,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Sarıyer bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Sarıyer bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Sarıyer bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -8435,10 +8435,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -8459,7 +8459,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -8467,7 +8467,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -8496,11 +8496,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Sarıyer bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Sarıyer bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Sarıyer bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -8510,18 +8510,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -8541,7 +8541,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -8571,11 +8571,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Sarıyer bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Sarıyer bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Sarıyer bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -8596,7 +8596,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Sarıyer projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Sarıyer projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -8616,7 +8616,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -8644,7 +8644,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Sarıyer bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Sarıyer bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -8673,11 +8673,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Sarıyer bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Sarıyer bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -8697,11 +8697,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Şebeke elektriği kesildiğinde 8 saniye içinde jeneratörü otomatik çalıştırıp binayı besler; elektrik geldiğinde devreden çıkar."
+        "text": "Şebeke elektriği kesildiğinde jeneratörü otomatik çalıştırıp binayı besler; elektrik geldiğinde devreden çıkar."
       },
       {
         "type": "cta",
-        "text": "Sarıyer'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Sarıyer'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Sarıyer Teknik Servis Teklifi Al"
       }
@@ -8726,11 +8726,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Sarıyer bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Sarıyer bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Sarıyer bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -8741,8 +8741,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -8751,7 +8751,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Sarıyer projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Sarıyer projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -8771,7 +8771,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -8800,11 +8800,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Sarıyer bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Sarıyer (Avrupa Yakası), Maslak plazaları ve Zekeriyaköy orman villaları ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Sarıyer, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki rezidanslar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -8813,9 +8813,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Sarıyer sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Sarıyer sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -8825,7 +8825,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Sarıyer bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Sarıyer bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -8837,7 +8837,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -8845,7 +8845,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Sarıyer'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Sarıyer'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",
@@ -8873,11 +8873,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Şişli bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Şişli bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Şişli, Avrupa Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Şişli, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -8886,10 +8886,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Mecidiyeköy, Bomonti ve Büyükdere Caddesi kulelerinde yüksek sirkülasyonlu hızlı geçiş turnike güvenliği",
+          "Kulelerde yüksek sirkülasyonlu hızlı geçiş turnike güvenliği",
           "Rezidans ve ofis katlarının otopark katlarında vale koordinasyonu ve araç park düzeni disiplini",
           "Gece ve tatil günlerinde boş ofis katlarının kat bazlı RFID kart kilitleri ve kamera ile korunması",
-          "Yangın ve deprem anında binlerce çalışanın güvenli tahliyesini sağlayan acil durum güvenlik liderliği"
+          "Yangın ve deprem anında güvenli tahliyeyi destekleyen acil durum güvenlik koordinasyonu"
         ]
       },
       {
@@ -8898,7 +8898,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -8906,7 +8906,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Şişli bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Şişli bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -8918,7 +8918,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Lobi katında oluşturulan kargo kabul odasında paketler x-ray'den geçirilerek sakine teslim edilir."
+        "text": "Lobi katında oluşturulan kargo kabul odasında paketler kayıt altına alınarak (gerekirse taramadan geçirilerek) sakine teslim edilir."
       },
       {
         "type": "h3",
@@ -8926,7 +8926,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "QR kodlu mobil davetiye sistemi ile turnikelerden temassız ve beklemesiz geçiş sağlanır."
+        "text": "QR kodlu mobil davetiye sistemi ile turnikelerden temassız ve beklemesiz geçiş sağlanabilir."
       },
       {
         "type": "cta",
@@ -8956,11 +8956,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Şişli bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Şişli bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Şişli bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -8981,7 +8981,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -8993,7 +8993,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -9001,7 +9001,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -9030,11 +9030,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Şişli bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Şişli bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Şişli bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -9043,10 +9043,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -9067,7 +9067,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -9075,7 +9075,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -9104,11 +9104,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Şişli bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Şişli bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Şişli bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -9118,18 +9118,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -9149,7 +9149,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -9179,11 +9179,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Şişli bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Şişli bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Şişli bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -9204,7 +9204,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Şişli projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Şişli projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -9224,7 +9224,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -9252,7 +9252,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Şişli bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Şişli bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -9268,7 +9268,7 @@ export const POSTS: Post[] = [
           "Chiller ve AHU klima santrallerinde frekans invertörleri ve filtre temizlikleriyle enerji verimliliği",
           "Kompanzasyon panosu telemetrisi ile dağıtım şirketi reaktif/kapasitif enerji cezası riskinin azaltılması",
           "Merkezi adresli yangın ihbar santrallerinde duman dedektörleri, damperler ve acil anons testleri",
-          "Fan-coil serpantinlerinin periyodik antibakteriyel kimyasallarla temizlenerek hava kalitesinin artırılması"
+          "Fan-coil serpantinlerinin periyodik temizlik ve dezenfeksiyonu ile hava kalitesinin artırılması"
         ]
       },
       {
@@ -9281,11 +9281,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Şişli bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Şişli bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -9305,11 +9305,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Olası bir duman durumunda itfaiye ve yangın damperleri tetiklenemez; bu nedenle haftalık senaryo testi şarttır."
+        "text": "Olası bir duman durumunda itfaiye ve yangın damperleri tetiklenemez; bu nedenle periyodik senaryo testi şarttır."
       },
       {
         "type": "cta",
-        "text": "Şişli'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Şişli'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Şişli Teknik Servis Teklifi Al"
       }
@@ -9334,11 +9334,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Şişli bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Şişli bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Şişli bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -9349,8 +9349,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -9359,7 +9359,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Şişli projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Şişli projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -9379,7 +9379,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -9408,11 +9408,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Şişli bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Şişli (Avrupa Yakası), Mecidiyeköy ve Bomonti karma ticari kuleleri ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Şişli, Avrupa Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki rezidanslar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -9421,9 +9421,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Şişli sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Şişli sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -9433,7 +9433,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Şişli bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Şişli bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -9445,7 +9445,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -9453,7 +9453,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Şişli'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Şişli'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",
@@ -9480,7 +9480,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-07T11:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2069",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "5188 sayılı Kanun özel güvenlik görevlilerine belirli yasal yetkiler (kimlik sorma, arama, yakalama) tanırken, bu yetkilerin sınırlarının aşılması TCK kapsamında suç teşkil eder.",
+    "tldr": "5188 sayılı Kanun özel güvenlik görevlilerine belirli yasal yetkiler (kimlik sorma, arama, yakalama) tanırken, bu yetkilerin sınırlarının aşılması TCK kapsamında suç teşkil edebilir.",
     "content": [
       {
         "type": "p",
@@ -9495,9 +9495,9 @@ export const POSTS: Post[] = [
         "items": [
           "Kimlik Sorma Yetkisi (5188 m.7/a): Görev alanına girmek isteyen kişilerin kimliklerini sorma, ziyaretçi kayıt defterine veya dijital yazılıma kaydetme.",
           "Detektörle Arama Yetkisi (5188 m.7/b): Kişilerin üstlerini ve eşyalarını X-ray cihazı, kapı dedektörü veya el detektörü ile kontrol etme.",
-          "Zor Kullanma ve Meşru Müdafaa (5188 m.7/c): TCK m.25 ve Borçlar Kanunu kapsamında can ve mal güvenliğini korumak için orantılı güç kullanma.",
-          "Suçüstü Yakalama ve Teslim (5188 m.7/d): Hırsızlık, darp, haneye tecavüz anında faili yakalayarak gecikmeksizin genel kolluğa (Polis/Jandarma) teslim etme.",
-          "Olay Yerini ve Delilleri Koruma (5188 m.7/e): Suç delillerinin bozulmasını veya kaybolmasını engellemek için olay yerini güvenlik şeridiyle koruma altına alma."
+          "Zor Kullanma ve Meşru Müdafaa: TCK m.25 kapsamında can ve mal güvenliğini korumak için orantılı güç kullanma.",
+          "Suçüstü Yakalama ve Teslim: Hırsızlık, darp, haneye tecavüz anında faili yakalayarak gecikmeksizin genel kolluğa (Polis/Jandarma) teslim etme.",
+          "Olay Yerini ve Delilleri Koruma: Suç delillerinin bozulmasını veya kaybolmasını engellemek için olay yerini güvenlik şeridiyle koruma altına alma."
         ]
       },
       {
@@ -9507,10 +9507,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Elle Üst ve Çanta Araması: Hakim veya savcı kararı olmadan genel kolluk gibi elle arama yapamaz.",
+          "Genel Kolluk Yetkilerini Kullanma: Genel kolluğun yetkilerine sahip değildir; arama yetkisi kanunda belirlenen şartlarla sınırlıdır.",
           "İfade Alma ve Gözaltı: Kişileri sorgulayamaz, tutanak dışı ifade alamaz veya nezarethaneye kapatamaz.",
           "Konut Dokunulmazlığı İhlali: Kat malikinin rızası veya mahkeme kararı olmadan daire içine giremez.",
-          "Görev Dışı Çalıştırma Yasağı: Güvenlik görevlisine kapıcılık, çöp toplama, bahçe sulama gibi temizlik işleri yaptırılamaz (5188 m.16)."
+          "Görev Dışı Çalıştırma Yasağı: Güvenlik görevlisine kapıcılık, çöp toplama, bahçe sulama gibi temizlik işleri yaptırılamaz."
         ]
       },
       {
@@ -9519,7 +9519,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Valilik Özel Güvenlik İzni (ÖGİ) almadan lisanssız personel çalıştıran veya personeli görevi dışında kullanan site yöneticileri hakkında 5188 Sayılı Kanun Madde 20 uyarınca ağır idari para cezası ve adli işlem uygulanır."
+        "text": "Valilik Özel Güvenlik İzni (ÖGİ) almadan lisanssız personel çalıştıran veya personeli görevi dışında kullanan site yöneticileri hakkında 5188 Sayılı Kanun uyarınca idari para cezası ve gerektiğinde adli işlem uygulanabilir."
       },
       {
         "type": "h2",
@@ -9531,7 +9531,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Hayır, kimlik belgesini emanet olarak alıkoymak suçtur. Yalnızca kimlik bilgileri kaydedilir ve belge sahibine derhal iade edilir."
+        "text": "Hayır, kimlik belgesini emanet olarak alıkoymak hukuka aykırı olabilir. Yalnızca kimlik bilgileri kaydedilir ve belge sahibine derhal iade edilir."
       },
       {
         "type": "h3",
@@ -9539,7 +9539,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Konut sitelerinde güvenlik kural olarak silahsızdır. Silahlı görevli istihdamı için Valilik İl Özel Güvenlik Komisyonu'ndan özel gerekçeli karar alınması gerekir."
+        "text": "Konut sitelerinde güvenlik genellikle silahsızdır. Silahlı görevli istihdamı için Valilik İl Özel Güvenlik Komisyonu'ndan özel gerekçeli karar alınması gerekir."
       },
       {
         "type": "cta",
@@ -9586,7 +9586,7 @@ export const POSTS: Post[] = [
           "4. Hukuk ve İcra Departmanı Gücü: Aidat alacaklarının gecikmeksizin tahsili için tam zamanlı kat mülkiyeti avukatı kadrosunun bulunması.",
           "5. Referans Proje Büyüklüğü: Benzer ölçekte (500-1000+ konut veya A+ plaza) başarılı yönetim referanslarına sahip olması.",
           "6. Kalite ve Yönetim Sertifikaları: Akredite kuruluşlarca verilmiş güncel ISO 45001 İSG ve ISO 14001 Çevre gibi yönetim sistemi belgelerinin bulunması.",
-          "7. Bağımsız Denetim Açıklığı: Her 3 ayda bir kat malikleri denetçilerine tüm evrak ve ekstrelerin şeffafça sunulması."
+          "7. Bağımsız Denetim Açıklığı: Düzenli aralıklarla kat malikleri denetçilerine tüm evrak ve ekstrelerin şeffafça sunulması."
         ]
       },
       {
@@ -9607,7 +9607,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Sözleşmeler 1 yıllık yapılır; Kat Malikleri Kurulu her yıl yöneticinin ibra durumunu ve performansını oylayarak devam veya fesih kararı alır."
+        "text": "Sözleşmeler çoğunlukla 1 yıllık yapılır; Kat Malikleri Kurulu her yıl yöneticinin ibra durumunu ve performansını oylayarak devam veya fesih kararı alır."
       },
       {
         "type": "h3",
@@ -9615,7 +9615,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim modelinde tüm paralar site adına açılan resmi banka hesabında tutulur; çift imza kuralı ve online banka entegrasyonu ile yöneticinin habersiz para çekmesi engellenir."
+        "text": "Alo Yönetim modelinde tüm paralar site adına açılan resmi banka hesabında tutulur; kat malikleri ve denetçi hesap hareketlerini izleyebilir."
       },
       {
         "type": "cta",
@@ -9643,11 +9643,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Ümraniye bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Ümraniye bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ümraniye, Anadolu Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Ümraniye, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -9656,9 +9656,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şerifali, Çakmak ve İFM komşusu sitelerde akıllı Plaka Tanıma Sistemi (PTS) ve nizamî karşılama",
+          "Sitelerde akıllı Plaka Tanıma Sistemi (PTS) ve nizamiye karşılama",
           "Çocuk parkları, spor sahaları ve peyzaj yürüyüş yollarında periyodik yaya devriye güvenlik turları",
-          "Alo Güvenlik ve 3G Güvenlik Anadolu Yakası lojistik ağı ile 7/24 hazır nöbetçi süpervizör araçları",
+          "Alo Güvenlik ve 3G Güvenlik desteğiyle süpervizör denetimleri",
           "Kapalı otoparklarda yangın çıkış kapıları ve sığınak alanlarının RFID tur kontrol kalemiyle denetimi"
         ]
       },
@@ -9668,7 +9668,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -9676,7 +9676,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Ümraniye bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Ümraniye bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -9684,11 +9684,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h3",
-        "text": "Şerifali bölgesindeki sitelerde güvenlik nasıl organize edilir?"
+        "text": "Ümraniye bölgesindeki sitelerde güvenlik nasıl organize edilir?"
       },
       {
         "type": "p",
-        "text": "Giriş kapılarında 24 saat çift vardiya güvenlik ve çevre kameralarıyla tam entegre koruma sağlanır."
+        "text": "Giriş kapılarında vardiyalı güvenlik ve çevre kameralarıyla entegre koruma sağlanır."
       },
       {
         "type": "h3",
@@ -9726,11 +9726,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Ümraniye bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ümraniye bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Ümraniye bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -9751,7 +9751,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -9763,7 +9763,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -9771,7 +9771,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -9800,11 +9800,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Ümraniye bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ümraniye bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Ümraniye bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -9813,10 +9813,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -9837,7 +9837,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -9845,7 +9845,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -9874,11 +9874,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Ümraniye bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ümraniye bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Ümraniye bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -9888,18 +9888,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -9919,7 +9919,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -9949,11 +9949,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Ümraniye bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ümraniye bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Ümraniye bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -9974,7 +9974,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Ümraniye projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Ümraniye projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -9994,7 +9994,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -10022,7 +10022,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Ümraniye bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Ümraniye bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -10035,8 +10035,8 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Dudullu OSB sanayi tesislerinde ve büyük sitelerde EMO onaylı Y.G. Trafo İşletme Sorumluluğu",
-          "Yangın hidrant hatları ve dizel yangın pompalarının haftalık otomatik debi ve basınç testleri",
+          "Sanayi tesislerinde ve büyük sitelerde Y.G. Trafo İşletme Sorumluluğu",
+          "Yangın hidrant hatları ve dizel yangın pompalarının periyodik otomatik debi ve basınç testleri",
           "Merkezi hidrofor ve ters osmoz (RO) su arıtma sistemlerinde membran filtre değişimleri",
           "Sanayi tesislerinde basınçlı hava hatları ve kompresör periyodik mekanik bakımları"
         ]
@@ -10051,11 +10051,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Ümraniye bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Ümraniye bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -10067,7 +10067,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, 1 kV üzeri trafosu olan tüm sanayi ve toplu konut tesislerinde EMO tescilli elektrik mühendisi zorunludur."
+        "text": "Yüksek gerilim tesislerinde mevzuat gereği işletme sorumlusu mühendis görevlendirilmesi gerekebilir; ayrıntılar için güncel kuralları kontrol edin."
       },
       {
         "type": "h3",
@@ -10075,11 +10075,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Binaların Yangından Korunması Hakkında Yönetmelik uyarınca yılda en az 2 kez debi ve basınç testi yapılmalıdır."
+        "text": "Binaların Yangından Korunması Hakkında Yönetmelik uyarınca yönetmeliğin öngördüğü aralıklarla debi ve basınç testi yapılmalıdır."
       },
       {
         "type": "cta",
-        "text": "Ümraniye'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Ümraniye'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Ümraniye Teknik Servis Teklifi Al"
       }
@@ -10104,11 +10104,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Ümraniye bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ümraniye bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Ümraniye bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -10119,8 +10119,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -10129,7 +10129,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Ümraniye projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Ümraniye projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -10149,7 +10149,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -10178,11 +10178,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Ümraniye bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Ümraniye (Anadolu Yakası), Şerifali, Dudullu ve Finans aksı modern siteleri ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Ümraniye, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki rezidanslar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -10191,9 +10191,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Ümraniye sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Ümraniye sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -10203,7 +10203,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Ümraniye bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Ümraniye bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -10215,7 +10215,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -10223,7 +10223,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Ümraniye'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Ümraniye'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",
@@ -10251,11 +10251,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Üsküdar bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Üsküdar bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Üsküdar, Anadolu Yakası'nın en dinamik ve gayrimenkul değeri en yüksek bölgelerinden biridir. Bölgedeki lüks konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
+        "text": "Üsküdar, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki konut projeleri, iş merkezleri ve geniş parsel siteler; sakinlerine huzurlu, güvenli ve prestijli bir yaşam alanı sunmak için profesyonel özel güvenlik yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -10264,10 +10264,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Çamlıca, Kandilli, Beylerbeyi ve Çengelköy sırtlarındaki korulu sitelerde çevre lazer bariyerleri",
-          "Tarihi dokuya ve koru estetiğine uygun ahşap/kompozit nizamiye kulübelerinde seçkin VIP güvenlik",
+          "Korulu sitelerde çevre algılama sistemleri",
+          "Estetik uyumlu nizamiye kulübelerinde VIP karşılama ve güvenlik",
           "Gece koru içi aydınlatmalı parkurlarda RFID noktalarıyla periyodik olarak taranan devriyeler",
-          "Boğaz sahil yolu bağlantılı dar site girişlerinde trafik sıkışıklığını önleyen akıllı bariyer otomasyonu"
+          "Dar site girişlerinde trafik sıkışıklığının önlenmesine yönelik bariyer otomasyonu"
         ]
       },
       {
@@ -10276,7 +10276,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimizin tamamı Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, kimlik kartlı ve periyodik atış/öfke kontrolü eğitimlidir. Olası tüm risklere karşı 3. Şahıs Mali Mesuliyet Sigortamız devrededir."
+        "text": "Tüm güvenlik operasyonlarımız 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve Valilik Özel Güvenlik İzni (ÖGİ) çerçevesinde yürütülür. Personelimiz 5188 kapsamında lisanslı ve kimlik kartlıdır. Olası risklere karşı sözleşme kapsamında 3. Şahıs Mali Mesuliyet Sigortası teminatı düzenlenir."
       },
       {
         "type": "h2",
@@ -10284,7 +10284,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Grup şirketimiz 3G Güvenlik bünyesindeki 7/24 nöbetçi süpervizör araçları, Üsküdar bölgesindeki tüm nöbet noktalarımızı gece ve gündüz habersiz olarak denetler, personelin kılık-kıyafet, nöbet defteri ve RFID devriye kayıtlarını telemetri ile merkeze raporlar."
+        "text": "Grup şirketimiz 3G Güvenlik süpervizör ekipleri, Üsküdar bölgesindeki nöbet noktalarımızı periyodik olarak sahada denetler; nöbet defteri ve RFID devriye kayıtları raporlanır."
       },
       {
         "type": "h2",
@@ -10300,11 +10300,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h3",
-        "text": "Kandilli villalarında güvenlik personeli seçimi nasıl olur?"
+        "text": "Villa sitelerinde güvenlik personeli seçimi nasıl olur?"
       },
       {
         "type": "p",
-        "text": "Alo Güvenlik VIP koruma ve nezaket kuralları eğitimli, referanslı personeller atanır."
+        "text": "Eğitimli ve referanslı personeller atanır."
       },
       {
         "type": "cta",
@@ -10334,11 +10334,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Üsküdar bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Üsküdar bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Sağlık Bakanlığı lisanslı biyosidal uzmanlarımızla entegre vektör mücadelesi yürütüyoruz."
+        "text": "Üsküdar bölgesindeki toplu konutlarda ve binalarda apartman boşlukları, çöp şutları, sığınaklar ve kapalı otoparklar haşere ve kemirgen üremesi için elverişlidir. Ruhsatlı ürünler ve uzman ekiplerle entegre vektör mücadelesi yürütüyoruz."
       },
       {
         "type": "h2",
@@ -10359,7 +10359,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Her ilaçlama operasyonu sonrasında site yönetimine Sağlık Bakanlığı onaylı Ek-1 Biyosidal Ürün Uygulama Belgesi ve kullanılan ilaçların güvenlik bilgi formları (MSDS) teslim edilir."
+        "text": "Her ilaçlama operasyonu sonrasında site yönetimine uygulama raporu ve kullanılan ürünlerin güvenlik bilgi formları (SDS) teslim edilir."
       },
       {
         "type": "h2",
@@ -10371,7 +10371,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise 2 saat kapalı tutulup havalandırılır."
+        "text": "Jel ilaçlama uygulamasında evi boşaltmaya gerek yoktur; ULV yapılan ortak alanlar ise ürün talimatına göre kapalı tutulup havalandırılır."
       },
       {
         "type": "h3",
@@ -10379,7 +10379,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rögar ve çevre hatları ayda 1, kapalı ortak alanlar ise 3 ayda bir periyodik olarak ilaçlanmalıdır."
+        "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre hatları ile kapalı ortak alanlar düzenli aralıklarla ilaçlanır."
       },
       {
         "type": "cta",
@@ -10408,11 +10408,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Üsküdar bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Üsküdar bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" standartlarında sertifikalı operatörlerimizle 7/24 havuz işletmesi sağlıyoruz."
+        "text": "Üsküdar bölgesindeki sitelerde ve rezidanslarda yüzme havuzları yaz aylarında en çok kullanılan sosyal alandır. Sağlık Bakanlığı \"Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Hakkında Yönetmelik\" doğrultusunda havuz işletmesinde destek sunuyoruz."
       },
       {
         "type": "h2",
@@ -10421,10 +10421,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Günlük Klor ve pH Ölçümleri: Açık havuzlarda 1.0-3.0 ppm, kapalı havuzlarda 1.0-1.5 ppm serbest klor ve 7.2-7.6 pH dengesi.",
-          "Haftalık Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
-          "Otomatik Havuz Robotu Dip Süpürme: Her sabah açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
-          "Aylık Akredite Laboratuvar Analizleri: Sağlık Bakanlığı onaylı laboratuvardan mikrobiyolojik test raporunun panoya asılması."
+          "Günlük Klor ve pH Ölçümleri: Serbest klor ve pH dengesinin yönetmelikte belirlenen aralıklarda tutulması.",
+          "Düzenli Kum Filtresi Ters Yıkama: Filtrede biriken organik partiküllerin tahliyesi ve denge tankı taban temizliği.",
+          "Otomatik Havuz Robotu Dip Süpürme: Açılış öncesi tabana çöken mikro tozların robotlarla vakumlanması.",
+          "Laboratuvar Analizleri: Mevzuatın öngördüğü sıklıkta numune verilip mikrobiyolojik test raporlarının kayıt altında tutulması."
         ]
       },
       {
@@ -10445,7 +10445,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, Sağlık Bakanlığı mevzuatı gereğince sertifikalı havuz suyu operatörü bulundurmak yasal zorunluluktur."
+        "text": "Sağlık Bakanlığı mevzuatındaki sorumlu kişi ve havuz suyu operatörü şartlarına uyulmalıdır; ayrıntılar için il sağlık müdürlüğüne danışın."
       },
       {
         "type": "h3",
@@ -10453,7 +10453,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi 24 saatte düzeltilir."
+        "text": "Bağlı klor (kloramin) birikiminden kaynaklanır; şok klorlama yapılarak su dengesi düzeltilir."
       },
       {
         "type": "cta",
@@ -10482,11 +10482,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Üsküdar bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Üsküdar bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği sunuyoruz."
+        "text": "Üsküdar bölgesindeki sitelerde aidat tahsilat disiplini sağlamak ve genel kurulların yasal geçerliliğini korumak için kat mülkiyeti hukukunda uzman avukat kadromuzla tam kapsamlı hukuk müşavirliği desteği sunuyoruz."
       },
       {
         "type": "h2",
@@ -10496,18 +10496,18 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Hızlı İcra Takibi: Vadesi geçen aidat borçlularına UYAP üzerinden ilamsız icra takibi ve KMK m.20 aylık %5 gecikme tazminatı işletilmesi.",
-          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mahkemelerde iptal edilmeyecek kesinlikte hazırlanması.",
+          "Genel Kurul Divan Yönetimi: Çağrı, hazirun ve karar tutanaklarının mevzuata uygun şekilde hazırlanması.",
           "Yönetim Planı Güncellemesi: KMK m.28 ve m.70 uyarınca sitenin güncel ihtiyaçlarına göre (genel yapılarda 4/5, toplu yapılarda 2/3 çoğunlukla) tescili.",
           "Personel İhtilafları: Kapıcı ve güvenlik kıdem tazminatı, fazla mesai davalarında iş hukuku savunması."
         ]
       },
       {
         "type": "h2",
-        "text": "2. İcra İnkar Tazminatı ve Masrafsız Tahsilat Modeli"
+        "text": "2. İcra İnkar Tazminatı ve Tahsilat Modeli"
       },
       {
         "type": "p",
-        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilerek site bütçesi korunur."
+        "text": "Borçlunun haksız itirazlarında açılan itirazın iptali davalarında %20 icra inkar tazminatı ve tüm yargılama giderleri borçluya yükletilebilir; bu da site bütçesinin korunmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -10527,7 +10527,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, KMK m.20 uyarınca kat maliki ve kiracı müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
+        "text": "Kat maliki asıl borçludur, kiracı da KMK m.22 uyarınca kira miktarı kadar müteselsilen sorumludur; icra takibi doğrudan ev sahibine yöneltilebilir."
       },
       {
         "type": "cta",
@@ -10557,11 +10557,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Üsküdar bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Üsküdar bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesini ve mülk değerini doğrudan artıran en değerli alanlardır. Ziraat mühendislerimiz kontrolünde 4 mevsim profesyonel bahçe bakımı sunuyoruz."
+        "text": "Üsküdar bölgesindeki sitelerin yeşil alanları, çocuk oyun parkları ve peyzaj alanları; sakinlerin yaşam kalitesine ve mülk değerine katkı sağlayan önemli alanlardır. Uzman peyzaj ekiplerimizle 4 mevsim profesyonel bahçe bakımı sunuyoruz."
       },
       {
         "type": "h2",
@@ -10582,7 +10582,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Üsküdar projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla yalnızca Tarım ve Orman Bakanlığı onaylı çevre dostu organik ve biyolojik ilaçlar kullanılır."
+        "text": "Üsküdar projelerimizde çocukların ve evcil hayvanların sağlığını korumak amacıyla ruhsatlı ürünler tercih edilir ve çevre dostu organik ve biyolojik çözümler uygulanır."
       },
       {
         "type": "h2",
@@ -10602,7 +10602,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Mobil dal öğütme makinelerimizle talaşa dönüştürülüp kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
+        "text": "Budanan dallar öğütülerek kompost olarak kullanılır veya belediye izinli alanlara nakledilir."
       },
       {
         "type": "cta",
@@ -10630,7 +10630,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Üsküdar bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Üsküdar bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -10659,11 +10659,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "3. 7/24 Nöbetçi Acil Müdahale Taahhüdü"
+        "text": "3. Acil Müdahale Hedefi"
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Üsküdar bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Üsküdar bölgesindeki teknik servis ekiplerimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -10675,7 +10675,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Yağmur mevsimi öncesinde ve her ay düzenli olarak seviye flatörleri ve elektrik panoları test edilir."
+        "text": "Yağmur mevsimi öncesinde ve düzenli aralıklarla seviye flatörleri ve elektrik panoları test edilir."
       },
       {
         "type": "h3",
@@ -10687,7 +10687,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Üsküdar'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
+        "text": "Üsküdar'deki tesisiniz için teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Üsküdar Teknik Servis Teklifi Al"
       }
@@ -10712,11 +10712,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Üsküdar bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Üsküdar bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla kusursuz hijyen sağlıyoruz."
+        "text": "Üsküdar bölgesindeki prestijli toplu konut siteleri, rezidanslar ve iş merkezlerinde temizlik; sakin sağlığını ve bina prestijini koruyan en temel unsurdur. Endüstriyel zemin makineleri ve eğitimli kadrolarımızla yüksek hijyen standartlarını hedefliyoruz."
       },
       {
         "type": "h2",
@@ -10727,8 +10727,8 @@ export const POSTS: Post[] = [
         "items": [
           "Renk Kodlu Mikrofiber Sistemi: Çapraz bulaşmayı önleyen 4 renkli bez ve mop yönetimi.",
           "Kapalı Otopark Zemin Otomatı: Otoparklardaki yağ ve lastik izlerini temizleyen yüksek vakumlu zemin yıkama.",
-          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının antiviral solüsyonlarla silinmesi.",
-          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su ve ozonlama uygulaması."
+          "Asansör ve Lobi Dezenfeksiyonu: Gün boyu yoğun temas edilen buton ve kapı kollarının dezenfektan solüsyonlarla silinmesi.",
+          "Çöp Şutu ve Toplama Odası Hijyeni: Koku ve bakteri oluşumunu engelleyen basınçlı sıcak su uygulaması."
         ]
       },
       {
@@ -10737,7 +10737,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Üsküdar projelerimizde görev yapan tüm temizlik personellerimiz İSG eğitimli, periyodik sağlık taramalı ve kadrolu çalışanlarımızdır. Süpervizörlerimiz haftalık hijyen puanlama testleri uygular."
+        "text": "Üsküdar projelerimizde görev yapan temizlik personellerimiz İSG eğitimli ve kayıtlı çalışanlarımızdır; süpervizörlerimiz düzenli kontrollerle hijyen kalitesini takip eder."
       },
       {
         "type": "h2",
@@ -10757,7 +10757,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Evet, tüm temizlik ve dezenfeksiyon ürünlerimiz TSE ve Sağlık Bakanlığı onaylıdır."
+        "text": "Kullanılan temizlik ve dezenfeksiyon ürünleri ilgili mevzuata uygun ruhsatlı ürünlerdir."
       },
       {
         "type": "cta",
@@ -10786,11 +10786,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Üsküdar bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "content": [
       {
         "type": "p",
-        "text": "Üsküdar (Anadolu Yakası), Çamlıca ve Kandilli tarihi korulu siteleri ile İstanbul'un en yüksek gayrimenkul değerine sahip yerleşimlerindendir. Bölgedeki lüks konutlar, plazalar ve siteler; sakinlerine huzurlu, şeffaf ve değer kazandıran bir yaşam alanı sunmak için entegre tesis yönetimi hizmetimize güvenmektedir."
+        "text": "Üsküdar, Anadolu Yakası'nın önemli yerleşim bölgelerinden biridir. Bölgedeki rezidanslar, plazalar ve siteler; sakinlerine huzurlu ve şeffaf bir yaşam alanı sunmak için entegre tesis yönetimine ihtiyaç duyar."
       },
       {
         "type": "h2",
@@ -10799,9 +10799,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Şeffaf Mali Yönetim: Üsküdar sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
-          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
+          "Şeffaf Mali Yönetim: Üsküdar sakinlerinin mobil uygulama üzerinden banka hesaplarını ve faturaları izleyebildiği şeffaf mali yapı.",
+          "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile koordineli güvenlik yönetimi.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil müdahale hedefi.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -10811,7 +10811,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim olarak Üsküdar bölgesinde konuşlu mobil süpervizör araçlarımız, kadrolu teknik personelimiz ve kurumsal temizlik filomuz ile dışarıdan aracısız, doğrudan birinci elden en yüksek kalitede hizmet sunuyoruz."
+        "text": "Alo Yönetim olarak Üsküdar bölgesine kendi teknik, temizlik ve güvenlik ekiplerimizle doğrudan hizmet sunmayı hedefliyoruz."
       },
       {
         "type": "h2",
@@ -10823,7 +10823,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar 15 gün içinde resmi tutanakla devralınır."
+        "text": "Kat Malikleri Kurulu kararı sonrasında tüm karar defterleri, banka hesapları ve teknik cihazlar resmi tutanakla devralınır."
       },
       {
         "type": "h3",
@@ -10831,7 +10831,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Üsküdar'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması asla kendi hesabına aidat alamaz."
+        "text": "Üsküdar'deki siteniz adına açılan bağımsız banka hesabında toplanır; yönetim firması aidatları kendi hesabında toplamaz."
       },
       {
         "type": "cta",

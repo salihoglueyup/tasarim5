@@ -177,7 +177,7 @@ export const POSTS_META: PostMeta[] = [
   },
   {
     "slug": "tesis-yonetim-plani-nasil-hazirlanir-adim-adim-rehber",
-    "title": "Tesis Yönetim Planı Nasıl Hazırlanir? Adım Adım İşletme ve Bütçe Planlama Rehberi",
+    "title": "Tesis Yönetim Planı Nasıl Hazırlanır? Adım Adım İşletme ve Bütçe Planlama Rehberi",
     "description": "Kat Mülkiyeti Kanunu Madde 28 uyarınca tüm kat maliklerini bağlayan sözleşme hükmündeki Tesis Yönetim Planı hazırlama, ortak alan kuralları ve işletme projesi rehberi.",
     "category": "tesis-yonetimi",
     "tags": [
@@ -294,7 +294,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "5188-ozel-guvenlik-gorevlisi-egitimi-ve-kimlik-yenileme-rehberi-2026",
     "title": "5188 Sayılı Özel Güvenlik Görevlisi Eğitimi ve Kimlik Yenileme Rehberi (2026)",
-    "description": "5188 sayılı kanun kapsamında silahlı ve silahsız özel güvenlik eğitimi, 5 yılda bir kimlik kartı yenileme sınavı, sağlık raporu şartları ve kariyer fırsatları.",
+    "description": "5188 sayılı kanun kapsamında silahlı ve silahsız özel güvenlik eğitimi, 5 yılda bir kimlik kartı yenileme, sağlık raporu şartları ve kariyer fırsatları.",
     "category": "guvenlik",
     "tags": [
       "özel güvenlik eğitimi",
@@ -309,7 +309,7 @@ export const POSTS_META: PostMeta[] = [
     "dateModified": "2026-02-24T18:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1582139329536-e7284fece509?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "5188 sayılı Kanun kapsamında özel güvenlik görevlisi olmak veya 5 yılda bir kimlik kartını yenilemek için Emniyet Genel Müdürlüğü denetiminde yetkili kurumlardan eğitim almak ve ÖGG sınavını başarıyla geçmek şarttır."
+    "tldr": "5188 sayılı Kanun kapsamında özel güvenlik görevlisi olmak veya 5 yılda bir kimlik kartını yenilemek için Emniyet Genel Müdürlüğü denetiminde yetkili kurumlardan eğitim almak ve gerekli sınavlarda başarılı olmak şarttır."
   },
   {
     "slug": "sitelerde-5188-lisansli-ozel-guvenlik-sirketi-secim-kriterleri",
@@ -372,7 +372,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "ozel-guvenlik-sirketi-ve-site-guvenlik-yonetimi-2026",
     "title": "Özel Güvenlik Şirketi ve Entegre Site Güvenlik Yönetimi: Nizamiye, Kamera ve Devriye Rehberi",
-    "description": "Sitelerde 7/24 entegre güvenlik operasyonu: nizamiyede kimlik kontrolü, AI plaka tanıma, çevre güvenlik kameraları ve acil durum müdahale protokolleri.",
+    "description": "Sitelerde 7/24 entegre güvenlik operasyonu: nizamiyede kimlik kontrolü, plaka tanıma, çevre güvenlik kameraları ve acil durum müdahale protokolleri.",
     "category": "guvenlik",
     "tags": [
       "site güvenlik yönetimi",
@@ -386,7 +386,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Entegre site güvenliği; eğitimli 5188 personeli, AI destekli çevre güvenlik kameraları, akıllı plaka tanıma bariyerleri ve 7/24 operasyon merkezi takibi ile kusursuz bir kalkan oluşturur.",
+    "tldr": "Entegre site güvenliği; eğitimli 5188 personeli, çevre güvenlik kameraları, akıllı plaka tanıma bariyerleri ve 7/24 operasyon merkezi takibi ile sağlam bir koruma oluşturur.",
     "dateModified": "2026-02-24T18:00:00.000Z"
   },
   {
@@ -448,7 +448,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-03-28T10:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "6306 sayılı Kanun ile kentsel dönüşümde karar çoğunluğu salt çoğunluğa (yarıdan bir fazla) indirilmiştir. Riskli yapı tespiti, bakanlık lisanslı kuruluşlarca yapılır ve kesinleştiğinde 60+30 günlük tahliye süreci başlar.",
+    "tldr": "7471 sayılı Kanun ile 6306 sayılı Kanun kapsamındaki kentsel dönüşümde karar çoğunluğu salt çoğunluğa (yarıdan bir fazla) indirilmiştir. Riskli yapı tespiti, lisanslı kuruluşlarca yapılır ve kesinleştiğinde 60+30 günlük tahliye süreci başlar.",
     "dateModified": "2026-02-24T14:00:00.000Z"
   },
   {
@@ -494,7 +494,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "site-yonetimine-gecis-rehberi",
     "title": "Müteahhitten Site Yönetimine Geçiş: Geçici Yönetim Devir Teslimi ve Genel Kurul Rehberi",
-    "description": "İnşaatı tamamlanan yeni sitelerde müteahhit geçici yönetiminden kat malikleri yönetimine geçiş süreci: KMK Ek Madde 69, devir teslim tutanakları ve işletme projesi.",
+    "description": "İnşaatı tamamlanan yeni sitelerde müteahhit geçici yönetiminden kat malikleri yönetimine geçiş süreci: KMK m.69, devir teslim tutanakları ve işletme projesi.",
     "category": "yonetim",
     "tags": [
       "müteahhitten devir teslim",
@@ -509,7 +509,7 @@ export const POSTS_META: PostMeta[] = [
     "dateModified": "2026-02-24T20:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "İskan alan yeni projelerde müteahhidin atadığı geçici yönetim en geç bağımsız bölümlerin üçte ikisinin fiilen tesliminden itibaren 1 yıl içinde ilk Kat Malikleri Genel Kurulunu toplayarak yönetimi devretmek zorundadır."
+    "tldr": "İskan alan yeni projelerde müteahhidin atadığı geçici yönetim, KMK m.69 ve yönetim planı çerçevesinde ilk Kat Malikleri Genel Kurulunu toplayarak yönetimi devretmek zorundadır."
   },
   {
     "slug": "guvenlik-yonetimi-hizmeti-rehberi-2026",
@@ -527,7 +527,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Profesyonel güvenlik yönetimi; fiziksel güvenlik personeli ile ileri teknoloji elektronik sistemleri birleştirerek mülk değerini artırır ve 7/24 huzurlu yaşam alanı sunar.",
+    "tldr": "Profesyonel güvenlik yönetimi; fiziksel güvenlik personeli ile ileri teknoloji elektronik sistemleri birleştirerek mülk değerinin korunmasına katkı sağlar ve 7/24 huzurlu yaşam alanı sunar.",
     "dateModified": "2026-02-24T19:15:00.000Z"
   },
   {
@@ -553,7 +553,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "temizlik-ve-hijyen-hizmeti-rehberi-2026",
     "title": "Toplu Konut ve Plazalarda Profesyonel Temizlik ve Hijyen Yönetimi Rehberi (2026)",
-    "description": "Sitelerde endüstriyel temizlik standartları: Renk kodlu mikrofiber bezler, zemin cila bakımı, çöp şutu dezenfeksiyonu ve Sağlık Bakanlığı onaylı hijyen protokolleri.",
+    "description": "Sitelerde endüstriyel temizlik standartları: Renk kodlu mikrofiber bezler, zemin cila bakımı, çöp şutu dezenfeksiyonu ve ruhsatlı ürünlerle hijyen protokolleri.",
     "category": "yonetim",
     "tags": [
       "site temizlik yönetimi",
@@ -567,7 +567,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:20:00+03:00",
     "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Profesyonel temizlik yönetimi; renk kodlu çapraz bulaşma önleme sistemleri, endüstriyel zemin bakım makineleri ve Sağlık Bakanlığı onaylı kimyasallarla sağlıklı yaşam alanları sunar.",
+    "tldr": "Profesyonel temizlik yönetimi; renk kodlu çapraz bulaşma önleme sistemleri, endüstriyel zemin bakım makineleri ve ruhsatlı kimyasallarla sağlıklı yaşam alanları sunar.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -613,7 +613,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "havuz-bakimi-ve-hijyen-hizmeti-rehberi-2026",
     "title": "Sitelerde Yüzme Havuzu Bakımı ve Hijyen Rehberi: Günlük Ölçümler ve Biyosidal Standartlar",
-    "description": "Açık ve kapalı yüzme havuzlarında Sağlık Bakanlığı onaylı hijyen yönetimi: serbest klor, pH dengeleme, çöktürücü, ters yıkama ve mikrobiyolojik testler.",
+    "description": "Açık ve kapalı yüzme havuzlarında mevzuata uygun hijyen yönetimi: serbest klor, pH dengeleme, çöktürücü, ters yıkama ve mikrobiyolojik testler.",
     "category": "teknik",
     "tags": [
       "havuz bakımı",
@@ -627,13 +627,13 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:50:00+03:00",
     "image": "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?q=80&w=2070&auto=format&fit=crop",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Yüzme havuzu bakımı; günlük klor ve pH ölçümleri, haftalık filtre ters yıkamaları ve aylık akredite laboratuvar testleri ile halk sağlığını güvenceye alır.",
+    "tldr": "Yüzme havuzu bakımı; düzenli klor ve pH ölçümleri, filtre ters yıkamaları ve mevzuatın öngördüğü laboratuvar testleri ile halk sağlığının korunmasına katkı sağlar.",
     "dateModified": "2026-02-24T19:15:00.000Z"
   },
   {
     "slug": "hasere-ve-dezenfeksiyon-hizmeti-rehberi-2026",
     "title": "Toplu Konutlarda Biyosidal Haşere İlaçlama ve Dezenfeksiyon Rehberi (2026)",
-    "description": "Sitelerde periyodik böcek ve kemirgen ilaçlama: Sağlık Bakanlığı onaylı biyosidal ürünler, kokusuz ULV sisleme, jel ilaçlama ve çöp şutu dezenfeksiyonu.",
+    "description": "Sitelerde periyodik böcek ve kemirgen ilaçlama: ruhsatlı biyosidal ürünler, kokusuz ULV sisleme, jel ilaçlama ve çöp şutu dezenfeksiyonu.",
     "category": "teknik",
     "tags": [
       "haşere ilaçlama",
@@ -673,7 +673,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "aidat-gec-odemesi-durumunda-ne-yapilir-2026",
     "title": "Aidat Gecikmesinde Yasal Süreç: KMK m.20 Aylık %5 Gecikme Tazminatı ve İcra Takibi Rehberi",
-    "description": "Ödenmeyen site aidatlarında yöneticinin izleyeceği adımlar: SMS/ihtarname çekilmesi, aylık %5 yasal gecikme tazminatı, ilamsız icra takibi ve kiracı tahliyesi.",
+    "description": "Ödenmeyen site aidatlarında yöneticinin izleyeceği adımlar: SMS/ihtarname çekilmesi, aylık %5 yasal gecikme tazminatı ve ilamsız icra takibi.",
     "category": "yonetim",
     "tags": [
       "aidat gecikme tazminatı",
@@ -687,7 +687,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-07T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2011",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "KMK m.20 uyarınca aidatını vadesinde ödemeyen malik veya kiracıya aylık %5 gecikme tazminatı uygulanır; yönetici genel kurul kararına gerek olmaksızın doğrudan icra takibi başlatabilir.",
+    "tldr": "KMK m.20 uyarınca aidatını vadesinde ödemeyen kat malikine aylık %5 gecikme tazminatı uygulanır; yönetici genel kurul kararına gerek olmaksızın doğrudan icra takibi başlatabilir.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -707,7 +707,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Ataşehir bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Ataşehir bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -729,7 +729,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Ataşehir bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -750,7 +750,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Ataşehir bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -771,7 +771,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Ataşehir bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -793,7 +793,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Ataşehir bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -813,7 +813,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Ataşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Ataşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -834,7 +834,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Ataşehir bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -855,7 +855,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Ataşehir bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ataşehir bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -875,7 +875,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Bakırköy bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Bakırköy bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -897,7 +897,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Bakırköy bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -918,7 +918,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Bakırköy bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -939,7 +939,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Bakırköy bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -961,7 +961,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Bakırköy bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -981,7 +981,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Bakırköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Bakırköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1002,7 +1002,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Bakırköy bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1023,7 +1023,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Bakırköy bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Bakırköy bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1043,7 +1043,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Başakşehir bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Başakşehir bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1065,7 +1065,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Başakşehir bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1086,7 +1086,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Başakşehir bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1107,7 +1107,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Başakşehir bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1129,7 +1129,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Başakşehir bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1149,7 +1149,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Başakşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Başakşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1170,7 +1170,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Başakşehir bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1191,7 +1191,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Başakşehir bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Başakşehir bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1211,7 +1211,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Beşiktaş bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Beşiktaş bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1233,7 +1233,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Beşiktaş bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1254,7 +1254,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Beşiktaş bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1275,7 +1275,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Beşiktaş bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1297,7 +1297,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Beşiktaş bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1317,7 +1317,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Beşiktaş bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Beşiktaş bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1338,7 +1338,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Beşiktaş bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1359,7 +1359,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Beşiktaş bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beşiktaş bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1379,7 +1379,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Beylikdüzü bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1401,7 +1401,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1422,7 +1422,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1443,7 +1443,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1465,7 +1465,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1485,7 +1485,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Beylikdüzü bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1506,7 +1506,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1527,13 +1527,13 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Beylikdüzü bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
     "slug": "hukuk-ve-i-cra-danismanligi-hizmeti-rehberi-2026",
     "title": "Site ve Rezidanslarda Hukuk ve İcra Danışmanlığı Hizmeti Rehberi (2026)",
-    "description": "Site yönetimlerinde hukuki risk yönetimi: KMK davaları, genel kurul iptal davaları, İİK 68/b kesinleşmiş işletme projesi icra takipleri ve iş hukuku danışmanlığı.",
+    "description": "Site yönetimlerinde hukuki risk yönetimi: KMK davaları, genel kurul iptal davaları, İİK m.68 kapsamında işletme projesine dayalı icra takipleri ve iş hukuku danışmanlığı.",
     "category": "yonetim",
     "tags": [
       "site hukuk danışmanlığı",
@@ -1552,7 +1552,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "isletme-projesi-nedir-ve-nasil-hazirlanir-2026",
     "title": "Site İşletme Projesi Nedir ve Nasıl Hazırlanır? KMK m.37 Adım Adım Bütçe Rehberi (2026)",
-    "description": "Apartman ve sitelerde işletme projesi hazırlama rehberi: Tahmini gelir-gider bütçesi, arsa payı hesaplama tablosu, tebligat usulü ve 7 günlük kesinleşme süresi.",
+    "description": "Apartman ve sitelerde işletme projesi hazırlama rehberi: Tahmini gelir-gider bütçesi, arsa payı hesaplama tablosu ve onay usulü.",
     "category": "yonetim",
     "tags": [
       "işletme projesi hazırlama",
@@ -1566,7 +1566,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-07T09:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "İşletme projesi; ana gayrimenkulün 1 yıllık tahmini gelir ve giderlerini gösteren ve KMK m.37 uyarınca her kat malikine tebliğ edilerek kesinleşen yasal bütçe belgesidir.",
+    "tldr": "İşletme projesi; ana gayrimenkulün 1 yıllık tahmini gelir ve giderlerini gösteren ve KMK m.37 uyarınca kat malikleri kurulunca onaylanan (7579 sayılı Kanun'dan itibaren) yasal bütçe belgesidir.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1586,7 +1586,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Kadıköy bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Kadıköy bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1608,7 +1608,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Kadıköy bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1629,7 +1629,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Kadıköy bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1650,7 +1650,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Kadıköy bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1672,7 +1672,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Kadıköy bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1692,7 +1692,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Kadıköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Kadıköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1713,7 +1713,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Kadıköy bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1734,7 +1734,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Kadıköy bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kadıköy bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1754,7 +1754,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Kartal bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Kartal bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1776,7 +1776,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Kartal bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1797,7 +1797,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Kartal bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1818,7 +1818,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Kartal bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1840,7 +1840,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Kartal bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1860,7 +1860,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Kartal bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Kartal bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1881,7 +1881,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Kartal bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1902,7 +1902,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Kartal bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Kartal bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1922,7 +1922,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-07T11:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "KMK m.34-40 uyarınca yönetici, kat malikleri kurulunun vekili hükmündedir. KMK m.40 uyarınca yönetim planında aksi kararlaştırılmadıkça yönetici uygun bir ücret talep etme hakkına sahiptir.",
+    "tldr": "KMK uyarınca yönetici, kat malikleri kurulunun vekili hükmündedir. Yönetim planında aksi kararlaştırılmadıkça yönetici uygun bir ücret talep etme hakkına sahiptir.",
     "dateModified": "2026-02-24T14:00:00.000Z"
   },
   {
@@ -1942,7 +1942,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Maltepe bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Maltepe bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1964,7 +1964,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Maltepe bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -1985,7 +1985,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Maltepe bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2006,7 +2006,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Maltepe bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2028,7 +2028,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Maltepe bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2048,7 +2048,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Maltepe bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Maltepe bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2069,7 +2069,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Maltepe bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2090,7 +2090,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Maltepe bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Maltepe bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2110,7 +2110,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Sarıyer bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Sarıyer bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2132,7 +2132,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Sarıyer bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2153,7 +2153,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Sarıyer bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2174,7 +2174,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Sarıyer bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2196,7 +2196,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Sarıyer bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2216,7 +2216,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Sarıyer bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Sarıyer bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2237,7 +2237,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Sarıyer bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2258,7 +2258,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Sarıyer bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Sarıyer bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2278,7 +2278,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Şişli bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Şişli bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2300,7 +2300,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Şişli bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2321,7 +2321,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Şişli bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2342,7 +2342,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Şişli bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2364,7 +2364,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Şişli bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2384,7 +2384,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Şişli bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Şişli bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2405,7 +2405,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Şişli bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2426,7 +2426,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Şişli bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Şişli bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2445,7 +2445,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-07T11:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2069",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "5188 sayılı Kanun özel güvenlik görevlilerine belirli yasal yetkiler (kimlik sorma, arama, yakalama) tanırken, bu yetkilerin sınırlarının aşılması TCK kapsamında suç teşkil eder.",
+    "tldr": "5188 sayılı Kanun özel güvenlik görevlilerine belirli yasal yetkiler (kimlik sorma, arama, yakalama) tanırken, bu yetkilerin sınırlarının aşılması TCK kapsamında suç teşkil edebilir.",
     "dateModified": "2026-02-24T19:15:00.000Z"
   },
   {
@@ -2485,7 +2485,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Ümraniye bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Ümraniye bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2507,7 +2507,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Ümraniye bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2528,7 +2528,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Ümraniye bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2549,7 +2549,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Ümraniye bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2571,7 +2571,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Ümraniye bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2591,7 +2591,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Ümraniye bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Ümraniye bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2612,7 +2612,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Ümraniye bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2633,7 +2633,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Ümraniye bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Ümraniye bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2653,7 +2653,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Üsküdar bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik 7/24 süpervizör denetim ağıyla üst düzey koruma sağlıyoruz.",
+    "tldr": "Üsküdar bölgesindeki toplu konut ve ticari projelerde 5188 lisanslı güvenlik kadrosu, akıllı plaka tanıma ve 3G Güvenlik desteğiyle koruma çözümleri sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2675,7 +2675,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Üsküdar bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde haşere ve dezenfeksiyon operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2696,7 +2696,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/havuz-bakimi-ve-hijyen",
-    "tldr": "Üsküdar bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde havuz bakımı ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2717,7 +2717,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Üsküdar bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde hukuk ve i̇cra danışmanlığı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2739,7 +2739,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Üsküdar bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde peyzaj ve bahçe bakımı operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2759,7 +2759,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Üsküdar bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
+    "tldr": "Üsküdar bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2780,7 +2780,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/temizlik-ve-hijyen",
-    "tldr": "Üsküdar bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde temizlik ve hijyen operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   },
   {
@@ -2801,7 +2801,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/tesis-yonetimi",
-    "tldr": "Üsküdar bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro, şeffaf yönetim ve yüksek kalite güvencesiyle 7/24 yürütüyoruz.",
+    "tldr": "Üsküdar bölgesindeki sitelerde tesis yönetimi operasyonlarını uzman kadro ve şeffaf yönetim anlayışıyla yürütüyoruz.",
     "dateModified": "2026-02-24T20:00:00.000Z"
   }
 ];
