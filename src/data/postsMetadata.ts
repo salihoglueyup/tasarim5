@@ -62,7 +62,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "entegre-tesis-yonetimi-hizmetleri-nelerdir-kapsamli-rehber",
     "title": "Entegre Tesis Yönetimi Hizmetleri Nelerdir? A'dan Z'ye Kapsamlı Sektör Rehberi",
-    "description": "Entegre tesis yönetiminin 3 ana sütunu: Teknik (Hard Services), Destek (Soft Services) ve Hukuki/Mali Yönetim. Tek elden yönetimin %30 tasarruf modeli.",
+    "description": "Entegre tesis yönetiminin 3 ana sütunu: Teknik (Hard Services), Destek (Soft Services) ve Hukuki/Mali Yönetim. Tek elden yönetimin tasarruf modeli.",
     "category": "tesis-yonetimi",
     "tags": [
       "tesis yönetimi hizmetleri",
@@ -154,7 +154,7 @@ export const POSTS_META: PostMeta[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi/rehber",
-    "tldr": "Profesyonel tesis yönetimi mülkünüzün değerini %20-30 artırır, plansız arıza maliyetlerini sıfırlar, aidatlarda %30 tasarruf sağlar ve komşuluk ihtilaflarını bitirir."
+    "tldr": "Profesyonel tesis yönetimi mülkünüzün değerinin korunmasına, plansız arıza maliyetlerinin azaltılmasına, aidatlarda tasarruf fırsatlarına ve komşuluk ihtilaflarının yönetilmesine katkı sağlar."
   },
   {
     "slug": "tesis-yonetim-sirketlerinin-gorev-ve-yasal-sorumluluklari",
@@ -217,7 +217,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "ticari-plazalarda-hvac-ve-leed-tesis-enerji-verimliligi",
     "title": "Ticari Plazalarda HVAC Otomasyonu ve BREEAM/LEED Yeşil Bina Enerji Verimliliği",
-    "description": "A sınıfı iş merkezleri ve plazalarda merkezi iklimlendirme otomasyonu, kompanzasyon panosu takibi ile %30 enerji tasarrufu.",
+    "description": "A sınıfı iş merkezleri ve plazalarda merkezi iklimlendirme otomasyonu ve kompanzasyon panosu takibi ile enerji verimliliği.",
     "category": "tesis-yonetimi",
     "tags": [
       "plaza yönetimi",
@@ -232,12 +232,12 @@ export const POSTS_META: PostMeta[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi/plaza-yonetimi",
-    "tldr": "Ticari plazalarda merkezi HVAC otomasyonu, kompanzasyon takibi ile ortak alan elektrik ve işletme giderlerinde %30 net tasarruf sağlanır."
+    "tldr": "Ticari plazalarda merkezi HVAC otomasyonu ve kompanzasyon takibi ile ortak alan elektrik ve işletme giderlerinde tasarruf hedeflenir."
   },
   {
     "slug": "1000-konutlu-toplu-konut-sitelerinde-merkezi-yonetim-ve-aidat-tasarrufu",
     "title": "1.000+ Bağımsız Bölümlü Mega Toplu Konut Sitelerinde Merkezi Yönetim ve Toplu Tedarik Gücü",
-    "description": "Çok bloklu büyük toplu konut sitelerinde blok temsilciler kurulu işleyişi, ölçek ekonomisi ile toplu satın alma ve aidatlarda %25-33 tasarruf formülü.",
+    "description": "Çok bloklu büyük toplu konut sitelerinde blok temsilciler kurulu işleyişi, ölçek ekonomisi ile toplu satın alma ve aidatlarda tasarruf formülü.",
     "category": "tesis-yonetimi",
     "tags": [
       "toplu konut yönetimi",
@@ -251,12 +251,12 @@ export const POSTS_META: PostMeta[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi/toplu-konut-yonetimi",
-    "tldr": "1.000+ bağımsız bölümlü mega toplu konutlarda ölçek ekonomisi ve toplu tedarik gücü ile aidatlarda %25-33 somut maliyet tasarrufu elde edilir."
+    "tldr": "1.000+ bağımsız bölümlü mega toplu konutlarda ölçek ekonomisi ve toplu tedarik gücü ile aidatlarda maliyet tasarrufu fırsatı doğar."
   },
   {
     "slug": "endustriyel-sanayi-tesislerinde-iso-45001-isg-ve-guvenlik-yonetimi",
     "title": "Endüstriyel Tesislerde ISO 45001 İSG ve Perimetre Güvenlik Yönetimi",
-    "description": "Fabrikalar, lojistik depolar ve organize sanayi tesislerinde ağır teknik bakım, yangın hidrant hatları ve sıfır iş kazası odaklı entegre yönetim.",
+    "description": "Fabrikalar, lojistik depolar ve organize sanayi tesislerinde ağır teknik bakım, yangın hidrant hatları ve iş kazalarını önlemeye odaklı entegre yönetim.",
     "category": "tesis-yonetimi",
     "tags": [
       "sanayi tesisi yönetimi",
@@ -270,7 +270,7 @@ export const POSTS_META: PostMeta[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi",
-    "tldr": "Endüstriyel tesis ve fabrikalarda ISO 45001 iş sağlığı, yangın hidrant hatları periyodik testi ve 5188 perimetre güvenliği sıfır kaza hedefiyle yönetilir."
+    "tldr": "Endüstriyel tesis ve fabrikalarda ISO 45001 iş sağlığı, yangın hidrant hatları periyodik testi ve 5188 perimetre güvenliği kaza önleme hedefiyle yönetilir."
   },
   {
     "slug": "profesyonel-tesis-yonetim-sirketi-secim-rehberi-ve-ihale-sartnamesi",
@@ -587,7 +587,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:30:00+03:00",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Periyodik teknik bakım; cihaz arıza risklerini %80 azaltır, enerji tüketiminde %25 tasarruf sağlar ve plansız yüksek maliyetli revizyonların önüne geçer.",
+    "tldr": "Periyodik teknik bakım; cihaz arıza risklerini azaltır, enerji verimliliğine katkı sağlar ve plansız yüksek maliyetli revizyonların önüne geçmeye yardımcı olur.",
     "dateModified": "2026-02-24T19:15:00.000Z"
   },
   {
@@ -607,7 +607,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:40:00+03:00",
     "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=2070&auto=format&fit=crop",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Düzenli peyzaj ve bahçe bakımı; sitenin estetik cazibesini ve gayrimenkul değerini %20 artırırken, akıllı sulama otomasyonu ile su faturalarında %40 tasarruf sağlar.",
+    "tldr": "Düzenli peyzaj ve bahçe bakımı; sitenin estetik cazibesine ve gayrimenkul değerinin korunmasına katkı sağlarken, akıllı sulama otomasyonu su tüketiminin azaltılmasına yardımcı olur.",
     "dateModified": "2026-02-24T19:15:00.000Z"
   },
   {
@@ -667,7 +667,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-07T11:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Site yönetimlerinde profesyonel hukuk danışmanlığı; aidat tahsilatını %98 seviyesine çıkarır, hatalı genel kurul kararlarını önler ve yöneticinin şahsi hukuki sorumluluğunu ortadan kaldırır.",
+    "tldr": "Site yönetimlerinde profesyonel hukuk danışmanlığı; aidat tahsilat sürecini düzenler, hatalı genel kurul kararlarının önlenmesine yardımcı olur ve yöneticinin hukuki risklerini azaltır.",
     "dateModified": "2026-02-24T14:00:00.000Z"
   },
   {
@@ -813,7 +813,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Ataşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Ataşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -981,7 +981,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Bakırköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Bakırköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1149,7 +1149,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Başakşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Başakşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1317,7 +1317,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Beşiktaş bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Beşiktaş bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1485,7 +1485,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Beylikdüzü bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1692,7 +1692,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Kadıköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Kadıköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -1860,7 +1860,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Kartal bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Kartal bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2048,7 +2048,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Maltepe bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Maltepe bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2216,7 +2216,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Sarıyer bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Sarıyer bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2384,7 +2384,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Şişli bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Şişli bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2591,7 +2591,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Ümraniye bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Ümraniye bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {
@@ -2759,7 +2759,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Üsküdar bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Üsküdar bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "dateModified": "2026-02-24T19:00:00.000Z"
   },
   {

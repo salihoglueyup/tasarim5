@@ -244,10 +244,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Kaynak ve Enerji Verimliliği: Ortak alan enerji tüketimi, su tüketimi ve kimyasal kullanımında %25-33 oranında ölçülebilir tasarruf sağlamak.",
-          "Operasyonel İş Sürekliliği (Business Continuity): Jeneratör, trafo, hidrofor ve asansör gibi kritik bileşenlerde arıza duruş sürelerini sıfıra indirmek.",
+          "Kaynak ve Enerji Verimliliği: Ortak alan enerji tüketimi, su tüketimi ve kimyasal kullanımında ölçülebilir tasarruf hedeflemek.",
+          "Operasyonel İş Sürekliliği (Business Continuity): Jeneratör, trafo, hidrofor ve asansör gibi kritik bileşenlerde arıza duruş sürelerini azaltmak.",
           "Yasal Mevzuat Uyumu: 634 Sayılı Kat Mülkiyeti Kanunu (KMK), 5188 Sayılı Özel Güvenlik Kanunu ve 6331 Sayılı İSG Kanunu gereklerini eksiksiz yerine getirmek.",
-          "Müşteri ve Sakin Memnuniyeti (SLA): 7/24 çağrı merkezi ve dijital talep sistemi üzerinden arızalara maksimum 45 dakika içinde müdahale garantisi sunmak."
+          "Müşteri ve Sakin Memnuniyeti (SLA): 7/24 çağrı merkezi ve dijital talep sistemi üzerinden arızalara hızlı müdahale taahhüdü sunmak."
         ]
       },
       {
@@ -266,10 +266,10 @@ export const POSTS: Post[] = [
         "type": "ol",
         "items": [
           "Hukuki Güvence Sunar: Noter onaylı işletme projesi tebligatı ve KMK m.20 icra takipleri uzman hukukçularca yürütülür.",
-          "Toplu Tedarik Gücü Sağlar: Yüzlerce projeyi yönetmenin getirdiği satın alma hacmi ile asansör, kimyasal ve sigortada %35 indirim kazandırır.",
+          "Toplu Tedarik Gücü Sağlar: Birden çok projeyi yönetmenin getirdiği satın alma hacmi ile asansör, kimyasal ve sigorta gibi kalemlerde maliyet avantajı hedeflenir.",
           "7/24 Şeffaf Mobil Takip Sağlar: Sakinler tüm gelir-gider faturalarını ve denetim raporlarını cep telefonu uygulamasından anlık görebilir.",
-          "İşveren Risklerini Sıfırlar: Kapıcı, güvenlik ve temizlik personelinin kıdem tazminatı ve SGK sorumlulukları kurumsal güvenceye alınır.",
-          "Mülk Değerini Yükseltir: Düzenli ve prestijli işletilen binalarda dairelerin satış ve kira değeri emsallerine göre %20-30 daha yüksek seyreder."
+          "İşveren Risklerini Azaltır: Kapıcı, güvenlik ve temizlik personelinin kıdem tazminatı ve SGK sorumlulukları kurumsal işveren yapısı altında yürütülür.",
+          "Mülk Değerini Korur: Düzenli ve iyi işletilen binalarda dairelerin değerinin korunmasına katkı sağlanır."
         ]
       },
       {
@@ -309,7 +309,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Tesis yönetim şirketiyle çalışmak aidatları artırır mı?\nCevap: Hayır, tam aksine. Profesyonel yönetim şirketleri toplu elektrik tedariki, asansör bakım indirimleri ve gereksiz personel optimizasyonu sayesinde aidat bütçelerinde ortalama %25-33 net tasarruf sağlar."
+        "text": "Soru: Tesis yönetim şirketiyle çalışmak aidatları artırır mı?\nCevap: Her zaman değil. Profesyonel yönetim şirketleri toplu elektrik tedariki, asansör bakım sözleşmelerinin yeniden değerlendirilmesi ve personel planlaması sayesinde bütçelerde tasarruf fırsatı yaratabilir; sonuç sitenin mevcut sözleşmelerine ve ihtiyaçlarına göre değişir."
       },
       {
         "type": "p",
@@ -326,7 +326,7 @@ export const POSTS: Post[] = [
   {
     "slug": "entegre-tesis-yonetimi-hizmetleri-nelerdir-kapsamli-rehber",
     "title": "Entegre Tesis Yönetimi Hizmetleri Nelerdir? A'dan Z'ye Kapsamlı Sektör Rehberi",
-    "description": "Entegre tesis yönetiminin 3 ana sütunu: Teknik (Hard Services), Destek (Soft Services) ve Hukuki/Mali Yönetim. Tek elden yönetimin %30 tasarruf modeli.",
+    "description": "Entegre tesis yönetiminin 3 ana sütunu: Teknik (Hard Services), Destek (Soft Services) ve Hukuki/Mali Yönetim. Tek elden yönetimin tasarruf modeli.",
     "category": "tesis-yonetimi",
     "tags": [
       "tesis yönetimi hizmetleri",
@@ -398,7 +398,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "KMK m.37 İşletme Projesi: Yıllık tahmini bütçenin hazırlanması, arsa payı hesaplamaları ve noter/tebligat süreçleri.",
-          "Düzenli Aidat Tahsilatı: Kredi kartı ve banka entegrasyonuyla %98 tahsilat başarısı.",
+          "Düzenli Aidat Tahsilatı: Kredi kartı ve banka entegrasyonuyla düzenli tahsilat takibi.",
           "Hukuk ve İcra Takibi: Borcunu ödemeyen sakinlere karşı aylık %5 gecikme tazminatlı ilamsız icra takipleri.",
           "Bordrolama ve İSG: Personel SGK bildirimleri, maaş ödemeleri ve 6331 sayılı İSG eğitimleri."
         ]
@@ -409,7 +409,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "quote",
-        "text": "Farklı taşeronlarla çalışıldığında bir su baskınında teknik ekip güvenlik ekibini, güvenlik ise temizlik ekibini suçlar. Entegre yönetimde tek muhatap vardır; hesap verilebilirlik %100'dür."
+        "text": "Farklı taşeronlarla çalışıldığında bir su baskınında teknik ekip güvenlik ekibini, güvenlik ise temizlik ekibini suçlar. Entegre yönetimde tek muhatap vardır; hesap verilebilirlik daha nettir."
       },
       {
         "type": "p",
@@ -418,7 +418,7 @@ export const POSTS: Post[] = [
       {
         "type": "ol",
         "items": [
-          "Maliyet Avantajı: Tek sözleşme ve merkezi satın alma ile ortak alan işletme maliyetlerinde %30 net tasarruf elde edilir.",
+          "Maliyet Avantajı: Tek sözleşme ve merkezi satın alma ile ortak alan işletme maliyetlerinde tasarruf fırsatı doğar.",
           "Hızlı Kriz Yönetimi: Yangın, deprem veya su baskını anında güvenlik, teknik ve temizlik ekipleri tek bir acil eylem planına göre senkronize hareket eder.",
           "Şeffaf Denetim: Tüm operasyonel raporlar tek bir dijital platform üzerinden denetçilere ve kat maliklerine sunulur."
         ]
@@ -434,7 +434,7 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Kritik Arıza Müdahale: Asansör mahsur kalması ve ana elektrik kesintilerinde maksimum 30 dakika müdahale.",
+          "Kritik Arıza Müdahale: Asansör mahsur kalması ve ana elektrik kesintilerinde hızlı müdahale.",
           "Standart Talep Çözümü: Ampul değişimi, kapı hidroliği ayarı veya temizlik taleplerinde maksimum 2 saatte çözüm.",
           "Şeffaf Bütçe Raporlaması: Her ayın 5'inde bir önceki ayın tüm banka ve harcama ekstrelerinin mobil uygulamada yayınlanması."
         ]
@@ -505,7 +505,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toplu yaşam alanlarında hijyen standartları doğrudan halk sağlığı konusudur. Sağlık Bakanlığı onaylı biyosidal ürünler ve renk kodlu mikrofiber temizlik bezleri ile çapraz bulaşma riskleri sıfırlanır."
+        "text": "Toplu yaşam alanlarında hijyen standartları doğrudan halk sağlığı konusudur. Sağlık Bakanlığı onaylı biyosidal ürünler ve renk kodlu mikrofiber temizlik bezleri ile çapraz bulaşma riskleri azaltılır."
       },
       {
         "type": "ul",
@@ -545,7 +545,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tüm destek hizmetlerimiz aylık gizli denetimler, dijital karekodlu temizlik kontrol noktaları ve sakin anketleri ile puanlanır. %95 altı memnuniyet alan noktalarda derhal personel ve süreç iyileştirmesi yapılır."
+        "text": "Tüm destek hizmetlerimiz aylık gizli denetimler, dijital karekodlu temizlik kontrol noktaları ve sakin anketleri ile puanlanır. Düşük memnuniyet alan noktalarda personel ve süreç iyileştirmesi yapılır."
       },
       {
         "type": "h2",
@@ -597,12 +597,12 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Merkezi sistem binalarda ortak alan ve daire içi iklimlendirme işletme maliyetlerinin %50'sinden fazlasını oluşturur. Profesyonel teknik işletme kapsamında:"
+        "text": "Merkezi sistem binalarda ortak alan ve daire içi iklimlendirme işletme maliyetlerinin önemli bir bölümünü oluşturur. Profesyonel teknik işletme kapsamında:"
       },
       {
         "type": "ul",
         "items": [
-          "Kazan Dairesi ve Brülör Bakımları: Yanma verimliliği analizleri ile doğalgaz tüketiminde %15 tasarruf.",
+          "Kazan Dairesi ve Brülör Bakımları: Yanma verimliliği analizleri ile doğalgaz tüketiminin düşürülmesi hedeflenir.",
           "Chiller ve Soğutma Kuleleri: Gaz kaçak testleri, kondenser kimyasal yıkamaları ve glikol donma testleri.",
           "Klima Santralleri (AHU) ve Fan-Coil: Filtre değişimleri, serpantin dezenfeksiyonu ve hava debisi optimizasyonu.",
           "Isı Pay Ölçer ve Kalorimetre Okuma: Dairelerin tüketimlerinin KMK m.42 uyarınca adil faturalandırılması."
@@ -620,7 +620,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Trafo İşletme Sorumluluğu: EMO onaylı Yüksek Gerilim İşletme Sorumluluğu mühendislik sözleşmesi ve trafo yağı dielektrik testleri.",
-          "Reaktif Ceza Önleme: Kompanzasyon panolarındaki kondansatörlerin günlük telemetri ile izlenerek dağıtım şirketi cezalarının sıfırlanması.",
+          "Reaktif Ceza Önleme: Kompanzasyon panolarındaki kondansatörlerin telemetri ile izlenerek dağıtım şirketi cezası riskinin azaltılması.",
           "Jeneratör ve Transfer Panosu: Şebeke kesintisinde 8 saniye içinde otomatik devreye girme testi ve 250 saatlik yağ/filtre bakımları."
         ]
       },
@@ -781,7 +781,7 @@ export const POSTS: Post[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi/rehber",
-    "tldr": "Profesyonel tesis yönetimi mülkünüzün değerini %20-30 artırır, plansız arıza maliyetlerini sıfırlar, aidatlarda %30 tasarruf sağlar ve komşuluk ihtilaflarını bitirir.",
+    "tldr": "Profesyonel tesis yönetimi mülkünüzün değerinin korunmasına, plansız arıza maliyetlerinin azaltılmasına, aidatlarda tasarruf fırsatlarına ve komşuluk ihtilaflarının yönetilmesine katkı sağlar.",
     "content": [
       {
         "type": "p",
@@ -794,16 +794,16 @@ export const POSTS: Post[] = [
       {
         "type": "ol",
         "items": [
-          "Gayrimenkul Değerinde %20-30 Artış: Düzenli bakılan, temiz, yeşil alanı korunan ve 5188 güvenliği olan sitelerde daire fiyatları emsallerine göre çok daha hızlı prim yapar.",
-          "Ortak Alan Bütçesinde %25-33 Tasarruf: Toplu elektrik tedariki, toptan kimyasal alımları ve jeneratör yakıt anlaşmaları ile aidatlar düşürülür.",
+          "Gayrimenkul Değerinin Korunması: Düzenli bakılan, temiz, yeşil alanı korunan ve güvenlik hizmeti alan sitelerde değerin korunmasına katkı sağlanır.",
+          "Ortak Alan Bütçesinde Tasarruf Fırsatı: Toplu elektrik tedariki, toptan kimyasal alımları ve jeneratör yakıt anlaşmaları ile giderlerin düşürülmesi hedeflenir.",
           "Pahalı Cihaz Ömürlerinin İki Katına Çıkması: Asansör, trafo, hidrofor ve chiller gruplarına yapılan kestirimci bakım sayesinde milyonluk ani yenileme masrafları engellenir.",
-          "%98 Düzenli Aidat Tahsilatı: KMK m.20 kapsamında noter ihtarı ve ilamsız icra takipleri sayesinde kimsenin borcu diğer komşunun sırtına kalmaz.",
+          "Düzenli Aidat Tahsilatı: KMK m.20 kapsamında noter ihtarı ve ilamsız icra takipleriyle borçların diğer maliklere yansımasının önüne geçilmesi hedeflenir.",
           "Komşuluk Huzuru ve Tarafsızlık: Aidat isteme, gürültü ikazı ve kural koyma tartışmaları komşular arasından çıkar; kurumsal ve tarafsız yönetimce yürütülür.",
-          "Yasal Güvence ve Sıfır Ceza Riski: Kaçak bekçi çalıştırma, İSG ihlalleri veya asansör kırmızı etiket cezaları kurumsal denetimle tamamen önlenir.",
+          "Yasal Uyum ve Ceza Riskinin Azaltılması: Kaçak bekçi çalıştırma, İSG ihlalleri veya asansör kırmızı etiket cezaları kurumsal denetimle azaltılır.",
           "7/24 Şeffaf Mobil Finansal Takip: Kat malikleri her bir kuruşun nereye harcandığını, kasa mevcudunu ve banka hesap ekstrelerini mobil uygulamadan anlık görür.",
-          "45 Dakika Acil Müdahale SLA Garantisi: Asansörde mahsur kalma, ana boru patlaması veya elektrik kesintilerine karşı nöbetçi teknik ekipler anında müdahale eder.",
+          "Acil Müdahale SLA Taahhüdü: Asansörde mahsur kalma, ana boru patlaması veya elektrik kesintilerine karşı nöbetçi teknik ekipler anında müdahale eder.",
           "Personel Kıdem Tazminatı ve SGK Güvencesi: Kapıcı ve temizlikçilerin kıdem fonu ayrılır; işten çıkışlarda site sakinlerinin karşısına sürpriz toplu tazminat faturaları çıkmaz.",
-          "Sürdürülebilirlik ve Sıfır Atık: Çevre dostu enerji kullanımı, kompost üretimi ve sıfır atık yönetimi ile siteniz modern çevre standartlarına kavuşur."
+          "Sürdürülebilirlik ve Sıfır Atık: Çevre dostu enerji kullanımı ve Sıfır Atık Yönetmeliği'ne uygun atık yönetimi ile siteniz modern çevre standartlarına yaklaşır."
         ]
       },
       {
@@ -1083,7 +1083,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rezidans sakinleri mobil uygulama üzerinden tek tıkla arıza kaydı oluşturabilir. Nöbetçi rezidans teknisyenlerimiz sigorta atması, su sızıntısı veya klima arızalarına maksimum 15 dakika içinde daire kapısında müdahale eder."
+        "text": "Rezidans sakinleri mobil uygulama üzerinden tek tıkla arıza kaydı oluşturabilir. Nöbetçi rezidans teknisyenlerimiz sigorta atması, su sızıntısı veya klima arızalarına hızla daire kapısında müdahale etmeyi hedefler."
       },
       {
         "type": "h2",
@@ -1103,7 +1103,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Kargo ve kurye güvenliği rezidansta nasıl sağlanır?\nCevap: Dışarıdan gelen kuryeler güvenlik lobisinde durdurulur; paketler akıllı kargo odasına barkodla alınır ve sakine SMS şifresi iletilerek temas riski sıfırlanır."
+        "text": "Soru: Kargo ve kurye güvenliği rezidansta nasıl sağlanır?\nCevap: Dışarıdan gelen kuryeler güvenlik lobisinde durdurulur; paketler barkodla kayıt altına alınır ve sakine SMS şifresi iletilerek temas riski azaltılır."
       },
       {
         "type": "cta",
@@ -1116,7 +1116,7 @@ export const POSTS: Post[] = [
   {
     "slug": "ticari-plazalarda-hvac-ve-leed-tesis-enerji-verimliligi",
     "title": "Ticari Plazalarda HVAC Otomasyonu ve BREEAM/LEED Yeşil Bina Enerji Verimliliği",
-    "description": "A sınıfı iş merkezleri ve plazalarda merkezi iklimlendirme otomasyonu, kompanzasyon panosu takibi ile %30 enerji tasarrufu.",
+    "description": "A sınıfı iş merkezleri ve plazalarda merkezi iklimlendirme otomasyonu ve kompanzasyon panosu takibi ile enerji verimliliği.",
     "category": "tesis-yonetimi",
     "tags": [
       "plaza yönetimi",
@@ -1131,11 +1131,11 @@ export const POSTS: Post[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi/plaza-yonetimi",
-    "tldr": "Ticari plazalarda merkezi HVAC otomasyonu, kompanzasyon takibi ile ortak alan elektrik ve işletme giderlerinde %30 net tasarruf sağlanır.",
+    "tldr": "Ticari plazalarda merkezi HVAC otomasyonu ve kompanzasyon takibi ile ortak alan elektrik ve işletme giderlerinde tasarruf hedeflenir.",
     "content": [
       {
         "type": "p",
-        "text": "Ticari plazalar, iş merkezleri ve A sınıfı ofis kulelerinde işletme maliyetlerinin %60'ından fazlasını enerji tüketimi (elektrik, doğalgaz ve soğutma grupları) oluşturur. Doğru bir tesis yönetimi stratejisi, çalışma konforundan ödün vermeden enerji faturalarını optimize eder."
+        "text": "Ticari plazalar, iş merkezleri ve A sınıfı ofis kulelerinde işletme maliyetlerinin önemli bir bölümünü enerji tüketimi (elektrik, doğalgaz ve soğutma grupları) oluşturur. Doğru bir tesis yönetimi stratejisi, çalışma konforundan ödün vermeden enerji faturalarını optimize eder."
       },
       {
         "type": "h2",
@@ -1151,7 +1151,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Elektrik dağıtım şirketlerinin reaktif enerji sınırlarını aşan plazalara uyguladığı yüksek cezalar, IoT destekli anlık kompanzasyon panosu izleme sistemlerimiz ile tamamen sıfırlanır."
+        "text": "Elektrik dağıtım şirketlerinin reaktif enerji sınırlarını aşan plazalara uyguladığı yüksek cezalar, IoT destekli anlık kompanzasyon panosu izleme sistemleri ile azaltılması hedeflenir."
       },
       {
         "type": "ul",
@@ -1191,11 +1191,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Reaktif enerji cezası nedir ve nasıl engellenir?\nCevap: Tesisin şebekeden çektiği endüktif veya kapasitif reaktif güç yasal sınırları (%20 endüktif, %15 kapasitif) aştığında dağıtım şirketi ağır ceza faturası keser. Otomatik kompanzasyon panosu ve anlık telemetri ile bu ceza sıfırlanır."
+        "text": "Soru: Reaktif enerji cezası nedir ve nasıl engellenir?\nCevap: Tesisin şebekeden çektiği endüktif veya kapasitif reaktif güç yasal sınırları (%20 endüktif, %15 kapasitif) aştığında dağıtım şirketi ağır ceza faturası keser. Otomatik kompanzasyon panosu ve anlık telemetri ile bu cezanın önüne geçilmesi hedeflenir."
       },
       {
         "type": "p",
-        "text": "Soru: BMS bina otomasyon sistemi ne kadar enerji tasarrufu sağlar?\nCevap: Doğru kalibre edilmiş ve programlanmış bir BMS otomasyonu, plazanın toplam HVAC ve aydınlatma elektrik faturasında ortalama %25 ila %35 net tasarruf sağlar."
+        "text": "Soru: BMS bina otomasyon sistemi ne kadar enerji tasarrufu sağlar?\nCevap: Doğru kalibre edilmiş ve programlanmış bir BMS otomasyonu, plazanın HVAC ve aydınlatma elektrik tüketiminde tasarruf sağlanmasına yardımcı olabilir; sonuç tesise göre değişir."
       },
       {
         "type": "cta",
@@ -1208,7 +1208,7 @@ export const POSTS: Post[] = [
   {
     "slug": "1000-konutlu-toplu-konut-sitelerinde-merkezi-yonetim-ve-aidat-tasarrufu",
     "title": "1.000+ Bağımsız Bölümlü Mega Toplu Konut Sitelerinde Merkezi Yönetim ve Toplu Tedarik Gücü",
-    "description": "Çok bloklu büyük toplu konut sitelerinde blok temsilciler kurulu işleyişi, ölçek ekonomisi ile toplu satın alma ve aidatlarda %25-33 tasarruf formülü.",
+    "description": "Çok bloklu büyük toplu konut sitelerinde blok temsilciler kurulu işleyişi, ölçek ekonomisi ile toplu satın alma ve aidatlarda tasarruf formülü.",
     "category": "tesis-yonetimi",
     "tags": [
       "toplu konut yönetimi",
@@ -1222,7 +1222,7 @@ export const POSTS: Post[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi/toplu-konut-yonetimi",
-    "tldr": "1.000+ bağımsız bölümlü mega toplu konutlarda ölçek ekonomisi ve toplu tedarik gücü ile aidatlarda %25-33 somut maliyet tasarrufu elde edilir.",
+    "tldr": "1.000+ bağımsız bölümlü mega toplu konutlarda ölçek ekonomisi ve toplu tedarik gücü ile aidatlarda maliyet tasarrufu fırsatı doğar.",
     "content": [
       {
         "type": "p",
@@ -1238,12 +1238,12 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "2. Ölçek Ekonomisi ile %30 Aidat Tasarrufu Nasıl Sağlanır?"
+        "text": "2. Ölçek Ekonomisi ile Aidat Tasarrufu Nasıl Sağlanır?"
       },
       {
         "type": "ul",
         "items": [
-          "Toplu Asansör Bakım Anlaşması: Yüzlerce asansör için tek sözleşmeyle parça ve bakımda %35 indirim",
+          "Toplu Asansör Bakım Anlaşması: Çok sayıda asansör için tek sözleşmeyle parça ve bakımda maliyet avantajı",
           "Ortak Elektrik ve Doğalgaz İndirimi: Serbest tüketici statüsüyle en uygun birim fiyat tedariki",
           "Endüstriyel Kimyasal & Temizlik Malzemesi: Fabrikadan doğrudan toptan tedarik",
           "Merkezi Güvenlik ve Temizlik Vardiya Optimizasyonu: Gereksiz personel maliyetlerinin elenmesi"
@@ -1271,7 +1271,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Günde on binlerce aracın ve kuryenin giriş yaptığı mega sitelerde çift bariyerli PTS (Plaka Tanıma Sistemi), misafir karekod geçiş sistemi ve grup şirketimiz 3G Özel Güvenlik desteğiyle nizamiye yığılmaları sıfıra indirilir."
+        "text": "Günde on binlerce aracın ve kuryenin giriş yaptığı mega sitelerde çift bariyerli PTS (Plaka Tanıma Sistemi), misafir karekod geçiş sistemi ve grup şirketimiz 3G Özel Güvenlik desteğiyle nizamiye yığılmalarının azaltılması hedeflenir."
       },
       {
         "type": "h2",
@@ -1296,7 +1296,7 @@ export const POSTS: Post[] = [
   {
     "slug": "endustriyel-sanayi-tesislerinde-iso-45001-isg-ve-guvenlik-yonetimi",
     "title": "Endüstriyel Tesislerde ISO 45001 İSG ve Perimetre Güvenlik Yönetimi",
-    "description": "Fabrikalar, lojistik depolar ve organize sanayi tesislerinde ağır teknik bakım, yangın hidrant hatları ve sıfır iş kazası odaklı entegre yönetim.",
+    "description": "Fabrikalar, lojistik depolar ve organize sanayi tesislerinde ağır teknik bakım, yangın hidrant hatları ve iş kazalarını önlemeye odaklı entegre yönetim.",
     "category": "tesis-yonetimi",
     "tags": [
       "sanayi tesisi yönetimi",
@@ -1310,7 +1310,7 @@ export const POSTS: Post[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi",
-    "tldr": "Endüstriyel tesis ve fabrikalarda ISO 45001 iş sağlığı, yangın hidrant hatları periyodik testi ve 5188 perimetre güvenliği sıfır kaza hedefiyle yönetilir.",
+    "tldr": "Endüstriyel tesis ve fabrikalarda ISO 45001 iş sağlığı, yangın hidrant hatları periyodik testi ve 5188 perimetre güvenliği kaza önleme hedefiyle yönetilir.",
     "content": [
       {
         "type": "p",
@@ -1366,7 +1366,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Soru: Organize Sanayi Bölgelerinde (OSB) tesis yönetimi avantajı nedir?\nCevap: OSB mevzuatına tam uyum, ağır bakım maliyetlerinin düşürülmesi ve İSG teftişlerinde sıfır ceza güvencesi sağlar."
+        "text": "Soru: Organize Sanayi Bölgelerinde (OSB) tesis yönetimi avantajı nedir?\nCevap: OSB mevzuatına uyum, ağır bakım maliyetlerinin yönetilmesi ve İSG teftişlerinde ceza riskinin azaltılmasına yardımcı olur."
       },
       {
         "type": "cta",
@@ -1411,8 +1411,8 @@ export const POSTS: Post[] = [
           "3. Belgelerin belge numarası ve belgelendirme kuruluşu üzerinden doğrulanabilir olması",
           "4. En az 10 yıl sektörel tecrübe ve aktif yönetilen 200+ bağımsız bölüm referansı",
           "5. Mesleki Sorumluluk ve 3. Şahıs Mali Mesuliyet Sigorta Poliçesi",
-          "6. KMK m.37 uyarınca noter ve teftiş onaylı şeffaf bütçe garantisi",
-          "7. Maksimum 45 dakika acil teknik arıza müdahale SLA taahhüdü",
+          "6. KMK m.37 çerçevesinde şeffaf bütçe ve raporlama",
+          "7. Acil teknik arıza müdahale SLA taahhüdü",
           "8. Sakinlere özel 7/24 mobil aidat, arıza ve otopark takip yazılımı",
           "9. Hukuki icra ve aidat takip departmanının şirket bünyesinde bulunması",
           "10. Noter onaylı devir teslim tutanağı ve eksiksiz demirbaş sayım protokolü"
@@ -1588,7 +1588,7 @@ export const POSTS: Post[] = [
           "4. Personel Eğitim ve Sertifikasyonu: Tüm personelin Alo Güvenlik (guvenlikkursu.com) akreditasyonlu, öfke kontrolü ve kriz yönetimi eğitimli olması.",
           "5. RFID / GPS Destekli Akıllı Devriye Tur Sistemi: Güvenlik görevlisinin gece devriyelerinin saniye saniye merkezden telemetri ile izlenmesi.",
           "6. Yapay Zeka Destekli PTS ve Kamera Entegrasyonu: Giriş yapan araçların ve ziyaretçilerin otomatik plaka ve yüz tanıma yazılımlarıyla kaydı.",
-          "7. Yedek Personel Garantisi: İzin, rapor veya ani ayrılmalarda maksimum 2 saat içinde aynı nitelikte üniformalı personelin sahaya sevk edilmesi.",
+          "7. Yedek Personel Taahhüdü: İzin, rapor veya ani ayrılmalarda 24 saat içinde yedek personel ataması yapılır.",
           "8. Bordro ve SGK Şeffaflığı: Görevlilerin maaş, fazla mesai ve SGK primlerinin zamanında ödendiğine dair aylık dökümün yönetime sunulması."
         ]
       },
@@ -1718,7 +1718,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Hukuk departmanımızla aidat tahsilat oranınızı %98'e çıkarın.",
+        "text": "Hukuk desteğiyle aidat tahsilat sürecinizi düzene sokun.",
         "href": "/hizmetler/aidat-takibi",
         "label": "Aidat ve İcra Takip Hizmetimiz"
       }
@@ -1884,10 +1884,10 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Personel ve SGK Giderleri (%55-65): Güvenlik, temizlik, teknik servis ve bahçıvan personellerinin asgari ücret artışları, SGK primleri, kıdem tazminatı fonu ve yemek/yol giderleri bütçenin en büyük kalemidir.",
-          "Ortak Alan Enerji Maliyetleri (%15-25): Asansörler, hidroforlar, çevre aydınlatması, kapalı otopark jet fanları ve merkezi kazan yakıt giderlerindeki elektrik/doğalgaz zamları.",
-          "Periyodik Bakım ve Sözleşmeli Hizmetler (%10-15): Asansör yetkili servisleri, jeneratör, trafo, havuz kimyasalları, ilaçlama ve yangın algılama sistemleri yıllık sözleşme artışları.",
-          "Olağanüstü Onarım ve Demirbaş Avansı (%5-10): Çatı aktarımı, dış cephe boyası, kamera sistemi yenilemesi gibi amortisman rezerv fonu."
+          "Personel ve SGK Giderleri: Güvenlik, temizlik, teknik servis ve bahçıvan personellerinin asgari ücret artışları, SGK primleri, kıdem tazminatı fonu ve yemek/yol giderleri bütçenin en büyük kalemidir.",
+          "Ortak Alan Enerji Maliyetleri: Asansörler, hidroforlar, çevre aydınlatması, kapalı otopark jet fanları ve merkezi kazan yakıt giderlerindeki elektrik/doğalgaz zamları.",
+          "Periyodik Bakım ve Sözleşmeli Hizmetler: Asansör yetkili servisleri, jeneratör, trafo, havuz kimyasalları, ilaçlama ve yangın algılama sistemleri yıllık sözleşme artışları.",
+          "Olağanüstü Onarım ve Demirbaş Avansı: Çatı aktarımı, dış cephe boyası, kamera sistemi yenilemesi gibi amortisman rezerv fonu."
         ]
       },
       {
@@ -2089,7 +2089,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Eski mevzuatta aranan 2/3 çoğunluk şartı, yapılan son yasal değişiklikle arsa payı sahiplerinin Salt Çoğunluğuna (yarıdan bir fazlası - %50+1) indirilmiştir. Artık birkaç kişinin itirazı yüzünden tüm binanın kentsel dönüşümü engellenememektedir."
+        "text": "Eski mevzuatta aranan 2/3 çoğunluk şartı, 7471 sayılı Kanun'la (Kasım 2023) arsa payı sahiplerinin Salt Çoğunluğuna (yarıdan bir fazlası - %50+1) indirilmiştir. Artık birkaç kişinin itirazı yüzünden tüm binanın kentsel dönüşümü engellenememektedir."
       },
       {
         "type": "h2",
@@ -2531,9 +2531,9 @@ export const POSTS: Post[] = [
       {
         "type": "ol",
         "items": [
-          "Acil Teknik Arızalara Müdahale Süresi: Maksimum 45 dakika içinde sahada uzman teknisyen.",
-          "Güvenlik ve Lobi Nöbet Sürekliliği: %100 vardiya doluluk garantisi ve yedek personel ikamesi.",
-          "Aidat Tahsilat Başarı Oranı: Aylık %95 ve üzeri tahsilat performansı.",
+          "Acil Teknik Arızalara Müdahale: Sahada hızlı uzman teknisyen müdahalesi hedeflenir.",
+          "Güvenlik ve Lobi Nöbet Sürekliliği: Vardiya doluluğu hedefi ve yedek personel ikamesi.",
+          "Aidat Tahsilat Performansı: Düzenli tahsilat ve şeffaf raporlama.",
           "Sakin Talep Çözüm Süresi: Mobil uygulama üzerinden iletilen taleplere 2 saat içinde ilk geri bildirim."
         ]
       },
@@ -2547,7 +2547,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Merkezi satın alma gücü, enerji verimliliği optimizasyonu ve önleyici bakım sayesinde sitenin toplam işletme giderlerinde %20-30 tasarruf sağlanır."
+        "text": "Merkezi satın alma gücü, enerji verimliliği optimizasyonu ve önleyici bakım sayesinde sitenin işletme giderlerinde tasarruf fırsatı doğar."
       },
       {
         "type": "h3",
@@ -2661,7 +2661,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:30:00+03:00",
     "image": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Periyodik teknik bakım; cihaz arıza risklerini %80 azaltır, enerji tüketiminde %25 tasarruf sağlar ve plansız yüksek maliyetli revizyonların önüne geçer.",
+    "tldr": "Periyodik teknik bakım; cihaz arıza risklerini azaltır, enerji verimliliğine katkı sağlar ve plansız yüksek maliyetli revizyonların önüne geçmeye yardımcı olur.",
     "content": [
       {
         "type": "p",
@@ -2694,7 +2694,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Alo Yönetim teknik servis ağı; asansör mahsur kalması, elektrik panosu patlaması veya hidrofor durması gibi acil senaryolarda 45 dakika içinde sahaya ulaşarak kesintisiz yaşam konforunu garanti altına alır."
+        "text": "Alo Yönetim teknik servis ağı; asansör mahsur kalması, elektrik panosu patlaması veya hidrofor durması gibi acil senaryolarda hızlı biçimde sahaya ulaşarak kesintisiz yaşam konforunu desteklemeyi hedefler."
       },
       {
         "type": "h2",
@@ -2706,7 +2706,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Reaktif elektrik cezalarının sıfırlanması, kazan verimliliği ve arıza önleyici bakım sayesinde sitenin ortak işletme bütçesinde yıllık %25-35 oranında net tasarruf sağlanır."
+        "text": "Reaktif elektrik cezası riskinin azaltılması, kazan verimliliği ve arıza önleyici bakım sayesinde sitenin ortak işletme bütçesinde tasarruf fırsatı doğar."
       },
       {
         "type": "h3",
@@ -2718,7 +2718,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Tesisiniz için 7/24 garantili teknik bakım ve mekanik işletme teklifi alın.",
+        "text": "Tesisiniz için 7/24 teknik bakım ve mekanik işletme teklifi alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Teknik Bakım Teklifi Al"
       }
@@ -2742,11 +2742,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:40:00+03:00",
     "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=2070&auto=format&fit=crop",
     "pillar": "/hizmetler/peyzaj-ve-bahce-bakimi",
-    "tldr": "Düzenli peyzaj ve bahçe bakımı; sitenin estetik cazibesini ve gayrimenkul değerini %20 artırırken, akıllı sulama otomasyonu ile su faturalarında %40 tasarruf sağlar.",
+    "tldr": "Düzenli peyzaj ve bahçe bakımı; sitenin estetik cazibesine ve gayrimenkul değerinin korunmasına katkı sağlarken, akıllı sulama otomasyonu su tüketiminin azaltılmasına yardımcı olur.",
     "content": [
       {
         "type": "p",
-        "text": "Toplu konut projelerinde ve rezidanslarda yeşil alanlar, sakinlerin şehir stresinden uzaklaştığı en değerli ortak yaşam alanlarıdır. Bakımsız, kurumuş çimler veya budanmamış ağaçlar site prestijini düşürürken; ziraat mühendisleri kontrolünde yönetilen peyzaj alanları sitenin gayrimenkul değerini %20 artırır."
+        "text": "Toplu konut projelerinde ve rezidanslarda yeşil alanlar, sakinlerin şehir stresinden uzaklaştığı en değerli ortak yaşam alanlarıdır. Bakımsız, kurumuş çimler veya budanmamış ağaçlar site prestijini düşürürken; ziraat mühendisleri kontrolünde yönetilen peyzaj alanları sitenin gayrimenkul değerinin korunmasına katkı sağlar."
       },
       {
         "type": "h2",
@@ -2763,11 +2763,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "2. Akıllı Otomatik Sulama Sistemleri ve %40 Su Tasarrufu"
+        "text": "2. Akıllı Otomatik Sulama Sistemleri ve Su Tasarrufu"
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü ve meteoroloji istasyonu entegreli akıllı sulama otomasyonu, yağmurlu günlerde sulamayı durdurarak ve nozul debilerini optimize ederek sitenin ortak su faturasında %40 net tasarruf sağlar."
+        "text": "Toprak nem sensörlü ve meteoroloji istasyonu entegreli akıllı sulama otomasyonu, yağmurlu günlerde sulamayı durdurarak ve nozul debilerini optimize ederek sitenin ortak su faturasında tasarruf sağlanmasına yardımcı olur."
       },
       {
         "type": "h2",
@@ -2991,7 +2991,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-07T11:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070",
     "pillar": "/hizmetler/hukuk-ve-icra-danismanligi",
-    "tldr": "Site yönetimlerinde profesyonel hukuk danışmanlığı; aidat tahsilatını %98 seviyesine çıkarır, hatalı genel kurul kararlarını önler ve yöneticinin şahsi hukuki sorumluluğunu ortadan kaldırır.",
+    "tldr": "Site yönetimlerinde profesyonel hukuk danışmanlığı; aidat tahsilat sürecini düzenler, hatalı genel kurul kararlarının önlenmesine yardımcı olur ve yöneticinin hukuki risklerini azaltır.",
     "content": [
       {
         "type": "p",
@@ -3021,7 +3021,7 @@ export const POSTS: Post[] = [
       {
         "type": "ol",
         "items": [
-          "Hızlı İcra Takibi: Gününde ödenmeyen aidatlar için anında %5 gecikme tazminatlı ilamsız takip açılır.",
+          "Hızlı İcra Takibi: Gününde ödenmeyen aidatlar için %5 gecikme tazminatı da talep edilerek ilamsız takip açılabilir.",
           "Yönetim Planı Revizyonu: Sitenin tapu anayasası KMK m.28 uyarınca güncellenir ve tapuya tescil edilir.",
           "Genel Kurul Divan Yönetimi: Çağrı mektupları, vekaletname kontrolleri ve hazirun cetvelleri mevzuata tam uyumlu yönetilir.",
           "Sözleşme Hukuku: Taşeron firmalarla yapılan güvenlik, temizlik ve asansör sözleşmelerine cezai şartlar eklenir."
@@ -3177,7 +3177,7 @@ export const POSTS: Post[] = [
         "items": [
           "İstanbul Finans Merkezi (İFM) kulelerinde çoklu x-ray ve biyometrik turnike geçişleri",
           "Batı Ataşehir lüks rezidanslarında çift bariyerli yüksek hızlı Plaka Tanıma Sistemi (PTS)",
-          "Kadıköy merkezli Alo Güvenlik (guvenlikkursu.com) üssünden 15 dakikada hızlı nöbetçi personel takviyesi",
+          "Kadıköy merkezli Alo Güvenlik (guvenlikkursu.com) üssünden hızlı nöbetçi personel takviyesi",
           "3G Güvenlik 7/24 mobil süpervizör araçlarıyla periyodik gece denetimleri ve telsiz koordinasyonu"
         ]
       },
@@ -3482,7 +3482,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -3505,7 +3505,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -3541,7 +3541,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Ataşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Ataşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -3555,7 +3555,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "Finans kulelerinde EMO onaylı Yüksek Gerilim (Y.G.) Trafo İşletme Sorumluluğu ve yağ izolasyon testleri",
-          "Kompanzasyon panolarının telemetri ile uzaktan izlenerek reaktif elektrik cezalarının sıfırlanması",
+          "Kompanzasyon panolarının telemetri ile uzaktan izlenerek reaktif elektrik cezası riskinin azaltılması",
           "BMS (Bina Yönetim Sistemi) üzerinden Chiller ve VRF klima santrallerinin çalışma saatlerine göre optimizasyonu",
           "Dizel jeneratörlerin haftalık otomatik yük transfer testleri ve akü empedans ölçümleri"
         ]
@@ -3566,7 +3566,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -3574,7 +3574,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Ataşehir bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Ataşehir bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -3598,7 +3598,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Ataşehir'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Ataşehir'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Ataşehir Teknik Servis Teklifi Al"
       }
@@ -3712,7 +3712,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Ataşehir sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -4090,7 +4090,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -4113,7 +4113,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -4149,7 +4149,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Bakırköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Bakırköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -4174,7 +4174,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -4182,7 +4182,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Bakırköy bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Bakırköy bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -4206,7 +4206,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Bakırköy'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Bakırköy'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Bakırköy Teknik Servis Teklifi Al"
       }
@@ -4320,7 +4320,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Bakırköy sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -4698,7 +4698,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -4721,7 +4721,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -4757,7 +4757,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Başakşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Başakşehir bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -4770,7 +4770,7 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Kaskad doğalgaz kazan dairelerinde baca gazı analizleri ile %15-20 yakıt tasarrufu sağlanması",
+          "Kaskad doğalgaz kazan dairelerinde baca gazı analizleri ile yakıt verimliliğinin artırılması",
           "Çevre ve Şehircilik Bakanlığı lisanslı yazılımla adil ve şeffaf merkezi ısı pay ölçer endeks okuması",
           "Mega sitelerde yüksek hidrofor basma yüksekliği (MSS) kalibrasyonu ile her kata eşit su basıncı",
           "Merkezi yangın algılama santrallerinde duman damperleri ve basınçlandırma fanlarının haftalık testi"
@@ -4782,7 +4782,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -4790,7 +4790,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Başakşehir bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Başakşehir bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -4802,7 +4802,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "KMK m.42 ve Enerji Verimliliği Kanunu uyarınca %70 tüketim + %30 asgari ortak alan formülüyle hesaplanır."
+        "text": "Isı pay ölçer ve merkezi ısıtma giderlerinin paylaşımı, yönetim planı ve ilgili enerji verimliliği mevzuatına göre belirlenir."
       },
       {
         "type": "h3",
@@ -4814,7 +4814,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Başakşehir'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Başakşehir'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Başakşehir Teknik Servis Teklifi Al"
       }
@@ -4928,7 +4928,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Başakşehir sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -5306,7 +5306,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -5329,7 +5329,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -5365,7 +5365,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Beşiktaş bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Beşiktaş bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -5390,7 +5390,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -5398,7 +5398,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Beşiktaş bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Beşiktaş bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -5410,7 +5410,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Beşiktaş bölgesinde konuşlu teknik ekiplerimiz kritik iklimlendirme arızalarına maksimum 30 dakikada müdahale eder."
+        "text": "Beşiktaş bölgesinde konuşlu teknik ekiplerimiz kritik iklimlendirme arızalarına hızla müdahale etmeyi hedefler."
       },
       {
         "type": "h3",
@@ -5422,7 +5422,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Beşiktaş'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Beşiktaş'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Beşiktaş Teknik Servis Teklifi Al"
       }
@@ -5536,7 +5536,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Beşiktaş sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -5914,7 +5914,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -5937,7 +5937,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -5973,7 +5973,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Beylikdüzü bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Beylikdüzü bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -5998,7 +5998,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -6006,7 +6006,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Beylikdüzü bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Beylikdüzü bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -6030,7 +6030,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Beylikdüzü'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Beylikdüzü'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Beylikdüzü Teknik Servis Teklifi Al"
       }
@@ -6144,7 +6144,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Beylikdüzü sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -6397,7 +6397,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Gündüz fiziksel danışma, gece ise uzaktan akıllı kamera izleme ve mobil devriye hibrit modeliyle %50 tasarruf sağlanır."
+        "text": "Gündüz fiziksel danışma, gece ise uzaktan akıllı kamera izleme ve mobil devriye hibrit modeliyle maliyet tasarrufu hedeflenir."
       },
       {
         "type": "h3",
@@ -6405,7 +6405,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kadıköy merkezimiz sayesinde acil personel ihtiyaçları 30 dakika içinde sahaya sevk edilir."
+        "text": "Kadıköy merkezimiz sayesinde acil personel ihtiyaçları hızla sahaya sevk edilir."
       },
       {
         "type": "cta",
@@ -6672,7 +6672,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -6695,7 +6695,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -6731,7 +6731,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Kadıköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Kadıköy bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -6756,7 +6756,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -6764,7 +6764,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Kadıköy bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Kadıköy bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -6788,7 +6788,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Kadıköy'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Kadıköy'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Kadıköy Teknik Servis Teklifi Al"
       }
@@ -6902,7 +6902,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Kadıköy sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -7280,7 +7280,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -7303,7 +7303,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -7339,7 +7339,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Kartal bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Kartal bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -7364,7 +7364,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -7372,7 +7372,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Kartal bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Kartal bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -7396,7 +7396,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Kartal'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Kartal'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Kartal Teknik Servis Teklifi Al"
       }
@@ -7510,7 +7510,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Kartal sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -7977,7 +7977,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -8000,7 +8000,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -8036,7 +8036,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Maltepe bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Maltepe bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -8049,7 +8049,7 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Maksimum 45 dakikada yerinde müdahale taahhütlü 7/24 nöbetçi acil teknik servis hizmeti",
+          "7/24 nöbetçi acil teknik servis ile hızlı yerinde müdahale taahhüdü",
           "İçme ve kullanım suyu depolarında yılda 2 kez Sağlık Bakanlığı onaylı ozonlama ve dezenfeksiyon",
           "Şiddetli yağışlarda kapalı otopark su basmalarını önleyen çift flatörlü foseptik dalgıç pompaları",
           "Hidrofor genleşme tankı membran kontrolleri ile koç darbesi ve tesisat patlamalarının önlenmesi"
@@ -8061,7 +8061,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -8069,7 +8069,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Maltepe bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Maltepe bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -8093,7 +8093,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Maltepe'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Maltepe'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Maltepe Teknik Servis Teklifi Al"
       }
@@ -8207,7 +8207,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Maltepe sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -8585,7 +8585,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -8608,7 +8608,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -8644,7 +8644,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Sarıyer bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Sarıyer bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -8669,7 +8669,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -8677,7 +8677,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Sarıyer bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Sarıyer bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -8701,7 +8701,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Sarıyer'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Sarıyer'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Sarıyer Teknik Servis Teklifi Al"
       }
@@ -8815,7 +8815,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Sarıyer sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -9193,7 +9193,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -9216,7 +9216,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -9252,7 +9252,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Şişli bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Şişli bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -9265,8 +9265,8 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "Chiller ve AHU klima santrallerinde frekans invertörleri ve filtre temizlikleriyle %25 enerji tasarrufu",
-          "Kompanzasyon panosu telemetrisi ile dağıtım şirketi reaktif/kapasitif enerji cezalarının sıfırlanması",
+          "Chiller ve AHU klima santrallerinde frekans invertörleri ve filtre temizlikleriyle enerji verimliliği",
+          "Kompanzasyon panosu telemetrisi ile dağıtım şirketi reaktif/kapasitif enerji cezası riskinin azaltılması",
           "Merkezi adresli yangın ihbar santrallerinde duman dedektörleri, damperler ve acil anons testleri",
           "Fan-coil serpantinlerinin periyodik antibakteriyel kimyasallarla temizlenerek hava kalitesinin artırılması"
         ]
@@ -9277,7 +9277,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -9285,7 +9285,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Şişli bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Şişli bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -9297,7 +9297,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Kompanzasyon takibi ile reaktif ceza önlenir, chiller eko-modülasyonu ile %25 elektrik tasarrufu sağlanır."
+        "text": "Kompanzasyon takibi ile reaktif ceza riski azaltılır, chiller eko-modülasyonu ile elektrik tüketiminin düşürülmesi hedeflenir."
       },
       {
         "type": "h3",
@@ -9309,7 +9309,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Şişli'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Şişli'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Şişli Teknik Servis Teklifi Al"
       }
@@ -9423,7 +9423,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Şişli sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -9963,7 +9963,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -9986,7 +9986,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -10022,7 +10022,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Ümraniye bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Ümraniye bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -10047,7 +10047,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -10055,7 +10055,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Ümraniye bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Ümraniye bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -10079,7 +10079,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Ümraniye'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Ümraniye'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Ümraniye Teknik Servis Teklifi Al"
       }
@@ -10193,7 +10193,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Ümraniye sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
@@ -10266,7 +10266,7 @@ export const POSTS: Post[] = [
         "items": [
           "Çamlıca, Kandilli, Beylerbeyi ve Çengelköy sırtlarındaki korulu sitelerde çevre lazer bariyerleri",
           "Tarihi dokuya ve koru estetiğine uygun ahşap/kompozit nizamiye kulübelerinde seçkin VIP güvenlik",
-          "Gece koru içi aydınlatmalı parkurlarda RFID noktalarıyla 45 dakikalık periyotlarla taranan devriyeler",
+          "Gece koru içi aydınlatmalı parkurlarda RFID noktalarıyla periyodik olarak taranan devriyeler",
           "Boğaz sahil yolu bağlantılı dar site girişlerinde trafik sıkışıklığını önleyen akıllı bariyer otomasyonu"
         ]
       },
@@ -10296,7 +10296,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Ağaçlık alanlara yerleştirilen 20+ RFID kontrol noktası gece boyunca 45 dakikalık periyotlarla taranır."
+        "text": "Ağaçlık alanlara yerleştirilen RFID kontrol noktaları gece boyunca periyodik olarak taranır."
       },
       {
         "type": "h3",
@@ -10571,7 +10571,7 @@ export const POSTS: Post[] = [
         "type": "ul",
         "items": [
           "İlkbahar Canlandırma: Çim havalandırma (verticut), yosun temizliği, tohum ara ekimi ve mevsimlik çiçek dikimi.",
-          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile %40 su tasarrufu ve haftalık çim biçimi.",
+          "Yaz Bakımı ve Akıllı Sulama: Gece saatlerinde toprak nem sensörlü otomatik sulama ile su tasarrufu ve haftalık çim biçimi.",
           "Sonbahar Gübrelemesi: Ağaç form budamaları, kuru yaprak temizliği ve kışa hazırlık fosforlu kök gübrelemesi.",
           "Kış Koruma: Don önleyici bitki örtüleri, rüzgarda devrilme riski olan ağaçların derin budaması ve kış ilaçlaması."
         ]
@@ -10594,7 +10594,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfı %40 önlenir."
+        "text": "Toprak nem sensörlü akıllı sulama kontrol üniteleri ve yağmur algılayıcıları ile su israfının azaltılması hedeflenir."
       },
       {
         "type": "h3",
@@ -10630,7 +10630,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Üsküdar bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, EMO onaylı trafo işletme sorumluluğu ve %25 enerji tasarrufu mühendisliği sunuyoruz.",
+    "tldr": "Üsküdar bölgesindeki binalarda elektrik ve mekanik altyapıyı koruyan 7/24 nöbetçi teknik servis, trafo işletme desteği ve enerji verimliliği odaklı mühendislik hizmeti sunuyoruz.",
     "content": [
       {
         "type": "p",
@@ -10655,7 +10655,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının günlük takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturaları tamamen sıfırlanır."
+        "text": "Teknik ekiplerimiz termal kamera ölçümleri, titreşim analizleri ve baca gazı testleri uygulayarak arızaları henüz gerçekleşmeden önler. Kompanzasyon panolarının düzenli takibi ile elektrik dağıtım şirketinin uyguladığı reaktif ceza faturalarının önüne geçilmesi hedeflenir."
       },
       {
         "type": "h2",
@@ -10663,7 +10663,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Üsküdar bölgesindeki nöbetçi mobil teknik servisimiz maksimum 45 dakika içinde sahada müdahaleye başlar."
+        "text": "Asansörde mahsur kalma, ana trafo kesintisi, hidrofor motor arızası veya ana su borusu patlağı gibi acil durumlarda Üsküdar bölgesindeki nöbetçi mobil teknik servisimiz en kısa sürede sahada müdahaleye başlamayı hedefler."
       },
       {
         "type": "h2",
@@ -10687,7 +10687,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "cta",
-        "text": "Üsküdar'deki tesisiniz için 7/24 garantili teknik bakım sözleşmesi başlatın.",
+        "text": "Üsküdar'deki tesisiniz için 7/24 teknik bakım hizmeti hakkında teklif alın.",
         "href": "/hizmetler/teknik-bakim",
         "label": "Üsküdar Teknik Servis Teklifi Al"
       }
@@ -10801,7 +10801,7 @@ export const POSTS: Post[] = [
         "items": [
           "Şeffaf Mali Yönetim: Üsküdar sakinlerinin 7/24 mobil uygulama üzerinden banka hesaplarını ve faturaları kuruşu kuruşuna izleyebildiği online ERP altyapısı.",
           "5188 Lisanslı Güvenlik Koordinasyonu: Alo Güvenlik ve 3G Güvenlik iş birliği ile bölgeye özel 7/24 denetlenen güvenlik mimarisi.",
-          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında maksimum 45 dakika acil servis SLA taahhüdü.",
+          "Proaktif Teknik Bakım: Asansör yeşil etiket takibi, hidrofor, jeneratör ve trafo bakımlarında acil servis SLA taahhüdü.",
           "Mevzuata Uygunluk: KMK m.35 ve m.37 uyarınca yıllık işletme projesi bütçelemesi ve genel kurul divan yönetimi."
         ]
       },
