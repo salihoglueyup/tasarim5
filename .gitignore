@@ -88,3 +88,10 @@ next-env.d.ts
 
 # n8n third-party template libraries (kept locally for reference)
 /n8n/library/
+
+# Müşteri listesi ve sunum dosyaları (halka açık repoya girmesin)
+Referanslar*.xls*
+Alo_Sunum*
+Alo Sunum*
+Alo
+Referanslar
