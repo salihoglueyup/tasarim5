@@ -4,7 +4,6 @@ import { BASE_URL } from '@/lib/seo';
 import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
 import { POSTS_META } from '@/data/postsMetadata';
-import { REFERENCES_META } from '@/data/referencesMetadata';
 import { CERTIFICATES } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
@@ -26,7 +25,6 @@ function escapeXml(unsafe: string) {
 export async function GET() {
   try {
     let posts: { slug: string; image: string | null; title: string }[] = [];
-    let references: { slug: string; image: string | null; title: string }[] = [];
 
     // Görselli tüm blog yazılarını çek (DB sorgusu)
     try {
@@ -38,30 +36,12 @@ export async function GET() {
       console.warn('Image Sitemap: Post DB fallback to static metadata:', err);
     }
 
-    // Görselli tüm referansları çek (DB sorgusu)
-    try {
-      references = await prisma.reference.findMany({
-        where: { published: true, image: { not: null } },
-        select: { slug: true, image: true, title: true }
-      });
-    } catch (err) {
-      console.warn('Image Sitemap: Reference DB fallback to static metadata:', err);
-    }
-
     // DB boş veya ulaşılamazsa offline statik veri katmanını devreye sok
     if (!posts || posts.length === 0) {
       posts = POSTS_META.filter((p) => Boolean(p.image)).map((p) => ({
         slug: p.slug,
         image: p.image,
         title: p.title,
-      }));
-    }
-
-    if (!references || references.length === 0) {
-      references = REFERENCES_META.filter((r) => Boolean(r.image) && r.published !== false).map((r) => ({
-        slug: r.slug,
-        image: r.image,
-        title: r.title,
       }));
     }
 
@@ -181,23 +161,6 @@ export async function GET() {
       xml += `      <image:loc>${escapeXml(imageUrl)}</image:loc>\n`;
       xml += `      <image:title>${escapeXml(post.title)}</image:title>\n`;
       xml += `      <image:caption>${escapeXml(post.title)} — Alo Yönetim Bilgi Merkezi</image:caption>\n`;
-      xml += `      <image:geo_location>İstanbul, Türkiye</image:geo_location>\n`;
-      xml += `      <image:license>${BASE_URL}/kullanim-sartlari</image:license>\n`;
-      xml += `    </image:image>\n`;
-      xml += `  </url>\n`;
-    }
-
-    // Referans projeleri
-    for (const ref of references) {
-      if (!ref.image) continue;
-      const imageUrl = ref.image.startsWith('http') ? ref.image : `${BASE_URL}${ref.image.startsWith('/') ? '' : '/'}${ref.image}`;
-      
-      xml += `  <url>\n`;
-      xml += `    <loc>${BASE_URL}/referanslar/${ref.slug}</loc>\n`;
-      xml += `    <image:image>\n`;
-      xml += `      <image:loc>${escapeXml(imageUrl)}</image:loc>\n`;
-      xml += `      <image:title>${escapeXml(ref.title)}</image:title>\n`;
-      xml += `      <image:caption>${escapeXml(ref.title)} — Alo Yönetim Referans Projesi</image:caption>\n`;
       xml += `      <image:geo_location>İstanbul, Türkiye</image:geo_location>\n`;
       xml += `      <image:license>${BASE_URL}/kullanim-sartlari</image:license>\n`;
       xml += `    </image:image>\n`;

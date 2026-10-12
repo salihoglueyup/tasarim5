@@ -4,6 +4,7 @@ import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { useState, useRef, MouseEvent } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface PageHeaderProps {
   title: string;
@@ -13,6 +14,7 @@ interface PageHeaderProps {
 }
 
 export default function PageHeader({ title, description, breadcrumbs }: PageHeaderProps) {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
   // Jank önleme: rect'i her mousemove'da değil, hover başında bir kez ölç ve önbelleğe al.
@@ -115,7 +117,7 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
           transition={{ duration: 0.5 }}
           className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 shadow-sm text-xs font-semibold text-slate-300 mb-6 flex-wrap justify-center"
         >
-          <Link href="/" className="hover:text-white transition-colors">Anasayfa</Link>
+          <Link href="/" className="hover:text-white transition-colors">{t('pgh_home')}</Link>
           
           {finalBreadcrumbs ? (() => {
             const validCrumbs = finalBreadcrumbs.filter(

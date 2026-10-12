@@ -77,7 +77,7 @@ export const LINK_DICTIONARY: DictionaryEntry[] = [
   // Kurumsal, Akreditasyon, Araçlar & Sektörel
   { regex: makeUnicodeRegex('kalite belgeleri(?:miz)?|ISO sertifikaları|ISO 14001|ISO 45001|ISO 10002|ISO 22301|ISO 31000|ISO 26000'), url: '/kurumsal/kalite-belgelerimiz' },
   { regex: makeUnicodeRegex('istihdam köprüsü|özel güvenlik iş ilanları|kariyer'), url: '/istihdam-koprusu' },
-  { regex: makeUnicodeRegex('başarı hikayeleri|vaka analizleri|örnek projeler'), url: '/basari-hikayeleri' },
+  { regex: makeUnicodeRegex('başarı hikayeleri|vaka analizleri|örnek projeler'), url: '/referanslar' },
   { regex: makeUnicodeRegex('güvenlik akademisi'), url: '/guvenlik-akademisi' },
   { regex: makeUnicodeRegex('aidat hesaplama|yönetim hesaplayıcı|aidat simülatörü'), url: '/hesaplayici' },
   { regex: makeUnicodeRegex('sürdürülebilirlik|yeşil tesis|GES projeleri'), url: '/kurumsal/surdurulebilirlik' },

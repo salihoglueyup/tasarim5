@@ -211,6 +211,14 @@ const nextConfig: NextConfig = {
         destination: '/referanslar',
         permanent: true,
       },
+      // Referans detay sayfaları ve başarı hikâyeleri kaldırıldı (içerikleri gerçek referans listesiyle değişti)
+      { source: '/referanslar/:slug', destination: '/referanslar', permanent: true },
+      { source: '/:lang(en|ru|ar)/referanslar/:slug', destination: '/:lang/referanslar', permanent: true },
+      { source: '/basari-hikayeleri', destination: '/referanslar', permanent: true },
+      { source: '/:lang(en|ru|ar)/basari-hikayeleri', destination: '/:lang/referanslar', permanent: true },
+      { source: '/:lang(en)/success-stories', destination: '/:lang/referanslar', permanent: true },
+      { source: '/:lang(ru)/istorii-uspekha', destination: '/:lang/referanslar', permanent: true },
+      { source: '/:lang(ar)/qisas-najah', destination: '/:lang/referanslar', permanent: true },
       {
         source: '/blog-yazilari',
         destination: '/blog',

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/constants';
 import { DISTRICTS } from '@/data/districts';
+import { REAL_REFERENCES } from '@/data/realReferences';
 import { SERVICES } from '@/data/services';
 import {
   ORG_NAME,
@@ -25,7 +26,7 @@ export const revalidate = 3600; // 1 saat önbellek
  */
 export async function GET() {
   const [referenceCount, postCount, dbFaqs, sectoralSolutions] = await Promise.all([
-    prisma.reference.count({ where: { published: true } }).catch(() => 0),
+    Promise.resolve(REAL_REFERENCES.length),
     prisma.post.count({ where: { published: true } }).catch(() => 0),
     prisma.faq.findMany({
       take: 10,
@@ -62,10 +63,8 @@ export async function GET() {
     operationalScope: {
       primarySpecialty: 'Entegre Tesis Yönetimi ve Profesyonel Site İşletmesi',
       totalDistricts: DISTRICTS.length,
-      managedProjects: referenceCount > 0 ? `${referenceCount}+` : '200+',
+      referenceCount,
       publishedGuides: postCount > 0 ? `${postCount}+` : '150+',
-      totalStaff: '200+',
-      satisfactionRate: '%98.7',
       emergencyResponse: '7/24 Kesintisiz Nöbetçi Teknik ve Güvenlik Operasyonu'
     }
   };

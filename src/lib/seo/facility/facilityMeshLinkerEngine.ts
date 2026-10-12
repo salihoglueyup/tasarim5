@@ -113,10 +113,10 @@ export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesi
       category: 'legal_guide',
     },
     {
-      title: 'Başarı Hikayeleri ve Vaka Analizleri',
-      url: `${BASE_URL}${langPrefix}/basari-hikayeleri`,
-      anchorText: 'Alo Yönetim Tesis Yönetimi Başarı Hikayeleri ve KPI Sonuçları',
-      description: '%35 maliyet tasarrufu sağlanan gerçek site ve plaza yönetim vaka çalışmaları.',
+      title: 'Referanslarımız',
+      url: `${BASE_URL}${langPrefix}/referanslar`,
+      anchorText: 'Alo Yönetim Referansları',
+      description: 'Hizmet verdiğimiz site, kamu kurumu, sağlık kuruluşu ve ticari tesislerin listesi.',
       category: 'blog_cluster',
     },
   ];

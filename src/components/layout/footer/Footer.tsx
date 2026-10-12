@@ -82,7 +82,6 @@ export default function Footer() {
                 { nameKey: 'nav_quality', path: '/kurumsal/kalite-politikamiz' },
                 { nameKey: 'nav_sustainability', path: '/kurumsal/surdurulebilirlik' },
                 { nameKey: 'nav_references', path: '/referanslar' },
-                { nameKey: 'nav_success_stories', path: '/basari-hikayeleri' },
                 { nameKey: 'nav_contact', path: '/iletisim' },
                 { nameKey: 'nav_faq', path: '/sss' },
                 { nameKey: 'nav_blog', path: '/blog' }

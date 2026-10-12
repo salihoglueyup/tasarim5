@@ -4,7 +4,7 @@ import path from 'path';
 
 describe('Wave 7: Faz 166 - Faz 170 Çok Dilli Sözlük, Başarı Hikayeleri, Yasal Özet, Arapça Leading & Çerez İzni', () => {
   const sozlukClientPath = path.resolve(process.cwd(), 'src/app/[lang]/sozluk/SozlukClient.tsx');
-  const basariClientPath = path.resolve(process.cwd(), 'src/app/[lang]/basari-hikayeleri/BasariHikayeleriClient.tsx');
+  const referanslarPagePath = path.resolve(process.cwd(), 'src/app/[lang]/referanslar/page.tsx');
   const legalSummaryPath = path.resolve(process.cwd(), 'src/components/legal/LegalEnglishSummary.tsx');
   const globalsCssPath = path.resolve(process.cwd(), 'src/app/globals.css');
   const cookieConsentPath = path.resolve(process.cwd(), 'src/components/ui/widgets/CookieConsent.tsx');
@@ -16,12 +16,11 @@ describe('Wave 7: Faz 166 - Faz 170 Çok Dilli Sözlük, Başarı Hikayeleri, Ya
     expect(content).toContain('terms={activeTerms}');
   });
 
-  it('Faz 167: BasariHikayeleriClient çok dilli vaka analizlerini ve çeviri anahtarlarını destekler', () => {
-    const content = fs.readFileSync(basariClientPath, 'utf-8');
-    expect(content).toContain('getStoryField');
-    expect(content).toContain('case_1_title');
-    expect(content).toContain('case_2_title');
-    expect(content).toContain('case_3_title');
+  it('Faz 167: referanslar sayfası tek kaynaktan (realReferences) beslenir; uydurma yorum/DB örnek kayıtları kullanılmaz', () => {
+    const content = fs.readFileSync(referanslarPagePath, 'utf-8');
+    expect(content).toContain('ReferencesShowcase');
+    expect(content).not.toContain('prisma');
+    expect(content).not.toContain('testimonial');
   });
 
   it('Faz 168: LegalEnglishSummary KVKK ve Gizlilik Politikası için İngilizce özet kartlarını barındırır', () => {

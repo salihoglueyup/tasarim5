@@ -23,6 +23,7 @@ const CORE_TRANSLATED = [
   '/gizlilik-politikasi',
   '/kvkk-ve-aydinlatma-metni',
   '/cerez-politikasi',
+  '/referanslar',
 ] as const;
 
 // Hizmet sayfaları: çekirdek içerik çevrildi, yalnızca Türkçe olan SEO blokları en/ru/ar'da gizli (TrOnly).

@@ -59,7 +59,6 @@ const MENU_ITEMS: MenuItem[] = [
       { nameKey: 'nav_facility_open_data', path: '/hizmetler/tesis-yonetimi/acik-veri', descKey: 'nav_facility_open_data_desc', icon: 'database' },
       { nameKey: 'nav_calculator', path: '/hesaplayici', descKey: 'calc_promo_desc', icon: 'calculate' },
       { nameKey: 'nav_dictionary', path: '/sozluk', descKey: 'nav_dictionary_desc', icon: 'auto_stories' },
-      { nameKey: 'nav_success_stories', path: '/basari-hikayeleri', descKey: 'nav_success_desc', icon: 'emoji_events' },
       { nameKey: 'nav_app', path: '/app', descKey: 'nav_app_desc', icon: 'smartphone' },
       { nameKey: 'nav_sitemap', path: '/site-haritasi', descKey: 'nav_sitemap_desc', icon: 'explore' },
     ]

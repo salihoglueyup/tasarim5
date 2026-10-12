@@ -33,9 +33,9 @@ describe('Türkiye Coğrafi Hedefleme (Geo-Targeting) & SEO Doğrulama Paketi', 
 
   describe('2. Hreflang Dil ve Bölge Eşleştirmesi', () => {
     it('çevrilmemiş sayfada yalnızca tr-TR ve x-default kanonik değerlerini üretmeli', () => {
-      const alternates = buildLanguageAlternates('/referanslar');
-      expect(alternates['tr-TR']).toBe(`${BASE_URL}/referanslar`);
-      expect(alternates['x-default']).toBe(`${BASE_URL}/referanslar`);
+      const alternates = buildLanguageAlternates('/bolgeler');
+      expect(alternates['tr-TR']).toBe(`${BASE_URL}/bolgeler`);
+      expect(alternates['x-default']).toBe(`${BASE_URL}/bolgeler`);
       expect(alternates['en-US']).toBeUndefined();
       expect(alternates['ru-RU']).toBeUndefined();
       expect(alternates['ar-SA']).toBeUndefined();

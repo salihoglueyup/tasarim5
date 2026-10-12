@@ -3,6 +3,7 @@ import { BASE_URL, SITE_NAME } from '@/lib/seo';
 import { ORG_NAME, ORG_LEGAL_NAME, ORG_ADDRESS, ORG_PHONE, ORG_EMAIL, ORG_GEO } from '@/lib/schemas';
 import { SERVICES } from '@/data/services';
 import { DISTRICTS } from '@/data/districts';
+import { REAL_REFERENCES } from '@/data/realReferences';
 import { prisma } from '@/lib/prisma';
 import { ORG_CREDENTIALS } from '@/lib/schemas';
 
@@ -16,13 +17,7 @@ export const revalidate = 3600; // 1 saat önbellek
  * yapay zeka arama motorları için Alo Yönetim'in tam anlamsal varlık grafiğini (Semantic Entity Graph) sunar.
  */
 export async function GET() {
-  const [references, sectoralSolutions, latestPosts] = await Promise.all([
-    prisma.reference.findMany({
-      where: { published: true },
-      take: 20,
-      orderBy: { order: 'asc' },
-      select: { title: true, slug: true, location: true, units: true, category: true }
-    }).catch(() => []),
+  const [sectoralSolutions, latestPosts] = await Promise.all([
     prisma.sectoralSolution.findMany({
       where: { published: true },
       orderBy: { order: 'asc' },
@@ -145,18 +140,13 @@ export async function GET() {
     }
   }));
 
-  const referenceNodes = references.map(ref => ({
-    '@type': 'Place',
-    '@id': `${BASE_URL}/referanslar/${ref.slug}#place`,
-    name: ref.title,
-    description: `${ref.location} bölgesinde yönetilen ${ref.units} bağımsız bölümlü ${ref.category} projesi.`,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: ref.location,
-      addressRegion: 'İstanbul',
-      addressCountry: 'TR'
-    },
-    url: `${BASE_URL}/referanslar/${ref.slug}`
+  // Referanslar tek kaynaktan (src/data/realReferences.ts); daire sayısı gibi doğrulanamayan alanlar yazılmaz.
+  const referenceNodes = REAL_REFERENCES.map((ref) => ({
+    '@type': 'Organization',
+    '@id': `${BASE_URL}/referanslar#${ref.slug}`,
+    name: ref.name,
+    ...(ref.district ? { address: { '@type': 'PostalAddress', addressLocality: ref.district, addressRegion: 'İstanbul', addressCountry: 'TR' } } : {}),
+    url: `${BASE_URL}/referanslar`,
   }));
 
   const articleNodes = latestPosts.map(post => ({

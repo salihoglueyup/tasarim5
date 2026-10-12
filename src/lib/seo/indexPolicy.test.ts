@@ -5,9 +5,9 @@ import sitemap from '@/app/sitemap';
 
 describe('İndeksleme politikası (indexPolicy.ts)', () => {
   it('Türkçe her zaman, çevrilmemiş diller asla indekslenmez', () => {
-    expect(isLocaleIndexable('/referanslar', 'tr')).toBe(true);
-    expect(isLocaleIndexable('/referanslar', 'en')).toBe(false);
-    expect(isLocaleIndexable('/referanslar', 'xx')).toBe(false);
+    expect(isLocaleIndexable('/bolgeler', 'tr')).toBe(true);
+    expect(isLocaleIndexable('/bolgeler', 'en')).toBe(false);
+    expect(isLocaleIndexable('/bolgeler', 'xx')).toBe(false);
   });
 
   it('yolları normalize eder', () => {
@@ -18,8 +18,8 @@ describe('İndeksleme politikası (indexPolicy.ts)', () => {
   });
 
   it('çevrilmemiş dildeki sayfa noindex olur, TR sürümü indekslenir', () => {
-    const en = buildMetadata({ title: 'T', description: 'D', path: '/referanslar', lang: 'en' });
-    const tr = buildMetadata({ title: 'T', description: 'D', path: '/referanslar', lang: 'tr' });
+    const en = buildMetadata({ title: 'T', description: 'D', path: '/bolgeler', lang: 'en' });
+    const tr = buildMetadata({ title: 'T', description: 'D', path: '/bolgeler', lang: 'tr' });
     expect((en.robots as { index: boolean }).index).toBe(false);
     expect((tr.robots as { index: boolean }).index).toBe(true);
   });
@@ -48,14 +48,14 @@ describe('İndeksleme politikası (indexPolicy.ts)', () => {
 
   describe('bir sayfa çeviri listesine eklendiğinde', () => {
     const list = TRANSLATED_PATHS.en as string[];
-    beforeEach(() => list.push('/referanslar'));
-    afterEach(() => list.splice(list.indexOf('/referanslar'), 1));
+    beforeEach(() => list.push('/bolgeler'));
+    afterEach(() => list.splice(list.indexOf('/bolgeler'), 1));
 
     it('o dilde indekslenir ve hreflang\'e girer', () => {
-      expect(isIndexable('/referanslar/', 'en')).toBe(true);
-      const alt = buildLanguageAlternates('/referanslar');
-      expect(alt.en).toBe(`${BASE_URL}/en/referanslar`);
-      expect(alt['en-US']).toBe(`${BASE_URL}/en/referanslar`);
+      expect(isIndexable('/bolgeler/', 'en')).toBe(true);
+      const alt = buildLanguageAlternates('/bolgeler');
+      expect(alt.en).toBe(`${BASE_URL}/en/bolgeler`);
+      expect(alt['en-US']).toBe(`${BASE_URL}/en/bolgeler`);
       expect(alt.ru).toBeUndefined();
     });
   });
@@ -78,7 +78,7 @@ describe('İndeksleme politikası (indexPolicy.ts)', () => {
       for (const l of ['en', 'ru', 'ar']) {
         expect(robots(l, '/hakkimizda')).toBe(true);
         expect(robots(l, '/hizmetler/teknik-bakim')).toBe(true);
-        expect(robots(l, '/referanslar')).toBe(false);
+        expect(robots(l, '/bolgeler')).toBe(false);
       }
     });
 

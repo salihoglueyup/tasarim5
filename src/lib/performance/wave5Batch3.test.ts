@@ -7,7 +7,7 @@ describe('Wave 5: Faz 116 - Faz 120 Medya & Görsel Optimizasyonları', () => {
   const ogRoutePath = path.resolve(process.cwd(), 'src/app/api/og/route.tsx');
   const layoutPath = path.resolve(process.cwd(), 'src/app/[lang]/layout.tsx');
   const postBodyPath = path.resolve(process.cwd(), 'src/components/blog/PostBody.tsx');
-  const refClientPath = path.resolve(process.cwd(), 'src/app/[lang]/referanslar/ReferencesClient.tsx');
+  const refClientPath = path.resolve(process.cwd(), 'src/components/sections/references/ReferenceCard.tsx');
 
   it('Faz 116: sertifika sayfasında dosya boyutu rozeti yer alır', () => {
     const certContent = fs.readFileSync(certSlugPath, 'utf-8');

@@ -21,7 +21,6 @@ function escapeXml(unsafe: string) {
 export async function GET() {
   try {
     let posts: any[] = [];
-    let references: any[] = [];
 
     try {
       posts = await prisma.post.findMany({
@@ -40,19 +39,6 @@ export async function GET() {
         },
       });
 
-      references = await prisma.reference.findMany({
-        where: { published: true },
-        orderBy: { createdAt: 'desc' },
-        take: 10,
-        select: {
-          slug: true,
-          title: true,
-          testimonialText: true,
-          units: true,
-          location: true,
-          createdAt: true,
-        },
-      });
     } catch (err) {
       console.warn('feed/tesis-yonetimi.xml: Database fetch fallback:', err instanceof Error ? err.message : err);
     }
@@ -75,23 +61,6 @@ export async function GET() {
       <dc:creator>${escapeXml(post.author?.name || 'Alo Yönetim Tesis Masası')}</dc:creator>
       <category>${escapeXml(post.category?.name || 'Tesis Yönetimi')}</category>
       <description><![CDATA[${post.tldr || post.description || post.title}]]></description>
-    </item>`;
-    }
-
-    // Referans projeleri
-    for (const ref of references) {
-      const pubDate = new Date(ref.createdAt).toUTCString();
-      const link = `${BASE_URL}/referanslar/${ref.slug}`;
-
-      itemsXml += `
-    <item>
-      <title>Yönetilen Tesis: ${escapeXml(ref.title)} (${ref.units || 50} Bağımsız Bölüm)</title>
-      <link>${link}</link>
-      <guid isPermaLink="true">${link}</guid>
-      <pubDate>${pubDate}</pubDate>
-      <dc:creator>Alo Yönetim Operasyon Merkezi</dc:creator>
-      <category>Tesis Yönetim Referansı</category>
-      <description><![CDATA[${ref.title} tesisinde 5188 güvenlik, teknik bakım ve aidat tahsilat işletmeciliği. ${ref.testimonialText || ''}]]></description>
     </item>`;
     }
 

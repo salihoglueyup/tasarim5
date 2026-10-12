@@ -183,7 +183,7 @@ const CUSTOM_LINKS: { term: string; href: string }[] = [
   { term: 'belcert', href: '/kurumsal/kalite-belgelerimiz' },
   { term: 'istihdam köprüsü', href: '/istihdam-koprusu' },
   { term: 'özel güvenlik iş ilanları', href: '/istihdam-koprusu' },
-  { term: 'başarı hikayeleri', href: '/basari-hikayeleri' },
+  { term: 'başarı hikayeleri', href: '/referanslar' },
 ];
 
 // 5. Sözlük Terimleri

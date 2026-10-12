@@ -6,7 +6,6 @@ import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
 import { POSTS_META, CATEGORIES } from '@/data/posts';
 import { AUTHOR_SLUGS } from '@/data/authors';
-import { REFERENCES_META } from '@/data/referencesMetadata';
 import { parseTags } from '@/lib/jsonSafe';
 import { TERMS, termToSlug } from '@/data/dictionary';
 import { CERTIFICATES } from '@/data/certificates';
@@ -20,7 +19,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let posts: Array<{ slug: string; dateModified: Date }> = [];
   let categories: Array<{ slug: string; updatedAt: Date }> = [];
   let authors: Array<{ slug: string; updatedAt: Date }> = [];
-  let references: Array<{ slug: string; updatedAt: Date }> = [];
   let sectoralSolutions: Array<{ slug: string; updatedAt: Date }> = [];
   const tagCounts = new Map<string, number>();
   const countTags = (tags: string[]) => {
@@ -28,21 +26,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   };
 
   try {
-    const [dbPosts, dbCategories, dbAuthors, dbReferences, dbSectoral] = await Promise.all([
+    const [dbPosts, dbCategories, dbAuthors, dbSectoral] = await Promise.all([
       prisma.post.findMany({
         where: { published: true },
         select: { slug: true, dateModified: true, tags: true }
       }),
       prisma.category.findMany({ select: { slug: true, updatedAt: true } }),
       prisma.author.findMany({ select: { slug: true, updatedAt: true } }),
-      prisma.reference.findMany({ where: { published: true }, select: { slug: true, updatedAt: true } }),
       prisma.sectoralSolution.findMany({ select: { slug: true, updatedAt: true } }),
     ]);
 
     posts = dbPosts;
     categories = dbCategories;
     authors = dbAuthors;
-    references = dbReferences;
     sectoralSolutions = dbSectoral;
 
     dbPosts.forEach((p) => countTags(parseTags(p.tags)));
@@ -69,13 +65,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   if (authors.length === 0) {
     authors = AUTHOR_SLUGS.map((slug) => ({
       slug,
-      updatedAt: new Date('2026-02-24T20:00:00.000Z'),
-    }));
-  }
-
-  if (references.length === 0) {
-    references = REFERENCES_META.map((r) => ({
-      slug: r.slug,
       updatedAt: new Date('2026-02-24T20:00:00.000Z'),
     }));
   }
@@ -139,7 +128,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/guvenlik-akademisi', priority: 0.85, changeFreq: 'weekly' },
     { path: '/kurumsal/kalite-belgelerimiz', priority: 0.75, changeFreq: 'monthly' },
     { path: '/referanslar', priority: 0.75, changeFreq: 'weekly' },
-    { path: '/basari-hikayeleri', priority: 0.75, changeFreq: 'weekly' },
     { path: '/sss', priority: 0.85, changeFreq: 'weekly' },
     { path: '/sozluk', priority: 0.85, changeFreq: 'weekly' },
     { path: '/blog', priority: 0.8, changeFreq: 'daily', lastMod: latestPostDate },
@@ -220,10 +208,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter(([, count]) => count >= MIN_POSTS_FOR_TAG_INDEX)
     .flatMap(([slug]) => makeItems(`/blog/etiket/${encodeURIComponent(slug)}`, 0.4, 'monthly'));
 
-  const referenceRoutes: MetadataRoute.Sitemap = references.flatMap((r) =>
-    makeItems(`/referanslar/${r.slug}`, 0.7, 'monthly', r.updatedAt.toISOString())
-  );
-
   const dictionaryRoutes: MetadataRoute.Sitemap = TERMS.flatMap((t) =>
     makeItems(`/sozluk/${termToSlug(t.term)}`, 0.65, 'monthly')
   );
@@ -242,7 +226,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...categoryRoutes,
     ...authorRoutes,
     ...tagRoutes,
-    ...referenceRoutes,
     ...dictionaryRoutes,
     ...certificateRoutes,
   ];

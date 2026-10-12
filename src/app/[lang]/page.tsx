@@ -71,17 +71,11 @@ export default async function Home({ params }: Props) {
   const t = await getDictionary(lang);
 
   let dbFaqs: any[] = [];
-  let dbReferences: any[] = [];
   const cacheKeyFaqs = `home_faqs_v2_${lang}`;
-  const cacheKeyRefs = `home_refs_v2_${lang}`;
 
   try {
-    const [cachedFaqs, cachedRefs] = await Promise.all([
-      redis.get(cacheKeyFaqs),
-      redis.get(cacheKeyRefs),
-    ]);
+    const cachedFaqs = await redis.get(cacheKeyFaqs);
     if (cachedFaqs) dbFaqs = JSON.parse(cachedFaqs);
-    if (cachedRefs) dbReferences = JSON.parse(cachedRefs);
   } catch {
     // Redis offline/error fallback
   }
@@ -105,27 +99,6 @@ export default async function Home({ params }: Props) {
 
     if (dbFaqs.length > 0) {
       redis.setex(cacheKeyFaqs, 3600, JSON.stringify(dbFaqs)).catch(() => {});
-    }
-  }
-
-  if (dbReferences.length === 0) {
-    dbReferences = await prisma.reference.findMany({
-      where: { testimonialText: { not: null } },
-      orderBy: { createdAt: 'desc' },
-      select: {
-        id: true,
-        testimonialAuthor: true,
-        testimonialText: true,
-        title: true,
-        units: true,
-        location: true,
-        image: true,
-        category: true
-      }
-    }).catch(() => []);
-
-    if (dbReferences.length > 0) {
-      redis.setex(cacheKeyRefs, 3600, JSON.stringify(dbReferences)).catch(() => {});
     }
   }
 
@@ -161,7 +134,7 @@ export default async function Home({ params }: Props) {
       <div className="lazy-section"><ComparisonTable dict={lang === 'tr' ? undefined : t} lang={lang} /></div>
       {lang === 'tr' && <div className="lazy-section"><KMKLawAssistantSeo /></div>}
       <div className="lazy-section"><InteractiveProcessSteps /></div>
-      <div className="lazy-section"><TestimonialSlider dbReferences={dbReferences} /></div>
+      <div className="lazy-section"><TestimonialSlider /></div>
       <div className="lazy-section"><CertificateBadgeGrid /></div>
       <div className="lazy-section"><Faq dbFaqs={dbFaqs} lang={lang} /></div>
 
