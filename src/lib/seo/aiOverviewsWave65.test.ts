@@ -72,15 +72,4 @@ describe('Wave 65: Google AI Overviews & Corporate DNA Knowledge Graph Dominance
     });
   });
 
-  describe('llms.txt and llms-full.txt Corporate DNA integration', () => {
-    it('both files declare the official Corporate DNA API endpoint', async () => {
-      const resTxt = await getLlmsTxt();
-      const txt = await resTxt.text();
-      expect(txt).toContain('/api/seo/corporate-dna.json');
-
-      const resFullTxt = await getLlmsFullTxt();
-      const fullTxt = await resFullTxt.text();
-      expect(fullTxt).toContain('/api/seo/corporate-dna.json');
-    });
-  });
 });

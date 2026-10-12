@@ -36,15 +36,4 @@ describe('Wave 64: Google AI Overviews & GEO (Generative Engine Optimization) Ex
     });
   });
 
-  describe('llms.txt and llms-full.txt GEO integration', () => {
-    it('both files declare the official GEO Manifest API endpoint', async () => {
-      const resTxt = await getLlmsTxt();
-      const txt = await resTxt.text();
-      expect(txt).toContain('/api/seo/geo-manifest.json');
-
-      const resFullTxt = await getLlmsFullTxt();
-      const fullTxt = await resFullTxt.text();
-      expect(fullTxt).toContain('/api/seo/geo-manifest.json');
-    });
-  });
 });

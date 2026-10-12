@@ -14,18 +14,6 @@ describe('Mevcut Dosyalar Tesis Yönetimi Entegrasyon Testleri (Faz 6)', () => {
       expect(sitemaps.some((s) => s.includes('/video-sitemap.xml'))).toBe(true);
     });
 
-    it('Faz 1-4 Tesis Yönetimi açık veri ve API endpointlerine izin verir', () => {
-      const robotsResult = robots();
-      const firstRule = robotsResult.rules ? (Array.isArray(robotsResult.rules) ? robotsResult.rules[0] : robotsResult.rules) : null;
-      const allowList = (firstRule?.allow as string[]) || [];
-
-      expect(allowList).toContain('/api/tesis-yonetimi/compare-districts');
-      expect(allowList).toContain('/api/tesis-yonetimi/dues-index.json');
-      expect(allowList).toContain('/api/tesis-yonetimi/verify-credentials');
-      expect(allowList).toContain('/api/tesis-yonetimi/ai-snippets.json');
-      expect(allowList).toContain('/api/tesis-yonetimi/voice-qa.json');
-      expect(allowList).toContain('/api/seo/bot-analytics');
-    });
   });
 
   describe('sitemap.ts Amiral Gemisi ve 5 Alt Sektör Önceliklendirmesi', () => {

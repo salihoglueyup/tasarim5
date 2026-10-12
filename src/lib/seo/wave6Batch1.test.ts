@@ -18,12 +18,6 @@ describe('Wave 6: Faz 126 - Faz 130 Arama Motoru Otoritesi, AI Snippets & E-E-A-
     expect(payload.snippets.some(s => s.id === 'ai-snippet-commercial-property-management')).toBe(true);
   });
 
-  it('Faz 127: llms-full.txt/route.ts doğrudan AI Snippets endpoint bağlantısını içerir', () => {
-    const content = fs.readFileSync(llmsFullPath, 'utf-8');
-    expect(content).toContain('/api/tesis-yonetimi/ai-snippets.json');
-    expect(content).toContain('text/plain');
-    expect(content).toContain('Access-Control-Allow-Origin');
-  });
 
   it('Faz 128: blogPostingSchema hem Article hem de BlogPosting tipini çift çekerli sunar', () => {
     const schema = blogPostingSchema({

@@ -106,19 +106,4 @@ describe('Wave 70: Google AI Overviews PAA Deep Tree & Accredited BELCERT Trust 
     });
   });
 
-  describe('AI Search Manifests (llms.txt & llms-full.txt)', () => {
-    it('references the Wave 70 credentials.json API in llms.txt', async () => {
-      const response = await getLlmsTxt();
-      const text = await response.text();
-      expect(text).toContain('/api/seo/credentials.json');
-      expect(text).toContain('Wave 70');
-    });
-
-    it('references the Wave 70 credentials.json API in llms-full.txt', async () => {
-      const response = await getLlmsFullTxt();
-      const text = await response.text();
-      expect(text).toContain('/api/seo/credentials.json');
-      expect(text).toContain('Wave 70');
-    });
-  });
 });

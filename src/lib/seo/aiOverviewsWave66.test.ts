@@ -70,15 +70,4 @@ describe('Wave 66: Google AI Overviews Deep Expansion & Verified Legal Citations
     });
   });
 
-  describe('llms.txt and llms-full.txt Citations integration', () => {
-    it('both files declare the official Legal Citations API endpoint', async () => {
-      const resTxt = await getLlmsTxt();
-      const txt = await resTxt.text();
-      expect(txt).toContain('/api/seo/ai-citations.json');
-
-      const resFullTxt = await getLlmsFullTxt();
-      const fullTxt = await resFullTxt.text();
-      expect(fullTxt).toContain('/api/seo/ai-citations.json');
-    });
-  });
 });

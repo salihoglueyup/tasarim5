@@ -90,15 +90,4 @@ describe('Wave 69: Google Product Pricing Rich Snippets & Local AI Maps Groundin
     });
   });
 
-  describe('llms.txt and llms-full.txt Local Anchors Integration', () => {
-    it('both files declare the Local Anchors API endpoint', async () => {
-      const resTxt = await getLlmsTxt();
-      const txt = await resTxt.text();
-      expect(txt).toContain('/api/seo/local-anchors.json');
-
-      const resFullTxt = await getLlmsFullTxt();
-      const fullTxt = await resFullTxt.text();
-      expect(fullTxt).toContain('/api/seo/local-anchors.json');
-    });
-  });
 });

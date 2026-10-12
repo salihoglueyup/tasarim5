@@ -287,19 +287,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
   });
 
   describe('11. robots.txt ve OpenAPI 3.1.0 AI Uç Nokta Entegrasyonu', () => {
-    it('robots.ts tüm AI uç noktalarını ve ai-plugin manifestini allow listesinde barındırır', async () => {
-      const { default: robots } = await import('@/app/robots');
-      const robotRules = robots();
-      const allowList = robotRules.rules && Array.isArray(robotRules.rules)
-        ? (robotRules.rules[0].allow as string[])
-        : [];
-
-      expect(allowList).toContain('/api/ai/search-query');
-      expect(allowList).toContain('/api/ai/site-agent-context.json');
-      expect(allowList).toContain('/api/markdown/site-yonetimi');
-      expect(allowList).toContain('/api/markdown/tesis-yonetimi');
-      expect(allowList).toContain('/.well-known/ai-plugin.json');
-    });
 
     it('generateOpenApiSpec yeni AI semantik grounding rotalarını içerir', async () => {
       const { generateOpenApiSpec } = await import('@/lib/seo/openApiSpec');

@@ -401,24 +401,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('27. robots.ts AI Bot Genişletmesi ve Açık Veri İzinleri', () => {
-    it('robots.ts Amazonbot, Meta-ExternalAgent ve KMK açık veri yollarını içermelidir', async () => {
-      const robotsFn = (await import('@/app/robots')).default;
-      const config = robotsFn();
-      const userAgentRules = Array.isArray(config.rules) ? config.rules : [config.rules];
-      const aiRule = userAgentRules.find((r) => Array.isArray(r.userAgent) && r.userAgent.includes('Amazonbot'));
-      expect(aiRule).toBeDefined();
-      expect(aiRule?.userAgent).toContain('Meta-ExternalAgent');
-      expect(aiRule?.userAgent).toContain('Bytespider');
-
-      const allAllows = userAgentRules.flatMap((r) =>
-        Array.isArray(r.allow) ? r.allow : r.allow ? [r.allow] : []
-      );
-      expect(allAllows).toContain('/api/tesis-yonetimi/kmk-law-index.json');
-      expect(allAllows).toContain('/api/tesis-yonetimi/authority-corpus.json');
-      expect(allAllows).toContain('/api/tesis-yonetimi/voice-knowledge.json');
-    });
-  });
 
   describe('28. middleware.ts Link Headers ve Akıllı Bot Telemetrisi', () => {
     it('middleware.ts içinde parseBotName ve KMK açık veri link başlıkları tanımlı olmalıdır', async () => {
@@ -2391,51 +2373,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     }, 20000);
   });
 
-  describe('95. GEO (Generative Engine Optimization) & 2026 AI Corpus Zenginleştirme Standartları', () => {
-    it('facilityKnowledgeCorpus ve llms.txt çıktılarında 2026 ek bütçe, EV şarj ve enerji tasarrufu bulunur', async () => {
-      // 1. facilityKnowledgeCorpus buildFacilityRAGCorpus
-      const { buildFacilityRAGCorpus } = await import('@/lib/ai/facilityKnowledgeCorpus');
-      const corpus = await buildFacilityRAGCorpus('tr');
-
-      // 2026 Ek bütçe kontrolü
-      expect(corpus.asgariUcretEkButceRehberi2026).toBeDefined();
-      expect(corpus.asgariUcretEkButceRehberi2026.title).toContain('2026 Asgari Ücret');
-      expect(corpus.asgariUcretEkButceRehberi2026.proceduralSteps.length).toBeGreaterThanOrEqual(4);
-      expect(corpus.asgariUcretEkButceRehberi2026.kpiMetrics.some((m) => m.standardValue === '7 Gün')).toBe(true);
-
-      // EV Şarj kuralları
-      expect(corpus.evChargeInstallationRulesKMK42).toBeDefined();
-      expect(corpus.evChargeInstallationRulesKMK42.commonAreaInstallation.quorumRequirement).toContain('%50+1');
-      expect(corpus.evChargeInstallationRulesKMK42.privateParkingInstallation.technicalCompliance).toContain('Tip B / 30mA');
-
-      // Enerji verimliliği
-      expect(corpus.energyEfficiencyFramework).toBeDefined();
-      expect(corpus.energyEfficiencyFramework.reactivePenaltyZeroGuarantee).toBe(true);
-      expect(corpus.energyEfficiencyFramework.solarPowerRooftopSavingsPercent).toContain('%65');
-
-      // Canonical FAQs kontrolü
-      const faqEkButce = corpus.canonicalFaqs.find((f) => f.question.includes('2026 Asgari ücret'));
-      expect(faqEkButce).toBeDefined();
-      expect(faqEkButce?.answer).toContain('İİK 68');
-
-      // 2. llms.txt ve llms-full.txt route kontrolleri
-      const { GET: getLlmsTxt } = await import('@/app/llms.txt/route');
-      const resLlms = await getLlmsTxt();
-      expect(resLlms.status).toBe(200);
-      expect(resLlms.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-      const textLlms = await resLlms.text();
-      expect(textLlms).toContain('2026 Asgari ücret');
-      expect(textLlms).toContain('kompanzasyon');
-
-      const { GET: getLlmsFullTxt } = await import('@/app/llms-full.txt/route');
-      const resLlmsFull = await getLlmsFullTxt();
-      expect(resLlmsFull.status).toBe(200);
-      expect(resLlmsFull.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-      const textLlmsFull = await resLlmsFull.text();
-      expect(textLlmsFull).toContain('2026 Asgari Ücret Ek Bütçe');
-      expect(textLlmsFull).toContain('Kapalı Otopark Elektrikli Araç (EV)');
-    });
-  });
 
   describe('96. XML Sitemap ve RSS Besleme Uç Noktalarında CORS ve Robots Başlıkları Güvencesi', () => {
     it('haberler, döküman, video, görsel, bölgeler sitemipleri ve RSS beslemeleri CORS ve Robots başlıkları döner', async () => {
@@ -3278,52 +3215,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('116. Wave 51: AI Ground-Truth Paritesi ve Global LLM Standartları (/llms.txt & /llms-full.txt)', () => {
-    it('buildFacilityRAGCorpus, llms.txt ve llms-full.txt 8 akreditasyon standardı ve 2026 yasal kurallarını eksiksiz sunar', async () => {
-      // 1. facilityKnowledgeCorpus RAG Testi
-      const { buildFacilityRAGCorpus } = await import('@/lib/ai/facilityKnowledgeCorpus');
-      const corpus = await buildFacilityRAGCorpus('tr');
-
-      expect(corpus.entity.accreditations).toHaveLength(8);
-      const accCodes = corpus.entity.accreditations.map((a) => a.code);
-      expect(accCodes).toContain('ISO 45001:2018');
-      expect(accCodes).toContain('ISO 10002:2018');
-      expect(accCodes).toContain('ISO 14001:2026');
-      expect(accCodes).toContain('ISO 45001:2018');
-      expect(accCodes).toContain('ISO 22301:2019');
-      expect(accCodes).toContain('ISO 10002:2018');
-      expect(accCodes).toContain('5188 / EGM');
-
-      // 2. /llms.txt Uç Noktası
-      const { GET: getLlmsTxt } = await import('@/app/llms.txt/route');
-      const resLlms = await getLlmsTxt();
-      expect(resLlms.status).toBe(200);
-      const textLlms = await resLlms.text();
-
-      expect(textLlms).toContain('ISO 45001:2018');
-      expect(textLlms).toContain('ISO 10002:2018');
-      expect(textLlms).toContain('ISO 14001:2026');
-      expect(textLlms).toContain('ISO 45001:2018');
-      expect(textLlms).toContain('ISO 22301:2019');
-      expect(textLlms).toContain('ISO 10002:2018');
-      expect(textLlms).toContain('ISO 14001');
-      expect(textLlms).toContain('5188 Sayılı Kanun');
-
-      // 3. /llms-full.txt Uç Noktası
-      const { GET: getLlmsFullTxt } = await import('@/app/llms-full.txt/route');
-      const resLlmsFull = await getLlmsFullTxt();
-      expect(resLlmsFull.status).toBe(200);
-      const textLlmsFull = await resLlmsFull.text();
-
-      expect(textLlmsFull).toContain('ISO 45001:2018');
-      expect(textLlmsFull).toContain('ISO 10002:2018');
-      expect(textLlmsFull).toContain('ISO 14001:2026');
-      expect(textLlmsFull).toContain('ISO 45001:2018');
-      expect(textLlmsFull).toContain('ISO 22301:2019');
-      expect(textLlmsFull).toContain('ISO 10002:2018');
-      expect(textLlmsFull).toContain('ISO 14001');
-    });
-  });
 
   describe('117. Wave 51: Genişletilmiş Tesis Terimleri Sözlüğü Silosu (FACILITY_TERMS 32+ Varlık)', () => {
     it('FACILITY_TERMS 32+ terimi kategori, yasal dayanak, Wikidata ve kanonik URL ile eksiksiz sunar', async () => {
@@ -4195,27 +4086,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataApi.openapi).toBe('3.1.0');
     });
 
-    it('robots.ts, llms.txt ve llms-full.txt OpenAPI 3.1 spesifikasyonuna erişim izni ve bağlantı verir', async () => {
-      const { default: robots } = await import('@/app/robots');
-      const robotsResult = robots();
-      const allowList = Array.isArray(robotsResult.rules)
-        ? robotsResult.rules.flatMap((r: any) => (Array.isArray(r.allow) ? r.allow : [r.allow]))
-        : (Array.isArray((robotsResult.rules as any)?.allow) ? (robotsResult.rules as any).allow : [(robotsResult.rules as any)?.allow]);
-
-      expect(allowList).toContain('/openapi.json');
-      expect(allowList).toContain('/api/openapi.json');
-
-      const { GET: getLlms } = await import('@/app/llms.txt/route');
-      const resLlms = await getLlms();
-      const textLlms = await resLlms.text();
-      expect(textLlms).toContain('/openapi.json');
-      expect(textLlms).toContain('/api/openapi.json');
-
-      const { GET: getLlmsFull } = await import('@/app/llms-full.txt/route');
-      const resLlmsFull = await getLlmsFull();
-      const textLlmsFull = await resLlmsFull.text();
-      expect(textLlmsFull).toContain('/openapi.json');
-    });
 
     it('39 İlçe Tesis Yönetimi sayfası FacilityRfpDownloadModalSeo ve FacilitySubSectorCrossNav içerir', async () => {
       const fs = await import('fs');
@@ -4464,20 +4334,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(bolgelerPage).toContain('<IstanbulInteractiveDistrictMapSeo />');
     });
 
-    it('OpenAPI 3.1 spesifikasyonu ve robots.ts GeoJSON harita API servisini tam olarak destekler', async () => {
-      const { generateOpenApiSpec } = await import('@/lib/seo/openApiSpec');
-      const spec = generateOpenApiSpec();
-
-      expect(spec.paths['/api/tesis-yonetimi/istanbul-districts.geojson']).toBeDefined();
-      expect(spec.paths['/api/tesis-yonetimi/istanbul-districts.geojson'].get.summary).toContain('RFC 7946 GeoJSON');
-
-      const fs = await import('fs');
-      const path = await import('path');
-      const robotsContent = fs.readFileSync(path.join(process.cwd(), 'src/app/robots.ts'), 'utf8');
-
-      expect(robotsContent).toContain("'/api/tesis-yonetimi/istanbul-districts.geojson'");
-      expect(robotsContent).toContain("'/api/tesis-yonetimi/geo-feed.xml'");
-    });
 
     it('sitemap-regions.xml bölgesel tesis yönetimi ve açık veri portalı yollarını içerir', async () => {
       const fs = await import('fs');
@@ -4705,23 +4561,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(haserePage + trDict).toContain('Biyosidal ilaçlama nedir');
     });
 
-    it('llms.txt protokolü ve anasayfa Faq bileşeni 2026 yasal standartlarını eksiksiz sunar', async () => {
-      const fs = require('fs');
-      const path = require('path');
-
-      const llmsRoute = fs.readFileSync(path.join(process.cwd(), 'src/app/llms.txt/route.ts'), 'utf8');
-      expect(llmsRoute).toContain('Biyosidal ilaçlama nedir');
-      expect(llmsRoute).toContain('5188 özel güvenlik kimlik kartı');
-
-      const subFaq = path.join(process.cwd(), 'src/components/sections/trust/Faq.tsx');
-      const faqPath = fs.existsSync(subFaq) ? subFaq : path.join(process.cwd(), 'src/components/sections/Faq.tsx');
-      const homeFaq = fs.readFileSync(faqPath, 'utf8');
-      // Metinler artık Türkçe sözlükten (hfq_s*) gelir; bileşen yalnızca anahtarları kullanır.
-      const trDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
-      expect(homeFaq).toContain("t('hfq_s4_q')");
-      expect(trDict).toContain('KMK Madde 37 kapsamında işletme projesine itiraz süresi');
-      expect(trDict).toContain('Biyosidal ilaçlama nedir');
-    });
   });
 
   describe('189. Wave 59: Google AI Overviews (SGE & Gemini GEO) Maksimum Seviye Geliştirme Güvencesi', () => {

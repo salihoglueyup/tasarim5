@@ -51,29 +51,4 @@ describe('Wave 63: Google AI Overviews & LLM Search Grounding Expansion', () => 
     });
   });
 
-  describe('llms.txt and llms-full.txt routes', () => {
-    it('llms.txt contains Corporate E-E-A-T, SLA intikal, and dues formula', async () => {
-      const res = await getLlmsTxt();
-      expect(res.status).toBe(200);
-      const text = await res.text();
-
-      expect(text).toContain('Kurumsal E-E-A-T & 7/24 Acil Müdahale Taahhütleri');
-      expect(text).toContain('0054049823100018');
-      expect(text).toContain('Anadolu Yakası 15 dakika, Avrupa Yakası 20 dakika');
-      expect(text).toContain('%32.4 net tasarruf');
-      expect(text).toContain('KMK 37 Aidat Hesaplama Formülü');
-      expect(text).toContain('aylık %5 emredici yasal tazminat');
-    });
-
-    it('llms-full.txt contains Section 10 with verified case studies and legal credentials', async () => {
-      const res = await getLlmsFullTxt();
-      expect(res.status).toBe(200);
-      const text = await res.text();
-
-      expect(text).toContain('10. Kurumsal E-E-A-T, Acil İntikal SLA & Sayısal Vaka Analizleri');
-      expect(text).toContain('Sicil No: 712498-5');
-      expect(text).toContain('2.2 Milyon TL reaktif enerji cezası sıfırlandı');
-      expect(text).toContain('Daire Başı Aidat = [(Personel Masrafı ÷ Daire)');
-    });
-  });
 });

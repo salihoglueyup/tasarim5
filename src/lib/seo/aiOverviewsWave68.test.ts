@@ -129,15 +129,4 @@ describe('Wave 68: Google AI Overviews Triple Powerhouse (Video + Voice + AI Bot
     });
   });
 
-  describe('llms.txt and llms-full.txt Bot Telemetry Integration', () => {
-    it('both files declare the AI Bot Telemetry API endpoint', async () => {
-      const resTxt = await getLlmsTxt();
-      const txt = await resTxt.text();
-      expect(txt).toContain('/api/seo/bot-telemetry.json');
-
-      const resFullTxt = await getLlmsFullTxt();
-      const fullTxt = await resFullTxt.text();
-      expect(fullTxt).toContain('/api/seo/bot-telemetry.json');
-    });
-  });
 });

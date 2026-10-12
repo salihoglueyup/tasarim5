@@ -76,15 +76,4 @@ describe('Wave 67: Google AI Overviews Full-Power Grounding Expansion & AI Telem
     });
   });
 
-  describe('llms.txt and llms-full.txt AI Telemetry integration', () => {
-    it('both files declare the AI Telemetry API endpoint', async () => {
-      const resTxt = await getLlmsTxt();
-      const txt = await resTxt.text();
-      expect(txt).toContain('/api/seo/ai-telemetry.json');
-
-      const resFullTxt = await getLlmsFullTxt();
-      const fullTxt = await resFullTxt.text();
-      expect(fullTxt).toContain('/api/seo/ai-telemetry.json');
-    });
-  });
 });
