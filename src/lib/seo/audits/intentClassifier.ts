@@ -82,7 +82,7 @@ export function classifySearchIntent(queryInput: string = ''): IntentClassificat
       detectedDistrict: matchedDistrict ? { name: matchedDistrict.name, slug: matchedDistrict.slug } : undefined,
       recommendedSchema: 'QuoteAction / ContactPoint',
       recommendedCta: {
-        label: '48 Saatte Şeffaf Teklif Alın',
+        label: 'Şeffaf Teklif Alın',
         targetUrl: `${BASE_URL}/teklif-al`,
         conversionType: 'Lead Generation',
       },
@@ -115,7 +115,7 @@ export function classifySearchIntent(queryInput: string = ''): IntentClassificat
       detectedDistrict: { name: matchedDistrict.name, slug: matchedDistrict.slug },
       recommendedSchema: 'LocalBusiness / Service (ISO 41001)',
       recommendedCta: {
-        label: `${matchedDistrict.name} Tesis Yönetimi & 45 Dk SLA Keşif Randevusu`,
+        label: `${matchedDistrict.name} Tesis Yönetimi & Ücretsiz Keşif Randevusu`,
         targetUrl: `${BASE_URL}/bolgeler/${matchedDistrict.slug}/tesis-yonetimi`,
         conversionType: 'Local Landing Engagement',
       },

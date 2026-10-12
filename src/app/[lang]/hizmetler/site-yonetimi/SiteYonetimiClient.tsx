@@ -8,31 +8,13 @@ import { useLanguage } from '@/context/LanguageContext';
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import ServiceSeo from '@/components/seo/schema/ServiceSeo';
-import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import HowToSeo from '@/components/seo/schema/HowToSeo';
 import RelatedArticles from '@/components/blog/RelatedArticles';
 import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
-import FacilityComparisonMatrixSeo from '@/components/seo/facility/FacilityComparisonMatrixSeo';
 import FacilityGroupSecurityTrustSeo from '@/components/seo/facility/FacilityGroupSecurityTrustSeo';
-import ChecklistAuditSeo from '@/components/seo/facility/ChecklistAuditSeo';
-import TrustVerificationAuditSeo from '@/components/seo/facility/TrustVerificationAuditSeo';
-import FacilityCorporateSlaGuaranteesSeo from '@/components/seo/facility/FacilityCorporateSlaGuaranteesSeo';
-import FacilityOperationalPillarsSeo from '@/components/seo/facility/FacilityOperationalPillarsSeo';
-import SiteVsFacilityComparisonSeo from '@/components/seo/kmk/SiteVsFacilityComparisonSeo';
-import SiteAiSearchGroundingSeo from '@/components/seo/ai-overviews/SiteAiSearchGroundingSeo';
-import SiteLegalClaimReviewsSeo from '@/components/seo/kmk/SiteLegalClaimReviewsSeo';
-import KMKGlossaryEncyclopediaSeo from '@/components/seo/kmk/KMKGlossaryEncyclopediaSeo';
-import ThreeWayManagementComparisonSeo from '@/components/seo/kmk/ThreeWayManagementComparisonSeo';
-import KMKLegalDocumentVaultSeo from '@/components/seo/kmk/KMKLegalDocumentVaultSeo';
 import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
 import AcademicCitationBoxSeo from '@/components/seo/kmk/AcademicCitationBoxSeo';
-import ServicePricingCatalogSeo from '@/components/seo/facility/ServicePricingCatalogSeo';
-import KMKAuditProtocolSeo from '@/components/seo/kmk/KMKAuditProtocolSeo';
-import ManagementTransitionRoadmapSeo from '@/components/seo/kmk/ManagementTransitionRoadmapSeo';
-import KMKLegalDisputesQAPageSeo from '@/components/seo/kmk/KMKLegalDisputesQAPageSeo';
-import KMKLegislationNavigatorSeo from '@/components/seo/kmk/KMKLegislationNavigatorSeo';
-import KMKLegalNoticesVaultSeo from '@/components/seo/kmk/KMKLegalNoticesVaultSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 import ApsiyonLogo from '@/components/ui/branding/ApsiyonLogo';
@@ -128,19 +110,19 @@ export default function SiteYonetimiClient() {
           {/* 4 Temel Güven Metriği */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
-              <div className="text-2xl sm:text-3xl font-black text-slate-400">150+</div>
+              <div className="text-2xl sm:text-3xl font-black text-slate-400">2009</div>
               <div className="text-xs sm:text-sm text-slate-400 mt-1">{t('sy_metric_1')}</div>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
-              <div className="text-2xl sm:text-3xl font-black text-emerald-400">%99.2</div>
+              <div className="text-2xl sm:text-3xl font-black text-emerald-400">39</div>
               <div className="text-xs sm:text-sm text-slate-400 mt-1">{t('sy_metric_2')}</div>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
-              <div className="text-2xl sm:text-3xl font-black text-slate-400">45 Dk</div>
+              <div className="text-2xl sm:text-3xl font-black text-slate-400">30 dk / 1 sa</div>
               <div className="text-xs sm:text-sm text-slate-400 mt-1">{t('sy_metric_3')}</div>
             </div>
             <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 backdrop-blur-sm">
-              <div className="text-2xl sm:text-3xl font-black text-slate-400">4.9 ★</div>
+              <div className="text-2xl sm:text-3xl font-black text-slate-400">~90</div>
               <div className="text-xs sm:text-sm text-slate-400 mt-1">{t('sy_metric_4')}</div>
             </div>
           </div>
@@ -154,9 +136,9 @@ export default function SiteYonetimiClient() {
           id="site-yonetimi-nedir"
           answerId="site-instant-answer-text"
           question="Profesyonel Site Yönetimi Nedir ve Neleri Kapsar?"
-          answer="Profesyonel site yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu (KMK) kapsamında kat malikleri kurulunca onaylanan işletme projesinin yürütülmesi, %99.2 aidat tahsilat garantisi, 5188 lisanslı güvenlik, periyodik teknik bakım ve temizlik hizmetlerinin tek elden, şeffaf ve kurumsal olarak idare edilmesidir."
-          standardBadge="634 Sayılı KMK & %99.2 Tahsilat"
-          subText="Alo Yönetim, Apsiyon dijital entegrasyonu, KMK m.20 aylık %5 gecikme faizi takibi ve 45 dakika SLA acil teknik servisiyle sitelerde kusursuz huzur sağlar."
+          answer="Profesyonel site yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu (KMK) kapsamında kat malikleri kurulunca onaylanan işletme projesinin yürütülmesi, düzenli aidat takibi, 5188 lisanslı güvenlik, periyodik teknik bakım ve temizlik hizmetlerinin tek elden, şeffaf ve kurumsal olarak idare edilmesidir."
+          standardBadge="634 Sayılı KMK & Düzenli Tahsilat"
+          subText="Alo Yönetim, Apsiyon dijital entegrasyonu, KMK m.20 aylık %5 gecikme faizi takibi ve yazılı SLA kapsamındaki acil teknik servisiyle sitelerde kusursuz huzur sağlar."
           accentColor="indigo"
           className="mb-8"
         />
@@ -167,8 +149,8 @@ export default function SiteYonetimiClient() {
             bulletPoints={[
               "634 Sayılı KMK Madde 34-40 kapsamında tam kanuni güvence ve işletme projesi tanzimi",
               "Apsiyon entegrasyonu ile 7/24 şeffaf banka hesapları, canlı gelir-gider dökümü ve online kartla ödeme",
-              "KMK Madde 20 uyarınca geciken aidatlara aylık yasal %5 faiz işletimi ve hızlı icra takibi (%99.2 başarı)",
-              "7/24 hazır bekleyen gezici mobil teknik servis ile 45 dakikada yerinde arıza müdahale garantisi"
+              "KMK Madde 20 uyarınca geciken aidatlara aylık yasal %5 faiz işletimi ve hızlı icra takibi",
+              "7/24 hazır bekleyen gezici mobil teknik servis ile yazılı SLA kapsamında yerinde arıza müdahalesi"
             ]}
             lawArticle="634 Sayılı KMK Madde 34 & Madde 20"
           />
@@ -200,21 +182,21 @@ export default function SiteYonetimiClient() {
       {/* 5. BÖLÜM: Site Yönetimi ile Tesis Yönetimi Arasındaki Fark Nedir? (SERP Tablosu) */}
       <div className="py-20 bg-slate-900/40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SiteVsFacilityComparisonSeo currentPillar="site" />
+          {null}
         </div>
       </div>
 
       {/* 6. BÖLÜM: Geleneksel Yönetici vs Alo Yönetim Kıyaslama Matrisi */}
       <div className="py-20 bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FacilityComparisonMatrixSeo />
+          {null}
         </div>
       </div>
 
       {/* 7. BÖLÜM: 6 Operasyonel Temel Direk (Mali, Hukuki, Teknik, Güvenlik, Hijyen, Peyzaj) */}
       <div className="py-20 bg-slate-900/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FacilityOperationalPillarsSeo />
+          {null}
         </div>
       </div>
 
@@ -228,56 +210,56 @@ export default function SiteYonetimiClient() {
       {/* 9. BÖLÜM: Kurumsal Hizmet Düzeyi Taahhütleri (SLA) */}
       <div className="py-20 bg-slate-900/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FacilityCorporateSlaGuaranteesSeo />
+          {null}
         </div>
       </div>
 
       {/* 10. BÖLÜM: Doğrulama & Denetim Kontrol Listesi */}
       <div className="py-20 bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ChecklistAuditSeo />
+          {null}
         </div>
       </div>
 
       {/* 11. BÖLÜM: Güven Doğrulama Denetimi */}
       <div className="py-20 bg-slate-900/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <TrustVerificationAuditSeo />
+          {null}
         </div>
       </div>
 
       {/* 11.8. BÖLÜM: Yapay Zekaya Sorun (SearchGPT & Perplexity Doğrulanmış Prompt ve Yanıtlar) */}
       <div className="py-16 bg-slate-900/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SiteAiSearchGroundingSeo />
+          {null}
         </div>
       </div>
 
       {/* 11.9. BÖLÜM: Hukuki doğrulamalar */}
       <div className="py-16 bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SiteLegalClaimReviewsSeo />
+          {null}
         </div>
       </div>
 
       {/* 11.10. BÖLÜM: 3-Yönlü Yönetim Modeli Kıyaslama Matrisi (Bireysel vs Dışarıdan vs Alo Yönetim) */}
       <div className="py-16 bg-slate-900/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ThreeWayManagementComparisonSeo />
+          {null}
         </div>
       </div>
 
       {/* 11.11. BÖLÜM: Google Position Zero Hukuk Ansiklopedisi (DefinedTermSet & 52 Terim) */}
       <div className="py-16 bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <KMKGlossaryEncyclopediaSeo />
+          {null}
         </div>
       </div>
 
       {/* 11.12. BÖLÜM: KMK Karar & İhtarname Şablonları Resmi Kütüphanesi (DigitalDocument & Legislation) */}
       <div className="py-16 bg-slate-900/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <KMKLegalDocumentVaultSeo />
+          {null}
         </div>
       </div>
 
@@ -294,51 +276,42 @@ export default function SiteYonetimiClient() {
       {/* 11.14. BÖLÜM: Şeffaf Hizmet & Fiyatlandırma Paket Kataloğu (OfferCatalog & PriceSpecification) */}
       <div className="py-16 bg-slate-900/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ServicePricingCatalogSeo
-            pageUrl="/hizmetler/site-yonetimi"
-            categoryFilter="residential"
-          />
+          {null}
         </div>
       </div>
 
       {/* 11.15. BÖLÜM: KMK Madde 41 Denetim Kurulu Resmi Protokolü (HowTo & Audit Checklist) */}
       <div className="py-16 bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <KMKAuditProtocolSeo
-            pageUrl="/hizmetler/site-yonetimi"
-          />
+          {null}
         </div>
       </div>
 
-      {/* 11.16. BÖLÜM: 48 Saatte Profesyonel Yönetime Devir Teslim Protokolü (Schema.org HowTo) */}
+      {/* 11.16. BÖLÜM: Profesyonel Yönetime Devir Teslim Protokolü (Schema.org HowTo) */}
       <div className="py-16 bg-slate-900/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ManagementTransitionRoadmapSeo
-            pageUrl="/hizmetler/site-yonetimi"
-          />
+          {null}
         </div>
       </div>
 
       {/* 11.17. BÖLÜM: KMK Emsal Hukuki Uyuşmazlıklar & Uzman Çözüm Dizini (Schema.org QAPage) */}
       <div className="py-16 bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <KMKLegalDisputesQAPageSeo
-            pageUrl="/hizmetler/site-yonetimi"
-          />
+          {null}
         </div>
       </div>
 
       {/* 11.18. BÖLÜM: 634 Sayılı Kat Mülkiyeti Kanunu Madde Madde Mevzuat Gezgini (Schema.org Legislation) */}
       <div className="py-16 bg-slate-900/60">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <KMKLegislationNavigatorSeo />
+          {null}
         </div>
       </div>
 
       {/* 11.19. BÖLÜM: KMK Hukuki İhtarname ve Tutanak Şablon Kütüphanesi (DigitalDocument & Legislation) */}
       <div className="py-16 bg-slate-950">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <KMKLegalNoticesVaultSeo />
+          {null}
         </div>
       </div>
 </TrOnly>
@@ -389,11 +362,6 @@ export default function SiteYonetimiClient() {
       {/* 16. BÖLÜM: Alt Değerlendirme Puanı (AggregateRating) */}
       <div className="py-12 bg-slate-900/30 border-t border-slate-800/80">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <AggregateRatingSeo
-            itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Site Yönetimi' }}
-            ratingValue={4.9}
-            reviewCount={340}
-          />
         </div>
       </div>
     </>

@@ -109,7 +109,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', priority: 0.9, changeFreq: 'daily' },
     { path: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', priority: 0.9, changeFreq: 'daily' },
     { path: '/hizmetler/tesis-yonetimi/rehber', priority: 0.9, changeFreq: 'weekly' },
-    { path: '/hizmetler/tesis-yonetimi/acik-veri', priority: 0.9, changeFreq: 'weekly' },
     { path: '/hizmetler', priority: 0.95, changeFreq: 'weekly' },
     { path: '/hizmetler/guvenlik-yonetimi', priority: 0.9, changeFreq: 'daily' },
     { path: '/hizmetler/temizlik-ve-hijyen', priority: 0.85, changeFreq: 'daily' },

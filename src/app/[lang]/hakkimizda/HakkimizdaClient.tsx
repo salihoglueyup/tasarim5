@@ -23,7 +23,7 @@ function Counter({ from, to, duration = 2 }: { from: number; to: number; duratio
         duration: duration,
         onUpdate(value) {
           if (nodeRef.current) {
-            nodeRef.current.textContent = Math.round(value).toString() + (to > 100 ? "+" : "");
+            nodeRef.current.textContent = Math.round(value).toString() + "";
           }
         },
       });
@@ -104,9 +104,9 @@ export default function HakkimizdaClient() {
             </div>
             <div className="text-center px-4">
               <div className="text-4xl md:text-6xl font-black text-slate-700 dark:text-slate-300 mb-2">
-                %<Counter from={0} to={Number(t('about_stats_4_val') || 22)} />
+                <Counter from={0} to={Number(t('about_stats_4_val') || 50)} />
               </div>
-              <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 font-medium">{t('about_stats_4_label') || "Tasarruf Oranı"}</p>
+              <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 font-medium">{t('about_stats_4_label') || "Referans Kurum"}</p>
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@ export default function HakkimizdaClient() {
               <span>Özet Rehber: Alo Yönetim Kurumsal Kimliği, Vizyonu ve Entegre Tesis Modeli</span>
             </div>
             <span className="text-xs font-mono text-[var(--color-tertiary)] bg-slate-100 dark:bg-slate-800/60 px-3 py-1 rounded-lg border border-slate-200/60 dark:border-slate-700/60">
-              15+ Yıllık Tecrübe & 45.000+ Bağımsız Bölüm
+              2009'dan beri & 39 İlçede Hizmet
             </span>
           </div>
 
@@ -207,10 +207,10 @@ export default function HakkimizdaClient() {
 
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>⚖️</span> KMK Hukuk Masası & Sıfır Yasal Sorumluluk
+                  <span>⚖️</span> KMK Hukuk Masası
                 </span>
                 <p className="text-[var(--color-secondary)]">
-                  Genel kurul divan başkanlığı, karar defteri tescilleri, yönetim planı revizyonu ve %100 tahsilat hedefli ilamsız icra takibi.
+                  Genel kurul divan başkanlığı, karar defteri tescilleri, yönetim planı revizyonu ve tahsilat odaklı ilamsız icra takibi.
                 </p>
               </div>
 
@@ -219,22 +219,22 @@ export default function HakkimizdaClient() {
                   <span>🛡️</span> Valilik İzinli 5188 Lisanslı Özel Güvenlik
                 </span>
                 <p className="text-[var(--color-secondary)]">
-                  Sabıka kayıtsız üniformalı güvenlik personeli, 7/24 CCTV izleme merkezi, PTS plaka tanıma ve acil durum tahliye protokolleri.
+                  Üniformalı güvenlik personeli, CCTV izleme, PTS plaka tanıma ve acil durum tahliye protokolleri.
                 </p>
               </div>
 
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>📊</span> Şeffaf Dijital Muhasebe & %30 Tasarruf
+                  <span>📊</span> Şeffaf Dijital Muhasebe
                 </span>
                 <p className="text-[var(--color-secondary)]">
-                  Her malikin anlık izleyebildiği dijital hesap ekstresi, fatura arşivi ve toplu satın alma gücüyle sağlanan net bütçe tasarrufu.
+                  Her malikin anlık izleyebildiği dijital hesap ekstresi, fatura arşivi ve toplu satın alma yöntemleriyle doğabilecek tasarruf fırsatları.
                 </p>
               </div>
             </div>
 
             <p>
-              Alo Yönetim, 45.000&apos;den fazla bağımsız bölüm ve 1.200&apos;ü aşkın saha çalışanıyla Türkiye&apos;nin en güvenilir ve kurumsal tesis işletim çözüm ortağıdır.
+              Alo Yönetim, 2009&apos;dan beri İstanbul&apos;da kurumsal tesis ve site işletimi hizmeti sunar.
             </p>
           </div>
 
@@ -245,10 +245,10 @@ export default function HakkimizdaClient() {
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                   <Icon name="history_edu" className="text-lg" />
                 </span>
-                <span>15+ Yıl Tecrübe</span>
+                <span>2009'dan beri</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                İstanbul genelinde 200+ aktif tesis projesi ve 45.000+ bağımsız bölüm yönetimi.
+                İstanbul'un 39 ilçesinde hizmet verebilen yaklaşık 90 kişilik ekip.
               </p>
             </div>
 
@@ -257,10 +257,10 @@ export default function HakkimizdaClient() {
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Icon name="trending_down" className="text-lg" />
                 </span>
-                <span>%30 Net Tasarruf</span>
+                <span>Tasarruf Fırsatı</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Ölçek ekonomisi ve kurumsal satın alma avantajıyla bütçelerde kalıcı maliyet düşüşü.
+                Toplu satın alma gibi yöntemlerle bütçelerde tasarruf fırsatı doğabilir.
               </p>
             </div>
 

@@ -371,7 +371,7 @@ export const KMK_GLOSSARY_TERMS: GlossaryTerm[] = [
   },
   {
     id: '45-dk-acil-teknik-sla',
-    term: '45 Dakika Acil Teknik Servis SLA',
+    term: 'Yazılı SLA ile Acil Teknik Servis',
     category: 'teknik-ve-isletme',
     categoryName: 'Teknik, İşletme & Güvenlik',
     snippetDefinition: 'Asansörde mahsur kalma, ana hidrofor patlaması, ana pano yangını ve kanalizasyon geri basması gibi kritik krizlerde mobil teknik ekiplerin azami 45 dakikada sahaya intikal güvencesidir.',

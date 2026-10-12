@@ -49,7 +49,7 @@ export default function PersonnelDifference({ dict, lang = 'tr' }: PersonnelDiff
             {t('pdx_2', 'Personel İstihdamında Alo Yönetim Farkı')}
           </h2>
           <p className="text-lg md:text-xl text-[var(--color-secondary)] font-light leading-relaxed">
-            {t('pdx_3', 'Apartman ve site görevlilerinin iş hukuku, SGK, kıdem tazminatı ve özlük hakları risklerini kurumsal güvenceyle sıfırlıyoruz.')}
+            {t('pdx_3', 'Apartman ve site görevlilerinin iş hukuku, SGK, kıdem tazminatı ve özlük hakları süreçlerini kurumsal düzenle yürütüyoruz.')}
           </p>
         </div>
 

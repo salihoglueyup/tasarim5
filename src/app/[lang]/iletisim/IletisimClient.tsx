@@ -130,7 +130,7 @@ export default function IletisimClient() {
         q: safeT('contact_faq_2_q', 'Acil teknik arızalarda müdahale süreniz nedir?'),
         a: safeT(
           'contact_faq_2_a',
-          '7/24 aktif mobil teknik servis filomuz sayesinde asansör kalması, ana boru patlaması veya elektrik kesintisi gibi kritik arızalara İstanbul genelinde ortalama 45 dakika içinde müdahale ediyoruz.'
+          'Yazılı SLA kapsamında asansörde kalma, ana boru patlaması veya elektrik kesintisi gibi kritik arızalarda acil müdahale hedefimiz Anadolu Yakası için 30 dakika, Avrupa Yakası için 1 saattir.'
         ),
       },
       {
@@ -193,7 +193,7 @@ export default function IletisimClient() {
           <p className="mt-5 text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
             {safeT(
               'contact_hero_desc',
-              'İstanbul genelinde 120+ prestijli site ve tesis için şeffaf aidat yönetimi, 5188 güvenlik ve 7/24 teknik bakım çözümleri sunuyoruz.'
+              'İstanbul genelinde site ve tesisler için şeffaf aidat yönetimi, 5188 güvenlik ve 7/24 teknik bakım çözümleri sunuyoruz.'
             )}
           </p>
         </div>

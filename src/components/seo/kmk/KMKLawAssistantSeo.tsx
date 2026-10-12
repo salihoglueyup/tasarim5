@@ -52,7 +52,7 @@ const KMK_LAW_DATABASE: KMKLawItem[] = [
     summary: 'Gider veya avans payını ödemeyen kat maliki, ödemede geciktiği günler için aylık yüzde beş (%5) hesabıyla gecikme tazminatı ödemekle yükümlüdür.',
     fullRule: 'Gider veya avans payını ödemeyen kat maliki hakkında, diğer kat maliklerinden her biri veya yönetici tarafından, yönetim planına, bu Kanuna ve genel hükümlere göre dava açılabilir, icra takibi yapılabilir.',
     precedent: 'Yargıtay 18. Hukuk Dairesi: "Kanunda öngörülen aylık %5 gecikme tazminatı yasal faizden bağımsız olup doğrudan uygulanır."',
-    solution: 'Alo Yönetim mobil platformu üzerinden otomatik SMS/e-posta hatırlatmaları ve şeffaf dijital borç dökümü ile aidat tahsilat oranını %98.7 seviyesine yükseltiyoruz.'
+    solution: 'Alo Yönetim mobil platformu üzerinden otomatik SMS/e-posta hatırlatmaları ve şeffaf dijital borç dökümü ile aidat takibini düzenli yürütüyoruz.'
   },
   {
     id: 'kmk-yonetici-secimi',
@@ -100,7 +100,7 @@ const KMK_LAW_DATABASE: KMKLawItem[] = [
     summary: 'Kat maliklerine tebliğ edilen işletme projesine kesin itiraz süresi 7 gündür. 7 gün içinde itiraz edilmeyen proje kesinleşir ve İİK 68 kapsamında borç ikrarı içeren resmi belge hükmü kazanır.',
     fullRule: 'Kat maliklerine tebliğ edilen işletme projesine veya ek bütçeye 7 gün içinde itiraz edilmezse proje kesinleşir. Kesinleşen işletme projeleri veya kat malikleri kurulunun işletme giderleri ile ilgili kararları, İcra ve İflas Kanununun 68 inci maddesinin 1 inci fıkrasında belirtilen belgelerden sayılır.',
     precedent: 'Yargıtay 18. Hukuk Dairesi: "Tebliğ edilip 7 gün içinde itiraz edilmeyen işletme projesi İİK 68 anlamında borç ikrarını havi belge niteliğinde olup doğrudan ilamsız icraya konulabilir."',
-    solution: 'Alo Yönetim, yıllık işletme projelerini ve ek bütçeleri noter/iadeli taahhütlü usulüne göre tebliğ ederek alacakların 7 günde kesinleşmesini ve tahsilatın %99.2 başarıyla icrasını sağlar.'
+    solution: 'Alo Yönetim, yıllık işletme projelerini ve ek bütçeleri noter/iadeli taahhütlü usulüne göre tebliğ ederek alacakların 7 günde kesinleşmesini ve tahsilatın düzenli takibini sağlar.'
   },
   {
     id: 'kmk-5188-guvenlik-izni',

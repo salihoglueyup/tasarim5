@@ -70,7 +70,7 @@ export const UTILITY_SUBSCRIPTION_PROVIDERS: UtilityProviderProfile[] = [
       }
     ],
     criticalRisksIfNotDone: 'Şantiye tarifesinde kalındığında elektrik faturaları %60-80 daha yüksek ödenir; kompanzasyon devri yapılmazsa aylık on binlerce lira reaktif ceza faturaya yansır.',
-    aloYonetimGuarantee: 'BEDAŞ devir işlemlerini 48 saatte tamamlayarak site bütçesini şantiye tarifesi ve reaktif cezalardan %100 koruyoruz.'
+    aloYonetimGuarantee: 'BEDAŞ devir işlemlerini tamamlayarak site bütçesini şantiye tarifesi ve reaktif cezalardan %100 koruyoruz.'
   },
   {
     providerId: 'ayedas',

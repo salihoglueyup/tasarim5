@@ -249,7 +249,7 @@ DENETÇİLER       : [DENETÇİ 1 ADI SOYADI], [DENETÇİ 2 ADI SOYADI]
 
 YAPILAN İNCELEMELER:
 1. Kasa ve Banka İncelemesi: Ana gayrimenkulün banka hesap ekstreleri incelenmiş; dönem sonu banka mevduatının [BANKA BAKİYESİ] TL olduğu, nakit kasa mevcudunun [KASA TUTARI] TL olduğu ve banka kayıtları ile Apsiyon yazılım kayıtlarının birbiriyle tam mutabık olduğu görülmüştür.
-2. Gelirler: Tahakkuk eden toplam aidat alacağının [TAHAKKUK EDEN] TL olduğu, tahsilatın [TAHSİL EDİLEN] TL seviyesinde gerçekleştiği (%99.2 başarı) tespit edilmiştir.
+2. Gelirler: Tahakkuk eden toplam aidat alacağının [TAHAKKUK EDEN] TL olduğu, tahsilatın [TAHSİL EDİLEN] TL seviyesinde gerçekleştiği tespit edilmiştir.
 3. Giderler: Yapılan harcamaların tamamının işletme projesine uygun olduğu, fatura ve makbuzlarının tam ve yasal olduğu incelenmiştir.
 4. Karar Defteri: Karar defteri kayıtlarının düzenli tutulduğu ve noter kapanış tasdiklerinin süresinde yaptırıldığı görülmüştür.
 

@@ -49,7 +49,7 @@ export function synthesizeDistrictFacilityFaq(
   } else if (isCommercialHub) {
     faqs.push({
       question: `${dName} plazalarında ve butik tesislerde yönetim devri nasıl yapılır?`,
-      answer: `${dName} lokasyonundaki ticari tesis ve rezidanslarda devir teslim süreci 48 saat içinde şeffaf denetim tutanağıyla tamamlanır; bağımsız bölüm sakinleri hiçbir hizmet kesintisi yaşamaz.`,
+      answer: `${dName} lokasyonundaki ticari tesis ve rezidanslarda devir teslim süreci şeffaf denetim tutanağıyla tamamlanır; bağımsız bölüm sakinleri hiçbir hizmet kesintisi yaşamaz.`,
       topic: 'KMK_634',
     });
   } else {

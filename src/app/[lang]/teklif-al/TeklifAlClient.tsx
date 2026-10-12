@@ -265,7 +265,7 @@ export default function TeklifAlClient() {
               {status === 'loading' ? t('tc_sending') : t('tc_submit')}
             </button>
 
-            {/* Faz 211: CRO & E-E-A-T Güven Mühürleri (SSL, 5188 Lisansı, KVKK Açık Rıza, 48 Saat Rapor) */}
+            {/* Faz 211: CRO & E-E-A-T Güven Mühürleri (SSL, 5188 Lisansı, KVKK Açık Rıza, Ücretsiz Keşif Rapor) */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4 border-t border-slate-200 dark:border-white/10 text-[11px] text-slate-500 dark:text-slate-400 font-medium text-center">
               <div className="flex items-center justify-center gap-1">
                 <Icon name="lock" className="text-sm text-emerald-500" />

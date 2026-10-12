@@ -214,6 +214,8 @@ const nextConfig: NextConfig = {
       // Referans detay sayfaları ve başarı hikâyeleri kaldırıldı (içerikleri gerçek referans listesiyle değişti)
       { source: '/referanslar/:slug', destination: '/referanslar', permanent: true },
       { source: '/:lang(en|ru|ar)/referanslar/:slug', destination: '/:lang/referanslar', permanent: true },
+      { source: '/hizmetler/tesis-yonetimi/acik-veri', destination: '/hizmetler/tesis-yonetimi', permanent: true },
+      { source: '/:lang(en|ru|ar)/hizmetler/tesis-yonetimi/acik-veri', destination: '/:lang/hizmetler/tesis-yonetimi', permanent: true },
       { source: '/basari-hikayeleri', destination: '/referanslar', permanent: true },
       { source: '/:lang(en|ru|ar)/basari-hikayeleri', destination: '/:lang/referanslar', permanent: true },
       { source: '/:lang(en)/success-stories', destination: '/:lang/referanslar', permanent: true },

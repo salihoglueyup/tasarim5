@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import ServicesBentoGridSeo, { ALL_SERVICES_CATALOG } from '@/components/seo/services/ServicesBentoGridSeo';
 import ServicesHeroSeo from '@/components/seo/services/ServicesHeroSeo';
-import ServicesMatcherSeo from '@/components/seo/services/ServicesMatcherSeo';
 import ServicesVideoHubSeo from '@/components/seo/services/ServicesVideoHubSeo';
 
 describe('Services Hub & Catalog Bridge Tests (/hizmetler)', () => {
@@ -52,7 +51,6 @@ describe('Services Hub & Catalog Bridge Tests (/hizmetler)', () => {
   it('tüm SEO ve UI bileşenleri dışa aktarılmıştır ve geçerlidir', () => {
     expect(typeof ServicesHeroSeo).toBe('function');
     expect(typeof ServicesBentoGridSeo).toBe('function');
-    expect(typeof ServicesMatcherSeo).toBe('function');
     expect(typeof ServicesVideoHubSeo).toBe('function');
   });
 });

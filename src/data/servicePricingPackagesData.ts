@@ -51,7 +51,7 @@ export const SERVICE_PRICING_PACKAGES: ServicePricingPackage[] = [
       'Haftalık Ortak Alan Temizlik & Çöp Toplama Organizasyonu',
       'Asansör ve Yangın Tesisatı Aylık Periyodik Muayene Takibi',
     ],
-    slaResponseTime: '45 Dakika Mobil Acil Servis',
+    slaResponseTime: 'Yazılı SLA ile Mobil Acil Servis',
     financialReportingFrequency: 'Aylık Düzenli Raporlama',
     softwareIncluded: 'Apsiyon Mobil Lisansı Dahil',
     ctaText: 'Apartmanınız İçin Keşif İsteyin',
@@ -69,7 +69,7 @@ export const SERVICE_PRICING_PACKAGES: ServicePricingPackage[] = [
     maxMonthlyFee: 28000,
     unitPriceEstimate: 'Daire başı ort. ₺190 – ₺280 / ay',
     billingFrequency: 'Monthly',
-    highlightText: '5188 Güvenlik, teknik bakım ve %99.2 aidat tahsilat garantisi ile eksiksiz site huzuru.',
+    highlightText: '5188 Güvenlik, teknik bakım ve düzenli aidat takibi ile eksiksiz site huzuru.',
     isPopular: true,
     deliverables: [
       '5188 Sayılı Kanuna Uygun Sertifikalı Özel Güvenlik ve Giriş-Çıkış Kontrolü',

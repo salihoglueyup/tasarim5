@@ -67,7 +67,7 @@ export function buildPrimaryCTASpec(pageType: string, pillar: DomainPillar = 'si
           text: isFacility ? 'Hizmetlerimizi İnceleyin' : 'Online Aidat Hesaplayıcıyı Deneyin',
           url: isFacility ? `${BASE_URL}/tesis-yonetimi` : `${BASE_URL}/hesaplayici`,
         },
-        socialProof: isFacility ? '1.200.000+ m² Yönetilen Plaza ve AVM Alanı' : '350+ Site, 28.000+ Dairede %99.2 Tahsilat Başarısı',
+        socialProof: isFacility ? '1.200.000+ m² Yönetilen Plaza ve AVM Alanı' : '39 İlçede Hizmet',
         guarantee: '30 gün içinde memnun kalmazsanız sözleşmeden hiçbir cezai şart olmadan ayrılma garantisi.',
         urgencyTrigger: 'Bu ay geçerli ilk ay aidat muhasebesi kurulumu ücretsiz!',
       };
@@ -121,17 +121,10 @@ export function buildSocialProofBlock(pillar: DomainPillar = 'site') {
   return {
     pillar,
     stats: [
-      { label: 'Memnun Müşteri', value: '350+ Site / Tesis' },
-      { label: 'Tahsilat Başarısı', value: '%99.2' },
-      { label: 'Acil Müdahale', value: '25 Dakika' },
-      { label: 'Sektörel Deneyim', value: '17 Yıl (2009\'dan Beri)' },
+      { label: 'Faaliyet', value: "2009'dan beri" },
+      { label: 'Hizmet Kapsamı', value: '39 İlçe' },
+      { label: 'Acil Müdahale Hedefi', value: 'Anadolu 30 dk / Avrupa 1 sa' },
     ],
-    rating: {
-      score: 4.9,
-      maxScore: 5.0,
-      reviewCount: 248,
-      source: 'Google Haritalar Doğrulanmış Yorumları',
-    },
   };
 }
 
@@ -283,7 +276,7 @@ export function buildABTestProtocol(elementType: 'cta' | 'headline' = 'cta', pil
     },
     variantB: {
       label: 'Fayda & Acı Noktası Odaklı Başlık',
-      text: 'Aidat Problemlerine Son: %99.2 Tahsilat ve Huzurlu Site Yaşamı',
+      text: 'Aidat Takibinde Şeffaflık ve Huzurlu Site Yaşamı',
     },
     targetMetric: 'Bounce Rate Azalması & Scroll Derinliği',
     minimumSampleSize: 1000,
@@ -366,7 +359,7 @@ export function buildPackageSpec(pillar: DomainPillar = 'site'): PackageTier[] {
       pillar: 'site',
       targetScale: '40 - 250 Daire',
       monthlyFeeText: 'Tam Kapsamlı Yönetim',
-      features: ['Tam Zamanlı / Nöbetçi Yönetici', '5188 Lisanslı Güvenlik', '25 Dk Acil Teknik Müdahale', '%99.2 Aidat Tahsilat Garantisi', 'Ücretsiz Hukuki İcra Takibi'],
+      features: ['Tam Zamanlı / Nöbetçi Yönetici', '5188 Lisanslı Güvenlik', 'Yazılı SLA ile Acil Müdahale', 'Şeffaf Aidat Takibi', 'Ücretsiz Hukuki İcra Takibi'],
       isPopular: true,
       ctaText: 'Site Teklifi Alın',
     },

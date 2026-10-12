@@ -22,11 +22,11 @@ const TX_MAP: Record<string, string> = {
   "39 İlçe": "shr_14",
   "İstanbul Geneli Hizmet": "shr_15",
   "Her iki yakada mobil denetim ve operasyon ağı": "shr_16",
-  "Aidat Tahsilat Başarısı": "shr_17",
-  "KMK 20 ve dijital ödeme altyapısıyla sıfır gecikme": "shr_18",
-  "20 Dakika": "shr_19",
-  "Acil Teknik Müdahale SLA": "shr_20",
-  "Asansör, hidrofor ve elektrikte 7/24 nöbetçi teknisyen": "shr_21",
+  "Şeffaf Aidat Takibi": "shr_17",
+  "KMK 20 ve dijital ödeme altyapısıyla düzenli takip": "shr_18",
+  "30 dk / 1 sa": "shr_19",
+  "Acil Müdahale Hedefi (Anadolu / Avrupa)": "shr_20",
+  "Yazılı SLA kapsamında; sözleşme hükümlerine bağlıdır": "shr_21",
   "Şeffaf Sakin Portalı": "shr_22",
   "Kuruşu kuruşuna canlı kasa, fatura ve karar arşivi": "shr_23",
 };
@@ -150,19 +150,19 @@ export default function ServicesHeroSeo({
           </div>
 
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400 mb-1">%98.7</div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-200">{tx('Aidat Tahsilat Başarısı')}</div>
-            <p className="text-[11px] text-slate-400 mt-1">{tx('KMK 20 ve dijital ödeme altyapısıyla sıfır gecikme')}</p>
+            <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400 mb-1">KMK 20</div>
+            <div className="text-xs sm:text-sm font-semibold text-slate-200">{tx('Şeffaf Aidat Takibi')}</div>
+            <p className="text-[11px] text-slate-400 mt-1">{tx('KMK 20 ve dijital ödeme altyapısıyla düzenli takip')}</p>
           </div>
 
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-2xl sm:text-3xl font-extrabold text-slate-400 mb-1">{tx('20 Dakika')}</div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-200">{tx('Acil Teknik Müdahale SLA')}</div>
-            <p className="text-[11px] text-slate-400 mt-1">{tx('Asansör, hidrofor ve elektrikte 7/24 nöbetçi teknisyen')}</p>
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-400 mb-1">{tx('30 dk / 1 sa')}</div>
+            <div className="text-xs sm:text-sm font-semibold text-slate-200">{tx('Acil Müdahale Hedefi (Anadolu / Avrupa)')}</div>
+            <p className="text-[11px] text-slate-400 mt-1">{tx('Yazılı SLA kapsamında; sözleşme hükümlerine bağlıdır')}</p>
           </div>
 
           <div className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <div className="text-2xl sm:text-3xl font-extrabold text-slate-400 mb-1">%100</div>
+            <div className="text-2xl sm:text-3xl font-extrabold text-slate-400 mb-1">OK</div>
             <div className="text-xs sm:text-sm font-semibold text-slate-200">{tx('Şeffaf Sakin Portalı')}</div>
             <p className="text-[11px] text-slate-400 mt-1">{tx('Kuruşu kuruşuna canlı kasa, fatura ve karar arşivi')}</p>
           </div>

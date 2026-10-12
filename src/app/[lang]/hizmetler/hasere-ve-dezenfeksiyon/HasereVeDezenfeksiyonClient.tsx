@@ -3,7 +3,6 @@
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import ServiceSeo from '@/components/seo/schema/ServiceSeo';
-import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import HowToSeo from '@/components/seo/schema/HowToSeo';
 import { Card } from '@/components/ui/primitives/Card';
@@ -11,11 +10,9 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import RelatedArticles from '@/components/blog/RelatedArticles';
-import PestControlCalculator from '@/components/sections/calculators/PestControlCalculator';
 import PestControlTestimonials from '@/components/sections/testimonials/PestControlTestimonials';
 import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
-import FacilityBiocidalPestGuideSeo from '@/components/seo/facility/FacilityBiocidalPestGuideSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
@@ -95,12 +92,6 @@ export default function HasereVeDezenfeksiyonClient() {
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_pest_hero_title') || 'Haşere İlaçlama & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Kalıcı Dezenfeksiyon</span>' }} />
             
-            <AggregateRatingSeo 
-              itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Haşere İlaçlama ve Dezenfeksiyon' }}
-              ratingValue={4.8}
-              reviewCount={158}
-              className="mt-2"
-            />
 
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('pest_banner_desc') || 'Sağlık Bakanlığı onaylı biyosidal ürünlerle kalıcı böcek, kemirgen ilaçlama ve periyodik dezenfeksiyon hizmetleri.'}
@@ -116,10 +107,6 @@ export default function HasereVeDezenfeksiyonClient() {
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
-        {/* Pest Control Calculator */}
-        <div className="-mt-20 md:-mt-32 relative z-30">
-          <PestControlCalculator />
-        </div>
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
 <TrOnly>
@@ -129,7 +116,7 @@ export default function HasereVeDezenfeksiyonClient() {
           question="Biyosidal İlaçlama Nedir ve Sitelerde Yasal Zorunluluğu Var mıdır?"
           answer="Biyosidal ilaçlama; T.C. Sağlık Bakanlığı onaylı, insan ve çevre sağlığına zararsız formülasyonlarla zararlı ve kemirgenlerin kontrol altına alınmasıdır. Biyosidal Ürünler Yönetmeliği gereğince siteler, apartmanlar ve tesisler yalnızca Bakanlık ruhsatlı profesyonel firmalar aracılığıyla periyodik dezenfeksiyon ve ilaçlama yaptırabilir."
           standardBadge="Sağlık Bakanlığı Biyosidal Ruhsatı"
-          subText="Alo Yönetim, WHO ve Sağlık Bakanlığı onaylı kokusuz biyosidal formülasyonlar, kilitli yem istasyonları ve garantili IPM entegre zararlı yönetimi uygular."
+          subText="Alo Yönetim, WHO ve Sağlık Bakanlığı onaylı kokusuz biyosidal formülasyonlar, kilitli yem istasyonları ve planlı IPM entegre zararlı yönetimi uygular."
           accentColor="emerald"
         />
 </TrOnly>
@@ -166,7 +153,7 @@ export default function HasereVeDezenfeksiyonClient() {
 
         {/* Sağlık Bakanlığı Ruhsatlı Biyosidal Haşere İlaçlama ve IPM Rehberi (Faz 14) */}
 <TrOnly>
-        <FacilityBiocidalPestGuideSeo />
+        {null}
 </TrOnly>
 
         {/* Pest Control Specific Social Proof */}

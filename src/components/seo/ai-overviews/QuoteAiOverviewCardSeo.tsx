@@ -9,7 +9,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
 
   const question = 'İstanbul’da Profesyonel Tesis ve Site Yönetimi Teklifi Nasıl Alınır?';
   const directAnswer =
-    'Alo Yönetim’den site ve tesis yönetimi teklifi almak için bağımsız bölüm sayısı ve donatı özellikleri girildikten sonra 48 saat içinde uzman heyetimizce yerinde ücretsiz teknik keşif gerçekleştirilir., gizli maliyet içermeyen ve toplu tedarik gücüyle %30 net bütçe tasarrufu taahhüt eden şeffaf işletme projesi teklifi sunulur. Acil teknik arızalarda 15-25 dakika mobil SLA taahhüdü verilir.';
+    'Alo Yönetim’den site ve tesis yönetimi teklifi almak için bağımsız bölüm sayısı ve donatı özellikleri girildikten sonra uzman heyetimizce yerinde ücretsiz teknik keşif gerçekleştirilir; gizli maliyet içermeyen şeffaf işletme projesi teklifi sunulur. Acil teknik arızalar için yazılı SLA kapsamında hedef Anadolu Yakası’nda 30 dakika, Avrupa Yakası’nda 1 saattir.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);
@@ -62,14 +62,14 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-600/10 dark:bg-emerald-400/10 border border-emerald-600/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider">
           <Icon name="auto_awesome" className="text-[15px]" />
-          <span>Google AI Overviews & Şeffaf Fiyatlandırma Garantisi</span>
+          <span>Google AI Overviews & Şeffaf Fiyatlandırma</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
-            48 Saatte Keşif
+            Ücretsiz Keşif
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
-            %30 Bütçe Tasarrufu
+            Bütçe Verimliliği
           </span>
         </div>
       </div>
@@ -99,7 +99,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-3 border-t border-[var(--color-outline)]/60 text-xs text-[var(--color-secondary)]">
           <div className="flex items-center gap-2">
             <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
-            <span><strong>Yerinde Analiz:</strong> 48 Saatte Mühendis Eşliğinde Ücretsiz Keşif</span>
+            <span><strong>Yerinde Analiz:</strong> Mühendis Eşliğinde Ücretsiz Keşif</span>
           </div>
           <div className="flex items-center gap-2">
             <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
@@ -111,7 +111,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
           </div>
           <div className="flex items-center gap-2">
             <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
-            <span><strong>Mobil SLA:</strong> 15-25 Dk Acil Teknik Arıza Servisi</span>
+            <span><strong>Mobil SLA:</strong> Yazılı SLA ile Acil Teknik Arıza Servisi</span>
           </div>
         </div>
       </div>

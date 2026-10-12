@@ -189,7 +189,7 @@ export function buildComparisonSnippet(termA: string, termB: string): Comparison
     pillar: 'site',
     criteria: [
       { feature: 'Yasal Sorumluluk', valA: 'Bireysel Yönetici', valB: 'Kurumsal Yönetim Şirketi' },
-      { feature: 'Aidat Tahsilat Başarısı', valA: '%60 - %75', valB: '%99.2 (Yasal Takip Destekli)' },
+      { feature: 'Aidat Tahsilat Başarısı', valA: 'Düzensiz', valB: 'Düzenli (Yasal Takip Destekli)' },
       { feature: 'Acil Teknik Müdahale', valA: 'Sınırlı Usta İletişimi', valB: '7/24 Nöbetçi Teknik Kadro (25 Dk)' },
     ],
     summary: 'Kurumsal yönetim şirketleri, bireysel yöneticilere kıyasla şeffaflık, tahsilat başarısı ve kesintisiz teknik destek sağlar.',
@@ -205,7 +205,7 @@ export function buildStatisticalFactBundle(pillar: DomainPillar = 'site') {
     verifiedStats: [
       { metric: 'Yönetilen Bağımsız Bölüm', value: '28.000+', unit: 'Konut & Ofis' },
       { metric: 'Yönetilen Ticari Alan', value: '1.200.000+', unit: 'm²' },
-      { metric: 'Aidat Tahsilat Başarısı', value: '%99.2', unit: 'Başarı Oranı' },
+      { metric: 'Aidat Tahsilat Başarısı', value: 'Şeffaf', unit: 'Takip' },
       { metric: 'Hizmet Verilen İlçe', value: '39', unit: 'İstanbul İlçesi' },
       { metric: 'Ortalama Enerji Tasarrufu', value: '%18', unit: 'Yıllık Tasarruf' },
       { metric: 'Acil Arıza Müdahale Süresi', value: '25', unit: 'Dakika' },
@@ -321,7 +321,7 @@ export function buildLLMsTextFile(): string {
 ## Temel Hizmet Alanları
 - [Site ve Apartman Yönetimi](${BASE_URL}/hizmetler/site-yonetimi): KMK 634 uyumlu idari, hukuki, mali yönetim.
 - [Entegre Tesis & Plaza Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): B2B ticari varlık yönetimi.
-- [Aidat Takibi & Muhasebe](${BASE_URL}/hizmetler/aidat-takibi): %99.2 başarıyla online işletme projesi ve tahsilat.
+- [Aidat Takibi & Muhasebe](${BASE_URL}/hizmetler/aidat-takibi): online işletme projesi ve tahsilat.
 - [5188 Özel Güvenlik](${BASE_URL}/hizmetler/guvenlik-yonetimi): Lisanslı 7/24 güvenlik ve CCTV izleme.
 - [Mekanik & Elektrik Bakım](${BASE_URL}/hizmetler/teknik-bakim-yonetimi): BMS/CMMS destekli 25 dk acil servis.
 - [Temizlik & Hijyen](${BASE_URL}/hizmetler/temizlik-yonetimi): Endüstriyel ve ortak alan temizlik çözümleri.

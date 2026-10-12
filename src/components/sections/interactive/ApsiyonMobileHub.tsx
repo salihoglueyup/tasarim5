@@ -71,7 +71,7 @@ const RESIDENT_FEATURES = [
     icon: 'receipt_long',
     title: 'Şeffaf Gelir-Gider & Denetim Raporları',
     desc: 'Sitenizin tüm banka hareketlerini, aylık işletme bütçesini, fatura dökümlerini ve denetim raporlarını şeffaflıkla inceleyin.',
-    tag: '%100 Şeffaflık'
+    tag: 'Şeffaflık'
   }
 ];
 
@@ -543,7 +543,7 @@ export default function ApsiyonMobileHub() {
           </h3>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
-            Apsiyon dijital altyapısı ve Alo Yönetim&apos;in 15 yılı aşkın saha uzmanlığıyla sitenizde aidat tahsilat oranını %98&apos;in üzerine çıkaralım, tüm işletme bütçesini şeffaf kılalım.
+            Apsiyon dijital altyapısı ve Alo Yönetim&apos;in 2009'dan beri saha deneyimiyle sitenizde aidat takibini düzenli yürütelim, tüm işletme bütçesini şeffaf kılalım.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">

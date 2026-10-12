@@ -10,32 +10,8 @@ interface AcademyHeroSeoProps {
 }
 
 export default function AcademyHeroSeo({ lang = 'tr', onOpenEnrollment }: AcademyHeroSeoProps) {
-  const stats = [
-    {
-      value: "%98",
-      label: "EGM Sınav Başarısı",
-      desc: "ÖGNET deneme sınavları ve soru çözümleriyle ilk girişte kazanma oranı",
-      icon: "verified_user",
-    },
-    {
-      value: "15.000+",
-      label: "Sertifikalı Mezun",
-      desc: "5188 temel ve yenileme eğitimini başarıyla tamamlayan uzman personel",
-      icon: "school",
-    },
-    {
-      value: "1.200+",
-      label: "İstihdam Noktası",
-      desc: "Alo Yönetim rezidans, site ve plazalarında doğrudan işe yerleştirme",
-      icon: "work",
-    },
-    {
-      value: "2 Şube",
-      label: "Kadıköy & Mecidiyeköy",
-      desc: "Metro ve Metrobüs'e 2 dakika, modern atış poligonu anlaşmalı kampüsler",
-      icon: "location_city",
-    },
-  ];
+  // Doğrulanamayan başarı oranı, mezun sayısı ve şube bilgileri gösterilmez.
+  const stats: { value: string; label: string; desc: string; icon: string }[] = [];
 
   return (
     <section className="dark relative overflow-hidden bg-slate-950 text-white pt-32 pb-16 md:pt-40 md:pb-24 border-b border-white/10">

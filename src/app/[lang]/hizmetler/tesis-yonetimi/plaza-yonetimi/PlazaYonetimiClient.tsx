@@ -77,7 +77,7 @@ export default function PlazaYonetimiClient() {
           question="Plaza ve İş Merkezi Yönetimi Nedir ve Neleri Kapsar?"
           answer="Plaza ve iş merkezi yönetimi; kurumsal ofis binalarının kesintisiz çalışması için adresli BMS yangın otomasyonu, 3x senkron jeneratör şebekesi, fancoil ve chiller iklimlendirmesi, 5188 lisanslı turnike/QR ziyaretçi güvenliği, TSE 13811 dış cephe cam silimi ve %0 reaktif ceza güvencesinin entegre yönetilmesidir."
           standardBadge="Yangın Yönetmeliği"
-          subText="Alo Yönetim, kurumsal plazalarda 45 dakika acil teknik müdahale SLA garantisi, M-Bus alt sayaç okuma ile adil gider paylaşımı ve %0 reaktif ceza taahhüdü sunar."
+          subText="Alo Yönetim, kurumsal plazalarda yazılı SLA kapsamında acil teknik müdahale, M-Bus alt sayaç okuma ile adil gider paylaşımı ve %0 reaktif ceza taahhüdü sunar."
           accentColor="blue"
         />
 </TrOnly>
@@ -217,7 +217,7 @@ export default function PlazaYonetimiClient() {
             sourceName: "Enerji Piyasası Düzenleme Kurumu (EPDK)",
             url: "https://www.epdk.gov.tr",
             badge: "EPDK Standartları",
-            description: "Kurulu gücü 50 kVA üzerindeki ticari binalarda reaktif/kapasitif sınır aşımlarını engelleyerek %0 ceza garantisi."
+            description: "Kurulu gücü 50 kVA üzerindeki ticari binalarda reaktif/kapasitif sınır aşımlarını engelleyerek ceza riskini azaltma hedefi."
           }
         ]}
         glossaryTerms={[

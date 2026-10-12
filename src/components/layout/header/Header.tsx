@@ -56,7 +56,6 @@ const MENU_ITEMS: MenuItem[] = [
     nameKey: 'nav_tools_library',
     subItems: [
       { nameKey: 'nav_facility_guide', path: '/hizmetler/tesis-yonetimi/rehber', descKey: 'nav_facility_guide_desc', icon: 'menu_book' },
-      { nameKey: 'nav_facility_open_data', path: '/hizmetler/tesis-yonetimi/acik-veri', descKey: 'nav_facility_open_data_desc', icon: 'database' },
       { nameKey: 'nav_calculator', path: '/hesaplayici', descKey: 'calc_promo_desc', icon: 'calculate' },
       { nameKey: 'nav_dictionary', path: '/sozluk', descKey: 'nav_dictionary_desc', icon: 'auto_stories' },
       { nameKey: 'nav_app', path: '/app', descKey: 'nav_app_desc', icon: 'smartphone' },
@@ -152,7 +151,6 @@ export default function Header() {
   // Açık zeminli hero alanına sahip sayfalar (ör. Açık Veri Portalı, Apsiyon Mobil Portalı)
   const isLightHero = Boolean(
     pathname && (
-      pathname.includes('/hizmetler/tesis-yonetimi/acik-veri') ||
       pathname === '/app' ||
       pathname.endsWith('/app')
     )

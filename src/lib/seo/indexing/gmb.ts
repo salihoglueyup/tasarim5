@@ -5,7 +5,8 @@ export async function getGMBRating(): Promise<RatingInput> {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
   const placeId = process.env.GOOGLE_PLACES_PLACE_ID;
 
-  const defaultRating: RatingInput = { ratingValue: '4.9', reviewCount: '150' };
+  // Doğrulanmış puan yoksa varsayılan puan uydurulmaz.
+  const defaultRating: RatingInput = { ratingValue: '', reviewCount: '' };
 
   if (!apiKey || !placeId) {
     return defaultRating;

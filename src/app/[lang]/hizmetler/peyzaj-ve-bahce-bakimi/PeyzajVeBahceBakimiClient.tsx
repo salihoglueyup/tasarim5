@@ -3,7 +3,6 @@
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import ServiceSeo from '@/components/seo/schema/ServiceSeo';
-import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import HowToSeo from '@/components/seo/schema/HowToSeo';
 import { Card } from '@/components/ui/primitives/Card';
@@ -11,11 +10,9 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import RelatedArticles from '@/components/blog/RelatedArticles';
-import LandscapeCalculator from '@/components/sections/calculators/LandscapeCalculator';
 import LandscapeTestimonials from '@/components/sections/testimonials/LandscapeTestimonials';
 import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
-import FacilityLandscapeTreeGuideSeo from '@/components/seo/facility/FacilityLandscapeTreeGuideSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
@@ -95,12 +92,6 @@ export default function PeyzajVeBahceBakimiClient() {
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_land_hero_title') || 'Peyzaj Tasarımı & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Bahçe Bakım Yönetimi</span>' }} />
             
-            <AggregateRatingSeo 
-              itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Peyzaj ve Bahçe Bakımı' }}
-              ratingValue={4.8}
-              reviewCount={142}
-              className="mt-2"
-            />
 
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('land_banner_desc') || 'Ortak alan yeşillendirme, çim biçme, mevsimsel bitki ekimi ve otomatik sulama sistemleri bakımı.'}
@@ -116,10 +107,6 @@ export default function PeyzajVeBahceBakimiClient() {
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
-        {/* Landscape Calculator */}
-        <div className="-mt-20 md:-mt-32 relative z-30">
-          <LandscapeCalculator />
-        </div>
 
         {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
 <TrOnly>
@@ -166,7 +153,7 @@ export default function PeyzajVeBahceBakimiClient() {
 
         {/* Sitelerde Peyzaj Bakımı, Otomatik Sulama ve Ağaç Koruma Rehberi (Faz 14) */}
 <TrOnly>
-        <FacilityLandscapeTreeGuideSeo />
+        {null}
 </TrOnly>
 
         {/* Landscape Specific Social Proof */}

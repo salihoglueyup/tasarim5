@@ -199,7 +199,7 @@ export function getPillarDescriptionTemplate(pillar: DomainPillar, districtName?
     case 'facility':
       return `${loc} plaza, iş merkezi ve ticari gayrimenkuller için ISO 45001 belgeli entegre tesis yönetimi ve önleyici teknik bakım. Hemen teklif alın.`;
     case 'legal':
-      return `${loc} kat mülkiyeti uyuşmazlıkları, aidat icra takibi (KMK m.20), işletme projesi tanzimi ve Yargıtay emsal kararlarıyla tam hukuki danışmanlık. 48 saat içinde çözüm.`;
+      return `${loc} kat mülkiyeti uyuşmazlıkları, aidat icra takibi (KMK m.20), işletme projesi tanzimi ve Yargıtay emsal kararlarıyla tam hukuki danışmanlık.`;
     case 'hybrid':
     default:
       return `${loc} apartman, site ve rezidanslar için KMK 634 uyumlu profesyonel tesis yönetimi. 5188 lisanslı güvenlik ve şeffaf aidat takibi. Ücretsiz keşif randevusu.`;

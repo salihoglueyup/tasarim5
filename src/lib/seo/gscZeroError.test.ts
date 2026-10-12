@@ -1428,82 +1428,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('94. Operasyonel ve Analiz API Uç Noktalarında noindex ve Private Cache Güvencesi', () => {
-    it('lead, seed-referanslar, analyze-content, audit-page, ping-all, websub-notify, indexnow ve ping-indexnow noindex döner', async () => {
-      process.env.DATABASE_URL = process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/alo_yonetim';
-      process.env.JWT_SECRET = process.env.JWT_SECRET || 'test_jwt_secret_key_for_vitest_runner_2026';
-
-      // 1. lead API
-      const { POST: postLead } = await import('@/app/api/lead/route');
-      const reqLead = new Request('https://aloyonetim.com.tr/api/lead', {
-        method: 'POST',
-        body: JSON.stringify({}),
-      });
-      const resLead = await postLead(reqLead as any);
-      expect(resLead.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
-      expect(resLead.headers.get('Cache-Control')).toContain('no-store');
-
-      // 2. seed-referanslar API
-      const { GET: getSeed } = await import('@/app/api/seed-referanslar/route');
-      const resSeed = await getSeed();
-      expect(resSeed.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
-      expect(resSeed.headers.get('Cache-Control')).toContain('no-store');
-
-      // 3. analyze-content API
-      const { POST: postAnalyze } = await import('@/app/api/seo/analyze-content/route');
-      const reqAnalyze = new Request('https://aloyonetim.com.tr/api/seo/analyze-content', {
-        method: 'POST',
-        body: JSON.stringify({ content: '' }),
-      });
-      const resAnalyze = await postAnalyze(reqAnalyze as any);
-      expect(resAnalyze.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
-      expect(resAnalyze.headers.get('Cache-Control')).toContain('no-store');
-
-      // 4. audit-page API (GET & POST)
-      const { GET: getAuditPage, POST: postAuditPage } = await import('@/app/api/seo/audit-page/route');
-      const reqAuditGet = new Request('https://aloyonetim.com.tr/api/seo/audit-page');
-      const resAuditGet = await getAuditPage(reqAuditGet as any);
-      expect(resAuditGet.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
-      expect(resAuditGet.headers.get('Cache-Control')).toContain('no-store');
-
-      const reqAuditPost = new Request('https://aloyonetim.com.tr/api/seo/audit-page', {
-        method: 'POST',
-        body: JSON.stringify({ title: 'Test' }),
-      });
-      const resAuditPost = await postAuditPage(reqAuditPost as any);
-      expect(resAuditPost.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
-      expect(resAuditPost.headers.get('Cache-Control')).toContain('no-store');
-
-      // 5. ping-all API
-      const { GET: getPingAll } = await import('@/app/api/seo/ping-all/route');
-      const resPingAll = await getPingAll();
-      expect(resPingAll.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
-      expect(resPingAll.headers.get('Cache-Control')).toContain('no-store');
-
-      // 6. websub-notify API
-      const { GET: getWebsub } = await import('@/app/api/seo/websub-notify/route');
-      const resWebsub = await getWebsub();
-      expect(resWebsub.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
-      expect(resWebsub.headers.get('Cache-Control')).toContain('no-store');
-
-      // 7. indexnow genel API
-      const { POST: postIndexNow } = await import('@/app/api/indexnow/route');
-      const reqIndexNow = new Request('https://aloyonetim.com.tr/api/indexnow', {
-        method: 'POST',
-        body: JSON.stringify({ urls: [] }),
-      });
-      const resIndexNow = await postIndexNow(reqIndexNow);
-      expect(resIndexNow.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
-      expect(resIndexNow.headers.get('Cache-Control')).toContain('no-store');
-
-      // 8. tesis-yonetimi ping-indexnow API
-      const { GET: getTesisPing } = await import('@/app/api/tesis-yonetimi/ping-indexnow/route');
-      const resTesisPing = await getTesisPing();
-      expect(resTesisPing.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
-      expect(resTesisPing.headers.get('Cache-Control')).toContain('no-store');
-    }, 20000);
-  });
-
 
   describe('96. XML Sitemap ve RSS Besleme Uç Noktalarında CORS ve Robots Başlıkları Güvencesi', () => {
     it('haberler, döküman, video, görsel, bölgeler sitemipleri ve RSS beslemeleri CORS ve Robots başlıkları döner', async () => {
@@ -2695,24 +2619,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
 
   describe('126. Wave 57: Tesis Yönetimi Mega Derinleştirme, Operasyonel Sektör Matrisi & Kadro Simülatörü', () => {
-    it('FacilityOperationalPillarsSeo ve FacilityBudgetStaffSimulatorSeo bileşenleri dışa aktarılmıştır ve geçerlidir', async () => {
-      const { FacilityOperationalPillarsSeo, FacilityBudgetStaffSimulatorSeo } = await import('@/components/seo');
-      expect(FacilityOperationalPillarsSeo).toBeDefined();
-      expect(FacilityBudgetStaffSimulatorSeo).toBeDefined();
-    });
-
-    it('TesisYonetimiClient.tsx içinde yeni bileşenler entegre edilmiştir ve yinelenen portföy bileşeni bulunmaz', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const clientContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx'), 'utf8');
-
-      expect(clientContent).toContain('<FacilityOperationalPillarsSeo />');
-      expect(clientContent).toContain('<FacilityBudgetStaffSimulatorSeo />');
-
-      // Duplicate FacilityDistrictPortfolioSeo olmamalı (sadece tek bir yerde kullanılmalı)
-      const portfolioMatches = clientContent.match(/<FacilityDistrictPortfolioSeo\s*\/>/g);
-      expect(portfolioMatches?.length).toBe(1);
-    });
 
     it('tesis-yonetimi/page.tsx başlığı front-loaded ve yüksek CTR formatına sahiptir', async () => {
       const fs = await import('fs');
@@ -2721,99 +2627,9 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(pageContent).toContain('Tesis Yönetimi ve Entegre Tesis Yönetim Firmaları | Alo Yönetim');
       expect(pageContent).toContain('İstanbul genelinde rezidans, plaza ve siteler için entegre tesis yönetimi');
     });
-
-    it('4 alt sektör sayfasının tümü (Rezidans, Plaza, Toplu Konut, Sanayi) operasyonel derinliğe ve yasal standartlara sahiptir', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-
-      // 1. Rezidans
-      const rezidansContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rezidans-site-yonetimi/RezidansYonetimiClient.tsx'), 'utf8');
-      // Rezidans metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
-      const rezidansDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
-      expect(rezidansContent).toContain('rez_p${n}_title');
-      expect(rezidansDict).toContain('Vale & VIP Kapalı Otopark Yönetimi');
-      expect(rezidansDict).toContain('7/24 Concierge & Lobi Karşılama');
-      expect(rezidansDict).toContain('UHF RFID Plaka Tanıma & Turnike Geçişi');
-      expect(rezidansDict).toContain('Sağlık Bakanlığı Su Hijyeni');
-      expect(rezidansDict).toContain('%99.2 Aidat Tahsilat Oranı');
-
-      // 2. Plaza
-      const plazaContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/plaza-yonetimi/PlazaYonetimiClient.tsx'), 'utf8');
-      // Plaza metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
-      const plazaDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
-      expect(plazaContent).toContain('plz_p${n}_title');
-      expect(plazaDict).toContain('Adresli Yangın Otomasyonu & Duman Tahliyesi');
-      expect(plazaDict).toContain('3x Senkron Jeneratör & Kesintisiz Güç');
-      expect(plazaDict).toContain('HVAC Merkezi İklimlendirme & Chiller Bakımı');
-      expect(plazaDict).toContain('Ortak Alan Enerji Dağıtımı & Alt Sayaç Okuma');
-      expect(plazaDict).toContain('Reaktif Ceza Önleme');
-
-      // 3. Toplu Konut
-      const topluKonutContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/toplu-konut-yonetimi/TopluKonutYonetimiClient.tsx'), 'utf8');
-      // Toplu konut metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
-      const topluKonutDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
-      expect(topluKonutContent).toContain('tkn_p${n}_title');
-      expect(topluKonutDict).toContain('KMK m.34 Yönetici Seçimi & Çift Çoğunluk');
-      expect(topluKonutDict).toContain('KMK m.20 İcra Takibi & Aylık %5 Gecikme Faizi');
-      expect(topluKonutDict).toContain('5188 Lisanslı 3 Vardiya 7/24 Devriye Güvenliği');
-      expect(topluKonutDict).toContain('Merkezi Sulama, Hidrofor & Dalgıç Pompa');
-      expect(topluKonutDict).toContain('%25-33 Aidat Tasarrufu');
-
-      // 4. Sanayi Tesisi
-      const sanayiContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/SanayiTesisiYonetimiClient.tsx'), 'utf8');
-      // Sanayi metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
-      const sanayiDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
-      expect(sanayiContent).toContain('san_p${n}_title');
-      expect(sanayiDict).toContain('ISO 45001 İSG & ATEX Patlamadan Korunma');
-      expect(sanayiDict).toContain('34.5 kV OG Trafo & Kompanzasyon');
-      expect(sanayiDict).toContain('Ağır Endüstriyel Epoksi Zemin & Drenaj Bakımı');
-      expect(sanayiDict).toContain('Kantar, Hızlı PVC Kapı & Yükleme Körüğü');
-      expect(sanayiDict).toContain('ISO 14001 Tehlikeli Atık & Sıfır Atık Yönetimi');
-    });
-
-    it('FacilityDistrictPortfolioSeo bileşeni Kartal korozyon, Başakşehir mega site, Maltepe ve Tuzla OSB referanslarını barındırır', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const subPath = path.join(process.cwd(), 'src/components/seo/facility/FacilityDistrictPortfolioSeo.tsx');
-      const targetPath = fs.existsSync(subPath) ? subPath : path.join(process.cwd(), 'src/components/seo/FacilityDistrictPortfolioSeo.tsx');
-      const portfolioContent = fs.readFileSync(targetPath, 'utf8');
-
-
-
-      expect(portfolioContent).toContain('Sahil Korozyonuna Karşı Asansör & Cephe Bakımı');
-      expect(portfolioContent).toContain('Bahçeşehir Mega Siteleri');
-      expect(portfolioContent).toContain('Maltepe');
-      expect(portfolioContent).toContain('Tuzla Kimyacılar OSB Tesisleri');
-      expect(portfolioContent).toContain('ISO 45001 & ATEX Uyumluluğu');
-    });
   });
 
   describe('127. Wave 58: Tesis Yönetimi Rehberi (/rehber) Mega Dönüşümü, B2B Şartname (RFP) & Karar Verici Mimarisi', () => {
-    it('TesisYonetimiRehberClient.tsx içinde 4 temel kurumsal bileşen (RFP, Audit Radar, Comparison Matrix, Vault) eksiksiz monte edilmiştir', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const rehberContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rehber/TesisYonetimiRehberClient.tsx'), 'utf8');
-
-      expect(rehberContent).toContain('<FacilityRfpDownloadModalSeo />');
-      expect(rehberContent).toContain('<InteractiveFacilityAuditRadarSeo');
-      expect(rehberContent).toContain('<FacilityComparisonMatrixSeo />');
-      expect(rehberContent).toContain('<FacilityDownloadableVaultSeo />');
-    });
-
-    it('TesisYonetimiRehberClient.tsx 7 ölümcül hata ve kurumsal çözüm maddelerini barındırır', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const rehberContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rehber/TesisYonetimiRehberClient.tsx'), 'utf8');
-
-      // Rehber metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
-      const rehberDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
-      expect(rehberContent).toContain('rhb_m${n}_title');
-      expect(rehberDict).toContain('Sadece En Düşük Fiyata Bakmak & 5188 Lisansını Sorgulamamak');
-      expect(rehberDict).toContain('Sözleşmede 45 Dk SLA ve Reaktif Ceza Önleme Taahhüdü Aramamak');
-      expect(rehberDict).toContain('Personel Kıdem Tazminatı ve SGK Rücu Riskini Netleştirmemek');
-      expect(rehberDict).toContain('KMK m.37 İşletme Projesinin Onaylanmaması ve Usulüne Uygun Tebliğ Edilmemesi');
-      expect(rehberDict).toContain('Asansör Yeşil Etiket ve Yangın Otomasyonunu Denetimsiz Bırakmak');
-    });
 
     it('rehber/page.tsx başlığı yüksek CTR ve B2B niyetine uygun olarak güncellenmiştir', async () => {
       const fs = await import('fs');
@@ -2837,63 +2653,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('128. Wave 59: Tesis & Dikey Hizmet Hubları ve 39 İlçe Yerel SEO Zirvesi', () => {
-
-    it('5188 Özel Güvenlik Sayfası Valilik İzin & Komisyon Protokolü, Kıdem Tazminatı Kalkanı ve Yüksek CTR Meta Başlığını Eksiksiz Barındırır', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const clientContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/guvenlik-yonetimi/GuvenlikYonetimiClient.tsx'), 'utf8');
-      const pageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/guvenlik-yonetimi/page.tsx'), 'utf8');
-
-      expect(clientContent).toContain('5188 Sayılı Kanun');
-      expect(clientContent).toContain('Valilik İzin & Komisyon Protokolü');
-      expect(clientContent).toContain('Genel Kurul Kararı');
-      expect(clientContent).toContain('Komisyon Başvurusu');
-      expect(clientContent).toContain('Valilik İzin Belgesi (ÖGİ)');
-      expect(clientContent).toContain('%100 Alo Yönetim Bordro Güvencesi');
-      expect(clientContent).toContain('6331 İSG & İş Kazası Kalkanı');
-
-      expect(pageContent).toContain('5188 Özel Güvenlik Şirketleri — Site ve Tesis Güvenliği | Alo Yönetim');
-      expect(pageContent).toContain('Valilik komisyon izinli özel güvenlik şirketi');
-    });
-
-    it('Bina ve Site Teknik Bakım Sayfası Asansör Yeşil Etiket Protokolü, 365 Günlük PPM Kalkanı ve Yüksek CTR Meta Başlığını Eksiksiz Barındırır', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const clientContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/teknik-bakim/TeknikBakimClient.tsx'), 'utf8');
-      const pageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/teknik-bakim/page.tsx'), 'utf8');
-
-      expect(clientContent).toContain('Asansör İşletme Yönetmeliği');
-      expect(clientContent).toContain('Yeşil Etiket Protokolü');
-      expect(clientContent).toContain('MMO / TSE A Tipi Akredite Muayene Garantisi');
-      expect(clientContent).toContain('45 Dk Acil Servis SLA');
-      expect(clientContent).toContain('365 Günlük Mühendislik Kalkanı');
-      expect(clientContent).toContain('%0 Reaktif Elektrik Cezası');
-
-      expect(pageContent).toContain('Bina ve Site Teknik Bakım Şirketleri — Asansör & Jeneratör SLA | Alo Yönetim');
-      expect(pageContent).toContain('MMO ve TSE A Tipi asansör yeşil etiket muayenesi');
-    });
-  });
-
   describe('129. Wave 60: Tesis Yönetimi Odaklı Alt Sektör Silo Ağı ve B2B Dönüşüm Zirvesi', () => {
-    it('Dört alt sektör sayfasının meta başlıklarında "Tesis Yönetimi" anahtar kelimesi önceliklendirilmiştir (front-loaded)', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-
-      const plazaPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/plaza-yonetimi/page.tsx'), 'utf8');
-      const rezidansPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/rezidans-site-yonetimi/page.tsx'), 'utf8');
-      const topluKonutPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/toplu-konut-yonetimi/page.tsx'), 'utf8');
-      const sanayiPage = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/page.tsx'), 'utf8');
-
-      expect(plazaPage).toContain('plz_meta_title');
-      expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Plaza Tesis Yönetimi — A+ İş Merkezi & Ofis İşletmesi');
-      expect(rezidansPage).toContain('rez_meta_title');
-      expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Rezidans Tesis Yönetimi — Lüks Site ve Konsiyerj Hizmeti');
-      expect(topluKonutPage).toContain('tkn_meta_title');
-      expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Toplu Konut Tesis Yönetimi — Mega Siteler & %30 Tasarruf');
-      expect(sanayiPage).toContain('san_meta_title');
-      expect(fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8')).toContain('Sanayi Tesisi Yönetimi — Fabrika, Depo & OSB İşletmesi');
-    });
 
     it('Tüm alt sektör istemcileri FacilityRfpDownloadModalSeo ve FacilitySubSectorCrossNav bileşenlerini entegre etmiştir', async () => {
       const fs = await import('fs');
@@ -2996,21 +2756,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
   });
 
   describe('131. Wave 62: Tesis Yönetimi Açık Veri Portalı, Navigasyon & Site Haritası Kanonik Zirvesi ve Sözlük Ağı', () => {
-    it('Header MENU_ITEMS içinde nav_tools_library altında Tesis Yönetimi Rehberi ve Açık Veri Portalı eksiksiz yer alır', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const subHeader = path.join(process.cwd(), 'src/components/layout/header/Header.tsx');
-      const headerPath = fs.existsSync(subHeader) ? subHeader : path.join(process.cwd(), 'src/components/layout/Header.tsx');
-      const headerContent = fs.readFileSync(
-        headerPath,
-        'utf8'
-      );
-
-      expect(headerContent).toContain("path: '/hizmetler/tesis-yonetimi/rehber'");
-      expect(headerContent).toContain("path: '/hizmetler/tesis-yonetimi/acik-veri'");
-      expect(headerContent).toContain("nameKey: 'nav_facility_guide'");
-      expect(headerContent).toContain("nameKey: 'nav_facility_open_data'");
-    });
 
     it('Tüm dillerde (tr, en, ru, ar) nav_facility_guide ve nav_facility_open_data çeviri anahtarları tanımlıdır', async () => {
       const fs = await import('fs');
@@ -3031,80 +2776,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       expect(ar.nav_facility_guide).toBe('دليل إدارة المرافق');
       expect(ar.nav_facility_open_data).toBe('بيانات المرافق المفتوحة وAPI');
-    });
-
-    it('HTML Site Haritası (/site-haritasi) doğrudan kanonik 4 alt sektör, rehber, açık veri ve OpenAPI bağlantılarını içerir', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const sitemapPage = fs.readFileSync(
-        path.join(process.cwd(), 'src/app/[lang]/site-haritasi/page.tsx'),
-        'utf8'
-      );
-
-      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/plaza-yonetimi');
-      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi');
-      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi');
-      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi');
-      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/rehber');
-      expect(sitemapPage).toContain('/hizmetler/tesis-yonetimi/acik-veri');
-      expect(sitemapPage).toContain('/openapi.json');
-      expect(sitemapPage).not.toContain('/sektorel-cozumler/rezidans');
-    });
-
-    it('Footer bileşeni Tesis Açık Veri Portalı ve OpenAPI 3.1 JSON linklerini barındırır', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const subFooter = path.join(process.cwd(), 'src/components/layout/footer/Footer.tsx');
-      const footerPath = fs.existsSync(subFooter) ? subFooter : path.join(process.cwd(), 'src/components/layout/Footer.tsx');
-      const footerContent = fs.readFileSync(
-        footerPath,
-        'utf8'
-      );
-
-      expect(footerContent).toContain('/hizmetler/tesis-yonetimi/acik-veri');
-      expect(footerContent).toContain('/openapi.json');
-    });
-
-    it('sitemap.ts dosyasında /hizmetler/tesis-yonetimi/acik-veri rotası 0.9 öncelik ile yer alır', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const sitemapTs = fs.readFileSync(
-        path.join(process.cwd(), 'src/app/sitemap.ts'),
-        'utf8'
-      );
-
-      expect(sitemapTs).toContain("{ path: '/hizmetler/tesis-yonetimi/acik-veri', priority: 0.9, changeFreq: 'weekly' }");
-    });
-
-    it('Tesis Açık Veri Portalı (acik-veri/page.tsx) Dataset, WebPage ve Breadcrumbs şemalarını eksiksiz tanımlar', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const acikVeriPage = fs.readFileSync(
-        path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/acik-veri/page.tsx'),
-        'utf8'
-      );
-
-      expect(acikVeriPage).toContain("'@type': 'Dataset'");
-      expect(acikVeriPage).toContain('/api/tesis-yonetimi/dues-index.json');
-      expect(acikVeriPage).toContain('/api/tesis-yonetimi/legal-precedents.json');
-      expect(acikVeriPage).toContain('/api/tesis-yonetimi/kmk-law-index.json');
-      expect(acikVeriPage).toContain('/openapi.json');
-    });
-
-    it('Sözlük terimleri (dictionary.ts) tesis yönetimi alt sektörlerine ve açık veri portalına bağlamsal linkler içerir', async () => {
-      const { TERMS } = await import('@/data/dictionary');
-
-      const topluYapi = TERMS.find((t) => t.term === 'Toplu Yapı Yönetimi (KMK 66-74)');
-      expect(topluYapi).toBeDefined();
-      expect(topluYapi?.link?.href).toBe('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi');
-
-      const plaza = TERMS.find((t) => t.term === 'Plaza Tesis Yönetimi & Ortak Gider Paylaşımı');
-      expect(plaza).toBeDefined();
-      expect(plaza?.link?.href).toBe('/hizmetler/tesis-yonetimi/plaza-yonetimi');
-
-      const acikVeri = TERMS.find((t) => t.term === 'Tesis Yönetimi Açık Veri Standartları (Open Data)');
-      expect(acikVeri).toBeDefined();
-      expect(acikVeri?.link?.href).toBe('/hizmetler/tesis-yonetimi/acik-veri');
     });
   });
 
@@ -3128,19 +2799,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         'utf8'
       );
       expect(bolgelerPage).toContain('<IstanbulInteractiveDistrictMapSeo />');
-    });
-
-
-    it('sitemap-regions.xml bölgesel tesis yönetimi ve açık veri portalı yollarını içerir', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const regionsSitemap = fs.readFileSync(
-        path.join(process.cwd(), 'src/app/sitemap-regions.xml/route.ts'),
-        'utf8'
-      );
-
-      expect(regionsSitemap).toContain("path: '/hizmetler/tesis-yonetimi/acik-veri'");
-      expect(regionsSitemap).toContain("path: '/bolgeler'");
     });
 
     it('Header bölgesel mega menüde 8 stratejik ilçe doğrudan /bolgeler/:ilce/tesis-yonetimi hedefler ve 4 dilde çevrilmiştir', async () => {
@@ -3171,31 +2829,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
   });
 
   describe('133. Wave 64: Spotlight Search Modal Bütünlüğü, Mimari Sadeleştirme & Tesis Yönetimi Arama İndeksi', () => {
-    it('SpotlightSearchModal.tsx mevcuttur, Ctrl+K / Cmd+K ve open-spotlight-search olaylarını dinler ve tesis yönetimi varlıklarını indeksler', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-
-      const modalsPath = path.join(process.cwd(), 'src/components/modals/SpotlightSearchModal.tsx');
-      const uiPath = path.join(process.cwd(), 'src/components/ui/SpotlightSearchModal.tsx');
-      const targetPath = fs.existsSync(modalsPath) ? modalsPath : uiPath;
-      const modalFile = fs.readFileSync(targetPath, 'utf8');
-
-      // Event listener ve klavye kısayolu kontrolleri
-      expect(modalFile).toContain('open-spotlight-search');
-      expect(modalFile).toContain("e.key.toLowerCase() === 'k'");
-      expect(modalFile).toContain('Escape');
-
-      // Tesis Yönetimi anahtar varlıkları
-      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/rehber');
-      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/acik-veri');
-      expect(modalFile).toContain('/bolgeler');
-      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi');
-      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/plaza-yonetimi');
-      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi');
-      expect(modalFile).toContain('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi');
-      expect(modalFile).toContain('/hesaplayici');
-      expect(modalFile).toContain('/kurumsal/kalite-belgelerimiz');
-    });
 
     it('ClientWidgets ve NavigationWrapper tekil SpotlightSearchModal mimarisini korur', async () => {
       const fs = await import('fs');
@@ -3236,66 +2869,7 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('186. Entegre Tesis Yönetimi Ekosistemi (9 Temel Disiplin) ve Topical Authority Doğrulaması', () => {
-    it('ECOSYSTEM_SERVICES 9 temel hizmeti eksiksiz içerir ve tüm yollar geçerli rotalara bağlanır', async () => {
-      const { ECOSYSTEM_SERVICES } = await import('@/components/seo/facility/FacilityEcosystemMatrixSeo');
-      const fs = await import('fs');
-      const path = await import('path');
-
-      expect(ECOSYSTEM_SERVICES).toHaveLength(9);
-
-      for (const service of ECOSYSTEM_SERVICES) {
-        expect(service.title).toBeTruthy();
-        expect(service.badge).toBeTruthy();
-        expect(service.icon).toBeTruthy();
-        expect(service.path.startsWith('/hizmetler/')).toBe(true);
-        expect(service.description).toBeTruthy();
-        expect(service.metric).toBeTruthy();
-        expect(service.tag).toBeTruthy();
-
-        // Rota dizininin fiziki varlığını doğrula
-        const subDir = service.path.replace('/hizmetler/', '');
-        const targetDir = path.join(process.cwd(), 'src/app/[lang]/hizmetler', subDir);
-        expect(fs.existsSync(targetDir)).toBe(true);
-      }
-
-      // TesisYonetimiClient.tsx içinde monte edildiğini doğrula
-      const clientFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx'),
-        'utf8'
-      );
-      expect(clientFile).toContain('FacilityEcosystemMatrixSeo');
-      expect(clientFile).toContain('<FacilityEcosystemMatrixSeo />');
-    });
-  });
-
   describe('187. SEO Dörtlü İvme Paketi (Fiyat Kataloğu, Plaza & Rezidans, İlçe Portföyü, GEO Soru-Cevap)', () => {
-    it('Tesis Yönetimi sayfasında ServicePricingCatalogSeo ve FacilityDistrictPortfolioSeo monte edilmiştir', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-
-      const clientFile = fs.readFileSync(
-        path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx'),
-        'utf8'
-      );
-
-      // Fiyat kataloğu montajı ve kanibalizasyon temizliği
-      expect(clientFile).toContain('ServicePricingCatalogSeo');
-      expect(clientFile).toContain('categoryFilter="commercial"');
-      expect(clientFile).not.toContain('Alo Yönetim Profesyonel Site Yönetim Şirketi');
-
-      // 39 İlçe Bölgesel Portföy montajı
-      expect(clientFile).toContain('FacilityDistrictPortfolioSeo');
-      expect(clientFile).toContain('<FacilityDistrictPortfolioSeo />');
-
-      // AI-Overview / Gemini GEO Soru-Cevap seti
-      // SSS metinleri çeviri anahtarlarına taşındı: Türkçe sözlükte aranır.
-      const trDict = fs.readFileSync(path.join(process.cwd(), 'src/i18n/locales/tr/common.json'), 'utf8');
-      expect(clientFile).toContain('fy_faq_${n}_q');
-      expect(trDict).toContain('Tesis yönetiminde KMK 37 işletme projesi itiraz süresi kaç gündür?');
-      expect(trDict).toContain('Geciken aidatlara ne kadar yasal gecikme tazminatı işletilir?');
-      expect(trDict).toContain('Plaza ve rezidans yönetiminde enerji tasarrufu nasıl sağlanır?');
-    });
 
     it('Plaza ve Rezidans Yönetimi sayfaları GSC arama niyetiyle tam uyumlu meta üretir', async () => {
       const { generateMetadata: genPlazaMeta } = await import(

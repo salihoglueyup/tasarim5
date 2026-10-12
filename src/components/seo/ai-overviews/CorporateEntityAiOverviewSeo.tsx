@@ -147,9 +147,9 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
           <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">BELCERT A1808961</div>
         </div>
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)] text-center">
-          <div className="text-xs text-[var(--color-tertiary)] font-medium mb-1">Yönetim Hacmi</div>
-          <div className="text-sm font-bold text-[var(--color-primary)] font-mono">340+ Tesis</div>
-          <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">45.000+ Konut Sakini</div>
+          <div className="text-xs text-[var(--color-tertiary)] font-medium mb-1">Hizmet Kapsamı</div>
+          <div className="text-sm font-bold text-[var(--color-primary)] font-mono">39 İlçe</div>
+          <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">2009'dan beri</div>
         </div>
       </div>
 

@@ -293,7 +293,7 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
       <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-secondary)]">
         <div className="flex items-center gap-2">
           <Icon name="verified" className="text-emerald-500 text-base" />
-          <span>5188 Sayılı Kanun ve T.C. İçişleri Bakanlığı Mevzuatına %100 Uygundur.</span>
+          <span>5188 Sayılı Kanun ve T.C. İçişleri Bakanlığı Mevzuatı çerçevesinde yürütülür.</span>
         </div>
         <p>Valilik ruhsatlandırma ve operasyonel süreç danışmanlığı için bize ulaşabilirsiniz.</p>
       </div>

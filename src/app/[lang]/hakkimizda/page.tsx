@@ -21,18 +21,18 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  let title = 'Hakkımızda — 15+ Yıl Kurumsal Tesis Yönetimi | Alo Yönetim';
-  let description = "Alo Yönetim hakkında: 15+ yıl tecrübe, 340+ seçkin proje, 5188 lisanslı güvenlik ile İstanbul'un lider tesis ve site yönetim şirketi.";
+  let title = 'Hakkımızda — 2009 yılından beri Tesis Yönetimi | Alo Yönetim';
+  let description = "Alo Yönetim hakkında: 2009'dan beri İstanbul'da tesis ve site yönetimi, 5188 lisanslı güvenlik ve 39 ilçede hizmet.";
 
   if (lang === 'en') {
-    title = 'About Us — 15+ Years Corporate Facility Management | Alo Management';
-    description = 'About Alo Management: 15+ years experience, 340+ premier projects, Law 5188 licensed security leader in Istanbul.';
+    title = 'About Us — Facility Management since 2009 | Alo Management';
+    description = 'About Alo Management: facility and site management in Istanbul since 2009, Law 5188 licensed security and service across 39 districts.';
   } else if (lang === 'ru') {
-    title = 'О нас — 15+ лет корпоративного управления объектами | Alo Yonetim';
-    description = 'Об Alo Yonetim: 15+ лет опыта, 340+ объектов, лицензированная охрана 5188 — лидер управления недвижимостью в Стамбуле.';
+    title = 'О нас — управление объектами с 2009 года | Alo Yonetim';
+    description = 'Об Alo Yonetim: управление объектами и комплексами в Стамбуле с 2009 года, лицензированная охрана 5188, обслуживание в 39 районах.';
   } else if (lang === 'ar') {
-    title = 'من نحن — 15+ عاماً من الريادة في إدارة المرافق | Alo Management';
-    description = 'عن شركة Alo Management: خبرة 15+ عاماً، 340+ مشروعاً، وترخيص أمني 5188 في إسطنبول.';
+    title = 'من نحن — إدارة المرافق منذ عام 2009 | Alo Management';
+    description = 'عن شركة Alo Management: إدارة المرافق والمجمعات في إسطنبول منذ عام 2009 وأمن مرخّص وفق القانون 5188 وخدمة في 39 منطقة.';
   }
 
   return buildMetadata({

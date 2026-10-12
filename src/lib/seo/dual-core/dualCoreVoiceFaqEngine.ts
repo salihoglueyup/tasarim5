@@ -41,7 +41,7 @@ export const SITE_VOICE_FAQS: DualCoreFaqItem[] = [
     intent: 'commercial',
     voiceQuery: 'Site yönetim şirketi ne kadar ücret alır?',
     speakableAnswer: 'İstanbul genelinde profesyonel site yönetim şirketleri bağımsız bölüm başına aylık ortalama 150 ila 450 TL arasında hizmet bedeli alır. Fiyat daire sayısı ve hizmet kapsamına göre belirlenir.',
-    detailedAnswer: 'Site yönetim ücreti; 5188 özel güvenlik, temizlik, teknik personel istihdamı, muhasebe ve hukuki danışmanlık kalemlerinin büyüklüğüne göre değişir. Alo Yönetim toplu satın alma gücüyle bütçelerde %30 net tasarruf ve 15-25 dk SLA sağlar.',
+    detailedAnswer: 'Site yönetim ücreti; 5188 özel güvenlik, temizlik, teknik personel istihdamı, muhasebe ve hukuki danışmanlık kalemlerinin büyüklüğüne göre değişir. Alo Yönetim toplu satın alma gücüyle bütçelerde tasarruf fırsatı ve yazılı SLA kapsamında müdahale sağlar.',
     legalReference: 'KMK Madde 34',
     targetKeyword: 'site yönetim şirketi fiyatları',
     seoSlug: 'site-yonetim-sirketi-fiyatlari',

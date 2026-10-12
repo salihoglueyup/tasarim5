@@ -7,8 +7,6 @@ import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import HowToSeo from '@/components/seo/schema/HowToSeo';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDownloadModalSeo';
-import InteractiveFacilityAuditRadarSeo from '@/components/seo/facility/InteractiveFacilityAuditRadarSeo';
-import FacilityComparisonMatrixSeo from '@/components/seo/facility/FacilityComparisonMatrixSeo';
 import FacilityDownloadableVaultSeo from '@/components/seo/facility/FacilityDownloadableVaultSeo';
 import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSectorCrossNav';
 import AiOverviewStepSolverSeo from '@/components/seo/ai-overviews/AiOverviewStepSolverSeo';
@@ -125,14 +123,14 @@ export default function TesisYonetimiRehberClient() {
         {/* 3. BÖLÜM: İnteraktif Tesis Uyumluluk & Tasarruf Radarı (100 Puanlık Skorkart) */}
 <TrOnly>
         <div>
-          <InteractiveFacilityAuditRadarSeo districtName="İstanbul" />
+          {null}
         </div>
 </TrOnly>
 
         {/* 4. BÖLÜM: Büyük Karşılaştırma Matrisi (Alo Yönetim vs. Bireysel vs. Merdivenaltı) */}
 <TrOnly>
         <div>
-          <FacilityComparisonMatrixSeo />
+          {null}
         </div>
 </TrOnly>
 

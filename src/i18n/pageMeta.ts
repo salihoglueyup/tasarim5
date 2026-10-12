@@ -29,7 +29,7 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ar: { title: 'شركات الأمن الخاص المرخّصة — أمن المجمعات والمنشآت', description: 'شركة أمن خاص مرخّصة من لجنة الولاية بموجب القانون رقم 5188: دوريات RFID على مدار الساعة ومراقبة بالكاميرات وحماية من مخاطر تعويضات نهاية الخدمة وحراسة احترافية.' },
   },
   '/hizmetler/temizlik-ve-hijyen': {
-    en: { title: 'Apartment & Complex Common-Area Cleaning Company', description: 'Block, floor-lobby and parking cleaning with industrial floor machines and payroll staff. Get a transparent quote within 48 hours.' },
+    en: { title: 'Apartment & Complex Common-Area Cleaning Company', description: 'Block, floor-lobby and parking cleaning with industrial floor machines and payroll staff. Request a transparent quote.' },
     ru: { title: 'Клининговая компания для общих зон домов и комплексов', description: 'Уборка подъездов, холлов и парковок промышленными поломоечными машинами силами штатного персонала. Получите прозрачное предложение в течение 48 часов.' },
     ar: { title: 'شركة تنظيف المناطق المشتركة للعمارات والمجمعات', description: 'تنظيف المباني وردهات الطوابق والمواقف بآلات أرضيات صناعية وعاملين ضمن الملاك الوظيفي. احصلوا على عرض شفاف خلال 48 ساعة.' },
   },
@@ -79,7 +79,7 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ar: { title: 'إدارة المنشآت الصناعية — المصانع والمستودعات والمناطق الصناعية المنظمة', description: 'إدارة متكاملة للمرافق في المناطق الصناعية المنظمة والمصانع ومستودعات اللوجستيات مع السلامة والصحة المهنية ISO 45001 وصيانة المحولات والأمن الصناعي.' },
   },
   '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi': {
-    en: { title: 'Mass Housing Facility Management — Mega Complexes', description: 'Integrated facility management and a centralised operating budget for complexes of 500+ homes and mass housing projects. Get a quote within 48 hours.' },
+    en: { title: 'Mass Housing Facility Management — Mega Complexes', description: 'Integrated facility management and a centralised operating budget for large complexes and mass housing projects. Request a quote for a free survey.' },
     ru: { title: 'Управление жилыми массивами — мегакомплексы', description: 'Комплексное управление объектами и централизованная смета для комплексов от 500 жилых единиц и массовой застройки. Получите предложение в течение 48 часов.' },
     ar: { title: 'إدارة مرافق الإسكان الجماعي — المجمعات الضخمة', description: 'إدارة متكاملة للمرافق وميزانية تشغيل مركزية للمجمعات التي تضم أكثر من 500 وحدة سكنية ومشاريع الإسكان الجماعي. احصلوا على عرض خلال 48 ساعة.' },
   },
@@ -88,15 +88,10 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ru: { title: 'Как выбрать управляющую компанию? Руководство по выбору и ТЗ на 2026 год', description: 'На что обратить внимание при выборе управляющей компании комплекса или объекта: подготовка B2B-технического задания (RFP), лицензия по Закону № 5188, протокол передачи по ст. 34 Закона о кондоминиумах, аудит бюджета и оценочная карта из 10 пунктов.' },
     ar: { title: 'كيف تختارون شركة إدارة المرافق؟ دليل الاختيار ودفتر الشروط 2026', description: 'ما يجب مراعاته عند اختيار شركة إدارة مجمع أو منشأة: إعداد دفتر الشروط الفنية B2B (RFP) وترخيص القانون رقم 5188 وبروتوكول التسليم وفق المادة 34 من قانون ملكية الطوابق وتدقيق الميزانية وبطاقة تقييم من 10 بنود.' },
   },
-  '/hizmetler/tesis-yonetimi/acik-veri': {
-    en: { title: 'Facility Management Open Data & API Endpoints | Alo Yönetim', description: 'Alo Yönetim\'s open JSON endpoints that need no authentication: Istanbul district dues index, Condominium Law article index, Court of Cassation precedent summaries, glossary, FAQ and a GeoJSON district map.' },
-    ru: { title: 'Открытые данные и API по управлению объектами | Alo Yönetim', description: 'Открытые JSON-эндпоинты Alo Yönetim без аутентификации: индекс взносов по районам Стамбула, указатель статей закона о кондоминиумах, краткие выжимки решений Кассационного суда, глоссарий, FAQ и GeoJSON-карта районов.' },
-    ar: { title: 'البيانات المفتوحة وواجهات API لإدارة المرافق | Alo Yönetim', description: 'نقاط JSON المفتوحة من Alo Yönetim دون حاجة إلى مصادقة: مؤشر اشتراكات أحياء إسطنبول، فهرس مواد قانون ملكية الطوابق، ملخصات سوابق محكمة النقض، المسرد، الأسئلة الشائعة وخريطة GeoJSON للأحياء.' },
-  },
   '/hesaplayici': {
-    en: { title: 'Online Dues & Operating Budget Calculator | Alo Yönetim', description: 'Calculate your complex\'s estimated operating budget and dues savings online. Results are estimates; start a free budget simulation.' },
-    ru: { title: 'Онлайн-калькулятор взносов и эксплуатационного бюджета | Alo Yönetim', description: 'Рассчитайте ориентировочный эксплуатационный бюджет вашего комплекса и экономию на взносах онлайн. Результаты оценочные; запустите бесплатную симуляцию бюджета.' },
-    ar: { title: 'حاسبة الاشتراكات وميزانية التشغيل عبر الإنترنت | Alo Yönetim', description: 'احسبوا ميزانية التشغيل التقديرية لمجمعكم ووفورات الاشتراكات عبر الإنترنت. النتائج تقديرية؛ ابدؤوا محاكاة الميزانية المجانية.' },
+    en: { title: 'Online Dues & Operating Budget Calculator | Alo Yönetim', description: 'Enter your own monthly expense budget and calculate each unit\'s share, split equally or by land share. Results are for information only.' },
+    ru: { title: 'Онлайн-калькулятор взносов и эксплуатационного бюджета | Alo Yönetim', description: 'Введите свой ежемесячный бюджет расходов и рассчитайте долю помещения: поровну или по доле земли. Результаты носят информационный характер.' },
+    ar: { title: 'حاسبة الاشتراكات وميزانية التشغيل عبر الإنترنت | Alo Yönetim', description: 'أدخلوا ميزانية مصروفاتكم الشهرية واحسبوا حصة الوحدة بالتساوي أو حسب حصة الأرض. النتائج لأغراض معلوماتية فقط.' },
   },
   '/sss': {
     en: { title: 'Frequently Asked Questions & Condominium Law Guide', description: 'The most common questions and expert answers on complex management, dues enforcement, private security and Condominium Law No. 634. Explore the legal guide.' },
@@ -132,11 +127,6 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     en: { title: 'Istanbul Regions — District-by-District Facility Management', description: 'Professional complex and facility management across Istanbul\'s districts. Our local teams serve Kadıköy, Ataşehir, Beşiktaş, Üsküdar and many more.' },
     ru: { title: 'Районы Стамбула — управление объектами по районам', description: 'Профессиональное управление комплексами и объектами в районах Стамбула. Наши местные команды работают в Кадыкёе, Аташехире, Бешикташе, Ускюдаре и многих других районах.' },
     ar: { title: 'مناطق إسطنبول — إدارة المرافق حسب المنطقة', description: 'إدارة احترافية للمجمعات والمرافق في مناطق إسطنبول. تخدمكم فرقنا المحلية في قاضي كوي وأتاشهير وبشكتاش وأسكودار والمزيد.' },
-  },
-  '/basari-hikayeleri': {
-    en: { title: 'Our Success Stories & Case Studies', description: 'Real success stories of complex, residence and plaza managers working with Alo Yönetim: case studies on cost savings and dues collection.' },
-    ru: { title: 'Наши истории успеха и кейсы', description: 'Реальные истории успеха управляющих комплексами, резиденциями и бизнес-центрами, работающих с Alo Yönetim: кейсы по экономии затрат и сбору взносов.' },
-    ar: { title: 'قصص نجاحنا ودراسات الحالة', description: 'قصص نجاح حقيقية لمديري المجمعات والإقامات والأبراج الذين يعملون مع Alo Yönetim: دراسات حالة حول توفير التكاليف وتحصيل الاشتراكات.' },
   },
   '/istihdam-koprusu': {
     en: { title: 'Employment Bridge — Facility & Security Careers', description: 'Open positions and career applications for licensed private security, cleaning staff and technical maintenance specialists across Istanbul.' },

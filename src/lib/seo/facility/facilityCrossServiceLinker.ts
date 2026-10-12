@@ -26,7 +26,7 @@ export const CROSS_SERVICE_MAPPINGS: Record<string, CrossServiceLink[]> = {
       title: 'Aidat Takibi & Bütçe Yönetimi',
       url: '/hizmetler/aidat-takibi',
       badge: 'KMK 37',
-      description: 'Yıllık işletme projesi, gecikme faizi hesaplama ve %99.2 tahsilat başarısı.',
+      description: 'Yıllık işletme projesi, gecikme faizi hesaplama ve düzenli tahsilat takibi.',
       anchorText: 'Site ve Tesis Aidat Takibi',
       pillarAffinity: 'both',
       isDoFollow: true,

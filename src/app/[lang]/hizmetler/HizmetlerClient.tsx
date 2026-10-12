@@ -6,9 +6,7 @@ import Faq from '@/components/sections/trust/Faq';
 import ItemListSeo from '@/components/seo/schema/ItemListSeo';
 import ServicesHeroSeo from '@/components/seo/services/ServicesHeroSeo';
 import ServicesBentoGridSeo, { ALL_SERVICES_CATALOG } from '@/components/seo/services/ServicesBentoGridSeo';
-import ServicesMatcherSeo from '@/components/seo/services/ServicesMatcherSeo';
 import ServicesVideoHubSeo from '@/components/seo/services/ServicesVideoHubSeo';
-import DynamicPriceOfferSeo from '@/components/seo/district/DynamicPriceOfferSeo';
 import ServiceComparisonMatrixSeo from '@/components/seo/facility/ServiceComparisonMatrixSeo';
 import MevzuatReferenceSeo from '@/components/seo/kmk/MevzuatReferenceSeo';
 import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
@@ -56,16 +54,11 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
       <ItemListSeo items={carouselItems} />
 
       {/* 1. Hero Section with Search & Trust Metrics */}
-      <ServicesHeroSeo
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-      />
+      <ServicesHeroSeo searchQuery={searchQuery} onSearchChange={setSearchQuery} />
 
       {/* 2. 10 Services Bento Grid (Flagship Tier + Specialized Operations) */}
       <ServicesBentoGridSeo searchQuery={searchQuery} />
 
-      {/* 3. Interactive Solution Matcher (Wizard) */}
-      <ServicesMatcherSeo />
 
       {/* 4. Multimodal Operational Video Grounding Hub */}
       {lang === 'tr' && <ServicesVideoHubSeo lang={lang} />}
@@ -86,10 +79,6 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
             </p>
           </div>
 
-          {/* Dynamic Price Offers */}
-          <div className="mb-20">
-            <DynamicPriceOfferSeo serviceName="Alo Yönetim Profesyonel Tesis Yönetimi" />
-          </div>
 
           {/* Traditional vs Alo Yönetim Matrix */}
           <div>
@@ -122,7 +111,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
               maddeNo="Madde 20 & 37"
               maddeBasligi="Ortak Gider Paylaşımı ve İşletme Projesi Zorunluluğu"
               orijinalMetin="Kat maliklerinden her biri aralarında başka türlü anlaşma olmadıkça: Kapıcı, kaloriferci, bahçıvan ve bekçi giderlerine ve bunlar için toplanacak avansa eşit olarak katılmakla yükümlüdür. Yönetici veya yönetim kurulu, kat malikleri kurulunca kabul edilmiş bir işletme projesi yoksa gecikmeksizin bir işletme projesi yapar."
-              uzmanYorumu="Alo Yönetim, yönettiği tüm bağımsız bölümlerde KMK standartlarında dijital işletme projesi hazırlayarak tebliğ eder ve aidat tahsilat oranını %98'in üzerine çıkarır."
+              uzmanYorumu="Alo Yönetim, yönettiği tüm bağımsız bölümlerde KMK standartlarında dijital işletme projesi hazırlayarak tebliğ eder ve aidat takibini düzenli yürütür."
             />
           </div>
 

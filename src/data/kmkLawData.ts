@@ -39,7 +39,7 @@ export const KMK_LAW_INDEX: KmkArticleItem[] = [
     title: 'Genel Giderlere Katılma ve Aidat Ödeme Yükümlülüğü',
     category: 'AIDAT_GIDER',
     summary: 'Kapıcı, kaloriferci, bahçıvan ve bekçi giderlerine eşit; bakım, koruma, güçlendirme ve işletme giderlerine arsa payı oranında katılım esastır. Geciken aidata aylık %5 yasal tazminat işletilir.',
-    practicalApplication: 'Otomatik dijital borçlandırma ve icra takibiyle tahsilat oranı %98.7 seviyesinde tutulur.',
+    practicalApplication: 'Otomatik dijital borçlandırma ve icra takibiyle aidat takibi düzenli yürütülür.',
     legalAnchor: `${BASE_URL}/hizmetler/aidat-takibi#kmk-madde-20`,
     featuredSnippetQuestion: 'Geciken site aidatına ne kadar faiz uygulanır?',
     directSnippetAnswer: '634 sayılı KMK Madde 20 uyarınca, gününde ödenmeyen aidat ve ortak gider avans borçları için aylık yüzde 5 (%5) yasal gecikme tazminatı hesaplanır. Bu faiz icra takibine esas olup aylık oranın gün hesabı üzerinden tahakkuk ettirilmesi emredici kanun hükmüdür.',

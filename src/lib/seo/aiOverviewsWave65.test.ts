@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest';
 import AccreditationAiOverviewSeo from '@/components/seo/ai-overviews/AccreditationAiOverviewSeo';
 import CareerAiOverviewSeo from '@/components/seo/ai-overviews/CareerAiOverviewSeo';
 import ServiceAiOverviewSnippetSeo from '@/components/seo/ai-overviews/ServiceAiOverviewSnippetSeo';
-import CaseStudyAiGroundingSeo from '@/components/seo/ai-overviews/CaseStudyAiGroundingSeo';
 import { SERVICE_GROUND_TRUTH } from '@/components/seo/ai-overviews/ServiceAiOverviewSnippetSeo';
 import { GET as getCorporateDna } from '@/app/api/seo/corporate-dna.json/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';
@@ -10,12 +9,6 @@ import { GET as getLlmsFullTxt } from '@/app/llms-full.txt/route';
 
 describe('Wave 65: Google AI Overviews & Corporate DNA Knowledge Graph Dominance', () => {
   describe('Component Exports & Definitions', () => {
-    it('exports all Wave 65 AI Overview components cleanly', () => {
-      expect(AccreditationAiOverviewSeo).toBeDefined();
-      expect(CareerAiOverviewSeo).toBeDefined();
-      expect(ServiceAiOverviewSnippetSeo).toBeDefined();
-      expect(CaseStudyAiGroundingSeo).toBeDefined();
-    });
 
     it('contains verified ground truth specs for both site-yonetimi and tesis-yonetimi', () => {
       const site = SERVICE_GROUND_TRUTH['site-yonetimi'];

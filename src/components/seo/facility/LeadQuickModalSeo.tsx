@@ -86,7 +86,7 @@ export default function LeadQuickModalSeo() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: 'Alo Yönetim 48 Saatte Şeffaf Hizmet Teklifi',
+    name: 'Alo Yönetim Şeffaf Hizmet Teklifi',
     description: 'Site, apartman ve rezidanslar için anında ücretsiz keşif ve teklif başvuru formu.',
     mainEntity: {
       '@type': 'FinancialService',
@@ -153,7 +153,7 @@ export default function LeadQuickModalSeo() {
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-1.5">
                     <span className="px-3 py-0.5 rounded-full bg-slate-500/20 text-slate-400 border border-slate-500/30 text-[11px] font-bold uppercase tracking-wider">
-                      48 Saatte Şeffaf Teklif
+                      Şeffaf Teklif
                     </span>
                   </div>
                   <h3 className="text-2xl font-extrabold text-white">Ücretsiz Keşif & Fiyat Teklifi</h3>

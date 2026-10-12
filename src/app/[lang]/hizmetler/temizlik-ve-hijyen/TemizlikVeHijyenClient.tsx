@@ -4,20 +4,16 @@ import { useState } from 'react';
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import ServiceSeo from '@/components/seo/schema/ServiceSeo';
-import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import HowToSeo from '@/components/seo/schema/HowToSeo';
 import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
-import InteractiveCleaningAuditRadarSeo from '@/components/seo/facility/InteractiveCleaningAuditRadarSeo';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import RelatedArticles from '@/components/blog/RelatedArticles';
-import CleaningCalculator from '@/components/sections/calculators/CleaningCalculator';
 import CleaningTestimonials from '@/components/sections/testimonials/CleaningTestimonials';
 import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
-import FacilityHygieneMsdsGuideSeo from '@/components/seo/facility/FacilityHygieneMsdsGuideSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
@@ -138,12 +134,6 @@ export default function TemizlikVeHijyenClient() {
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_clean_hero_title') || 'Profesyonel Temizlik & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Ortak Alan Hijyeni</span>' }} />
             
-            <AggregateRatingSeo 
-              itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Temizlik ve Hijyen Yönetimi' }}
-              ratingValue={4.9}
-              reviewCount={245}
-              className="mt-2"
-            />
 
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('clean_banner_desc') || 'Bina içi, otopark ve ortak alanların endüstriyel makineler ve profesyonel personeller ile düzenli temizliği.'}
@@ -159,10 +149,6 @@ export default function TemizlikVeHijyenClient() {
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
         
-        {/* Cleaning Calculator */}
-        <div className="-mt-20 md:-mt-32 relative z-30">
-          <CleaningCalculator />
-        </div>
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
 <TrOnly>
@@ -308,7 +294,7 @@ export default function TemizlikVeHijyenClient() {
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Icon name="eco" className="text-lg" />
                 </span>
-                <span>%100 TSE & Çevre Dostu Kimyasal</span>
+                <span>TSE Uyumlu & Çevre Dostu Kimyasal</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                 İnsan sağlığına, çocuklara ve evcil hayvanlara zararsız Sağlık Bakanlığı onaylı sertifikalı hijyen ürünleri.
@@ -425,7 +411,7 @@ export default function TemizlikVeHijyenClient() {
 
         {/* Temizlik & Hijyen Denetim Radarı */}
 <TrOnly>
-        <InteractiveCleaningAuditRadarSeo districtName="İstanbul" />
+        {null}
 </TrOnly>
 
         {/* AI Overviews & Position Zero Snippet Cards */}
@@ -436,7 +422,7 @@ export default function TemizlikVeHijyenClient() {
             shortAnswer="Bordrolu personel çalıştıran sitelerde tüm kıdem, ihbar, yıllık izin ve SGK yükümlülükleri doğrudan kat maliklerine aittir. Hizmet alımı (taşeron/entegre tesis yönetimi) modeliyle Alo Yönetim'den temin edilen temizlik personellerinde ise tüm yasal, mali ve tazminat sorumlulukları şirketimize aittir; site yönetimine hiçbir hukuki veya maddi risk rücu etmez."
             bulletPoints={[
               'Doğrudan istihdamda yöneticiler ve kat malikleri müştereken müteselsil sorumludur.',
-              'Profesyonel tesis yönetiminde tüm SGK, İSG ve tazminat garantisi şirketimizdedir.',
+              'Profesyonel tesis yönetiminde tüm SGK, İSG ve tazminat sorumlulukları sözleşmeye göre belirlenir.',
               'Personel izin ve rapor durumlarında anında ikame personel yönlendirilir.',
               '6331 sayılı İSG mevzuatı gereği periyodik eğitim ve sağlık raporları eksiksiz tutulur.'
             ]}
@@ -462,7 +448,7 @@ export default function TemizlikVeHijyenClient() {
 
         {/* 4 Renkli Hijyen Kodu, GBF/MSDS ve Çöp Şaftı Ozon Sanitasyonu (Faz 14) */}
 <TrOnly>
-        <FacilityHygieneMsdsGuideSeo />
+        {null}
 </TrOnly>
 
         {/* Cleaning Specific Social Proof */}

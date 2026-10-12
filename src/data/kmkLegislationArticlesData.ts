@@ -61,7 +61,7 @@ export const KMK_LEGISLATION_ARTICLES: KmkArticleItem[] = [
     plainLanguageSummary: 'Kapıcı ve bekçi gideri eşit, diğer tüm giderler arsa payı oranında ödenir. Gününü geçiren borçluya aylık yasal %5 gecikme tazminatı işletilir ve doğrudan icra takibi açılır.',
     supremeCourtPrinciple: 'Yargıtay HGK: Aylık %5 gecikme tazminatı kanuni bir fer\'i alacaktır; mahkeme veya icra memuru bu oranı indiremez, re\'sen uygulamak zorundadır.',
     legalSanctionOrRisk: 'Aidat borcuna yıllık %60 bileşik tazminat eklenmesi, avukatlık vekalet ücreti, icra masrafları ve maaş/gayrimenkul haczi.',
-    aloYonetimStandard: 'Apsiyon altyapısıyla vadesi geçen aidatlara otomatik %5 gecikme tazminatı işlenir; 60 günü aşan borçlar ilamsız icraya iletilir (%99.2 başarı).',
+    aloYonetimStandard: 'Apsiyon altyapısıyla vadesi geçen aidatlara otomatik %5 gecikme tazminatı işlenir; 60 günü aşan borçlar ilamsız icraya iletilir.',
   },
   {
     articleNo: 22,

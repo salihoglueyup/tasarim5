@@ -26,7 +26,7 @@ export async function generateMetadata({
   const serpMeta = getFacilitySerpMeta({ lang, pillar: 'site' });
 
   const title = lang === 'tr'
-    ? 'Site Yönetim Şirketleri İstanbul — 150+ Proje, KMK 634 & 7/24 | Alo Yönetim'
+    ? 'Site Yönetim Şirketi İstanbul — KMK 634 Uyumlu | Alo Yönetim'
     : serpMeta.title;
 
   const description = lang === 'tr'

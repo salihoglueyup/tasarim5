@@ -153,7 +153,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
           <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
             <span className="flex items-center gap-1.5">
               <Icon name="verified" className="text-sm text-emerald-500" />
-              <span>İstanbul geneli {DISTRICTS.length} ilçede 1.200+ aktif bağımsız bölüm</span>
+              <span>İstanbul geneli {DISTRICTS.length} ilçede hizmet verebiliriz</span>
             </span>
             <a
               href="/api/tesis-yonetimi/istanbul-districts.geojson"

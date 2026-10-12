@@ -58,7 +58,7 @@ export default function DistrictUtilityTransferGuideSeo() {
           </p>
         </div>
 
-        <span className="text-xs text-[var(--color-secondary)] font-medium">48 Saatte Hızlı Bürokratik Devir</span>
+        <span className="text-xs text-[var(--color-secondary)] font-medium">Hızlı Bürokratik Devir</span>
       </div>
 
       {/* Provider Selector Tabs */}

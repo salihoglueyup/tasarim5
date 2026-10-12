@@ -28,7 +28,7 @@ interface PromoConfig {
 const PROMO_MAP: Record<Language, Record<string, PromoConfig>> = {
   tr: {
     nav_services: {
-      tag: '%30 Net Tasarruf',
+      tag: 'Tasarruf Fırsatı',
       title: 'Aidat & Bütçe Simülatörü ⚡',
       desc: 'Sitenizin daire sayısına göre işletme projesi maliyetini ve tasarrufunu hesaplayın.',
       link: '/hesaplayici',
@@ -43,7 +43,7 @@ const PROMO_MAP: Record<Language, Record<string, PromoConfig>> = {
     },
     nav_districts: {
       tag: '7/24 Mobil Ağ',
-      title: '45 Dk SLA Acil Müdahale 📍',
+      title: 'Yazılı SLA ile Acil Müdahale 📍',
       desc: "İstanbul'un 39 ilçesinde nöbetçi gezici teknik servis ve süpervizör amir filosu.",
       link: '/bolgeler',
       btnText: 'Tüm İlçeleri Gör',
@@ -58,7 +58,7 @@ const PROMO_MAP: Record<Language, Record<string, PromoConfig>> = {
     nav_contact_media: {
       tag: '7/24 Canlı Destek',
       title: 'Ücretsiz Keşif & Teklif 🚀',
-      desc: '48 saat içinde sitenize özel şeffaf işletme projesi ve tasarruf analizi sunuyoruz.',
+      desc: 'Sitenize özel şeffaf işletme projesi ve tasarruf analizi sunuyoruz.',
       link: '/teklif-al',
       btnText: 'Ücretsiz Keşif İste',
     },

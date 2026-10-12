@@ -22,7 +22,7 @@ export default function ManagementTransitionRoadmapSeo({
     '@context': 'https://schema.org',
     '@type': 'HowTo',
     '@id': `${pageUrl}#transition-roadmap`,
-    name: 'Amatör Yönetimden Profesyonel Site Yönetimine 48 Saatte Resmi Geçiş Yol Haritası',
+    name: 'Amatör Yönetimden Profesyonel Site Yönetimine Resmi Geçiş Yol Haritası',
     description: 'Kat Mülkiyeti Kanunu Madde 29, 34 ve 36 uyarınca genel kurul çağrısından noter onaylı devir teslime ve Apsiyon entegrasyonuna kadar 6 aşamalı resmi devir protokolü.',
     totalTime: 'P2D',
     step: TRANSITION_ROADMAP_STAGES.map((stage) => ({
@@ -36,7 +36,7 @@ export default function ManagementTransitionRoadmapSeo({
 
   return (
     <section
-      aria-label="48 Saatte Profesyonel Yönetime Devir Teslim Yol Haritası"
+      aria-label="Profesyonel Yönetime Devir Teslim Yol Haritası"
       className="w-full bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-md relative overflow-hidden my-8"
     >
       {/* Schema.org HowTo */}
@@ -49,7 +49,7 @@ export default function ManagementTransitionRoadmapSeo({
       <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-500/10 border border-slate-500/20 text-slate-400 text-xs font-bold uppercase tracking-wider mb-3">
           <Icon name="sync_alt" className="text-sm" />
-          <span>48 Saatte Pürüzsüz & Yasal Devir Teslim</span>
+          <span>Pürüzsüz & Yasal Devir Teslim</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
           Amatörden Profesyonel Yönetime Geçiş Rehberi

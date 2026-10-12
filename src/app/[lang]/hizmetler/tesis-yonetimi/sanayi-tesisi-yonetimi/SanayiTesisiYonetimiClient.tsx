@@ -77,7 +77,7 @@ export default function SanayiTesisiYonetimiClient() {
           question="Sanayi Tesisi ve Fabrika Yönetimi Nedir ve Neleri Kapsar?"
           answer="Sanayi tesisi ve fabrika yönetimi; üretim sahalarında ISO 45001 İSG ve ATEX patlamadan korunma mevzuat uyumu, 34.5 kV OG trafo işletme ve kompanzasyon takibi ile %0 reaktif ceza güvencesi, ağır endüstriyel epoksi zemin drenajı, kantar/rampa PPM bakımı ve MOTAT tehlikeli atık bertarafının entegre yönetilmesidir."
           standardBadge="ISO 45001 & ISO 14001 Endüstriyel Standart"
-          subText="Alo Yönetim, üretim hatlarında sıfır plansız duruş garantisi, 30 dakika acil mekanik SLA taahhüdü ve 5188 perimetre çevre güvenliği sunar."
+          subText="Alo Yönetim, üretim hatlarında plansız duruşları azaltma hedefi, yazılı SLA kapsamında acil mekanik müdahale ve 5188 perimetre çevre güvenliği sunar."
           accentColor="orange"
         />
 </TrOnly>
@@ -228,7 +228,7 @@ export default function SanayiTesisiYonetimiClient() {
             sourceName: "T.C. Enerji ve Tabii Kaynaklar Bakanlığı & EMO",
             url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=4986&MevzuatTur=7&MevzuatTertip=5",
             badge: "34.5 kV OG",
-            description: "Orta gerilim trafo merkezleri işletme sorumluluğu, trafo yağı delinme testi ve sıfır reaktif ceza garantisi."
+            description: "Orta gerilim trafo merkezleri işletme sorumluluğu, trafo yağı delinme testi ve reaktif ceza riskini azaltma hedefi."
           }
         ]}
         glossaryTerms={[

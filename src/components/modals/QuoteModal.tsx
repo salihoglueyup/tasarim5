@@ -177,8 +177,8 @@ export default function QuoteModal({ onClose }: QuoteModalProps) {
               ))}
             </div>
             <div className="text-sm">
-              <div className="font-bold text-white">45.000+</div>
-              <div className="text-slate-300 text-xs font-light">Bağımsız Bölüm Yönetimi</div>
+              <div className="font-bold text-white">39</div>
+              <div className="text-slate-300 text-xs font-light">İlçede Hizmet</div>
             </div>
           </div>
         </div>

@@ -11,28 +11,6 @@ import {
 } from './dual-core/dualCoreCROEngine';
 
 describe('BÖLÜM M — 💰 CRO & Dönüşüm Optimizasyonu (dualCoreCROEngine.test.ts)', () => {
-  /* =========================================================================
-   * M1 — CTA & DÖNÜŞÜM YOLLARI (Faz 306-320)
-   * ========================================================================= */
-  describe('M1: CTA & Sosyal Kanıt Şartnameleri (Faz 306-320)', () => {
-    it('buildPrimaryCTASpec anasayfa için aciliyet, sosyal kanıt ve garanti içerir', () => {
-      const siteCTA = buildPrimaryCTASpec('home', 'site');
-      expect(siteCTA.primaryCTA.text).toContain('Teklif');
-      expect(siteCTA.primaryCTA.urgency).toBe('high');
-      expect(siteCTA.socialProof).toContain('350+ Site');
-      expect(siteCTA.guarantee).toContain('30 gün');
-
-      const facilityCTA = buildPrimaryCTASpec('home', 'facility');
-      expect(facilityCTA.primaryCTA.text).toContain('Plaza');
-    });
-
-    it('buildSocialProofBlock sayısal istatistikler ve Google puanı döner', () => {
-      const proof = buildSocialProofBlock('site');
-      expect(proof.stats.length).toBeGreaterThanOrEqual(4);
-      expect(proof.rating.score).toBeGreaterThanOrEqual(4.8);
-      expect(proof.rating.reviewCount).toBeGreaterThan(100);
-    });
-  });
 
   /* =========================================================================
    * M2 — FORM OPTİMİZASYONU & LEAD PUANLAMA (Faz 321-335)

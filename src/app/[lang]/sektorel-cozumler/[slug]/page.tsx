@@ -229,7 +229,7 @@ export default async function SectoralSolutionDetailPage({
                 {solution.title} İçin Profesyonel Teklif Alın
               </h3>
               <p className="text-sm text-[var(--color-secondary)] leading-relaxed font-light">
-                Tesisinizin büyüklüğü, personel ihtiyacı ve teknik altyapısına özel 48 saat içinde şeffaf bütçe ve yönetim planı sunalım.
+                Tesisinizin büyüklüğü, personel ihtiyacı ve teknik altyapısına özel şeffaf bütçe ve yönetim planı sunalım.
               </p>
 
               <div className="pt-2">
@@ -244,7 +244,7 @@ export default async function SectoralSolutionDetailPage({
 
               <div className="border-t border-[var(--color-outline)]/40 pt-4 flex items-center justify-between text-xs text-[var(--color-secondary)]">
                 <span>5188 Lisanslı</span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">48 Saatte Yanıt</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Ücretsiz Keşif</span>
               </div>
             </div>
 

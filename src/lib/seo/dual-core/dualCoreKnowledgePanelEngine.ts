@@ -329,7 +329,7 @@ export function buildFinancialServiceSchema() {
       addressRegion: 'İstanbul',
       addressCountry: 'TR',
     },
-    description: 'KMK Madde 37 uyarınca yıllık işletme projesi, gecikme tazminatı hesaplama ve %99.2 başarıyla online aidat tahsilat muhasebesi.',
+    description: 'KMK Madde 37 uyarınca yıllık işletme projesi, gecikme tazminatı hesaplama ve online aidat tahsilat muhasebesi.',
   };
 }
 
@@ -375,11 +375,11 @@ export function buildEEATSignalBundle(pageType: string, pillar: DomainPillar = '
     ? [
         { label: 'Yönetilen Ticari Alan', proof: '1.200.000+ m² Plaza ve İş Merkezi', metrics: '1.2M m²' },
         { label: 'Enerji Tasarrufu Vaka Çalışması', proof: 'BMS optimizasyonu ile yıllık ortalama %18 elektrik tasarrufu kanıtlandı.', metrics: '%18 Tasarruf' },
-        { label: 'SLA Başarı Oranı', proof: 'Arıza müdahale süresi taahhütlerine %99.4 uyum.', metrics: '%99.4 SLA' },
+        { label: 'SLA Başarı Oranı', proof: 'Arıza müdahale süresi taahhütleri yazılı SLA ile belirlenir.', metrics: 'Yazılı SLA' },
       ]
     : [
         { label: 'Yönetilen Konut & Daire', proof: 'İstanbul genelinde 28.000+ bağımsız bölüm ve 350+ site.', metrics: '28.000+ Daire' },
-        { label: 'Aidat Tahsilat Başarısı', proof: 'Düzenli hukuki ve dijital takip ile %99.2 aidat tahsilat oranı.', metrics: '%99.2 Başarı' },
+        { label: 'Aidat Tahsilat Başarısı', proof: 'Düzenli hukuki ve dijital takip.', metrics: 'Düzenli Takip' },
         { label: 'Sektörel Tecrübe', proof: '2009 yılından bu yana 17 yıllık kesintisiz profesyonel yönetim.', metrics: '17 Yıl' },
       ];
 

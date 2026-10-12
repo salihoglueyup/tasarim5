@@ -65,7 +65,7 @@ export default function FacilityRfpDownloadModalSeo() {
           <div className="flex flex-wrap gap-4 pt-2 text-xs text-[var(--color-secondary)] font-medium">
             <span className="flex items-center gap-1.5"><Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-[16px]" /> 634 KMK Madde 37 Uyumlu</span>
             <span className="flex items-center gap-1.5"><Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-[16px]" /> 5188 Lisans Maddeleri</span>
-            <span className="flex items-center gap-1.5"><Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-[16px]" /> 45 Dk SLA Taahhütleri</span>
+            <span className="flex items-center gap-1.5"><Icon name="check_circle" className="text-emerald-600 dark:text-emerald-400 text-[16px]" /> Yazılı SLA Taahhütleri</span>
           </div>
         </div>
 

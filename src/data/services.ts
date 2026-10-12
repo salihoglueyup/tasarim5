@@ -45,7 +45,7 @@ export type ServiceDef = {
   longTailKeywords?: string[];
   /** İlgili 634 Sayılı Kat Mülkiyeti Kanunu (KMK) ve diğer kanun maddeleri. */
   kmkArticles?: string[];
-  /** Kurumsal Hizmet Seviyesi Taahhüdü (SLA Garantisi). */
+  /** Kurumsal Hizmet Seviyesi Taahhüdü (Yazılı SLA). */
   slaGuarantee?: string;
   /** Birincil Hedef Kitle (Personalar). */
   targetPersonas?: string[];
@@ -138,7 +138,7 @@ export const SERVICES: ServiceDef[] = [
       'KMK Madde 38 (Yöneticinin Sorumluluğu)',
       'KMK Madde 66-74 (Toplu Yapı Yönetimi)',
     ],
-    slaGuarantee: '15-25 Dk Acil Mobil Arıza Müdahalesi, 48 Saatte Şeffaf Bütçe Teslimi',
+    slaGuarantee: 'Yazılı SLA ile Acil Mobil Arıza Müdahalesi, Şeffaf Bütçe Teslimi',
     targetPersonas: [
       'Kat Malikleri Genel Kurulu',
       'Site Denetim Kurulu Üyeleri',
@@ -215,7 +215,7 @@ export const SERVICES: ServiceDef[] = [
       'KMK Madde 37 (İşletme Projesi Kesinleşmesi)',
       'İİK Madde 68 (İlamsız İcra Belgesi Hükmü)',
     ],
-    slaGuarantee: '%99.2 Yıllık Tahsilat Başarısı, Anlık Canlı Banka Mutabakatı',
+    slaGuarantee: 'Şeffaf Yıllık Aidat Takibi, Anlık Canlı Banka Mutabakatı',
     targetPersonas: [
       'Site Sakinleri & Kiracılar',
       'Kat Malikleri',

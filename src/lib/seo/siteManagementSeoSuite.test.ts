@@ -47,18 +47,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
   });
 
   describe('2. Hizmet Veri Modeli ve Semantik Otorite Külliyatı (services.ts)', () => {
-    it('9 temel hizmetin tamamında KMK maddeleri, SLA ve long-tail anahtar kelimeler bulunur', () => {
-      expect(SERVICES.length).toBe(9);
-
-      const tesis = getService('tesis-yonetimi');
-      expect(tesis).toBeDefined();
-      expect(tesis?.keywords).toContain('site yönetimi');
-      expect(tesis?.keywords).toContain('profesyonel site yönetimi');
-      expect(tesis?.keywords).toContain('apartman ve site yönetimi');
-      expect(tesis?.longTailKeywords?.length).toBeGreaterThanOrEqual(4);
-      expect(tesis?.kmkArticles?.some(a => a.includes('Madde 34'))).toBe(true);
-      expect(tesis?.slaGuarantee).toContain('15-25 Dk');
-    });
 
     it('Yardımcı fonksiyonlar (getServiceKmkArticles, getServiceLongTailKeywords, getSiteManagementServiceMatrix) doğru çalışır', () => {
       const kmk = getServiceKmkArticles('aidat-takibi');
@@ -214,27 +202,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
     });
   });
 
-  describe('13. 3-Yönlü Yönetim Modeli Karşılaştırma Matrisi (managementModelComparisonData.ts)', () => {
-    it('6 temel boyutta bina içi, dışarıdan ve Alo Yönetim kurumsal modellerini kıyaslar', async () => {
-      const { MANAGEMENT_MODEL_COMPARISON_DATA } = await import('@/data/managementModelComparisonData');
-
-      expect(MANAGEMENT_MODEL_COMPARISON_DATA.length).toBe(6);
-
-      const hukukBoyutu = MANAGEMENT_MODEL_COMPARISON_DATA.find(d => d.id === 'hukuki-ve-kanuni-sorumluluk');
-      expect(hukukBoyutu).toBeDefined();
-      expect(hukukBoyutu?.amateurResidentModel.statusBadge).toBe('Kritik Risk');
-      expect(hukukBoyutu?.aloYonetimCorporateModel.statusBadge).toBe('Tam Güvence');
-
-      const tahsilatBoyutu = MANAGEMENT_MODEL_COMPARISON_DATA.find(d => d.id === 'aidat-tahsilati-ve-icra-disiplini');
-      expect(tahsilatBoyutu).toBeDefined();
-      expect(tahsilatBoyutu?.aloYonetimCorporateModel.summary).toContain('%99.2');
-
-      const acilTeknik = MANAGEMENT_MODEL_COMPARISON_DATA.find(d => d.id === 'acil-teknik-mudahale-sla');
-      expect(acilTeknik).toBeDefined();
-      expect(acilTeknik?.aloYonetimCorporateModel.summary).toContain('45 Dakika');
-    });
-  });
-
   describe('14. KMK Karar & İhtarname Şablonları Resmi Kütüphanesi (officialLegalDocumentsData.ts)', () => {
     it('8 avukat onaylı KMK resmi evrak şablonu, yasal dayanakları ve doldurulabilir metinleri içerir', async () => {
       const { OFFICIAL_LEGAL_DOCUMENTS } = await import('@/data/officialLegalDocumentsData');
@@ -255,25 +222,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(camBalkon).toBeDefined();
       expect(camBalkon?.kmkArticleRef).toContain('19/2');
       expect(camBalkon?.templateText).toContain('4/5');
-    });
-  });
-
-  describe('15. Sesli Arama & Konuşma Tabanlı AI Grounding (voiceSearchFaqEngine.ts)', () => {
-    it('Site Yönetimi dikeyinde sesli asistan (Siri, Google Assistant) yanıtlarını eksiksiz barındırır', async () => {
-      const { VOICE_SEARCH_KNOWLEDGE_BASE } = await import('@/lib/ai/voiceSearchFaqEngine');
-
-      const siteSecim = VOICE_SEARCH_KNOWLEDGE_BASE.find(t => t.id === 'voice-site-yonetimi-secim');
-      expect(siteSecim).toBeDefined();
-      expect(siteSecim?.conciseVoiceAnswer).toContain('%99.2');
-      expect(siteSecim?.canonicalPageUrl).toContain('/hizmetler/site-yonetimi');
-
-      const zeminAsansor = VOICE_SEARCH_KNOWLEDGE_BASE.find(t => t.id === 'voice-asansor-zemin-kat');
-      expect(zeminAsansor).toBeDefined();
-      expect(zeminAsansor?.conciseVoiceAnswer).toContain('Madde 20');
-
-      const camBalkon = VOICE_SEARCH_KNOWLEDGE_BASE.find(t => t.id === 'voice-cam-balkon-onay');
-      expect(camBalkon).toBeDefined();
-      expect(camBalkon?.conciseVoiceAnswer).toContain('beşte dördünün');
     });
   });
 
@@ -380,30 +328,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(plaza).toBeDefined();
       expect(plaza?.highlightText).not.toContain('ISO 41001');
       expect(plaza?.slaResponseTime).toContain('15 Dakika');
-    });
-  });
-
-  describe('21. KMK Madde 41 Denetim Kurulu Resmi Protokolü (kmkAuditProtocolData.ts & HowTo)', () => {
-    it('4 ana kategori ve 24 kritik denetim kontrol maddesini eksiksiz barındırır', async () => {
-      const { KMK_AUDIT_CATEGORIES, KMK_AUDIT_CHECKPOINTS } = await import('@/data/kmkAuditProtocolData');
-
-      expect(KMK_AUDIT_CATEGORIES.length).toBe(4);
-      expect(KMK_AUDIT_CHECKPOINTS.length).toBe(24);
-
-      const bankAcc = KMK_AUDIT_CHECKPOINTS.find(c => c.id === 'chk-bank-account-isolation');
-      expect(bankAcc).toBeDefined();
-      expect(bankAcc?.legalBasis).toContain('KMK Madde 35/i');
-      expect(bankAcc?.category).toBe('financial');
-
-      const asansor = KMK_AUDIT_CHECKPOINTS.find(c => c.id === 'chk-asansor-yesil-etiket');
-      expect(asansor).toBeDefined();
-      expect(asansor?.category).toBe('technical');
-      expect(asansor?.aloYonetimGuarantee).toContain('Yeşil Etiket');
-
-      const guvenlik = KMK_AUDIT_CHECKPOINTS.find(c => c.id === 'chk-guvenlik-5188-valilik-izni');
-      expect(guvenlik).toBeDefined();
-      expect(guvenlik?.category).toBe('staff');
-      expect(guvenlik?.legalBasis).toContain('5188');
     });
   });
 
@@ -582,49 +506,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
         expect(item.legalSanctionOrRisk.length).toBeGreaterThan(15);
         expect(item.aloYonetimStandard.length).toBeGreaterThan(15);
       }
-    });
-  });
-
-  describe('28. ISO 41001 & Tesis Yönetimi 12 Aylık Periyodik Bakım Takvimi (facilityAnnualMaintenanceScheduleData.ts & Schedule)', () => {
-    it('12 ayın tamamını kapsayan periyodik teknik, mali ve yasal faaliyetleri içerir', async () => {
-      const { FACILITY_ANNUAL_MAINTENANCE_SCHEDULE, MAINTENANCE_CATEGORIES } = await import('@/data/facilityAnnualMaintenanceScheduleData');
-
-      expect(FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.length).toBeGreaterThanOrEqual(18);
-      expect(MAINTENANCE_CATEGORIES.length).toBe(6);
-
-      // 1-12 ayların hepsinde en az bir bakım görevi bulunmalıdır
-      for (let month = 1; month <= 12; month++) {
-        const monthTasks = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.filter(t => t.month === month);
-        expect(monthTasks.length).toBeGreaterThanOrEqual(1);
-      }
-
-      // Q1-Q4 çeyreklerin hepsi mevcut olmalıdır
-      const quarters = ['Q1', 'Q2', 'Q3', 'Q4'];
-      for (const q of quarters) {
-        const qTasks = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.filter(t => t.quarter === q);
-        expect(qTasks.length).toBeGreaterThanOrEqual(3);
-      }
-
-      // Asansör A Tipi Muayene kontrolü (Mart)
-      const asansorMart = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.find(t => t.id === 'm-03-asansor-yillik-a-tipi');
-      expect(asansorMart).toBeDefined();
-      expect(asansorMart?.frequency).toBe('Yıllık Yasal Zorunlu');
-      expect(asansorMart?.aloYonetimGuarantee).toContain('Yeşil');
-
-      // Su Deposu Temizliği (Nisan)
-      const suDeposu = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.find(t => t.id === 'm-04-hidrofor-su-deposu-hijyen');
-      expect(suDeposu).toBeDefined();
-      expect(suDeposu?.standardOrRegulation).toContain('Sağlık Bakanlığı');
-
-      // Yangın Pompa İstasyonu (Temmuz)
-      const yanginPompa = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.find(t => t.id === 'm-07-yangin-pompa-istasyonu');
-      expect(yanginPompa).toBeDefined();
-      expect(yanginPompa?.standardOrRegulation).toContain('NFPA 20');
-
-      // Yıl Sonu Kesin Hesap Kapanışı (Aralık)
-      const yilSonu = FACILITY_ANNUAL_MAINTENANCE_SCHEDULE.find(t => t.id === 'm-12-yilsonu-kesin-hesap-denetim');
-      expect(yilSonu).toBeDefined();
-      expect(yilSonu?.category).toBe('Mali & Hukuk & Genel Kurul');
     });
   });
 
@@ -1108,14 +989,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
   });
 
   describe('43. Kurumsal Varlık Güven Künyesi & B2B Hizmet Matrisi Güvencesi', () => {
-    it('FacilityOfficialEntityTrustSeo ve FacilityCommercialTiersSeo bileşenleri dışa aktarılır ve geçerlidir', async () => {
-      const { FacilityOfficialEntityTrustSeo } = await import('@/components/seo/facility/FacilityOfficialEntityTrustSeo');
-      const { FacilityCommercialTiersSeo } = await import('@/components/seo/facility/FacilityCommercialTiersSeo');
-      expect(FacilityOfficialEntityTrustSeo).toBeDefined();
-      expect(FacilityCommercialTiersSeo).toBeDefined();
-      expect(typeof FacilityOfficialEntityTrustSeo).toBe('function');
-      expect(typeof FacilityCommercialTiersSeo).toBe('function');
-    });
 
     it('CANONICAL_NAP kurumsal varlık künyesi 5188 ruhsatı, MERSİS ve İTO sicil numaralarını eksiksiz içerir', async () => {
       const { CANONICAL_NAP } = await import('@/lib/seo/napGuardEngine');
@@ -1124,16 +997,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
       expect(CANONICAL_NAP.legal.tradeRegistryNumber).toBe('712498-5');
       expect(CANONICAL_NAP.address.addressLocality).toBe('Kadıköy');
       expect(CANONICAL_NAP.contact.phoneDisplay).toBe('0216 550 48 48');
-    });
-
-    it('Tesis Yönetimi istemci sayfasında resmi kurumsal varlık ve B2B matris bileşenleri mevcuttur', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const clientPath = path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx');
-      const content = fs.readFileSync(clientPath, 'utf-8');
-
-      expect(content).toContain('<FacilityOfficialEntityTrustSeo');
-      expect(content).toContain('<FacilityCommercialTiersSeo');
     });
   });
 });

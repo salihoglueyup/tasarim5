@@ -28,7 +28,7 @@ export async function generateMetadata({
   const t = await getDictionary(lang);
 
   const title = 'Apartman ve Site Ortak Alan Temizlik Şirketi | Alo Yönetim';
-  const description = 'TSE 13811 standartlarında endüstriyel zemin makineleri ve kadrolu personellerle blok, kat holü ve otopark temizliği. 48 saat içinde şeffaf teklif alın!';
+  const description = 'TSE 13811 standartlarında endüstriyel zemin makineleri ve kadrolu personellerle blok, kat holü ve otopark temizliği. Şeffaf teklif alın!';
 
   return buildMetadata({
     title,

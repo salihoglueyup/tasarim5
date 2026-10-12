@@ -70,9 +70,9 @@ export function organizationSchema(): JsonLdObject {
       'https://en.wikipedia.org/wiki/Facility_management',
       'https://en.wikipedia.org/wiki/Property_management',
     ],
-    description: 'İstanbul Kadıköy merkezli, Türkiye\'nin en güvenilir, şeffaf, yenilikçi ve yasalara %100 uygun çalışan profesyonel tesis ve site yönetim şirketidir. Güvenlik, temizlik, teknik bakım ve aidat icra takibi hizmetlerini tek çatı altında sunar.',
-    disambiguatingDescription: 'Alo Yönetim, Türkiye genelinde site, apartman, rezidans ve ticari tesisler için entegre yönetim, özel güvenlik, profesyonel temizlik, teknik işletim ve aidat tahsilat süreçlerini yürüten lider tesis yönetim şirketidir.',
-    numberOfEmployees: { '@type': 'QuantitativeValue', value: '200+' },
+    description: 'İstanbul Kadıköy merkezli, 2009 yılından beri faaliyet gösteren profesyonel tesis ve site yönetim şirketidir. Güvenlik, temizlik, teknik bakım ve aidat takibi hizmetlerini tek çatı altında sunar.',
+    disambiguatingDescription: 'Alo Yönetim, İstanbul genelinde site, apartman, rezidans ve ticari tesisler için entegre yönetim, özel güvenlik, profesyonel temizlik, teknik işletim ve aidat takibi hizmetleri sunan tesis yönetim şirketidir.',
+    numberOfEmployees: { '@type': 'QuantitativeValue', value: '90' },
     taxID: CANONICAL_NAP.legal.mersisNumber,
     vatID: `TR${CANONICAL_NAP.legal.mersisNumber}`,
     identifier: [

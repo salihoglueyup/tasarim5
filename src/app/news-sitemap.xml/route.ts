@@ -38,7 +38,7 @@ export async function GET() {
       },
     });
 
-    // Son 48 saatte yazı yoksa, en güncel 10 yayını al
+    // Son yazı yoksa, en güncel 10 yayını al
     if (dbPosts.length === 0) {
       const fallbackPosts = await prisma.post.findMany({
         where: { published: true },

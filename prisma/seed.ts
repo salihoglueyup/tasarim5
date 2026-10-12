@@ -4,7 +4,6 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import { Pool } from 'pg';
 import { CATEGORIES, POSTS } from '../src/data/posts';
 import type { Post } from '../src/data/posts';
-import { REFERENCES_DATA, PARTNERS_DATA } from '../src/data/references';
 import bcrypt from 'bcryptjs';
 import { randomBytes } from 'crypto';
 import fs from 'fs';
@@ -165,105 +164,7 @@ async function main() {
   }
   console.log('\n   ✓ Blog yazıları tamamlandı.');
 
-  // 5. Referans Projeleri (REFERENCES_DATA)
-  console.log(`\n5. Referans Projeleri seed ediliyor (${REFERENCES_DATA.length} proje)...`);
-  for (const ref of REFERENCES_DATA) {
-    const testimonialAuthorFormatted = ref.testimonialAuthor
-      ? (ref.testimonialRole ? `${ref.testimonialAuthor} (${ref.testimonialRole})` : ref.testimonialAuthor)
-      : null;
-
-    await prisma.reference.upsert({
-      where: { slug: ref.slug },
-      update: {
-        title: ref.title,
-        title_en: ref.title_en || null,
-        title_ru: ref.title_ru || null,
-        title_ar: ref.title_ar || null,
-        category: ref.category,
-        location: ref.location,
-        location_en: ref.location_en || null,
-        location_ru: ref.location_ru || null,
-        location_ar: ref.location_ar || null,
-        units: ref.units,
-        image: ref.image,
-        published: ref.published ?? true,
-        order: ref.order ?? 0,
-        content: ref.content || null,
-        content_en: ref.content_en || null,
-        content_ru: ref.content_ru || null,
-        content_ar: ref.content_ar || null,
-        services: ref.services ? JSON.stringify(ref.services) : null,
-        services_en: ref.services_en ? JSON.stringify(ref.services_en) : null,
-        services_ru: ref.services_ru ? JSON.stringify(ref.services_ru) : null,
-        services_ar: ref.services_ar ? JSON.stringify(ref.services_ar) : null,
-        gallery: ref.gallery ? JSON.stringify(ref.gallery) : null,
-        testimonialText: ref.testimonialText || null,
-        testimonialText_en: ref.testimonialText_en || null,
-        testimonialText_ru: ref.testimonialText_ru || null,
-        testimonialText_ar: ref.testimonialText_ar || null,
-        testimonialAuthor: testimonialAuthorFormatted,
-        stats: ref.stats ? JSON.stringify(ref.stats) : null,
-        coordinates: ref.coordinates || null,
-        isSuccessStory: ref.isSuccessStory ?? false,
-      },
-      create: {
-        title: ref.title,
-        title_en: ref.title_en || null,
-        title_ru: ref.title_ru || null,
-        title_ar: ref.title_ar || null,
-        slug: ref.slug,
-        category: ref.category,
-        location: ref.location,
-        location_en: ref.location_en || null,
-        location_ru: ref.location_ru || null,
-        location_ar: ref.location_ar || null,
-        units: ref.units,
-        image: ref.image,
-        published: ref.published ?? true,
-        order: ref.order ?? 0,
-        content: ref.content || null,
-        content_en: ref.content_en || null,
-        content_ru: ref.content_ru || null,
-        content_ar: ref.content_ar || null,
-        services: ref.services ? JSON.stringify(ref.services) : null,
-        services_en: ref.services_en ? JSON.stringify(ref.services_en) : null,
-        services_ru: ref.services_ru ? JSON.stringify(ref.services_ru) : null,
-        services_ar: ref.services_ar ? JSON.stringify(ref.services_ar) : null,
-        gallery: ref.gallery ? JSON.stringify(ref.gallery) : null,
-        testimonialText: ref.testimonialText || null,
-        testimonialText_en: ref.testimonialText_en || null,
-        testimonialText_ru: ref.testimonialText_ru || null,
-        testimonialText_ar: ref.testimonialText_ar || null,
-        testimonialAuthor: testimonialAuthorFormatted,
-        stats: ref.stats ? JSON.stringify(ref.stats) : null,
-        coordinates: ref.coordinates || null,
-        isSuccessStory: ref.isSuccessStory ?? false,
-      },
-    });
-    process.stdout.write('.');
-  }
-  console.log('\n   ✓ Referans projeleri tamamlandı.');
-
-  // 6. İş Ortakları & Partner Markaları (PARTNERS_DATA)
-  console.log(`\n6. İş ortakları & partnerler seed ediliyor (${PARTNERS_DATA.length} marka)...`);
-  for (const partner of PARTNERS_DATA) {
-    await prisma.partner.upsert({
-      where: { id: partner.id },
-      update: {
-        name: partner.name,
-        logo: partner.logo || null,
-        order: partner.order || 0,
-      },
-      create: {
-        id: partner.id,
-        name: partner.name,
-        logo: partner.logo || null,
-        order: partner.order || 0,
-      },
-    });
-    process.stdout.write('.');
-  }
-  console.log('\n   ✓ İş ortakları tamamlandı.');
+  // Referanslar ve iş ortakları artık tohumlanmaz: gerçek referans listesi src/data/realReferences.ts dosyasındadır.
 
   // 7. Sektörel Çözümler
   console.log('\n7. Sektörel Çözüm modelleri seed ediliyor...');
@@ -274,7 +175,7 @@ async function main() {
       description:
         '7/24 konsiyerj, vale, resepsiyon, SPA/fitness işletimi, misafir karşılama protokolleri ve üst düzey sakin konforu.',
       icon: 'apartment',
-      kpiTag: '%99.2 Memnuniyet & Sıfır Aksama',
+      kpiTag: 'Şeffaf Yönetim',
       features: JSON.stringify([
         '7/24 Resepsiyon & Konsiyerj Hizmeti',
         'Akıllı Mobil Rezervasyon & Aidat Portalı',
@@ -289,7 +190,7 @@ async function main() {
       description:
         'Ortak alan iklimlendirme, yürüyen merdiven periyodik bakımı, atık ayrıştırma ve 7/24 entegre güvenlik.',
       icon: 'storefront',
-      kpiTag: '%32 Enerji Tasarrufu & ISO 41001',
+      kpiTag: 'Enerji Verimliliği',
       features: JSON.stringify([
         'Yoğun Ziyaretçi Akış ve Devriye Yönetimi',
         'BMS Yangın Algılama & Duman Tahliye Testleri',
@@ -319,7 +220,7 @@ async function main() {
       description:
         'KMK m.20 şeffaf aidat ve işletme projesi, ilamsız icra takibi, periyodik yeşil etiket asansör bakımı, geniş peyzaj/otomatik sulama.',
       icon: 'location_city',
-      kpiTag: '%99 Tahsilat & Şeffaf Bilanço',
+      kpiTag: 'Şeffaf Bilanço',
       features: JSON.stringify([
         'KMK 634 Uyumlu Şeffaf Online Aidat Tahsilatı',
         'Yeşil Etiketli Asansör Muayene Takibi',

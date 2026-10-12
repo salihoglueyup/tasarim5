@@ -9,7 +9,7 @@ import Icon from '@/components/ui/branding/Icon';
 const TX_MAP: Record<string, string> = {
   "Hukuki ve Mevzuat Uyumu": "scm_1",
   "Kulaktan dolma bilgiler, KMK 634 ve 5188 sayılı kanun riskleri": "scm_2",
-  "Uzman hukukçu kadrosu, %100 KMK ve 5188 kanuni uyum garantisi": "scm_3",
+  "Hukuk desteği, KMK ve 5188 mevzuatına uyum odağı": "scm_3",
   "Aidat Takibi & Tahsilat": "scm_4",
   "Elden/dekontla takip, geciken ödemeler, komşuluk ilişkilerinde sürtüşme": "scm_5",
   "Dijital sakin uygulaması, anlık bildirim, gecikmede otomatik yasal icra süreci": "scm_6",
@@ -21,12 +21,12 @@ const TX_MAP: Record<string, string> = {
   "Her ay detaylı gelir-gider faaliyet raporu, işletme projesi şeffaflığı": "scm_12",
   "Personel & Güvenlik Yönetimi": "scm_13",
   "Kayıtsız/eğitimsiz eleman çalıştırma, kıdem tazminatı riski": "scm_14",
-  "5188 belgeli özel güvenlik, bordrolu ve sigortalı 200+ uzman personel, sıfır tazminat riski": "scm_15",
+  "5188 belgeli özel güvenlik, bordrolu ve sigortalı personel": "scm_15",
   "Kalite Standartları & Güvence": "scm_16",
   "Kurumsal akreditasyon veya kalite belgesi yok": "scm_17",
   "ISO 14001, 45001, 10002, 22301, 31000 ve 26000 (BELCERT, ILAS akrediteli)": "scm_18",
   "Geleneksel Site Yönetimi vs. Alo Yönetim": "scm_19",
-  "Neden İstanbul'da 200+ tesis Alo Yönetim'i tercih ediyor?": "scm_20",
+  "Neden İstanbul genelinde Alo Yönetim tercih ediliyor?": "scm_20",
   "Kriter": "scm_21",
   "Geleneksel / Bireysel Yönetim": "scm_22",
   "Alo Yönetim Profesyonel Hizmet": "scm_23",
@@ -49,7 +49,7 @@ const DEFAULT_ROWS: ComparisonRow[] = [
   {
     feature: "Hukuki ve Mevzuat Uyumu",
     traditional: "Kulaktan dolma bilgiler, KMK 634 ve 5188 sayılı kanun riskleri",
-    aloYonetim: "Uzman hukukçu kadrosu, %100 KMK ve 5188 kanuni uyum garantisi"
+    aloYonetim: "Hukuk desteği, KMK ve 5188 mevzuatına uyum odağı"
   },
   {
     feature: "Aidat Takibi & Tahsilat",
@@ -69,7 +69,7 @@ const DEFAULT_ROWS: ComparisonRow[] = [
   {
     feature: "Personel & Güvenlik Yönetimi",
     traditional: "Kayıtsız/eğitimsiz eleman çalıştırma, kıdem tazminatı riski",
-    aloYonetim: "5188 belgeli özel güvenlik, bordrolu ve sigortalı 200+ uzman personel, sıfır tazminat riski"
+    aloYonetim: "5188 belgeli özel güvenlik, bordrolu ve sigortalı personel"
   },
   {
     feature: "Kalite Standartları & Güvence",
@@ -87,7 +87,7 @@ const DEFAULT_ROWS: ComparisonRow[] = [
  */
 export default function ServiceComparisonMatrixSeo({
   title = "Geleneksel Site Yönetimi vs. Alo Yönetim",
-  subtitle = "Neden İstanbul'da 200+ tesis Alo Yönetim'i tercih ediyor?",
+  subtitle = "Neden İstanbul genelinde Alo Yönetim tercih ediliyor?",
   rows = DEFAULT_ROWS,
   className = ""
 }: ServiceComparisonMatrixSeoProps) {

@@ -3,21 +3,16 @@
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import ServiceSeo from '@/components/seo/schema/ServiceSeo';
-import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import HowToSeo from '@/components/seo/schema/HowToSeo';
 import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
-import InteractiveTechnicalAuditRadarSeo from '@/components/seo/facility/InteractiveTechnicalAuditRadarSeo';
-import DistrictUtilityTransferGuideSeo from '@/components/seo/district/DistrictUtilityTransferGuideSeo';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import RelatedArticles from '@/components/blog/RelatedArticles';
-import MaintenanceCalculator from '@/components/sections/calculators/MaintenanceCalculator';
 import MaintenanceTestimonials from '@/components/sections/testimonials/MaintenanceTestimonials';
 import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
-import FacilityWaterTankSanitationSeo from '@/components/seo/facility/FacilityWaterTankSanitationSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
@@ -81,12 +76,6 @@ export default function TeknikBakimClient() {
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_maint_hero_title') || 'Teknik Bakım, Onarım & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Mobil Servis</span>' }} />
             
-            <AggregateRatingSeo 
-              itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Teknik Bakım ve Onarım' }}
-              ratingValue={4.8}
-              reviewCount={198}
-              className="mt-2"
-            />
 
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('tech_banner_desc') || 'Asansör, jeneratör, hidrofor ve elektrik sistemleri için 7/24 mobil teknik servis ve periyodik bakım hizmeti.'}
@@ -102,10 +91,6 @@ export default function TeknikBakimClient() {
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
         
-        {/* Maintenance Calculator */}
-        <div className="-mt-20 md:-mt-32 relative z-30">
-          <MaintenanceCalculator />
-        </div>
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
 <TrOnly>
@@ -115,7 +100,7 @@ export default function TeknikBakimClient() {
           question="Bina ve Tesis Teknik Bakımı Nedir ve Neleri Kapsar?"
           answer="Bina ve tesis teknik bakımı; asansör, jeneratör, hidrofor, yangın ve elektrik sistemlerinin kesintisiz çalışmasını sağlayan planlı mühendislik disiplinidir. Sanayi Bakanlığı A Tipi muayene ile asansörlerde yeşil etiket tescili ve kompanzasyon takibiyle %0 reaktif ceza güvencesi sağlayarak işletme giderlerini düşürür."
           standardBadge="Sanayi Bakanlığı & A Tipi Yeşil Etiket"
-          subText="Alo Yönetim, TMMOB standartlarında periyodik muayeneler ve 45 dakika SLA acil teknik müdahale garantisi ile binalarınızda sıfır altyapı arızası hedefler."
+          subText="Alo Yönetim, TMMOB standartlarında periyodik muayeneler ve yazılı SLA kapsamında acil teknik müdahale ile binalarınızda altyapı arızalarını azaltmayı hedefler."
           accentColor="blue"
         />
 </TrOnly>
@@ -207,7 +192,7 @@ export default function TeknikBakimClient() {
                   <span>🛗</span> Asansör & Yürüyen Merdiven Yeşil Etiket Yönetimi
                 </span>
                 <p className="text-[var(--color-secondary)]">
-                  Aylık periyodik yetkili servis bakımları, yıllık A Tipi Muayene Kuruluşu (MMO/TÜRKAK) denetim koordinasyonu ile kusursuz yeşil etiket tescili ve 7/24 asansörde kalma acil kurtarma SLA garantisi.
+                  Aylık periyodik yetkili servis bakımları, yıllık A Tipi Muayene Kuruluşu (MMO/TÜRKAK) denetim koordinasyonu ile yeşil etiket tescili ve 7/24 asansörde kalma acil kurtarma SLA garantisi.
                 </p>
               </div>
 
@@ -216,7 +201,7 @@ export default function TeknikBakimClient() {
                   <span>⚡</span> Jeneratör, Trafo & Kompanzasyon (%0 Reaktif Ceza)
                 </span>
                 <p className="text-[var(--color-secondary)]">
-                  Senkron jeneratör gruplarının haftalık test çalıştırmaları, termal kamera ile pano ısınma kontrolleri ve kompanzasyon rölesi optimizasyonu ile elektrik faturalarında %100 reaktif ceza muafiyeti.
+                  Senkron jeneratör gruplarının haftalık test çalıştırmaları, termal kamera ile pano ısınma kontrolleri ve kompanzasyon rölesi optimizasyonu ile elektrik faturalarında reaktif ceza riskinin azaltılması.
                 </p>
               </div>
 
@@ -240,7 +225,7 @@ export default function TeknikBakimClient() {
             </div>
 
             <p>
-              Alo Yönetim ile çalışan tesislerde; sitenin tüm teknik ekipmanları karekodlu dijital bakım karnesine işlenir. Yapılan tüm işçilik hizmetleri 1 yıl, orijinal yedek parça değişimleri ise 2 yıl parça garantisi altındadır. Bina yöneticilerinin asansör ve yangın güvenliğinden doğan şahsi cezai sorumlulukları sıfırlanır.
+              Alo Yönetim ile çalışan tesislerde; sitenin tüm teknik ekipmanları karekodlu dijital bakım karnesine işlenir. İşçilik ve parça güvence süreleri sözleşmede yazılı olarak belirlenir.
             </p>
           </div>
 
@@ -251,10 +236,10 @@ export default function TeknikBakimClient() {
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Icon name="timer" className="text-lg" />
                 </span>
-                <span>45 Dakika SLA Acil Müdahale</span>
+                <span>Yazılı SLA ile Acil Müdahale</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Asansörde kalma, elektrik kesintisi veya ana boru patlağında 7/24 nöbetçi gezici teknik servis garantisi.
+                Asansörde kalma, elektrik kesintisi veya ana boru patlağında 7/24 nöbetçi gezici teknik servis (yazılı SLA kapsamında).
               </p>
             </div>
 
@@ -263,7 +248,7 @@ export default function TeknikBakimClient() {
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                   <Icon name="verified" className="text-lg" />
                 </span>
-                <span>%100 Yeşil Etiket Güvencesi</span>
+                <span>Yeşil Etiket Takibi</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                 Asansörlerin A Tipi akredite muayenesinden kusursuz yeşil etiket alması ve mühürlenme riskinin sıfırlanması.
@@ -317,7 +302,7 @@ export default function TeknikBakimClient() {
 
         {/* Teknik Bakım Uyumluluk Radarı */}
 <TrOnly>
-        <InteractiveTechnicalAuditRadarSeo districtName="İstanbul" />
+        {null}
 </TrOnly>
 
 <TrOnly>
@@ -327,7 +312,7 @@ export default function TeknikBakimClient() {
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3">
                 <Icon name="verified" className="text-[16px]" />
-                MMO / TSE A Tipi Akredite Muayene Garantisi
+                MMO / TSE A Tipi Akredite Muayene Koordinasyonu
               </div>
               <h2 className="text-2xl md:text-4xl font-extrabold text-[var(--color-primary)] tracking-tight">
                 Asansör İşletme Yönetmeliği <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-slate-600 dark:from-emerald-400 dark:to-slate-400">Yeşil Etiket Protokolü</span>
@@ -363,7 +348,7 @@ export default function TeknikBakimClient() {
               },
               {
                 step: "04",
-                title: "45 Dk Acil Servis SLA",
+                title: "Yazılı SLA ile Acil Servis",
                 desc: "Asansörde kalma veya arıza durumunda 7/24 mobil nöbetçi teknik servisimiz en geç 45 dakikada kabin kurtarmasını tamamlar.",
                 icon: "timer",
               }
@@ -403,7 +388,7 @@ export default function TeknikBakimClient() {
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-primary)]">%0 Reaktif Elektrik Cezası</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                  Kondansatör kademe testleri ve akıllı reaktif güç rölesi takibi ile Bedaş/Ayedaş faturalarında reaktif ceza sıfırlama garantisi.
+                  Kondansatör kademe testleri ve akıllı reaktif güç rölesi takibi ile Bedaş/Ayedaş faturalarında reaktif ceza riskini azaltma.
                 </p>
               </div>
 
@@ -438,7 +423,7 @@ export default function TeknikBakimClient() {
             question="Asansör Yeşil Etiket Muayenesi Zorunlu mu ve Alınmazsa Ne Olur?"
             shortAnswer="Evet, Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği gereğince yılda bir kez A Tipi Akredite Muayene Kuruluşunca kontrol zorunludur. Yeşil etiket alınmayan ve kırmızı etiket iliştirilen asansörler 30 gün içinde düzeltilmezse ilgili belediyece mühürlenerek kullanıma kapatılır ve yöneticiye idari para cezası uygulanır."
             bulletPoints={[
-              'Yeşil Etiket: Kusursuz, can ve mal güvenliği tam (1 yıl geçerli).',
+              'Yeşil Etiket: muayeneyi geçen asansör için 1 yıl geçerlidir.',
               'Mavi Etiket: Hafif kusurlu, 120 gün içinde giderilmesi gerekir.',
               'Sarı Etiket: Kusurlu, 120 gün içinde giderilmezse mühürlenir.',
               'Kırmızı Etiket: Güvensiz, 30 gün içinde giderilmezse zabıta mühürler.'
@@ -474,7 +459,7 @@ export default function TeknikBakimClient() {
 
         {/* Sağlık Bakanlığı 2007/67 Su Deposu Temizliği, Dezenfeksiyon ve Lejyonella Rehberi (Faz 15) */}
 <TrOnly>
-        <FacilityWaterTankSanitationSeo />
+        {null}
 </TrOnly>
 
         {/* Maintenance Specific Social Proof */}
@@ -490,7 +475,7 @@ export default function TeknikBakimClient() {
       {/* 39 İlçe İSKİ, BEDAŞ, AYEDAŞ ve İGDAŞ Kurumsal Altyapı ve Sayaç Devir Rehberi */}
       <div className="py-12 bg-slate-900/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <DistrictUtilityTransferGuideSeo />
+          {null}
         </div>
       </div>
 </TrOnly>

@@ -50,7 +50,7 @@ export async function generateMetadata({
   }
 
   let title = `${neighborhood.name}, ${district.name} Tesis Yönetimi & Site Yönetim Şirketi | Alo Yönetim`;
-  let description = `${neighborhood.name} (${district.name}) genelinde 634 sayılı KMK uyumlu profesyonel tesis yönetimi, 5188 lisanslı güvenlik, aidat tahsilatı ve periyodik teknik bakım. 48 saatte ücretsiz keşif!`;
+  let description = `${neighborhood.name} (${district.name}) genelinde 634 sayılı KMK uyumlu profesyonel tesis yönetimi, 5188 lisanslı güvenlik, aidat takibi ve periyodik teknik bakım. Ücretsiz keşif!`;
   let targetKeyword = `${neighborhood.name} tesis yönetimi`;
   let keywords = [
     `${neighborhood.name} tesis yönetimi`,
@@ -124,7 +124,7 @@ export default async function NeighborhoodPage({
     },
     {
       question: `${neighborhood.name}'de yönetim devir süreci nasıl işler?`,
-      answer: `${neighborhood.name} ve ${district.name} genelinde yönetim devirlerini 48 saat içinde tamamlıyoruz. Önce ücretsiz keşif yapılır, ardından demirbaş tutanağı hazırlanır ve şeffaf teklif sunulur.`,
+      answer: `${neighborhood.name} ve ${district.name} genelinde yönetim devirlerini tamamlıyoruz. Önce ücretsiz keşif yapılır, ardından demirbaş tutanağı hazırlanır ve şeffaf teklif sunulur.`,
     },
     {
       question: `${district.name} ${neighborhood.name}'de aidat yönetimi nasıl yapılıyor?`,

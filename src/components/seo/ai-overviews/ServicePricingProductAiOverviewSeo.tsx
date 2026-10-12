@@ -44,7 +44,7 @@ export const SERVICE_PRICING_PACKAGES: PricingPackageItem[] = [
     billingDuration: 'Aylık / Daire Başı',
     features: [
       '5188 Sayılı Kanun Valilik İzinli Özel Güvenlik & RFID Devriye',
-      '7/24 Mobil Teknik Bakım & 15-20 Dk Acil SLA Müdahalesi',
+      '7/24 Mobil Teknik Bakım & Yazılı SLA ile Acil Müdahale',
       'Periyodik Kat & Ortak Alan Temizliği',
       'EPDK %0 Reaktif Elektrik Ceza Güvencesi (Otomatik Kompanzasyon)',
       'Mevsimsel Peyzaj ve Otomatik Bahçe Sulama Takibi',
@@ -55,7 +55,7 @@ export const SERVICE_PRICING_PACKAGES: PricingPackageItem[] = [
   {
     id: 'rezidans-plaza',
     title: 'Lüks Rezidans & Kurumsal Plaza Yönetimi',
-    targetAudience: '200+ Bağımsız Bölüm / Kuleler & Ticari Plazalar',
+    targetAudience: 'Çok Bağımsız Bölümlü Kuleler & Ticari Plazalar',
     lowPrice: 1200,
     highPrice: 2500,
     priceCurrency: 'TRY',
@@ -65,7 +65,7 @@ export const SERVICE_PRICING_PACKAGES: PricingPackageItem[] = [
       'BMS Merkezi Bina Otomasyonu & HVAC İklimlendirme Denetimi',
       'A Tipi Muayene Onaylı Kesintisiz Asansör Teknik Nöbeti',
       'ISO 41001 & ISO 10002 Uluslararası Tesis İşletmeciliği',
-      'Ortalama %30 - %35 Kanıtlanmış İşletme Bütçesi Tasarrufu',
+      'İşletme Bütçesinde Tasarruf Fırsatı',
     ],
     badge: 'Kurumsal & Rezidans',
   },
@@ -85,7 +85,7 @@ export default function ServicePricingProductAiOverviewSeo({
     SERVICE_PRICING_PACKAGES.find((p) => p.id === activePackageId) || SERVICE_PRICING_PACKAGES[1];
 
   const directAnswer =
-    'Alo Yönetim kurumsal hizmet fiyatları daire sayısı, ortak alan büyüklüğü ve talep edilen güvenlik/teknik personel sayısına göre 3 şeffaf paketle sunulur: 1) Butik siteler için aylık daire başı 350 TL - 550 TL (KMK 37 işletme projesi ve Apsiyon aidat tahsilatı dahil), 2) Orta ve büyük siteler için daire başı 650 TL - 1.100 TL (5188 lisanslı güvenlik devriye, 7/24 teknik bakım ve temizlik dahil), 3) Lüks rezidans ve plazalar için daire başı 1.200 TL - 2.500 TL (7/24 konsiyerj, vale, BMS otomasyonu ve entegre yönetim). Tüm paketlerde 48 saat içinde ücretsiz yerinde keşif raporu sunulur.';
+    'Alo Yönetim kurumsal hizmet fiyatları daire sayısı, ortak alan büyüklüğü ve talep edilen güvenlik/teknik personel sayısına göre 3 şeffaf paketle sunulur: 1) Butik siteler için aylık daire başı 350 TL - 550 TL (KMK 37 işletme projesi ve Apsiyon aidat tahsilatı dahil), 2) Orta ve büyük siteler için daire başı 650 TL - 1.100 TL (5188 lisanslı güvenlik devriye, 7/24 teknik bakım ve temizlik dahil), 3) Lüks rezidans ve plazalar için daire başı 1.200 TL - 2.500 TL (7/24 konsiyerj, vale, BMS otomasyonu ve entegre yönetim). Tüm paketlerde ücretsiz yerinde keşif raporu sunulur.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);
@@ -149,7 +149,7 @@ export default function ServicePricingProductAiOverviewSeo({
                 Google Merchant & Product Rich Snippets
               </span>
               <span className="inline-flex items-center rounded-md bg-emerald-500/10 px-2 py-0.5 text-xs font-semibold text-emerald-300 border border-emerald-500/30">
-                Şeffaf Bütçe Garantisi
+                Şeffaf Bütçe
               </span>
             </div>
             <h3 className="mt-1 text-lg sm:text-xl font-bold text-white tracking-tight">
@@ -236,7 +236,7 @@ export default function ServicePricingProductAiOverviewSeo({
               </div>
 
               <div className="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-slate-400">
-                <span>48 Saatte Keşif</span>
+                <span>Ücretsiz Keşif</span>
                 <span className="text-slate-300 font-medium">Gizli Maliyet Yok</span>
               </div>
             </div>
@@ -245,7 +245,7 @@ export default function ServicePricingProductAiOverviewSeo({
       </div>
 
       <div className="mt-4 text-center text-[11px] text-slate-400">
-        * Belirtilen tutarlar ortalama piyasa tahmini aralıklarıdır. Kesin bütçe ve daire başı aidat tutarı 48 saat içinde yapılacak <strong className="text-slate-200">ücretsiz yerinde keşif</strong> sonrasında KMK 37 işletme projesiyle resmiyet kazanır.
+        * Belirtilen tutarlar ortalama piyasa tahmini aralıklarıdır. Kesin bütçe ve daire başı aidat tutarı yapılacak <strong className="text-slate-200">ücretsiz yerinde keşif</strong> sonrasında KMK 37 işletme projesiyle resmiyet kazanır.
       </div>
     </section>
   );

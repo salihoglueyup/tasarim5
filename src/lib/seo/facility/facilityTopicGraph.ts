@@ -35,7 +35,7 @@ const TOPIC_GRAPH_LOCALES: Record<string, LocalizedTopicGraphContent> = {
     description:
       'İstanbul genelinde apartman, site, plaza, rezidans ve endüstriyel tesisler için 7/24 güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, şeffaf aidat muhasebesi ve KMK hukuki danışmanlığı kapsayan profesyonel tesis yönetimi.',
     catalogName: 'Alo Yönetim Tesis Yönetimi Paketleri ve Sektörel Çözümleri',
-    serviceOutput: '%25-35 Ortak Bütçe Tasarrufu, %99.2 Aidat Tahsilat Başarısı, Sıfır Hukuki Risk ve 7/24 Kesintisiz Güvenlik',
+    serviceOutput: 'Ortak Bütçede Tasarruf Fırsatı, Şeffaf Aidat Takibi, Hukuki Risk Yönetimi ve 7/24 Kesintisiz Güvenlik',
   },
   en: {
     name: 'Alo Yönetim Professional Property & Integrated Facility Management',

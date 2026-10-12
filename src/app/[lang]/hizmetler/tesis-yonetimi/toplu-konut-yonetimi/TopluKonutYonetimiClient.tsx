@@ -79,9 +79,9 @@ export default function TopluKonutYonetimiClient() {
           id="toplu-konut-yonetimi-nedir"
           answerId="toplukonut-instant-answer-text"
           question="Toplu Konut ve Uydukent Yönetimi Nedir ve Nasıl İşletilir?"
-          answer="Toplu konut ve uydukent yönetimi; 200 ile 5.000+ bağımsız bölümlü çok bloklu sitelerde KMK m.66-74 Toplu Yapı Temsilciler Kurulu hukuki organizasyonu, ada ve parsel bazlı ayrıştırılmış işletme bütçesi, 3 vardiya 5188 lisanslı güvenlik devriyesi, merkezi sulama/hidrofor otomasyonu ve toplu satınalma gücüyle %25-33 aidat tasarrufu sağlayan mega tesis işletmeciliğidir."
+          answer="Toplu konut ve uydukent yönetimi; 200 ile 5.000+ bağımsız bölümlü çok bloklu sitelerde KMK m.66-74 Toplu Yapı Temsilciler Kurulu hukuki organizasyonu, ada ve parsel bazlı ayrıştırılmış işletme bütçesi, 3 vardiya 5188 lisanslı güvenlik devriyesi, merkezi sulama/hidrofor otomasyonu ve toplu satınalma gücüyle aidat verimliliği sağlayan mega tesis işletmeciliğidir."
           standardBadge="KMK m.66-74 Toplu Yapı Standartları"
-          subText="Alo Yönetim, devasa konut komplekslerinde blok temsilcileri divan yönetimi, Apsiyon dijital şeffaf mizan ve nöbetçi teknik müdahale kadroları ile sıfır bütçe açığı garantisi sunar."
+          subText="Alo Yönetim, devasa konut komplekslerinde blok temsilcileri divan yönetimi, Apsiyon dijital şeffaf mizan ve nöbetçi teknik müdahale kadroları ile bütçe açığı riskini azaltmayı hedefler."
           accentColor="emerald"
         />
 </TrOnly>

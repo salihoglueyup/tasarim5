@@ -22,7 +22,7 @@ const TRUST_METRICS = {
     },
     {
       icon: 'account_balance_wallet',
-      metric: '%100 Şeffaf',
+      metric: 'Şeffaf',
       label: 'Canlı Dijital Muhasebe',
       desc: 'Mobil uygulama ile anlık kasa & bütçe denetimi',
       badge: 'Sıfır Açık',
@@ -30,10 +30,10 @@ const TRUST_METRICS = {
     },
     {
       icon: 'engineering',
-      metric: '30 Dk Acil',
+      metric: 'Yazılı SLA ile Acil',
       label: '7/24 Nöbetçi Teknik Kadro',
       desc: 'Asansör, hidrofor ve jeneratöre anında müdahale',
-      badge: 'SLA Garantisi',
+      badge: 'Yazılı SLA',
       color: 'amber',
     },
     {
@@ -158,7 +158,7 @@ const EYEBROW_TEXT = {
 
 const TRUST_CHECKPOINTS = {
   tr: [
-    '634 Sayılı Kat Mülkiyeti Kanunu (KMK) standartlarına %100 tam uyum',
+    '634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde yürütülür',
     'T.C. İçişleri Bakanlığı 5188 Lisanslı Özel Güvenlik ve Valilik izinleri',
     'BELCERT/ILAS belgeli ISO 45001, ISO 14001 ve ISO 10002 yönetim sistemleri',
   ],

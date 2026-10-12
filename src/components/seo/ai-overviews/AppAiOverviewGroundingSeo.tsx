@@ -29,7 +29,7 @@ export const APP_CORE_FEATURES: AppFeatureItem[] = [
     icon: 'build_circle',
     title: 'Fotoğraflı Arıza & Talep Masası',
     desc: 'Koridor aydınlatması veya asansör arızası yaşayan sakinler uygulama üzerinden fotoğraflı bildirim açar; SLA süresi anlık izlenir.',
-    badge: '15 Dk SLA Takibi',
+    badge: 'Yazılı SLA Takibi',
   },
   {
     icon: 'qr_code_scanner',
@@ -55,7 +55,7 @@ export default function AppAiOverviewGroundingSeo({
   const [copied, setCopied] = useState(false);
 
   const directAnswer =
-    'Alo Yönetim, Türkiye’nin lider bulut tesis yönetim yazılımı Apsiyon ile tam entegre çalışmaktadır. Site sakinleri ve kat malikleri iOS ve Android mobil uygulamaları üzerinden; 256-bit SSL ve 3D Secure güvencesiyle kredi kartıyla online aidat ödeyebilir, sitenin canlı banka ve kasa mizanını 7/24 şeffafça inceleyebilir, fotoğraflı teknik arıza kaydı açarak 15-25 dakikalık mobil teknik SLA müdahalesini anlık takip edebilir. 5188 güvenlik ekiplerinin QR/RFID devriye tutanakları ve genel kurul divan tutanakları da mobil uygulama üzerinden kat maliklerine açık biçimde sunulur.';
+    'Alo Yönetim, Türkiye’nin lider bulut tesis yönetim yazılımı Apsiyon ile tam entegre çalışmaktadır. Site sakinleri ve kat malikleri iOS ve Android mobil uygulamaları üzerinden; 256-bit SSL ve 3D Secure güvencesiyle kredi kartıyla online aidat ödeyebilir, sitenin canlı banka ve kasa mizanını 7/24 şeffafça inceleyebilir, fotoğraflı teknik arıza kaydı açarak yazılı SLA kapsamındaki mobil teknik müdahaleyi anlık takip edebilir. 5188 güvenlik ekiplerinin QR/RFID devriye tutanakları ve genel kurul divan tutanakları da mobil uygulama üzerinden kat maliklerine açık biçimde sunulur.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);

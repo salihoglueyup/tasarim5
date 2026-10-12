@@ -133,7 +133,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     termCode: 'sla-garantisi',
     name: 'SLA (Hizmet Seviyesi Taahhüdü)',
     category: 'Kalite & Yönetim',
-    description: 'Tesis yönetiminde acil arızalara müdahale süresi (örn: 15-25 dakika), temizlik periyotları ve güvenlik devriye frekanslarını yazılı sözleşme garantisine bağlayan taahhüttür.',
+    description: 'Tesis yönetiminde acil arızalara müdahale süresi (örn: sözleşmede belirlenen süre), temizlik periyotları ve güvenlik devriye frekanslarını yazılı sözleşme garantisine bağlayan taahhüttür.',
     legalBasis: 'Hizmet Seviyesi Sözleşmesi (SLA) & ISO 41001',
     wikidataUri: 'https://www.wikidata.org/wiki/Q853516',
     canonicalUrl: `${BASE_URL}/hizmetler/tesis-yonetimi`,

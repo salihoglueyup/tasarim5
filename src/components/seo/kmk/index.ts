@@ -8,10 +8,7 @@ export { default as KMKLegalTemplateGeneratorSeo } from './KMKLegalTemplateGener
 export { default as KMKLegislationNavigatorSeo } from './KMKLegislationNavigatorSeo';
 export { default as KMKOperatingBudgetGuideSeo } from './KMKOperatingBudgetGuideSeo';
 export { default as KMKLegalDisputesQAPageSeo } from './KMKLegalDisputesQAPageSeo';
-export { default as KMKAuditProtocolSeo } from './KMKAuditProtocolSeo';
 export { default as MevzuatReferenceSeo } from './MevzuatReferenceSeo';
 export { default as SiteLegalClaimReviewsSeo } from './SiteLegalClaimReviewsSeo';
 export { default as AcademicCitationBoxSeo } from './AcademicCitationBoxSeo';
-export { default as ThreeWayManagementComparisonSeo } from './ThreeWayManagementComparisonSeo';
-export { default as SiteVsFacilityComparisonSeo } from './SiteVsFacilityComparisonSeo';
 export { default as ManagementTransitionRoadmapSeo } from './ManagementTransitionRoadmapSeo';

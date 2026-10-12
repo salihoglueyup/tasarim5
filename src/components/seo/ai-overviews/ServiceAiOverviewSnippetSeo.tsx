@@ -41,8 +41,8 @@ export const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
     keyPoints: [
       { label: 'Asansör Denetimi', value: 'Yıllık A Tipi Akredite' },
       { label: 'Kırmızı Etiket', value: 'Maks 60 Günde Revizyon' },
-      { label: 'Reaktif Ceza', value: '%0 Ceza Garantisi' },
-      { label: 'Acil İntikal', value: '15-20 Dk Mobil SLA' },
+      { label: 'Reaktif Ceza', value: 'Ceza Riskini Azaltma' },
+      { label: 'Acil İntikal', value: 'Yazılı SLA ile Mobil Müdahale' },
     ],
   },
   'temizlik-ve-hijyen': {
@@ -68,7 +68,7 @@ export const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
       { label: 'Gecikme Oranı', value: 'Aylık %5 Emredici Yasal' },
       { label: 'İhtarname Şartı', value: 'Noter Şartı Aranmaz' },
       { label: 'İcra Gücü', value: 'İİK 68 Borç İkrarı Belgesi' },
-      { label: 'Tahsilat Başarısı', value: '%99.4 Dijital Tahsilat' },
+      { label: 'Tahsilat Başarısı', value: 'Dijital Tahsilat' },
     ],
   },
   'havuz-bakimi-ve-hijyen': {
@@ -94,7 +94,7 @@ export const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
       { label: 'Seçim Nisabı', value: 'Sayı ve Arsa Payı %50+1' },
       { label: 'Yasal Görev', value: 'KMK 35 Şeffaf İşletim' },
       { label: 'İşletme Projesi', value: 'KMK 37 (7 Günde Kesinleşme)' },
-      { label: 'Tasarruf', value: '%30 Net Bütçe Tasarrufu' },
+      { label: 'Tasarruf', value: 'Bütçe Verimliliği' },
     ],
   },
   'tesis-yonetimi': {
@@ -107,7 +107,7 @@ export const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
       { label: 'Uluslararası Standart', value: 'ISO 41001:2018' },
       { label: 'Operasyon Alanı', value: 'Teknik, Güvenlik, Hijyen' },
       { label: 'Enerji Yönetimi', value: '%0 Reaktif Ceza & Otomasyon' },
-      { label: 'Acil İntikal', value: '15-20 Dk Mobil Teknik Filo' },
+      { label: 'Acil İntikal', value: 'Mobil Teknik Ekip' },
     ],
   },
 };
@@ -129,7 +129,7 @@ export default function ServiceAiOverviewSnippetSeo({
       keyPoints: [
         { label: 'Yasal Standart', value: '634 Sayılı KMK' },
         { label: 'Yönetim Sistemi', value: 'ISO 41001:2018' },
-        { label: 'Acil İntikal', value: '15-20 Dk Mobil SLA' },
+        { label: 'Acil İntikal', value: 'Yazılı SLA ile Mobil Müdahale' },
         { label: 'Bütçe Tasarrufu', value: '%30 Kanıtlanmış Tasarruf' },
       ],
     };

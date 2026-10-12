@@ -24,7 +24,7 @@ const DEFAULT_ROWS = [
   },
   {
     title: "Önleyici Teknik Bakım & SLA",
-    alo: "Asansör, hidrofor, jeneratör ve yangın sistemlerinin periyodik takvimi ve 30 dk acil müdahale.",
+    alo: "Asansör, hidrofor, jeneratör ve yangın sistemlerinin periyodik takvimi ve yazılı SLA kapsamında acil müdahale.",
     trad: "Arıza çıkınca günlerce usta beklenen ve yüksek fatura çıkarılan acil tamirler."
   },
   {
@@ -44,7 +44,7 @@ const DEFAULT_ROWS = [
   },
   {
     title: "SLA & Memnuniyet Taahhüdü",
-    alo: "Yazılı Hizmet Seviyesi Sözleşmesi (SLA), 7/24 çağrı merkezi ve %99.4 memnuniyet.",
+    alo: "Yazılı Hizmet Seviyesi Sözleşmesi (SLA) ve çağrı merkezi desteği.",
     trad: "Telefonlara çıkmayan, sorunlara haftalarca dönüş yapmayan amatör yönetim."
   }
 ];
@@ -85,7 +85,7 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
                   {t('cmpx_4', 'Alo Yönetim')}
                 </h3>
                 <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
-                  {t('cmpx_5', 'Kurumsal & Dijital & %100 Şeffaf')}
+                  {t('cmpx_5', 'Kurumsal & Dijital & Şeffaf')}
                 </span>
               </div>
               <Icon name="verified" className="text-4xl text-emerald-500" />

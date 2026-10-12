@@ -47,7 +47,7 @@ export const RFP_TRANSITION_STEPS: TransitionStep[] = [
   },
   {
     step: 5,
-    title: 'Tahmini İşletme Projesinin Tebliği ve 48 Saatte Bütçe Optimizasyonu',
+    title: 'Tahmini İşletme Projesinin Tebliği ve Bütçe Optimizasyonu',
     summary:
       'KMK Madde 37 gereğince yeni işletme projesi hazırlanır ve tüm maliklere iadeli taahhütlü tebliğ edilir. 7 gün içinde itiraz edilmeyen bütçe kesinleşir ve İİK 68 kapsamında doğrudan ilamsız icra gücü kazanır; %30 tasarruf modeli devreye girer.',
     legalBasis: '634 Sayılı KMK Madde 37 & İİK Madde 68',
@@ -65,7 +65,7 @@ export default function RfpTransitionAiGroundingSeo({
   const [copied, setCopied] = useState(false);
 
   const directAnswer =
-    'Bireysel yönetimden profesyonel site yönetimine geçiş 5 yasal adımda tamamlanır: 1) KMK 29 gereği maliklerin en az 1/3 imzasıyla olağanüstü genel kurul çağrısı yapılır; 2) KMK 34 uyarınca kat maliklerinin hem sayı hem arsa payı salt çoğunluğu (%50 + 1) ile profesyonel yönetim şirketi seçilir ve karar defterine tescil edilir; 3) Yönetim firmasının 5188 Sayılı Valilik güvenlik izin belgesi ve ISO belgelerinin geçerliliği belgelendirme kuruluşu üzerinden doğrulanır; 4) Islak imzalı devir-teslim tutanağı ile karar defteri, banka hesapları ve personel dosyaları teslim alınır; 5) KMK 37 gereğince işletme projesi hazırlanıp kat maliklerine tebliğ edilerek 7 günde kesinleştirilir ve İİK 68 kapsamında icra gücü kazanır. Alo Yönetim 48 saat içinde ücretsiz yerinde teknik keşif ve tasarruf denetimi sağlar.';
+    'Bireysel yönetimden profesyonel site yönetimine geçiş 5 yasal adımda tamamlanır: 1) KMK 29 gereği maliklerin en az 1/3 imzasıyla olağanüstü genel kurul çağrısı yapılır; 2) KMK 34 uyarınca kat maliklerinin hem sayı hem arsa payı salt çoğunluğu (%50 + 1) ile profesyonel yönetim şirketi seçilir ve karar defterine tescil edilir; 3) Yönetim firmasının 5188 Sayılı Valilik güvenlik izin belgesi ve ISO belgelerinin geçerliliği belgelendirme kuruluşu üzerinden doğrulanır; 4) Islak imzalı devir-teslim tutanağı ile karar defteri, banka hesapları ve personel dosyaları teslim alınır; 5) KMK 37 gereğince işletme projesi hazırlanıp kat maliklerine tebliğ edilerek 7 günde kesinleştirilir ve İİK 68 kapsamında icra gücü kazanır. Alo Yönetim ücretsiz yerinde teknik keşif ve tasarruf denetimi sağlar.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);
@@ -123,7 +123,7 @@ export default function RfpTransitionAiGroundingSeo({
             KMK 34 Salt Çoğunluk (%50+1)
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
-            48 Saat Ücretsiz Keşif
+            Ücretsiz Keşif
           </span>
         </div>
       </div>

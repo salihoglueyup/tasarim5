@@ -87,7 +87,7 @@ const EQUIPMENT_DATA: EquipmentItem[] = [
     name: 'Yapay Zeka Plaka Tanıma (PTS) & Bariyer Ağı',
     category: 'Tesis Giriş & Otopark Otomasyonu',
     icon: Scan,
-    badge: '%99.4 Okuma Başarısı',
+    badge: 'Plaka Okuma',
     tagline: 'Milimetrik hızla araç tanıma, misafir davet kodları ve yasaklı araç kara liste kalkanı.',
     description: 'Derin öğrenme modelleriyle kirli, eğik veya karanlıkta kalan plakaları 0.3 saniyede çözen, bariyer otomasyonu ile entegre ve Polisin Asayiş / Çalıntı Araç veri tabanı entegrasyonuna hazır altyapı.',
     specs: [

@@ -9,9 +9,7 @@ import { autoLinkHtml } from '@/lib/autoLinker';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs } from '@/lib/schemas';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
-import SectoralRoiCalculatorSeo from '@/components/seo/facility/SectoralRoiCalculatorSeo';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
-import SectorHubAiOverviewSeo from '@/components/seo/ai-overviews/SectorHubAiOverviewSeo';
 
 
 import Icon from '@/components/ui/branding/Icon';
@@ -192,7 +190,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
         {/* GOOGLE AI OVERVIEWS • SEKTÖREL ÇÖZÜMLER HUB OTORİTESİ                     */}
         {/* ========================================================================= */}
         <TrOnly>
-          <SectorHubAiOverviewSeo lang={lang} />
+          {null}
         </TrOnly>
 
         {/* Özet rehber */}
@@ -439,7 +437,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
 
         {/* 3 Yıllık Sektörel ROI & Tasarruf Matrisi */}
         <TrOnly>
-          <SectoralRoiCalculatorSeo />
+          {null}
         </TrOnly>
 
         {/* FAQ Accordion */}

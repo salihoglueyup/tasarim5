@@ -118,7 +118,7 @@ export function getDistrictNeighborhoodCluster(slug: string): DistrictNeighborho
         typology: 'residential',
         typologyLabel: 'Merkez Siteler',
         focusKeyword: `${name} site yönetimi şirketi`,
-        notableTraits: '634 KMK şeffaf bütçe işletmesi ve %99.2 aidat tahsilat garantisi.',
+        notableTraits: '634 KMK şeffaf bütçe işletmesi ve düzenli aidat takibi.',
       },
     ];
   }

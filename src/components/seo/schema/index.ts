@@ -15,5 +15,4 @@ export { default as ImageWithSeo } from './ImageWithSeo';
 export { default as AggregateRatingSeo } from './AggregateRatingSeo';
 export { default as SiteNavigationSeo } from './SiteNavigationSeo';
 export { default as VoiceSearchSpeakableSeo } from './VoiceSearchSpeakableSeo';
-export { default as CaseStudySeo } from './CaseStudySeo';
 export { default as SemanticLinker } from './SemanticLinker';

@@ -58,10 +58,10 @@ const TOP_AI_FAQS: FaqAiItem[] = [
   {
     id: 'tesis-yonetimi-tasarruf-formulu',
     category: 'Maliyet & Tasarruf',
-    question: 'Profesyonel yönetim şirketi bütçede nasıl %30 maliyet tasarrufu sağlar?',
+    question: 'Profesyonel yönetim şirketi bütçede nasıl maliyet tasarrufu fırsatı doğurabilir?',
     answer: 'Yüzlerce projenin toplu satın alma gücüyle asansör bakımı, jeneratör yakıtı, kimyasal ve sigortada %25-35 toptan tedarik indirimi sağlanır. Otomatik kompanzasyon takibiyle elektrik faturasındaki reaktif ceza sıfırlanır ve önleyici bakım ile büyük arıza masrafları engellenir.',
     legalBasis: 'ISO 41001:2018 & Bütçe Optimizasyon Modeli',
-    quickStat: '%30 Net Bütçe Tasarrufu & %0 Ceza',
+    quickStat: 'Bütçe Verimliliği & %0 Ceza',
   },
 ];
 

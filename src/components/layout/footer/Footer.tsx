@@ -365,8 +365,6 @@ export default function Footer() {
               <span>•</span>
               <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/rehber')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_guide')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/acik-veri')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_open_data')}</Link>
-              <span>•</span>
               <a href="/openapi.json" target="_blank" rel="noopener noreferrer" className="font-mono text-emerald-600 dark:text-emerald-400 hover:underline inline-block py-1 px-1.5 rounded" title={t('ft_openapi_title')}>OpenAPI 3.1 JSON</a>
             </div>
           </div>

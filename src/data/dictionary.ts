@@ -412,12 +412,6 @@ export const TERMS: Term[] = [
     link: { href: '/hizmetler/tesis-yonetimi/rehber', label: 'Tesis yönetimi ihale rehberi' },
   },
   {
-    term: 'Tesis Yönetimi Açık Veri Standartları (Open Data)',
-    definition:
-      'Sektörel SLA, enerji tüketimi (ISO 50001), norm kadro ve bütçe kalemlerinin şeffaflık amacıyla makine taranabilir (JSON/OpenAPI) standartlarla kamuya açılmasıdır.',
-    link: { href: '/hizmetler/tesis-yonetimi/acik-veri', label: 'Tesis açık veri portalı' },
-  },
-  {
     term: 'Hazirun Cetveli',
     definition:
       'Kat malikleri kurulu genel kurul toplantılarına asaleten katılan malikler ile vekaleten katılan temsilcilerin bağımsız bölüm numarası, arsa payı oranı ve ıslak imzalarını içeren resmi yoklama cetvelidir. 634 sayılı Kat Mülkiyeti Kanunu (KMK) m.29 ve m.30 gereğince toplantı yeter sayısı (%50+1) ve karar yeter sayısının sağlandığını kanıtlayan en temel yasal belgedir. Mahkeme iptal davalarında ilk incelenen resmi evraktır.',

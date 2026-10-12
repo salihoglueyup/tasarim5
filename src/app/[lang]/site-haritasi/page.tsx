@@ -66,7 +66,6 @@ export default async function SiteHaritasiPage({
     { href: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi', title: 'Toplu Konut & TOKİ Yönetimi' },
     { href: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi', title: 'Sanayi & Fabrika Tesis Yönetimi' },
     { href: '/hizmetler/tesis-yonetimi/rehber', title: 'Tesis Yönetim Şirketi Seçim Rehberi' },
-    { href: '/hizmetler/tesis-yonetimi/acik-veri', title: 'Tesis Yönetimi Açık Veri & API Portalı' },
   ];
 
   return (
@@ -91,7 +90,6 @@ export default async function SiteHaritasiPage({
               <li><Link href="/sss" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Sıkça Sorulan Sorular</Link></li>
               <li><Link href="/sozluk" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">KMK & Tesis Sözlüğü</Link></li>
               <li><Link href="/hizmetler/tesis-yonetimi/rehber" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors font-medium">Tesis Yönetimi Seçim Rehberi</Link></li>
-              <li><Link href="/hizmetler/tesis-yonetimi/acik-veri" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors font-medium">Açık Veri & API Portalı</Link></li>
               <li><Link href="/hesaplayici" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Akıllı Aidat Hesaplayıcı</Link></li>
               <li><Link href="/guvenlik-akademisi" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">5188 Güvenlik Akademisi</Link></li>
               <li><Link href="/referanslar" className="text-slate-600 dark:text-slate-400 hover:text-slate-500 transition-colors">Referanslarımız</Link></li>

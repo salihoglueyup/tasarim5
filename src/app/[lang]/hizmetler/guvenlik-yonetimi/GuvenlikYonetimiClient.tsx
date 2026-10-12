@@ -3,12 +3,8 @@
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import ServiceSeo from '@/components/seo/schema/ServiceSeo';
-import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import HowToSeo from '@/components/seo/schema/HowToSeo';
-import SecurityTrustBadgeGridSeo from '@/components/seo/facility/SecurityTrustBadgeGridSeo';
-import SecurityComparisonTableSeo from '@/components/seo/facility/SecurityComparisonTableSeo';
-import SecurityTechMatrixSeo from '@/components/seo/facility/SecurityTechMatrixSeo';
 import DistrictSecurityClusterSeo from '@/components/seo/district/DistrictSecurityClusterSeo';
 import InteractiveSecurityRiskRadarSeo from '@/components/seo/facility/InteractiveSecurityRiskRadarSeo';
 import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
@@ -17,10 +13,8 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import RelatedArticles from '@/components/blog/RelatedArticles';
-import SecurityCalculator from '@/components/sections/calculators/SecurityCalculator';
 import SecurityTestimonials from '@/components/sections/testimonials/SecurityTestimonials';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
-import SiteSecurityPermitGuideSeo from '@/components/seo/district/SiteSecurityPermitGuideSeo';
 import EmergencyDisasterAuditSeo from '@/components/seo/facility/EmergencyDisasterAuditSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
@@ -130,12 +124,6 @@ export default function GuvenlikYonetimiClient() {
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: `${t('sec_banner_title_1') || 'Profesyonel'} <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">${t('sec_banner_title_highlight') || 'Güvenlik Yönetimi'}</span> ${t('sec_banner_title_2') || 've Tesis Emniyeti'}` }} />
             
-            <AggregateRatingSeo 
-              itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Profesyonel Güvenlik Yönetimi' }}
-              ratingValue={4.9}
-              reviewCount={284}
-              className="mt-2"
-            />
 
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('sec_banner_desc') || 'Sertifikalı güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri ile sitenizi veya tesisinizi güvence altına alıyoruz.'}
@@ -151,10 +139,6 @@ export default function GuvenlikYonetimiClient() {
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-24">
         
-        {/* Security Calculator */}
-        <div className="-mt-20 md:-mt-32 relative z-30">
-          <SecurityCalculator />
-        </div>
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
 <TrOnly>
@@ -164,7 +148,7 @@ export default function GuvenlikYonetimiClient() {
           question="5188 Sayılı Kanun Kapsamında Sitelerde Özel Güvenlik Nedir ve Neleri Kapsar?"
           answer="5188 sayılı Kanun kapsamında site özel güvenliği; Valilik ve İl Özel Güvenlik Komisyonu izinli, üniformalı ve lisanslı personelle yürütülen fiziki ve teknik koruma hizmetidir. Yetkisiz bekçi modelinin aksine kimlik sorma, dedektörle arama, suçüstü yakalama ve genel kollukla anlık koordinasyon yasal yetkilerine sahiptir."
           standardBadge="5188 Sayılı Kanun & Valilik İzni"
-          subText="Alo Yönetim, 5188 lisanslı güvenlik personeli, CCTV analitiği ve plaka tanıma sistemi ile sitenizde %100 yasal güvence ve sıfır kıdem tazminatı riski sağlar."
+          subText="Alo Yönetim, 5188 lisanslı güvenlik personeli, CCTV analitiği ve plaka tanıma sistemi ile sitenizde yasal uyum ve kıdem tazminatı riskinin yönetilmesi sağlar."
           accentColor="blue"
         />
 </TrOnly>
@@ -270,7 +254,7 @@ export default function GuvenlikYonetimiClient() {
                   <span>🚨</span> GPS Destekli Devriye & Gece Teftiş Masası
                 </span>
                 <p className="text-[var(--color-secondary)]">
-                  Karekodlu ve RFID etiketli saatlik devriye kontrol turları, GPS konum takibi ve merkez operasyon müdürlerince habersiz gece denetimleri ile sıfır zafiyet garantisi.
+                  Karekodlu ve RFID etiketli saatlik devriye kontrol turları, GPS konum takibi ve merkez operasyon müdürlerince habersiz gece denetimleri ile zafiyetleri azaltma hedefi.
                 </p>
               </div>
 
@@ -300,7 +284,7 @@ export default function GuvenlikYonetimiClient() {
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                   <Icon name="verified" className="text-lg" />
                 </span>
-                <span>%100 Valilik İzni & Yasal Güvence</span>
+                <span>Valilik İzni & Yasal Uyum</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                 İl Özel Güvenlik Komisyonu ruhsatlandırma, karar defteri onayları ve yasal izin süreçlerinin anahtar teslim yürütülmesi.
@@ -312,7 +296,7 @@ export default function GuvenlikYonetimiClient() {
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Icon name="timer" className="text-lg" />
                 </span>
-                <span>45 Dakika SLA Acil Müdahale</span>
+                <span>Yazılı SLA ile Acil Müdahale</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                 İstanbul genelinde mobil devriye amirlikleri, acil destek ekipleri ve kolluk kuvvetleriyle entegre hızlı asayiş müdahalesi.
@@ -336,7 +320,7 @@ export default function GuvenlikYonetimiClient() {
 
         {/* 5188 Yasal Ruhsatlar & Akreditasyon Şeması */}
 <TrOnly>
-        <SecurityTrustBadgeGridSeo />
+        {null}
 </TrOnly>
 
         {/* 6 Bento Grid Cards with Staggered Animation */}
@@ -377,12 +361,12 @@ export default function GuvenlikYonetimiClient() {
 
         {/* Karar Matrisi: Bireysel Bekçi vs 5188 Lisanslı Özel Güvenlik */}
 <TrOnly>
-        <SecurityComparisonTableSeo />
+        {null}
 </TrOnly>
 
         {/* Yapay Zeka & Donanım Teknolojileri Ekosistemi */}
 <TrOnly>
-        <SecurityTechMatrixSeo />
+        {null}
 </TrOnly>
 
 <TrOnly>
@@ -567,7 +551,7 @@ export default function GuvenlikYonetimiClient() {
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
                   <Icon name="payments" className="text-xl" />
                 </div>
-                <h3 className="text-lg font-bold text-[var(--color-primary)]">%100 Alo Yönetim Bordro Güvencesi</h3>
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">Bordro ve Mevzuat Uyumu</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   Tüm güvenlik personeli şirketimizin resmi bordrosundadır. Kıdem, ihbar, yıllık izin ve SGK yükümlülükleri tamamen şirketimize aittir.
                 </p>
@@ -611,7 +595,7 @@ export default function GuvenlikYonetimiClient() {
       {/* 5188 Sayılı Kanun Sitelerde Özel Güvenlik Kurulum & Valilik İzinleri Rehberi */}
       <div className="py-12 bg-slate-900/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SiteSecurityPermitGuideSeo />
+          {null}
         </div>
       </div>
 </TrOnly>

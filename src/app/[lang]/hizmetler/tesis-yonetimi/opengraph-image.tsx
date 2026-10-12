@@ -74,7 +74,7 @@ export default async function Image({ params }: { params: Promise<{ lang?: strin
               fontWeight: 'bold',
             }}
           >
-            <span>★ 4.9 / 5.0 (312+ Tesis)</span>
+            <span>2009'dan beri · 39 İlçe</span>
           </div>
         </div>
 

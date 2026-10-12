@@ -3,7 +3,6 @@
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import ServiceSeo from '@/components/seo/schema/ServiceSeo';
-import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import HowToSeo from '@/components/seo/schema/HowToSeo';
 import { Card } from '@/components/ui/primitives/Card';
@@ -12,7 +11,6 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import GTMDataLayer from '@/components/seo/schema/GTMDataLayer';
 import RelatedArticles from '@/components/blog/RelatedArticles';
-import DuesCalculator from '@/components/sections/calculators/DuesCalculator';
 import DuesTestimonials from '@/components/sections/testimonials/DuesTestimonials';
 import InteractiveCostSimulatorSeo from '@/components/seo/facility/InteractiveCostSimulatorSeo';
 import Image from 'next/image';
@@ -98,15 +96,9 @@ export default function AidatTakibiClient() {
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_dues_hero_title') || 'Online Aidat Takibi & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Şeffaf Muhasebe</span>' }} />
             
-            <AggregateRatingSeo 
-              itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Online Aidat Takibi ve Finansal Yönetim' }}
-              ratingValue={4.9}
-              reviewCount={310}
-              className="mt-2"
-            />
 
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
-              {t('dues_banner_desc') || '%99 tahsilat oranı, anında online kartla ödeme ve sıfır bakiye hatası ile sitenizin tüm mali süreçlerini güvence altına alın.'}
+              {t('dues_banner_desc') || 'Online kartla ödeme ve şeffaf bakiye takibiyle sitenizin mali süreçlerini düzenli yürütün.'}
             </p>
             <div className="flex gap-4 mt-8">
               <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
@@ -119,10 +111,6 @@ export default function AidatTakibiClient() {
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
-        {/* Dues Calculator */}
-        <div className="-mt-20 md:-mt-32 relative z-30">
-          <DuesCalculator />
-        </div>
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
 <TrOnly>
@@ -132,7 +120,7 @@ export default function AidatTakibiClient() {
           question="Apartman ve Site Aidat Takibi Nedir ve Yasal Süreç Nasıl İşler?"
           answer="Aidat takibi; KMK Madde 20 ve 37 kapsamında sitenin ortak gider bütçesinin bağımsız bölümlere paylaştırılması ve dijital tahsilatıdır. Tebliğden itibaren 7 gün içinde itiraz edilmeyen işletme projesi İİK Madde 68 uyarınca kesinleşir; ödenmeyen aidatlara aylık yasal %5 gecikme tazminatı işletilerek ilamsız icra takibi açılır."
           standardBadge="KMK Madde 20 & İİK Madde 68"
-          subText="Alo Yönetim, Apsiyon entegrasyonu, kredi kartıyla 7/24 online ödeme ve kurumsal hukuk desteğiyle sitelerde %99.2 yıllık tahsilat oranı sağlar."
+          subText="Alo Yönetim, Apsiyon entegrasyonu, kredi kartıyla 7/24 online ödeme ve kurumsal hukuk desteğiyle sitelerde düzenli aidat takibi sağlar."
           accentColor="emerald"
         />
 </TrOnly>
@@ -268,7 +256,7 @@ export default function AidatTakibiClient() {
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Icon name="trending_up" className="text-lg" />
                 </span>
-                <span>%99 Ortalama Tahsilat Başarısı</span>
+                <span>Düzenli Tahsilat Takibi</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                 Zamanında hatırlatma, kredi kartı kolaylığı ve kurumsal takip sistemi ile aidatların aksamadan toplanması.
@@ -280,7 +268,7 @@ export default function AidatTakibiClient() {
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center shrink-0">
                   <Icon name="gavel" className="text-lg" />
                 </span>
-                <span>%100 KMK 634 Mevzuat Güvencesi</span>
+                <span>KMK 634 Mevzuat Uyumu</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                 Resmi işletme projesi tebliği ve İİK m.68 kapsamında itiraz edilemez yasal icra takip altyapısı.

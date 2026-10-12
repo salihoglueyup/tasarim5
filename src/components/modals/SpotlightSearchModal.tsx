@@ -134,20 +134,11 @@ export default function SpotlightSearchModal() {
         icon: <BookOpen className="w-4 h-4 text-slate-600 dark:text-slate-400" />,
       },
       {
-        id: 'api-facility-open-data',
-        title: 'Tesis Yönetimi Açık Veri & API Explorer',
-        category: 'API',
-        url: localePath(`/hizmetler/tesis-yonetimi/acik-veri`, language),
-        description: '8 adet açık REST JSON API, RFC 7946 GeoJSON, OpenAPI 3.1 spesifikasyonu ve LLM facts portalı.',
-        searchIndex: 'tesis yonetimi acik veri api explorer openapi json geojson rest llm facts harita developer endpoint'.toLowerCase(),
-        icon: <Code2 className="w-4 h-4 text-slate-600 dark:text-slate-400" />,
-      },
-      {
         id: 'map-istanbul-39-districts',
         title: 'İstanbul 39 İlçe Tesis Yönetimi Haritası & SLA Radarı',
         category: 'İlçe',
         url: localePath(`/bolgeler`, language),
-        description: '39 ilçe interaktif tesis radarı, 45 dk SLA acil müdahale süreleri ve GPS koordinatları.',
+        description: '39 ilçe interaktif tesis radarı, yazılı SLA acil müdahale hedefleri ve GPS koordinatları.',
         searchIndex: 'istanbul 39 ilce tesis yonetimi haritasi anadolu avrupa sla acil mudahale gps radar bolgeler interaktif'.toLowerCase(),
         icon: <Compass className="w-4 h-4 text-rose-600 dark:text-rose-400" />,
       }
@@ -213,7 +204,7 @@ export default function SpotlightSearchModal() {
         title: `${d.name} Tesis & Site Yönetimi`,
         category: 'İlçe',
         url: localePath(`/bolgeler/${d.slug}`, language),
-        description: `İstanbul ${d.side === 'Anadolu' ? 'Anadolu' : 'Avrupa'} Yakası ${d.name} bölgesi profesyonel bina ve tesis yönetimi, 45 dk SLA.`,
+        description: `İstanbul ${d.side === 'Anadolu' ? 'Anadolu' : 'Avrupa'} Yakası ${d.name} bölgesi profesyonel bina ve tesis yönetimi, yazılı SLA kapsamında.`,
         searchIndex: `${d.name} ${d.side} tesis yonetimi site yonetimi ilce bolge istanbul sla acil kolay erisim`.toLowerCase(),
         icon: <MapPin className="w-4 h-4 text-emerald-500" />,
       });

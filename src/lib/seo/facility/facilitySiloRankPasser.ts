@@ -51,7 +51,7 @@ export const FACILITY_SUB_SECTORS: Array<{
   {
     slug: 'toplu-konut-yonetimi',
     name: 'Toplu Konut & TOKİ Yönetimi',
-    shortDesc: '%25-33 aidat tasarrufu, KMK uyumlu toplu yapı idaresi.',
+    shortDesc: 'aidat verimliliği, KMK uyumlu toplu yapı idaresi.',
     icon: 'domain',
     keywords: ['toplu konut yönetimi', 'toki site yönetimi', 'kitlesel konut'],
   },

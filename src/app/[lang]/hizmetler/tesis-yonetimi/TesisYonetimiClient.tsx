@@ -4,41 +4,22 @@ import React, { useState } from 'react';
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import ServiceSeo from '@/components/seo/schema/ServiceSeo';
-import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import HowToSeo from '@/components/seo/schema/HowToSeo';
 import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
-import FacilityComparisonMatrixSeo from '@/components/seo/facility/FacilityComparisonMatrixSeo';
 import FacilityLegalTemplateGeneratorSeo from '@/components/seo/facility/FacilityLegalTemplateGeneratorSeo';
 import FacilityGroupSecurityTrustSeo from '@/components/seo/facility/FacilityGroupSecurityTrustSeo';
 import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSectorCrossNav';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDownloadModalSeo';
-import ChecklistAuditSeo from '@/components/seo/facility/ChecklistAuditSeo';
-import FacilityBeforeAfterCasesSeo from '@/components/seo/facility/FacilityBeforeAfterCasesSeo';
 import FacilityDownloadableVaultSeo from '@/components/seo/facility/FacilityDownloadableVaultSeo';
-import FacilityDistrictPortfolioSeo from '@/components/seo/facility/FacilityDistrictPortfolioSeo';
-import FacilityOperationalPillarsSeo from '@/components/seo/facility/FacilityOperationalPillarsSeo';
-import FacilityBudgetStaffSimulatorSeo from '@/components/seo/facility/FacilityBudgetStaffSimulatorSeo';
-import SiteVsFacilityComparisonSeo from '@/components/seo/kmk/SiteVsFacilityComparisonSeo';
 import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
-import FacilityCorporateB2BHubSeo from '@/components/seo/facility/FacilityCorporateB2BHubSeo';
 import AcademicCitationBoxSeo from '@/components/seo/kmk/AcademicCitationBoxSeo';
-import ServicePricingCatalogSeo from '@/components/seo/facility/ServicePricingCatalogSeo';
-import FacilityAnnualMaintenanceScheduleSeo from '@/components/seo/facility/FacilityAnnualMaintenanceScheduleSeo';
-import FacilityEnergyEvChargingSeo from '@/components/seo/facility/FacilityEnergyEvChargingSeo';
-import DistrictUtilityTransferGuideSeo from '@/components/seo/district/DistrictUtilityTransferGuideSeo';
-import FacilityOccupationalHealthSafetySeo from '@/components/seo/facility/FacilityOccupationalHealthSafetySeo';
 import { FacilityOfficialEntityTrustSeo } from '@/components/seo/facility/FacilityOfficialEntityTrustSeo';
-import { FacilityCommercialTiersSeo } from '@/components/seo/facility/FacilityCommercialTiersSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
-import FacilityEcosystemMatrixSeo from '@/components/seo/facility/FacilityEcosystemMatrixSeo';
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
-import FacilityLegalClaimReviewsSeo from '@/components/seo/facility/FacilityLegalClaimReviewsSeo';
-import LegalFactCheckAiSeo from '@/components/seo/ai-overviews/LegalFactCheckAiSeo';
 import FacilityStickySubnav from '@/components/seo/facility/FacilityStickySubnav';
 
-import CaseStudySeo from '@/components/seo/schema/CaseStudySeo';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
@@ -73,7 +54,7 @@ export default function TesisYonetimiClient() {
     },
     {
       question: t('fac_faq_3_q') || 'Yönetim devir süreci ne kadar sürer ve site sakinleri etkilenir mi?',
-      answer: t('fac_faq_3_a') || 'Devir teslim süreci ortalama 48 saat içinde tamamlanır. Mevcut hizmetlerde hiçbir kesinti yaşanmadan, tüm sistemler ve personel entegrasyonu pürüzsüzce gerçekleştirilir.'
+      answer: t('fac_faq_3_a') || 'Devir teslim süreci ortalama tamamlanır. Mevcut hizmetlerde hiçbir kesinti yaşanmadan, tüm sistemler ve personel entegrasyonu pürüzsüzce gerçekleştirilir.'
     },
     ...[4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => ({
       question: t(`fy_faq_${n}_q` as Parameters<typeof t>[0]),
@@ -125,12 +106,6 @@ export default function TesisYonetimiClient() {
             </span>
             <h1 id="facility-hero-h1" className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight drop-shadow-sm" dangerouslySetInnerHTML={{ __html: t('serv_fac_hero_title') || '<span class="text-white block drop-shadow-sm">Entegre ve Profesyonel</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-white to-slate-300 drop-shadow-md block">Tesis Yönetimi</span>' }} />
             
-            <AggregateRatingSeo 
-              itemReviewed={{ '@type': 'ProfessionalService', name: `Alo Yönetim - ${t('serv_fac_name') || 'Tesis Yönetimi'}` }}
-              ratingValue={4.9}
-              reviewCount={312}
-              className="mt-2"
-            />
 
             <p className="text-lg md:text-xl text-white/90 font-light max-w-2xl mt-4">
               {t('fac_banner_desc') || 'Apartman, site, plaza ve tesisler için 7/24 güvenlik, temizlik, teknik bakım, peyzaj ve şeffaf aidat takibi. ISO ve 5188 lisanslı kurumsal güvence.'}
@@ -182,7 +157,7 @@ export default function TesisYonetimiClient() {
           question="Tesis Yönetimi Nedir ve Neleri Kapsar?"
           answer="Tesis Yönetimi (Facility Management); konut siteleri, çok katlı rezidanslar, plazalar ve sanayi tesislerinin 5188 lisanslı güvenlik, 7/24 kestirimci teknik bakım, endüstriyel temizlik, şeffaf aidat muhasebesi ve 634 sayılı KMK hukuki danışmanlık operasyonlarının tek bir kurumsal merkezden entegre olarak yönetilmesidir."
           standardBadge="634 Sayılı KMK"
-          subText="Alo Yönetim, uluslararası entegre tesis yönetimi ile işletme bütçelerinde %20-30 net tasarruf ve kritik arızalara 45 dakika acil teknik müdahale SLA garantisi sunar."
+          subText="Alo Yönetim, uluslararası entegre tesis yönetimi ile işletme bütçelerinde tasarruf fırsatı ve yazılı SLA kapsamında acil teknik müdahale sunar."
           accentColor="slate"
         />
 
@@ -265,7 +240,7 @@ export default function TesisYonetimiClient() {
                   <span>⚙️</span> Kestirimci & Önleyici Teknik Mühendislik Servisi
                 </Link>
                 <p className="text-[var(--color-secondary)]">
-                  Asansörlerin A tipi muayene kuruluşu (MMO/TÜRKAK) yeşil etiket koordinasyonu, senkron jeneratör grupları, yangın algılama ve sprinkler sistemleri, hidrofor ve su arıtma tesisatları, BMS bina otomasyonu ve kompanzasyon panosu yönetimi ile %0 reaktif enerji cezası taahhüdü ve 45 dakika acil teknik müdahale SLA garantisi.
+                  Asansörlerin A tipi muayene kuruluşu (MMO/TÜRKAK) yeşil etiket koordinasyonu, senkron jeneratör grupları, yangın algılama ve sprinkler sistemleri, hidrofor ve su arıtma tesisatları, BMS bina otomasyonu ve kompanzasyon panosu yönetimi ile %0 reaktif enerji cezası taahhüdü ve yazılı SLA kapsamında acil teknik müdahale.
                 </p>
               </div>
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
@@ -278,10 +253,10 @@ export default function TesisYonetimiClient() {
               </div>
             </div>
             <p>
-              Tesislerimizde hayata geçirdiğimiz enerji verimliliği projeleri kapsamında; ortak aydınlatmalarda LED ve sensör dönüşümü, kompanzasyon panosu optimizasyonu ile <strong className="text-[var(--color-primary)] font-semibold">%100 reaktif ceza muafiyeti</strong>, hidrofor basınç optimizasyonu ve çatı Güneş Enerjisi Santrali (GES) fizibilite danışmanlığı sağlanır. 7/24 kesintisiz çalışan dijital sakin mobil uygulamamız sayesinde kat malikleri; tüm gelir-gider faturalarını, kasa/banka bakiyelerini, bağımsız denetim raporlarını ve teknik arıza loglarını anlık olarak şeffaflıkla denetleyebilir.
+              Tesislerimizde hayata geçirdiğimiz enerji verimliliği projeleri kapsamında; ortak aydınlatmalarda LED ve sensör dönüşümü, kompanzasyon panosu optimizasyonu ile <strong className="text-[var(--color-primary)] font-semibold">reaktif ceza riskinin azaltılması</strong>, hidrofor basınç optimizasyonu ve çatı Güneş Enerjisi Santrali (GES) fizibilite danışmanlığı sağlanır. 7/24 kesintisiz çalışan dijital sakin mobil uygulamamız sayesinde kat malikleri; tüm gelir-gider faturalarını, kasa/banka bakiyelerini, bağımsız denetim raporlarını ve teknik arıza loglarını anlık olarak şeffaflıkla denetleyebilir.
             </p>
             <p>
-              Alo Yönetim ile çalışan tesislerde; yüzlerce projenin yarattığı toplu satın alma gücü, önleyici teknik bakım disiplini ve sıfır reaktif enerji cezası sayesinde ortak işletme bütçelerinde <strong className="text-emerald-600 dark:text-emerald-400 font-bold">%25 ile %35 arasında net tasarruf</strong> elde edilir. Aynı zamanda kat malikleri kurullarının ve bina yöneticilerinin şahsi hukuki ve cezai sorumlulukları, personel kıdem/ihbar tazminatı riskleri ve İSG yükümlülükleri şirketimizin kurumsal tüzel kişilik güvencesi altına alınarak tamamen sıfırlanır, gayrimenkulün piyasa değeri ve prestiji korunur.
+              Alo Yönetim ile çalışan tesislerde; toplu satın alma yöntemleri, önleyici teknik bakım disiplini ve reaktif enerji cezası riskinin azaltılması sayesinde ortak işletme bütçelerinde <strong className="text-emerald-600 dark:text-emerald-400 font-bold">tasarruf fırsatı</strong> elde edilir. Aynı zamanda kat malikleri kurullarının ve bina yöneticilerinin şahsi hukuki ve cezai sorumlulukları, personel kıdem/ihbar tazminatı riskleri ve İSG yükümlülükleri şirketimizin kurumsal tüzel kişilik güvencesi altına alınarak tamamen sıfırlanır, gayrimenkulün piyasa değeri ve prestiji korunur.
             </p>
           </div>
 
@@ -292,10 +267,10 @@ export default function TesisYonetimiClient() {
                 <span className="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                   <Icon name="trending_down" className="text-lg" />
                 </span>
-                <span>%25 - %35 Bütçe Tasarrufu</span>
+                <span>Bütçe Verimliliği</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Yüzlerce projenin toplu tedarik gücü, sıfır reaktif elektrik cezası ve planlı önleyici teknik bakım güvencesi.
+                Toplu tedarik yöntemleri, reaktif ceza riskinin azaltılması ve planlı önleyici teknik bakım güvencesi.
               </p>
             </div>
 
@@ -319,7 +294,7 @@ export default function TesisYonetimiClient() {
                 <span>7/24 Şeffaf Mobil Yönetim</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                iOS/Android sakin uygulaması, banka entegrasyonlu canlı gelir-gider takibi ve 45 dakika SLA acil mobil servis.
+                iOS/Android sakin uygulaması, banka entegrasyonlu canlı gelir-gider takibi ve yazılı SLA kapsamında acil mobil servis.
               </p>
             </div>
           </div>
@@ -330,25 +305,25 @@ export default function TesisYonetimiClient() {
 <TrOnly>
       {/* 2. BÖLÜM: 9 Disiplin & Hizmet Kapsamı */}
       <section id="hizmet-kapsami" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
-        <FacilityEcosystemMatrixSeo />
+        {null}
 
         {/* T.C. Resmi Kurumsal Varlık (Entity) & 5188 Güvenlik Ruhsatı Künyesi */}
         <FacilityOfficialEntityTrustSeo />
 
         {/* 4'lü B2B Tesis Yönetimi Hizmet Segmentleri & Kapsam Matrisi */}
-        <FacilityCommercialTiersSeo />
+        {null}
 
         {/* Wave 57: Sektörel Operasyonel Derinlik & Saha Protokolleri Matrisi */}
-        <FacilityOperationalPillarsSeo />
+        {null}
 
         {/* Site Yönetimi ile Tesis Yönetimi Arasındaki Fark Nedir? (SERP Tablosu) */}
-        <SiteVsFacilityComparisonSeo currentPillar="facility" />
+        {null}
 
         {/* Mülk Tipinize Özel Çözümler (Sub-Sector Hub) */}
         <FacilitySubSectorCrossNav />
 
         {/* ISO 41001 & B2B Kurumsal Tesis Yönetimi Hub'ı */}
-        <FacilityCorporateB2BHubSeo />
+        {null}
       </section>
 </TrOnly>
 
@@ -416,7 +391,7 @@ export default function TesisYonetimiClient() {
             <AnimatePresence mode="wait">
               {activeToolTab === 'simulator' && (
                 <motion.div key="simulator" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
-                  <FacilityBudgetStaffSimulatorSeo />
+                  {null}
                 </motion.div>
               )}
               {activeToolTab === 'rfp' && (
@@ -426,7 +401,7 @@ export default function TesisYonetimiClient() {
               )}
               {activeToolTab === 'audit' && (
                 <motion.div key="audit" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
-                  <ChecklistAuditSeo />
+                  {null}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -457,15 +432,15 @@ export default function TesisYonetimiClient() {
 
         {/* Kıyaslama & Güvenlik Matrisleri */}
         <div className="space-y-12">
-          <FacilityComparisonMatrixSeo />
+          {null}
           <FacilityGroupSecurityTrustSeo />
         </div>
 
         {/* Kanıtlanmış Başarı & Müşteri Deneyimi */}
         <div className="space-y-16">
-          <FacilityBeforeAfterCasesSeo />
+          {null}
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
-            <CaseStudySeo />
+            {null}
           </div>
           <FacilityTestimonials />
         </div>
@@ -550,9 +525,9 @@ export default function TesisYonetimiClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <InstantAnswerCardSeo
               question="Profesyonel Tesis Yönetimi Şirketi ile Çalışmak Aidatları ve Giderleri Nasıl Düşürür?"
-              shortAnswer="Profesyonel tesis yönetimi firmaları, yüzlerce projeden oluşan satın alma gücü sayesinde asansör bakımı, jeneratör yakıtı, temizlik kimyasalları ve sigorta gibi ortak gider kalemlerinde %25 ile %35 arasında toptan fiyat avantajı sağlar. Ayrıca önleyici teknik bakım ile büyük arıza masraflarını önler ve reaktif güç cezalarını %100 engelleyerek doğrudan aidat yükünü düşürür."
+              shortAnswer="Profesyonel tesis yönetimi firmaları, toplu satın alma yöntemleri sayesinde asansör bakımı, jeneratör yakıtı, temizlik kimyasalları ve sigorta gibi ortak gider kalemlerinde %25 ile %35 arasında toptan fiyat avantajı sağlar. Ayrıca önleyici teknik bakım ile büyük arıza masraflarını önler ve reaktif güç cezalarını %100 engelleyerek doğrudan aidat yükünü düşürür."
               bulletPoints={[
-                'Toplu tedarik gücü ile malzeme, bakım ve sigorta primlerinde %30 tasarruf.',
+                'Toplu tedarik gücü ile malzeme, bakım ve sigorta primlerinde tasarruf fırsatı.',
                 'Kompanzasyon panosu ve sayaç takibiyle elektrikte %0 reaktif ceza güvencesi.',
                 'Kapıcı/personel kıdem tazminatı yükü kat maliklerinin üzerinden alınır.',
                 'Otomatik SMS ve kredi kartlı tahsilat ile bütçe açığı ve faiz yükü sıfırlanır.'
@@ -580,8 +555,8 @@ export default function TesisYonetimiClient() {
               bulletPoints={[
                 'ISO belgelerinin akreditasyonu, geçerlilik tarihi ve belgelendirme kuruluşu üzerinden doğrulanmalıdır.',
                 '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi şirket adına tescilli olmalıdır.',
-                'Kıdem tazminatı ve SGK işveren yükümlülüklerinin şirket garantisinde olduğu sözleşmede yer almalıdır.',
-                'Acil teknik arızalarda maksimum 45 dakika SLA müdahale taahhüdü aranmalıdır.'
+                'Kıdem tazminatı ve SGK işveren yükümlülüklerinin şirket sorumluluğunda olduğu sözleşmede yer almalıdır.',
+                'Acil teknik arızalarda maksimum yazılı SLA ile müdahale süresi taahhüdü aranmalıdır.'
               ]}
               lawArticle="ISO 41001:2018 & 5188 Sayılı Özel Güvenlik Kanunu"
               verifiedBy="Alo Yönetim Kalite & Akreditasyon Direktörlüğü"
@@ -604,11 +579,11 @@ export default function TesisYonetimiClient() {
         </div>
 
         {/* Sitelerde 6331 İSG Kanunu, Risk Analizi ve Acil Durum Ekipleri Rehberi */}
-        <FacilityOccupationalHealthSafetySeo />
+        {null}
 
         {/* Teknik ve hukuki doğrulamalar */}
-        <FacilityLegalClaimReviewsSeo />
-        <LegalFactCheckAiSeo />
+        {null}
+        {null}
 
         {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}
         <ServiceAuthorityHubSeo
@@ -666,7 +641,7 @@ export default function TesisYonetimiClient() {
       {/* 5. BÖLÜM: Yıllık Periyodik Bakım, Enerji & Altyapı Yönetimi */}
       <section id="bakim-ve-enerji" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         {/* ISO 41001 & Tesis Yönetimi 12 Aylık Periyodik Bakım ve Denetim Takvimi */}
-        <FacilityAnnualMaintenanceScheduleSeo />
+        {null}
 
         {/* Binalarda Enerji, EV Şarj & Altyapı Sayaç Devir Kılavuzu (Tabbed Hub) */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-6 sm:p-10 shadow-sm relative overflow-hidden">
@@ -715,12 +690,12 @@ export default function TesisYonetimiClient() {
             <AnimatePresence mode="wait">
               {activeUtilityTab === 'ev' && (
                 <motion.div key="ev" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
-                  <FacilityEnergyEvChargingSeo />
+                  {null}
                 </motion.div>
               )}
               {activeUtilityTab === 'utility' && (
                 <motion.div key="utility" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
-                  <DistrictUtilityTransferGuideSeo />
+                  {null}
                 </motion.div>
               )}
             </AnimatePresence>
@@ -733,15 +708,12 @@ export default function TesisYonetimiClient() {
       <section id="fiyat-ve-sss" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
         {/* Kurumsal Plaza & Tesis Yönetimi Fiyatlandırma Kataloğu */}
 <TrOnly>
-        <ServicePricingCatalogSeo
-          pageUrl="/hizmetler/tesis-yonetimi"
-          categoryFilter="commercial"
-        />
+        {null}
 </TrOnly>
 
         {/* 39 İlçe Hub & Spoke Tesis Yönetimi Portföy Ağı */}
 <TrOnly>
-        <FacilityDistrictPortfolioSeo />
+        {null}
 </TrOnly>
 
         {/* Sıkça Sorulan Sorular */}

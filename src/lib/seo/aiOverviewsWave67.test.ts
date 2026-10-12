@@ -1,10 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import AppAiOverviewGroundingSeo from '@/components/seo/ai-overviews/AppAiOverviewGroundingSeo';
 import GlossaryAiOverviewSeo from '@/components/seo/ai-overviews/GlossaryAiOverviewSeo';
-import SectorHubAiOverviewSeo from '@/components/seo/ai-overviews/SectorHubAiOverviewSeo';
 import { APP_CORE_FEATURES } from '@/components/seo/ai-overviews/AppAiOverviewGroundingSeo';
 import { TOP_GLOSSARY_TERMS } from '@/components/seo/ai-overviews/GlossaryAiOverviewSeo';
-import { SECTOR_GROUND_TRUTH_LIST } from '@/components/seo/ai-overviews/SectorHubAiOverviewSeo';
 import { GET as getAiTelemetry } from '@/app/api/seo/ai-telemetry.json/route';
 import { GET as getLlmsTxt } from '@/app/llms.txt/route';
 import { GET as getLlmsFullTxt } from '@/app/llms-full.txt/route';
@@ -28,20 +26,6 @@ describe('Wave 67: Google AI Overviews Full-Power Grounding Expansion & AI Telem
       expect(TOP_GLOSSARY_TERMS.some((g) => g.term.includes('Arsa Payı'))).toBe(true);
       expect(TOP_GLOSSARY_TERMS.some((g) => g.term.includes('Bağımsız Bölüm'))).toBe(true);
       expect(TOP_GLOSSARY_TERMS.some((g) => g.term.includes('Gecikme Tazminatı'))).toBe(true);
-    });
-
-    it('contains 5 core sector groundings under ISO and legal standards', () => {
-      expect(SECTOR_GROUND_TRUTH_LIST.length).toBe(5);
-      const res = SECTOR_GROUND_TRUTH_LIST.find((s) => s.id === 'rezidans');
-      const plaza = SECTOR_GROUND_TRUTH_LIST.find((s) => s.id === 'plaza');
-      const avm = SECTOR_GROUND_TRUTH_LIST.find((s) => s.id === 'avm');
-      const sanayi = SECTOR_GROUND_TRUTH_LIST.find((s) => s.id === 'sanayi');
-
-      expect(res).toBeDefined();
-      expect(res?.standard).toContain('ISO 41001');
-      expect(plaza?.standard).toContain('ISO 50001');
-      expect(avm?.standard).toContain('5188 SK');
-      expect(sanayi?.kpi).toContain('Sıfır İş Kazası');
     });
   });
 

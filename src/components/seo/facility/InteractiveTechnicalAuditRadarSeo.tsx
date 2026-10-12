@@ -235,7 +235,7 @@ export default function InteractiveTechnicalAuditRadarSeo({ districtName }: { di
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-600 hover:bg-slate-500 text-white text-sm font-semibold transition-all shadow-md shadow-slate-600/20 hover:scale-[1.02]"
               >
                 <Icon name="engineering" className="text-base" />
-                Ücretsiz 48 Saatlik Teknik Keşif İste
+                Ücretsiz Teknik Keşif İste
               </Link>
               <a
                 href="tel:+902165504848"

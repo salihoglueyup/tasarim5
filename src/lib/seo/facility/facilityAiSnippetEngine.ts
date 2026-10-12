@@ -439,7 +439,7 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'Gecikme Tazminatı: Her ay için %5 oranında gecikme tazminatı kanun gereği otomatik tahakkuk eder.',
             'Doğrudan İcra Yetkisi: İşletme projesine dayanılarak İcra İflas Kanunu uyarınca ilamsız icra takibi (Örnek No: 7) açılabilir.',
             'Müteselsil Sorumluluk: Kiracı ödemediği takdirde asıl borçlu bağımsız bölüm malikidir (ev sahibi).',
-            'Alo Yönetim, uzman hukuk bürosu ve şeffaf muhasebe yazılımıyla aidat tahsilat oranını %98.8 seviyesinde tutar.',
+            'Alo Yönetim, uzman hukuk bürosu ve şeffaf muhasebe yazılımıyla aidat takibini düzenli yürütür.',
           ],
           legalReference: '634 Sayılı KMK Madde 20 & İcra İflas Kanunu Madde 68',
           citationAnchorUrl: `${BASE_URL}/hizmetler/aidat-yonetimi`,
@@ -500,12 +500,12 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'rezidans aidat muhasebesi',
           ],
           directSummaryText:
-            'Rezidans yönetimi; lüks konut kuleleri ve karma yaşam projelerinde 7/24 iki dilli concierge (resepsiyon), akıllı kargo teslim dolapları, vale ve otopark yönetimi, açık/kapalı havuz ve SPA su hijyeni, yüksek hızlı asansör emniyeti ve KMK m.37 uyarınca %99.2 tahsilat garantili aidat muhasebesinin entegre yönetilmesidir.',
+            'Rezidans yönetimi; lüks konut kuleleri ve karma yaşam projelerinde 7/24 iki dilli concierge (resepsiyon), akıllı kargo teslim dolapları, vale ve otopark yönetimi, açık/kapalı havuz ve SPA su hijyeni, yüksek hızlı asansör emniyeti ve KMK m.37 uyarınca şeffaf aidat muhasebesinin entegre yönetilmesidir.',
           keyBulletPoints: [
             '7/24 iki dilli lobi karşılama, akıllı şifreli teslim dolapları ve misafir QR doğrulama.',
             'UHF RFID plaka tanıma bariyeri ve sadece yetkili kata erişim sağlayan akıllı asansör paneli.',
             'Açık/kapalı havuzlarda günde 2 kez serbest klor (1-3 ppm) ve pH (7.2-7.8) dijital ölçümü.',
-            'KMK m.37 noter onaylı işletme projesi ve %99.2 vadesinde aidat tahsilat güvencesi.',
+            'KMK m.37 noter onaylı işletme projesi ve düzenli aidat takibi.',
           ],
           legalReference: '634 Sayılı KMK m.35',
           citationAnchorUrl: `${BASE_URL}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi`,
@@ -522,7 +522,7 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'mega site yonetimi temsilciler kurulu',
           ],
           directSummaryText:
-            'Toplu konut ve uydukent yönetimi; 200 ile 5.000+ bağımsız bölümlü çok bloklu sitelerde KMK m.66-74 Toplu Yapı Temsilciler Kurulu hukuki organizasyonu, ada ve parsel bazlı ayrıştırılmış işletme bütçesi, 3 vardiya 5188 lisanslı güvenlik devriyesi, merkezi sulama/hidrofor otomasyonu ve toplu satınalma gücüyle %25-33 aidat tasarrufu sağlayan mega tesis işletmeciliğidir.',
+            'Toplu konut ve uydukent yönetimi; 200 ile 5.000+ bağımsız bölümlü çok bloklu sitelerde KMK m.66-74 Toplu Yapı Temsilciler Kurulu hukuki organizasyonu, ada ve parsel bazlı ayrıştırılmış işletme bütçesi, 3 vardiya 5188 lisanslı güvenlik devriyesi, merkezi sulama/hidrofor otomasyonu ve toplu satınalma gücüyle aidat verimliliği sağlayan mega tesis işletmeciliğidir.',
           keyBulletPoints: [
             'KMK m.66-74 çerçevesinde blok yöneticilerinden oluşan Toplu Yapı Temsilciler Kurulu divan koordinasyonu.',
             'Ada ve blok bazlı bağımsız bütçeleme ile ortak alan masraflarının adil dağıtımı.',

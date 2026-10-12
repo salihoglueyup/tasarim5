@@ -51,7 +51,7 @@ export function serviceSchema(opts: {
         ? opts.offers
         : [
             { name: `${opts.serviceType} Keşif & Danışmanlık`, description: 'Yerinde ücretsiz fizibilite ve teknik durum tespiti.' },
-            { name: `7/24 Operasyonel ${opts.serviceType}`, description: 'Sözleşmeli ve SLA garantili kurumsal hizmet yönetimi.' },
+            { name: `7/24 Operasyonel ${opts.serviceType}`, description: 'Sözleşmeli ve yazılı SLA kapsamında kurumsal hizmet yönetimi.' },
             { name: `${opts.serviceType} Denetim & Raporlama`, description: 'Mobil uygulama üzerinden anlık denetim ve şeffaf tutanaklar.' },
           ]
       ).map((o) => ({

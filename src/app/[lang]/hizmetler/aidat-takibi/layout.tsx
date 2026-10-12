@@ -10,7 +10,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: "Online Aidat Takibi ve Finansal Yönetim",
     description:
-      "Site ve apartmanlar için %99 tahsilat oranlı dijital aidat takip programı, online kredi kartı ile ödeme, otomatik banka entegrasyonu ve şeffaf muhasebe yönetimi.",
+      "Site ve apartmanlar için dijital aidat takip programı, online kredi kartı ile ödeme, otomatik banka entegrasyonu ve şeffaf muhasebe yönetimi.",
     path: "/hizmetler/aidat-takibi",
     lang,
     ogImageType: 'service',

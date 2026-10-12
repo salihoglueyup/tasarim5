@@ -171,7 +171,7 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
       standardCode: 'ISO 41001:2018 (Madde 8.2)',
       domain: 'Sürdürülebilirlik & Enerji',
       kpiTitle: 'Ortak Alan Enerji Tüketim Azaltımı',
-      benchmarkTarget: '%20 - %30 Net Tasarruf',
+      benchmarkTarget: '%20 - Tasarruf Fırsatı',
       measurementFrequency: 'Çeyreklik Enerji Analiz Raporu',
     },
     {

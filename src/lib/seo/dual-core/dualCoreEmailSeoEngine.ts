@@ -84,7 +84,7 @@ Alo Yönetim olarak; 5188 güvenlik, endüstriyel temizlik, BMS destekli mekanik
 
 Apartman ve sitelerde yaşanan aidat anlaşmazlıkları, aksayan temizlik ve bulunamayan ustalar artık geride kaldı.
 
-Alo Yönetim olarak; 634 sayılı Kat Mülkiyeti Kanunu'na tam uyumlu işletme projeleri, %99.2 aidat tahsilat başarısı ve 25 dakikada acil teknik müdahale güvencesi sağlıyoruz.`,
+Alo Yönetim olarak; 634 sayılı Kat Mülkiyeti Kanunu'na tam uyumlu işletme projeleri, şeffaf aidat takibi ve yazılı SLA kapsamında acil teknik müdahale güvencesi sağlıyoruz.`,
     primaryCTA: {
       text: isFacility ? 'Ücretsiz Tesis Denetim Raporu İsteyin' : '30 Gün Ücretsiz Site Yönetimi Teklifi Alın',
       url: `${BASE_URL}/teklif-al?${new URLSearchParams(utm as unknown as Record<string, string>).toString()}`,
@@ -112,7 +112,7 @@ export function buildLeadNurtureSequence(segment: EmailSegment, touchpointStep: 
     {
       stepNumber: 2,
       dayDelay: 3,
-      subject: 'Aidat Tahsilatında %99.2 Başarı Nasıl Yakalanır?',
+      subject: 'Aidat Takibinde Düzen Nasıl Sağlanır?',
       headline: 'Dijital Aidat Takibi ve Yasal İcra Desteği',
       keyTakeaway: 'Geciken aidatlara aylık %5 gecikme tazminatı uygulanmalıdır.',
       ctaText: 'Online Aidat Sistemini İnceleyin',

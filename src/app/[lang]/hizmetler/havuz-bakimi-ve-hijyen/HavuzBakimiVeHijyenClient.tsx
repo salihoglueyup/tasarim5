@@ -3,7 +3,6 @@
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import ServiceSeo from '@/components/seo/schema/ServiceSeo';
-import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import HowToSeo from '@/components/seo/schema/HowToSeo';
 import { Card } from '@/components/ui/primitives/Card';
@@ -12,11 +11,9 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import GTMDataLayer from '@/components/seo/schema/GTMDataLayer';
 import RelatedArticles from '@/components/blog/RelatedArticles';
-import PoolCalculator from '@/components/sections/calculators/PoolCalculator';
 import PoolTestimonials from '@/components/sections/testimonials/PoolTestimonials';
 import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
-import FacilityPoolHealthGuideSeo from '@/components/seo/facility/FacilityPoolHealthGuideSeo';
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 
@@ -97,12 +94,6 @@ export default function HavuzBakimiVeHijyenClient() {
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_pool_hero_title') || 'Yüzme Havuzu Bakımı & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Kimyasal Şartlandırma</span>' }} />
             
-            <AggregateRatingSeo 
-              itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Havuz Bakımı ve Hijyen' }}
-              ratingValue={4.9}
-              reviewCount={165}
-              className="mt-2"
-            />
 
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('pool_banner_desc') || 'Uzman havuz operatörlerimizle sezonluk ve yıllık periyodik havuz bakımı, su analizi ve kimyasal şartlandırma.'}
@@ -118,10 +109,6 @@ export default function HavuzBakimiVeHijyenClient() {
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
         
-        {/* Pool Calculator */}
-        <div className="-mt-20 md:-mt-32 relative z-30">
-          <PoolCalculator />
-        </div>
 
         {/* Google Position Zero & AI Overviews Hızlı Yanıt Kutusu */}
 <TrOnly>
@@ -168,7 +155,7 @@ export default function HavuzBakimiVeHijyenClient() {
 
         {/* Sağlık Bakanlığı ve TSE 11899 Havuz Sağlık ve Kimyasal Rehberi (Faz 14) */}
 <TrOnly>
-        <FacilityPoolHealthGuideSeo />
+        {null}
 </TrOnly>
 
         {/* Pool Specific Social Proof */}

@@ -79,7 +79,7 @@ export default function RezidansYonetimiClient() {
           id="rezidans-yonetimi-nedir"
           answerId="residence-instant-answer-text"
           question="Rezidans Yönetimi Nedir ve Lüks Sitelerde Neleri Kapsar?"
-          answer="Rezidans yönetimi; lüks konut kuleleri ve karma yaşam projelerinde 7/24 iki dilli concierge (resepsiyon), akıllı kargo teslim dolapları, vale ve otopark yönetimi, açık/kapalı havuz ve SPA su hijyeni, yüksek hızlı asansör emniyeti ve KMK m.37 uyarınca %99.2 tahsilat garantili aidat muhasebesinin entegre yönetilmesidir."
+          answer="Rezidans yönetimi; lüks konut kuleleri ve karma yaşam projelerinde 7/24 iki dilli concierge (resepsiyon), akıllı kargo teslim dolapları, vale ve otopark yönetimi, açık/kapalı havuz ve SPA su hijyeni, yüksek hızlı asansör emniyeti ve KMK m.37 uyarınca şeffaf aidat muhasebesinin entegre yönetilmesidir."
           standardBadge="7/24 Concierge & VIP İşletme"
           subText="Alo Yönetim, 5 yıldızlı otel konforunda rezidans işletmeciliği ile kat maliklerinin yaşam kalitesini artırırken bağımsız bölümlerin gayrimenkul değerini maksimize eder."
           accentColor="amber"
@@ -228,7 +228,7 @@ export default function RezidansYonetimiClient() {
           {
             slug: "rezidans-luks-site-yonetimi-standartlari",
             term: "7/24 Rezidans Concierge & Vale",
-            summary: "Rezidans sakinlerine özel kurye emaneti, misafir karşılama ve garantili vale otopark koordinasyonudur."
+            summary: "Rezidans sakinlerine özel kurye emaneti, misafir karşılama ve koordineli vale otopark koordinasyonudur."
           },
           {
             slug: "plaka-tanima-sistemi-pts",

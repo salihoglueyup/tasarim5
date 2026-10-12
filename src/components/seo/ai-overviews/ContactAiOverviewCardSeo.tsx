@@ -10,7 +10,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
 
   const question = 'Alo Yönetim İletişim Numaraları ve Acil Teknik İntikal Süresi Kaç Dakikadır?';
   const directAnswer =
-    'Alo Yönetim Genel Merkez çağrı merkezi 0216 550 48 48 üzerinden 7 gün 24 saat kesintisiz hizmet vermektedir. İstanbul’un 39 ilçesinde 12 stratejik bölgede konuşlu gezici teknik servis filomuz; asansörde mahsur kalma, ana hat su baskını, yangın alarmı ve jeneratör durması gibi acil arızalarda Anadolu Yakası’nda ortalama 15 dakika, Avrupa Yakası’nda ortalama 20 dakika içinde tesise yerinde fiziki müdahale garantisi (SLA) sunmaktadır.';
+    'Alo Yönetim Genel Merkez çağrı merkezi 0216 550 48 48 üzerinden ulaşılabilir. İstanbul’un 39 ilçesinde asansörde mahsur kalma, ana hat su baskını, yangın alarmı ve jeneratör durması gibi acil arızalarda yazılı SLA kapsamında müdahale hedefimiz Anadolu Yakası’nda 30 dakika, Avrupa Yakası’nda 1 saattir.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);
@@ -93,10 +93,10 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
         </div>
         <div className="flex items-center gap-2">
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60">
-            Anadolu: 15 Dk SLA
+            Anadolu: 30 dk
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-[var(--color-surface-variant)] text-[var(--color-secondary)] border border-[var(--color-outline)]/60">
-            Avrupa: 20 Dk SLA
+            Avrupa: 1 saat
           </span>
         </div>
       </div>
@@ -148,7 +148,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
       <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[var(--color-outline)]/60 relative z-10">
         <div className="flex items-center gap-2 text-xs text-[var(--color-tertiary)]">
           <Icon name="speed" className="text-sm" />
-          <span>12 Bölge Gezici Mobil Teknik Filosu ile 15-20 Dakika Ortalama İntikal</span>
+          <span>Mobil Teknik Ekiplerle Yazılı SLA Kapsamında İntikal</span>
         </div>
 
         <div className="flex items-center gap-2">

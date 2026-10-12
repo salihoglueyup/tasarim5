@@ -3,7 +3,6 @@
 import RelatedServices from '@/components/sections/trust/RelatedServices';
 import SeoTextSection from '@/components/sections/trust/SeoTextSection';
 import ServiceSeo from '@/components/seo/schema/ServiceSeo';
-import AggregateRatingSeo from '@/components/seo/schema/AggregateRatingSeo';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import { Card } from '@/components/ui/primitives/Card';
 import Link from 'next/link';
@@ -92,12 +91,6 @@ export default function HukukVeIcraDanismanligiClient() {
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_legal_hero_title') || 'Hukuk & İcra Danışmanlığı <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Yasal Çözüm Ortaklığı</span>' }} />
             
-            <AggregateRatingSeo 
-              itemReviewed={{ '@type': 'ProfessionalService', name: 'Alo Yönetim - Hukuk ve İcra Danışmanlığı' }}
-              ratingValue={4.9}
-              reviewCount={176}
-              className="mt-2"
-            />
 
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
               {t('legal_banner_desc') || 'Aidat borçlarının hukuki yollarla tahsili, sözleşme hazırlıkları ve genel kurul yasal süreç yönetimleri.'}
