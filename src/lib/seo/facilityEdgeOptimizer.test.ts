@@ -37,22 +37,4 @@ describe('Tesis Yönetimi İleri Düzey Backend SEO Motorları', () => {
     });
   });
 
-  describe('Otonom Tesis SEO & 39 İlçe Silo Denetçisi (facilityAutonomousAuditor.ts)', () => {
-    it('39 ilçenin tamamını denetler ve 85+ genel SEO sağlık skoru verir', () => {
-      const audit = runFacilityAutonomousAudit();
-
-      expect(audit.totalDistrictsAudited).toBe(39);
-      expect(audit.overallSeoHealthScore).toBeGreaterThanOrEqual(85);
-      expect(audit.hubStatus.hasSchemas).toBe(true);
-      expect(audit.hubStatus.hasPrecedents).toBe(true);
-      expect(audit.hubStatus.hasRfpGenerator).toBe(true);
-      expect(audit.hubStatus.has39DistrictGrid).toBe(true);
-
-      // Kadıköy ilçesi kontrolü
-      const kadikoy = audit.districtReports.find((r) => r.districtSlug === 'kadikoy');
-      expect(kadikoy).toBeDefined();
-      expect(kadikoy?.duesAvg).toBeGreaterThan(0);
-      expect(kadikoy?.serpTitle).toContain('Tesis Yönetimi');
-    });
-  });
 });

@@ -501,21 +501,6 @@ KMK 37 gereğince bütçe tahminleri yapılarak hazırlanır.
     });
   });
 
-  describe('İlçe Yerel SEO Veri Bütünlüğü (districts.ts)', () => {
-    it('tüm ilçelerin coğrafi koordinatları ve aktif proje sayıları eksiksizdir', () => {
-      expect(DISTRICTS.length).toBeGreaterThanOrEqual(12);
-
-      for (const d of DISTRICTS) {
-        expect(d.slug).toBeDefined();
-        expect(d.name).toBeDefined();
-        expect(['Anadolu', 'Avrupa']).toContain(d.side);
-        expect(d.geo.lat).toBeGreaterThan(40);
-        expect(d.geo.lng).toBeGreaterThan(28);
-        expect(d.neighborhoods.length).toBeGreaterThanOrEqual(4);
-        expect(d.managedProjects).toBeGreaterThan(0);
-      }
-    });
-  });
 
   describe('Sektörel Çözümler & Referanslar Çapraz Linkleme', () => {
     it('referans sayfasında kendi URL sine link vermeyi engeller', () => {

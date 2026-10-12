@@ -144,25 +144,6 @@ export default async function SectoralSolutionDetailPage({
 
   const authorityLd = generateVerifiedAuthorityGraph();
 
-  const calculateActionLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
-    name: `${solution.title} Canlı Tesis Bütçe & Tasarruf Simülatörü`,
-    url: 'https://aloyonetim.com.tr/api/tesis-yonetimi/calculate-budget',
-    applicationCategory: 'BusinessApplication',
-    potentialAction: {
-      '@type': 'CalculateAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `https://aloyonetim.com.tr/api/tesis-yonetimi/calculate-budget?sector=${solution.slug}`,
-      },
-      result: {
-        '@type': 'FinancialProduct',
-        name: `${solution.title} Yıllık İşletme Projesi ve Tasarruf Raporu`,
-      },
-    },
-  };
-
   const rfpDocumentLd = {
     '@context': 'https://schema.org',
     '@type': 'DigitalDocument',
@@ -176,7 +157,7 @@ export default async function SectoralSolutionDetailPage({
 
   return (
     <>
-      <JsonLd data={[breadcrumbLd, serviceLd, pageLd, authorityLd, calculateActionLd, rfpDocumentLd]} />
+      <JsonLd data={[breadcrumbLd, serviceLd, pageLd, authorityLd, rfpDocumentLd]} />
 
       <PageHeader
         title={solution.title}

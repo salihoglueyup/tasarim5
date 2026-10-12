@@ -10,12 +10,10 @@ import HowToSeo from '@/components/seo/schema/HowToSeo';
 import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
 import FacilityComparisonMatrixSeo from '@/components/seo/facility/FacilityComparisonMatrixSeo';
 import FacilityLegalTemplateGeneratorSeo from '@/components/seo/facility/FacilityLegalTemplateGeneratorSeo';
-import FacilityLegalPrecedentsBrowserSeo from '@/components/seo/facility/FacilityLegalPrecedentsBrowserSeo';
 import FacilityGroupSecurityTrustSeo from '@/components/seo/facility/FacilityGroupSecurityTrustSeo';
 import FacilitySubSectorCrossNav from '@/components/seo/facility/FacilitySubSectorCrossNav';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import FacilityRfpDownloadModalSeo from '@/components/seo/facility/FacilityRfpDownloadModalSeo';
-import IstanbulDuesHeatmapSeo from '@/components/seo/district/IstanbulDuesHeatmapSeo';
 import ChecklistAuditSeo from '@/components/seo/facility/ChecklistAuditSeo';
 import FacilityBeforeAfterCasesSeo from '@/components/seo/facility/FacilityBeforeAfterCasesSeo';
 import FacilityDownloadableVaultSeo from '@/components/seo/facility/FacilityDownloadableVaultSeo';
@@ -53,8 +51,8 @@ import TrOnly from '@/components/seo/TrOnly';
 import { localePath } from '@/lib/i18n/localePath';
 export default function TesisYonetimiClient() {
   const { t, language } = useLanguage();
-  const [activeLegalTab, setActiveLegalTab] = useState<'precedents' | 'template'>('precedents');
-  const [activeToolTab, setActiveToolTab] = useState<'simulator' | 'rfp' | 'heatmap' | 'audit'>('simulator');
+  const [activeLegalTab, setActiveLegalTab] = useState<'template'>('template');
+  const [activeToolTab, setActiveToolTab] = useState<'simulator' | 'rfp' | 'audit'>('simulator');
   const [activeUtilityTab, setActiveUtilityTab] = useState<'ev' | 'utility'>('ev');
 
   const legalSteps = [
@@ -400,19 +398,6 @@ export default function TesisYonetimiClient() {
 
               <button
                 type="button"
-                onClick={() => setActiveToolTab('heatmap')}
-                className={`py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                  activeToolTab === 'heatmap'
-                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-md scale-[1.02]'
-                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-surface-variant)]'
-                }`}
-              >
-                <Icon name="map" className="text-lg" />
-                <span>39 İlçe Aidat Isı Haritası</span>
-              </button>
-
-              <button
-                type="button"
                 onClick={() => setActiveToolTab('audit')}
                 className={`py-3 px-3 rounded-xl font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
                   activeToolTab === 'audit'
@@ -437,11 +422,6 @@ export default function TesisYonetimiClient() {
               {activeToolTab === 'rfp' && (
                 <motion.div key="rfp" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
                   <FacilityRfpDownloadModalSeo />
-                </motion.div>
-              )}
-              {activeToolTab === 'heatmap' && (
-                <motion.div key="heatmap" initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -15 }} transition={{ duration: 0.25 }}>
-                  <IstanbulDuesHeatmapSeo />
                 </motion.div>
               )}
               {activeToolTab === 'audit' && (
@@ -514,29 +494,16 @@ export default function TesisYonetimiClient() {
           <div className="text-center max-w-3xl mx-auto mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)] text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
               <Icon name="gavel" className="text-[16px]" />
-              634 KMK & Yargıtay Hukuk Kütüphanesi
+              634 KMK Karar Şablonu
             </div>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)]">
               Kat Mülkiyeti Hukuku & <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] via-slate-600 to-[var(--color-secondary)]">Resmi Belge Masası</span>
             </h3>
             <p className="text-xs sm:text-sm text-[var(--color-secondary)] font-normal mt-1">
-              Yargıtay emsal kararlarını inceleyin veya siteniz için noter onayına uygun genel kurul karar şablonu üretin.
+              Siteniz için genel kurul karar şablonu üretin; son hâli için hukuk danışmanınıza onaylatın.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-2 mt-6 p-1.5 bg-[var(--color-surface-variant)] rounded-2xl border border-[var(--color-outline)]/70 w-fit mx-auto">
-              <button
-                type="button"
-                onClick={() => setActiveLegalTab('precedents')}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-                  activeLegalTab === 'precedents'
-                    ? 'bg-[var(--color-primary)] text-[var(--color-on-primary)] shadow-sm'
-                    : 'text-[var(--color-secondary)] hover:text-[var(--color-primary)]'
-                }`}
-              >
-                <Icon name="policy" className="text-lg" />
-                <span>Yargıtay Emsal Kararları</span>
-              </button>
-
               <button
                 type="button"
                 onClick={() => setActiveLegalTab('template')}
@@ -554,18 +521,6 @@ export default function TesisYonetimiClient() {
 
           <div className="mt-4">
             <AnimatePresence mode="wait">
-              {activeLegalTab === 'precedents' && (
-                <motion.div
-                  key="precedents"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  <FacilityLegalPrecedentsBrowserSeo />
-                </motion.div>
-              )}
-
               {activeLegalTab === 'template' && (
                 <motion.div
                   key="template"

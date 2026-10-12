@@ -19,8 +19,6 @@ export type District = {
   intro: string;
   /** İlçenin tipik konut dokusuna göre yerel yönetim ihtiyaçları. */
   localNeeds: string[];
-  /** Temsili yönetilen proje sayısı (yerel kanıt bloğu — Faz 114). */
-  managedProjects: number;
   /**
    * Önceliklendirme (Faz 113): 1 = en yüksek potansiyel. Yüksek öncelikli
    * ilçeler daha zengin içerik ve kademeli indekslemede öne alınır (Faz 127).
@@ -28,16 +26,6 @@ export type District = {
   priority: 1 | 2 | 3;
   /** Mahalle düzeyinde programatik SEO verisi (Faz 8A — Priority 1 ilçeler). */
   neighborhoodData?: NeighborhoodInfo[];
-  /** Ortalama piyasa aidat m² endeksi (TL/m²). */
-  avgDuesM2?: number;
-  /** Alo Yönetim optimize aidat m² endeksi (TL/m²). */
-  aloDuesM2?: number;
-  /** Ortalama kanıtlanmış tasarruf oranı (%). */
-  savingsRate?: number;
-  /** Wave 56: İlçedeki tahmini toplam konut ve site proje sayısı (şablon kırıcı veri). */
-  totalResidentialSitesEstimated?: number;
-  /** Wave 56: İlçedeki öne çıkan büyük konut / karma yaşam projeleri. */
-  prominentProjects?: string[];
   /** Wave 56: Bölgeye özgü tesis yönetimi karakteristikleri (korozyon, rüzgar, merkezi sistem vb.). */
   regionalFacilityTraits?: string;
 };

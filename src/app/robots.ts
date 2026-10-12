@@ -31,7 +31,6 @@ const AI_BOTS = [
 export default function robots(): MetadataRoute.Robots {
   const allow = [
     '/',
-    '/api/tesis-yonetimi/calculate-budget',
     '/api/search-suggest',
     '/feed/tesis-yonetimi.xml',
     '/image-sitemap.xml',

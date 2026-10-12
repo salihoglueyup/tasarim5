@@ -96,15 +96,6 @@ describe('39 İlçe Çift Çekirdekli Mikro-Lokasyon Matrisi (districtDualCoreMa
       expect(hybridSerp.title).toContain('Tesis Yönetimi & Site Yönetimi');
     });
 
-    it('getTopDistrictsByPillar en kritik ilçeleri proje yoğunluğuna göre sıralar', () => {
-      const topSite = getTopDistrictsByPillar('site', 5);
-      expect(topSite.length).toBe(5);
-      expect(topSite[0].siteCore.estimatedSiteCount).toBeGreaterThan(0);
-
-      const topFacility = getTopDistrictsByPillar('facility', 5);
-      expect(topFacility.length).toBe(5);
-      expect(topFacility[0].facilityCore.estimatedCommercialCount).toBeGreaterThan(0);
-    });
 
     it('getNeighborhoodLongTailKeywords mahalle düzeyinde long-tail anahtar kelimeler üretir', () => {
       const siteNeighborhoods = getNeighborhoodLongTailKeywords('besiktas', 'site');

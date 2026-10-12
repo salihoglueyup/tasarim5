@@ -14,7 +14,6 @@ describe('Wave 10: Faz 226 - Faz 230 API Birim Testleri, Playwright E2E Suite, Ã
     expect(fs.existsSync(apiTestPath)).toBe(true);
 
     const content = fs.readFileSync(apiTestPath, 'utf-8');
-    expect(content).toContain('/api/calculator');
     expect(content).toContain('/api/health');
     expect(content).toContain('/api/lead');
   });

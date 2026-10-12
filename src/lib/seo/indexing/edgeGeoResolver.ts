@@ -1,4 +1,5 @@
-import { DISTRICTS, District, getDistrictDues } from '@/data/districts';
+import { DISTRICTS, District } from '@/data/districts';
+import { emergencyTargetMinutes } from '@/lib/facts';
 import type { NeighborhoodInfo } from '@/data/districts/types';
 import { BASE_URL } from '@/lib/seo';
 
@@ -14,14 +15,8 @@ export interface NearestHubResult {
     slug: string;
     canonicalUrl: string;
     distanceKm: number;
-    neighborhoodSlaMinutes?: number;
     characteristics: string[];
     geo?: { lat: number; lng: number };
-  };
-  duesData: {
-    avgDuesM2: number;
-    aloDuesM2: number;
-    savingsRate: number;
   };
   distanceKm: number;
   estimatedSlaMinutes: number;
@@ -123,14 +118,8 @@ export function findNearestFacilityHub(lat: number, lng: number): NearestHubResu
     nearestDistrict = nearestNeighborhoodDistrict;
   }
 
-  // SLA süresi: İlçe geneli acil müdahale SLA standardı 25 - 45 dakika arası
-  const estimatedSla = Math.min(45, Math.max(25, Math.round(20 + minDistrictDistance * 1.2)));
-  // Mahalle düzeyinde direkt mobil ekip SLA süresi: 15 - 25 dakika
-  const neighborhoodSla = minNeighborhoodDistance <= 3.5
-    ? Math.min(25, Math.max(15, Math.round(15 + minNeighborhoodDistance * 1.5)))
-    : estimatedSla;
-
-  const dues = getDistrictDues(nearestDistrict.slug);
+  // Yazılı SLA kapsamındaki acil teknik müdahale hedefi yakaya göre sabittir (src/lib/facts.ts).
+  const estimatedSla = emergencyTargetMinutes(nearestDistrict.side);
 
   const nearestNeighborhood = nearestNeighborhoodInfo
     ? {
@@ -138,7 +127,6 @@ export function findNearestFacilityHub(lat: number, lng: number): NearestHubResu
         slug: nearestNeighborhoodInfo.slug,
         canonicalUrl: `${BASE_URL}/bolgeler/${nearestDistrict.slug}/mahalleler/${nearestNeighborhoodInfo.slug}`,
         distanceKm: minNeighborhoodDistance === Infinity ? 0 : minNeighborhoodDistance,
-        neighborhoodSlaMinutes: neighborhoodSla,
         characteristics: nearestNeighborhoodInfo.characteristics || [],
         geo: nearestNeighborhoodInfo.geo,
       }
@@ -166,11 +154,6 @@ export function findNearestFacilityHub(lat: number, lng: number): NearestHubResu
       canonicalUrl: `${BASE_URL}/bolgeler/${nearestDistrict.slug}/tesis-yonetimi`,
     },
     nearestNeighborhood,
-    duesData: {
-      avgDuesM2: dues.avgDuesM2,
-      aloDuesM2: dues.aloDuesM2,
-      savingsRate: dues.savingsRate,
-    },
     distanceKm: minDistrictDistance === Infinity ? 0 : minDistrictDistance,
     estimatedSlaMinutes: estimatedSla,
     emergencyHotline: '+90 (216) 550 48 48',

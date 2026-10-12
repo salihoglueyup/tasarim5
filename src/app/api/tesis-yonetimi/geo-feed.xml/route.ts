@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { emergencyTargetMinutes } from '@/lib/facts';
 import { DISTRICTS } from '@/data/districts';
 import { BASE_URL } from '@/lib/seo';
 import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
@@ -41,12 +42,10 @@ export async function GET(req: Request) {
 
   const items = selectedDistricts.map((d) => {
     const url = `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`;
-    const title = `${d.name} Profesyonel Tesis Yönetimi & 7/24 Saha İşletmesi — Alo Yönetim`;
+    const title = `${d.name} Profesyonel Tesis Yönetimi — Alo Yönetim`;
     const neighborhoods = d.neighborhoods.slice(0, 6).join(', ');
-    const slaMinutes = ['kadikoy', 'uskudar'].includes(d.slug) ? 15 : ['atasehir', 'besiktas', 'sisli'].includes(d.slug) ? 20 : 25;
-    const projectsInfo = d.prominentProjects?.length ? ` Örnek projeler: ${d.prominentProjects.join(', ')}.` : '';
-    const sitesInfo = d.totalResidentialSitesEstimated ? ` Bölgesel ${d.totalResidentialSitesEstimated} site stoğu.` : '';
-    const description = `${d.name} (${d.side} Yakası) genelinde ${d.managedProjects}+ aktif projede KMK 634 uyumlu tesis yönetimi, 5188 özel güvenlik, TSE temizlik ve ${slaMinutes} dakika mobil acil müdahale SLA garantisi.${projectsInfo}${sitesInfo} Hizmet verilen mahalleler: ${neighborhoods}.`;
+    const slaMinutes = emergencyTargetMinutes(d.side);
+    const description = `${d.name} (${d.side} Yakası) genelinde KMK 634 uyumlu tesis yönetimi, 5188 özel güvenlik, temizlik ve teknik bakım. Yazılı SLA kapsamında acil müdahale hedefi ${slaMinutes} dakikadır. Hizmet verilen mahalleler: ${neighborhoods}.`;
 
     const districtXml = `
   <item>
@@ -66,8 +65,7 @@ export async function GET(req: Request) {
     <tesis:districtName>${escapeXml(d.name)}</tesis:districtName>
     <tesis:side>${d.side}</tesis:side>
     <tesis:population>${d.population}</tesis:population>
-    <tesis:managedProjects>${d.managedProjects}</tesis:managedProjects>
-    <tesis:slaEmergencyMinutes>${slaMinutes}</tesis:slaEmergencyMinutes>
+    <tesis:slaEmergencyTargetMinutes>${slaMinutes}</tesis:slaEmergencyTargetMinutes>
     <tesis:priority>${d.priority}</tesis:priority>
     <tesis:canonicalOrg>${escapeXml(CANONICAL_NAP.legal.legalName)}</tesis:canonicalOrg>
     <tesis:telephone>${CANONICAL_NAP.contact.phoneDisplay}</tesis:telephone>

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { emergencyTargetMinutes } from '@/lib/facts';
 import { DISTRICTS } from '@/data/districts';
 import { BASE_URL } from '@/lib/seo';
 
@@ -32,11 +33,7 @@ export async function GET(req: Request) {
   }
 
   const features = selectedDistricts.map((d) => {
-    const slaMinutes = ['kadikoy', 'uskudar', 'besiktas', 'sisli', 'atasehir'].includes(d.slug)
-      ? 30
-      : ['bakirkoy', 'maltepe', 'umraniye', 'kartal', 'sariyer'].includes(d.slug)
-      ? 35
-      : 45;
+    const slaMinutes = emergencyTargetMinutes(d.side);
 
     return {
       type: 'Feature' as const,
@@ -50,9 +47,8 @@ export async function GET(req: Request) {
         slug: d.slug,
         side: d.side,
         population: d.population,
-        managedProjects: d.managedProjects,
-        slaMinutes,
-        emergencyResponseTime: `${slaMinutes} Dakika`,
+        emergencyResponseTargetMinutes: slaMinutes,
+        emergencyResponseTarget: `${slaMinutes} Dakika (yazılı SLA hedefi)`,
         primaryNeeds: d.localNeeds.slice(0, 3),
         neighborhoodCount: d.neighborhoods.length,
         canonicalUrl: `${BASE_URL}/bolgeler/${d.slug}`,

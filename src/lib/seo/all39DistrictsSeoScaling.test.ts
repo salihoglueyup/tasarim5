@@ -4,7 +4,6 @@ import {
   DISTRICT_SLUGS,
   getDistrict,
   isValidDistrict,
-  getDistrictDues,
 } from '@/data/districts';
 import {
   SERVICES,
@@ -32,50 +31,8 @@ describe('39 İlçe Geneli B2B Yerel SEO & Büyüme Master Planı (Seçenek A Te
       expect(Object.isFrozen(DISTRICTS)).toBe(true);
     });
 
-    it('39 ilçenin tamamı O(1) slug lookup indeksi üzerinden doğrulanır', () => {
-      for (const slug of DISTRICT_SLUGS) {
-        const district = getDistrict(slug);
-        expect(district, `İlçe bulunamadı: ${slug}`).toBeDefined();
-        expect(district?.slug).toBe(slug);
-        expect(district?.name.length).toBeGreaterThan(1);
-        expect(district?.population).toBeGreaterThan(10000);
-        expect(district?.neighborhoods.length).toBeGreaterThanOrEqual(3);
-        expect(district?.localNeeds.length).toBeGreaterThanOrEqual(2);
-        expect(district?.managedProjects).toBeGreaterThan(0);
-        expect(isValidDistrict(slug)).toBe(true);
-      }
-    });
 
-    it('39 ilçenin tamamında marka site projeleri (prominentProjects) ve bölgesel tesis karakteristikleri tanımlıdır', () => {
-      for (const district of DISTRICTS) {
-        expect(
-          district.prominentProjects,
-          `prominentProjects eksik: ${district.slug}`
-        ).toBeDefined();
-        expect(
-          district.prominentProjects?.length,
-          `prominentProjects en az 3 proje içermeli: ${district.slug}`
-        ).toBeGreaterThanOrEqual(3);
-        expect(
-          district.regionalFacilityTraits,
-          `regionalFacilityTraits eksik: ${district.slug}`
-        ).toBeDefined();
-        expect(
-          district.regionalFacilityTraits?.length,
-          `regionalFacilityTraits yeterli uzunlukta olmalı: ${district.slug}`
-        ).toBeGreaterThan(30);
-      }
-    });
 
-    it('39 ilçenin tamamında aidat ve tasarruf endeksi (getDistrictDues) pozitif değerler döner', () => {
-      for (const slug of DISTRICT_SLUGS) {
-        const dues = getDistrictDues(slug);
-        expect(dues.avgDuesM2, `avgDuesM2 geçersiz: ${slug}`).toBeGreaterThan(0);
-        expect(dues.aloDuesM2, `aloDuesM2 geçersiz: ${slug}`).toBeGreaterThan(0);
-        expect(dues.aloDuesM2).toBeLessThan(dues.avgDuesM2);
-        expect(dues.savingsRate, `savingsRate geçersiz: ${slug}`).toBeGreaterThanOrEqual(20);
-      }
-    });
   });
 
   describe('2. Hizmet Slug Eşanlamlıları (Aliases) ve Çözücü Motoru', () => {

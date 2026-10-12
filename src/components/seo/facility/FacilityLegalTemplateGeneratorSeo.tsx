@@ -8,12 +8,12 @@ export type FacilityTemplateType = 'tesis_yonetimi_karar' | 'isletme_projesi_teb
 
 export default function FacilityLegalTemplateGeneratorSeo() {
   const [selectedTemplate, setSelectedTemplate] = useState<FacilityTemplateType>('tesis_yonetimi_karar');
-  const [siteName, setSiteName] = useState('Palmiye Konutları Sitesi');
-  const [managerName, setManagerName] = useState('Mehmet Özkan');
-  const [unitCount, setUnitCount] = useState('120');
-  const [cityDistrict, setCityDistrict] = useState('Kadıköy / İstanbul');
-  const [annualBudget, setAnnualBudget] = useState('2.400.000');
-  const [monthlyDues, setMonthlyDues] = useState('2.500');
+  const [siteName, setSiteName] = useState('');
+  const [managerName, setManagerName] = useState('');
+  const [unitCount, setUnitCount] = useState('');
+  const [cityDistrict, setCityDistrict] = useState('');
+  const [annualBudget, setAnnualBudget] = useState('');
+  const [monthlyDues, setMonthlyDues] = useState('');
   const [isCopied, setIsCopied] = useState(false);
 
   const generateText = () => {
@@ -28,15 +28,15 @@ APARTMAN / SİTE ADI : ${siteName || '[SİTE ADI]'}
 KARAR TARİHİ         : ${today}
 KARAR NO             : 2026/01
 DİVAN BAŞKANI        : ${managerName || '[YÖNETİCİ ADI]'}
-BAĞIMSIZ BÖLÜM ADEDİ : ${unitCount || '100'} Bağımsız Bölüm
-ADRES                : ${cityDistrict || 'Kadıköy / İstanbul'}
+BAĞIMSIZ BÖLÜM ADEDİ : ${unitCount || '[ADET]'} Bağımsız Bölüm
+ADRES                : ${cityDistrict || '[İLÇE / İL]'}
 
 GÜNDEM: 634 Sayılı Kat Mülkiyeti Kanunu Uyarınca Sitemizin Yönetim, Güvenlik, Temizlik ve Teknik Bakım Hizmetlerinin Profesyonel Tesis Yönetim Kuruluşuna Devredilmesi.
 
 KARAR METNİ:
-${siteName || '[SİTE ADI]'} Kat Malikleri Olağan / Olağanüstü Genel Kurulu ${today} tarihinde toplanmış olup; sitenin ortak alanlarının korunması, düzenli ve şeffaf bütçe yönetimi ile 7/24 kesintisiz teknik-güvenlik operasyonlarının sağlanması amacıyla aşağıdaki kararlar alınmıştır:
+${siteName || '[SİTE ADI]'} Kat Malikleri Olağan / Olağanüstü Genel Kurulu ${today} tarihinde toplanmış olup; sitenin ortak alanlarının korunması, düzenli ve şeffaf bütçe yönetimi ile teknik ve güvenlik operasyonlarının sağlanması amacıyla aşağıdaki kararlar alınmıştır:
 
-1. 634 Sayılı Kat Mülkiyeti Kanunu'nun 34. ve 35. maddeleri uyarınca, sitemizin idari, mali, güvenlik ve teknik yönetim yetkisinin 1 (bir) yıl süreyle kurumsal yönetim kuruluşu olan ALO YÖNETİM TESİS YÖNETİMİ A.Ş.'ye devredilmesine,
+1. 634 Sayılı Kat Mülkiyeti Kanunu'nun 34. ve 35. maddeleri uyarınca, sitemizin idari, mali, güvenlik ve teknik yönetim yetkisinin 1 (bir) yıl süreyle kurumsal yönetim kuruluşu olan ALO YÖNETİM VE ORGANİZASYON A.Ş.'ye devredilmesine,
 2. İmzalanacak olan Entegre Tesis Yönetim Hizmet Sözleşmesi'ni kat malikleri adına akdetmek üzere Divan Başkanı ve Denetim Kurulu üyelerine tam yetki verilmesine,
 3. KMK m.37 uyarınca hazırlanacak resmi İşletme Projesinin Alo Yönetim tarafından tebliğ edilerek aidatların kurumsal dijital yazılım ve banka POS sistemi üzerinden tahsil edilmesine oy çokluğu / oy birliği ile karar verilmiştir.
 
@@ -52,20 +52,16 @@ Bağımsız Bölüm No: [DAİRE NO]
 
 634 Sayılı Kat Mülkiyeti Kanunu'nun 37. maddesi gereğince sitemizin 2026 takvim yılına ait tahmini Gelir ve Giderlerini içeren Resmi İşletme Projesi yönetimimizce hazırlanarak aşağıda bilgilerinize sunulmuştur:
 
-1. YILLIK TAHMİNİ ORTAK GİDER TOPLAMI : ${annualBudget || '2.400.000'} TL
-- 5188 Özel Güvenlik ve Danışma Giderleri : %38
-- TSE 13811 Hijyen Temizliği & Kimyasallar : %22
-- Asansör, Jeneratör & Teknik Bakım       : %20
-- Ortak Elektrik, Su ve Doğalgaz         : %15
-- Yönetim, Hukuk, İSG & Yazılım Gideri   : %5
+1. YILLIK TAHMİNİ ORTAK GİDER TOPLAMI : ${annualBudget || '[TUTAR]'} TL
+- Gider kalemleri ve tutarları (güvenlik, temizlik, teknik bakım, ortak enerji ve su, yönetim): [İŞLETME PROJESİNE GÖRE DOLDURUNUZ]
 
-2. BAĞIMSIZ BÖLÜMÜNÜZE DÜŞEN AYLIK AİDAT AVANSI: ${monthlyDues || '2.500'} TL
+2. BAĞIMSIZ BÖLÜMÜNÜZE DÜŞEN AYLIK AİDAT AVANSI: ${monthlyDues || '[TUTAR]'} TL
 
 YASAL BİLGİLENDİRME (KMK Madde 37/2):
 İşbu işletme projesine tebliğ tarihinden itibaren 7 (yedi) gün içinde itiraz edilmediği takdirde proje kesinleşir. Kesinleşen işletme projeleri ve aidat avansları, İcra ve İflas Kanunu'nun 68. maddesinin 1. fıkrasında belirtilen resmi belge hükmündedir.
 
 ${siteName || '[SİTE ADI]'} SİTESİ YÖNETİMİ
-Alo Yönetim Tesis Yönetimi A.Ş. (Yetkili Tesis Yöneticisi)`;
+Alo Yönetim ve Organizasyon A.Ş. (Yetkili Tesis Yöneticisi)`;
 
       case 'aidat_gecikme_ihtar':
         return `İHTARNAME

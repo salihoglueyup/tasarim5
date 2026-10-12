@@ -1,17 +1,13 @@
 import type { Metadata } from 'next';
-import { prisma } from '@/lib/prisma';
 import CalculatorClient from './CalculatorClient';
-import { defaultCalcConfig } from '@/lib/hesaplayici';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import TrOnly from '@/components/seo/TrOnly';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, howToSchema, ORG_CREDENTIALS } from '@/lib/schemas';
 import DefinedTermSetSeo from '@/components/seo/schema/DefinedTermSetSeo';
-import CalculatorAiOverviewSeo from '@/components/seo/ai-overviews/CalculatorAiOverviewSeo';
-import BudgetMatrixAiGroundingSeo from '@/components/seo/ai-overviews/BudgetMatrixAiGroundingSeo';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 86400;
 
 export async function generateMetadata({
   params,
@@ -37,24 +33,6 @@ export default async function HesaplayiciServer({
 }) {
   const { lang } = await params;
   const t = await getDictionary(lang);
-  let configRecord = null;
-  try {
-    configRecord = await prisma.calculatorConfig.findFirst();
-  } catch (err) {
-    console.warn('HesaplayiciServer: Database fetch fallback triggered:', err instanceof Error ? err.message : err);
-  }
-
-  const config = configRecord
-    ? {
-        baseCostPerUnit: configRecord.baseCostPerUnit,
-        securityAddon: configRecord.securityAddon,
-        poolAddon: configRecord.poolAddon,
-        greenAddon: configRecord.greenAddon,
-        elevatorAddon: configRecord.elevatorAddon,
-        savingsRate: configRecord.savingsRate,
-      }
-    : defaultCalcConfig;
-
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
     { name: t.calx_breadcrumb, url: '/hesaplayici' },
@@ -89,35 +67,20 @@ export default async function HesaplayiciServer({
       url: BASE_URL,
       hasCredential: ORG_CREDENTIALS,
     },
-    potentialAction: {
-      '@type': 'CalculateAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${BASE_URL}/api/tesis-yonetimi/calculate-budget?units={units}`,
-      },
-      result: {
-        '@type': 'FinancialProduct',
-        name: t.calx_app_result,
-      },
-    },
   };
 
   const pageLd = webPageSchema({
     name: t.calx_page_ld_name,
     description: t.calx_page_ld_desc,
     path: '/hesaplayici',
-    speakableSelectors: ['h1', 'h2', 'p', '#calc-instant-answer-text', '#budget-matrix-instant-answer-text'],
+    speakableSelectors: ['h1', 'h2', 'p'],
   });
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, webAppLd, howToLd, pageLd]} />
-      <CalculatorClient initialConfig={config} />
+      <CalculatorClient />
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-20 space-y-8">
-        <TrOnly>
-          <CalculatorAiOverviewSeo />
-          <BudgetMatrixAiGroundingSeo />
-        </TrOnly>
         <TrOnly>
         <DefinedTermSetSeo
           name={t.calx_dts_name}

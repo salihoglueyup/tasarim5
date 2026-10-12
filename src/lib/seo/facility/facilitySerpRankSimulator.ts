@@ -1,4 +1,4 @@
-import { DISTRICTS, getDistrictDues } from '@/data/districts';
+import { DISTRICTS } from '@/data/districts';
 import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
 
 export interface SerpScoreItem {

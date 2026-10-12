@@ -7,7 +7,6 @@ import {
   formatRelativeTime,
 } from './formatters';
 import { filterFaqsByLanguage } from '../../app/[lang]/sss/FaqClient';
-import { calculateDuesLocalized } from '../hesaplayici';
 import { buildLanguageAlternates } from '../seo';
 
 describe('Wave 7: Faz 161 - Faz 165 Çok Dilli Formatlayıcılar, Sitemap Alternates, SSS Arama & Hesaplayıcı', () => {
@@ -92,25 +91,4 @@ describe('Wave 7: Faz 161 - Faz 165 Çok Dilli Formatlayıcılar, Sitemap Altern
     expect(financeFaqs[0].id).toBe('2');
   });
 
-  it('Faz 165: calculateDuesLocalized İngilizce ve Arapça dahil tüm dillerde formatlanmış aidat ve bütçe sonuçları döner', () => {
-    const input = {
-      units: 50,
-      elevators: 4,
-      hasSecurity: true,
-      hasPool: true,
-      hasGreenSpace: true,
-    };
-
-    const resTr = calculateDuesLocalized(input, 'tr');
-    expect(resTr.formattedDuesPerUnit).toContain('₺');
-    expect(resTr.totalMonthlyBudget).toBeGreaterThan(0);
-
-    const resEn = calculateDuesLocalized(input, 'en');
-    expect(resEn.formattedDuesPerUnit).toBeDefined();
-    expect(resEn.formattedTotalMonthlyBudget).toBeDefined();
-
-    const resAr = calculateDuesLocalized(input, 'ar');
-    expect(resAr.formattedDuesPerUnit).toBeDefined();
-    expect(resAr.formattedEstimatedSavings).toBeDefined();
-  });
 });

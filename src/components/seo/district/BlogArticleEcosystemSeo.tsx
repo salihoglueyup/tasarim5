@@ -21,7 +21,7 @@ export default function BlogArticleEcosystemSeo({
   lang = 'tr',
 }: BlogArticleEcosystemSeoProps) {
   const cluster = resolveBlogArticleCluster(title, content, tags, categoryName, lang);
-  const { recommendedSubSector, relevantLegislation, relevantPrecedents, groupCompanySynergy } = cluster;
+  const { recommendedSubSector, relevantLegislation, groupCompanySynergy } = cluster;
 
   return (
     <section 
@@ -94,24 +94,6 @@ export default function BlogArticleEcosystemSeo({
                     <span className="line-clamp-1">{leg.name}</span>
                     <Icon name="open_in_new" className="text-[13px] opacity-50 group-hover:opacity-100 transition-opacity" />
                   </a>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Faz 138: Yargıtay İçtihat ve KMK 634 Emsal Kararları */}
-          {relevantPrecedents && relevantPrecedents.length > 0 && (
-            <div className="p-4 rounded-2xl bg-slate-50/80 dark:bg-white/[0.02] border border-slate-200/80 dark:border-white/10 flex flex-col gap-2 shadow-2xs">
-              <div className="text-[11px] font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                <Icon name="balance" className="text-[15px]" />
-                <span>Yargıtay Emsal Karar Referansı</span>
-              </div>
-              <div className="flex flex-col gap-2">
-                {relevantPrecedents.map((prec) => (
-                  <div key={prec.id} className="text-xs text-slate-700 dark:text-slate-300 border-b border-slate-200/60 dark:border-white/5 last:border-0 pb-1.5 last:pb-0">
-                    <div className="font-bold text-slate-900 dark:text-white line-clamp-1">{prec.subject}</div>
-                    <div className="text-[11px] text-slate-500 dark:text-slate-400 font-mono mt-0.5">{prec.court} · {prec.docketNumber} / {prec.decisionNumber}</div>
-                  </div>
                 ))}
               </div>
             </div>

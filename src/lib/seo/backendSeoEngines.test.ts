@@ -57,11 +57,6 @@ describe('5 Derin Backend SEO Motoru Doğrulama Testleri', () => {
       expect(result.recommendedSchema).toContain('FAQPage');
     });
 
-    it('Fiyat ve hesaplama sorgularını COMMERCIAL olarak sınıflandırır', () => {
-      const result = classifySearchIntent('apartman tesis yönetimi bütçe hesaplama');
-      expect(result.intent).toBe('COMMERCIAL');
-      expect(result.recommendedSchema).toContain('CalculateAction');
-    });
 
     it('İlçe içeren sorguları LOCAL_DISCOVERY olarak sınıflandırır', () => {
       const result = classifySearchIntent('kadıköy profesyonel tesis yönetimi');

@@ -1,31 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { compareFacilityDistricts } from './facility/facilityDistrictComparator';
 import { buildFacilityIndexNowPayload } from './indexing/facilityIndexNowPinger';
 import { recordBotCrawlEvent, generateBotAnalyticsReport } from './bots/facilityBotAuditLog';
 import { synthesizeFacilityVoiceQA } from './facility/facilityVoiceAiSynthesizer';
 
 describe('Tesis Yönetimi Faz 3 İleri Düzey Backend SEO Motorları', () => {
-  describe('İlçe Kıyaslama Motoru (facilityDistrictComparator.ts)', () => {
-    it('Kadıköy ve Beşiktaş ilçelerini aidat ve tasarruf parametrelerine göre kıyaslar', () => {
-      const result = compareFacilityDistricts(['kadikoy', 'besiktas']);
-
-      expect(result).toBeDefined();
-      expect(result?.districts.length).toBe(2);
-      expect(result?.districts[0].avgDuesM2).toBeGreaterThan(0);
-      expect(result?.districts[1].avgDuesM2).toBeGreaterThan(0);
-      expect(result?.duesDifferenceM2).toBeGreaterThanOrEqual(0);
-      expect(result?.seoSummaryParagraph).toContain('Kadıköy');
-      expect(result?.seoSummaryParagraph).toContain('Beşiktaş');
-      expect(result?.schema['@type']).toBe('Table');
-    });
-
-    it('Geçersiz veya tek ilçe verildiğinde varsayılan kıyaslama ile tamamlar', () => {
-      const result = compareFacilityDistricts(['gecersiz-ilce']);
-
-      expect(result).toBeDefined();
-      expect(result?.districts.length).toBeGreaterThanOrEqual(2);
-    });
-  });
 
   describe('IndexNow Push Motoru (facilityIndexNowPinger.ts)', () => {
     it('39 ilçe ve ana hub rotalarını eksiksiz IndexNow payload listesine derler', () => {

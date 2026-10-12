@@ -97,12 +97,10 @@ export function classifySearchIntent(queryInput: string = ''): IntentClassificat
       intent: 'COMMERCIAL',
       confidenceScore: 0.90,
       detectedDistrict: matchedDistrict ? { name: matchedDistrict.name, slug: matchedDistrict.slug } : undefined,
-      recommendedSchema: 'CalculateAction / WebApplication',
+      recommendedSchema: 'WebApplication',
       recommendedCta: {
-        label: 'Canlı Tesis Bütçe & Tasarruf Simülatörünü Açın',
-        targetUrl: matchedDistrict
-          ? `${BASE_URL}/api/tesis-yonetimi/calculate-budget?district=${matchedDistrict.slug}`
-          : `${BASE_URL}/api/tesis-yonetimi/calculate-budget`,
+        label: 'Aidat Paylaşım Hesaplayıcısını Açın',
+        targetUrl: `${BASE_URL}/hesaplayici`,
         conversionType: 'Interactive Calculator',
       },
     };

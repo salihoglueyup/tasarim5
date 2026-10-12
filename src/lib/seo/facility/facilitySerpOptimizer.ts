@@ -1,5 +1,6 @@
 import { BASE_URL } from '@/lib/seo';
 import { DISTRICTS } from '@/data/districts';
+import { FACTS } from '@/lib/facts';
 import {
   DomainPillar,
   getKeywordsByPillar,
@@ -58,21 +59,21 @@ export function getFacilitySerpMeta(
     // Faz 157: EN, RU ve AR için kültürel ve yerel arama niyetine göre optimize edilmiş meta etiketleri
     if (lang === 'en') {
       title = `Professional Property & Facility Management in ${district.name}, Istanbul | Alo Yönetim`;
-      description = `Integrated residential site and facility management across ${district.name}, Istanbul. ILAS-accredited ISO certified services, 24/7 security, and 30% savings.`;
+      description = `Integrated residential site and facility management across ${district.name}, Istanbul: licensed 5188 security, technical maintenance, cleaning and dues follow-up. ISO certified.`;
       targetKeyword = `${district.name} property management istanbul`;
     } else if (lang === 'ru') {
       title = `Управление Жилыми Комплексами и Объектами в ${district.name}, Стамбул | Alo Yönetim`;
-      description = `Комплексное управление жилыми комплексами и зданиями в районе ${district.name}, Стамбул. Лицензированная охрана, технический сервис и экономия бюджета 30%.`;
+      description = `Комплексное управление жилыми комплексами и зданиями в районе ${district.name}, Стамбул: лицензированная охрана 5188, техническое обслуживание, уборка и контроль взносов.`;
       targetKeyword = `управление недвижимостью ${district.name.toLowerCase()} стамбул`;
     } else if (lang === 'ar') {
       title = `إدارة المجمعات السكنية والمرافق في ${district.name} إسطنبول | Alo Yönetim`;
-      description = `خدمات إدارة المجمعات السكنية والأبراج الاحترافية في منطقة ${district.name} بإسطنبول. أمن مرخص 5188، صيانة فنية وتحصيل مستحقات بنسبة 99.2%.`;
+      description = `خدمات إدارة المجمعات السكنية والأبراج الاحترافية في منطقة ${district.name} بإسطنبول: أمن مرخص 5188 وصيانة فنية ونظافة ومتابعة المستحقات.`;
       targetKeyword = `إدارة المجمعات ${district.name} اسطنبول`;
     }
 
     const canonicalPath = `/bolgeler/${district.slug}/tesis-yonetimi`;
     const ogServiceTitle = pillar === 'facility' ? 'Entegre Tesis Yönetimi' : 'Site ve Tesis Yönetimi';
-    const ogImageUrl = `${BASE_URL}/api/og?district=${encodeURIComponent(district.name)}&service=${encodeURIComponent(ogServiceTitle)}&title=${encodeURIComponent(title)}&rating=${encodeURIComponent('★ 4.9 · ' + district.managedProjects + '+ Proje')}`;
+    const ogImageUrl = `${BASE_URL}/api/og?district=${encodeURIComponent(district.name)}&service=${encodeURIComponent(ogServiceTitle)}&title=${encodeURIComponent(title)}`;
 
     const keywords = [
       `${district.name} site yönetimi`,
@@ -97,43 +98,43 @@ export function getFacilitySerpMeta(
       ogImageUrl,
       pillar,
       kpis: [
-        { label: 'Yönetilen Proje', value: `${district.managedProjects}+ Site` },
-        { label: 'Ortalama Tasarruf', value: '%30' },
-        { label: 'SLA Müdahale', value: '15-25 Dk' },
-        { label: 'Tahsilat Başarısı', value: '%99.2' },
+        { label: 'Faaliyet', value: `${FACTS.foundingYear}'dan beri` },
+        { label: 'Hizmet Kapsamı', value: `${FACTS.districtCount} İlçe` },
+        { label: 'Referans', value: `${FACTS.referenceCount} Kurum` },
+        { label: 'Acil Müdahale Hedefi', value: district.side === 'Anadolu' ? FACTS.emergencyResponse.anatolian : FACTS.emergencyResponse.european },
       ],
     };
   }
 
   // Ana Hub Sayfası
   let title = 'Profesyonel Site ve Tesis Yönetimi İstanbul — KMK 634 | Alo Yönetim';
-  let description = 'İstanbul genelinde 39 ilçede 340+ konut sitesi ve rezidans referansı. ILAS akrediteli ISO belgeli profesyonel site ve tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve %99.2 aidat tahsilat garantisi!';
+  let description = 'İstanbul genelinde 39 ilçede ILAS akrediteli ISO belgeli profesyonel site ve tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve şeffaf aidat takibi.';
   let targetKeyword = pillar === 'site' ? 'site yönetimi' : 'tesis yönetimi';
 
   if (pillar === 'site') {
-    title = 'Site Yönetim Şirketleri İstanbul — 150+ Proje, KMK 634 & 7/24 | Alo Yönetim';
-    description = 'İstanbul genelinde 39 ilçede konut siteleri, apartmanlar ve rezidanslar için 634 sayılı KMK uyumlu profesyonel site yönetimi, şeffaf aidat tahsilatı ve 5188 güvenlik!';
+    title = 'Site Yönetim Şirketi İstanbul — KMK 634 Uyumlu | Alo Yönetim';
+    description = 'İstanbul genelinde 39 ilçede konut siteleri, apartmanlar ve rezidanslar için 634 sayılı KMK uyumlu profesyonel site yönetimi, şeffaf aidat takibi ve 5188 güvenlik.';
   } else if (pillar === 'facility') {
     title = 'Tesis Yönetimi İstanbul — ILAS Akrediteli ISO Belgeli | Alo Yönetim';
-    description = 'Plaza, iş merkezi, OSB ve endüstriyel tesisler için entegre tesis yönetimi, 7/24 teknik bakım ve %30 enerji/işletme tasarrufu.';
+    description = 'Plaza, iş merkezi, OSB ve endüstriyel tesisler için entegre tesis yönetimi, teknik bakım ve işletme yönetimi.';
   }
 
   if (lang === 'en') {
     title = 'Professional Property, Site & Facility Management Istanbul | Alo Yönetim';
-    description = 'Integrated residential site and facility management across 39 Istanbul districts. ILAS-accredited ISO certified property care, licensed security, and 30% budget savings.';
+    description = 'Integrated residential site and facility management across 39 Istanbul districts. ILAS-accredited ISO certified property care, licensed security and transparent dues follow-up.';
     targetKeyword = pillar === 'site' ? 'site management istanbul' : 'facility management istanbul';
   } else if (lang === 'ru') {
     title = 'Профессиональное Управление Жилыми Комплексами и Объектами в Стамбуле | Alo Yönetim';
-    description = 'Комплексное управление жилыми комплексами и объектами в 39 районах Стамбула. Лицензированная охрана 5188, техническое обслуживание и экономия бюджета до 30%.';
+    description = 'Комплексное управление жилыми комплексами и объектами в 39 районах Стамбула. Лицензированная охрана 5188, техническое обслуживание и прозрачный контроль взносов.';
     targetKeyword = 'управление жилыми комплексами стамбул';
   } else if (lang === 'ar') {
     title = 'إدارة المجمعات السكنية والمرافق الاحترافية في إسطنبول | Alo Yönetim';
-    description = 'إدارة مجمعات سكنية وأبراج في 39 منطقة بإسطنبول. أمن مرخص، صيانة فنية وإدارة مستحقات دقيقة بنسبة تحصيل 99.2% وتوفير 30% بالميزانية.';
+    description = 'إدارة مجمعات سكنية وأبراج في 39 منطقة بإسطنبول. أمن مرخص وصيانة فنية ومتابعة شفافة للمستحقات.';
     targetKeyword = 'إدارة المجمعات السكنية اسطنبول';
   }
 
   const canonicalPath = pillar === 'site' ? '/hizmetler/site-yonetimi' : '/hizmetler/tesis-yonetimi';
-  const ogImageUrl = `${BASE_URL}/api/og?service=${encodeURIComponent('Site ve Tesis Yönetimi')}&title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent('ISO 41001 Standartlarında 39 İlçede Entegre Yönetim')}&rating=${encodeURIComponent('★ 4.9 · 340+ Referans Proje')}`;
+  const ogImageUrl = `${BASE_URL}/api/og?service=${encodeURIComponent('Site ve Tesis Yönetimi')}&title=${encodeURIComponent(title)}&subtitle=${encodeURIComponent('39 İlçede Entegre Tesis ve Site Yönetimi')}`;
 
   const allKeywords = [
     'site yönetimi',
@@ -165,10 +166,10 @@ export function getFacilitySerpMeta(
     ogImageUrl,
     pillar,
     kpis: [
-      { label: 'Toplam Referans', value: '340+ Site & Tesis' },
-      { label: 'Ortalama Bütçe Tasarrufu', value: '%30' },
-      { label: 'Acil Müdahale SLA', value: '15-25 Dk' },
-      { label: 'Tahsilat Başarısı', value: '%99.2' },
+      { label: 'Faaliyet', value: `${FACTS.foundingYear}'dan beri` },
+      { label: 'Hizmet Kapsamı', value: `${FACTS.districtCount} İlçe` },
+      { label: 'Referans', value: `${FACTS.referenceCount} Kurum` },
+      { label: 'Ekip', value: `~${FACTS.teamSize} Kişi` },
     ],
   };
 }

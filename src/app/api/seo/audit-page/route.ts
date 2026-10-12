@@ -62,8 +62,7 @@ export async function GET(req: NextRequest) {
   const demoContent = `
 # İstanbul Profesyonel Tesis Yönetimi ve İşletmeciliği
 Alo Yönetim, 634 Sayılı Kat Mülkiyeti Kanunu (KMK) kapsamında entegre tesis yönetimi ve site yönetimi hizmetleri sunar.
-Operasyonlarımızda %30 oranına varan enerji ve aidat tasarrufu sağlanmaktadır.
-5188 Sayılı Kanun lisanslı özel güvenlik ekiplerimiz 7/24 kesintisiz hizmet vermektedir.
+5188 Sayılı Kanun lisanslı özel güvenlik ekiplerimiz hizmet vermektedir.
 TSE 13811 hijyen standartlarında merdiven ve ortak alan temizliği gerçekleştirilir.
 
 ## Tesis Yönetimi Nedir?

@@ -52,21 +52,6 @@ describe('İç Backend SEO Mega Motoru (facilityBackendSeoMega.test.ts)', () => 
     });
   });
 
-  describe('39 İlçe Dinamik GeoRSS XML Feed (/api/tesis-yonetimi/geo-feed.xml)', () => {
-    it('Geçerli GeoRSS XML üretir ve 39 ilçeyi kapsar', async () => {
-      const res = await getGeoFeed(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/geo-feed.xml'));
-      expect(res.status).toBe(200);
-
-      const xmlText = await res.text();
-      expect(xmlText).toContain('<?xml version="1.0" encoding="UTF-8"?>');
-      expect(xmlText).toContain('<rss version="2.0"');
-      expect(xmlText).toContain('xmlns:georss=');
-      expect(xmlText).toContain('Kadıköy');
-      expect(xmlText).toContain('Beşiktaş');
-      expect(xmlText).toContain('tesis:slaEmergencyMinutes');
-      expect(xmlText).toContain(CANONICAL_NAP.legal.mersisNumber);
-    });
-  });
 
 
   describe('Hiper-Yerel Mahalle FAQ Sentezleyici (facilityFaqSynthesizer.ts)', () => {
@@ -119,20 +104,6 @@ describe('İç Backend SEO Mega Motoru (facilityBackendSeoMega.test.ts)', () => 
   });
 
   describe('Hiper-Yerel Proximity & Mahalle "Near-Me" Motoru (edgeGeoResolver.ts)', () => {
-    it('Moda koordinatlarında en yakın mahalleyi ve 15-25 dk SLA süresini saptar', async () => {
-      const { findNearestFacilityHub } = await import('./edgeGeoResolver');
-      // Kadıköy Moda sahil koordinatı
-      const hub = findNearestFacilityHub(40.985, 29.028);
-
-      expect(hub.nearestDistrict.slug).toBe('kadikoy');
-      expect(hub.nearestNeighborhood).toBeDefined();
-      expect(hub.nearestNeighborhood?.slug).toBe('moda');
-      expect(hub.nearestNeighborhood?.name).toBe('Moda');
-      expect(hub.nearestNeighborhood?.neighborhoodSlaMinutes).toBeLessThanOrEqual(25);
-      expect(hub.estimatedSlaMinutes).toBeLessThanOrEqual(45);
-      expect(hub.schema.name).toContain('Moda');
-      expect(hub.schema.areaServed).toContain('Moda Mahallesi');
-    });
 
     it('Beşiktaş Levent koordinatlarında ilgili mahalleyi saptar', async () => {
       const { findNearestFacilityHub } = await import('./edgeGeoResolver');
@@ -222,30 +193,6 @@ describe('İç Backend SEO Mega Motoru (facilityBackendSeoMega.test.ts)', () => 
     });
   });
 
-  describe('Aidat Açık Veri API 169 Mahalle & CSV Dışa Aktarımı (/api/tesis-yonetimi/dues-index.json)', () => {
-    it('JSON formatında 169 mahalle özetini döner ve schema.org/Dataset çift dağıtım içerir', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/dues-index.json/route');
-      const res = await GET(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json'));
-      expect(res.status).toBe(200);
-
-      const data = await res.json();
-      expect(data.istanbulSummary.totalNeighborhoods).toBeGreaterThanOrEqual(160);
-      expect(data.districts[0].neighborhoodsCount).toBeGreaterThan(0);
-      expect(data.schema.distribution.some((d: any) => d.encodingFormat === 'text/csv')).toBe(true);
-    });
-
-    it('format=csv istendiğinde RFC 4180 UTF-8 CSV çıktısı verir', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/dues-index.json/route');
-      const res = await GET(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json?format=csv'));
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Content-Type')).toContain('text/csv');
-
-      const text = await res.text();
-      expect(text).toContain('Ilce,Yaka,Nufus,Mahalle_Sayisi');
-      expect(text).toContain('Kadıköy');
-      expect(text).toContain('Anadolu Yakası');
-    });
-  });
 
   describe('Google News & Discover Zengin Sitemap Etiketleri (/news-sitemap.xml)', () => {
     it('Haberler için image:image ve news:keywords etiketlerini içerir', async () => {
@@ -287,31 +234,6 @@ describe('İç Backend SEO Mega Motoru (facilityBackendSeoMega.test.ts)', () => 
     });
   });
 
-  describe('Wave 5: Yargıtay Emsal Kararları Açık Veri CSV & Dataset Şeması (/api/tesis-yonetimi/legal-precedents.json)', () => {
-    it('format=csv ile RFC 4180 UTF-8 BOM CSV çıktısı verir', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/legal-precedents.json/route');
-      const res = await GET(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json?format=csv'));
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Content-Type')).toContain('text/csv');
-
-      const text = await res.text();
-      expect(text).toContain('ID,Mahkeme,Esas_No,Karar_No,Karar_Tarihi');
-      expect(text).toContain('yargitay-asansor-zemin-kat');
-      expect(text).toContain('yargitay-aidat-yuzde-bes-faiz');
-    });
-
-    it('JSON yanıtında Schema.org Dataset çift dağıtım ve HTTP Link başlığı sunar', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/legal-precedents.json/route');
-      const res = await GET(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json'));
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Link')).toContain('format=csv');
-
-      const data = await res.json();
-      expect(data.datasetSchema['@type']).toBe('Dataset');
-      expect(data.datasetSchema.distribution.length).toBe(2);
-      expect(data.datasetSchema.distribution.some((d: any) => d.encodingFormat === 'text/csv')).toBe(true);
-    });
-  });
 
   describe('Wave 5: 634 KMK Kanun İndeksi 12 Temel Madde & CSV Dağıtımı (/api/tesis-yonetimi/kmk-law-index.json)', () => {
     it('KMK 18, 28, 38 ve 45 maddelerini içerir ve toplam 12 madde sunar', async () => {

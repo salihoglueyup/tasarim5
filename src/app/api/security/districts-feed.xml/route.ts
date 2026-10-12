@@ -12,7 +12,7 @@ export async function GET() {
     const title = `${d.name} 5188 Özel Güvenlik Şirketi & Site Güvenliği — Alo Yönetim`;
     const neighborhoodsList = d.neighborhoods.slice(0, 4).join(', ');
     const description = `<![CDATA[
-      ${d.name} (${d.side} Yakası) genelinde 5188 sayılı kanun kapsamında T.C. İstanbul Valiliği ruhsatlı özel güvenlik personeli, 7/24 devriye ve AI plaka tanıma sistemleri. ${d.name}'de yönetilen ${d.managedProjects}+ proje, ${neighborhoodsList} mahallelerinde aktif güvenlik koruma kalkanı.
+      ${d.name} (${d.side} Yakası) genelinde 5188 sayılı kanun kapsamında T.C. İstanbul Valiliği izinli özel güvenlik personeli ve devriye hizmetleri. Hizmet verilen mahalleler arasında ${neighborhoodsList} yer alır.
     ]]>`;
 
     return `

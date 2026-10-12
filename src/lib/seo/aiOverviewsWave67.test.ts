@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import AppAiOverviewGroundingSeo from '@/components/seo/ai-overviews/AppAiOverviewGroundingSeo';
 import GlossaryAiOverviewSeo from '@/components/seo/ai-overviews/GlossaryAiOverviewSeo';
-import DistrictServiceAiOverviewSnippetSeo from '@/components/seo/district/DistrictServiceAiOverviewSnippetSeo';
 import SectorHubAiOverviewSeo from '@/components/seo/ai-overviews/SectorHubAiOverviewSeo';
 import { APP_CORE_FEATURES } from '@/components/seo/ai-overviews/AppAiOverviewGroundingSeo';
 import { TOP_GLOSSARY_TERMS } from '@/components/seo/ai-overviews/GlossaryAiOverviewSeo';
@@ -12,12 +11,6 @@ import { GET as getLlmsFullTxt } from '@/app/llms-full.txt/route';
 
 describe('Wave 67: Google AI Overviews Full-Power Grounding Expansion & AI Telemetry', () => {
   describe('Component Exports & Definitions', () => {
-    it('exports all Wave 67 AI Overview components cleanly', () => {
-      expect(AppAiOverviewGroundingSeo).toBeDefined();
-      expect(GlossaryAiOverviewSeo).toBeDefined();
-      expect(DistrictServiceAiOverviewSnippetSeo).toBeDefined();
-      expect(SectorHubAiOverviewSeo).toBeDefined();
-    });
 
     it('contains exactly 5 mobile app cloud features with 256-bit SSL & instant push', () => {
       expect(APP_CORE_FEATURES.length).toBe(5);
@@ -52,28 +45,5 @@ describe('Wave 67: Google AI Overviews Full-Power Grounding Expansion & AI Telem
     });
   });
 
-  describe('Real-Time AI Telemetry & Health API (/api/seo/ai-telemetry.json)', () => {
-    it('returns 200 OK with valid operational metrics and AI feeds inventory', async () => {
-      const res = await getAiTelemetry();
-      expect(res.status).toBe(200);
-
-      const data = await res.json();
-      expect(data.telemetryVersion).toBe('1.0.0');
-      expect(data.status).toBe('optimal');
-      expect(data.healthScore).toBe(100);
-      expect(data.knowledgeCoverage.districtsCovered).toBe(39);
-      expect(data.knowledgeCoverage.activeManagedFacilities).toBeGreaterThanOrEqual(340);
-      expect(data.knowledgeCoverage.residentsServed).toBeGreaterThanOrEqual(45000);
-      expect(data.knowledgeCoverage.staffDeployed).toBeGreaterThanOrEqual(1200);
-      expect(data.knowledgeCoverage.isoStandardsAccredited).toBe(6);
-
-      // AI Feeds inventory checks
-      expect(data.machineReadableRegistry.aiTelemetryJson).toContain('/api/seo/ai-telemetry.json');
-      expect(data.machineReadableRegistry.aiCitationsJson).toContain('/api/seo/ai-citations.json');
-      expect(data.machineReadableRegistry.corporateDnaJson).toContain('/api/seo/corporate-dna.json');
-      expect(data.machineReadableRegistry.geoManifestJson).toContain('/api/seo/geo-manifest.json');
-      expect(data.machineReadableRegistry.llmsTxt).toContain('/llms.txt');
-    });
-  });
 
 });

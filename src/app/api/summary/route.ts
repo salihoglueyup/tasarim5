@@ -44,7 +44,6 @@ export function GET() {
     serviceAreas: DISTRICTS.map((d) => ({
       name: d.name,
       side: d.side,
-      managedProjects: d.managedProjects,
       url: `${BASE_URL}/bolgeler/${d.slug}`,
     })),
     updatedAt: new Date().toISOString().split('T')[0],

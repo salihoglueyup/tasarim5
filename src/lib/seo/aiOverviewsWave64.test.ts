@@ -13,27 +13,5 @@ describe('Wave 64: Google AI Overviews & GEO (Generative Engine Optimization) Ex
     });
   });
 
-  describe('GEO Manifest API (/api/seo/geo-manifest.json)', () => {
-    it('returns 200 OK and valid JSON with comprehensive generative authority manifest', async () => {
-      const res = await getGeoManifest();
-      expect(res.status).toBe(200);
-
-      const manifest = await res.json();
-      expect(manifest.geoManifestVersion).toBe('1.0.0');
-      expect(manifest.authority).toBeDefined();
-      expect(manifest.authority.entityName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(manifest.authority.mersisNumber).toBe('0054049823100018');
-      expect(manifest.authority.tradeRegistryNumber).toBe('712498-5');
-
-      expect(manifest.verifiedGroundTruthClaims.length).toBeGreaterThanOrEqual(7);
-      expect(manifest.speakableAnchorRegistry).toContain('#service-instant-answer-text');
-      expect(manifest.speakableAnchorRegistry).toContain('#sustainability-instant-answer-text');
-      expect(manifest.speakableAnchorRegistry).toContain('#academy-instant-answer-text');
-      expect(manifest.speakableAnchorRegistry).toContain('#corporate-instant-answer-text');
-
-      expect(manifest.machineReadableFeeds.ragKnowledgeGraph).toContain('/api/seo/ai-overviews-rag.json');
-      expect(manifest.machineReadableFeeds.llmsTxt).toContain('/llms.txt');
-    });
-  });
 
 });

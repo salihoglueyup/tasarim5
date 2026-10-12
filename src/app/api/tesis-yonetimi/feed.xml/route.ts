@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
-import { DISTRICTS, getDistrictDues } from '@/data/districts';
-import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
+import { DISTRICTS } from '@/data/districts';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 86400; // 24 Saat ISR
@@ -14,48 +13,31 @@ export async function GET() {
   const now = new Date().toUTCString();
 
   const districtItems = DISTRICTS.map((d) => {
-    const dues = getDistrictDues(d.slug);
     const pubDate = new Date().toUTCString();
-    const projects = d.prominentProjects?.length ? ` Referans projeler: ${d.prominentProjects.slice(0, 3).join(', ')}.` : '';
+    const side = d.side === 'Anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası';
     return `
     <item>
-      <title><![CDATA[${d.name} Profesyonel Tesis ve Site Yönetimi — Ortalama Aidat m² ₺${dues.avgDuesM2}]]></title>
+      <title><![CDATA[${d.name} Profesyonel Tesis ve Site Yönetimi]]></title>
       <link>${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi</link>
       <guid isPermaLink="true">${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi</guid>
       <pubDate>${pubDate}</pubDate>
-      <description><![CDATA[İstanbul ${d.name} ilçesinde entegre tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve %${dues.savingsRate} maliyet tasarruflu aidat muhasebesi.${projects}]]></description>
+      <description><![CDATA[İstanbul ${d.name} (${side}) ilçesinde tesis ve site yönetimi, özel güvenlik, teknik bakım ve aidat takibi hizmetleri.]]></description>
       <category>Tesis Yönetimi</category>
       <category>${d.name}</category>
-      <enclosure url="${BASE_URL}/images/hero-poster-v5.webp" type="image/webp" length="102400" />
-    </item>`;
-  }).join('\n');
-
-  const precedentItems = YARGITAY_LEGAL_PRECEDENTS.map((p) => {
-    return `
-    <item>
-      <title><![CDATA[KMK Hukuk İçtihadı: ${p.subject} (${p.docketNumber})]]></title>
-      <link>${BASE_URL}/hizmetler/tesis-yonetimi/rehber</link>
-      <guid isPermaLink="false">kmk-${p.id}</guid>
-      <pubDate>${new Date(p.decisionDate).toUTCString()}</pubDate>
-      <description><![CDATA[${p.court} kararı: ${p.rulingSummary} - ${p.bindingPrecedentText}]]></description>
-      <category>KMK 634</category>
-      <category>Yargıtay Emsal Kararları</category>
-      <enclosure url="${BASE_URL}/images/hero-poster-v5.webp" type="image/webp" length="102400" />
     </item>`;
   }).join('\n');
 
   const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Alo Yönetim — Tesis Yönetimi &amp; KMK 634 Canlı Haber ve Veri Beslemesi</title>
+    <title>Alo Yönetim — Tesis Yönetimi İlçe Beslemesi</title>
     <link>${BASE_URL}/hizmetler/tesis-yonetimi</link>
-    <description>İstanbul 39 ilçe entegre tesis yönetimi aidat endeksleri, Yargıtay emsal kararları ve teknik şartname güncellemeleri.</description>
+    <description>İstanbul 39 ilçede tesis ve site yönetimi hizmet sayfaları.</description>
     <language>tr</language>
     <lastBuildDate>${now}</lastBuildDate>
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub" />
     <atom:link href="${BASE_URL}/api/tesis-yonetimi/feed.xml" rel="self" type="application/rss+xml" />
     ${districtItems}
-    ${precedentItems}
   </channel>
 </rss>`;
 

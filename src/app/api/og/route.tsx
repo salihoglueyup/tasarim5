@@ -18,7 +18,8 @@ export async function GET(req: NextRequest) {
     const badge = searchParams.get('badge') || 'ISO 45001 · ISO 14001 · 5188 Özel Güvenlik';
     const district = searchParams.get('district');
     const service = searchParams.get('service');
-    const rating = searchParams.get('rating') || '★ 4.9 (340+ Tesis Referansı)';
+    // Puan/referans sayısı gibi doğrulanamayan veriler gösterilmez; eski `rating` parametresi bilerek yok sayılır.
+    const rating = "2009'dan beri · 39 İlçe";
 
     return new ImageResponse(
       (

@@ -1,7 +1,6 @@
 import { FACILITY_SUB_SECTORS } from './facilitySiloRankPasser';
 import { OFFICIAL_LEGAL_CITATIONS, ExternalCitation } from './facilityExternalCitations';
 import { GROUP_COMPANIES_ECOSYSTEM, GroupCompanyEntity } from './facilityGroupAndLegalEcosystem';
-import { YARGITAY_LEGAL_PRECEDENTS, LegalPrecedentItem } from '@/data/legalPrecedentsData';
 
 export interface BlogClusterRecommendation {
   recommendedSubSector: {
@@ -14,7 +13,6 @@ export interface BlogClusterRecommendation {
     icon: string;
   };
   relevantLegislation: ExternalCitation[];
-  relevantPrecedents?: LegalPrecedentItem[];
   groupCompanySynergy?: GroupCompanyEntity;
   topicalTags: string[];
 }
@@ -119,17 +117,6 @@ export function resolveBlogArticleCluster(
         : GROUP_COMPANIES_ECOSYSTEM.find((c) => c.id === '3g-guvenlik');
   }
 
-  // 4. Faz 138: Yargıtay İçtihat ve KMK 634 Emsal Kararları
-  const relevantPrecedents = YARGITAY_LEGAL_PRECEDENTS.filter((p) => {
-    const pSub = p.subject.toLowerCase();
-    const pRuling = p.rulingSummary.toLowerCase();
-    return (
-      (text.includes('asansör') && (pSub.includes('asansör') || pRuling.includes('asansör'))) ||
-      (text.includes('aidat') && (pSub.includes('aidat') || pRuling.includes('aidat'))) ||
-      (text.includes('balkon') && (pSub.includes('balkon') || pRuling.includes('balkon')))
-    );
-  }).slice(0, 2);
-
   // Topikal Etiketleri Dinamik Zenginleştirme
   const dynamicTopicalTags = [matchedSubSector.name, 'Tesis ve Mülk Hizmetleri', '634 KMK', 'KMK 634'];
   if (relevantLegislation.some((l) => l.id === 'iso-27001')) dynamicTopicalTags.push('ISO 27001 Bilgi Güvenliği');
@@ -152,7 +139,6 @@ export function resolveBlogArticleCluster(
       icon: matchedSubSector.icon,
     },
     relevantLegislation: uniqueLegislation,
-    relevantPrecedents: relevantPrecedents.length > 0 ? relevantPrecedents : YARGITAY_LEGAL_PRECEDENTS.slice(0, 1),
     groupCompanySynergy,
     topicalTags: dynamicTopicalTags,
   };

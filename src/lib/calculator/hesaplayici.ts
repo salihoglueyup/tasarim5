@@ -1,97 +1,66 @@
 /**
- * Aidat tahmin motoru — saf fonksiyon (test edilebilir).
- * hesaplayici/page.tsx içindeki hesap mantığı buraya çıkarıldı; UI yalnız
- * bu fonksiyonu çağırır. Böylece Vitest ile birim testi yapılabilir (Track 3).
+ * Aidat paylaşım hesaplayıcısı — saf fonksiyon (test edilebilir).
+ *
+ * Piyasa ortalaması, birim fiyat veya tasarruf tahmini İÇERMEZ: kullanıcı kendi aylık gider
+ * bütçesini girer, araç yalnızca Kat Mülkiyeti Kanunu'ndaki paylaşım kuralını uygular:
+ *  - eşit paylaşım: bütçe / bağımsız bölüm sayısı,
+ *  - arsa payına göre: bütçe x (bağımsız bölümün arsa payı / toplam arsa payı).
+ * Yönetim planı farklı bir yöntem öngörebilir; sonuçlar bilgilendirme amaçlıdır.
  */
 
-export interface CalcInput {
+export type ShareMethod = 'equal' | 'land';
+
+export interface ShareInput {
+  /** Kullanıcının girdiği aylık toplam gider bütçesi (₺). */
+  monthlyBudget: number;
+  method: ShareMethod;
+  /** Toplam bağımsız bölüm sayısı (eşit paylaşım için). */
   units: number;
-  elevators: number;
-  hasSecurity: boolean;
-  hasPool: boolean;
-  hasGreenSpace: boolean;
+  /** Bağımsız bölümün arsa payı (pay). */
+  landShareNumerator: number;
+  /** Toplam arsa payı (payda). */
+  landShareDenominator: number;
 }
 
-export interface CalcConfig {
-  baseCostPerUnit: number;
-  securityAddon: number;
-  poolAddon: number;
-  greenAddon: number;
-  elevatorAddon: number;
-  savingsRate: number;
+export interface ShareResult {
+  /** Bu bağımsız bölümün aylık payı (₺). */
+  monthlyShare: number;
+  /** Bu bağımsız bölümün yıllık payı (₺). */
+  annualShare: number;
+  /** Pay oranı (0-1). */
+  ratio: number;
+  /** Girdiler hesaplanabilir durumda mı? */
+  valid: boolean;
 }
 
-export interface CalcResult {
-  /** Bağımsız bölüm başına aylık tahmini aidat (₺). */
-  estimatedDuesPerUnit: number;
-  /** Toplam aylık bütçe (₺). */
-  totalMonthlyBudget: number;
-  /** Profesyonel yönetimle tahmini aylık tasarruf (₺, ~%22). */
-  estimatedSavings: number;
+const EMPTY: ShareResult = { monthlyShare: 0, annualShare: 0, ratio: 0, valid: false };
+
+export function calculateShare(input: ShareInput): ShareResult {
+  const { monthlyBudget, method, units, landShareNumerator, landShareDenominator } = input;
+  if (!(monthlyBudget > 0)) return EMPTY;
+
+  let ratio = 0;
+  if (method === 'equal') {
+    if (!(units >= 1)) return EMPTY;
+    ratio = 1 / Math.floor(units);
+  } else {
+    if (!(landShareNumerator > 0) || !(landShareDenominator > 0) || landShareNumerator > landShareDenominator) return EMPTY;
+    ratio = landShareNumerator / landShareDenominator;
+  }
+
+  const monthlyShare = Math.round(monthlyBudget * ratio * 100) / 100;
+  return { monthlyShare, annualShare: Math.round(monthlyShare * 12 * 100) / 100, ratio, valid: true };
 }
 
-// Fallback default config in case DB is empty
-export const defaultCalcConfig: CalcConfig = {
-  baseCostPerUnit: 350,
-  securityAddon: 450,
-  poolAddon: 180,
-  greenAddon: 120,
-  elevatorAddon: 40,
-  savingsRate: 0.22
-};
+const LOCALES: Record<string, string> = { tr: 'tr-TR', en: 'en-US', ru: 'ru-RU', ar: 'ar-SA' };
 
-export function calculateDues(input: CalcInput, config: CalcConfig = defaultCalcConfig): CalcResult {
-  const { units, elevators, hasSecurity, hasPool, hasGreenSpace } = input;
-
-  const securityAddon = hasSecurity ? config.securityAddon : 0;
-  const poolAddon = hasPool ? config.poolAddon : 0;
-  const greenAddon = hasGreenSpace ? config.greenAddon : 0;
-  const elevatorAddon = elevators * config.elevatorAddon;
-
-  const estimatedDuesPerUnit = Math.round(
-    config.baseCostPerUnit + securityAddon + poolAddon + greenAddon + elevatorAddon / Math.max(units, 1)
-  );
-  const totalMonthlyBudget = estimatedDuesPerUnit * units;
-  const estimatedSavings = Math.round(totalMonthlyBudget * config.savingsRate);
-
-  return { estimatedDuesPerUnit, totalMonthlyBudget, estimatedSavings };
+/** Para biçimi: tr "₺1.234,50", diğer diller "1,234.50 ₺". */
+export function formatTry(amount: number, lang: string = 'tr'): string {
+  const text = amount.toLocaleString(LOCALES[lang] ?? 'tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return lang === 'tr' ? `₺${text}` : `${text} ₺`;
 }
 
-export interface LocalizedCalcResult extends CalcResult {
-  formattedDuesPerUnit: string;
-  formattedTotalMonthlyBudget: string;
-  formattedEstimatedSavings: string;
-}
-
-/**
- * Faz 165: Çok Dilli Aidat ve Bütçe Hesaplayıcı (TR, EN, RU, AR)
- */
-export function calculateDuesLocalized(
-  input: CalcInput,
-  lang: string = 'tr',
-  config: CalcConfig = defaultCalcConfig
-): LocalizedCalcResult {
-  const result = calculateDues(input, config);
-  const isTr = lang === 'tr';
-  const currencySymbol = '₺';
-
-  // Yabancı dillerde ve Arapça'da doğru sayı ve para biçimlendirmesi
-  const formattedDuesPerUnit = isTr
-    ? `${currencySymbol}${result.estimatedDuesPerUnit.toLocaleString('tr-TR')}`
-    : `${result.estimatedDuesPerUnit.toLocaleString(lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA')} ${currencySymbol}`;
-
-  const formattedTotalMonthlyBudget = isTr
-    ? `${currencySymbol}${result.totalMonthlyBudget.toLocaleString('tr-TR')}`
-    : `${result.totalMonthlyBudget.toLocaleString(lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA')} ${currencySymbol}`;
-
-  const formattedEstimatedSavings = isTr
-    ? `~${currencySymbol}${result.estimatedSavings.toLocaleString('tr-TR')}`
-    : `~${result.estimatedSavings.toLocaleString(lang === 'en' ? 'en-US' : lang === 'ru' ? 'ru-RU' : 'ar-SA')} ${currencySymbol}`;
-
-  return {
-    ...result,
-    formattedDuesPerUnit,
-    formattedTotalMonthlyBudget,
-    formattedEstimatedSavings,
-  };
+/** Oran biçimi: yüzde, en fazla 4 ondalık. */
+export function formatRatio(ratio: number, lang: string = 'tr'): string {
+  return `%${(ratio * 100).toLocaleString(LOCALES[lang] ?? 'tr-TR', { maximumFractionDigits: 4 })}`;
 }

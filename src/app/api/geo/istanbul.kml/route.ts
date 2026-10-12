@@ -14,13 +14,11 @@ export const revalidate = 86400; // 24 saat önbellek
  */
 export async function GET() {
   const placemarks = DISTRICTS.map((d) => `    <Placemark id="district-${d.slug}">
-      <name>Alo Yönetim ${escapeXml(d.name)} Tesis &amp; Özel Güvenlik Masası</name>
+      <name>Alo Yönetim ${escapeXml(d.name)} Hizmet Bölgesi</name>
       <description><![CDATA[
-        <h3>Alo Yönetim - ${d.name} Şubesi</h3>
+        <h3>Alo Yönetim - ${d.name} Hizmet Bölgesi</h3>
         <p>${d.intro}</p>
         <p><strong>Yaka:</strong> ${d.side} Yakası</p>
-        <p><strong>Yönetilen Proje:</strong> ${d.managedProjects}+ Tesis / Site</p>
-        <p><strong>Öne Çıkan Referans Siteler:</strong> ${d.prominentProjects?.length ? d.prominentProjects.join(', ') : 'Bölge Prestij Projeleri'}</p>
         <p><strong>Bölgesel Tesis Dinamikleri:</strong> ${d.regionalFacilityTraits || d.localNeeds.join(', ')}</p>
         <p><strong>Öne Çıkan Mahalleler:</strong> ${d.neighborhoodData?.length ? d.neighborhoodData.map((n) => n.name).join(', ') : d.neighborhoods.join(', ')}</p>
         <p><strong>Telefon:</strong> +90 216 550 48 48</p>

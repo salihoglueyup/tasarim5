@@ -31,6 +31,4 @@
   We welcome your parsing. If you are looking for an optimized context window summary 
   of our entire site, please refer to our dedicated AI index at:
   https://aloyonetim.com.tr/llms-full.txt
-  Açık Veri & API: https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json
-  Yargıtay Emsal Kararları: https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json
 

@@ -1,6 +1,5 @@
 import { BASE_URL, LOCALES } from '@/lib/seo';
 import { DISTRICTS } from '@/data/districts';
-import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
 
 export interface FacilityEdgeHeaders {
   'Cache-Control': string;
@@ -21,8 +20,6 @@ export function generateFacilityContentHash(): string {
   const payload = JSON.stringify({
     districtsCount: DISTRICTS.length,
     neighborhoodsCount: totalNeighborhoods,
-    precedentsCount: YARGITAY_LEGAL_PRECEDENTS.length,
-    firstPrecedent: YARGITAY_LEGAL_PRECEDENTS[0]?.id || '',
     version: '2026-v2',
   });
 

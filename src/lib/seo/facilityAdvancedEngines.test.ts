@@ -1,51 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { calculateFacilityBudget } from '@/data/facilityBudgetData';
 import { FACILITY_TERMS } from '@/data/facilityDictionaryData';
 import { webPageSchema } from '@/lib/schemas';
 
 describe('Tesis Yönetimi İleri Düzey SEO & Hesaplama Motorları', () => {
-  describe('Bütçe & Tasarruf Simülatörü (calculateFacilityBudget)', () => {
-    it('50 daireli bir site için bütçe, kalem dökümü ve %30 tasarrufu doğru hesaplar', () => {
-      const result = calculateFacilityBudget(50, 'site', 'kadikoy');
-
-      expect(result.units).toBe(50);
-      expect(result.facilityType).toBe('site');
-      expect(result.district).toBe('kadikoy');
-      expect(result.estimatedMonthlyBudget).toBeGreaterThan(0);
-      expect(result.duesPerUnit).toBeGreaterThan(0);
-
-      // %30 Tasarruf kontrolü
-      expect(result.savingsWithAloYonetim.savingsPercentage).toBe(30);
-      expect(result.savingsWithAloYonetim.monthlySavingsAmount).toBe(
-        Math.round(result.estimatedMonthlyBudget * 0.3)
-      );
-      expect(result.savingsWithAloYonetim.annualSavingsAmount).toBe(
-        result.savingsWithAloYonetim.monthlySavingsAmount * 12
-      );
-
-      // Kalem toplamları kontrolü
-      const breakdownSum =
-        result.breakdown.security.amount +
-        result.breakdown.cleaning.amount +
-        result.breakdown.technicalMaintenance.amount +
-        result.breakdown.commonEnergyAndUtilities.amount +
-        result.breakdown.kmkLegalEmergencyReserve.amount;
-
-      expect(breakdownSum).toBe(result.estimatedMonthlyBudget);
-
-      // Schema.org CalculateAction kontrolü
-      expect(result.schema['@type']).toBe('CalculateAction');
-      expect((result.schema.result as { value: number }).value).toBe(result.savingsWithAloYonetim.optimizedBudget);
-    });
-
-    it('Rezidans ve Plaza gibi ticari tesis tiplerinde birim katsayıları uygular', () => {
-      const siteResult = calculateFacilityBudget(100, 'site', 'sisli');
-      const plazaResult = calculateFacilityBudget(100, 'plaza', 'sisli');
-
-      expect(plazaResult.duesPerUnit).toBeGreaterThan(siteResult.duesPerUnit);
-      expect(plazaResult.facilityTypeName).toBe('Plaza ve İş Merkezi');
-    });
-  });
 
   describe('Tesis Yönetimi Açık Terimler Sözlüğü (FACILITY_TERMS)', () => {
     it('En az 10 temel terim ve yasal dayanak içerir', () => {

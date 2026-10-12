@@ -2,37 +2,14 @@ import { NextResponse } from 'next/server';
 import { DISTRICTS } from '@/data/districts';
 import { BASE_URL } from '@/lib/seo';
 import { HELD_CERTIFICATIONS } from '@/data/certificates';
+import { emergencyTargetMinutes } from '@/lib/facts';
 
 export const dynamic = 'force-static';
 export const revalidate = 86400; // Günde bir yenile (ISR)
 
-const DISTRICT_SLA_MINUTES: Record<string, number> = {
-  kadikoy: 25,
-  besiktas: 25,
-  sisli: 30,
-  uskudar: 30,
-  atasehir: 30,
-  bakirkoy: 35,
-  maltepe: 35,
-  kartal: 35,
-  umraniye: 35,
-  fatih: 35,
-  beyoglu: 35,
-  zeytinburnu: 40,
-  eyupsultan: 40,
-  basaksehir: 40,
-  beylikduzu: 45,
-  pendik: 45,
-  cekmekoy: 45,
-  sancaktepe: 45,
-  tuzla: 50,
-  esenyurt: 45,
-  sariyer: 40,
-};
-
 export async function GET() {
   const features = DISTRICTS.map((district) => {
-    const slaMinutes = DISTRICT_SLA_MINUTES[district.slug] || 45;
+    const slaMinutes = emergencyTargetMinutes(district.side);
     const lat = district.geo?.lat || 41.0082;
     const lng = district.geo?.lng || 28.9784;
 
@@ -49,8 +26,7 @@ export async function GET() {
         region: district.side,
         coverageStatus: 'Full Operational Coverage (Aktif Tam Kapsama)',
         serviceLevelAgreement: {
-          emergencyResponseTimeMinutes: slaMinutes,
-          standardResponseTimeHours: 2,
+          emergencyResponseTargetMinutes: slaMinutes,
           routineMaintenanceFrequency: 'Haftalık / Aylık Periyodik',
         },
         accreditations: [
@@ -67,8 +43,6 @@ export async function GET() {
         },
         sampleNeighborhoods: district.neighborhoods.slice(0, 5),
         primaryLocalNeeds: district.localNeeds,
-        totalResidentialSitesEstimated: district.totalResidentialSitesEstimated || district.managedProjects * 15,
-        prominentProjects: district.prominentProjects || [],
         regionalFacilityTraits: district.regionalFacilityTraits || '',
         neighborhoodsCount: district.neighborhoodData?.length || district.neighborhoods.length,
         neighborhoodsDetail: (district.neighborhoodData || []).map((n) => ({

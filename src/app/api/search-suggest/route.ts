@@ -27,13 +27,13 @@ import { DISTRICTS } from '@/data/districts';
 
 const STATIC_TOOLS = [
   {
-    title: 'İnteraktif Tesis Yönetimi Uyumluluk & Tasarruf Radarı',
-    description: 'Sitenizin KMK m.37, 5188 güvenlik, teknik ve hijyen sağlık skoru ile %30 tasarruf simülatörü.',
+    title: 'Tesis Yönetimi Hizmeti',
+    description: 'KMK m.37 işletme projesi, 5188 güvenlik, teknik bakım ve hijyen hizmetleri.',
     url: `${BASE_URL}/hizmetler/tesis-yonetimi`
   },
   {
-    title: 'Tesis Yönetimi Aidat & Bütçe Hesaplayıcı',
-    description: 'Daire ve bağımsız bölüm sayısına göre resmi aidat ve işletme maliyet simülatörü.',
+    title: 'Aidat Paylaşım Hesaplayıcı',
+    description: 'Girdiğiniz aylık bütçeyi eşit veya arsa payına göre bağımsız bölümlere paylaştırır.',
     url: `${BASE_URL}/hesaplayici`
   },
   {
@@ -50,11 +50,6 @@ const STATIC_TOOLS = [
     title: 'KMK 634 Karar & Aidat İhtarname Şablonu Üreticisi',
     description: 'Noter ve KMK uyumlu yönetici seçimi ve gecikme ihtarı metin üreticisi.',
     url: `${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi`
-  },
-  {
-    title: 'İstanbul İlçe Aidat & Tasarruf Isı Haritası (2026)',
-    description: '39 ilçenin ortalama m² aidat endeksi ve tasarruf simülatörü.',
-    url: `${BASE_URL}/bolgeler`
   },
   {
     title: 'Apartman & Site Yönetimi Terimler Sözlüğü',

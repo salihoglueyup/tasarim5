@@ -47,7 +47,7 @@ export async function GET(req: Request) {
       id: 'tesis-yonetimi-hizmet-sozlesmesi',
       title: 'Profesyonel Entegre Tesis Yönetimi Hizmet Sözleşmesi Şablonu',
       description:
-        'Tesis yönetim şirketi ile Kat Malikleri Kurulu arasındaki görev, yetki, SLA süreleri (45 dk acil müdahale), 5188 güvenlik ve teknik bakım sorumluluklarını belirleyen kurumsal sözleşme.',
+        'Tesis yönetim şirketi ile Kat Malikleri Kurulu arasındaki görev, yetki, yazılı SLA süreleri, 5188 güvenlik ve teknik bakım sorumluluklarını belirleyen kurumsal sözleşme.',
       legalBasis: 'Borçlar Kanunu Hizmet & Vekalet Sözleşmesi Hükümleri',
       standard: '634 Sayılı KMK & 6098 Sayılı TBK',
       fileType: 'JSON / Sözleşme Maddeleri',

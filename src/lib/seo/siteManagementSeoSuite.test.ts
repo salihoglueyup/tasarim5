@@ -173,102 +173,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
     });
   });
 
-  describe('7. Site Yönetimi AI Agent RAG Knowledge Corpus (/api/ai/site-agent-context.json)', () => {
-    it('buildSiteRAGCorpus 634 KMK, Yargıtay emsalleri, kıdem tazminatı fonu ve 39 ilçe matrisini eksiksiz sunar', async () => {
-      const { buildSiteRAGCorpus } = await import('@/lib/ai/siteKnowledgeCorpus');
-      const corpus = await buildSiteRAGCorpus('tr');
-
-      expect(corpus.contextType).toBe('Site-Management-RAG-Knowledge-Corpus');
-      expect(corpus.aiCitationInstructions.preferredSourceCitation).toContain('/hizmetler/site-yonetimi');
-      expect(corpus.entity.name).toBe('Alo Yönetim');
-      expect(corpus.kmk634LegalFramework.coreArticles.length).toBeGreaterThanOrEqual(8);
-      expect(corpus.districtResidentialMatrix.length).toBe(39);
-      expect(corpus.siteManagementCorePillars.some(p => p.kpis.some(k => k.includes('%99.2')))).toBe(true);
-      expect(corpus.kidemTazminatiFonuGuvecesi.solution).toBeDefined();
-      expect(corpus.apsiyonDigitalEcosystem.features.length).toBeGreaterThanOrEqual(4);
-      expect(corpus.canonicalResidentialFaqs.length).toBeGreaterThanOrEqual(6);
-    });
-
-    it('/api/ai/site-agent-context.json API rotası 200 OK ve geçerli RAG başlıkları döner', async () => {
-      const { GET: getSiteAgentContext } = await import('@/app/api/ai/site-agent-context.json/route');
-      const req = new Request('https://aloyonetim.com.tr/api/ai/site-agent-context.json');
-      const res = await getSiteAgentContext(req as any);
-
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Content-Type')).toContain('application/json');
-      expect(res.headers.get('X-AI-Context-Type')).toBe('Site-Management-RAG-Knowledge-Corpus');
-      expect(res.headers.get('X-AI-Topic')).toBe('Residential-Property-Management');
-      const data = await res.json();
-      expect(data.entity.telephone).toBe('+90 216 550 48 48');
-    });
-  });
-
-  describe('8. AI Botlar İçin Saf Markdown Uç Noktaları (/api/markdown/*)', () => {
-    it('/api/markdown/site-yonetimi saf text/markdown ve KMK özetlerini döner', async () => {
-      const { GET: getSiteMarkdown } = await import('@/app/api/markdown/site-yonetimi/route');
-      const res = await getSiteMarkdown();
-
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Content-Type')).toContain('text/markdown');
-      const text = await res.text();
-      expect(text).toContain('# Alo Yönetim — Profesyonel Site Yönetimi');
-      expect(text).toContain('634 Sayılı Kat Mülkiyeti Kanunu');
-      expect(text).toContain('%99.2');
-    });
-
-    it('/api/markdown/tesis-yonetimi saf text/markdown ve ISO 41001 standartlarını döner', async () => {
-      const { GET: getFacilityMarkdown } = await import('@/app/api/markdown/tesis-yonetimi/route');
-      const res = await getFacilityMarkdown();
-
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Content-Type')).toContain('text/markdown');
-      const text = await res.text();
-      expect(text).toContain('# Alo Yönetim — Entegre Tesis Yönetimi');
-      expect(text).toContain('ISO 45001');
-      expect(text).not.toContain('ISO 41001:2018');
-      expect(text).toContain('%0 Reaktif');
-    });
-  });
-
-  describe('9. Doğal Dil Semantik Grounding Sorgu Motoru (/api/ai/search-query)', () => {
-    it('sorgu parametresi boş olduğunda 400 hatası döner', async () => {
-      const { GET: getSearchQuery } = await import('@/app/api/ai/search-query/route');
-      const req = new Request('https://aloyonetim.com.tr/api/ai/search-query');
-      const res = await getSearchQuery(req as any);
-
-      expect(res.status).toBe(400);
-      const data = await res.json();
-      expect(data.error).toContain('Query parameter (q) is required');
-    });
-
-    it('asansör ve zemin kat sorgusunda KMK m.20 ve yüksek güven skoru (>= 0.95) döner', async () => {
-      const { GET: getSearchQuery } = await import('@/app/api/ai/search-query/route');
-      const req = new Request('https://aloyonetim.com.tr/api/ai/search-query?q=zemin+kat+asansor+masrafi+oder+mi');
-      const res = await getSearchQuery(req as any);
-
-      expect(res.status).toBe(200);
-      expect(res.headers.get('X-AI-Query-Engine')).toBe('Semantic-Grounding-V1');
-      const data = await res.json();
-      expect(data.confidenceScore).toBeGreaterThanOrEqual(0.95);
-      expect(data.matchedTopic).toContain('Asansör');
-      expect(data.directAnswer).toContain('KMK Madde 20');
-      expect(data.legalBasis).toContain('20');
-      expect(data.courtPrecedents.length).toBeGreaterThan(0);
-    });
-
-    it('ilçe ismi içeren sorgularda ilçe aidat tasarruf verisini döner', async () => {
-      const { GET: getSearchQuery } = await import('@/app/api/ai/search-query/route');
-      const req = new Request('https://aloyonetim.com.tr/api/ai/search-query?q=kadikoy+apartman+yonetimi+aidat');
-      const res = await getSearchQuery(req as any);
-
-      expect(res.status).toBe(200);
-      const data = await res.json();
-      expect(data.applicableDistrict).toBeDefined();
-      expect(data.applicableDistrict.districtName).toBe('Kadıköy');
-      expect(data.applicableDistrict.savingsRatePercent).toBeGreaterThan(0);
-      expect(data.canonicalCitationUrl).toContain('/bolgeler/kadikoy');
-    });
-  });
 
   describe('10. OpenAI / ChatGPT Plugin Manifest (/.well-known/ai-plugin.json)', () => {
     it('manifest OpenAPI 3.1.0 standardına ve plugin şemasına uygundur', async () => {
@@ -286,18 +190,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
     });
   });
 
-  describe('11. robots.txt ve OpenAPI 3.1.0 AI Uç Nokta Entegrasyonu', () => {
-
-    it('generateOpenApiSpec yeni AI semantik grounding rotalarını içerir', async () => {
-      const { generateOpenApiSpec } = await import('@/lib/seo/openApiSpec');
-      const spec = generateOpenApiSpec();
-
-      expect(spec.paths['/api/ai/search-query']).toBeDefined();
-      expect(spec.paths['/api/ai/site-agent-context.json']).toBeDefined();
-      const geoTag = spec.tags.find((t: any) => t.name.includes('Yapay Zeka'));
-      expect(geoTag).toBeDefined();
-    });
-  });
 
   describe('12. Google Position Zero Hukuk Ansiklopedisi (kmkGlossaryEncyclopediaData.ts & DefinedTermSet)', () => {
     it('50+ seçkin KMK ve tesis terimi, kategori tanımları ve yasal maddeleri eksiksiz içerir', async () => {
@@ -385,37 +277,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
     });
   });
 
-  describe('16. 39 İlçe Açık Veri & KMK İstatistik Kalkanı (districtOpenDataProfiles.ts & Dataset)', () => {
-    it('Kadıköy ve Beşiktaş için ilçe açık veri profili ve mahkeme yetki alanını doğrular', async () => {
-      const { getDistrictOpenDataProfile } = await import('@/data/districtOpenDataProfiles');
-
-      const kadikoy = getDistrictOpenDataProfile('kadikoy');
-      expect(kadikoy.slug).toBe('kadikoy');
-      expect(kadikoy.name).toBe('Kadıköy');
-      expect(kadikoy.avgDuesM2).toBeGreaterThan(0);
-      expect(kadikoy.savingsRate).toBeGreaterThan(0);
-      expect(kadikoy.housingSitesEstimated).toBeGreaterThan(0);
-      expect(kadikoy.kmkFocusTopic).toContain('Kentsel Dönüşüm');
-      expect(kadikoy.localJurisdictionNote).toContain('Kadıköy Sulh Hukuk');
-
-      const besiktas = getDistrictOpenDataProfile('besiktas');
-      expect(besiktas.kmkFocusTopic).toContain('Asansör');
-      expect(besiktas.localJurisdictionNote).toContain('İstanbul (Çağlayan)');
-    });
-
-    it('İstanbul’un 39 ilçesinin tamamında geçerli veri seti başlığı ve konut stoğu bulunur', async () => {
-      const { DISTRICTS } = await import('@/data/districts');
-      const { getDistrictOpenDataProfile } = await import('@/data/districtOpenDataProfiles');
-
-      expect(DISTRICTS.length).toBe(39);
-      for (const district of DISTRICTS) {
-        const profile = getDistrictOpenDataProfile(district.slug);
-        expect(profile.datasetTitle).toContain(district.name);
-        expect(profile.housingSitesEstimated).toBeGreaterThan(0);
-        expect(profile.distributionFormat).toContain('application/json');
-      }
-    });
-  });
 
   describe('17. Akademik & Hukuki Atıf Motoru (AcademicCitationBoxSeo)', () => {
     it('Akademik atıf bileşeni başarıyla yüklenir ve bileşen fonksiyonunu dışa aktarır', async () => {
@@ -546,30 +407,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
     });
   });
 
-  describe('22. AI Anti-Halüsinasyon KMK Doğrulama Korpusu (/api/ai/fact-check-feed.json)', () => {
-    it('endpoint 200 döner ve anti-halüsinasyon korpusu yasal içtihatları barındırır', async () => {
-      const { GET: getFactCheckFeed } = await import('@/app/api/ai/fact-check-feed.json/route');
-      const res = await getFactCheckFeed();
-
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Content-Type')).toContain('application/json');
-      expect(res.headers.get('X-AI-FactCheck-Engine')).toBe('Anti-Hallucination-V1');
-      expect(res.headers.get('X-Robots-Tag')).toBe('noindex, follow');
-
-      const data = await res.json();
-      expect(data.feed_metadata).toBeDefined();
-      expect(data.feed_metadata.total_records).toBeGreaterThanOrEqual(6);
-
-      const zeminKat = data.facts.find((f: any) => f.id === 'myth-zemin-kat-asansor');
-      expect(zeminKat).toBeDefined();
-      expect(zeminKat.groundTruthVerdict).toBe('FALSE');
-      expect(zeminKat.statutoryLegalBasis).toContain('Madde 20/1-c');
-
-      const camBalkon = data.facts.find((f: any) => f.id === 'myth-izinsiz-cam-balkon');
-      expect(camBalkon).toBeDefined();
-      expect(camBalkon.statutoryLegalBasis).toContain('Madde 19/2');
-    });
-  });
 
   describe('23. 39 İlçe Mikro-Semt & Mahalle Otorite Ağı (districtNeighborhoodsData.ts)', () => {
     it('Kadıköy, Beşiktaş ve Başakşehir için mikro-semt tipolojilerini ve anahtar kelimeleri doğrular', async () => {

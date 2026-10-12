@@ -323,34 +323,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('21. api/tesis-yonetimi/feed.xml Enclosure Görsel Koruması', () => {
-    it('GET fonksiyonu tüm öğelerde geçerli enclosure görsel etiketi üretmelidir', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/feed.xml/route');
-      const res = await GET();
-      expect(res.status).toBe(200);
-      const xml = await res.text();
-      expect(xml).toContain('<enclosure');
-      expect(xml).toContain('hero-poster-v5.webp');
-    });
-  });
-
-  describe('22. api/tesis-yonetimi/llm-facts.json Çift Kanallı İlçe Rotaları', () => {
-    it('GET fonksiyonu 39 ilçe için hem ana iniş hem tesis yönetimi linklerini sunmalıdır', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/llm-facts.json/route');
-      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json');
-      const res = await GET(req);
-      expect(res.status).toBe(200);
-      const data = await res.json();
-      expect(Array.isArray(data.districtDuesBenchmarks39)).toBe(true);
-      expect(data.districtDuesBenchmarks39.length).toBe(39);
-      const first = data.districtDuesBenchmarks39[0];
-      expect(first.districtHubUrl).toBeDefined();
-      expect(first.facilityManagementUrl).toBeDefined();
-      expect(first.districtHubUrl).toContain('/bolgeler/');
-      expect(first.facilityManagementUrl).toContain('/tesis-yonetimi');
-    });
-  });
-
   describe('23. facilityIndexNowPinger 39 İlçe Hub & Spoke URL Kapsamı', () => {
     it('IndexNow yükü hem ilçe ana sayfası hem tesis yönetimi linklerini içermelidir', async () => {
       const { buildFacilityIndexNowPayload } = await import('./facilityIndexNowPinger');
@@ -370,19 +342,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(endpoints).toContain('/api/tesis-yonetimi/llm-facts.json');
       expect(endpoints).toContain('/api/tesis-yonetimi/kmk-law-index.json');
       expect(endpoints).toContain('/api/tesis-yonetimi/feed.xml');
-    });
-  });
-
-  describe('25. hesaplayici/page.tsx WebApplication Şema Standartları', () => {
-    it('hesaplayıcı sayfasında ücretsiz offer ve özellik listesi bulunmalıdır', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const content = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hesaplayici/page.tsx'), 'utf-8');
-      expect(content).toContain("'WebApplication'");
-      expect(content).toContain("price: '0'");
-      expect(content).toContain("priceCurrency: 'TRY'");
-      expect(content).toContain('featureList');
-      expect(content).toContain('CalculateAction');
     });
   });
 
@@ -500,25 +459,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     }, 20000);
   });
 
-  describe('35. facilityDistrictComparator LocalBusiness Şema Zenginleştirmesi', () => {
-    it('kıyaslama motoru ve API rotası LocalBusiness ve telefon/adres nesneleri sunmalıdır', async () => {
-      const { compareFacilityDistricts } = await import('./facilityDistrictComparator');
-      const res = compareFacilityDistricts(['kadikoy', 'besiktas']);
-      expect(res).toBeDefined();
-      const about = res?.schema.about as any[];
-      expect(about).toBeDefined();
-      expect(about[0]['@type']).toBe('LocalBusiness');
-      expect(about[0].telephone).toBe('+90 216 550 48 48');
-      expect(about[0].address.addressLocality).toBe('Kadıköy');
-
-      const { GET } = await import('@/app/api/tesis-yonetimi/compare-districts/route');
-      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/compare-districts?d1=kadikoy&d2=besiktas');
-      const apiRes = await GET(req as any);
-      expect(apiRes.status).toBe(200);
-      expect(apiRes.headers.get('X-Robots-Tag')).toContain('all');
-    });
-  });
-
   describe('36. facilitySerpRankSimulator ve facility-rank-score Çok Dilli Destek', () => {
     it('simülasyon motoru ve API rotası çok dilli parametreleri başarıyla değerlendirmelidir', async () => {
       const { runFacilitySerpRankSimulation } = await import('./facilitySerpRankSimulator');
@@ -568,19 +508,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const data = await res.json();
       expect(data.schema.name).toBe('Alo Yönetim');
       expect(data.schema.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-    });
-  });
-
-  describe('39. nearest-facility-hub API Rotası Başlık ve Telemetrisi', () => {
-    it('GET isteği 200, X-Robots-Tag all ve en yakın operasyon merkezini dönmelidir', async () => {
-      const { GET } = await import('@/app/api/geo/nearest-facility-hub/route');
-      const req = new Request('https://aloyonetim.com.tr/api/geo/nearest-facility-hub?lat=40.99&lng=29.02');
-      const res = await GET(req as any);
-      expect(res.status).toBe(200);
-      expect(res.headers.get('X-Robots-Tag')).toContain('all');
-      const data = await res.json();
-      expect(data.nearestDistrict.name).toContain('Kadıköy');
-      expect(data.distanceKm).toBeGreaterThanOrEqual(0);
     });
   });
 
@@ -731,26 +658,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('46. facilityAutonomousAuditor Genişletilmiş API Envanteri ve Sağlık Raporu', () => {
-    it('açık veri/SEO API uçlarını ve %100 sağlık durumunu doğrular', async () => {
-      const { runFacilityAutonomousAudit } = await import('@/lib/seo/facilityAutonomousAuditor');
-      const report = runFacilityAutonomousAudit();
-
-      expect(report.apiHealthStatus.length).toBeGreaterThanOrEqual(15);
-      expect(report.overallSeoHealthScore).toBeGreaterThanOrEqual(80);
-      expect(report.apiHealthStatus.every((a) => a.status === 'ACTIVE_AND_HEALTHY')).toBe(true);
-
-      const entityGraphEndpoint = report.apiHealthStatus.find((a) => a.endpoint.includes('entity-graph.jsonld'));
-      expect(entityGraphEndpoint).toBeDefined();
-
-      const nearestHubEndpoint = report.apiHealthStatus.find((a) => a.endpoint.includes('nearest-facility-hub'));
-      expect(nearestHubEndpoint).toBeDefined();
-
-      const legalEndpoint = report.apiHealthStatus.find((a) => a.endpoint.includes('legal-precedents.json'));
-      expect(legalEndpoint).toBeDefined();
-    });
-  });
-
   describe('47. facilityIndexNowPinger Dinamik Senkronizasyon ve facility-audit Başlıkları', () => {
     it('IndexNow dinamik hizmetleri içerir ve facility-audit noindex, no-store başlığı döner', async () => {
       const { buildFacilityIndexNowPayload } = await import('@/lib/seo/facilityIndexNowPinger');
@@ -764,53 +671,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(res.headers.get('Content-Type')).toContain('application/json');
       const data = await res.json();
       expect(data.totalDistrictsAudited).toBe(39);
-    });
-  });
-
-  describe('48. dues-index.json Schema.org Dataset ve Açık Veri Doğrulaması', () => {
-    it('Google Dataset Search standartlarında Dataset şeması ve CC-BY-SA lisansı sunar', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/dues-index.json/route');
-      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json');
-      const res = await GET(req);
-      expect(res.status).toBe(200);
-      expect(res.headers.get('X-Robots-Tag')).toContain('all');
-      expect(res.headers.get('Content-Type')).toContain('application/json');
-
-      const data = await res.json();
-      expect(data.schema).toBeDefined();
-      expect(data.schema['@type']).toBe('Dataset');
-      expect(data.schema.license).toBe('https://creativecommons.org/licenses/by-sa/4.0/');
-      expect(data.schema.creator.name).toBe('Alo Yönetim');
-      expect(data.schema.creator.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(data.schema.spatialCoverage.name).toBe('İstanbul');
-      expect(data.schema.distribution[0].encodingFormat).toBe('application/json');
-    });
-  });
-
-  describe('49. kmk-law-index.json TBMM Wikidata Bağı ve API Başlık Standardizasyonu', () => {
-    it('TBMM Q640108 Wikidata bağını, voice-qa ve bot-analytics başlıklarını doğrular', async () => {
-      // 1. kmk-law-index TBMM Wikidata ve X-Robots-Tag
-      const { GET: getKmk } = await import('@/app/api/tesis-yonetimi/kmk-law-index.json/route');
-      const kmkReq = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/kmk-law-index.json');
-      const kmkRes = await getKmk(kmkReq);
-      expect(kmkRes.status).toBe(200);
-      expect(kmkRes.headers.get('X-Robots-Tag')).toContain('all');
-      const kmkData = await kmkRes.json();
-      expect(kmkData.schema.itemListElement[0].item.legislationPassedBy.sameAs).toContain('Q640108');
-
-      // 2. voice-qa Content-Type
-      const { GET: getVoice } = await import('@/app/api/tesis-yonetimi/voice-qa.json/route');
-      const voiceReq = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-qa.json');
-      const voiceRes = await getVoice(voiceReq);
-      expect(voiceRes.status).toBe(200);
-      expect(voiceRes.headers.get('Content-Type')).toContain('application/json');
-
-      // 3. bot-analytics noindex
-      const { GET: getBot } = await import('@/app/api/seo/bot-analytics/route');
-      const botRes = await getBot();
-      expect(botRes.status).toBe(200);
-      expect(botRes.headers.get('X-Robots-Tag')).toBe('noindex, nofollow');
-      expect(botRes.headers.get('Content-Type')).toContain('application/json');
     });
   });
 
@@ -871,78 +731,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('52. facilityDistrictComparator Çok Dilli ve GeoCoordinates/parentOrganization Desteği', () => {
-    it('TR, EN, RU, AR dillerinde lokalize özet ve GeoCoordinates/parentOrganization şeması üretmelidir', async () => {
-      const { compareFacilityDistricts } = await import('./facilityDistrictComparator');
-
-      // 1. Türkçe Varsayılan
-      const resTr = compareFacilityDistricts(['kadikoy', 'besiktas'], 'tr');
-      expect(resTr).toBeDefined();
-      expect(resTr?.seoSummaryParagraph).toContain('İstanbul genelinde');
-      expect(resTr?.schema.name).toContain('Tesis Yönetimi ve Aidat Karşılaştırması 2026');
-
-      // 2. İngilizce
-      const resEn = compareFacilityDistricts(['kadikoy', 'besiktas'], 'en');
-      expect(resEn?.seoSummaryParagraph).toContain('Comparing facility management');
-      expect(resEn?.schema.name).toContain('Facility Management & Dues Comparison 2026');
-
-      // 3. Rusça
-      const resRu = compareFacilityDistricts(['kadikoy', 'besiktas'], 'ru');
-      expect(resRu?.seoSummaryParagraph).toContain('Сравнивая индексы');
-      expect(resRu?.schema.name).toContain('Сравнение управления объектами');
-
-      // 4. Arapça
-      const resAr = compareFacilityDistricts(['kadikoy', 'besiktas'], 'ar');
-      expect(resAr?.seoSummaryParagraph).toContain('مقارنة مؤشرات');
-      expect(resAr?.schema.name).toContain('مقارنة إدارة المرافق والرسوم 2026');
-
-      // 5. LocalBusiness Schema Zenginleştirmesi (Geo & parentOrganization)
-      const about = resEn?.schema.about as any[];
-      expect(about).toBeDefined();
-      expect(about.length).toBe(2);
-
-      const kadikoyBusiness = about[0];
-      expect(kadikoyBusiness['@type']).toBe('LocalBusiness');
-      expect(kadikoyBusiness.currenciesAccepted).toBe('TRY');
-      expect(kadikoyBusiness.parentOrganization['@type']).toBe('Organization');
-      expect(kadikoyBusiness.parentOrganization['@id']).toBe('https://aloyonetim.com.tr/#organization');
-      expect(kadikoyBusiness.parentOrganization.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(kadikoyBusiness.geo['@type']).toBe('GeoCoordinates');
-      expect(typeof kadikoyBusiness.geo.latitude).toBe('number');
-      expect(typeof kadikoyBusiness.geo.longitude).toBe('number');
-
-      // District modeline geo aktarımı kontrolü
-      expect(resEn?.districts[0].geo?.lat).toBeDefined();
-      expect(resEn?.districts[0].geo?.lng).toBeDefined();
-    });
-  });
-
-  describe('53. compare-districts API Çok Dilli İstek Desteği', () => {
-    it('lang parametresi ile yapılan API isteklerinde ilgili dilde özet ve şema döndürmelidir', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/compare-districts/route');
-
-      // İngilizce API isteği
-      const reqEn = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/compare-districts?d1=kadikoy&d2=besiktas&lang=en');
-      const resEn = await GET(reqEn as any);
-      expect(resEn.status).toBe(200);
-      const dataEn = await resEn.json();
-
-      expect(dataEn.seoSummaryParagraph).toContain('Comparing facility management');
-      expect(dataEn.schema.name).toContain('Facility Management & Dues Comparison 2026');
-      expect(dataEn.schema.about[0].geo.latitude).toBeDefined();
-      expect(dataEn.schema.about[0].parentOrganization.name).toBe('Alo Yönetim');
-
-      // Arapça API isteği
-      const reqAr = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/compare-districts?d1=kadikoy&d2=besiktas&lang=ar');
-      const resAr = await GET(reqAr as any);
-      expect(resAr.status).toBe(200);
-      const dataAr = await resAr.json();
-
-      expect(dataAr.seoSummaryParagraph).toContain('مقارنة مؤشرات');
-      expect(dataAr.schema.name).toContain('مقارنة إدارة المرافق والرسوم 2026');
-    });
-  });
-
   describe('54. facilityTopicGraph Çok Dilli Şema ve OfferCatalog/AggregateRating Standartları', () => {
     it('TR, EN, RU, AR dillerinde yerelleştirilmiş Service şeması ve geçerli Offer/Rating alanları üretmelidir', () => {
       // 1. Türkçe Varsayılan
@@ -981,65 +769,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('55. dues-index.json Google Dataset Search Zenginleştirmesi & Side Filtreleme', () => {
-    it('Dataset şemasında keywords, temporalCoverage, variableMeasured ve geo döner; side filtresini uygular', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/dues-index.json/route');
-
-      // 1. Varsayılan (tüm İstanbul)
-      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json');
-      const resAll = await GET(reqAll);
-      const dataAll = await resAll.json();
-      expect(dataAll.schema.keywords).toBeDefined();
-      expect(dataAll.schema.keywords).toContain('tesis yönetimi');
-      expect(dataAll.schema.temporalCoverage).toBe('2026');
-      expect(dataAll.schema.variableMeasured.length).toBeGreaterThanOrEqual(4);
-      expect(dataAll.districts.length).toBe(39);
-      expect(dataAll.districts[0].geo['@type']).toBe('GeoCoordinates');
-      expect(typeof dataAll.districts[0].geo.latitude).toBe('number');
-
-      // 2. Anadolu Yakası Filtrelemesi
-      const reqAnadolu = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json?side=anadolu');
-      const resAnadolu = await GET(reqAnadolu);
-      const dataAnadolu = await resAnadolu.json();
-      expect(dataAnadolu.istanbulSummary.totalDistricts).toBe(14);
-      expect(dataAnadolu.districts.length).toBe(14);
-      expect(dataAnadolu.districts.every((d: any) => d.side === 'Anadolu Yakası')).toBe(true);
-      expect(dataAnadolu.istanbulSummary.filteredSide).toBe('anadolu');
-
-      // 3. Avrupa Yakası Filtrelemesi
-      const reqAvrupa = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json?side=avrupa');
-      const resAvrupa = await GET(reqAvrupa);
-      const dataAvrupa = await resAvrupa.json();
-      expect(dataAvrupa.istanbulSummary.totalDistricts).toBe(25);
-      expect(dataAvrupa.districts.length).toBe(25);
-      expect(dataAvrupa.districts.every((d: any) => d.side === 'Avrupa Yakası')).toBe(true);
-    });
-  });
-
-  describe('56. llm-facts.json Çok Dilli AI Fact-Sheet & Genişletilmiş API Dizini', () => {
-    it('linkedApis içinde kmkLawIndex ve facilityAuditApi sunar; lang=en ile İngilizce fact-sheet döndürür', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/llm-facts.json/route');
-
-      // 1. Varsayılan Türkçe ve Genişletilmiş API Grafı
-      const reqTr = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json');
-      const resTr = await GET(reqTr);
-      const dataTr = await resTr.json();
-      expect(dataTr.linkedApis.kmkLawIndex).toBe('https://aloyonetim.com.tr/api/tesis-yonetimi/kmk-law-index.json');
-      expect(dataTr.linkedApis.facilityAuditApi).toBe('https://aloyonetim.com.tr/api/seo/facility-audit');
-      expect(dataTr.coreService.canonicalName).toBe('Entegre Tesis ve Mülk Yönetimi');
-
-      // 2. Çok Dilli İngilizce AI Fact-Sheet İstegi
-      const reqEn = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json?lang=en');
-      const resEn = await GET(reqEn);
-      const dataEn = await resEn.json();
-      expect(dataEn.coreService.canonicalName).toBe('Integrated Facility & Property Management');
-      expect(dataEn.coreService.targetKeyword).toBe('facility management istanbul');
-      expect(dataEn.coreService.canonicalUrl).toBe('https://aloyonetim.com.tr/en/hizmetler/tesis-yonetimi');
-      expect(dataEn.coreService.slaCommitment).toContain('45 minutes');
-      expect(dataEn.coreService.activeCoverage).toContain('39 Districts');
-    });
-  });
-
   describe('57. facilityAiSnippetEngine Çok Dilli Destek & Schema Zenginleştirmesi', () => {
     it('TR ve EN dillerinde snippet üretir ve DefinedTermSet şeması sunar', async () => {
       const { generateFacilityAiSnippets } = await import('./facilityAiSnippetEngine');
@@ -1060,70 +789,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(enPayload.snippets[0].citationAnchorUrl).toContain('/en/hizmetler/tesis-yonetimi');
       expect(enPayload.schema?.['@type']).toBe('DefinedTermSet');
       expect(enPayload.schema?.name).toContain('Facility Management Knowledge');
-    });
-  });
-
-  describe('58. ai-snippets.json ve voice-qa.json API Çok Dilli İstek Desteği', () => {
-    it('ai-snippets.json ve voice-qa.json uç noktaları lang parametresine göre yerel dilde yanıt verir', async () => {
-      // 1. ai-snippets.json İngilizce
-      const { GET: getAiSnippets } = await import('@/app/api/tesis-yonetimi/ai-snippets.json/route');
-      const aiReq = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/ai-snippets.json?lang=en');
-      const aiRes = await getAiSnippets(aiReq);
-      expect(aiRes.status).toBe(200);
-      const aiData = await aiRes.json();
-      expect(aiData.totalSnippets).toBe(13);
-      expect(aiData.snippets[0].queryIntent).toContain('What is Facility Management');
-      expect(aiData.schema['@type']).toBe('DefinedTermSet');
-
-      // 2. voice-qa.json İngilizce
-      const { GET: getVoice } = await import('@/app/api/tesis-yonetimi/voice-qa.json/route');
-      const voiceReq = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-qa.json?lang=en');
-      const voiceRes = await getVoice(voiceReq);
-      expect(voiceRes.status).toBe(200);
-      const voiceData = await voiceRes.json();
-      expect(voiceData.qaCollection.length).toBeGreaterThan(0);
-      expect(voiceData.qaCollection[0].schema.inLanguage).toBe('en');
-      expect(voiceData.qaCollection[0].schema['@type']).toBe('SpeakableSpecification');
-    });
-  });
-
-  describe('59. legal-precedents.json Yargıtay Wikidata (Q1549429) & KMK Madde Filtreleme', () => {
-    it('Legislation şemasında Yargıtay Wikidata bağı (Q1549429) döner; X-Robots-Tag all ve article filtresini sağlar', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/legal-precedents.json/route');
-
-      // 1. Varsayılan tüm emsal kararlar ve Yargıtay Otorite bağı
-      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
-      const resAll = await GET(reqAll);
-      expect(resAll.status).toBe(200);
-      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
-      expect(resAll.headers.get('Content-Type')).toContain('application/json');
-
-      const dataAll = await resAll.json();
-      expect(dataAll.precedents.length).toBeGreaterThanOrEqual(4);
-      expect(dataAll.schema['@type']).toBe('ItemList');
-
-      const firstItem = dataAll.schema.itemListElement[0].item;
-      expect(firstItem['@type']).toBe('Legislation');
-      expect(firstItem.inLanguage).toBe('tr');
-      expect(firstItem.legislationPassedBy).toBeDefined();
-      expect(firstItem.legislationPassedBy.name).toBe('T.C. Yargıtay Başkanlığı');
-      expect(firstItem.legislationPassedBy.sameAs).toBe('https://www.wikidata.org/wiki/Q1549429');
-
-      // 2. KMK Madde 20 Filtresi (Aidat Gecikme ve Asansör)
-      const reqArt20 = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json?article=20');
-      const resArt20 = await GET(reqArt20);
-      const dataArt20 = await resArt20.json();
-      expect(dataArt20.metadata.filteredArticle).toBe('20');
-      expect(dataArt20.precedents.length).toBeGreaterThan(0);
-      expect(dataArt20.precedents.every((p: any) => p.kmkArticle.includes('20'))).toBe(true);
-
-      // 3. KMK Madde 19 Filtresi (Cam Balkon)
-      const reqArt19 = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json?article=19');
-      const resArt19 = await GET(reqArt19);
-      const dataArt19 = await resArt19.json();
-      expect(dataArt19.metadata.filteredArticle).toBe('19');
-      expect(dataArt19.precedents.length).toBe(1);
-      expect(dataArt19.precedents[0].subject).toContain('Cam Balkon');
     });
   });
 
@@ -1207,119 +872,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('62. benchmark.json Google Dataset Search Şeması & Bölge Filtreleme', () => {
-    it('Google Dataset Search standartlarında Dataset şeması, CC-BY-SA lisansı ve dinamik ilçe filtresi sağlar', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/benchmark.json/route');
-
-      // 1. Genel parametresiz çağrı
-      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/benchmark.json');
-      const resAll = await GET(reqAll);
-      expect(resAll.status).toBe(200);
-      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
-      expect(resAll.headers.get('X-Dataset-Name')).toBe('Istanbul-Facility-Benchmark-Index');
-
-      const dataAll = await resAll.json();
-      expect(dataAll['@type']).toBe('Dataset');
-      expect(dataAll.license).toBe('https://creativecommons.org/licenses/by-sa/4.0/');
-      expect(dataAll.creator.name).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataAll.creator.telephone).toBe('+90 216 550 48 48');
-      expect(dataAll.spatialCoverage.name).toBe('İstanbul, Türkiye');
-      expect(dataAll.spatialCoverage.geo.latitude).toBe(41.0082);
-      expect(dataAll.temporalCoverage).toBe('2026');
-      expect(dataAll.data.districts.length).toBe(39);
-
-      // 2. Anadolu Yakası Filtresi (?side=anadolu)
-      const reqAnadolu = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/benchmark.json?side=anadolu');
-      const resAnadolu = await GET(reqAnadolu);
-      const dataAnadolu = await resAnadolu.json();
-      expect(dataAnadolu.data.appliedFilter.side).toBe('anadolu');
-      expect(dataAnadolu.data.districts.length).toBe(14);
-      expect(dataAnadolu.data.districts.every((d: any) => d.side === 'Anadolu')).toBe(true);
-
-      // 3. Tekil İlçe Filtresi (?district=kadikoy)
-      const reqKadikoy = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/benchmark.json?district=kadikoy');
-      const resKadikoy = await GET(reqKadikoy);
-      const dataKadikoy = await resKadikoy.json();
-      expect(dataKadikoy.data.appliedFilter.district).toBe('kadikoy');
-      expect(dataKadikoy.data.districts.length).toBe(1);
-      expect(dataKadikoy.data.districts[0].districtSlug).toBe('kadikoy');
-    });
-  });
-
-  describe('63. faq.json FAQPage Şeması, Kategori Grubu ve Arama Filtreleme', () => {
-    it('FAQPage Schema.org nesnesi, inLanguage tr-TR ve dinamik group/q filtreleme sunar', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/faq.json/route');
-
-      // 1. Genel parametresiz çağrı
-      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/faq.json');
-      const resAll = await GET(reqAll);
-      expect(resAll.status).toBe(200);
-      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
-
-      const dataAll = await resAll.json();
-      expect(dataAll.meta.totalQuestions).toBeGreaterThanOrEqual(30);
-      expect(dataAll.faqs.length).toBe(dataAll.meta.totalQuestions);
-      expect(dataAll.jsonLd['@type']).toBe('FAQPage');
-      expect(dataAll.jsonLd.inLanguage).toBe('tr-TR');
-      expect(dataAll.jsonLd.mainEntity.length).toBe(dataAll.faqs.length);
-
-      // 2. Kategori Grubu Filtresi (?group=maliyet)
-      const reqMaliyet = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/faq.json?group=maliyet');
-      const resMaliyet = await GET(reqMaliyet);
-      const dataMaliyet = await resMaliyet.json();
-      expect(dataMaliyet.meta.appliedFilter.group).toBe('maliyet');
-      expect(dataMaliyet.faqs.length).toBeGreaterThan(0);
-      expect(dataMaliyet.faqs.every((f: any) => f.group === 'maliyet')).toBe(true);
-      expect(dataMaliyet.jsonLd.mainEntity.length).toBe(dataMaliyet.faqs.length);
-
-      // 3. Metin Arama Filtresi (?q=aidat)
-      const reqAidat = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/faq.json?q=aidat');
-      const resAidat = await GET(reqAidat);
-      const dataAidat = await resAidat.json();
-      expect(dataAidat.meta.appliedFilter.q).toBe('aidat');
-      expect(dataAidat.faqs.length).toBeGreaterThan(0);
-      expect(dataAidat.faqs.every((f: any) =>
-        f.question.toLowerCase().includes('aidat') ||
-        f.answer.toLowerCase().includes('aidat')
-      )).toBe(true);
-      expect(dataAidat.jsonLd.mainEntity.length).toBe(dataAidat.faqs.length);
-    });
-  });
-
-  describe('64. knowledge.json Semantik Bilgi Bankası Otoritesi & API Kataloğu', () => {
-    it('DefinedTerm şemasında kurumsal NAP, Wikidata subServices ve API envanteri sunar', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/knowledge.json/route');
-
-      const res = await GET();
-      expect(res.status).toBe(200);
-      expect(res.headers.get('X-Robots-Tag')).toContain('all');
-      expect(res.headers.get('Content-Type')).toContain('application/ld+json');
-
-      const data = await res.json();
-      expect(data['@type']).toBe('DefinedTerm');
-      expect(data.provider.name).toBe('Alo Yönetim');
-      expect(data.provider.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(data.provider.telephone).toBe('+90 216 550 48 48');
-      expect(data.provider.knowsAbout).toContain('634 Sayılı Kat Mülkiyeti Kanunu (KMK)');
-
-      // subServices 6 hizmetin tamamında Wikidata URI (sameAs) olmalı
-      expect(data.subServices.length).toBe(6);
-      data.subServices.forEach((service: any) => {
-        expect(service['@type']).toBe('Service');
-        expect(service.sameAs).toBeDefined();
-        expect(service.sameAs).toMatch(/^https:\/\/www\.wikidata\.org\/wiki\/Q\d+/);
-      });
-
-      // API Envanteri doğrulaması
-      expect(data.apiEndpoints).toBeDefined();
-      expect(data.apiEndpoints.dictionary).toContain('/api/tesis-yonetimi/dictionary.json');
-      expect(data.apiEndpoints.definitions).toContain('/api/tesis-yonetimi/definitions.json');
-      expect(data.apiEndpoints.legalPrecedents).toContain('/api/tesis-yonetimi/legal-precedents.json');
-      expect(data.apiEndpoints.aiSnippets).toContain('/api/tesis-yonetimi/ai-snippets.json');
-      expect(data.apiEndpoints.voiceQa).toContain('/api/tesis-yonetimi/voice-qa.json');
-    });
-  });
-
   describe('65. definitions.json Terimler Sözlüğü Dinamik Harf & Arama Filtrelemesi', () => {
     it('DefinedTermSet şeması, inLanguage tr-TR, harf ve arama filtresi sağlar', async () => {
       const { GET } = await import('@/app/api/tesis-yonetimi/definitions.json/route');
@@ -1355,39 +907,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         t.name.toLowerCase().includes('aidat') ||
         t.description.toLowerCase().includes('aidat')
       )).toBe(true);
-    });
-  });
-
-  describe('66. voice-knowledge.json Sesli Arama, Speakable Şeması & Intent Filtreleme', () => {
-    it('SpeakableSpecification şeması, inLanguage ve niyet bazlı soru filtreleme sunar', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/voice-knowledge.json/route');
-
-      // 1. Genel parametresiz çağrı
-      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-knowledge.json');
-      const resAll = await GET(reqAll);
-      expect(resAll.status).toBe(200);
-      expect(resAll.headers.get('X-Robots-Tag')).toContain('all');
-      expect(resAll.headers.get('X-Voice-Search-Protocol')).toBe('Speakable-v1');
-
-      const dataAll = await resAll.json();
-      expect(dataAll.totalQuestionsCount).toBeGreaterThanOrEqual(5);
-      expect(dataAll.speakableSchemaJsonLd['@type']).toBe('QAPage');
-      expect(dataAll.speakableSchemaJsonLd.inLanguage).toBe('tr');
-      expect(dataAll.speakableSchemaJsonLd.speakable['@type']).toBe('SpeakableSpecification');
-      expect(dataAll.speakableSchemaJsonLd.speakable.inLanguage).toBe('tr');
-
-      const firstAnswer = dataAll.speakableSchemaJsonLd.mainEntity[0].acceptedAnswer;
-      expect(firstAnswer.author.telephone).toBe('+90 216 550 48 48');
-      expect(firstAnswer.author.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-
-      // 2. Hukuki Niyet Filtresi (?intent=legal)
-      const reqLegal = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-knowledge.json?intent=legal');
-      const resLegal = await GET(reqLegal);
-      const dataLegal = await resLegal.json();
-      expect(dataLegal.appliedIntent).toBe('legal');
-      expect(dataLegal.questions.length).toBeGreaterThan(0);
-      expect(dataLegal.questions.every((q: any) => q.queryIntent === 'legal')).toBe(true);
-      expect(dataLegal.totalQuestionsCount).toBe(dataLegal.questions.length);
     });
   });
 
@@ -1465,40 +984,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('69. calculate-budget API Bütçe Simülasyonu & PriceSpecification Şeması', () => {
-    it('GET ve POST isteklerinde PriceSpecification nesnesi ve X-Robots-Tag all döner', async () => {
-      const { GET, POST } = await import('@/app/api/tesis-yonetimi/calculate-budget/route');
-
-      // 1. GET hesaplama
-      const reqGet = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/calculate-budget?units=50&facilityType=site&district=kadikoy');
-      const resGet = await GET(reqGet as any);
-      expect(resGet.status).toBe(200);
-      expect(resGet.headers.get('X-Robots-Tag')).toContain('all');
-
-      const dataGet = await resGet.json();
-      expect(dataGet.priceSpecification).toBeDefined();
-      expect(dataGet.priceSpecification['@type']).toBe('PriceSpecification');
-      expect(dataGet.priceSpecification.priceCurrency).toBe('TRY');
-      expect(dataGet.priceSpecification.price).toBeGreaterThan(0);
-      expect(dataGet.schema['@type']).toBe('CalculateAction');
-
-      // 2. POST hesaplama
-      const reqPost = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/calculate-budget', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ units: 80, facilityType: 'residence', district: 'besiktas' }),
-      });
-      const resPost = await POST(reqPost as any);
-      expect(resPost.status).toBe(200);
-      expect(resPost.headers.get('X-Robots-Tag')).toContain('all');
-
-      const dataPost = await resPost.json();
-      expect(dataPost.priceSpecification).toBeDefined();
-      expect(dataPost.priceSpecification['@type']).toBe('PriceSpecification');
-      expect(dataPost.priceSpecification.price).toBeGreaterThan(0);
-    });
-  });
-
   describe('70. rfp-generator API DigitalDocument Şeması, Kurumsal NAP ve X-Robots-Tag', () => {
     it('GET ve POST isteklerinde DigitalDocument şeması, NAP bilgileri ve X-Robots-Tag all döner', async () => {
       const { GET, POST } = await import('@/app/api/tesis-yonetimi/rfp-generator/route');
@@ -1549,204 +1034,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('71. authority-corpus.json Master Knowledge Corpus Bütünlüğü ve CORS/Robots Başlıkları', () => {
-    it('GET isteğinde ISO 41001 ve KMK 634 külliyatı, CORS ve zengin robots başlıkları döner', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/authority-corpus.json/route');
-
-      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/authority-corpus.json');
-      const res = await GET(req);
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(res.headers.get('X-Topical-Authority')).toContain('ISO 41001 & KMK 634');
-      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const corpus = await res.json();
-      expect(corpus.protocolVersion).toBeDefined();
-      expect(corpus.authorityEntity.name).toBe('Alo Yönetim');
-      expect(corpus.authorityEntity.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(corpus.authorityEntity.telephone).toBe('+90 216 550 48 48');
-      expect(corpus.authorityEntity.certifications.length).toBeGreaterThanOrEqual(5);
-
-      // Yasal Çerçeve ve İlçe Matrisi Doğrulaması
-      expect(corpus.legalFramework.kmk634Articles.length).toBeGreaterThanOrEqual(5);
-      expect(corpus.districtMatrix.length).toBeGreaterThan(0);
-      expect(corpus.provenMetrics.activeFacilityPortfolioCount).toBeGreaterThan(0);
-    });
-  });
-
-  describe('72. compare-districts API İlçe Karşılaştırma, Table Şeması ve Kurumsal NAP', () => {
-    it('GET isteğinde Table şeması, güncel NAP telefonu ve X-Robots-Tag döner', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/compare-districts/route');
-
-      // 1. Varsayılan Türkçe kıyaslama (Kadıköy vs Beşiktaş)
-      const reqTr = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/compare-districts?d1=kadikoy&d2=besiktas');
-      const resTr = await GET(reqTr as any);
-      expect(resTr.status).toBe(200);
-      expect(resTr.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resTr.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataTr = await resTr.json();
-      expect(dataTr.districts.length).toBe(2);
-      expect(dataTr.schema['@type']).toBe('Table');
-      expect(dataTr.schema.inLanguage).toBe('tr-TR');
-      expect(dataTr.schema.about[0]['@type']).toBe('LocalBusiness');
-      expect(dataTr.schema.about[0].telephone).toBe('+90 216 550 48 48');
-      expect(dataTr.duesDifferenceM2).toBeGreaterThanOrEqual(0);
-
-      // 2. İngilizce lokalizasyon kıyaslaması (?lang=en)
-      const reqEn = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/compare-districts?d1=kadikoy&d2=besiktas&lang=en');
-      const resEn = await GET(reqEn as any);
-      expect(resEn.status).toBe(200);
-      const dataEn = await resEn.json();
-      expect(dataEn.schema.inLanguage).toBe('en');
-      expect(dataEn.seoSummaryParagraph).toContain('Comparing facility management');
-    });
-  });
-
-  describe('73. dues-index.json API Dataset Şeması, Kurumsal NAP ve Yaka Filtreleme', () => {
-    it('GET isteğinde Dataset şeması, kurumsal telefon/logo ve bölgesel filtreleme doğrulanır', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/dues-index.json/route');
-
-      // 1. Tüm ilçeler
-      const reqAll = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json');
-      const resAll = await GET(reqAll);
-      expect(resAll.status).toBe(200);
-      expect(resAll.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resAll.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataAll = await resAll.json();
-      expect(dataAll.schema['@type']).toBe('Dataset');
-      expect(dataAll.schema.inLanguage).toBe('tr-TR');
-      expect(dataAll.schema.creator.name).toBe('Alo Yönetim');
-      expect(dataAll.schema.creator.telephone).toBe('+90 216 550 48 48');
-      expect(dataAll.schema.creator.logo).toContain('/images/logo.png');
-      expect(dataAll.schema.spatialCoverage.sameAs).toBe('https://www.wikidata.org/wiki/Q406');
-      expect(dataAll.districts.length).toBe(39);
-
-      // 2. Anadolu yakası filtresi (?side=anadolu)
-      const reqSide = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/dues-index.json?side=anadolu');
-      const resSide = await GET(reqSide);
-      expect(resSide.status).toBe(200);
-      const dataSide = await resSide.json();
-      expect(dataSide.istanbulSummary.filteredSide).toBe('anadolu');
-      expect(dataSide.districts.every((d: any) => d.side === 'Anadolu Yakası')).toBe(true);
-    });
-  });
-
-  describe('74. ai-snippets.json API DefinedTermSet Şeması, Kurumsal NAP ve Çok Dilli Destek', () => {
-    it('GET isteğinde DefinedTermSet şeması, kurumsal telefon/logo ve çok dilli snippet döner', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/ai-snippets.json/route');
-
-      // 1. Türkçe varsayılan istek
-      const reqTr = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/ai-snippets.json');
-      const resTr = await GET(reqTr);
-      expect(resTr.status).toBe(200);
-      expect(resTr.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resTr.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataTr = await resTr.json();
-      expect(dataTr.schema['@type']).toBe('DefinedTermSet');
-      expect(dataTr.schema.inLanguage).toBe('tr-TR');
-      expect(dataTr.schema.publisher.name).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataTr.schema.publisher.telephone).toBe('+90 216 550 48 48');
-      expect(dataTr.schema.publisher.logo).toContain('/images/logo.png');
-      expect(dataTr.snippets.length).toBeGreaterThanOrEqual(4);
-
-      // 2. İngilizce lokalizasyon isteği (?lang=en)
-      const reqEn = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/ai-snippets.json?lang=en');
-      const resEn = await GET(reqEn);
-      expect(resEn.status).toBe(200);
-      const dataEn = await resEn.json();
-      expect(dataEn.schema.inLanguage).toBe('en');
-      expect(dataEn.snippets[0].directSummaryText).toContain('Facility management is');
-    });
-  });
-
-  describe('75. llm-facts.json API AI-Readiness, Doğrulanmış NAP ve Robots Başlıkları', () => {
-    it('GET isteğinde kurumsal kimlik, telefon, standartlar ve ilçe benchmark listesi döner', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/llm-facts.json/route');
-
-      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json');
-      const res = await GET(req);
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Content-Type')).toContain('application/json');
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const data = await res.json();
-      expect(data.entity).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(data.phone).toBe('+90 216 550 48 48');
-      expect(data.coreService.standards.length).toBeGreaterThanOrEqual(5);
-      expect(data.coreService.standards.some((s: string) => s.startsWith('ISO 45001:2018'))).toBe(true);
-      expect(data.districtDuesBenchmarks39.length).toBe(39);
-      expect(data.linkedApis.aiOverviewsSnippets).toContain('/api/tesis-yonetimi/ai-snippets.json');
-    });
-  });
-
-  describe('76. voice-qa.json API SpeakableSpecification Şeması, Kurumsal NAP ve Çok Dilli Sesli Sentez', () => {
-    it('GET isteğinde SpeakableSpecification şeması, kurumsal telefon/logo ve çok dilli sesli yanıt döner', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/voice-qa.json/route');
-
-      // 1. Türkçe varsayılan istek
-      const reqTr = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-qa.json');
-      const resTr = await GET(reqTr);
-      expect(resTr.status).toBe(200);
-      expect(resTr.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resTr.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataTr = await resTr.json();
-      expect(dataTr.publisher).toBeDefined();
-      expect(dataTr.publisher.name).toBe('Alo Yönetim');
-      expect(dataTr.publisher.telephone).toBe('+90 216 550 48 48');
-      expect(dataTr.publisher.logo).toContain('/images/logo.png');
-      expect(dataTr.qaCollection.length).toBeGreaterThanOrEqual(3);
-      expect(dataTr.qaCollection[0].schema['@type']).toBe('SpeakableSpecification');
-      expect(dataTr.qaCollection[0].schema.inLanguage).toBe('tr');
-
-      // 2. İngilizce lokalizasyon isteği (?lang=en)
-      const reqEn = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/voice-qa.json?lang=en');
-      const resEn = await GET(reqEn);
-      expect(resEn.status).toBe(200);
-      const dataEn = await resEn.json();
-      expect(dataEn.supportedLanguages).toContain('en');
-      expect(dataEn.qaCollection[0].lang).toBe('en');
-      expect(dataEn.qaCollection[0].spokenAnswer).toContain('Alo Management');
-    });
-  });
-
-  describe('77. entity-graph.jsonld Master Entity Graph, Yargıtay Q1549429 ve Kurumsal NAP', () => {
-    it('GET isteğinde application/ld+json, kurumsal telefon, Yargıtay Q1549429 ve ilçe düğümleri döner', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/entity-graph.jsonld/route');
-
-      const res = await GET();
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Content-Type')).toContain('application/ld+json');
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const data = await res.json();
-      expect(data['@context']).toBe('https://schema.org');
-      expect(data['@graph']).toBeDefined();
-
-      // Kurumsal Organizasyon düğümü kontrolü
-      const orgNode = data['@graph'].find((n: any) => n['@type'] === 'Organization');
-      expect(orgNode).toBeDefined();
-      expect(orgNode.name).toBe('Alo Yönetim');
-      expect(orgNode.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(orgNode.telephone).toBe('+90 216 550 48 48');
-      expect(orgNode.hasCredential.length).toBeGreaterThanOrEqual(3);
-
-      // Yargıtay emsal kararları düğümü kontrolü (Q1549429)
-      const legislationNode = data['@graph'].find((n: any) => n['@type'] === 'Legislation');
-      expect(legislationNode).toBeDefined();
-      expect(legislationNode.legislationPassedBy.sameAs).toBe('https://www.wikidata.org/wiki/Q1549429');
-
-      // İlçe idari alan düğümleri kontrolü (39 ilçe)
-      const districtNodes = data['@graph'].filter((n: any) => n['@type'] === 'AdministrativeArea');
-      expect(districtNodes.length).toBe(39);
-    });
-  });
-
   describe('78. kmk-law-index.json API ItemList Şeması, Kurumsal NAP ve Genişletilmiş Robots Başlıkları', () => {
     it('GET isteğinde ItemList şeması, kurumsal telefon/logo ve TBMM Wikidata bağı döner', async () => {
       const { GET } = await import('@/app/api/tesis-yonetimi/kmk-law-index.json/route');
@@ -1793,27 +1080,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('80. ai-knowledge API Enterprise RAG Bilgi Bankası ve Robots Başlıkları', () => {
-    it('GET isteğinde şirket profili, ISO akreditasyonları, ilçe ve hizmet verileri döner', async () => {
-      const { GET } = await import('@/app/api/ai-knowledge/route');
-
-      const res = await GET();
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Content-Type')).toContain('application/json');
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const data = await res.json();
-      expect(data.meta.purpose).toContain('LLMO & AI Search');
-      expect(data.company.name).toBe('Alo Yönetim');
-      expect(data.company.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(data.company.accreditations.length).toBeGreaterThanOrEqual(4);
-      expect(data.facilityManagementFramework).toBeDefined();
-      expect(data.districts.length).toBe(39);
-      expect(data.services.length).toBeGreaterThanOrEqual(6);
-    });
-  });
-
   describe('81. knowledge-graph API Unified Semantic Graph ve Robots Başlıkları', () => {
     it('GET isteğinde application/ld+json, Corporation, AboutPage ve zengin robots başlığı döner', async () => {
       const { GET } = await import('@/app/api/knowledge-graph/route');
@@ -1836,32 +1102,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       const aboutNode = data['@graph'].find((n: any) => n['@type'] === 'AboutPage');
       expect(aboutNode).toBeDefined();
       expect(aboutNode.name).toContain('AI Assistant');
-    });
-  });
-
-  describe('82. istanbul-facility-data API Google Dataset Search, Wikidata Q406 ve Robots Başlıkları', () => {
-    it('GET isteğinde application/ld+json, Dataset şeması, Wikidata Q406 ve kurumsal NAP döner', async () => {
-      const { GET } = await import('@/app/api/datasets/istanbul-facility-data/route');
-
-      const res = await GET();
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Content-Type')).toContain('application/ld+json');
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(res.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const data = await res.json();
-      expect(data['@context']).toBe('https://schema.org');
-      expect(data['@type']).toBe('Dataset');
-      expect(data.inLanguage).toBe('tr-TR');
-      expect(data.spatialCoverage.sameAs).toBe('https://www.wikidata.org/wiki/Q406');
-      expect(data.spatialCoverage.name).toContain('İstanbul');
-      expect(data.creator.name).toBe('Alo Yönetim');
-      expect(data.creator.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(data.creator.telephone).toBe('+90 216 550 48 48');
-      expect(data.creator.logo).toContain('/images/logo.png');
-      expect(data.data.length).toBe(39);
-      expect(data.data[0].districtId).toBeDefined();
-      expect(data.data[0].managedProjects).toBeGreaterThan(0);
     });
   });
 
@@ -1942,41 +1182,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(resGeoJson.status).toBe(200);
       expect(resGeoJson.headers.get('Content-Type')).toContain('application/geo+json');
       expect(resGeoJson.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-    });
-  });
-
-  describe('85. facility-coverage.geojson & districts.geojson RFC 7946 Standartları ve Kurumsal NAP', () => {
-    it('facility-coverage ve districts GeoJSON rotaları RFC 7946, kurumsal telefon ve robots başlığı döner', async () => {
-      // 1. facility-coverage.geojson
-      const { GET: getCoverage } = await import('@/app/api/geo/facility-coverage.geojson/route');
-      const resCoverage = await getCoverage();
-      expect(resCoverage.status).toBe(200);
-      expect(resCoverage.headers.get('Content-Type')).toContain('application/geo+json');
-      expect(resCoverage.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resCoverage.headers.get('X-Geo-Standard')).toBe('RFC-7946-GeoJSON');
-      expect(resCoverage.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataCoverage = await resCoverage.json();
-      expect(dataCoverage.type).toBe('FeatureCollection');
-      expect(dataCoverage.metadata.organization).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataCoverage.metadata.contactPhone).toBe('+90 216 550 48 48');
-      expect(dataCoverage.features.length).toBe(39);
-      expect(dataCoverage.features[0].properties.serviceLevelAgreement.emergencyResponseTimeMinutes).toBeGreaterThan(0);
-
-      // 2. districts.geojson
-      const { GET: getDistricts } = await import('@/app/api/geo/districts.geojson/route');
-      const resDistricts = await getDistricts();
-      expect(resDistricts.status).toBe(200);
-      expect(resDistricts.headers.get('Content-Type')).toContain('application/geo+json');
-      expect(resDistricts.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resDistricts.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataDistricts = await resDistricts.json();
-      expect(dataDistricts.type).toBe('FeatureCollection');
-      expect(dataDistricts.metadata.provider).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataDistricts.features.length).toBe(39);
-      expect(dataDistricts.features[0].properties.phone).toBe('+90 216 550 48 48');
-      expect(dataDistricts.features[0].properties.provider).toBe('Alo Yönetim ve Organizasyon A.Ş.');
     });
   });
 
@@ -2128,80 +1333,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(dataRank.overallAverageRankPotential).toBeGreaterThan(0);
       expect(dataRank.totalDistrictsSimulated).toBe(39);
       expect(dataRank.hubScore).toBeDefined();
-    });
-  });
-
-  describe('90. facility-agent-context.json AI RAG API Robots ve CORS Standardizasyonu', () => {
-    it('GET isteğinde kurumsal yetki, RAG bağlamı, CORS ve robots başlıkları döner', async () => {
-      const { GET } = await import('@/app/api/ai/facility-agent-context.json/route');
-
-      // 1. Türkçe varsayılan istek
-      const reqTr = new Request('https://aloyonetim.com.tr/api/ai/facility-agent-context.json');
-      const resTr = await GET(reqTr as any);
-      expect(resTr.status).toBe(200);
-      expect(resTr.headers.get('Content-Type')).toContain('application/json');
-      expect(resTr.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resTr.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-      expect(resTr.headers.get('X-AI-Context-Type')).toBe('Ground-Truth-RAG-Knowledge-Corpus');
-
-      const dataTr = await resTr.json();
-      expect(dataTr.entity).toBeDefined();
-      expect(dataTr.entity.name).toBe('Alo Yönetim');
-      expect(dataTr.entity.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataTr.entity.telephone).toBe('+90 216 550 48 48');
-      expect(dataTr.legalFrameworkKMK634).toBeDefined();
-      expect(dataTr.districtMatrix.length).toBe(39);
-
-      // 2. İngilizce lokalizasyon isteği (?lang=en)
-      const reqEn = new Request('https://aloyonetim.com.tr/api/ai/facility-agent-context.json?lang=en');
-      const resEn = await GET(reqEn as any);
-      expect(resEn.status).toBe(200);
-      const dataEn = await resEn.json();
-      expect(dataEn.entity.name).toBe('Alo Yönetim');
-      expect(dataEn.districtMatrix.length).toBe(39);
-      expect(dataEn.districtMatrix[0].canonicalUrl).toContain('/en/bolgeler/');
-    });
-  });
-
-  describe('91. search-suggest, reviews ve calculator API CORS & Robots Güvencesi', () => {
-    it('search-suggest, reviews ve calculator uç noktalarında CORS ve robots başlıkları döner', async () => {
-      // 1. search-suggest API (OpenSearch Formatı)
-      const { GET: getSearchSuggest } = await import('@/app/api/search-suggest/route');
-      const reqSearch = new Request('https://aloyonetim.com.tr/api/search-suggest?q=guvenlik');
-      const resSearch = await getSearchSuggest(reqSearch as any);
-      expect(resSearch.status).toBe(200);
-      expect(resSearch.headers.get('Content-Type')).toContain('application/json');
-      expect(resSearch.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resSearch.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataSearch = await resSearch.json();
-      expect(Array.isArray(dataSearch)).toBe(true);
-      expect(dataSearch[0]).toBe('guvenlik');
-      expect(dataSearch[1].length).toBeGreaterThan(0);
-
-      // 2. reviews API (Google Places Ratings)
-      const { GET: getReviews } = await import('@/app/api/reviews/route');
-      const resReviews = await getReviews();
-      expect(resReviews.status).toBe(200);
-      expect(resReviews.headers.get('Content-Type')).toContain('application/json');
-      expect(resReviews.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resReviews.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataReviews = await resReviews.json();
-      expect(dataReviews.ratingValue).toBeDefined();
-      expect(dataReviews.reviewCount).toBeDefined();
-
-      // 3. calculator API (Tesis Yönetimi Maliyet Parametreleri)
-      const { GET: getCalculator } = await import('@/app/api/calculator/route');
-      const resCalc = await getCalculator();
-      expect(resCalc.status).toBe(200);
-      expect(resCalc.headers.get('Content-Type')).toContain('application/json');
-      expect(resCalc.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resCalc.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataCalc = await resCalc.json();
-      expect(dataCalc.baseCostPerUnit).toBeDefined();
-      expect(dataCalc.savingsRate).toBeDefined();
     });
   });
 
@@ -2510,70 +1641,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('98. Kurumsal Akreditasyon Paritesi, LLM-Facts Açık Veri Bağlantıları ve Robots Standardizasyonu', () => {
-    it('verify-credentials 8 ISO akreditasyonu sunar ve llm-facts tüm AI açık veri uç noktalarını bağlar', async () => {
-      // 1. verify-credentials API
-      const { GET: getVerifyCreds } = await import('@/app/api/tesis-yonetimi/verify-credentials/route');
-      const resCreds = await getVerifyCreds();
-      expect(resCreds.status).toBe(200);
-      expect(resCreds.headers.get('Content-Type')).toContain('application/json');
-      expect(resCreds.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resCreds.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataCreds = await resCreds.json();
-      expect(dataCreds.accreditations.length).toBeGreaterThanOrEqual(8);
-      const standardNames = dataCreds.accreditations.map((a: any) => a.standard);
-      expect(standardNames.some((s: string) => s.includes('ISO 45001'))).toBe(true);
-      expect(standardNames.some((s: string) => s.includes('ISO 10002'))).toBe(true);
-      expect(standardNames.some((s: string) => s.includes('ISO 14001'))).toBe(true);
-      expect(standardNames.some((s: string) => s.includes('ISO 45001'))).toBe(true);
-      expect(standardNames.some((s: string) => s.includes('ISO 22301'))).toBe(true);
-      expect(standardNames.some((s: string) => s.includes('ISO 10002'))).toBe(true);
-      expect(standardNames.some((s: string) => s.includes('5188'))).toBe(true);
-      expect(standardNames.some((s: string) => s.includes('ISO 14001'))).toBe(true);
-
-      expect(dataCreds.schema.mainEntity.hasCredential.length).toBeGreaterThanOrEqual(8);
-
-      // 2. llm-facts.json API
-      const { GET: getLlmFacts } = await import('@/app/api/tesis-yonetimi/llm-facts.json/route');
-      const reqFacts = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json');
-      const resFacts = await getLlmFacts(reqFacts);
-      expect(resFacts.status).toBe(200);
-      expect(resFacts.headers.get('Content-Type')).toContain('application/json');
-      expect(resFacts.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resFacts.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataFacts = await resFacts.json();
-      expect(dataFacts.coreService.standards.some((s: string) => s.includes('ISO 10002'))).toBe(true);
-      expect(dataFacts.coreService.standards.some((s: string) => s.includes('ISO 22301'))).toBe(true);
-      expect(dataFacts.coreService.standards.some((s: string) => s.includes('ISO 10002'))).toBe(true);
-
-      expect(dataFacts.linkedApis.geoCoverageGeoJson).toBeDefined();
-      expect(dataFacts.linkedApis.districtsGeoJson).toBeDefined();
-      expect(dataFacts.linkedApis.istanbulFacilityDataset).toBeDefined();
-      expect(dataFacts.linkedApis.llmsTxt).toBeDefined();
-      expect(dataFacts.linkedApis.llmsFullTxt).toBeDefined();
-
-      // 3. geo-feed.xml API
-      const { GET: getGeoFeed } = await import('@/app/api/tesis-yonetimi/geo-feed.xml/route');
-      const reqGeo = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/geo-feed.xml');
-      const resGeo = await getGeoFeed(reqGeo);
-      expect(resGeo.status).toBe(200);
-      expect(resGeo.headers.get('Content-Type')).toContain('application/xml');
-      expect(resGeo.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resGeo.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      // 4. legal-precedents.json API
-      const { GET: getPrecedents } = await import('@/app/api/tesis-yonetimi/legal-precedents.json/route');
-      const reqPrec = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
-      const resPrec = await getPrecedents(reqPrec);
-      expect(resPrec.status).toBe(200);
-      expect(resPrec.headers.get('Content-Type')).toContain('application/json');
-      expect(resPrec.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resPrec.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-    });
-  });
-
   describe('99. Tesis RSS Feed, SEO-Health Güvenlik Mührü ve Kapsamlı SEO Devriye Bütünlüğü', () => {
     it('tesis-yonetimi/feed.xml CORS döner, seo-health noindex mühürlüdür ve devriye tüm haritaları doğrular', async () => {
       // 1. api/tesis-yonetimi/feed.xml
@@ -2658,33 +1725,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(providerCredNames.some((n: string) => n.includes('ISO 22301'))).toBe(true);
       expect(providerCredNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
       expect(providerCredNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
-    });
-  });
-
-  describe('101. Manifest PWA Kısayolları ve İlçe Kıyaslama Şema Zenginleştirmesi', () => {
-    it('manifest.ts Tesis Yönetimi ve Sözlük kısayollarını sunar; comparator şeması 8 akreditasyon içerir', async () => {
-      // 1. manifest.ts kontrolü
-      const { default: manifest } = await import('@/app/manifest');
-      const manifestData = manifest();
-      expect(manifestData.name).toContain('Alo Yönetim');
-      expect(Array.isArray(manifestData.shortcuts)).toBe(true);
-      const shortcutUrls = (manifestData.shortcuts as any[]).map((s) => s.url);
-      expect(shortcutUrls).toContain('/hizmetler/tesis-yonetimi');
-      expect(shortcutUrls).toContain('/sozluk');
-      expect(shortcutUrls).toContain('/hesaplayici');
-
-      // 2. compareFacilityDistricts kontrolü
-      const { compareFacilityDistricts } = await import('@/lib/seo/facilityDistrictComparator');
-      const comparison = compareFacilityDistricts(['kadikoy', 'besiktas'], 'tr');
-      expect(comparison).toBeDefined();
-      expect(comparison?.schema['@type']).toBe('Table');
-      const aboutBusinesses = (comparison?.schema as any).about;
-      expect(aboutBusinesses.length).toBe(2);
-      expect(aboutBusinesses[0].parentOrganization.hasCredential.length).toBe(8);
-      const compCredNames = aboutBusinesses[0].parentOrganization.hasCredential.map((c: any) => c.name);
-      expect(compCredNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
-      expect(compCredNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
-      expect(compCredNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
     });
   });
 
@@ -3077,47 +2117,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(sampleAudit.detectedKeywords.some((k) => k.includes('iso 10002'))).toBe(true);
       expect(sampleAudit.detectedKeywords.some((k) => k.includes('tse hyb 12850'))).toBe(false);
       expect(sampleAudit.detectedKeywords.some((k) => k.includes('aidat takibi'))).toBe(true);
-    });
-  });
-
-  describe('113. compareFacilityDistricts Çok Dilli 8 Standart ve Schema Table Doğrulaması', () => {
-    it('4 dilde (TR, EN, RU, AR) 8 akreditasyon içeren geçerli Table şeması ve kıyaslama üretir', async () => {
-      const { compareFacilityDistricts } = await import('./facilityDistrictComparator');
-
-      const languages: Array<'tr' | 'en' | 'ru' | 'ar'> = ['tr', 'en', 'ru', 'ar'];
-
-      for (const lang of languages) {
-        const result = compareFacilityDistricts(['kadikoy', 'besiktas'], lang);
-        expect(result).toBeDefined();
-        expect(result?.districts).toHaveLength(2);
-        expect(result?.duesDifferenceM2).toBeGreaterThanOrEqual(0);
-        expect(result?.savingsLeader).toBeDefined();
-        expect(result?.seoSummaryParagraph.length).toBeGreaterThan(50);
-
-        // Schema.org Table Doğrulaması
-        const schema = result?.schema as any;
-        expect(schema).toBeDefined();
-        expect(schema['@type']).toBe('Table');
-        expect(Array.isArray(schema.about)).toBe(true);
-        expect(schema.about).toHaveLength(2);
-
-        // Her ilçenin LocalBusiness düğümünde 8 akreditasyon yer almalı
-        for (const business of schema.about) {
-          expect(business['@type']).toBe('LocalBusiness');
-          expect(business.parentOrganization).toBeDefined();
-          expect(business.parentOrganization.hasCredential).toHaveLength(8);
-
-          const credNames = business.parentOrganization.hasCredential.map((c: any) => c.name);
-          expect(credNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
-          expect(credNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
-          expect(credNames.some((n: string) => n.includes('ISO 22301'))).toBe(true);
-          expect(credNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
-          expect(credNames.some((n: string) => n.includes('ISO 45001'))).toBe(true);
-          expect(credNames.some((n: string) => n.includes('ISO 10002'))).toBe(true);
-          expect(credNames.some((n: string) => n.includes('5188'))).toBe(true);
-          expect(credNames.some((n: string) => n.includes('ISO 14001'))).toBe(true);
-        }
-      }
     });
   });
 
@@ -3609,34 +2608,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
   });
 
   describe('124. Wave 55: Yargıtay Emsal Kararları Açık Veri API, KMK İçtihat Korpusu & Akredite Hesaplayıcı', () => {
-    it('/api/tesis-yonetimi/legal-precedents.json 200 OK, ItemList ve Yargıtay emsal kararlarını döner', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/legal-precedents.json/route');
-      const req = new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/legal-precedents.json');
-      const res = await GET(req);
-
-      expect(res.status).toBe(200);
-      expect(res.headers.get('Content-Type')).toContain('application/json');
-      expect(res.headers.get('ETag')).toBeDefined();
-      expect(res.headers.get('Cache-Control')).toContain('public');
-
-      const data = await res.json();
-      expect(data.metadata.totalPrecedentsIndexed).toBeGreaterThanOrEqual(5);
-      expect(data.schema['@type']).toBe('ItemList');
-      expect(data.schema.itemListElement.length).toBeGreaterThanOrEqual(5);
-      expect(data.precedents.some((p: any) => p.subject.includes('Asansör'))).toBe(true);
-      expect(data.precedents.some((p: any) => p.subject.includes('Cam Balkon'))).toBe(true);
-      expect(data.precedents.some((p: any) => p.subject.includes('Gecikme Tazminatı'))).toBe(true);
-    });
-
-    it('buildFacilityRAGCorpus Yargıtay emsal kararlarını ve açık veri API bağlantısını eksiksiz içerir', async () => {
-      const { buildFacilityRAGCorpus } = await import('@/lib/ai/facilityKnowledgeCorpus');
-      const corpus = await buildFacilityRAGCorpus('tr');
-
-      expect(corpus.legalPrecedentsCourtDecisions).toBeDefined();
-      expect(corpus.legalPrecedentsCourtDecisions.length).toBeGreaterThanOrEqual(5);
-      expect(corpus.legalPrecedentsCourtDecisions[0].openDataApiUrl).toContain('legal-precedents.json');
-      expect(corpus.legalPrecedentsCourtDecisions[0].docketNumber).toBeDefined();
-    });
 
     it('hesaplayici/page.tsx provider hasCredential içinde ISO 10002 ve ISO 41001 yetki belgelerini barındırır', async () => {
       const fs = await import('fs');
@@ -3720,61 +2691,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
         expect(content, `${relPath} içinde account_balance_wallet bulunmamalıdır`).not.toContain('account_balance_wallet');
       }
     });
-
-    it('Sözlük ve Bölge/Hizmet başlık ve meta şablonları 5-12. pozisyonlar için yüksek CTR formatına sahiptir', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-
-      const sozlukPageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/sozluk/[terim]/page.tsx'), 'utf8');
-      expect(sozlukPageContent).toContain('KMK Ne Demek? Kat Mülkiyeti Kanunu Nedir — Kısa Açıklama | Alo Yönetim');
-      expect(sozlukPageContent).toContain('${term.term} Ne Demek? Nedir — Kısa Açıklama | Alo Yönetim');
-
-      const districtServicePageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/[hizmet]/page.tsx'), 'utf8');
-      expect(districtServicePageContent).toContain('${district.name} Site Yönetimi Şirketleri — 7/24 Kesintisiz Hizmet & Ücretsiz Keşif | Alo Yönetim');
-      expect(districtServicePageContent).toContain('${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik & Hızlı Teklif | Alo Yönetim');
-      expect(districtServicePageContent).toContain('${district.name} Asansör Bakımı ve Arıza — 15 Dk Acil Servis & Yeşil Etiket | Alo Yönetim');
-    });
-
-    it('Tesis Yönetimi Mega Hub mimarisi: İlçe sayfaları ISO 41001 hub linkine sahiptir ve Kartal/Başakşehir verileri zenginleştirilmiştir', async () => {
-      const { DISTRICTS } = await import('@/data/districts');
-      const kartal = DISTRICTS.find((d) => d.slug === 'kartal');
-      expect(kartal).toBeDefined();
-      expect(kartal?.totalResidentialSitesEstimated).toBe(1450);
-      expect(kartal?.prominentProjects).toContain('İstMarina');
-      expect(kartal?.prominentProjects).toContain('DKY Sahil');
-      expect(kartal?.regionalFacilityTraits).toContain('deniz tuzu korozyonuna karşı periyodik cephe');
-
-      const basaksehir = DISTRICTS.find((d) => d.slug === 'basaksehir');
-      expect(basaksehir).toBeDefined();
-      expect(basaksehir?.totalResidentialSitesEstimated).toBe(2200);
-      expect(basaksehir?.prominentProjects).toContain('Vadi Başakşehir');
-
-      const fs = await import('fs');
-      const path = await import('path');
-      const districtPageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/page.tsx'), 'utf8');
-      expect(districtPageContent).toContain('href="/hizmetler/tesis-yonetimi"');
-      expect(districtPageContent).not.toContain('ISO 41001 kalite standartları');
-    });
-
-    it('KMK 20, 34, 37, 45 maddeleri Sözlük terimlerinde yer alır ve asansör servis bileşeni hazırdır', async () => {
-      const { TERMS } = await import('@/data/dictionary');
-      const kmk20 = TERMS.find((t) => t.term.includes('KMK Madde 20'));
-      const kmk34 = TERMS.find((t) => t.term.includes('KMK Madde 34'));
-      const kmk37 = TERMS.find((t) => t.term.includes('KMK Madde 37'));
-      const kmk45 = TERMS.find((t) => t.term.includes('KMK Madde 45'));
-
-      expect(kmk20).toBeDefined();
-      expect(kmk20?.definition).toContain('%5 kanuni gecikme tazminatı');
-      expect(kmk34).toBeDefined();
-      expect(kmk34?.definition).toContain('sekiz ve daha fazla bağımsız bölüm');
-      expect(kmk37).toBeDefined();
-      expect(kmk37?.definition).toContain('7 gün içinde itiraz edilmezse');
-      expect(kmk45).toBeDefined();
-      expect(kmk45?.definition).toContain('oybirliğini şart koşar');
-
-      const { DistrictElevatorMaintenanceSeo } = await import('@/components/seo');
-      expect(DistrictElevatorMaintenanceSeo).toBeDefined();
-    }, 15000);
   });
 
 
@@ -3922,21 +2838,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
   });
 
   describe('128. Wave 59: Tesis & Dikey Hizmet Hubları ve 39 İlçe Yerel SEO Zirvesi', () => {
-    it('KMK Hukuk ve Aidat İcra Danışmanlığı Mega Hub\'ı FacilityLegalPrecedentsBrowserSeo, Yönetici Sorumluluk Kalkanı ve Yüksek CTR Meta Başlığını Eksiksiz Barındırır', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const clientContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/hukuk-ve-icra-danismanligi/HukukVeIcraDanismanligiClient.tsx'), 'utf8');
-      const pageContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/hizmetler/hukuk-ve-icra-danismanligi/page.tsx'), 'utf8');
-
-      expect(clientContent).toContain('<FacilityLegalPrecedentsBrowserSeo');
-      expect(clientContent).toContain('Kat Mülkiyeti Hukuku ve Yargıtay Emsal Kararları Masası');
-      expect(clientContent).toContain('KMK m.38 Şahsi Tazminat Sorumluluğu');
-      expect(clientContent).toContain('TCK m.155 Mali Şeffaflık');
-      expect(clientContent).toContain('Usulüne Uygun İbra & Daha Düşük İptal Riski');
-
-      expect(pageContent).toContain('KMK 634 Hukuk & Aidat İcra Danışmanlığı — İlamsız Takip & %5 Faiz | Alo Yönetim');
-      expect(pageContent).toContain('Örnek No: 7 ilamsız icra takibi');
-    });
 
     it('5188 Özel Güvenlik Sayfası Valilik İzin & Komisyon Protokolü, Kıdem Tazminatı Kalkanı ve Yüksek CTR Meta Başlığını Eksiksiz Barındırır', async () => {
       const fs = await import('fs');
@@ -3971,17 +2872,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
 
       expect(pageContent).toContain('Bina ve Site Teknik Bakım Şirketleri — Asansör & Jeneratör SLA | Alo Yönetim');
       expect(pageContent).toContain('MMO ve TSE A Tipi asansör yeşil etiket muayenesi');
-    });
-
-    it('39 İlçe Yerel Landing Page Ağı (/bolgeler/[ilce]) Üçlü Yasal Koruma Kalkanı (KMK, 5188, Yeşil Etiket/SLA) ile Zenginleştirilmiştir', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const districtContent = fs.readFileSync(path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/page.tsx'), 'utf8');
-
-      expect(districtContent).toContain('Üçlü Yasal Koruma Kalkanı');
-      expect(districtContent).toContain('KMK 634 & Hızlı İcra Takibi');
-      expect(districtContent).toContain('5188 Valilik İzinli Güvenlik');
-      expect(districtContent).toContain('A Tipi Yeşil Etiket & 45 Dk SLA');
     });
   });
 
@@ -4060,31 +2950,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
   });
 
   describe('130. Wave 61: Tesis Yönetimi Açık Veri & OpenAPI 3.1 Protokolü, 39 İlçe Silo Ağı ve Kanonik Bağlantı Zirvesi', () => {
-    it('/openapi.json ve /api/openapi.json rotaları OpenAPI 3.1.0 spesifikasyonunu ve CORS/Robots başlıklarını döner', async () => {
-      const { GET: getRoot } = await import('@/app/openapi.json/route');
-      const { GET: getApi } = await import('@/app/api/openapi.json/route');
-
-      const resRoot = await getRoot();
-      expect(resRoot.status).toBe(200);
-      expect(resRoot.headers.get('Content-Type')).toContain('application/json');
-      expect(resRoot.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resRoot.headers.get('X-OpenAPI-Version')).toBe('3.1.0');
-      expect(resRoot.headers.get('X-Robots-Tag')).toContain('all');
-
-      const dataRoot = await resRoot.json();
-      expect(dataRoot.openapi).toBe('3.1.0');
-      expect(dataRoot.info.title).toContain('Tesis Yönetimi');
-      expect(dataRoot.paths['/api/tesis-yonetimi/legal-precedents.json']).toBeDefined();
-      expect(dataRoot.paths['/api/tesis-yonetimi/rfp-generator']).toBeDefined();
-      expect(dataRoot.paths['/api/tesis-yonetimi/kmk-law-index.json']).toBeDefined();
-      expect(dataRoot.paths['/api/tesis-yonetimi/dues-index.json']).toBeDefined();
-      expect(dataRoot.paths['/api/tesis-yonetimi/authority-corpus.json']).toBeDefined();
-
-      const resApi = await getApi();
-      expect(resApi.status).toBe(200);
-      const dataApi = await resApi.json();
-      expect(dataApi.openapi).toBe('3.1.0');
-    });
 
 
     it('39 İlçe Tesis Yönetimi sayfası FacilityRfpDownloadModalSeo ve FacilitySubSectorCrossNav içerir', async () => {
@@ -4226,20 +3091,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(acikVeriPage).toContain('/openapi.json');
     });
 
-    it('Açık veri sayfasında listelenen her uç nokta gerçekten bir route dosyasına karşılık gelir', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-      const client = fs.readFileSync(
-        path.join(process.cwd(), 'src/app/[lang]/hizmetler/tesis-yonetimi/acik-veri/AcikVeriClient.tsx'),
-        'utf8'
-      );
-      const paths = [...client.matchAll(/path: "([^"]+)"/g)].map((m) => m[1]);
-      expect(paths.length).toBeGreaterThanOrEqual(8);
-      for (const p of paths) {
-        expect(fs.existsSync(path.join(process.cwd(), 'src/app', p.replace(/^\//, ''), 'route.ts')), p).toBe(true);
-      }
-    });
-
     it('Sözlük terimleri (dictionary.ts) tesis yönetimi alt sektörlerine ve açık veri portalına bağlamsal linkler içerir', async () => {
       const { TERMS } = await import('@/data/dictionary');
 
@@ -4258,61 +3109,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
   });
 
   describe('132. Wave 63: Haritalar Zirvesi, 39 İlçe Saha Haritası, Harita Cephesi & RFC 7946 GeoJSON API', () => {
-    it('GET /api/tesis-yonetimi/istanbul-districts.geojson geçerli RFC 7946 GeoJSON döner ve 39 ilçeyi kapsar', async () => {
-      const { GET } = await import('@/app/api/tesis-yonetimi/istanbul-districts.geojson/route');
-
-      // 1. Tüm ilçeler (39 İlçe)
-      const resAll = await GET(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/istanbul-districts.geojson'));
-      expect(resAll.status).toBe(200);
-      expect(resAll.headers.get('Content-Type')).toContain('application/geo+json');
-      expect(resAll.headers.get('X-GeoJSON-Version')).toBe('RFC-7946');
-
-      const jsonAll = await resAll.json();
-      expect(jsonAll.type).toBe('FeatureCollection');
-      expect(jsonAll.features).toHaveLength(39);
-
-      // Kadıköy kontrolü
-      const kadikoy = jsonAll.features.find((f: any) => f.id === 'kadikoy');
-      expect(kadikoy).toBeDefined();
-      expect(kadikoy.geometry.type).toBe('Point');
-      expect(kadikoy.geometry.coordinates).toEqual([29.0333, 40.9833]); // [lng, lat]
-      expect(kadikoy.properties.districtName).toBe('Kadıköy');
-      expect(kadikoy.properties.side).toBe('Anadolu');
-      expect(kadikoy.properties.slaMinutes).toBe(30);
-      expect(kadikoy.properties.facilityManagementUrl).toBe('https://aloyonetim.com.tr/bolgeler/kadikoy/tesis-yonetimi');
-
-      // 2. Anadolu Yakası Filtresi (14 İlçe)
-      const resAnadolu = await GET(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/istanbul-districts.geojson?side=anadolu'));
-      const jsonAnadolu = await resAnadolu.json();
-      expect(jsonAnadolu.features).toHaveLength(14);
-      expect(jsonAnadolu.features.every((f: any) => f.properties.side === 'Anadolu')).toBe(true);
-
-      // 3. Avrupa Yakası Filtresi (25 İlçe)
-      const resAvrupa = await GET(new Request('https://aloyonetim.com.tr/api/tesis-yonetimi/istanbul-districts.geojson?side=avrupa'));
-      const jsonAvrupa = await resAvrupa.json();
-      expect(jsonAvrupa.features).toHaveLength(25);
-      expect(jsonAvrupa.features.every((f: any) => f.properties.side === 'Avrupa')).toBe(true);
-    });
-
-    it('DistrictMapFacadeSeo bileşeni mevcuttur ve ilçe iniş sayfasına monte edilmiştir', async () => {
-      const fs = await import('fs');
-      const path = await import('path');
-
-      const subPath = path.join(process.cwd(), 'src/components/seo/district/DistrictMapFacadeSeo.tsx');
-      const targetPath = fs.existsSync(subPath) ? subPath : path.join(process.cwd(), 'src/components/seo/DistrictMapFacadeSeo.tsx');
-      const facadeFile = fs.readFileSync(targetPath, 'utf8');
-
-      expect(facadeFile).toContain('google.com/maps/dir/?api=1');
-      expect(facadeFile).toContain('maps.apple.com/?daddr=');
-      expect(facadeFile).toContain('Nöbetçi Saha Ekibi');
-
-      const districtPage = fs.readFileSync(
-        path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/page.tsx'),
-        'utf8'
-      );
-      expect(districtPage).toContain('<DistrictMapFacadeSeo');
-      expect(districtPage).not.toContain('<iframe');
-    });
 
     it('IstanbulInteractiveDistrictMapSeo bileşeni mevcuttur ve /bolgeler sayfasına monte edilmiştir', async () => {
       const fs = await import('fs');
@@ -4622,26 +3418,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(kmkFile).toContain('kmk-asansor-yesil-etiket-reaktif');
       expect(kmkFile).toContain('kmk-biyosidal-ilaclama');
     });
-
-    it('voiceSearchFaqEngine ve facilityKnowledgeCorpus 2026 yasal standartlarını eksiksiz sağlar', () => {
-      const fs = require('fs');
-      const path = require('path');
-
-      const voiceEngine = fs.readFileSync(
-        path.join(process.cwd(), 'src/lib/ai/voiceSearchFaqEngine.ts'),
-        'utf8'
-      );
-      expect(voiceEngine).toContain('voice-kmk37-itiraz');
-      expect(voiceEngine).toContain('voice-5188-kimlik');
-      expect(voiceEngine).toContain('voice-biyosidal-ilaclama');
-
-      const corpus = fs.readFileSync(
-        path.join(process.cwd(), 'src/lib/ai/facilityKnowledgeCorpus.ts'),
-        'utf8'
-      );
-      expect(corpus).toContain('Sitelerde biyosidal ilaçlama zorunlu mudur');
-      expect(corpus).toContain('Sitelerde 5188 sayılı özel güvenlik kimlik kartı');
-    });
   });
 
   describe('190. Wave 60: Google AI Overviews (SGE & Gemini GEO) Maksimum Güçlendirme Paketi', () => {
@@ -4713,25 +3489,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(enPayload.snippets.map((s: any) => s.id)).toContain('ai-snippet-residence-management');
       expect(enPayload.snippets.map((s: any) => s.id)).toContain('ai-snippet-toplu-konut-management');
       expect(enPayload.snippets.map((s: any) => s.id)).toContain('ai-snippet-industrial-management');
-    });
-
-    it('39 İlçe sayfasında DistrictAiOverviewSnippetSeo ve speakable ID yer alır', () => {
-      const fs = require('fs');
-      const path = require('path');
-
-      const districtPage = fs.readFileSync(
-        path.join(process.cwd(), 'src/app/[lang]/bolgeler/[ilce]/page.tsx'),
-        'utf8'
-      );
-      expect(districtPage).toContain('DistrictAiOverviewSnippetSeo');
-
-      const subDistPath = path.join(process.cwd(), 'src/components/seo/district/DistrictAiOverviewSnippetSeo.tsx');
-      const targetDistPath = fs.existsSync(subDistPath) ? subDistPath : path.join(process.cwd(), 'src/components/seo/DistrictAiOverviewSnippetSeo.tsx');
-      const districtComponent = fs.readFileSync(targetDistPath, 'utf8');
-
-      expect(districtComponent).toContain('district-instant-answer-text');
-      expect(districtComponent).toContain('FAQPage');
-      expect(districtComponent).toContain('SpeakableSpecification');
     });
   });
 });

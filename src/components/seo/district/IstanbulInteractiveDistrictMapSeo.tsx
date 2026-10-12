@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { DISTRICTS, type District } from '@/data/districts';
 
 import Icon from '@/components/ui/branding/Icon';
+import { emergencyTargetMinutes } from '@/lib/facts';
+import { REAL_REFERENCES } from '@/data/realReferences';
 interface IstanbulInteractiveDistrictMapProps {
   initialDistrictSlug?: string;
   className?: string;
@@ -14,7 +16,7 @@ interface IstanbulInteractiveDistrictMapProps {
  * Wave 63: İnteraktif İstanbul 39 İlçe Tesis Yönetimi Saha Operasyon Haritası
  * 
  * İstanbul'un 39 ilçesinin (14 Anadolu + 25 Avrupa) tamamını harita/radar arayüzünde
- * birleştiren, gerçek GPS koordinatları, acil müdahale SLA süreleri ve aktif proje
+ * birleştiren, gerçek GPS koordinatları, acil müdahale SLA hedefleri ve referans
  * sayılarıyla doğrudan ilçe tesis yönetimi merkezlerine bağlayan interaktif otorite bileşeni.
  */
 export default function IstanbulInteractiveDistrictMapSeo({
@@ -32,15 +34,10 @@ export default function IstanbulInteractiveDistrictMapSeo({
     return DISTRICTS.find((d) => d.slug === selectedSlug) || DISTRICTS[0];
   }, [selectedSlug]);
 
-  const slaMinutes = ['kadikoy', 'uskudar', 'besiktas', 'sisli', 'atasehir'].includes(activeDistrict.slug)
-    ? 30
-    : ['bakirkoy', 'maltepe', 'umraniye', 'kartal', 'sariyer'].includes(activeDistrict.slug)
-    ? 35
-    : 45;
+  const slaMinutes = emergencyTargetMinutes(activeDistrict.side);
 
-  const totalManagedInFiltered = useMemo(() => {
-    return filteredDistricts.reduce((sum, d) => sum + (d.managedProjects || 0), 0);
-  }, [filteredDistricts]);
+  const referenceCount = (name: string) => REAL_REFERENCES.filter((r) => r.district === name).length;
+  const totalReferencesInFiltered = useMemo(() => filteredDistricts.reduce((sum, d) => sum + REAL_REFERENCES.filter((r) => r.district === d.name).length, 0), [filteredDistricts]);
 
   return (
     <section className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-6 sm:p-8 md:p-12 shadow-sm my-12 overflow-hidden ${className}`}>
@@ -55,10 +52,10 @@ export default function IstanbulInteractiveDistrictMapSeo({
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              7/24 Nöbetçi Mobil Ekipler
+              Yazılı SLA kapsamında acil müdahale
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300">
-              {totalManagedInFiltered}+ Aktif Proje
+              {totalReferencesInFiltered} Referans
             </span>
           </div>
 
@@ -144,7 +141,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
                   </div>
 
                   <div className="flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400 font-medium">
-                    <span>{district.managedProjects}+ Proje</span>
+                    <span>{referenceCount(district.name) > 0 ? `${referenceCount(district.name)} referans` : `${district.neighborhoods.length} mahalle`}</span>
                     <span className="font-mono">{district.side === 'Anadolu' ? 'Anad.' : 'Avr.'}</span>
                   </div>
                 </button>
@@ -195,12 +192,12 @@ export default function IstanbulInteractiveDistrictMapSeo({
           {/* Metrics Trio */}
           <div className="grid grid-cols-3 gap-3 pt-2">
             <div className="p-3 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-center">
-              <span className="text-[10px] text-slate-400 uppercase font-bold block">SLA Süresi</span>
+              <span className="text-[10px] text-slate-400 uppercase font-bold block">SLA Hedefi</span>
               <span className="text-base font-black text-emerald-600 dark:text-emerald-400 font-mono">{slaMinutes} Dk</span>
             </div>
             <div className="p-3 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-center">
-              <span className="text-[10px] text-slate-400 uppercase font-bold block">Aktif Proje</span>
-              <span className="text-base font-black text-slate-900 dark:text-white font-mono">{activeDistrict.managedProjects}+</span>
+              <span className="text-[10px] text-slate-400 uppercase font-bold block">Referans</span>
+              <span className="text-base font-black text-slate-900 dark:text-white font-mono">{referenceCount(activeDistrict.name)}</span>
             </div>
             <div className="p-3 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 text-center">
               <span className="text-[10px] text-slate-400 uppercase font-bold block">Nüfus</span>

@@ -55,90 +55,6 @@ export function generateOpenApiSpec() {
       },
     ],
     paths: {
-      '/api/tesis-yonetimi/legal-precedents.json': {
-        get: {
-          tags: ['Hukuk ve Yargıtay İçtihatları'],
-          summary: 'Yargıtay Kat Mülkiyeti Emsal Kararları Kütüphanesi',
-          description:
-            'KMK m.20 (gecikme tazminatı), m.34 (yönetici seçimi ve çift çoğunluk), m.37 (işletme projesi) ve m.38 (yöneticinin sorumluluğu) konularında Yargıtay 20. Hukuk Dairesi ve HGK emsal kararlarını döner.',
-          operationId: 'getLegalPrecedents',
-          parameters: [
-            {
-              name: 'category',
-              in: 'query',
-              required: false,
-              description: 'Filtrelenecek emsal karar kategorisi (tümü, kmk-20-aidat, kmk-34-yonetici, kmk-37-isletme-projesi, kmk-38-sorumluluk, gurultu-tahliye)',
-              schema: {
-                type: 'string',
-                default: 'all',
-              },
-            },
-            {
-              name: 'search',
-              in: 'query',
-              required: false,
-              description: 'Karar metni, esas no veya karar no içinde aranacak kelime',
-              schema: {
-                type: 'string',
-              },
-            },
-            {
-              name: 'limit',
-              in: 'query',
-              required: false,
-              description: 'Dönecek maksimum emsal karar adedi',
-              schema: {
-                type: 'integer',
-                default: 50,
-              },
-            },
-          ],
-          responses: {
-            '200': {
-              description: 'Başarılı Yargıtay emsal kararları listesi ve hukuki dayanaklar.',
-              content: {
-                'application/json': {
-                  schema: {
-                    type: 'object',
-                    properties: {
-                      title: { type: 'string' },
-                      totalCount: { type: 'integer' },
-                      categories: {
-                        type: 'array',
-                        items: {
-                          type: 'object',
-                          properties: {
-                            id: { type: 'string' },
-                            label: { type: 'string' },
-                            count: { type: 'integer' },
-                          },
-                        },
-                      },
-                      legalPrecedents: {
-                        type: 'array',
-                        items: {
-                          type: 'object',
-                          properties: {
-                            id: { type: 'string' },
-                            court: { type: 'string' },
-                            basisNo: { type: 'string' },
-                            decisionNo: { type: 'string' },
-                            date: { type: 'string' },
-                            category: { type: 'string' },
-                            summary: { type: 'string' },
-                            legalBasis: { type: 'string' },
-                            precedentPrinciple: { type: 'string' },
-                          },
-                        },
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
       '/api/tesis-yonetimi/rfp-generator': {
         get: {
           tags: ['B2B Şartname & RFP'],
@@ -239,32 +155,6 @@ export function generateOpenApiSpec() {
           },
         },
       },
-      '/api/tesis-yonetimi/dues-index.json': {
-        get: {
-          tags: ['Aidat & Piyasa Endeksi'],
-          summary: 'İstanbul 39 İlçe Aidat ve İşletme Maliyeti Endeksi',
-          description: 'İstanbul\'un 39 ilçesindeki bağımsız bölüm başına m² aidat ortalamaları ve Alo Yönetim ile sağlanan ortalama %25-33 tasarruf oranları.',
-          operationId: 'getDuesIndex',
-          responses: {
-            '200': {
-              description: '39 ilçe aidat istatistikleri ve benchmark verileri.',
-            },
-          },
-        },
-      },
-      '/api/tesis-yonetimi/authority-corpus.json': {
-        get: {
-          tags: ['Kurumsal Akreditasyon & Bilgi Korpusu'],
-          summary: 'ISO 41001 & Tesis Yönetim Otorite Korpusu',
-          description: 'Alo Yönetim kurumsal kimliği, MERSİS, BELCERT akreditasyon numaraları ve yasal hizmet yetkileri.',
-          operationId: 'getAuthorityCorpus',
-          responses: {
-            '200': {
-              description: 'Doğrulanmış E-E-A-T otorite ve akreditasyon külliyatı.',
-            },
-          },
-        },
-      },
       '/api/tesis-yonetimi/llm-facts.json': {
         get: {
           tags: ['Kurumsal Akreditasyon & Bilgi Korpusu'],
@@ -274,19 +164,6 @@ export function generateOpenApiSpec() {
           responses: {
             '200': {
               description: 'Makine tarafından okunabilir doğrulanmış gerçekler kümesi.',
-            },
-          },
-        },
-      },
-      '/api/tesis-yonetimi/benchmark.json': {
-        get: {
-          tags: ['Aidat & Piyasa Endeksi'],
-          summary: 'Sektörel Tesis Yönetimi Performans Karşılaştırma Verisi',
-          description: 'Rezidans, plaza, toplu konut ve sanayi tesislerinde enerji verimliliği, tahsilat oranı ve bakım SLA kıyaslamaları.',
-          operationId: 'getBenchmarks',
-          responses: {
-            '200': {
-              description: 'Sektörel benchmark KPI ve metrikleri.',
             },
           },
         },
@@ -390,33 +267,6 @@ export function generateOpenApiSpec() {
           },
         },
       },
-      '/api/tesis-yonetimi/compare-districts': {
-        get: {
-          tags: ['Aidat & Piyasa Endeksi'],
-          summary: 'İki İlçe Tesis Yönetimi ve Aidat Karşılaştırma Servisi',
-          description: 'İki ilçe arasındaki aidat m², tasarruf oranı, nüfus ve yönetim dinamiklerini kıyaslar.',
-          operationId: 'compareDistricts',
-          parameters: [
-            {
-              name: 'district1',
-              in: 'query',
-              required: true,
-              schema: { type: 'string', example: 'kadikoy' },
-            },
-            {
-              name: 'district2',
-              in: 'query',
-              required: true,
-              schema: { type: 'string', example: 'besiktas' },
-            },
-          ],
-          responses: {
-            '200': {
-              description: 'İki ilçe arasındaki detaylı karşılaştırma metrikleri.',
-            },
-          },
-        },
-      },
       '/api/tesis-yonetimi/geo-feed.xml': {
         get: {
           tags: ['Coğrafi Harita & Yerel Saha Ağı'],
@@ -442,49 +292,6 @@ export function generateOpenApiSpec() {
           },
         },
       },
-      '/api/ai/search-query': {
-        get: {
-          tags: ['Yapay Zeka & Semantik Grounding (GEO)'],
-          summary: 'Canlı Doğal Dil Semantik KMK & Emsal Arama Uç Noktası',
-          description: 'ChatGPT Search, Perplexity ve Claude için doğal dille sorulan aidat, asansör, yönetici seçimi ve ilçe aidat sorularına doğrulanmış KMK 634 ve Yargıtay emsal kararlarıyla JSON grounding yanıtı döner.',
-          operationId: 'getSemanticSearchQuery',
-          parameters: [
-            {
-              name: 'q',
-              in: 'query',
-              required: true,
-              description: 'Doğal dille yazılmış soru veya arama terimi (Örn: zemin kat asansör öder mi, kadıköy aidat ortalaması)',
-              schema: { type: 'string', example: 'zemin kat asansör öder mi' },
-            },
-          ],
-          responses: {
-            '200': {
-              description: 'Doğrulanmış hukuki dayanak, emsal kararlar, alıntılanabilir doğrudan yanıt ve güven skoru.',
-              content: {
-                'application/json': {
-                  schema: {
-                    type: 'object',
-                    properties: {
-                      query: { type: 'string' },
-                      matchedTopic: { type: 'string' },
-                      directAnswer: { type: 'string' },
-                      confidenceScore: { type: 'number' },
-                      legalBasis: { type: 'string' },
-                      courtPrecedents: { type: 'array' },
-                      canonicalCitationUrl: { type: 'string' },
-                      recommendedCitationSentence: { type: 'string' },
-                      timestamp: { type: 'string' },
-                    },
-                  },
-                },
-              },
-            },
-            '400': {
-              description: 'Eksik veya geçersiz arama parametresi (q).',
-            },
-          },
-        },
-      },
       '/api/ai/site-agent-context.json': {
         get: {
           tags: ['Yapay Zeka & Semantik Grounding (GEO)'],
@@ -494,19 +301,6 @@ export function generateOpenApiSpec() {
           responses: {
             '200': {
               description: 'Tam yapılandırılmış JSON-LD ve semantik RAG korpusu.',
-            },
-          },
-        },
-      },
-      '/api/ai/fact-check-feed.json': {
-        get: {
-          tags: ['Yapay Zeka & Semantik Grounding (GEO)'],
-          summary: 'AI Anti-Halüsinasyon KMK Doğrulama Korpusu (Ground-Truth Feed)',
-          description: 'ChatGPT, Perplexity ve Claude için Kat Mülkiyeti Kanunu ve tesis yönetimi şehir efsanelerine karşı Yargıtay içtihatlı kanuni doğrular.',
-          operationId: 'getAiFactCheckFeed',
-          responses: {
-            '200': {
-              description: 'Doğrulanmış yasal hükümler, Yargıtay esas kararları ve doğru hüküm listesi.',
             },
           },
         },

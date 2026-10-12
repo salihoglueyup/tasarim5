@@ -29,3 +29,10 @@ export const RESPONSE_TARGET_TEXT = {
   ru: 'В рамках письменного SLA целевое время аварийного технического реагирования — 30 минут на Анатолийской стороне и 1 час на Европейской стороне.',
   ar: 'ضمن اتفاقية مستوى الخدمة المكتوبة، هدف الاستجابة الفنية الطارئة هو 30 دقيقة في الجانب الأناضولي وساعة واحدة في الجانب الأوروبي.',
 } as const;
+
+/** Yakaya göre yazılı SLA kapsamındaki acil teknik müdahale hedefi (dakika). */
+export const EMERGENCY_TARGET_MINUTES = { Anadolu: 30, Avrupa: 60 } as const;
+
+export function emergencyTargetMinutes(side: 'Anadolu' | 'Avrupa'): number {
+  return EMERGENCY_TARGET_MINUTES[side];
+}

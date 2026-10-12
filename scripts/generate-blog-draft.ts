@@ -110,7 +110,7 @@ function localPostDraft(districtSlug: string, serviceSlug: string) {
       { type: 'h2', text: `${d.name}'de ${s.name} Kapsamı` },
       { type: 'ul', items: s.benefits },
       { type: 'h2', text: `${d.name}'deki Öne Çıkan Mahalleler` },
-      { type: 'p', text: `Hizmet verdiğimiz başlıca mahalleler: ${d.neighborhoods.join(', ')}. Bu mahallelerdeki ${d.managedProjects}+ projemizde edindiğimiz yerel deneyimle en iyi hizmeti sunuyoruz.` },
+      { type: 'p', text: `Hizmet verdiğimiz başlıca mahalleler: ${d.neighborhoods.join(', ')}.` },
       { type: 'h2', text: 'Sıkça Sorulan Sorular' },
       { type: 'h3', text: `${d.name}'de ${s.name} ücretleri nasıl belirlenir?` },
       { type: 'p', text: `${d.name}'de ${s.name.toLowerCase()} maliyeti; proje büyüklüğü, hizmet kapsamı ve sıklığına göre değişir. Ücretsiz keşif sonrası net teklif sunulur.` },

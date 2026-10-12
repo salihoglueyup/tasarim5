@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { BASE_URL } from '@/lib/seo';
 import { DISTRICTS } from '@/data/districts';
-import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
 import { ORG_CREDENTIALS } from '@/lib/schemas';
 
 export const dynamic = 'force-dynamic';
@@ -48,20 +47,6 @@ export async function GET() {
       longitude: d.geo.lng,
     },
     url: `${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi`,
-  }));
-
-  const precedentsNodes = YARGITAY_LEGAL_PRECEDENTS.map((p) => ({
-    '@type': 'Legislation',
-    '@id': `${BASE_URL}/hizmetler/tesis-yonetimi#${p.id}`,
-    name: p.subject,
-    legislationType: 'Court Precedent',
-    legislationPassedBy: {
-      '@type': 'GovernmentOrganization',
-      name: p.court,
-      sameAs: 'https://www.wikidata.org/wiki/Q1549429', // Yargıtay Wikidata (T.C. Yargıtay Başkanlığı)
-    },
-    legislationIdentifier: `${p.docketNumber} / ${p.decisionNumber}`,
-    datePublished: p.decisionDate,
   }));
 
   const graphPayload = {
@@ -128,7 +113,6 @@ export async function GET() {
       },
       ...districtNodes,
       ...neighborhoodNodes,
-      ...precedentsNodes,
     ],
   };
 

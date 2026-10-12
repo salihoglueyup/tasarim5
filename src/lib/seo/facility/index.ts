@@ -5,7 +5,6 @@ export * from './facilityAutonomousSeoAuditor';
 export * from './facilityBlogClusterEngine';
 export * from './facilityCompleteGraphBuilder';
 export * from './facilityCrossServiceLinker';
-export * from './facilityDistrictComparator';
 export * from './facilityEdgeOptimizer';
 export * from './facilityExternalCitations';
 export * from './facilityFaqSynthesizer';

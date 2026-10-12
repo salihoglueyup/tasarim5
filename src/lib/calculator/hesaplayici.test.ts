@@ -1,29 +1,40 @@
 import { describe, it, expect } from 'vitest';
-import { calculateDues } from './hesaplayici';
+import { calculateShare, formatTry } from './hesaplayici';
 
-describe('calculateDues', () => {
-  it('tüm eklentiler açıkken doğru hesaplar', () => {
-    // base 350 + sec 450 + pool 180 + green 120 + (6*40)/45 = 1100 + 5.33 -> 1105
-    const r = calculateDues({ units: 45, elevators: 6, hasSecurity: true, hasPool: true, hasGreenSpace: true });
-    expect(r.estimatedDuesPerUnit).toBe(1105);
-    expect(r.totalMonthlyBudget).toBe(1105 * 45);
-    expect(r.estimatedSavings).toBe(Math.round(1105 * 45 * 0.22));
+const base = { monthlyBudget: 100000, units: 50, landShareNumerator: 100, landShareDenominator: 10000 };
+
+describe('calculateShare', () => {
+  it('eşit paylaşımda bütçeyi bağımsız bölüm sayısına böler', () => {
+    const r = calculateShare({ ...base, method: 'equal' });
+    expect(r.valid).toBe(true);
+    expect(r.monthlyShare).toBe(2000);
+    expect(r.annualShare).toBe(24000);
+    expect(r.ratio).toBeCloseTo(0.02);
   });
 
-  it('eklentiler kapalıyken yalnız taban + asansör', () => {
-    // 350 + (10*40)/100 = 350 + 4 = 354
-    const r = calculateDues({ units: 100, elevators: 10, hasSecurity: false, hasPool: false, hasGreenSpace: false });
-    expect(r.estimatedDuesPerUnit).toBe(354);
+  it('arsa payına göre bütçeyi pay/payda oranıyla çarpar', () => {
+    const r = calculateShare({ ...base, method: 'land' });
+    expect(r.monthlyShare).toBe(1000);
+    expect(r.ratio).toBeCloseTo(0.01);
   });
 
-  it('units 0 iken sıfıra bölmez (Math.max ile korunur)', () => {
-    const r = calculateDues({ units: 0, elevators: 5, hasSecurity: false, hasPool: false, hasGreenSpace: false });
-    expect(Number.isFinite(r.estimatedDuesPerUnit)).toBe(true);
-    expect(r.totalMonthlyBudget).toBe(0);
+  it('geçersiz girdilerde sonuç üretmez', () => {
+    expect(calculateShare({ ...base, method: 'equal', monthlyBudget: 0 }).valid).toBe(false);
+    expect(calculateShare({ ...base, method: 'equal', units: 0 }).valid).toBe(false);
+    expect(calculateShare({ ...base, method: 'land', landShareNumerator: 0 }).valid).toBe(false);
+    expect(calculateShare({ ...base, method: 'land', landShareDenominator: 0 }).valid).toBe(false);
+    expect(calculateShare({ ...base, method: 'land', landShareNumerator: 20000 }).valid).toBe(false);
   });
 
-  it('tasarruf toplam bütçenin ~%22si', () => {
-    const r = calculateDues({ units: 50, elevators: 4, hasSecurity: true, hasPool: false, hasGreenSpace: true });
-    expect(r.estimatedSavings).toBe(Math.round(r.totalMonthlyBudget * 0.22));
+  it('piyasa ortalaması veya tasarruf alanı içermez', () => {
+    const r = calculateShare({ ...base, method: 'equal' });
+    expect(Object.keys(r).sort()).toEqual(['annualShare', 'monthlyShare', 'ratio', 'valid']);
+  });
+});
+
+describe('formatTry', () => {
+  it('Türkçe ve diğer dillerde para biçimi', () => {
+    expect(formatTry(1234.5, 'tr')).toBe('₺1.234,50');
+    expect(formatTry(1234.5, 'en')).toBe('1,234.50 ₺');
   });
 });

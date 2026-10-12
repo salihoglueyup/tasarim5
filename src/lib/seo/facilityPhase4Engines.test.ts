@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { generateFacilityAiSnippets } from './facility/facilityAiSnippetEngine';
-import { DISTRICTS, getDistrictDues } from '@/data/districts';
+import { DISTRICTS } from '@/data/districts';
 
 describe('Tesis Hizmetleri Faz 4 İleri Düzey Backend SEO & GEO Motorları', () => {
   describe('Google AI Overviews & SGE Snippet Motoru (facilityAiSnippetEngine.ts)', () => {
@@ -31,17 +31,4 @@ describe('Tesis Hizmetleri Faz 4 İleri Düzey Backend SEO & GEO Motorları', ()
     });
   });
 
-  describe('39 İlçe Aidat Açık Veri Modeli', () => {
-    it('Tüm 39 ilçe için geçerli m² aidat ve pozitif tasarruf oranı döner', () => {
-      expect(DISTRICTS.length).toBe(39);
-
-      DISTRICTS.forEach((d) => {
-        const dues = getDistrictDues(d.slug);
-        expect(dues.avgDuesM2).toBeGreaterThan(0);
-        expect(dues.aloDuesM2).toBeGreaterThan(0);
-        expect(dues.savingsRate).toBeGreaterThan(0);
-        expect(dues.aloDuesM2).toBeLessThan(dues.avgDuesM2);
-      });
-    });
-  });
 });

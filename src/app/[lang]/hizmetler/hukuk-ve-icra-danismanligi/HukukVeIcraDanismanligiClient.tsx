@@ -14,7 +14,6 @@ import LegalCalculator from '@/components/sections/calculators/LegalCalculator';
 import KMKLawAssistantSeo from '@/components/seo/kmk/KMKLawAssistantSeo';
 import KMKLegalProcessHowToSeo from '@/components/seo/kmk/KMKLegalProcessHowToSeo';
 import KMKLegalTemplateGeneratorSeo from '@/components/seo/kmk/KMKLegalTemplateGeneratorSeo';
-import FacilityLegalPrecedentsBrowserSeo from '@/components/seo/facility/FacilityLegalPrecedentsBrowserSeo';
 import Image from 'next/image';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import FacilityEnforcementDisputeSeo from '@/components/seo/facility/FacilityEnforcementDisputeSeo';
@@ -326,16 +325,6 @@ export default function HukukVeIcraDanismanligiClient() {
         {/* KMK Yasal Süreç & İcra HowTo Yol Haritası */}
 <TrOnly>
         <KMKLegalProcessHowToSeo />
-</TrOnly>
-
-        {/* Yargıtay Emsal Kararları & KMK İçtihat Masası */}
-<TrOnly>
-        <FacilityLegalPrecedentsBrowserSeo
-          basePath="/hizmetler/hukuk-ve-icra-danismanligi"
-          badge="634 KMK & Yargıtay Hukuk Genel Kurulu Emsalleri"
-          title="Kat Mülkiyeti Hukuku ve Yargıtay Emsal Kararları Masası"
-          subtitle="Aidat borcu ilamsız icra takibi, asansör ortak gider muafiyet iddiaları, yönetici şahsi sorumluluğu ve genel kurul iptal davalarında bağlayıcı Yargıtay kararları."
-        />
 </TrOnly>
 
 <TrOnly>

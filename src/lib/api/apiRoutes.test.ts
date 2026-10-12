@@ -7,20 +7,6 @@ describe('Wave 10 Faz 227: API Uç Noktaları Birim & Entegrasyon Testleri', () 
     process.env.JWT_SECRET = 'test-jwt-secret-key-at-least-32-chars-long';
   });
 
-  it('GET /api/calculator hesaplayıcı parametrelerini eksiksiz döner', async () => {
-    const { GET: getCalculator } = await import('@/app/api/calculator/route');
-    const res = await getCalculator();
-    expect(res.status).toBe(200);
-
-    const data = await res.json();
-    expect(data).toHaveProperty('baseCostPerUnit');
-    expect(data).toHaveProperty('securityAddon');
-    expect(data).toHaveProperty('poolAddon');
-    expect(data).toHaveProperty('greenAddon');
-    expect(data).toHaveProperty('elevatorAddon');
-    expect(data).toHaveProperty('savingsRate');
-    expect(typeof data.baseCostPerUnit).toBe('number');
-  });
 
   it('GET /api/health RFC 8485 standartlarında sistem sağlık raporu sunar', async () => {
     const { GET: getHealth } = await import('@/app/api/health/route');

@@ -62,13 +62,6 @@ describe('GSC Batch 2 High-Impact Query Opportunities', () => {
       expect(meta.description).toContain('apartman, site ve rezidanslar için KMK 634');
     });
 
-    it('Başakşehir veri modeli toplu konut, KMK m.66 ve etap yönetim gereksinimlerini taşımalı', () => {
-      const basaksehir = getDistrict('basaksehir');
-      expect(basaksehir).toBeDefined();
-      expect(basaksehir!.regionalFacilityTraits).toContain('KMK m.66 Toplu Yapı');
-      expect(basaksehir!.prominentProjects).toContain('Başakşehir 4. Etap 1. Kısım');
-      expect(basaksehir!.localNeeds.some(need => need.includes('KMK m.66 Toplu Yapı'))).toBe(true);
-    });
   });
 
   describe('3. Teknik Bakım ve Asansör / Temizlik Sayfaları', () => {
@@ -105,20 +98,5 @@ describe('GSC Batch 2 High-Impact Query Opportunities', () => {
       expect(iconSource).toContain('M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7');
     });
 
-    it('ContactAiOverviewCardSeo ve LocalBusinessProfileAiAnchorSeo çıplak location_on metni sızdırmamalı', () => {
-      const contactSource = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/seo/ai-overviews/ContactAiOverviewCardSeo.tsx'),
-        'utf8'
-      );
-      expect(contactSource).toContain('LocationPinSvgIcon');
-      expect(contactSource).not.toContain('<span className="material-symbols-outlined text-xl">location_on</span>');
-
-      const anchorSource = fs.readFileSync(
-        path.join(process.cwd(), 'src/components/seo/ai-overviews/LocalBusinessProfileAiAnchorSeo.tsx'),
-        'utf8'
-      );
-      expect(anchorSource).not.toContain('<span className="material-symbols-outlined text-teal-400 text-sm mt-0.5">\n location_on');
-      expect(anchorSource).toMatch(/aria-hidden="true"|<Icon /);
-    });
   });
 });

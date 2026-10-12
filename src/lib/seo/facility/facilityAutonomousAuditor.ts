@@ -1,14 +1,10 @@
-import { DISTRICTS, getDistrictDues } from '@/data/districts';
+import { DISTRICTS } from '@/data/districts';
 import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
-import { YARGITAY_LEGAL_PRECEDENTS } from '@/data/legalPrecedentsData';
 
 export interface DistrictAuditReportItem {
   districtSlug: string;
   districtName: string;
   side: 'Anadolu' | 'Avrupa';
-  duesAvg: number;
-  duesAlo: number;
-  savingsRate: number;
   serpTitle: string;
   serpDesc: string;
   hasTargetKeyword: boolean;
@@ -30,7 +26,6 @@ export interface FacilityAuditReport {
   hubStatus: {
     path: string;
     hasSchemas: boolean;
-    hasPrecedents: boolean;
     hasRfpGenerator: boolean;
     has39DistrictGrid: boolean;
   };
@@ -48,7 +43,6 @@ export function runFacilityAutonomousAudit(): FacilityAuditReport {
   let totalScore = 0;
 
   for (const d of DISTRICTS) {
-    const dues = getDistrictDues(d.slug);
     const meta = getFacilitySerpMeta('tr', d.slug);
     const issues: string[] = [];
     let itemScore = 100;
@@ -68,21 +62,12 @@ export function runFacilityAutonomousAudit(): FacilityAuditReport {
       itemScore -= 15;
     }
 
-    // Aidat Veri Bütünlüğü
-    if (!dues || dues.avgDuesM2 <= 0 || dues.aloDuesM2 <= 0) {
-      issues.push('Aidat endeks verisi eksik veya sıfır');
-      itemScore -= 20;
-    }
-
     totalScore += itemScore;
 
     districtReports.push({
       districtSlug: d.slug,
       districtName: d.name,
       side: d.side,
-      duesAvg: dues.avgDuesM2,
-      duesAlo: dues.aloDuesM2,
-      savingsRate: dues.savingsRate,
       serpTitle: meta.title,
       serpDesc: meta.description,
       hasTargetKeyword: true,
@@ -103,11 +88,7 @@ export function runFacilityAutonomousAudit(): FacilityAuditReport {
 
   const apiEndpoints: FacilityAuditReport['apiHealthStatus'] = [
     { endpoint: '/llms.txt', purpose: 'Küresel AI Standart Bilgi Protokolü', status: 'ACTIVE_AND_HEALTHY' },
-    { endpoint: '/api/tesis-yonetimi/dues-index.json', purpose: '39 İlçe Açık Aidat & Maliyet İndeksi', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/tesis-yonetimi/verify-credentials', purpose: 'Canlı ISO 41001 & 5188 Lisans Doğrulama', status: 'ACTIVE_AND_HEALTHY' },
-    { endpoint: '/api/tesis-yonetimi/compare-districts', purpose: '39 İlçe Çapraz Aidat Kıyaslama API', status: 'ACTIVE_AND_HEALTHY' },
-    { endpoint: '/api/tesis-yonetimi/ai-snippets.json', purpose: 'Google AI Overviews (SGE) Snippet Motoru', status: 'ACTIVE_AND_HEALTHY' },
-    { endpoint: '/api/tesis-yonetimi/voice-qa.json', purpose: 'Sesli Asistan (Google/Siri/Alexa) Speakable API', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/tesis-yonetimi/llm-facts.json', purpose: 'AI/LLM Arama Motorları İçin Kurumsal Bilgi Seti', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/tesis-yonetimi/kmk-law-index.json', purpose: '634 Sayılı KMK Açık Veri Mevzuat İndeksi', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/tesis-yonetimi/feed.xml', purpose: 'Tesis Yönetimi ve Emsal Kararlar Canlı RSS Beslemesi', status: 'ACTIVE_AND_HEALTHY' },
@@ -117,7 +98,6 @@ export function runFacilityAutonomousAudit(): FacilityAuditReport {
     { endpoint: '/api/seo/verify-authority', purpose: 'E-E-A-T Otorite ve Yasal Akreditasyon Doğrulama', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/admin/schema-lint', purpose: 'Schema.org Linter & Çoklu Düğüm Doğrulama API', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/seo/facility-rank-score', purpose: 'Çok Dilli SERP Potansiyeli ve CTR Simülatörü', status: 'ACTIVE_AND_HEALTHY' },
-    { endpoint: '/api/tesis-yonetimi/legal-precedents.json', purpose: '634 KMK & Yargıtay Emsal Kararları Açık Veri API', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/ai/site-agent-context.json', purpose: 'Site ve Apartman Yönetimi AI Agent RAG Bilgi Üssü', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/ai/facility-agent-context.json', purpose: 'Entegre Tesis Yönetimi AI Agent RAG Bilgi Üssü', status: 'ACTIVE_AND_HEALTHY' },
   ];
@@ -129,7 +109,6 @@ export function runFacilityAutonomousAudit(): FacilityAuditReport {
     hubStatus: {
       path: '/hizmetler/tesis-yonetimi',
       hasSchemas: true,
-      hasPrecedents: YARGITAY_LEGAL_PRECEDENTS.length >= 4,
       hasRfpGenerator: true,
       has39DistrictGrid: DISTRICTS.length === 39,
     },

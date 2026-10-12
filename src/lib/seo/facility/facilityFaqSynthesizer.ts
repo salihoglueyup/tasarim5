@@ -35,7 +35,7 @@ export function synthesizeDistrictFacilityFaq(
   // 1. Genel Tesis Yönetimi & Bölgesel SLA
   faqs.push({
     question: `${dName} bölgesinde profesyonel tesis yönetimi acil müdahale süresi ne kadardır?`,
-    answer: `Alo Yönetim, ${dName} ilçesindeki tüm apartman ve sitelere mobil teknik ekipleriyle en fazla 45 dakika içinde yerinde müdahale SLA garantisi sunmaktadır. 7/24 kesintisiz arıza hattımız aktiftir.`,
+    answer: `Yazılı SLA kapsamında acil teknik müdahale hedefimiz Anadolu Yakası'nda 30 dakika, Avrupa Yakası'nda 1 saattir; ${dName} ${isAnadolu ? 'Anadolu' : 'Avrupa'} Yakası'nda yer alır. Süre, sözleşmedeki SLA hükümlerine bağlıdır.`,
     topic: 'TECHNICAL_SLA',
   });
 
@@ -63,7 +63,7 @@ export function synthesizeDistrictFacilityFaq(
   // 3. Aidat & Tasarruf
   faqs.push({
     question: `${dName} tesis yönetimi şirketiyle çalışmak aidat maliyetini nasıl etkiler?`,
-    answer: `Toplu enerji alımları, periyodik asansör/jeneratör koruyucu bakımı ve merkezi tedarik anlaşmaları sayesinde ${dName} genelindeki tesislerde genel giderlerde %20 ile %30 arasında somut tasarruf sağlanır.`,
+    answer: `Periyodik asansör ve jeneratör bakımı, ortak enerji tüketiminin izlenmesi ve toplu tedarik gibi yöntemler giderleri düşürme fırsatı doğurabilir; ${dName} için somut etki sitenin mevcut sözleşmelerine ve ihtiyaçlarına göre değişir ve keşif sonrasında değerlendirilir.`,
     topic: 'COST_SAVINGS',
   });
 
@@ -129,7 +129,7 @@ export function synthesizeNeighborhoodFacilityFaq(
     // 1. Yerel Müdahale ve Mobil SLA
     {
       question: `${nName} Mahallesi (${dName}) için acil teknik servis müdahale süresi nedir?`,
-      answer: `Alo Yönetim mobil teknik ekipleri, ${dName} ${nName} Mahallesi lokasyonundaki site ve binalara ortalama 30-45 dakika içinde yerinde müdahale sağlamaktadır. 7/24 kesintisiz arıza SLA garantisi sunulur.`,
+      answer: `Yazılı SLA kapsamında acil teknik müdahale hedefimiz Anadolu Yakası'nda 30 dakika, Avrupa Yakası'nda 1 saattir. ${dName} ${nName} Mahallesi için süre, sözleşmedeki SLA hükümlerine bağlıdır.`,
       topic: 'TECHNICAL_SLA',
     },
     // 2. Mahalle Karakteristiğine Özel Hizmet

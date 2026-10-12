@@ -49,7 +49,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       name: 'Site Ayarları',
       icon: '⚙️',
       subItems: [
-        { name: 'Hesaplayıcı', path: `/${lang}/admin/calculator-settings`, icon: '🧮' },
       ],
     },
     {

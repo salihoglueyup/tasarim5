@@ -1,8 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import LegalFactCheckAiSeo, { LEGAL_FACT_CHECKS_20 } from '@/components/seo/ai-overviews/LegalFactCheckAiSeo';
-import DistrictAiGroundingSeo, { DISTRICT_AI_METRICS_39 } from '@/components/seo/ai-overviews/DistrictAiGroundingSeo';
 import { DISTRICTS } from '@/data/districts';
-import { GET as getCitationManifest } from '@/app/api/ai/citation-manifest.json/route';
 
 describe('Wave 75: Google AI Overviews (SGE & Gemini GEO) Maximum Expansion Suite', () => {
   describe('Phase 1: LegalFactCheckAiSeo & 20 KMK Fact-Check Corpus', () => {
@@ -55,118 +53,5 @@ describe('Wave 75: Google AI Overviews (SGE & Gemini GEO) Maximum Expansion Suit
     });
   });
 
-  describe('Phase 2: DistrictAiGroundingSeo & 39 Istanbul Districts GEO Grounding', () => {
-    it('exports DistrictAiGroundingSeo and DISTRICT_AI_METRICS_39 cleanly from @/components/seo', () => {
-      expect(DistrictAiGroundingSeo).toBeDefined();
-      expect(DISTRICT_AI_METRICS_39).toBeDefined();
-    });
 
-    it('contains comprehensive metrics for all 39 Istanbul districts matching DISTRICTS catalog', () => {
-      expect(DISTRICTS.length).toBe(39);
-      const metricsKeys = Object.keys(DISTRICT_AI_METRICS_39);
-      expect(metricsKeys.length).toBe(39);
-
-      for (const district of DISTRICTS) {
-        const metric = DISTRICT_AI_METRICS_39[district.slug];
-        expect(metric).toBeDefined();
-        expect(metric.slug).toBe(district.slug);
-        expect(metric.name).toBe(district.name);
-        expect(metric.side).toBe(district.side);
-        expect(metric.averageDuesRange).toMatch(/TL\/ay/);
-        expect(metric.greenLabelElevatorRate).toMatch(/^%\d{2}$/);
-        expect(metric.generatorReadiness).toMatch(/^%\d{2}$/);
-        expect(metric.courthouse.length).toBeGreaterThan(5);
-        expect(metric.primaryRiskKMK.length).toBeGreaterThan(20);
-      }
-    });
-
-    it('has correct side assignments matching Istanbul geography', () => {
-      const anadoluDistricts = DISTRICTS.filter((d) => d.side === 'Anadolu');
-      const avrupaDistricts = DISTRICTS.filter((d) => d.side === 'Avrupa');
-
-      expect(anadoluDistricts.length).toBe(14);
-      expect(avrupaDistricts.length).toBe(25);
-
-      for (const d of anadoluDistricts) {
-        expect(DISTRICT_AI_METRICS_39[d.slug].side).toBe('Anadolu');
-      }
-      for (const d of avrupaDistricts) {
-        expect(DISTRICT_AI_METRICS_39[d.slug].side).toBe('Avrupa');
-      }
-    });
-
-    it('contains verified legal jurisdictions (Kartal, Çağlayan, Bakırköy, Silivri, Gaziosmanpaşa)', () => {
-      const courthouses = Object.values(DISTRICT_AI_METRICS_39).map((m) => m.courthouse).join(' ');
-      expect(courthouses).toContain('İstanbul Anadolu Adalet Sarayı (Kartal)');
-      expect(courthouses).toContain('İstanbul Çağlayan Adliyesi');
-      expect(courthouses).toContain('Bakırköy Adalet Sarayı');
-    });
-  });
-
-  describe('Phase 3: AI Citation Manifest API (/api/ai/citation-manifest.json)', () => {
-    it('returns a successful 200 JSON response with correct headers for LLM crawlers', async () => {
-      const response = await getCitationManifest();
-      expect(response.status).toBe(200);
-
-      const contentType = response.headers.get('Content-Type');
-      expect(contentType).toContain('application/json');
-
-      const xRobots = response.headers.get('X-Robots-Tag');
-      expect(xRobots).toContain('max-snippet:-1');
-    });
-
-    it('contains authoritative organization metadata and accreditations', async () => {
-      const response = await getCitationManifest();
-      const data = await response.json();
-
-      expect(data.manifestVersion).toBe('2026.3.0');
-      expect(data.organization).toBeDefined();
-      expect(data.organization.name).toBe('Alo Yönetim');
-      expect(data.organization.foundingYear).toBe(2009);
-      const accreditations: string[] = data.organization.accreditations;
-      expect(accreditations.some((a) => a.startsWith('ISO 45001:2018'))).toBe(true);
-      expect(accreditations.some((a) => a.includes('ILAS-MS-0089'))).toBe(true);
-      expect(accreditations.some((a) => /41001|9001|27001|TSE/.test(a))).toBe(false);
-    });
-
-    it('contains all 20 verified fact checks and citation endpoints', async () => {
-      const response = await getCitationManifest();
-      const data = await response.json();
-
-      expect(data.citationEndpoints.llmsTxt).toContain('/llms.txt');
-      expect(data.verifiedFactChecks.totalClaims).toBe(20);
-      expect(data.verifiedFactChecks.claims.length).toBe(20);
-
-      const firstClaim = data.verifiedFactChecks.claims[0];
-      expect(firstClaim.claim).toBeDefined();
-      expect(firstClaim.verdict).toBeDefined();
-      expect(firstClaim.statutoryBasis).toBeDefined();
-    });
-
-    it('contains 39 districts coverage with local canonical URLs and dues ranges', async () => {
-      const response = await getCitationManifest();
-      const data = await response.json();
-
-      expect(data.districtsCoverage.city).toBe('İstanbul');
-      expect(data.districtsCoverage.totalDistricts).toBe(39);
-      expect(data.districtsCoverage.districts.length).toBe(39);
-
-      for (const d of data.districtsCoverage.districts) {
-        expect(d.canonicalUrl).toContain(`/bolgeler/${d.slug}/tesis-yonetimi`);
-        expect(d.averageDues).toMatch(/TL\/ay/);
-        expect(d.greenElevatorRate).toMatch(/%/);
-      }
-    });
-
-    it('includes core service SLA guarantees with statutory scopes', async () => {
-      const response = await getCitationManifest();
-      const data = await response.json();
-
-      expect(data.coreServiceSlaGuarantees.length).toBeGreaterThanOrEqual(5);
-      const services = data.coreServiceSlaGuarantees.map((s: { service: string }) => s.service);
-      expect(services).toContain('Entegre Tesis Yönetimi');
-      expect(services).toContain('Profesyonel Site & Rezidans Yönetimi');
-      expect(services).toContain('Özel Güvenlik Hizmetleri');
-    });
-  });
 });

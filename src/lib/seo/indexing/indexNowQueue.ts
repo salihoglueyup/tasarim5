@@ -25,9 +25,7 @@ export async function pushFacilityUrlsBulkToIndexNow(): Promise<BulkIndexNowResu
   urlSet.add(`${BASE_URL}/sektorel-cozumler`);
   urlSet.add(`${BASE_URL}/sozluk`);
   urlSet.add(`${BASE_URL}/api/ai/facility-agent-context.json`);
-  urlSet.add(`${BASE_URL}/api/tesis-yonetimi/calculate-budget`);
   urlSet.add(`${BASE_URL}/api/tesis-yonetimi/dictionary.json`);
-  urlSet.add(`${BASE_URL}/api/tesis-yonetimi/legal-precedents.json`);
   urlSet.add(`${BASE_URL}/feed/tesis-yonetimi.xml`);
 
   // 2. 8 Hizmet Sayfası

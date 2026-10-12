@@ -38,19 +38,6 @@ describe('Wave 6: Faz 136 - Faz 140 Otomatik İç Linkleme, E-E-A-T Denetimi, Ya
     expect(result.checks.accreditationSignalCheck).toBe(true);
   });
 
-  it('Faz 138: resolveBlogArticleCluster blog yazılarına ilgili Yargıtay emsal kararlarını ekler', () => {
-    const cluster = resolveBlogArticleCluster(
-      'Site Asansör Bakımı ve Zemin Kat Muafiyeti',
-      'Asansör periyodik bakım masrafları ve yönetim planı hükümleri.',
-      ['asansör', 'aidat']
-    );
-
-    expect(cluster.relevantPrecedents).toBeDefined();
-    expect(cluster.relevantPrecedents!.length).toBeGreaterThanOrEqual(1);
-    expect(cluster.relevantPrecedents![0]).toHaveProperty('court');
-    expect(cluster.relevantPrecedents![0]).toHaveProperty('docketNumber');
-    expect(cluster.relevantPrecedents![0]).toHaveProperty('decisionNumber');
-  });
 
   it('Faz 139: news-sitemap.xml route Google News XML şemasına tam uygundur', () => {
     const content = fs.readFileSync(newsSitemapPath, 'utf-8');

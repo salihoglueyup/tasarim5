@@ -15,7 +15,6 @@ export { default as FacilityGroupSecurityTrustSeo } from './FacilityGroupSecurit
 export { default as FacilityHygieneMsdsGuideSeo } from './FacilityHygieneMsdsGuideSeo';
 export { default as FacilityLandscapeTreeGuideSeo } from './FacilityLandscapeTreeGuideSeo';
 export { default as FacilityLegalClaimReviewsSeo } from './FacilityLegalClaimReviewsSeo';
-export { default as FacilityLegalPrecedentsBrowserSeo } from './FacilityLegalPrecedentsBrowserSeo';
 export { default as FacilityLegalTemplateGeneratorSeo } from './FacilityLegalTemplateGeneratorSeo';
 export { default as FacilityOccupationalHealthSafetySeo } from './FacilityOccupationalHealthSafetySeo';
 export { default as FacilityOfficialEntityTrustSeo } from './FacilityOfficialEntityTrustSeo';
@@ -44,5 +43,4 @@ export { default as ChecklistAuditSeo } from './ChecklistAuditSeo';
 export { default as QuizAuditScoreSeo } from './QuizAuditScoreSeo';
 export { default as TrustVerificationAuditSeo } from './TrustVerificationAuditSeo';
 export { default as LeadQuickModalSeo } from './LeadQuickModalSeo';
-export { default as SocialProofTickerSeo } from './SocialProofTickerSeo';
 export { default as FacilityStickySubnav } from './FacilityStickySubnav';

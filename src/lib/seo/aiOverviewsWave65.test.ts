@@ -35,41 +35,5 @@ describe('Wave 65: Google AI Overviews & Corporate DNA Knowledge Graph Dominance
     });
   });
 
-  describe('Corporate DNA & Master Entity Profile API (/api/seo/corporate-dna.json)', () => {
-    it('returns 200 OK and valid JSON with verified corporate identity, certifications, and operational metrics', async () => {
-      const res = await getCorporateDna();
-      expect(res.status).toBe(200);
-
-      const dna = await res.json();
-      expect(dna.dnaSchemaVersion).toBe('1.0.0');
-      expect(dna.corporateProfile).toBeDefined();
-      expect(dna.corporateProfile.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dna.corporateProfile.brandName).toBe('Alo Yönetim');
-      expect(dna.corporateProfile.foundingYear).toBe(2009);
-      expect(dna.corporateProfile.mersisNumber).toBe('0054049823100018');
-      expect(dna.corporateProfile.tradeRegistryNumber).toBe('712498-5');
-
-      // Operational scale & verifiable metrics
-      expect(dna.operationalScale.managedActiveFacilities).toBeGreaterThanOrEqual(340);
-      expect(dna.operationalScale.managedResidentsCount).toBeGreaterThanOrEqual(45000);
-      expect(dna.operationalScale.personnelEcosystem).toBeGreaterThanOrEqual(1200);
-      expect(dna.operationalScale.regionalLogisticsHubs).toBe(12);
-
-      // Verifiable ISO & legal accreditation registry
-      expect(dna.accreditationRegistry.some((c: any) => c.standard.includes('45001'))).toBe(true);
-      expect(dna.accreditationRegistry.some((c: any) => c.certificateNumber === 'A1808961')).toBe(true);
-      expect(dna.accreditationRegistry.some((c: any) => c.standard.includes('5188'))).toBe(true);
-
-      // Speakable anchor registry for SGE & Gemini Grounding
-      expect(dna.speakableAnchorRegistry).toContain('#accreditation-instant-answer-text');
-      expect(dna.speakableAnchorRegistry).toContain('#career-instant-answer-text');
-      expect(dna.speakableAnchorRegistry).toContain('#case-study-instant-answer-text');
-      expect(dna.speakableAnchorRegistry).toContain('#service-instant-answer-text');
-
-      // Machine readable endpoints
-      expect(dna.machineReadableEndpoints.corporateDnaJson).toBe('/api/seo/corporate-dna.json');
-      expect(dna.machineReadableEndpoints.geoManifestJson).toBe('/api/seo/geo-manifest.json');
-    });
-  });
 
 });

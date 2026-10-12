@@ -176,14 +176,14 @@ export function getPillarTitleTemplate(pillar: DomainPillar, districtName?: stri
 
   switch (pillar) {
     case 'site':
-      return 'Site Yönetim Şirketleri İstanbul — 150+ Proje, KMK 634 & 7/24 | Alo Yönetim';
+      return 'Site Yönetim Şirketi İstanbul — KMK 634 Uyumlu | Alo Yönetim';
     case 'facility':
       return 'Tesis Yönetimi İstanbul — ILAS Akrediteli ISO Belgeli | Alo Yönetim';
     case 'legal':
       return 'İstanbul Site Yönetimi Hukuku & KMK 634 İcra Danışmanlığı | Alo Yönetim';
     case 'hybrid':
     default:
-      return 'Site ve Tesis Yönetim Şirketi İstanbul — %99.2 Tahsilat | Alo Yönetim';
+      return 'Site ve Tesis Yönetim Şirketi İstanbul | Alo Yönetim';
   }
 }
 
@@ -195,13 +195,13 @@ export function getPillarDescriptionTemplate(pillar: DomainPillar, districtName?
 
   switch (pillar) {
     case 'site':
-      return `${loc} konut siteleri ve apartmanlar için KMK 634 uyumlu profesyonel site yönetimi. 5188 lisanslı güvenlik, %99.2 aidat tahsilatı, %30 tasarruf ve 7/24 acil müdahale hattı. Ücretsiz keşif.`;
+      return `${loc} konut siteleri ve apartmanlar için KMK 634 uyumlu profesyonel site yönetimi. 5188 lisanslı güvenlik, şeffaf aidat takibi ve acil müdahale desteği. Ücretsiz keşif.`;
     case 'facility':
-      return `${loc} plaza, iş merkezi ve ticari gayrimenkuller için ISO 45001 belgeli entegre tesis yönetimi. 150+ aktif proje, önleyici teknik bakım ve %99.2 verimlilik güvencesi. Hemen teklif alın.`;
+      return `${loc} plaza, iş merkezi ve ticari gayrimenkuller için ISO 45001 belgeli entegre tesis yönetimi ve önleyici teknik bakım. Hemen teklif alın.`;
     case 'legal':
       return `${loc} kat mülkiyeti uyuşmazlıkları, aidat icra takibi (KMK m.20), işletme projesi tanzimi ve Yargıtay emsal kararlarıyla tam hukuki danışmanlık. 48 saat içinde çözüm.`;
     case 'hybrid':
     default:
-      return `${loc} apartman, site ve rezidanslar için KMK 634 uyumlu profesyonel tesis yönetimi. 5188 lisanslı güvenlik, %99.2 aidat tahsilatı, %30 maliyet tasarrufu. Ücretsiz keşif randevusu.`;
+      return `${loc} apartman, site ve rezidanslar için KMK 634 uyumlu profesyonel tesis yönetimi. 5188 lisanslı güvenlik ve şeffaf aidat takibi. Ücretsiz keşif randevusu.`;
   }
 }

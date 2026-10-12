@@ -30,15 +30,4 @@ describe('İlçe Veri Katmanı ve Seçici Projeksiyonlar (districts.ts - Faz 16)
     expect(geo?.lng).toBeCloseTo(29.03, 1);
   });
 
-  it('getDistrictDemographics ağır içerik metinleri olmaksızın yalnızca demografi döner', () => {
-    const demo = getDistrictDemographics('uskudar');
-    expect(demo).toBeDefined();
-    expect(demo?.name).toBe('Üsküdar');
-    expect(demo?.side).toBe('Anadolu');
-    expect(demo?.population).toBeGreaterThan(500000);
-    expect(demo?.managedProjects).toBeGreaterThan(0);
-    // Ağır mahalle/içerik alanları seçici projeksiyona dahil olmamalıdır
-    expect((demo as any).neighborhoods).toBeUndefined();
-    expect((demo as any).intro).toBeUndefined();
-  });
 });
