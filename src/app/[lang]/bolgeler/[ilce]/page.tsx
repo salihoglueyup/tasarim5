@@ -1,4 +1,7 @@
 import type { Metadata } from 'next';
+import { permanentRedirect } from 'next/navigation';
+import { resolveLegacyDistrictSlug, resolveLegacyTermSlug } from '@/lib/legacySlugs';
+import { localePath } from '@/lib/i18n/localePath';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
@@ -105,7 +108,11 @@ export default async function DistrictPage({
 }) {
   const { lang, ilce } = await params;
   const district = getDistrict(ilce);
-  if (!district) notFound();
+  if (!district) {
+    const fixed = resolveLegacyDistrictSlug(ilce);
+    if (fixed) permanentRedirect(localePath(`/bolgeler/${fixed}`, lang));
+    notFound();
+  }
 
   const path = `/bolgeler/${district.slug}`;
   const side = district.side;

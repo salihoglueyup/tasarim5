@@ -6,50 +6,31 @@ import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import { POSTS_META, CATEGORIES } from '@/data/posts';
-import { MIN_POSTS_FOR_TAG_INDEX } from '@/lib/seo/indexPolicy';
+import { MIN_POSTS_FOR_TAG_INDEX, tagToSlug } from '@/lib/seo/indexPolicy';
+import { permanentRedirect } from 'next/navigation';
+import { parseTags } from '@/lib/jsonSafe';
+import { localePath } from '@/lib/i18n/localePath';
 import { cache } from 'react';
 
 export const dynamicParams = true;
 
 // generateMetadata ve sayfa aynı sorguyu paylaşır (istek başına tek DB çağrısı)
 const getTagPosts = cache(async (etiket: string) => {
-  const decoded = decodeURIComponent(etiket);
-  const normalizedSpaces = decoded.replace(/-/g, ' ');
+  const wanted = tagToSlug(decodeURIComponent(etiket));
+  const hasTag = (raw: unknown) => parseTags(typeof raw === 'string' ? raw : JSON.stringify(raw ?? [])).some((t: string) => tagToSlug(t) === wanted);
 
-  let posts = await prisma.post.findMany({
-    where: {
-      published: true,
-      OR: [
-        { tags: { contains: decoded } },
-        { tags: { contains: normalizedSpaces } },
-      ],
-    },
+  const all = await prisma.post.findMany({
+    where: { published: true },
     select: {
-      id: true,
-      slug: true,
-      title: true,
-      description: true,
-      image: true,
-      datePublished: true,
-      dateModified: true,
-      category: true,
-      tags: true,
-      authorId: true,
-      published: true,
+      id: true, slug: true, title: true, description: true, image: true, datePublished: true,
+      dateModified: true, category: true, tags: true, authorId: true, published: true,
     },
-    orderBy: { datePublished: 'desc' }
+    orderBy: { datePublished: 'desc' },
   }).catch(() => []);
+  let posts: any[] = all.filter((p: any) => hasTag(p.tags));
 
   if (posts.length === 0) {
-    const q1 = decoded.toLowerCase();
-    const q2 = normalizedSpaces.toLowerCase();
-    posts = POSTS_META.filter((p) =>
-      p.tags.some((t) => {
-        const tagLower = t.toLowerCase();
-        const tagHyphen = tagLower.replace(/\s+/g, '-');
-        return tagLower.includes(q1) || tagLower.includes(q2) || tagHyphen.includes(q1);
-      })
-    ).map((p, idx) => ({
+    posts = POSTS_META.filter((p) => p.tags.some((t) => tagToSlug(t) === wanted)).map((p, idx) => ({
       id: `static-${idx}`,
       slug: p.slug,
       title: p.title,
@@ -110,6 +91,8 @@ export default async function TagArchive({
   params: Promise<{ lang: string; etiket: string }>;
 }) {
   const { lang, etiket } = await params;
+  const canonicalSlug = tagToSlug(decodeURIComponent(etiket));
+  if (canonicalSlug && canonicalSlug !== etiket) permanentRedirect(localePath(`/blog/etiket/${canonicalSlug}`, lang));
   const normalizedSpaces = decodeURIComponent(etiket).replace(/-/g, ' ');
   const posts = await getTagPosts(etiket);
 

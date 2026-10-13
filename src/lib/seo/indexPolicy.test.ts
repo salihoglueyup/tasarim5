@@ -4,17 +4,19 @@ import { buildLanguageAlternates, buildMetadata, formatBrandTitle, BASE_URL } fr
 import sitemap from '@/app/sitemap';
 
 describe('İndeksleme politikası (indexPolicy.ts)', () => {
+  it('yolları normalize eder ve etiket slug ASCII üretir', () => {
+    expect(normalizeIndexPath('')).toBe('/');
+    expect(normalizeIndexPath('/hizmetler/')).toBe('/hizmetler');
+    expect(normalizeIndexPath('hizmetler?x=1')).toBe('/hizmetler');
+    expect(tagToSlug('Site Yönetimi ')).toBe('site-yonetimi');
+    expect(tagToSlug('ortak alan hijyeni')).toBe('ortak-alan-hijyeni');
+    expect(tagToSlug('3G Güvenlik')).toBe('3g-guvenlik');
+  });
+
   it('Türkçe her zaman, çevrilmemiş diller asla indekslenmez', () => {
     expect(isLocaleIndexable('/bolgeler', 'tr')).toBe(true);
     expect(isLocaleIndexable('/bolgeler', 'en')).toBe(false);
     expect(isLocaleIndexable('/bolgeler', 'xx')).toBe(false);
-  });
-
-  it('yolları normalize eder', () => {
-    expect(normalizeIndexPath('')).toBe('/');
-    expect(normalizeIndexPath('/hizmetler/')).toBe('/hizmetler');
-    expect(normalizeIndexPath('hizmetler?x=1')).toBe('/hizmetler');
-    expect(tagToSlug('Site Yönetimi ')).toBe('site-yönetimi');
   });
 
   it('çevrilmemiş dildeki sayfa noindex olur, TR sürümü indekslenir', () => {

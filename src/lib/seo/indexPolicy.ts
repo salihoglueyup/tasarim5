@@ -3,6 +3,7 @@
 // Bu dosya yalnızca bağımlılığı olmayan saf veri modüllerini import eder (@/lib/seo ile döngüsel bağımlılığı önler).
 
 import { TRANSLATED_TERM_SLUGS } from '@/data/dictionaryTranslated'; // bağımlılığı olmayan saf veri modülü
+import { termToSlug } from '@/lib/content/termSlug';
 import blogCoverage from '@/i18n/blog/coverage.json'; // scripts/blog-i18n.mjs status ile üretilir
 
 export type IndexLocale = 'tr' | 'en' | 'ru' | 'ar';
@@ -82,5 +83,5 @@ export function isIndexable(path: string, locale: string): boolean {
 }
 
 export function tagToSlug(tag: string): string {
-  return tag.toLowerCase().trim().replace(/\s+/g, '-');
+  return termToSlug(tag);
 }

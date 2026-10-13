@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
 import { POSTS_META, CATEGORIES } from '@/data/posts';
-import { AUTHOR_SLUGS } from '@/data/authors';
+import { AUTHOR_SLUGS, resolveAuthorSlug } from '@/data/authors';
 import { parseTags } from '@/lib/jsonSafe';
 import { TERMS, termToSlug } from '@/data/dictionary';
 import { CERTIFICATES } from '@/data/certificates';
@@ -198,7 +198,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     makeItems(`/blog/kategori/${c.slug}`, 0.65, 'weekly', c.updatedAt.toISOString())
   );
 
-  const authorRoutes: MetadataRoute.Sitemap = authors.flatMap((a) =>
+  const authorRoutes: MetadataRoute.Sitemap = authors.filter((a) => resolveAuthorSlug(a.slug) === a.slug).flatMap((a) =>
     makeItems(`/blog/yazar/${a.slug}`, 0.5, 'monthly', a.updatedAt.toISOString())
   );
 

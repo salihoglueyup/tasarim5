@@ -90,7 +90,7 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
     inLanguage: ['tr', 'en', 'ru', 'ar'],
     potentialAction: {
       '@type': 'SearchAction',
-      target: `${BASE_URL}/arama?q={search_term_string}`,
+      target: `${BASE_URL}/blog?q={search_term_string}`,
       'query-input': 'required name=search_term_string',
     },
   };

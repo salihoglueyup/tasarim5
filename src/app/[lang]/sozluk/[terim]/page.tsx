@@ -1,4 +1,7 @@
 import type { Metadata } from 'next';
+import { permanentRedirect } from 'next/navigation';
+import { resolveLegacyDistrictSlug, resolveLegacyTermSlug } from '@/lib/legacySlugs';
+import { localePath } from '@/lib/i18n/localePath';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
@@ -115,7 +118,11 @@ export default async function TermPage({
     return <TranslatedTermView slug={terim} lang={lang as 'en' | 'ru' | 'ar'} dict={dict as Record<string, string>} />;
   }
   const term = slugToTerm(terim);
-  if (!term) notFound();
+  if (!term) {
+    const fixed = resolveLegacyTermSlug(terim);
+    if (fixed) permanentRedirect(localePath(`/sozluk/${fixed}`, lang));
+    notFound();
+  }
 
   const termIndex = TERMS.findIndex((t) => termToSlug(t.term) === terim);
   const prevTerm = termIndex > 0 ? TERMS[termIndex - 1] : null;

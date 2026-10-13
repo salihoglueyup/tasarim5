@@ -329,7 +329,7 @@ export function buildDualCoreSitelinksSchema(pillar: DomainPillar = 'hybrid'): R
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${BASE_URL}/arama?${queryParam}={search_term_string}`,
+        urlTemplate: `${BASE_URL}/blog?${queryParam}={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },

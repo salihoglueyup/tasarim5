@@ -1,4 +1,7 @@
 import type { Metadata } from 'next';
+import { permanentRedirect } from 'next/navigation';
+import { resolveLegacyDistrictSlug, resolveLegacyTermSlug } from '@/lib/legacySlugs';
+import { localePath } from '@/lib/i18n/localePath';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
@@ -320,6 +323,10 @@ export default async function ServiceDistrictPage({
   const { lang, ilce, hizmet } = await params;
   const district = getDistrict(ilce);
   const service = getService(hizmet);
+  if (!district && service) {
+    const fixed = resolveLegacyDistrictSlug(ilce);
+    if (fixed) permanentRedirect(localePath(`/bolgeler/${fixed}/${service.slug}`, lang));
+  }
   if (!district || !service) notFound();
 
   const isAlias = isServiceAlias(hizmet);
