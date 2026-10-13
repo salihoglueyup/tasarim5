@@ -288,7 +288,7 @@ export default function TeklifAlClient() {
         )}
       </div>
 
-      {/* Sağ Kolon: Fiyatlandırma Rehberi & 7/24 Çağrı (5 Kolon) */}
+      {/* Sağ Kolon: Fiyatlandırma Rehberi & Çağrı (5 Kolon) */}
       <div className="lg:col-span-5 flex flex-col gap-6">
         
         {/* Fiyatlandırma Rehberi Kartı */}
@@ -331,14 +331,13 @@ export default function TeklifAlClient() {
           </div>
         </div>
 
-        {/* 7/24 Santral & WhatsApp Hızlı İletişim */}
+        {/* Santral & WhatsApp Hızlı İletişim */}
         <div className="p-6 rounded-3xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>{t('tc_switch')}</span>
             </div>
-            <span className="text-[11px] text-slate-500">{t('tc_always_on')}</span>
           </div>
 
           <a

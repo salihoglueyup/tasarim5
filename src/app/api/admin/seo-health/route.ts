@@ -121,7 +121,7 @@ export async function GET() {
       targetKeywordDominance: {
         primaryKeyword: 'tesis yönetimi',
         coverageRatio: '39/39 (%100)',
-        schemaCompatibility: 'Schema.org v2026 + ISO 41001 Knowledge Graph',
+        schemaCompatibility: 'Schema.org v2026 + uluslararası tesis yönetimi standartları Knowledge Graph',
         aiBotIngestionReady: true,
       },
       districts: districtAudits,

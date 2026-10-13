@@ -34,7 +34,7 @@ export async function GET(request: NextRequest) {
 
   const brand = 'Alo Yönetim';
   const headline = rawTitle || 'Profesyonel Mülk ve Tesis Yönetimi';
-  const sub = rawTitle ? 'Profesyonel Tesis ve Mülk Yönetimi' : '7/24 Güvenlik · Temizlik · Teknik Bakım';
+  const sub = rawTitle ? 'Profesyonel Tesis ve Mülk Yönetimi' : 'Güvenlik · Temizlik · Teknik Bakım';
   const siteUrl = 'aloyonetim.com.tr';
   const region = 'İstanbul · Kadıköy';
 

@@ -72,13 +72,13 @@ export default function TeknikBakimClient() {
             className="flex flex-col items-center gap-6"
           >
             <span className="text-sm font-bold text-slate-300 bg-slate-500/10 border border-slate-500/20 px-6 py-2 rounded-full backdrop-blur-md tracking-wider uppercase">
-              {t('tech_banner_badge') || '7/24 Kesintisiz Tesis Altyapısı'}
+              {t('tech_banner_badge') || 'Tesis Altyapısı'}
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight" dangerouslySetInnerHTML={{ __html: t('serv_maint_hero_title') || 'Teknik Bakım, Onarım & <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-400">Mobil Servis</span>' }} />
             
 
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
-              {t('tech_banner_desc') || 'Asansör, jeneratör, hidrofor ve elektrik sistemleri için 7/24 mobil teknik servis ve periyodik bakım hizmeti.'}
+              {t('tech_banner_desc') || 'Asansör, jeneratör, hidrofor ve elektrik sistemleri için mobil teknik servis ve periyodik bakım hizmeti.'}
             </p>
             <div className="flex gap-4 mt-8">
               <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
@@ -192,7 +192,7 @@ export default function TeknikBakimClient() {
                   <span>🛗</span> Asansör & Yürüyen Merdiven Yeşil Etiket Yönetimi
                 </span>
                 <p className="text-[var(--color-secondary)]">
-                  Aylık periyodik yetkili servis bakımları, yıllık A Tipi Muayene Kuruluşu (MMO/TÜRKAK) denetim koordinasyonu ile yeşil etiket tescili ve 7/24 asansörde kalma acil kurtarma SLA garantisi.
+                  Aylık periyodik yetkili servis bakımları, yıllık A Tipi Muayene Kuruluşu (MMO/TÜRKAK) denetim koordinasyonu ile yeşil etiket tescili ve asansörde kalma acil kurtarma SLA garantisi.
                 </p>
               </div>
 
@@ -239,7 +239,7 @@ export default function TeknikBakimClient() {
                 <span>Yazılı SLA ile Acil Müdahale</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Asansörde kalma, elektrik kesintisi veya ana boru patlağında 7/24 nöbetçi gezici teknik servis (yazılı SLA kapsamında).
+                Asansörde kalma, elektrik kesintisi veya ana boru patlağında nöbetçi gezici teknik servis (yazılı SLA kapsamında).
               </p>
             </div>
 
@@ -349,7 +349,7 @@ export default function TeknikBakimClient() {
               {
                 step: "04",
                 title: "Yazılı SLA ile Acil Servis",
-                desc: "Asansörde kalma veya arıza durumunda 7/24 mobil nöbetçi teknik servisimiz en geç 45 dakikada kabin kurtarmasını tamamlar.",
+                desc: "Asansörde kalma veya arıza durumunda mobil nöbetçi teknik servisimiz en geç 45 dakikada kabin kurtarmasını tamamlar.",
                 icon: "timer",
               }
             ].map((s, idx) => (
@@ -378,7 +378,7 @@ export default function TeknikBakimClient() {
               Tesisler İçin <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-slate-600 dark:from-emerald-400 dark:to-slate-400">365 Günlük Mühendislik Kalkanı</span>
             </h2>
             <p className="text-[var(--color-secondary)] text-sm md:text-base max-w-3xl leading-relaxed mb-8">
-              Arıza oluştuktan sonra tamir etmek yerine, kestirimci ölçümler ve periyodik mühendislik testleri ile arızayı önceden engelliyoruz. Kompanzasyon panolarınızı 7/24 izleyerek elektrik faturalarındaki reaktif güç cezalarını sıfırlıyoruz.
+              Arıza oluştuktan sonra tamir etmek yerine, kestirimci ölçümler ve periyodik mühendislik testleri ile arızayı önceden engelliyoruz. Kompanzasyon panolarınızı izleyerek elektrik faturalarındaki reaktif güç cezalarını sıfırlıyoruz.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -434,7 +434,7 @@ export default function TeknikBakimClient() {
           />
           <InstantAnswerCardSeo
             question="Elektrik Faturasında Reaktif Güç Cezası Nedir ve Nasıl Engellenir?"
-            shortAnswer="EPDK mevzuatına göre kurulu gücü 50 kVA üzerindeki tesislerde endüktif reaktif oran %20'yi, kapasitif reaktif oran %15'i aşarsa elektrik dağıtım şirketi faturaya ağır reaktif bedel cezası yansıtır. Bu ceza, sitenin kompanzasyon panosundaki kondansatör ve harmonik filtrelerin röle takibiyle 7/24 kontrol edilmesiyle %100 engellenir."
+            shortAnswer="EPDK mevzuatına göre kurulu gücü 50 kVA üzerindeki tesislerde endüktif reaktif oran %20'yi, kapasitif reaktif oran %15'i aşarsa elektrik dağıtım şirketi faturaya ağır reaktif bedel cezası yansıtır. Bu ceza, sitenin kompanzasyon panosundaki kondansatör ve harmonik filtrelerin röle takibiyle kontrol edilmesiyle %100 engellenir."
             bulletPoints={[
               'Kompanzasyon panosu kondansatörleri periyodik olarak kademe testine tabi tutulmalıdır.',
               'Akıllı reaktif güç kontrol rölesi günlük sayaç tüketim oranlarını takip etmelidir.',

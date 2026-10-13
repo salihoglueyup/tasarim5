@@ -130,7 +130,7 @@ export default function InteractiveCostSimulatorSeo() {
               }`}
             >
               <Icon name="shield" className="text-xl" />
-              <span className="text-xs">7/24 Özel Güvenlik</span>
+              <span className="text-xs">Özel Güvenlik</span>
             </button>
 
             <button

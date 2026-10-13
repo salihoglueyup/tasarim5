@@ -60,10 +60,10 @@ export function buildFacilityVoiceKnowledge(lang: string = 'tr', filterIntent?: 
     {
       id: 'iso-41001-tesis-yonetimi-nedir',
       queryIntent: 'informational',
-      voiceQuery: 'Tesis yönetiminde ISO 41001 standardı nedir?',
-      speakableAnswer: 'ISO 41001 uluslararası entegre tesis yönetim standardıdır. Tesislerde teknik bakım, enerji verimliliği, güvenlik ve yaşam kalitesini ölçülebilir KPI standartlarına bağlar.',
-      detailedExplanation: 'Alo Yönetim, BELCERT/ILAS belgeli ISO 45001 ve ISO 22301 süreçleriyle tesislerde yüzde 30 maliyet tasarrufu, 30 dakikanın altında acil teknik müdahale ve 7/24 şeffaf dijital denetim sunar.',
-      legalReference: 'ISO 41001:2018 Facility Management System',
+      voiceQuery: 'Tesis yönetiminde uluslararası tesis yönetimi standartları standardı nedir?',
+      speakableAnswer: 'uluslararası tesis yönetimi standartları uluslararası entegre tesis yönetim standardıdır. Tesislerde teknik bakım, enerji verimliliği, güvenlik ve yaşam kalitesini ölçülebilir KPI standartlarına bağlar.',
+      detailedExplanation: 'Alo Yönetim, BELCERT/ILAS belgeli ISO 45001 ve ISO 22301 süreçleriyle tesislerde yüzde 30 maliyet tasarrufu, 30 dakikanın altında acil teknik müdahale ve şeffaf dijital denetim sunar.',
+      legalReference: 'international facility management standards Facility Management System',
       targetKeyword: 'iso 41001 tesis yönetimi',
     },
     {
@@ -189,10 +189,10 @@ export function buildFacilityVoiceKnowledge(lang: string = 'tr', filterIntent?: 
     {
       id: 'iso-41001-tesis-yonetimi-nedir-en',
       queryIntent: 'informational',
-      voiceQuery: 'What is the ISO 41001 standard in facility management?',
-      speakableAnswer: 'ISO 41001 is the international facility management benchmark standard governing technical maintenance, energy efficiency, security, and quality of life.',
-      detailedExplanation: 'Alo Management delivers 30% cost savings, under 30 minutes emergency technical response, and 24/7 transparent digital reporting with accredited ISO 41001:2018 certification.',
-      legalReference: 'ISO 41001:2018 Facility Management Standard',
+      voiceQuery: 'What is the international facility management standards standard in facility management?',
+      speakableAnswer: 'international facility management standards is the international facility management benchmark standard governing technical maintenance, energy efficiency, security, and quality of life.',
+      detailedExplanation: 'Alo Management delivers 30% cost savings, under 30 minutes emergency technical response, and transparent digital reporting with accredited international facility management standards certification.',
+      legalReference: 'international facility management standards Facility Management Standard',
       targetKeyword: 'iso 41001 facility management',
     },
     {
@@ -246,10 +246,10 @@ export function buildFacilityVoiceKnowledge(lang: string = 'tr', filterIntent?: 
     {
       id: 'iso-41001-tesis-yonetimi-nedir-ru',
       queryIntent: 'informational',
-      voiceQuery: 'Что представляет собой стандарт управления объектами ISO 41001?',
-      speakableAnswer: 'ISO 41001 — это международный стандарт комплексного управления объектами недвижимости, энергоэффективностью и охраной.',
-      detailedExplanation: 'Alo Management гарантирует экономию бюджета на 30%, прибытие технической службы менее чем за 30 минут и прозрачную отчетность по ISO 41001:2018.',
-      legalReference: 'Стандарт ISO 41001:2018',
+      voiceQuery: 'Что представляет собой стандарт управления объектам?',
+      speakableAnswer: 'международные стандарты управления объектами — это международный стандарт комплексного управления объектами недвижимости, энергоэффективностью и охраной.',
+      detailedExplanation: 'Alo Management гарантирует экономию бюджета на 30%, прибытие технической службы менее чем за 30 минут и прозрачную отчетность по международные стандарты управления объектами.',
+      legalReference: 'Стандарт международные стандарты управления объектами',
       targetKeyword: 'iso 41001 управление недвижимостью',
     },
     {
@@ -303,10 +303,10 @@ export function buildFacilityVoiceKnowledge(lang: string = 'tr', filterIntent?: 
     {
       id: 'iso-41001-tesis-yonetimi-nedir-ar',
       queryIntent: 'informational',
-      voiceQuery: 'ما هو معيار آيزو 41001 لإدارة المرافق والمنشآت؟',
-      speakableAnswer: 'آيزو 41001 هو المعيار الدولي المعتمد لإدارة المرافق والمنشآت المتكاملة وضمان كفاءة الطاقة والصيانة والسلامة.',
-      detailedExplanation: 'توفر شركة ألو للإدارة تخفيضاً بنسبة 30% في المصاريف واستجابة طارئة خلال أقل من 30 دقيقة باعتماد آيزو 41001:2018.',
-      legalReference: 'معيار آيزو 41001:2018',
+      voiceQuery: 'ما هو معيار معايير إدارة المرافق الدولية لإدارة المرافق والمنشآت؟',
+      speakableAnswer: 'معايير إدارة المرافق الدولية هو المعيار الدولي المعتمد لإدارة المرافق والمنشآت المتكاملة وضمان كفاءة الطاقة والصيانة والسلامة.',
+      detailedExplanation: 'توفر شركة ألو للإدارة تخفيضاً بنسبة 30% في المصاريف واستجابة طارئة خلال أقل من 30 دقيقة باعتماد معايير إدارة المرافق الدولية.',
+      legalReference: 'معيار معايير إدارة المرافق الدولية',
       targetKeyword: 'ايزو 41001 ادارة المرافق',
     },
     {

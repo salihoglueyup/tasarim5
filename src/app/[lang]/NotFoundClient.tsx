@@ -7,25 +7,25 @@ import { Search, Home, ArrowRight, Shield, Sparkles, Calculator, Building } from
 const POPULAR_SERVICES: Record<string, { name: string; path: string; icon: any; desc: string }[]> = {
   tr: [
     { name: 'Tesis & Site Yönetimi', path: '/hizmetler/tesis-yonetimi', icon: Building, desc: '39 ilçede entegre profesyonel yönetim' },
-    { name: 'Özel Güvenlik Hizmetleri', path: '/hizmetler/guvenlik-yonetimi', icon: Shield, desc: '5188 sayılı kanuna tam uyumlu 7/24 koruma' },
+    { name: 'Özel Güvenlik Hizmetleri', path: '/hizmetler/guvenlik-yonetimi', icon: Shield, desc: '5188 sayılı kanuna tam uyumlu koruma' },
     { name: 'Temizlik & Hijyen Yönetimi', path: '/hizmetler/temizlik-ve-hijyen', icon: Sparkles, desc: 'Endüstriyel ekipman ve denetimli hijyen planı' },
     { name: 'Akıllı Aidat Hesaplayıcı', path: '/hesaplayici', icon: Calculator, desc: 'Daire ve ortak alanlara göre anlık tahmini bütçe' },
   ],
   en: [
     { name: 'Facility & Property Management', path: '/hizmetler/tesis-yonetimi', icon: Building, desc: 'Integrated management across 39 districts' },
-    { name: 'Licensed Security Services', path: '/hizmetler/guvenlik-yonetimi', icon: Shield, desc: '24/7 protection under Law No. 5188' },
+    { name: 'Licensed Security Services', path: '/hizmetler/guvenlik-yonetimi', icon: Shield, desc: 'protection under Law No. 5188' },
     { name: 'Cleaning & Hygiene Operations', path: '/hizmetler/temizlik-ve-hijyen', icon: Sparkles, desc: 'Audited industrial sanitation protocols' },
     { name: 'Smart Dues Calculator', path: '/hesaplayici', icon: Calculator, desc: 'Instant condominium budget estimator' },
   ],
   ru: [
     { name: 'Управление Комплексами', path: '/hizmetler/tesis-yonetimi', icon: Building, desc: 'Комплексное обслуживание в 39 районах' },
-    { name: 'Охранные Услуги', path: '/hizmetler/guvenlik-yonetimi', icon: Shield, desc: 'Круглосуточная охрана по закону 5188' },
+    { name: 'Охранные Услуги', path: '/hizmetler/guvenlik-yonetimi', icon: Shield, desc: 'охрана по закону 5188' },
     { name: 'Клининг и Санитария', path: '/hizmetler/temizlik-ve-hijyen', icon: Sparkles, desc: 'Профессиональная уборка и гигиена' },
     { name: 'Калькулятор Взносов', path: '/hesaplayici', icon: Calculator, desc: 'Мгновенный расчет бюджета здания' },
   ],
   ar: [
     { name: 'إدارة المجمعات والمرافق', path: '/hizmetler/tesis-yonetimi', icon: Building, desc: 'إدارة متكاملة في 39 منطقة' },
-    { name: 'خدمات الأمن المرخصة', path: '/hizmetler/guvenlik-yonetimi', icon: Shield, desc: 'حماية على مدار الساعة بموجب القانون 5188' },
+    { name: 'خدمات الأمن المرخصة', path: '/hizmetler/guvenlik-yonetimi', icon: Shield, desc: 'حماية بموجب القانون 5188' },
     { name: 'خدمات النظافة والتعقيم', path: '/hizmetler/temizlik-ve-hijyen', icon: Sparkles, desc: 'معدات صناعية وخطط نظافة دورية' },
     { name: 'حاسبة المستحقات الذكية', path: '/hesaplayici', icon: Calculator, desc: 'محاكاة فورية لميزانية ونفقات المجمع' },
   ],

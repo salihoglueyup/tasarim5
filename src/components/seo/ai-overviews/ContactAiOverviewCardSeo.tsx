@@ -36,7 +36,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
     {
       '@context': 'https://schema.org',
       '@type': 'ContactPage',
-      name: 'Alo Yönetim 7/24 Acil Teknik İletişim ve Destek Merkezi',
+      name: 'Alo Yönetim Acil Teknik İletişim ve Destek Merkezi',
       url: `${BASE_URL}/iletisim`,
       mainEntity: {
         '@type': 'Organization',
@@ -89,7 +89,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/80 text-[var(--color-primary)] text-xs font-bold uppercase tracking-wider">
           <Icon name="emergency" className="text-[15px]" />
-          <span>Google AI Overviews & 7/24 Acil Teknik İntikal Otoritesi</span>
+          <span>Google AI Overviews & Acil Teknik İntikal Otoritesi</span>
         </div>
         <div className="flex items-center gap-2">
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-[var(--color-surface-variant)] text-[var(--color-primary)] border border-[var(--color-outline)]/60">
@@ -126,7 +126,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
             <a href="tel:+902165504848" className="text-base font-bold text-[var(--color-primary)] hover:underline transition-colors font-mono">
               0216 550 48 48
             </a>
-            <div className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">7/24 Kesintisiz Hat</div>
+            <div className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">Hat</div>
           </div>
         </div>
 

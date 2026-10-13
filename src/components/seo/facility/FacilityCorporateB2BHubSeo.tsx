@@ -47,7 +47,7 @@ export default function FacilityCorporateB2BHubSeo() {
             B2B Kurumsal Gayrimenkul & Tesis Çözümleri
           </div>
           <h3 className="text-xl md:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
-            ISO 41001 Standartları, <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-800 dark:from-white dark:via-slate-200 dark:to-slate-400">Kurumsal SLA Kademeleri & RFP Hub</span>
+            uluslararası tesis yönetimi standartları, <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-800 dark:from-white dark:via-slate-200 dark:to-slate-400">Kurumsal SLA Kademeleri & RFP Hub</span>
           </h3>
           <p className="text-sm text-[var(--color-secondary)] mt-2 max-w-3xl">
             Plazalar, sanayi tesisleri, lojistik merkezler ve ticari yapılar için sözleşmeye bağlı SLA garantileri ve teknik şartname altyapısı.

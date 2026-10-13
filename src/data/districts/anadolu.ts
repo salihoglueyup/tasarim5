@@ -15,7 +15,7 @@ export const ANADOLU_DISTRICTS: District[] = [
       "Alo Yönetim Genel Merkezi'ne ev sahipliği yapan Kadıköy; Bağdat Caddesi sahil hattındaki prestijli rezidanslardan Moda'nın tarihi apartmanlarına kadar geniş bir konut yelpazesine sahiptir. Osmanağa merkezimizden Kadıköy genelindeki site, rezidans ve iş merkezlerine acil teknik müdahale, 5188 lisanslı güvenlik ve entegre tesis yönetimi hizmeti sunuyoruz.",
     localNeeds: [
       'Kadıköy merkez ofisimizden acil mobil teknik arıza müdahalesi (yazılı SLA kapsamında hedef: 30 dakika)',
-      'Bağdat Caddesi ve sahil şeridi lüks rezidanslarında 7/24 VIP güvenlik ve concierge',
+      'Bağdat Caddesi ve sahil şeridi lüks rezidanslarında VIP güvenlik ve concierge',
       'Moda ve Göztepe tarihi apartmanlarında değer koruyucu koruyucu mühendislik bakımı',
       'Büyük ölçekli havuzlu sitelerde entegre tesis ve şeffaf aidat yönetimi',
     ],
@@ -65,7 +65,7 @@ export const ANADOLU_DISTRICTS: District[] = [
       "Boğaz manzaralı yamaçları, yalıları ve tarihi dokusuyla Üsküdar, butik sitelerden geniş yerleşkelere uzanan seçkin bir konut yapısına sahiptir. Eğimli arazilerde hidrofor basınç regülasyonu, drenaj pompaları, Boğaz nemi korozyon bakımı ve 5188 VIP güvenlik öncelikli yönetim ihtiyaçlarıdır.",
     localNeeds: [
       'Boğaz yamaçlarındaki eğimli sitelerde hidrofor ve drenaj pompa mühendislik bakımı',
-      'Çengelköy ve Kandilli villa sitelerinde 7/24 VIP özel güvenlik ve konsiyerj',
+      'Çengelköy ve Kandilli villa sitelerinde VIP özel güvenlik ve konsiyerj',
       'Tarihi köşk ve modern karma yapılarda KMK 634 uyumlu koruyucu tesis işletmesi',
       'Sosyal tesisli ve havuzlu sitelerde entegre yönetim',
     ],
@@ -100,7 +100,7 @@ export const ANADOLU_DISTRICTS: District[] = [
     neighborhoodData: [
       { slug: 'cakmak', name: 'Çakmak', geo: { lat: 41.021, lng: 29.123 }, intro: 'Çakmak, metro hattı ve yeni ticari projelerle hızla gelişen, çok bloklu site yapılarının yoğunlaştığı Ümraniye mahallesidir.', characteristics: ['metro yakını', 'çok bloklu siteler', 'şeffaf aidat'] },
       { slug: 'ataturk', name: 'Atatürk', geo: { lat: 41.012, lng: 29.108 }, intro: 'Atatürk Mahallesi, Ümraniye merkezine ve ana ulaşım arterlerine komşu, yoğun konut stoğuna sahip yerleşim alanıdır.', characteristics: ['merkezi yerleşim', 'bina teknik bakım', 'asansör denetimi'] },
-      { slug: 'tepeustu', name: 'Tepeüstü', geo: { lat: 41.025, lng: 29.141 }, intro: 'Tepeüstü, büyük alışveriş merkezleri ve modern konut projelerinin kesiştiği, yoğun trafikli dinamik bir merkezdir.', characteristics: ['AVM aksı', 'karma yapılar', '7/24 güvenlik'] },
+      { slug: 'tepeustu', name: 'Tepeüstü', geo: { lat: 41.025, lng: 29.141 }, intro: 'Tepeüstü, büyük alışveriş merkezleri ve modern konut projelerinin kesiştiği, yoğun trafikli dinamik bir merkezdir.', characteristics: ['AVM aksı', 'karma yapılar', 'güvenlik'] },
       { slug: 'inkilap', name: 'İnkılap', geo: { lat: 41.03, lng: 29.105 }, intro: 'İnkılap Mahallesi, planlı kentsel dönüşümle inşa edilen modern site komplekslerinin öne çıktığı bir bölgedir.', characteristics: ['kentsel dönüşüm', 'modern siteler', 'otopark kontrolü'] },
       { slug: 'finanskent', name: 'Finanskent', geo: { lat: 41.002, lng: 29.115 }, intro: 'Finanskent, İstanbul Finans Merkezi çeperindeki prestijli kule ve rezidansların yer aldığı, kurumsal standartlarda A+ tesis yönetimi arayan lokasyondur.', characteristics: ['finans kuleleri', 'A+ rezidans', 'HVAC otomasyonu'] },
     ],
@@ -124,7 +124,7 @@ export const ANADOLU_DISTRICTS: District[] = [
     regionalFacilityTraits: 'Dragos ve sahil bandında deniz nemine karşı koruyucu cephe ve asansör bakımı, Süreyyapaşa tepe projelerinde yüksek rüzgar yükü ve jeneratör işletmesi.',
     neighborhoodData: [
       { slug: 'kucukyali', name: 'Küçükyalı', geo: { lat: 40.948, lng: 29.117 }, intro: 'Küçükyalı, sahil şeridi ve prestijli butik apartmanlarıyla Maltepe\'nin en gözde yerleşimlerindendir. Değer koruyucu yönetim esastır.', characteristics: ['sahil hattı', 'butik siteler', 'peyzaj bakımı'] },
-      { slug: 'cevizli-maltepe', name: 'Cevizli', geo: { lat: 40.918, lng: 29.16 }, intro: 'Cevizli, Anadolu Adliyesi ve E-5 aksında yüksek katlı rezidansların ve karma ticaret kulelerinin yoğunlaştığı iş-yaşam merkezidir.', characteristics: ['adliye aksı', 'yüksek kuleler', '7/24 güvenlik'] },
+      { slug: 'cevizli-maltepe', name: 'Cevizli', geo: { lat: 40.918, lng: 29.16 }, intro: 'Cevizli, Anadolu Adliyesi ve E-5 aksında yüksek katlı rezidansların ve karma ticaret kulelerinin yoğunlaştığı iş-yaşam merkezidir.', characteristics: ['adliye aksı', 'yüksek kuleler', 'güvenlik'] },
       { slug: 'altaycesme', name: 'Altayçeşme', geo: { lat: 40.932, lng: 29.14 }, intro: 'Altayçeşme, düzenli site yerleşkeleri ve aile konutlarıyla Maltepe\'de profesyonel yönetim talebinin yüksek olduğu bir mahalledir.', characteristics: ['aile siteleri', 'düzenli bütçe', 'asansör bakımı'] },
       { slug: 'baglarbasi', name: 'Bağlarbaşı', geo: { lat: 40.925, lng: 29.135 }, intro: 'Bağlarbaşı, kentsel dönüşümle yenilenen modern apartman blokları ve karma konut yapılarıyla öne çıkar.', characteristics: ['kentsel dönüşüm', 'yeni yapılar', 'aidat takibi'] },
       { slug: 'dragos', name: 'Dragos', geo: { lat: 40.908, lng: 29.145 }, intro: 'Dragos, Adalar manzaralı seçkin villaları ve sahil kuleleriyle Maltepe\'nin en lüks konut bölgesidir. VIP güvenlik ve özel peyzaj ister.', characteristics: ['Adalar manzarası', 'lüks villalar', 'VIP güvenlik'] },
@@ -150,7 +150,7 @@ export const ANADOLU_DISTRICTS: District[] = [
     neighborhoodData: [
       { slug: 'soganlik', name: 'Soğanlık', geo: { lat: 40.905, lng: 29.198 }, intro: 'Soğanlık, metro bağlantısı ve büyük karma site projeleriyle Kartal\'ın hızla yükselen modern yerleşim merkezidir.', characteristics: ['metro komşuluğu', 'büyük siteler', 'aidat optimizasyonu'] },
       { slug: 'yakacik', name: 'Yakacık', geo: { lat: 40.915, lng: 29.215 }, intro: 'Aydos Ormanı eteklerindeki Yakacık, temiz havası ve panoramik deniz manzaralı siteleriyle sakin aile yaşamı sunar.', characteristics: ['orman komşuluğu', 'deniz manzarası', 'peyzaj yönetimi'] },
-      { slug: 'cevizli-kartal', name: 'Cevizli', geo: { lat: 40.898, lng: 29.178 }, intro: 'Cevizli Kartal, karma ticaret ve yüksek katlı rezidansların yer aldığı kurumsal işletme odaklı bir lokasyondur.', characteristics: ['karma kuleler', 'kurumsal yönetim', '7/24 teknik'] },
+      { slug: 'cevizli-kartal', name: 'Cevizli', geo: { lat: 40.898, lng: 29.178 }, intro: 'Cevizli Kartal, karma ticaret ve yüksek katlı rezidansların yer aldığı kurumsal işletme odaklı bir lokasyondur.', characteristics: ['karma kuleler', 'kurumsal yönetim', 'teknik'] },
       { slug: 'ugur-mumcu', name: 'Uğur Mumcu', geo: { lat: 40.93, lng: 29.225 }, intro: 'Uğur Mumcu Mahallesi, planlı toplu konut siteleri ve geniş ortak bahçeleriyle yüksek aidat disiplini gerektiren bir alandır.', characteristics: ['planlı toplu konut', 'geniş ortak alan', 'aidat tahsilatı'] },
       { slug: 'orhantepe', name: 'Orhantepe', geo: { lat: 40.885, lng: 29.168 }, intro: 'Orhantepe sahil bandı, Dragos sırtları ve deniz manzaralı butik binalarıyla değer koruyucu yönetim bekler.', characteristics: ['sahil şeridi', 'butik yönetim', 'asansör güvenliği'] },
     ],
@@ -163,16 +163,16 @@ export const ANADOLU_DISTRICTS: District[] = [
     geo: { lat: 40.8744, lng: 29.2347 },
     neighborhoods: ['Kurtköy', 'Yenişehir', 'Batı', 'Çamlık', 'Kaynarca', 'Güzelyalı'],
     intro:
-      "Sabiha Gökçen Havalimanı aksı ve Kurtköy-Yenişehir bölgesindeki modern villa-rezidans projeleriyle Pendik, hızla büyüyen stratejik bir merkezdir. Geniş sosyal alanlı toplu konutlar, profesyonel tesis işletmesi ve 7/24 güvenlik gerektirir.",
+      "Sabiha Gökçen Havalimanı aksı ve Kurtköy-Yenişehir bölgesindeki modern villa-rezidans projeleriyle Pendik, hızla büyüyen stratejik bir merkezdir. Geniş sosyal alanlı toplu konutlar, profesyonel tesis işletmesi ve güvenlik gerektirir.",
     localNeeds: [
-      'Kurtköy ve Yenişehir villa/rezidans projelerinde 7/24 özel güvenlik',
+      'Kurtköy ve Yenişehir villa/rezidans projelerinde özel güvenlik',
       'Büyük ölçekli site yerleşkelerinde merkezi aidat ve bütçe yönetimi',
       'Sosyal tesis, havuz ve geniş peyzaj alanlarının düzenli bakımı',
     ],
     priority: 1,
     regionalFacilityTraits: 'Sabiha Gökçen Havalimanı aksında 5000+ bağımsız bölümlü dev yerleşkeler için merkezi otomasyon, endüstriyel jeneratör yedekleme ve 5188 VIP güvenlik.',
     neighborhoodData: [
-      { slug: 'kurtkoy', name: 'Kurtköy', geo: { lat: 40.9025, lng: 29.2694 }, intro: 'Kurtköy, Sabiha Gökçen Havalimanı yakınındaki villa siteleri ve lüks konut projeleriyle Pendik\'in en prestijli mahallesidir. 7/24 güvenlik, havuz ve geniş peyzaj alanı yönetimi yoğun talep görmektedir.', characteristics: ['villa siteleri', 'havalimanı yakını', '7/24 güvenlik'] },
+      { slug: 'kurtkoy', name: 'Kurtköy', geo: { lat: 40.9025, lng: 29.2694 }, intro: 'Kurtköy, Sabiha Gökçen Havalimanı yakınındaki villa siteleri ve lüks konut projeleriyle Pendik\'in en prestijli mahallesidir. güvenlik, havuz ve geniş peyzaj alanı yönetimi yoğun talep görmektedir.', characteristics: ['villa siteleri', 'havalimanı yakını', 'güvenlik'] },
       { slug: 'yenisehir', name: 'Yenişehir', geo: { lat: 40.876, lng: 29.255 }, intro: 'Yenişehir, planlı yapılaşması ve modern site kompleksleriyle Pendik\'te hızla gelişen bir yerleşim alanıdır. Büyük ölçekli sitelerde aidat yönetimi ve entegre teknik işletme talebi artmaktadır.', characteristics: ['planlı yerleşim', 'modern site kompleksleri', 'büyük ölçek'] },
       { slug: 'kaynarca', name: 'Kaynarca', geo: { lat: 40.889, lng: 29.238 }, intro: 'Kaynarca, orta ölçekli site ve apartman projelerinin yoğunlaştığı, hızla büyüyen bir Pendik mahallesidir. Teknik bakım sürekliliği ve şeffaf aidat yönetimi öne çıkan ihtiyaçlardandır.', characteristics: ['orta ölçek konutlar', 'büyüyen bölge', 'aidat yönetimi'] },
       { slug: 'guzelyali', name: 'Güzelyalı', geo: { lat: 40.876, lng: 29.285 }, intro: 'Güzelyalı, deniz kıyısı ve sahil hattı boyunca uzanan konut alanlarıyla Pendik\'in değer kazanan bölgesidir. Deniz etkisine karşı teknik bakım ve peyzaj hizmetleri kritik öneme sahiptir.', characteristics: ['sahil hattı', 'deniz etkisi bakım', 'değer artışı bölgesi'] },
@@ -218,7 +218,7 @@ export const ANADOLU_DISTRICTS: District[] = [
       'Giriş turnike ve plaka tanıma sistemleri entegrasyonu',
     ],
     priority: 2,
-    regionalFacilityTraits: 'Yeni nesil çok bloklu aile sitelerinde merkezi ısıtma payölçer ve sayaç okuma optimizasyonu, 7/24 kapalı devre kamera güvenliği ve şeffaf dijital bütçeleme.',
+    regionalFacilityTraits: 'Yeni nesil çok bloklu aile sitelerinde merkezi ısıtma payölçer ve sayaç okuma optimizasyonu, kapalı devre kamera güvenliği ve şeffaf dijital bütçeleme.',
     neighborhoodData: [
       { slug: 'samandira', name: 'Samandıra', geo: { lat: 40.985, lng: 29.215 }, intro: 'Samandıra, ulaşım akslarına yakınlığı ve kentsel dönüşüm konutlarıyla Sancaktepe\'nin merkezi mahallelerindendir.', characteristics: ['merkezi konum', 'çok katlı siteler', 'aidat takibi'] },
       { slug: 'sarigazi', name: 'Sarıgazi', geo: { lat: 41.002, lng: 29.21 }, intro: 'Sarıgazi, metro istasyonuna komşu modern konut projeleri ve canlı çarşısıyla yoğun nüfusa sahiptir.', characteristics: ['metro komşuluğu', 'ticari-konut', 'güvenlik kontrolü'] },
@@ -309,7 +309,7 @@ export const ANADOLU_DISTRICTS: District[] = [
       'Geniş bahçe alanlarında fırtına sonrası peyzaj onarımı ve budama',
     ],
     priority: 3,
-    regionalFacilityTraits: 'Mevsimlik ve yazlık sitelerde kış izolasyonu, donma önleyici boru ve hidrofor bakımı, sezon öncesi havuz biyolojik dezenfeksiyonu ve 7/24 uzaktan kamera izleme.',
+    regionalFacilityTraits: 'Mevsimlik ve yazlık sitelerde kış izolasyonu, donma önleyici boru ve hidrofor bakımı, sezon öncesi havuz biyolojik dezenfeksiyonu ve uzaktan kamera izleme.',
     neighborhoodData: [
       { slug: 'kumbaba', name: 'Kumbaba', geo: { lat: 41.168, lng: 29.585 }, intro: 'Kumbaba, plajı ve korunaklı yazlık siteleriyle Şile\'nin en popüler tatil ve yaşam lokasyonudur.', characteristics: ['yazlık siteler', 'plaj yakını', 'sezonluk havuz'] },
       { slug: 'agva', name: 'Ağva', geo: { lat: 41.135, lng: 29.845 }, intro: 'Ağva, Göksu ve Yeşilçay nehirleri arasındaki butik tesisleri ve doğa villalarıyla özel mülk yönetimi ister.', characteristics: ['nehir kenarı', 'butik tesisler', 'çevre güvenliği'] },

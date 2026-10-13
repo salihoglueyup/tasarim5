@@ -204,7 +204,7 @@ export const KMK_LEGISLATION_ARTICLES: KmkArticleItem[] = [
     plainLanguageSummary: 'Yönetici her yıl ocak ayında gelir ve giderlerin kesin hesabını kurula sunmak zorundadır. Maliklerin yarısı isterse ara dönemde de hesap vermek mecburidir.',
     supremeCourtPrinciple: 'Yargıtay 18. H.D.: Hesap vermekten kaçınan yönetici hakkında kat maliklerinin Sulh Hukuk Mahkemesi\'nden hesap vermeye zorlama kararı isteme hakkı vardır.',
     legalSanctionOrRisk: 'Hesap vermeyen yöneticinin ibra edilmemesi, görevden azledilmesi ve güveni kötüye kullanma suçlamasıyla savcılığa verilmesi.',
-    aloYonetimStandard: 'Yılda bir kez değil; Apsiyon canlı banka entegrasyonumuz sayesinde her kat maliki gelir ve giderleri 7/24 cebinden canlı denetler.',
+    aloYonetimStandard: 'Yılda bir kez değil; Apsiyon canlı banka entegrasyonumuz sayesinde her kat maliki gelir ve giderleri cebinden canlı denetler.',
   },
   {
     articleNo: 40,

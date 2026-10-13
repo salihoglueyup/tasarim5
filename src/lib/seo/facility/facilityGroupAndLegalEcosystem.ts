@@ -37,7 +37,7 @@ export const GROUP_COMPANIES_ECOSYSTEM: GroupCompanyEntity[] = [
     serviceCategory: '5188 Lisanslı Özel Güvenlik ve Tesis Emniyeti',
     licenseNumber: '5188 Sayılı Kanun Kapsamında Valilik İzinli',
     description:
-      'Rezidans, plaza, site ve sanayi tesisleri için 5188 lisanslı fiziki koruma, VIP güvenlik ve 7/24 elektronik güvenlik hizmetleri.',
+      'Rezidans, plaza, site ve sanayi tesisleri için 5188 lisanslı fiziki koruma, VIP güvenlik ve elektronik güvenlik hizmetleri.',
     phone: '0216 550 48 48',
     anchorTexts: [
       '3G Güvenlik',

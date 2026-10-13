@@ -49,7 +49,7 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">{t('portal_title')}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                  Alo Yönetim sakinleri ve kat malikleri aidat ödemelerini, arıza takiplerini ve site kararlarını 7/24 Apsiyon platformu üzerinden güvenle yönetir.
+                  Alo Yönetim sakinleri ve kat malikleri aidat ödemelerini, arıza takiplerini ve site kararlarını Apsiyon platformu üzerinden güvenle yönetir.
                 </p>
               </div>
 
@@ -78,7 +78,7 @@ export default function PortalModal({ isOpen, onClose }: PortalModalProps) {
 
               {/* Mobile Apps Section */}
               <div className="pt-4 border-t border-gray-100 dark:border-white/10 flex flex-col gap-3">
-                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">Mobil Cihazınızda 7/24 Kullanın:</span>
+                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400">Mobil Cihazınızda Kullanın:</span>
                 <div className="grid grid-cols-2 gap-3">
                   <a
                     href="https://apps.apple.com/app/apsiyon/id1115852575"

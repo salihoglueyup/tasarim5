@@ -32,7 +32,7 @@ export async function GET(req: Request) {
       description:
         'Apartman ve sitelerin yıllık genel giderleri, avans paylaşımları (arsa payı / eşit), demirbaş fonu ve kapıcı/güvenlik maliyetlerini hesaplayan yasal işletme projesi formatı.',
       legalBasis: '634 Sayılı Kat Mülkiyeti Kanunu Madde 37',
-      standard: 'ISO 41001 Tesis Yönetim Finansal Standartları',
+      standard: 'uluslararası tesis yönetimi standartları Tesis Yönetim Finansal Standartları',
       fileType: 'JSON / PDF Şablon Metni',
       schemaType: 'DigitalDocument',
       howToSteps: [

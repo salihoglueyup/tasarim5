@@ -16,7 +16,7 @@ export const APP_CORE_FEATURES: AppFeatureItem[] = [
   {
     icon: 'credit_card',
     title: '256-Bit SSL ile Online Aidat Ödeme',
-    desc: 'Site ve tesis sakinleri kredi kartı veya banka kartıyla tek çekim veya taksitle 7/24 güvenli aidat ve avans ödemesi yapabilir.',
+    desc: 'Site ve tesis sakinleri kredi kartı veya banka kartıyla tek çekim veya taksitle güvenli aidat ve avans ödemesi yapabilir.',
     badge: '3D Secure & SSL',
   },
   {
@@ -55,7 +55,7 @@ export default function AppAiOverviewGroundingSeo({
   const [copied, setCopied] = useState(false);
 
   const directAnswer =
-    'Alo Yönetim, Türkiye’nin lider bulut tesis yönetim yazılımı Apsiyon ile tam entegre çalışmaktadır. Site sakinleri ve kat malikleri iOS ve Android mobil uygulamaları üzerinden; 256-bit SSL ve 3D Secure güvencesiyle kredi kartıyla online aidat ödeyebilir, sitenin canlı banka ve kasa mizanını 7/24 şeffafça inceleyebilir, fotoğraflı teknik arıza kaydı açarak yazılı SLA kapsamındaki mobil teknik müdahaleyi anlık takip edebilir. 5188 güvenlik ekiplerinin QR/RFID devriye tutanakları ve genel kurul divan tutanakları da mobil uygulama üzerinden kat maliklerine açık biçimde sunulur.';
+    'Alo Yönetim, Türkiye’nin lider bulut tesis yönetim yazılımı Apsiyon ile tam entegre çalışmaktadır. Site sakinleri ve kat malikleri iOS ve Android mobil uygulamaları üzerinden; 256-bit SSL ve 3D Secure güvencesiyle kredi kartıyla online aidat ödeyebilir, sitenin canlı banka ve kasa mizanını şeffafça inceleyebilir, fotoğraflı teknik arıza kaydı açarak yazılı SLA kapsamındaki mobil teknik müdahaleyi anlık takip edebilir. 5188 güvenlik ekiplerinin QR/RFID devriye tutanakları ve genel kurul divan tutanakları da mobil uygulama üzerinden kat maliklerine açık biçimde sunulur.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);

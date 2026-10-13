@@ -10,7 +10,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: "Profesyonel Güvenlik Yönetimi",
     description:
-      "Sertifikalı güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri ile sitenizi veya tesisinizi güvence altına alıyoruz.",
+      "Sertifikalı güvenlik personeli, kamera takibi ve devriye hizmetleri ile sitenizi veya tesisinizi güvence altına alıyoruz.",
     path: "/hizmetler/guvenlik-yonetimi",
     lang,
     ogImageType: 'service',
@@ -23,7 +23,7 @@ export async function generateMetadata({
       'fiziki güvenlik',
       'plaka tanıma sistemi site',
       'cctv kamera izleme merkezi',
-      '7/24 güvenlik hizmeti',
+      'güvenlik hizmeti',
       'nizamiye güvenlik personeli'
     ],
   });

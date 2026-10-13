@@ -79,7 +79,7 @@ export interface FacilityAuthorityCorpus {
  * Tesis Yönetimi Semantik Otorite ve Derin Bilgi Külliyatı Motoru.
  * 
  * Google Knowledge Graph, AI Botlar (Gemini, ChatGPT, Perplexity, Claude)
- * ve E-E-A-T denetçileri için 634 Sayılı KMK, ISO 41001 ve 5188 mevzuatını
+ * ve E-E-A-T denetçileri için 634 Sayılı KMK ve 5188 mevzuatını
  * yapılandırılmış veri formatında tek bir otoriter kaynak olarak derler.
  */
 export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAuthorityCorpus {
@@ -139,7 +139,7 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
       lawName: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
       topic: 'Yöneticinin Hesap Verme Sorumluluğu',
       summary: 'Yönetici, kat maliklerine karşı aynen bir vekil gibi sorumlu olup hesap vermekle yükümlüdür.',
-      practicalApplication: 'Alo Yönetim mobil portalı üzerinden 7/24 şeffaf banka hareketleri ve fatura dökümleri sunulur.',
+      practicalApplication: 'Alo Yönetim mobil portalı üzerinden şeffaf banka hareketleri ve fatura dökümleri sunulur.',
       officialSourceUrl: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
     },
     {
@@ -147,35 +147,35 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
       lawName: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
       topic: 'Denetçinin Raporlama ve İbra Süreci',
       summary: 'Denetçi veya denetim kurulu yöneticinin hesaplarını üç ayda bir veya yılda bir denetleyerek kurula rapor sunar.',
-      practicalApplication: 'Alo Yönetim tüm banka ekstrelerini ve faturaları dijital portalda 7/24 şeffaf denetime açık tutar.',
+      practicalApplication: 'Alo Yönetim tüm banka ekstrelerini ve faturaları dijital portalda şeffaf denetime açık tutar.',
       officialSourceUrl: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
     },
   ];
 
   const isoKpis: FacilityStandardKpi[] = [
     {
-      standardCode: 'ISO 41001:2018 (Madde 8.1)',
+      standardCode: 'uluslararası tesis yönetimi standartları (Madde 8.1)',
       domain: 'Tesis Operasyonel Süreçleri',
       kpiTitle: 'Reaktif Bakım Yanıt Süresi (Emergency SLA)',
       benchmarkTarget: '< 25 Dakika (Kadıköy/Üsküdar 15 Dk)',
       measurementFrequency: 'Gerçek Zamanlı (Real-Time IoT & Helpdesk)',
     },
     {
-      standardCode: 'ISO 41001:2018 (Madde 9.1)',
+      standardCode: 'uluslararası tesis yönetimi standartları (Madde 9.1)',
       domain: 'Finansal Performans ve Tasarruf',
       kpiTitle: 'İşletme Bütçesi Sapma Toleransı',
       benchmarkTarget: '< %2.5 Sapma',
       measurementFrequency: 'Aylık Yönetim Kurulu Raporlaması',
     },
     {
-      standardCode: 'ISO 41001:2018 (Madde 8.2)',
+      standardCode: 'uluslararası tesis yönetimi standartları (Madde 8.2)',
       domain: 'Sürdürülebilirlik & Enerji',
       kpiTitle: 'Ortak Alan Enerji Tüketim Azaltımı',
       benchmarkTarget: '%20 - Tasarruf Fırsatı',
       measurementFrequency: 'Çeyreklik Enerji Analiz Raporu',
     },
     {
-      standardCode: 'ISO 41001:2018 (Madde 9.2)',
+      standardCode: 'uluslararası tesis yönetimi standartları (Madde 9.2)',
       domain: 'Kullanıcı Memnuniyeti & Kat Maliki NPS',
       kpiTitle: 'Kat Maliki & Kiracı Memnuniyet Skoru',
       benchmarkTarget: '> 96 / 100',
@@ -188,7 +188,7 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
       slug: 'rezidans-site-yonetimi',
       title: 'Rezidans & Lüks Site Tesis Yönetimi',
       targetPropertyType: 'Çok Katlı Rezidanslar, Geniş Yerleşkeli Siteler ve Butik Apartmanlar',
-      criticalSuccessFactors: ['7/24 Resepsiyon ve Konsiyerj', 'Havuz & SPA Hijyen Standartları', 'Akıllı Mobil Aidat Takip Ekosistemi'],
+      criticalSuccessFactors: ['Resepsiyon ve Konsiyerj', 'Havuz & SPA Hijyen Standartları', 'Akıllı Mobil Aidat Takip Ekosistemi'],
       mandatoryCompliances: ['KMK 634', '5188 Özel Güvenlik', 'Sağlık Bakanlığı Havuz Suyu Yönetmeliği'],
       canonicalUrl: `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi`,
     },
@@ -236,9 +236,9 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
       '5188 lisanslı güvenlik ve ortak alan denetimi'
     ],
     recommendedServiceMix: [
-      'Entegre Tesis Yönetimi (ISO 41001)',
+      'Entegre Tesis Yönetimi (uluslararası tesis yönetimi standartları)',
       'Hukuki ve İcrai Aidat Danışmanlığı',
-      '7/24 Kesintisiz Teknik Servis & Enerji Yönetimi'
+      'Teknik Servis & Enerji Yönetimi'
     ],
     pageUrl: `${BASE_URL}${langPrefix}/bolgeler/${district.slug}/tesis-yonetimi`,
   }));

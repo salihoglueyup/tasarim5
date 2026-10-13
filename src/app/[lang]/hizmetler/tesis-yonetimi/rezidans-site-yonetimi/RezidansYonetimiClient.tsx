@@ -79,8 +79,8 @@ export default function RezidansYonetimiClient() {
           id="rezidans-yonetimi-nedir"
           answerId="residence-instant-answer-text"
           question="Rezidans Yönetimi Nedir ve Lüks Sitelerde Neleri Kapsar?"
-          answer="Rezidans yönetimi; lüks konut kuleleri ve karma yaşam projelerinde 7/24 iki dilli concierge (resepsiyon), akıllı kargo teslim dolapları, vale ve otopark yönetimi, açık/kapalı havuz ve SPA su hijyeni, yüksek hızlı asansör emniyeti ve KMK m.37 uyarınca şeffaf aidat muhasebesinin entegre yönetilmesidir."
-          standardBadge="7/24 Concierge & VIP İşletme"
+          answer="Rezidans yönetimi; lüks konut kuleleri ve karma yaşam projelerinde iki dilli concierge (resepsiyon), akıllı kargo teslim dolapları, vale ve otopark yönetimi, açık/kapalı havuz ve SPA su hijyeni, yüksek hızlı asansör emniyeti ve KMK m.37 uyarınca şeffaf aidat muhasebesinin entegre yönetilmesidir."
+          standardBadge="Concierge & VIP İşletme"
           subText="Alo Yönetim, 5 yıldızlı otel konforunda rezidans işletmeciliği ile kat maliklerinin yaşam kalitesini artırırken bağımsız bölümlerin gayrimenkul değerini maksimize eder."
           accentColor="amber"
         />
@@ -203,7 +203,7 @@ export default function RezidansYonetimiClient() {
         serviceCategory="Lüks Gayrimenkul & Rezidans İşletmesi"
         lawReferences={[
           {
-            title: "ISO 41001:2018 Uluslararası Tesis Yönetim Standardı",
+            title: "uluslararası tesis yönetimi standartları",
             sourceName: "TSE & Uluslararası Standardizasyon Örgütü",
             url: "https://www.tse.org.tr",
             badge: "KMK 634",
@@ -221,13 +221,13 @@ export default function RezidansYonetimiClient() {
             sourceName: "T.C. İçişleri Bakanlığı & Valilik",
             url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5",
             badge: "5188 Sayılı Kanun",
-            description: "Kule lobi nizamiyesi, turnike kartlı/biyometrik geçiş, akıllı PTS otopark ve 7/24 CCTV izleme güvenliği."
+            description: "Kule lobi nizamiyesi, turnike kartlı/biyometrik geçiş, akıllı PTS otopark ve CCTV izleme güvenliği."
           }
         ]}
         glossaryTerms={[
           {
             slug: "rezidans-luks-site-yonetimi-standartlari",
-            term: "7/24 Rezidans Concierge & Vale",
+            term: "Rezidans Concierge & Vale",
             summary: "Rezidans sakinlerine özel kurye emaneti, misafir karşılama ve koordineli vale otopark koordinasyonudur."
           },
           {

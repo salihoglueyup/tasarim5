@@ -35,7 +35,7 @@ export default function DistrictTechnicalAuditTableSeo({
         status: "Yasal Zorunluluk"
       },
       {
-        item: "7/24 Asansörde Kalma Acil Kurtarma Masası",
+        item: "Asansörde Kalma Acil Kurtarma Masası",
         standard: "TSE EN 81-20/50 Standartlarına Uygun Operasyon",
         districtSpec: `${sampleNeighborhoods} lokasyonlarına en geç 30-45 dakikada yerinde müdahale.`,
         status: "SLA Garantili"

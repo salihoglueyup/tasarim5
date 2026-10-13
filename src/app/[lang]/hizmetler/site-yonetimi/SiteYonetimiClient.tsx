@@ -148,9 +148,9 @@ export default function SiteYonetimiClient() {
             shortAnswer="Site yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu (KMK) kapsamında çok bağımsız bölümlü konut siteleri ve apartmanların aidat tahsilatı, bütçe işletme projesi tanzimi, 5188 lisanslı fiziki güvenlik, asansör/hidrofor teknik bakımı, ortak alan temizliği ve yasal genel kurul süreçlerini tek elden yürüten profesyonel yönetim organizasyonudur."
             bulletPoints={[
               "634 Sayılı KMK Madde 34-40 kapsamında tam kanuni güvence ve işletme projesi tanzimi",
-              "Apsiyon entegrasyonu ile 7/24 şeffaf banka hesapları, canlı gelir-gider dökümü ve online kartla ödeme",
+              "Apsiyon entegrasyonu ile şeffaf banka hesapları, canlı gelir-gider dökümü ve online kartla ödeme",
               "KMK Madde 20 uyarınca geciken aidatlara aylık yasal %5 faiz işletimi ve hızlı icra takibi",
-              "7/24 hazır bekleyen gezici mobil teknik servis ile yazılı SLA kapsamında yerinde arıza müdahalesi"
+              "hazır bekleyen gezici mobil teknik servis ile yazılı SLA kapsamında yerinde arıza müdahalesi"
             ]}
             lawArticle="634 Sayılı KMK Madde 34 & Madde 20"
           />
@@ -268,7 +268,7 @@ export default function SiteYonetimiClient() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AcademicCitationBoxSeo
             pageUrl="/hizmetler/site-yonetimi"
-            pageTitle="634 Sayılı KMK ve ISO 41001 Standartlarında Profesyonel Site Yönetimi Uygulama Rehberi"
+            pageTitle="634 Sayılı KMK ve uluslararası tesis yönetimi standartlarında Profesyonel Site Yönetimi Uygulama Rehberi"
           />
         </div>
       </div>

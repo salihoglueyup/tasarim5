@@ -195,7 +195,7 @@ export default async function TeklifAl({
                 description: "Toplu konut ve karma tesislerde şeffaf tedarikçi seçimi, birim fiyat cetvelleri ve teknik şartname şablonları."
               },
               {
-                title: "ISO 41001:2018 Entegre Tesis Yönetimi Standartları",
+                title: "uluslararası tesis yönetimi standartları Entegre Tesis Yönetimi Standartları",
                 sourceName: "Türk Standardları Enstitüsü (TSE)",
                 url: "https://www.tse.org.tr",
                 badge: "KMK 634",

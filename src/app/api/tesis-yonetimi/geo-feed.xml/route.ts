@@ -112,7 +112,7 @@ export async function GET(req: Request) {
     <title>Alo Yönetim — İstanbul ${selectedDistricts.length} İlçe Tesis Yönetimi Coğrafi GeoRSS Beslemesi</title>
     <link>${BASE_URL}/hizmetler/tesis-yonetimi</link>
     <atom:link href="${BASE_URL}/api/tesis-yonetimi/geo-feed.xml" rel="self" type="application/rss+xml" />
-    <description>İstanbul genelinde ${selectedDistricts.length} ilçede KMK 634, ISO 41001 ve 5188 standartlarında profesyonel tesis yönetimi, rezidans işletmesi, site ve plaza yönetimi coğrafi koordinat ve hizmet ağı beslemesi.</description>
+    <description>İstanbul genelinde ${selectedDistricts.length} ilçede KMK 634 ve 5188 standartlarında profesyonel tesis yönetimi, rezidans işletmesi, site ve plaza yönetimi coğrafi koordinat ve hizmet ağı beslemesi.</description>
     <language>tr-TR</language>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
     <managingEditor>${CANONICAL_NAP.contact.email} (${CANONICAL_NAP.legal.legalName})</managingEditor>

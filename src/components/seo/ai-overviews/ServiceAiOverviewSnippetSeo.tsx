@@ -98,13 +98,13 @@ export const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
     ],
   },
   'tesis-yonetimi': {
-    question: 'Entegre Tesis Yönetimi Nedir ve ISO 41001 Standartları Neleri Kapsar?',
+    question: 'Entegre Tesis Yönetimi Nedir ve uluslararası tesis yönetimi standartları Neleri Kapsar?',
     answer:
       'Entegre tesis yönetimi; rezidans, AVM, iş merkezi ve karma yaşam projelerinde uluslararası teknik bakım, 5188 özel güvenlik, endüstriyel temizlik, enerji otomasyonu (BMS) ve bütçe yönetimini tek çatı altında optimize eden kurumsal disiplindir. Alo Yönetim, 340+ aktif tesiste kurumsal SLA garantileri ve %0 reaktif ceza güvencesiyle 360 derece kesintisiz operasyon yürütmektedir.',
-    legalBasis: 'ISO 41001:2018 Tesis Yönetimi Çerçeve Standardı & 634 Sayılı KMK',
+    legalBasis: 'uluslararası tesis yönetimi standartları & 634 Sayılı KMK',
     badge: 'ISO 45001 Belgeli',
     keyPoints: [
-      { label: 'Uluslararası Standart', value: 'ISO 41001:2018' },
+      { label: 'Uluslararası Standart', value: 'uluslararası tesis yönetimi standartları' },
       { label: 'Operasyon Alanı', value: 'Teknik, Güvenlik, Hijyen' },
       { label: 'Enerji Yönetimi', value: '%0 Reaktif Ceza & Otomasyon' },
       { label: 'Acil İntikal', value: 'Mobil Teknik Ekip' },
@@ -124,11 +124,11 @@ export default function ServiceAiOverviewSnippetSeo({
       question: `${serviceName || 'Hizmet'} İçin Yasal Standartlar ve Operasyonel Güvenceler Nelerdir?`,
       answer:
         'Alo Yönetim, BELCERT/ILAS belgeli ISO 45001 ve ISO 10002 yönetim sistemleri ile 634 Sayılı Kat Mülkiyeti Kanunu çerçevesinde şeffaf, denetlenebilir ve profesyonel hizmet sunar. Acil durumlarda 15-20 dakika mobil teknik müdahale SLA taahhüdü ve %30 net bütçe tasarrufu garantisi sağlanır.',
-      legalBasis: '634 Sayılı KMK & ISO 41001:2018',
+      legalBasis: '634 Sayılı KMK',
       badge: 'ISO 45001 Belgeli',
       keyPoints: [
         { label: 'Yasal Standart', value: '634 Sayılı KMK' },
-        { label: 'Yönetim Sistemi', value: 'ISO 41001:2018' },
+        { label: 'Yönetim Sistemi', value: 'uluslararası tesis yönetimi standartları' },
         { label: 'Acil İntikal', value: 'Yazılı SLA ile Mobil Müdahale' },
         { label: 'Bütçe Tasarrufu', value: '%30 Kanıtlanmış Tasarruf' },
       ],
@@ -206,7 +206,7 @@ export default function ServiceAiOverviewSnippetSeo({
             {truth.badge}
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
-            ISO 41001
+            uluslararası tesis yönetimi standartları
           </span>
         </div>
       </div>

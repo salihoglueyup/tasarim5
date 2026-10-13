@@ -80,7 +80,7 @@ export function evaluateSnippetHealth(
   const hasCtrTriggers = detectedTriggers.length >= 2;
   if (!hasCtrTriggers) {
     score -= 10;
-    recommendations.push('Kullanıcıyı tıklamaya teşvik eden eylem kelimeleri (örn: Şeffaf, 7/24, Ücretsiz Keşif) ekleyin.');
+    recommendations.push('Kullanıcıyı tıklamaya teşvik eden eylem kelimeleri (örn: Şeffaf,, Ücretsiz Keşif) ekleyin.');
   }
 
   const finalScore = Math.min(100, Math.max(0, score));

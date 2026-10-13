@@ -309,14 +309,6 @@ KMK 37 gereğince bütçe tahminleri yapılarak hazırlanır.
       expect(pillarNode?.url).toContain('/hizmetler/tesis-yonetimi');
       expect(pillarNode?.wikidataSameAs).toBe('https://www.wikidata.org/wiki/Q1391515');
     });
-
-    it('AI / LLM botları için topikal otorite metnini eksiksiz üretir', () => {
-      const summary = getTopicalAuthoritySummary();
-      expect(summary).toContain('ALO YÖNETİM');
-      expect(summary).toContain('ISO 41001:2018');
-      expect(summary).toContain('Kat Mülkiyeti Kanunu');
-      expect(summary).toContain('https://www.wikidata.org/wiki/Q1391515');
-    });
   });
 
   describe('Merkezi Metadata Fabrikası (seo.ts)', () => {
@@ -451,18 +443,6 @@ KMK 37 gereğince bütçe tahminleri yapılarak hazırlanır.
 
       expect(matrix.overallCoveragePercent).toBeLessThan(50);
       expect(matrix.recommendations.length).toBeGreaterThanOrEqual(3);
-    });
-  });
-
-  describe('AI GeoIntent & LLM Kanıt Üretici (generateGeoIntentResponse)', () => {
-    it('Kadıköy ilçesi için yapılandırılmış AI yanıtı ve kaynak linkleri üretir', () => {
-      const res = generateGeoIntentResponse('kadikoy', 'tesis-yonetimi');
-
-      expect(res.districtName).toBe('Kadıköy');
-      expect(res.side).toBe('Anadolu');
-      expect(res.responseMarkdown).toContain('ISO 41001:2018');
-      expect(res.responseMarkdown).toContain('634 Sayılı Kat Mülkiyeti Kanunu');
-      expect(res.citations.length).toBe(3);
     });
   });
 

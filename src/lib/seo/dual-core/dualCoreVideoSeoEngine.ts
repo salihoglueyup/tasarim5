@@ -64,7 +64,7 @@ export const VIDEO_CONTENT_CATALOG: VideoSeoSpec[] = [
   },
   {
     id: 'tesis-yonetimi-nedir',
-    title: 'Entegre Tesis Yönetimi Nedir? (ISO 41001 Standardı)',
+    title: 'Entegre Tesis Yönetimi Nedir? (uluslararası tesis yönetimi standartları)',
     description: 'Plazalar, iş merkezleri ve ticari gayrimenkullerde BMS otomasyonu, 5188 güvenlik, teknik bakım ve enerji tasarrufu süreçleri.',
     videoUrl: 'https://www.youtube.com/watch?v=aloyonetim02',
     embedUrl: 'https://www.youtube.com/embed/aloyonetim02',
@@ -76,7 +76,7 @@ export const VIDEO_CONTENT_CATALOG: VideoSeoSpec[] = [
     keywords: ['tesis yönetimi', 'plaza yönetimi', 'iso 41001', 'bms otomasyon'],
     chapters: [
       { title: 'Entegre Tesis Yönetimi Kapsamı', startOffsetSeconds: 0, endOffsetSeconds: 90 },
-      { title: 'ISO 41001 Standart Gereksinimleri', startOffsetSeconds: 90, endOffsetSeconds: 240 },
+      { title: 'uluslararası tesis yönetimi standartları Standart Gereksinimleri', startOffsetSeconds: 90, endOffsetSeconds: 240 },
       { title: 'BMS ve CMMS ile Enerji Tasarrufu', startOffsetSeconds: 240, endOffsetSeconds: 380 },
       { title: 'Kurumsal SLA ve Bütçe Modeli', startOffsetSeconds: 380, endOffsetSeconds: 495 },
     ],
@@ -225,7 +225,7 @@ Alo Yönetim; İstanbul genelinde 39 ilçede 28.000'den fazla bağımsız bölü
 📞 İLETİŞİM & ÜCRETSİZ TEKLİF ALIN:
 👉 Web Sitemiz: ${BASE_URL}
 👉 ${isFacility ? 'Plaza Tesis Yönetimi Teklifi' : 'Site Yönetimi Teklifi'}: ${BASE_URL}/teklif-al
-👉 Telefon: ${CANONICAL_NAP.contact.phoneDisplay} (7/24 Kesintisiz)
+👉 Telefon: ${CANONICAL_NAP.contact.phoneDisplay} (Kesintisiz)
 👉 E-posta: ${CANONICAL_NAP.contact.email}
 
 🔗 BİZİ SOSYAL MEDYADA TAKİP EDİN:

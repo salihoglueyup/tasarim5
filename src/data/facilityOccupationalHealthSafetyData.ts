@@ -74,7 +74,7 @@ export const OHS_HAZARD_CLASSES: OhsHazardClassRule[] = [
     isyeriHekimiRequirement: 'Aylık detaylı biyolojik maruziyet testleri ve ağır iş görebilirlik raporları.',
     riskAssessmentValidityYears: 2,
     emergencyPlanValidityYears: 2,
-    aloYonetimProtocol: 'Alo Yönetim kurumsal tesis yönetimi protokolüyle tam teftiş ve 7/24 İSG denetimi icra eder.'
+    aloYonetimProtocol: 'Alo Yönetim kurumsal tesis yönetimi protokolüyle tam teftiş ve İSG denetimi icra eder.'
   }
 ];
 

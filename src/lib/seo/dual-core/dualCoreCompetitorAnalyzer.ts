@@ -105,7 +105,7 @@ export const COMPETITOR_PROFILES: CompetitorProfile[] = [
     pillar: 'site',
     estimatedTrafficMonthly: 22000,
     topKeywords: ['profesyonel site yönetimi', 'apartman yönetimi istanbul', 'site aidat takibi'],
-    contentGaps: ['ISO 41001 plaza yönetimi', 'BMS teknik otomasyon', 'İngilizce / Arapça çok dilli SEO'],
+    contentGaps: ['uluslararası tesis yönetimi standartları plaza yönetimi', 'BMS teknik otomasyon', 'İngilizce / Arapça çok dilli SEO'],
     backlinkScore: 48,
     strengthAreas: ['Konut sitelerinde bilinirlik'],
     weaknesses: ['Teknik bakım ekipleri taşeron', 'B2B plaza referansı az'],
@@ -243,7 +243,7 @@ export function generateContentBriefFromGap(gapKeyword: string, pillar: DomainPi
     searchIntent: gapKeyword.includes('hesap') ? 'commercial' : gapKeyword.includes('nasıl') ? 'informational' : 'transactional',
     requiredHeadings: [
       `1. ${cleanTitle} Temel Tanımı ve Önemi`,
-      `2. ${isFacility ? 'ISO 41001 ve Kurumsal Standartlar' : '634 Sayılı KMK Yasal Çerçevesi'}`,
+      `2. ${isFacility ? 'uluslararası tesis yönetimi standartları ve Kurumsal Standartlar' : '634 Sayılı KMK Yasal Çerçevesi'}`,
       '3. Adım Adım Uygulama ve Kontrol Listesi',
       '4. Sık Yapılan Hatalar ve Cezai Riskler',
       '5. Alo Yönetim Profesyonel Çözümleri',
@@ -273,7 +273,7 @@ export function analyzeContentGap(competitorId: string, pillar: DomainPillar = '
       '39 İlçe Mikro-Lokasyon Hizmet Sayfaları',
       'Online İnteraktif Aidat Hesaplayıcı',
       // claims-guard-ignore: içerik fikri: bilgilendirici rehber başlığı
-      'ISO 41001 Tesis Yönetim Sertifikasyon Rehberi',
+      'uluslararası tesis yönetimi standartları Tesis Yönetim Sertifikasyon Rehberi',
     ];
   }
 
@@ -294,7 +294,7 @@ export function buildWinningContentSpec(keyword: string, competitorUrl: string) 
       'işletme projesi',
       'karar defteri',
       'aidat tahsilatı',
-      '7/24 acil servis',
+      'acil servis',
       'şeffaf muhasebe',
     ],
     mediaRequirements: {
@@ -316,7 +316,7 @@ export function buildOutreachTargetList(pillar: DomainPillar = 'site'): Outreach
       url: 'https://www.trfma.org.tr',
       category: 'dernek',
       domainAuthority: 54,
-      outreachAngle: 'ISO 41001 tesis yönetimi vaka analizi ve sektörel makale yayımı.',
+      outreachAngle: 'uluslararası tesis yönetimi standartları tesis yönetimi vaka analizi ve sektörel makale yayımı.',
     },
     {
       name: 'Gayrimenkul ve Konut Gazetesi',

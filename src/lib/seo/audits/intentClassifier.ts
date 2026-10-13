@@ -113,7 +113,7 @@ export function classifySearchIntent(queryInput: string = ''): IntentClassificat
       intent: 'LOCAL_DISCOVERY',
       confidenceScore: 0.92,
       detectedDistrict: { name: matchedDistrict.name, slug: matchedDistrict.slug },
-      recommendedSchema: 'LocalBusiness / Service (ISO 41001)',
+      recommendedSchema: 'LocalBusiness / Service (uluslararası tesis yönetimi standartları)',
       recommendedCta: {
         label: `${matchedDistrict.name} Tesis Yönetimi & Ücretsiz Keşif Randevusu`,
         targetUrl: `${BASE_URL}/bolgeler/${matchedDistrict.slug}/tesis-yonetimi`,

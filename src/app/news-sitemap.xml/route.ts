@@ -69,9 +69,9 @@ export async function GET() {
       posts = [
         {
           slug: 'tesis-yonetiminde-kmk-634-ve-iso-41001-standartlari',
-          title: 'Tesis Yönetiminde KMK 634 ve ISO 41001 Standartları',
+          title: 'Tesis Yönetiminde KMK 634 ve uluslararası tesis yönetimi standartları',
           datePublished: new Date(),
-          tags: 'tesis yönetimi, kmk 634, iso 41001',
+          tags: 'tesis yönetimi, kmk 634',
         },
       ];
     }

@@ -85,7 +85,7 @@ export const SERVICES: ServiceDef[] = [
       'Entegre tesis yönetimi',
       '634 Sayılı Kat Mülkiyeti Kanunu (KMK) tam hukuki uyum',
       'Dijital aidat tahsilatı ve şeffaf işletme projesi bütçeleme',
-      '7/24 mobil teknik bakım, acil müdahale ve enerji tasarrufu',
+      'mobil teknik bakım, acil müdahale ve enerji tasarrufu',
     ],
     keywords: [
       'tesis yönetimi',
@@ -101,7 +101,6 @@ export const SERVICES: ServiceDef[] = [
       'rezidans tesis yönetimi',
       'sanayi tesisi yönetimi',
       'toplu konut tesis yönetimi',
-      'iso 41001 tesis yönetimi',
       'tesis yönetimi fiyatları',
       'tesis yönetimi teklif al',
       'site yönetimi',
@@ -152,7 +151,7 @@ export const SERVICES: ServiceDef[] = [
       },
       {
         q: 'Entegre tesis yönetimi ile klasik site yönetimi arasındaki fark nedir?',
-        a: 'Klasik site yönetimi temel aidat ve kapıcı hizmetlerine odaklanırken; entegre tesis yönetimi mühendislik tabanlı kestirimci bakım, 7/24 merkezi otomasyon (HVAC, jeneratör), yasal iş güvenliği (İSG), şeffaf dijital denetim ve kurumsal SLA garantileri sunar.',
+        a: 'Klasik site yönetimi temel aidat ve kapıcı hizmetlerine odaklanırken; entegre tesis yönetimi mühendislik tabanlı kestirimci bakım, merkezi otomasyon (HVAC, jeneratör), yasal iş güvenliği (İSG), şeffaf dijital denetim ve kurumsal SLA garantileri sunar.',
       },
       {
         q: 'Tesis yönetim şirketi aidat ve işletme maliyetlerini nasıl düşürür?',
@@ -187,7 +186,7 @@ export const SERVICES: ServiceDef[] = [
     summary:
       'Aidat borçlarının şeffaf takibi, dijital tahsilat yönetimi ve kat malikleri için hızlı ödeme kolaylığı.',
     benefits: [
-      'Dijital aidat takip sistemi ve 7/24 kredi kartı ödemesi',
+      'Dijital aidat takip sistemi ve kredi kartı ödemesi',
       'Online ve güvenli 3D Secure ödeme altyapısı',
       'Otomatik SMS ve WhatsApp borç hatırlatmaları',
       'Şeffaf canlı gelir-gider ve banka ekstresi raporlaması',
@@ -237,10 +236,10 @@ export const SERVICES: ServiceDef[] = [
     shortName: 'Güvenlik',
     icon: 'security',
     summary:
-      '5188 sayılı kanuna uygun, kimlikli özel güvenlik personeli ve entegre kamera sistemleriyle 7/24 site güvenliği.',
+      '5188 sayılı kanuna uygun, kimlikli özel güvenlik personeli ve entegre kamera sistemleriyle site güvenliği.',
     benefits: [
       '5188 Sayılı Kanun lisanslı özel güvenlik görevlileri',
-      '7/24 AI analizli kamera izleme ve GPS devriye',
+      'AI analizli kamera izleme ve GPS devriye',
       'Plaka tanıma (PTS) ve kartlı turnike kontrolü',
       'Acil durum, yangın ve tahliye eylem protokolleri',
     ],
@@ -263,7 +262,7 @@ export const SERVICES: ServiceDef[] = [
       'site gece devriye ve bekçi hizmeti istanbul',
     ],
     kmkArticles: ['5188 Sayılı Özel Güvenlik Kanunu', 'KMK Madde 35 (Güvenlik Önlemleri)'],
-    slaGuarantee: '7/24 Kesintisiz Nöbet, GPS Denetimli QR Kodlu Devriye Turları',
+    slaGuarantee: 'Nöbet, GPS Denetimli QR Kodlu Devriye Turları',
     targetPersonas: ['Site Yönetim Kurulu', 'Site Sakinleri', 'Güvenlik Amiri'],
     pillar: '/hizmetler/guvenlik-yonetimi',
     sameAs: 'https://tr.wikipedia.org/wiki/%C3%96zel_g%C3%BCvenlik_g%C3%B6revlisi',
@@ -572,7 +571,7 @@ export function getSiteManagementServiceMatrix() {
     slug: s.slug,
     name: s.name,
     pillar: s.pillar,
-    slaGuarantee: s.slaGuarantee || '7/24 Kesintisiz Hizmet',
+    slaGuarantee: s.slaGuarantee || 'Hizmet',
     primaryKeywords: s.keywords.slice(0, 6),
     longTailSample: s.longTailKeywords?.slice(0, 3) || [],
     kmkSummary: s.kmkArticles?.slice(0, 2).join(' · ') || 'KMK 634',

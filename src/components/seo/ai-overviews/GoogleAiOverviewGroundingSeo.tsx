@@ -92,7 +92,7 @@ const GEO_PROMPTS: GeoPromptSpec[] = [
     icon: 'apartment',
     prompt: 'Site yönetimi ile entegre tesis yönetimi arasındaki temel fark nedir?',
     groundTruthAnswer: 'Site yönetimi konut ve rezidanslarda 634 Sayılı KMK çerçevesinde kat malikleri hakları, sakin huzuru ve şeffaf aidat takibine odaklanır. Entegre tesis yönetimi ise plazalar, iş merkezleri ve sanayi tesislerinde BMS otomasyonu, enerji verimliliği ve yazılı SLA hükümlerine odaklanan 360 derece işletme disiplinidir.',
-    legalCitation: '634 KMK vs ISO 41001:2018 Standardı',
+    legalCitation: '634 KMK vs uluslararası tesis yönetimi standartları',
     precedentRef: '634 Sayılı KMK Yönetici Görevleri (m.35)',
     badge: 'Dual-Pillar Yönetim',
   },

@@ -40,7 +40,7 @@ export async function GET(req: Request) {
     '@type': 'DefinedTermSet',
     '@id': `${BASE_URL}/sozluk#glossary`,
     name: 'Site ve Tesis Yönetimi Sözlüğü — Alo Yönetim',
-    description: 'KMK 634, 5188 sayılı Kanun ve ISO 41001 kapsamındaki tesis yönetimi terimlerinin yetkili tanımları.',
+    description: 'KMK 634, 5188 sayılı Kanun ve uluslararası tesis yönetimi standartları kapsamındaki tesis yönetimi terimlerinin yetkili tanımları.',
     url: `${BASE_URL}/sozluk`,
     inLanguage: 'tr-TR',
     publisher: {

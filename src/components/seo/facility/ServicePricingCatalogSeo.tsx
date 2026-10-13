@@ -78,7 +78,7 @@ export default function ServicePricingCatalogSeo({
           Apartman, Site ve Tesis Yönetimi Paket Kataloğu
         </h2>
         <p className="text-[var(--color-secondary)] mt-3 text-sm sm:text-base leading-relaxed font-normal">
-          Mülkünüzün büyüklüğüne göre ölçeklenen kurumsal hizmet kapsamı; hiçbir gizli maliyet olmadan, Apsiyon yazılım lisansı ve 7/24 acil müdahale güvencesiyle.
+          Mülkünüzün büyüklüğüne göre ölçeklenen kurumsal hizmet kapsamı; hiçbir gizli maliyet olmadan, Apsiyon yazılım lisansı ve acil müdahale güvencesiyle.
         </p>
       </div>
 

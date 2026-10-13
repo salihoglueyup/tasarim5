@@ -8,7 +8,7 @@ import { ORG_PHONE } from '@/lib/constants';
 
 /**
  * Faz 85: Framer Motion'dan arındırılmış, minimal hata raporlama (digest ID),
- * tek tıkla yeniden deneme ("Tekrar Dene") ve 7/24 destek hattı entegreli `error.tsx`.
+ * tek tıkla yeniden deneme ("Tekrar Dene") ve destek hattı entegreli `error.tsx`.
  */
 export default function Error({
   error,

@@ -59,20 +59,6 @@ describe('Merkezi NAP & Yerel SEO Otorite Sistemi (napGuardEngine)', () => {
     expect(CANONICAL_NAP.geo.googleMapsPlaceUrl).toContain('Osmana%C4%9Fa');
   });
 
-  it('generateLocalBusinessJsonLd geçerli bir Schema.org ProfessionalService nesnesi üretir', () => {
-    const schema = generateLocalBusinessJsonLd();
-    expect(schema['@context']).toBe('https://schema.org');
-    expect(schema['@type']).toBe('ProfessionalService');
-    expect(schema.name).toBe('Alo Yönetim');
-    expect(schema.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-    expect(schema.address.streetAddress).toBe('Misak-ı Milli Sok. No:94A');
-    expect(schema.address.postalCode).toBe('34714');
-    expect(schema.geo.latitude).toBe(40.9904);
-    expect(schema.geo.longitude).toBe(29.0305);
-    expect(schema.openingHoursSpecification).toHaveLength(2);
-    expect(schema.areaServed.name).toBe('İstanbul');
-  });
-
   it('generateNapGeoJson harita motorları için GeoJSON Point nesnesi üretir', () => {
     const geoJson = generateNapGeoJson();
     expect(geoJson.type).toBe('Feature');

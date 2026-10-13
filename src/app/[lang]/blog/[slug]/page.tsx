@@ -349,7 +349,7 @@ export default async function BlogDetail({
     ? [{ name: category?.name || 'Facility management' }]
     : [
         { name: category?.name || 'Tesis Yönetimi', sameAs: 'https://tr.wikipedia.org/wiki/Tesis_yönetimi' },
-        { name: 'ISO 41001:2018 Entegre Tesis Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
+        { name: 'uluslararası tesis yönetimi standartları Entegre Tesis Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
         { name: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)', sameAs: 'https://www.wikidata.org/wiki/Q161851' },
         ...entityGraph.about.map((a) => ({ name: a.name, sameAs: a.sameAs })),
       ];

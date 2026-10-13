@@ -31,7 +31,7 @@ export function generateFacilityRfpDocument(config: RfpConfig) {
     },
     {
       heading: '3. HİZMET STANDARTLARI VE SLA (HİZMET SEVİYESİ) TAAHHÜTLERİ',
-      content: `• Acil Arıza Müdahale Süresi: ${district.name} bölgesi için en fazla 45 dakika\n• 7/24 Kesintisiz Güvenlik ve CCTV Kayıt Kontrolü (5188 Sayılı Kanun Uyumlu)\n• TSE Onaylı Kimyasallarla Günlük Kat ve Ortak Alan Hijyen Takvimi\n• Asansör, Jeneratör, Kompanzasyon Panosu ve Yangın Tesisatı Aylık Periyodik Bakımı\n• Kat Maliklerine Özel 7/24 Mobil Aidat, Borç ve Arıza Takip Platformu Erişimi.`,
+      content: `• Acil Arıza Müdahale Süresi: ${district.name} bölgesi için en fazla 45 dakika\n• Güvenlik ve CCTV Kayıt Kontrolü (5188 Sayılı Kanun Uyumlu)\n• TSE Onaylı Kimyasallarla Günlük Kat ve Ortak Alan Hijyen Takvimi\n• Asansör, Jeneratör, Kompanzasyon Panosu ve Yangın Tesisatı Aylık Periyodik Bakımı\n• Kat Maliklerine Özel Mobil Aidat, Borç ve Arıza Takip Platformu Erişimi.`,
     },
     {
       heading: '4. YASAL VE MALİ ŞARTLAR (KMK 634 UYUMU)',
@@ -49,7 +49,7 @@ export function generateFacilityRfpDocument(config: RfpConfig) {
     '@context': 'https://schema.org',
     '@type': 'DigitalDocument',
     name: `${facilityName} — Profesyonel Tesis Yönetimi Teknik İhale Şartnamesi (RFP)`,
-    description: `${district.name} ${units} bağımsız bölümlü tesis için ISO 41001 ve KMK 634 standartlarında hazırlanmış resmi ihale ve yönetim şartnamesi.`,
+    description: `${district.name} ${units} bağımsız bölümlü tesis için uluslararası tesis yönetimi standartları ve KMK 634 standartlarında hazırlanmış resmi ihale ve yönetim şartnamesi.`,
     url: `${BASE_URL}/api/tesis-yonetimi/rfp-generator`,
     inLanguage: 'tr-TR',
     publisher: {
@@ -61,7 +61,7 @@ export function generateFacilityRfpDocument(config: RfpConfig) {
     },
     about: [
       { '@type': 'Thing', name: 'Tesis Yönetimi Şartnamesi' },
-      { '@type': 'Thing', name: 'ISO 41001:2018' },
+      { '@type': 'Thing', name: 'uluslararası tesis yönetimi standartları' },
       { '@type': 'Thing', name: '634 Sayılı Kat Mülkiyeti Kanunu' },
     ],
   };

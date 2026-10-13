@@ -34,7 +34,7 @@ export const RFP_TRANSITION_STEPS: TransitionStep[] = [
     title: '5188 Valilik İzni ve ISO Belgelerinin Şartname İncelemesi',
     summary:
       'Yönetim firması seçiminde; T.C. Valilik onaylı 5188 Özel Güvenlik Faaliyet İzin Belgesi ile akredite kuruluşlarca verilmiş güncel ISO 45001 (İSG) ve ISO 10002 (müşteri memnuniyeti) belgeleri teknik kriter olarak şartnameye konur.',
-    legalBasis: '5188 Sayılı Kanun & ISO 41001:2018',
+    legalBasis: '5188 Sayılı Kanun',
     badge: 'Akredite Şartname',
   },
   {

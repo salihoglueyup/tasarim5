@@ -167,7 +167,7 @@ export default function ReferenceForm({ reference, lang, isNew }: any) {
                 value={formData.services}
                 onChange={e => setFormData({...formData, services: e.target.value})}
                 className="w-full bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500 transition-all"
-                placeholder="Örn: 7/24 Güvenlik, Havuz Bakımı, Teknik Servis"
+                placeholder="Örn: Güvenlik, Havuz Bakımı, Teknik Servis"
               />
             </div>
 

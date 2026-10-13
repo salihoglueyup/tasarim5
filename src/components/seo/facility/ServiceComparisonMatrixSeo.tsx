@@ -13,9 +13,9 @@ const TX_MAP: Record<string, string> = {
   "Aidat Takibi & Tahsilat": "scm_4",
   "Elden/dekontla takip, geciken ödemeler, komşuluk ilişkilerinde sürtüşme": "scm_5",
   "Dijital sakin uygulaması, anlık bildirim, gecikmede otomatik yasal icra süreci": "scm_6",
-  "7/24 Acil Teknik & Arıza": "scm_7",
+  "Acil Teknik & Arıza": "scm_7",
   "Yöneticinin şahsi telefonuna bağımlılık, geç ve pahalı usta çağırma": "scm_8",
-  "7/24 Çağrı ve Operasyon Merkezi, nöbetçi teknik ekip, anlaşmalı tedarikçi fiyatları": "scm_9",
+  "Çağrı ve Operasyon Merkezi, nöbetçi teknik ekip, anlaşmalı tedarikçi fiyatları": "scm_9",
   "Mali Şeffaflık & Denetim": "scm_10",
   "Yılda bir kez karmaşık defter özeti, denetim zorluğu": "scm_11",
   "Her ay detaylı gelir-gider faaliyet raporu, işletme projesi şeffaflığı": "scm_12",
@@ -57,9 +57,9 @@ const DEFAULT_ROWS: ComparisonRow[] = [
     aloYonetim: "Dijital sakin uygulaması, anlık bildirim, gecikmede otomatik yasal icra süreci"
   },
   {
-    feature: "7/24 Acil Teknik & Arıza",
+    feature: "Acil Teknik & Arıza",
     traditional: "Yöneticinin şahsi telefonuna bağımlılık, geç ve pahalı usta çağırma",
-    aloYonetim: "7/24 Çağrı ve Operasyon Merkezi, nöbetçi teknik ekip, anlaşmalı tedarikçi fiyatları"
+    aloYonetim: "Çağrı ve Operasyon Merkezi, nöbetçi teknik ekip, anlaşmalı tedarikçi fiyatları"
   },
   {
     feature: "Mali Şeffaflık & Denetim",

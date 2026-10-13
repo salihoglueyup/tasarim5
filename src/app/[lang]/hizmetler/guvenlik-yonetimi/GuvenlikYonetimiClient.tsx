@@ -33,7 +33,7 @@ export default function GuvenlikYonetimiClient() {
       color: "from-slate-700 to-slate-900"
     },
     {
-      title: t('sec_feat_2_title') || '7/24 CCTV & Kamera İzleme Merkezi',
+      title: t('sec_feat_2_title') || 'CCTV & Kamera İzleme Merkezi',
       desc: t('sec_feat_2_desc') || 'Kör nokta bırakmayan yüksek çözünürlüklü IP kamera sistemleri, yapay zeka destekli hareket ve sınır ihlal alarmları.',
       icon: "center_focus_strong",
       color: "from-slate-700 to-slate-900"
@@ -126,7 +126,7 @@ export default function GuvenlikYonetimiClient() {
             
 
             <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mt-4">
-              {t('sec_banner_desc') || 'Sertifikalı güvenlik personeli, 7/24 kamera takibi ve devriye hizmetleri ile sitenizi veya tesisinizi güvence altına alıyoruz.'}
+              {t('sec_banner_desc') || 'Sertifikalı güvenlik personeli, kamera takibi ve devriye hizmetleri ile sitenizi veya tesisinizi güvence altına alıyoruz.'}
             </p>
             <div className="flex gap-4 mt-8">
               <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
@@ -242,7 +242,7 @@ export default function GuvenlikYonetimiClient() {
 
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>📹</span> Yapay Zeka Destekli 7/24 CCTV & PTS
+                  <span>📹</span> Yapay Zeka Destekli CCTV & PTS
                 </span>
                 <p className="text-[var(--color-secondary)]">
                   Kör nokta bırakmayan IP kamera izleme merkezi, sınır ihlali ve hareket algılama sensörleri, otomatik Plaka Tanıma Sistemi (PTS) ile abone ve misafir araç bariyer otomasyonu.
@@ -647,7 +647,7 @@ export default function GuvenlikYonetimiClient() {
           {
             slug: "cctv-kamera-guvenlik-sistemi",
             term: "CCTV & Yapay Zeka Kamera Sistemi",
-            summary: "Ortak alanların 7/24 yüksek çözünürlüklü ve hareket analizli kameralarla izlenmesini ve kayıt altına alınmasını sağlayan altyapıdır."
+            summary: "Ortak alanların yüksek çözünürlüklü ve hareket analizli kameralarla izlenmesini ve kayıt altına alınmasını sağlayan altyapıdır."
           }
         ]}
       />

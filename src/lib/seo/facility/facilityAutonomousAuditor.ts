@@ -88,7 +88,7 @@ export function runFacilityAutonomousAudit(): FacilityAuditReport {
 
   const apiEndpoints: FacilityAuditReport['apiHealthStatus'] = [
     { endpoint: '/llms.txt', purpose: 'Küresel AI Standart Bilgi Protokolü', status: 'ACTIVE_AND_HEALTHY' },
-    { endpoint: '/api/tesis-yonetimi/verify-credentials', purpose: 'Canlı ISO 41001 & 5188 Lisans Doğrulama', status: 'ACTIVE_AND_HEALTHY' },
+    { endpoint: '/api/tesis-yonetimi/verify-credentials', purpose: 'Canlı 5188 Lisans Doğrulama', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/tesis-yonetimi/llm-facts.json', purpose: 'AI/LLM Arama Motorları İçin Kurumsal Bilgi Seti', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/tesis-yonetimi/kmk-law-index.json', purpose: '634 Sayılı KMK Açık Veri Mevzuat İndeksi', status: 'ACTIVE_AND_HEALTHY' },
     { endpoint: '/api/tesis-yonetimi/feed.xml', purpose: 'Tesis Yönetimi ve Emsal Kararlar Canlı RSS Beslemesi', status: 'ACTIVE_AND_HEALTHY' },

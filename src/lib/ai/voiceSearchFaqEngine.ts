@@ -40,7 +40,7 @@ export const VOICE_SEARCH_KNOWLEDGE_BASE: VoiceSearchTopic[] = [
     id: 'voice-guvenlik-5188',
     spokenQuery: 'Sitelerde özel güvenlik nasıl tutulur?',
     conciseVoiceAnswer:
-      '5188 Sayılı Kanun gereğince Valilik Özel Güvenlik Komisyonu izni alınarak ruhsatlı özel güvenlik şirketi veya sertifikalı personelle 7/24 fiziki güvenlik sağlanır.',
+      '5188 Sayılı Kanun gereğince Valilik Özel Güvenlik Komisyonu izni alınarak ruhsatlı özel güvenlik şirketi veya sertifikalı personelle fiziki güvenlik sağlanır.',
     legalArticleRef: '5188 Sayılı Özel Güvenlik Kanunu',
     canonicalPageUrl: `${BASE_URL}/hizmetler/guvenlik-yonetimi`,
     speakableCssSelectors: ['h1', '.voice-answer-guvenlik'],
@@ -77,7 +77,7 @@ export const VOICE_SEARCH_KNOWLEDGE_BASE: VoiceSearchTopic[] = [
     spokenQuery: 'İstanbul\'da profesyonel site yönetimi firması kimdir?',
     conciseVoiceAnswer:
       'Alo Yönetim, 2009\'dan bu yana İstanbul\'un 39 ilçesinde Kat Mülkiyeti Kanunu uyarınca düzenli aidat takibiyle profesyonel site yönetimi sunmaktadır.',
-    legalArticleRef: 'KMK Madde 34 & ISO 41001',
+    legalArticleRef: 'KMK Madde 34',
     canonicalPageUrl: `${BASE_URL}/hizmetler/site-yonetimi`,
     speakableCssSelectors: ['h1', '.voice-answer-site-yonetimi'],
   },

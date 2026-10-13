@@ -227,7 +227,7 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
     '@type': 'DigitalDocument',
     '@id': rfpId,
     name: 'Profesyonel Tesis Yönetimi Teknik İhale Şartnamesi (RFP Şablonu)',
-    description: 'İstanbul genelinde apartman, site ve plazalar için ISO 41001 ve 634 Sayılı KMK standartlarında hazırlanmış teknik şartname.',
+    description: 'İstanbul genelinde apartman, site ve plazalar için uluslararası tesis yönetimi standartları ve 634 Sayılı KMK standartlarında hazırlanmış teknik şartname.',
     url: `${canonicalUrl}#rfp`,
     publisher: { '@id': ORG_ID },
   };
@@ -260,7 +260,7 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
       {
         '@type': 'HowToStep',
         position: 4,
-        name: '7/24 Kesintisiz Entegre Tesis İşletmesi',
+        name: 'Entegre Tesis İşletmesi',
         text: 'Güvenlik, temizlik, teknik bakım ve dijital aidat yönetimi tek merkezden kesintisiz başlatılır.',
       },
     ],
@@ -537,22 +537,6 @@ export function buildDistrictFacilityGraphSchema(options: DistrictFacilityGraphO
           longitude: options.geo.lng,
         }
       : ORG_GEO,
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday',
-        ],
-        opens: '00:00',
-        closes: '23:59',
-      },
-    ],
   };
 
   // 3. BreadcrumbList Node

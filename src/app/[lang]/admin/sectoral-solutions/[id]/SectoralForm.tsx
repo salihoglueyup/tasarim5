@@ -136,7 +136,7 @@ export default function SectoralForm({ solution, lang, isNew }: any) {
               value={formData.features}
               onChange={e => setFormData({...formData, features: e.target.value})}
               className="w-full bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 rounded-xl px-4 py-3 font-mono text-sm"
-              placeholder='["7/24 Güvenlik", "Teknik Servis"]'
+              placeholder='["Güvenlik", "Teknik Servis"]'
             />
           </div>
 

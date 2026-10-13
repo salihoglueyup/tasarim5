@@ -470,7 +470,7 @@ export default function SectoralClient({ dbSolutions, lang = 'tr' }: { dbSolutio
           serviceCategory="Sektörel Çözümler"
           lawReferences={[
             {
-              title: "ISO 41001:2018 Tesis Yönetim Sistemi Standardı",
+              title: "uluslararası tesis yönetimi standartları Standardı",
               sourceName: "Türk Standardları Enstitüsü (TSE)",
               url: "https://www.tse.org.tr",
               badge: "KMK 634",

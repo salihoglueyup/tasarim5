@@ -72,7 +72,7 @@ export async function GET() {
       headquarters: 'Kadıköy, İstanbul, Türkiye',
       totalDistrictsCovered: DISTRICTS.length,
       scope: 'İstanbul (39 İlçe)',
-      standard: 'ISO 41001:2018 Facility Management Spatial Grid',
+      standard: 'international facility management standards Facility Management Spatial Grid',
       contactPhone: '+90 216 550 48 48',
       officialWebsite: BASE_URL,
     },

@@ -160,7 +160,7 @@ export default function HakkimizdaClient() {
               </Link>
               ,{' '}
               <a href="https://www.iso.org/standard/68021.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors inline-flex items-center gap-0.5">
-                ISO 41001:2018 Uluslararası Tesis Yönetimi Standartları
+                uluslararası tesis yönetimi standartları
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}

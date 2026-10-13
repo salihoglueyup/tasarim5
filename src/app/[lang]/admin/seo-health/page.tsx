@@ -40,13 +40,13 @@ export default function AdminSeoHealthPage() {
 
   // Canlı Teşhis Stüdyosu State'leri
   const [inspectUrl, setInspectUrl] = useState('https://aloyonetim.com.tr/hizmetler/tesis-yonetimi');
-  const [auditTitle, setAuditTitle] = useState('Profesyonel Tesis Yönetimi İstanbul | 7/24 Alo Yönetim');
+  const [auditTitle, setAuditTitle] = useState('Profesyonel Tesis Yönetimi İstanbul | Alo Yönetim');
   const [auditDesc, setAuditDesc] = useState('İstanbul genelinde profesyonel tesis yönetimi, 5188 güvenlik ve şeffaf KMK aidat takibi. Ücretsiz keşif için hemen arayın.');
   const [auditKeyword, setAuditKeyword] = useState('tesis yönetimi');
   const [auditContent, setAuditContent] = useState(`# İstanbul Profesyonel Tesis Yönetimi ve İşletmeciliği
 Alo Yönetim, 634 Sayılı Kat Mülkiyeti Kanunu (KMK) kapsamında entegre tesis yönetimi ve site yönetimi hizmetleri sunar.
 Operasyonlarımızda %30 oranına varan enerji ve aidat tasarrufu sağlanmaktadır.
-5188 Sayılı Kanun lisanslı özel güvenlik ekiplerimiz 7/24 kesintisiz hizmet vermektedir.
+5188 Sayılı Kanun lisanslı özel güvenlik ekiplerimiz hizmet vermektedir.
 TSE 13811 hijyen standartlarında merdiven ve ortak alan temizliği gerçekleştirilir.
 
 ## Tesis Yönetimi Nedir?

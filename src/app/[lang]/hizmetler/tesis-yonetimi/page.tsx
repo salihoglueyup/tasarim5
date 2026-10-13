@@ -50,7 +50,6 @@ export async function generateMetadata({
       'plaza tesis yönetimi',
       'rezidans tesis yönetimi',
       'bina ve tesis yönetimi',
-      'iso 41001 tesis yönetimi',
       'tesis yönetim firmaları',
       ...serpMeta.keywords,
     ],
@@ -90,7 +89,6 @@ export default async function TesisYonetimiPage({
           'istanbul tesis yönetimi',
           'bina yönetimi',
           'site yönetimi',
-          'iso 41001',
           'kmk 634'
         ]}
       />

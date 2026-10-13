@@ -24,7 +24,7 @@ const FACILITY_HOTSPOTS: Hotspot[] = [
     icon: 'shield_lock',
     top: '78%',
     left: '22%',
-    badge: '7/24 NÖBET',
+    badge: 'NÖBET',
     description: '5188 Sayılı Kanun onaylı, üniformalı ve sertifikalı özel güvenlik personeli ile nizamiye kapısı, plaka tanıma sistemi ve çevre güvenliği kontrolü.',
     sla: '15 Saniye Acil Yanıt Süresi',
     features: ['Plaka Tanıma & Bariyer Otomasyonu', 'Ziyaretçi Kimlik & SMS Doğrulama', '4K Gece Görüşlü CCTV Devriye', 'Acil Durum & Yangın İhbar Protokolü']
@@ -37,7 +37,7 @@ const FACILITY_HOTSPOTS: Hotspot[] = [
     top: '82%',
     left: '68%',
     badge: 'KESİNTİSİZ GÜÇ',
-    description: 'Merkezi ısıtma, hidrofor, jeneratör ve asansör sistemlerinin 7/24 nöbetçi teknisyenler ve dijital sensörlerle periyodik bakım takibi.',
+    description: 'Merkezi ısıtma, hidrofor, jeneratör ve asansör sistemlerinin nöbetçi teknisyenler ve dijital sensörlerle periyodik bakım takibi.',
     sla: '30 Dakika Arıza Müdahale Taahhüdü',
     features: ['Yeşil Etiket Asansör Muayene Takibi', 'Haftalık Jeneratör Yük Testleri', 'Merkezi Isıtma & Boyler Optimizasyonu', 'Termal Kamera Elektrik Panosu Taraması']
   },
@@ -63,7 +63,7 @@ const FACILITY_HOTSPOTS: Hotspot[] = [
     badge: 'SAĞLIK BAKANLIĞI ONAYLI',
     description: 'Açık ve kapalı yüzme havuzlarının günlük kimyasal/pH ölçümleri, filtrasyon temizliği, sauna ve fitness salonu dezenfeksiyonu.',
     sla: 'Günde 3 Kez Dijital Klor/pH Kaydı',
-    features: ['Günlük 3 Vardiya Klor/pH Ölçümü', 'Sağlık Bakanlığı Onaylı Kimyasallar', 'Ters Yıkama & Kum Filtresi Değişimi', 'Fitness & Sauna 7/24 Hijyen Protokolü']
+    features: ['Günlük 3 Vardiya Klor/pH Ölçümü', 'Sağlık Bakanlığı Onaylı Kimyasallar', 'Ters Yıkama & Kum Filtresi Değişimi', 'Fitness & Sauna Hijyen Protokolü']
   },
   {
     id: 'management',
@@ -75,7 +75,7 @@ const FACILITY_HOTSPOTS: Hotspot[] = [
     badge: '%100 ŞEFFAF',
     description: 'Alo Yönetim mobil uygulaması üzerinden anlık aidat takibi, gelir-gider bilançosu, online banka entegrasyonu ve KMK 634 işletme projesi.',
     sla: 'Anlık Dijital Gelir/Gider Raporu',
-    features: ['Mobil Uygulama ile Online Aidat Ödeme', '7/24 Dijital Arıza & Talep Masası', 'Yıllık Şeffaf KMK İşletme Projesi', 'Avukat Destekli Hukuk & İcra Takibi']
+    features: ['Mobil Uygulama ile Online Aidat Ödeme', 'Dijital Arıza & Talep Masası', 'Yıllık Şeffaf KMK İşletme Projesi', 'Avukat Destekli Hukuk & İcra Takibi']
   }
 ];
 

@@ -27,7 +27,7 @@ export default function AidatTakibiClient() {
 
   const duesPoints = [
     {
-      title: t('dues_feat_1_title') || 'Online Kredi Kartı ile 7/24 Ödeme',
+      title: t('dues_feat_1_title') || 'Online Kredi Kartı ile Ödeme',
       desc: t('dues_feat_1_desc') || 'Web panelimiz ve mobil uygulamamız üzerinden tüm banka ve kredi kartlarıyla 3D Secure güvencesiyle anında aidat ödeme imkanı.',
       icon: "smartphone"
     },
@@ -120,7 +120,7 @@ export default function AidatTakibiClient() {
           question="Apartman ve Site Aidat Takibi Nedir ve Yasal Süreç Nasıl İşler?"
           answer="Aidat takibi; KMK Madde 20 ve 37 kapsamında sitenin ortak gider bütçesinin bağımsız bölümlere paylaştırılması ve dijital tahsilatıdır. Tebliğden itibaren 7 gün içinde itiraz edilmeyen işletme projesi İİK Madde 68 uyarınca kesinleşir; ödenmeyen aidatlara aylık yasal %5 gecikme tazminatı işletilerek ilamsız icra takibi açılır."
           standardBadge="KMK Madde 20 & İİK Madde 68"
-          subText="Alo Yönetim, Apsiyon entegrasyonu, kredi kartıyla 7/24 online ödeme ve kurumsal hukuk desteğiyle sitelerde düzenli aidat takibi sağlar."
+          subText="Alo Yönetim, Apsiyon entegrasyonu, kredi kartıyla online ödeme ve kurumsal hukuk desteğiyle sitelerde düzenli aidat takibi sağlar."
           accentColor="emerald"
         />
 </TrOnly>
@@ -201,7 +201,7 @@ export default function AidatTakibiClient() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-3">
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>📱</span> 7/24 Mobil Uygulama & Kredi Kartı ile Online Ödeme
+                  <span>📱</span> Mobil Uygulama & Kredi Kartı ile Online Ödeme
                 </span>
                 <p className="text-[var(--color-secondary)]">
                   Site sakinleri ve kiracılar için iOS/Android mobil uygulama üzerinden 3D Secure güvencesiyle tek çekim veya taksitli kredi kartı ödemesi, otomatik ödeme talimatı ve anlık borç sorgulama.
@@ -280,7 +280,7 @@ export default function AidatTakibiClient() {
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
                   <Icon name="visibility" className="text-lg" />
                 </span>
-                <span>7/24 Canlı Şeffaf Denetim</span>
+                <span>Canlı Şeffaf Denetim</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                 Her daire sakininin tüm harcama faturalarını ve banka hareketlerini mobil uygulamadan anlık inceleyebilmesi.
@@ -336,7 +336,7 @@ export default function AidatTakibiClient() {
               </div>
               <h3 className="font-bold text-sm text-[var(--color-primary)]">Otomatik Hatırlatma</h3>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                Vadesi gelen aidatlar için sakinlere SMS, WhatsApp ve mobil bildirim gönderilir; 7/24 kredi kartı ile ödeme kolaylığı sağlanır.
+                Vadesi gelen aidatlar için sakinlere SMS, WhatsApp ve mobil bildirim gönderilir; kredi kartı ile ödeme kolaylığı sağlanır.
               </p>
             </div>
 

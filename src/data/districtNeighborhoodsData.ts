@@ -66,7 +66,7 @@ const NEIGHBORHOOD_TYPOLOGY_MAP: Record<string, MicroNeighborhoodItem[]> = {
     { name: 'Kayaşehir', slug: 'kayasehir', typology: 'residential', typologyLabel: 'Geniş Parseller', focusKeyword: 'Kayaşehir toplu konut yönetimi', notableTraits: 'Merkezi payölçer okuma, kalorimetre ve su deposu temizliği.' },
   ],
   atasehir: [
-    { name: 'Batı Ataşehir', slug: 'bati-atasehir', typology: 'commercial', typologyLabel: 'Rezidans & Finans', focusKeyword: 'Batı Ataşehir rezidans yönetimi', notableTraits: 'Finans Merkezi çevresi gökdelenlerde 7/24 teknik kadro.' },
+    { name: 'Batı Ataşehir', slug: 'bati-atasehir', typology: 'commercial', typologyLabel: 'Rezidans & Finans', focusKeyword: 'Batı Ataşehir rezidans yönetimi', notableTraits: 'Finans Merkezi çevresi gökdelenlerde teknik kadro.' },
     { name: 'İçerenköy', slug: 'icerenkoy', typology: 'residential', typologyLabel: 'Konut & Ticari', focusKeyword: 'İçerenköy apartman yönetimi', notableTraits: 'Kentsel dönüşüm binalarında işletme projesi ve Apsiyon geçişi.' },
     { name: 'Küçükbakkalköy', slug: 'kucukbakkalkoy', typology: 'residential', typologyLabel: 'Siteler', focusKeyword: 'Küçükbakkalköy site yönetimi', notableTraits: 'Kapalı otopark, asansör yeşil etiket ve şeffaf banka hesabı.' },
   ],

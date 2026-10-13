@@ -114,7 +114,7 @@ const EQUIPMENT_DATA: EquipmentItem[] = [
     category: 'Taktik İletişim & Güvenlik Koordinasyonu',
     icon: Radio,
     badge: 'Kriptolu Sayısal Ağ & Man-Down',
-    tagline: 'Hücresel şebekeler çökse bile tesis içinde 7/24 kesintisiz, parazitsiz ve şifreli sesli haberleşme.',
+    tagline: 'Hücresel şebekeler çökse bile tesis içinde kesintisiz, parazitsiz ve şifreli sesli haberleşme.',
     description: 'Deprem, sabotaj veya hücresel şebeke kesintilerinde bağımsız röle üzerinden çalışan, personelin bayılma veya hareketsizliğini (Man-Down) algılayarak otomatik acil çağrı açan sayısal telsiz standardı.',
     specs: [
       { label: 'Modülasyon', value: 'DMR Tier II Sayısal Standart' },

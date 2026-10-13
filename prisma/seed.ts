@@ -173,11 +173,11 @@ async function main() {
       slug: 'rezidans',
       title: 'Lüks Rezidans & Karma Yaşam Projeleri',
       description:
-        '7/24 konsiyerj, vale, resepsiyon, SPA/fitness işletimi, misafir karşılama protokolleri ve üst düzey sakin konforu.',
+        'Konsiyerj, vale, resepsiyon, SPA/fitness işletimi, misafir karşılama protokolleri ve üst düzey sakin konforu.',
       icon: 'apartment',
       kpiTag: 'Şeffaf Yönetim',
       features: JSON.stringify([
-        '7/24 Resepsiyon & Konsiyerj Hizmeti',
+        'Resepsiyon & Konsiyerj Hizmeti',
         'Akıllı Mobil Rezervasyon & Aidat Portalı',
         'Merkezi İklimlendirme (HVAC) & BMS Denetimi',
         'VIP Misafir ve Otopark Vale Koordinasyonu',
@@ -188,7 +188,7 @@ async function main() {
       slug: 'avm',
       title: 'AVM & Ticari Gayrimenkul Yönetimi',
       description:
-        'Ortak alan iklimlendirme, yürüyen merdiven periyodik bakımı, atık ayrıştırma ve 7/24 entegre güvenlik.',
+        'Ortak alan iklimlendirme, yürüyen merdiven periyodik bakımı, atık ayrıştırma ve entegre güvenlik.',
       icon: 'storefront',
       kpiTag: 'Enerji Verimliliği',
       features: JSON.stringify([
@@ -225,7 +225,7 @@ async function main() {
         'KMK 634 Uyumlu Şeffaf Online Aidat Tahsilatı',
         'Yeşil Etiketli Asansör Muayene Takibi',
         'Otomatik Sulama & Periyodik Peyzaj Bakımı',
-        '7/24 Çevre Güvenlik Kamerası & Bariyer Sistemi',
+        'Çevre Güvenlik Kamerası & Bariyer Sistemi',
       ]),
       order: 4,
     },
@@ -233,7 +233,7 @@ async function main() {
       slug: 'guvenlik-rezidans-plaza',
       title: '5188 Özel Güvenlik & Plaza Emniyet Çözümleri',
       description:
-        '5188 sayılı kanuna uygun sertifikalı özel güvenlik, AI plaka tanıma (PTS), kartlı turnike ve 7/24 kesintisiz devriye kalkanı.',
+        '5188 sayılı kanuna uygun sertifikalı özel güvenlik, AI plaka tanıma (PTS), kartlı turnike ve kesintisiz devriye kalkanı.',
       icon: 'security',
       kpiTag: '%100 Sıfır Zafiyet & Valilik İzin Güvencesi',
       features: JSON.stringify([

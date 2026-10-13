@@ -9,7 +9,7 @@ interface PositionZeroAnswerBoxProps {
   question: string;
   /** 40-50 kelimelik hap, kesin ve alıntılanabilir doğrudan tanım */
   answer: string;
-  /** Yasal standart — ör. "ISO 41001:2018 & KMK 634" */
+  /** Yasal standart — ör. "KMK 634" */
   standardBadge?: string;
   /** İkincil alt detay veya madde referansı */
   subText?: string;

@@ -4,7 +4,7 @@
 // o dilde olur. Marka eki (" | Alo Yönetim") formatBrandTitle tarafından eklenir.
 //
 // Not: Doğrulanamayan rakamlar (tasarruf yüzdesi, tahsilat garantisi) ve sahip olunmayan
-// belge/standart adları (ör. ISO 41001) bilinçli olarak bu metinlere alınmadı.
+// belge/standart adları (ör. uluslararası tesis yönetimi standartları) bilinçli olarak bu metinlere alınmadı.
 
 export type MetaLocale = 'en' | 'ru' | 'ar';
 export interface LocalizedMeta {
@@ -19,14 +19,14 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ar: { title: 'خدمات إدارة المباني والمرافق', description: 'حلول مؤسسية لإدارة المرافق في جميع أنحاء إسطنبول تشمل الأمن الخاص المرخّص والنظافة والصيانة الفنية وتحصيل الاشتراكات وتنسيق الحدائق.' },
   },
   '/hizmetler/site-yonetimi': {
-    en: { title: 'Complex Management Companies in Istanbul — Condominium Law No. 634 & 24/7', description: 'Professional management of housing complexes, apartment buildings and residences across Istanbul\'s 39 districts in line with Condominium Law No. 634: transparent dues collection and licensed security. Get a free survey.' },
-    ru: { title: 'Управляющие компании комплексов в Стамбуле — Закон № 634 и 24/7', description: 'Профессиональное управление жилыми комплексами, многоквартирными домами и резиденциями в 39 районах Стамбула в соответствии с Законом № 634: прозрачный сбор взносов и лицензированная охрана. Запросите бесплатный осмотр.' },
-    ar: { title: 'شركات إدارة المجمعات في إسطنبول — القانون رقم 634 وعلى مدار الساعة', description: 'إدارة احترافية للمجمعات السكنية والعمارات والإقامات في مناطق إسطنبول التسع والثلاثين وفق قانون ملكية الطوابق رقم 634: تحصيل شفاف للاشتراكات وأمن مرخّص. احصلوا على معاينة مجانية.' },
+    en: { title: 'Complex Management Companies in Istanbul — Condominium Law No. 634 &', description: 'Professional management of housing complexes, apartment buildings and residences across Istanbul\'s 39 districts in line with Condominium Law No. 634: transparent dues collection and licensed security. Get a free survey.' },
+    ru: { title: 'Управляющие компании комплексов в Стамбуле — Закон № 634 и', description: 'Профессиональное управление жилыми комплексами, многоквартирными домами и резиденциями в 39 районах Стамбула в соответствии с Законом № 634: прозрачный сбор взносов и лицензированная охрана. Запросите бесплатный осмотр.' },
+    ar: { title: 'شركات إدارة المجمعات في إسطنبول — القانون رقم 634', description: 'إدارة احترافية للمجمعات السكنية والعمارات والإقامات في مناطق إسطنبول التسع والثلاثين وفق قانون ملكية الطوابق رقم 634: تحصيل شفاف للاشتراكات وأمن مرخّص. احصلوا على معاينة مجانية.' },
   },
   '/hizmetler/guvenlik-yonetimi': {
-    en: { title: 'Licensed Private Security Companies — Complex & Facility Security', description: 'A private security company licensed by the Governorate commission under Law No. 5188: 24/7 RFID patrols, CCTV monitoring, severance-pay protection and professional protection.' },
-    ru: { title: 'Лицензированные охранные компании — охрана комплексов и объектов', description: 'Частная охранная компания с разрешением губернаторской комиссии по Закону № 5188: RFID-патрули 24/7, видеонаблюдение, защита по выходным пособиям и профессиональная охрана.' },
-    ar: { title: 'شركات الأمن الخاص المرخّصة — أمن المجمعات والمنشآت', description: 'شركة أمن خاص مرخّصة من لجنة الولاية بموجب القانون رقم 5188: دوريات RFID على مدار الساعة ومراقبة بالكاميرات وحماية من مخاطر تعويضات نهاية الخدمة وحراسة احترافية.' },
+    en: { title: 'Licensed Private Security Companies — Complex & Facility Security', description: 'A private security company licensed by the Governorate commission under Law No. 5188: RFID patrols, CCTV monitoring, severance-pay protection and professional protection.' },
+    ru: { title: 'Лицензированные охранные компании — охрана комплексов и объектов', description: 'Частная охранная компания с разрешением губернаторской комиссии по Закону № 5188: RFID-патрули, видеонаблюдение, защита по выходным пособиям и профессиональная охрана.' },
+    ar: { title: 'شركات الأمن الخاص المرخّصة — أمن المجمعات والمنشآت', description: 'شركة أمن خاص مرخّصة من لجنة الولاية بموجب القانون رقم 5188: دوريات RFID ومراقبة بالكاميرات وحماية من مخاطر تعويضات نهاية الخدمة وحراسة احترافية.' },
   },
   '/hizmetler/temizlik-ve-hijyen': {
     en: { title: 'Apartment & Complex Common-Area Cleaning Company', description: 'Block, floor-lobby and parking cleaning with industrial floor machines and payroll staff. Request a transparent quote.' },
@@ -69,9 +69,9 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ar: { title: 'إدارة الأبراج التجارية — تشغيل مراكز الأعمال والمكاتب من الفئة A', description: 'إدارة الأبراج ومراكز الأعمال والمراكز التجارية من الفئة A في جميع أنحاء إسطنبول: أمن مرخّص وأتمتة HVAC/BMS وطاقة مولدات دون انقطاع.' },
   },
   '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi': {
-    en: { title: 'Residence Facility Management — Luxury Complex & Concierge Service', description: 'Professional residence management for residence towers and luxury complexes across Istanbul, with 24/7 concierge, licensed security, technical operations and transparent dues tracking.' },
-    ru: { title: 'Управление резиденциями — элитные комплексы и консьерж-сервис', description: 'Профессиональное управление резиденциями и элитными комплексами по всему Стамбулу: консьерж 24/7, лицензированная охрана, техническая эксплуатация и прозрачный учёт взносов.' },
-    ar: { title: 'إدارة الإقامات السكنية — المجمعات الفاخرة وخدمة الكونسيرج', description: 'إدارة احترافية لأبراج الإقامات والمجمعات الفاخرة في جميع أنحاء إسطنبول مع كونسيرج على مدار الساعة وأمن مرخّص وتشغيل فني ومتابعة شفافة للاشتراكات.' },
+    en: { title: 'Residence Facility Management — Luxury Complex & Concierge Service', description: 'Professional residence management for residence towers and luxury complexes across Istanbul, with concierge, licensed security, technical operations and transparent dues tracking.' },
+    ru: { title: 'Управление резиденциями — элитные комплексы и консьерж-сервис', description: 'Профессиональное управление резиденциями и элитными комплексами по всему Стамбулу: консьерж, лицензированная охрана, техническая эксплуатация и прозрачный учёт взносов.' },
+    ar: { title: 'إدارة الإقامات السكنية — المجمعات الفاخرة وخدمة الكونسيرج', description: 'إدارة احترافية لأبراج الإقامات والمجمعات الفاخرة في جميع أنحاء إسطنبول مع كونسيرج وأمن مرخّص وتشغيل فني ومتابعة شفافة للاشتراكات.' },
   },
   '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi': {
     en: { title: 'Industrial Facility Management — Factory, Warehouse & OIZ Operations', description: 'Integrated facility management for organised industrial zones, factories and logistics warehouses, with ISO 45001 occupational health and safety, transformer maintenance and industrial security.' },

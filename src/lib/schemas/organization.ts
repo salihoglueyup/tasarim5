@@ -309,29 +309,8 @@ export function professionalServiceSchema(opts?: {
     parentOrganization: { '@id': ORG_ID },
     knowsAbout: opts?.knowsAbout ?? [
       { '@type': 'Thing', name: 'Tesis Yönetimi (Facility Management)', sameAs: 'https://www.wikidata.org/wiki/Q1391515' },
-      { '@type': 'Thing', name: 'ISO 41001 Tesis Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
+      { '@type': 'Thing', name: 'uluslararası tesis yönetimi standartları', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
       { '@type': 'Thing', name: 'Bina Otomasyonu ve Yönetimi', sameAs: 'https://www.wikidata.org/wiki/Q895066' },
-    ],
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '08:30',
-        closes: '18:30',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '09:00',
-        closes: '14:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: '00:00',
-        closes: '23:59',
-        description: '7/24 Kesintisiz Acil Mobil Teknik Servis & Güvenlik Operasyon Merkezi',
-      },
     ],
   };
 }

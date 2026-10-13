@@ -141,7 +141,7 @@ export function synthesizeNeighborhoodFacilityFaq(
     // 3. Şeffaf Aidat ve Mali Yönetim
     {
       question: `${nName} Mahallesi'nde bina ve site aidatları nasıl yönetilir?`,
-      answer: `KMK Madde 37'ye uygun yıllık işletme projesi hazırlanır. Bağımsız bölüm sakinleri mobil uygulama üzerinden aidatlarını güvenle öder, hesap hareketleri ve harcama belgeleri 7/24 şeffaf olarak denetlenebilir.`,
+      answer: `KMK Madde 37'ye uygun yıllık işletme projesi hazırlanır. Bağımsız bölüm sakinleri mobil uygulama üzerinden aidatlarını güvenle öder, hesap hareketleri ve harcama belgeleri şeffaf olarak denetlenebilir.`,
       topic: 'COST_SAVINGS',
     },
     // 4. E-E-A-T Kalite ve Akreditasyon

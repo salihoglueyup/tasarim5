@@ -51,7 +51,7 @@ export function serviceSchema(opts: {
         ? opts.offers
         : [
             { name: `${opts.serviceType} Keşif & Danışmanlık`, description: 'Yerinde ücretsiz fizibilite ve teknik durum tespiti.' },
-            { name: `7/24 Operasyonel ${opts.serviceType}`, description: 'Sözleşmeli ve yazılı SLA kapsamında kurumsal hizmet yönetimi.' },
+            { name: `Operasyonel ${opts.serviceType}`, description: 'Sözleşmeli ve yazılı SLA kapsamında kurumsal hizmet yönetimi.' },
             { name: `${opts.serviceType} Denetim & Raporlama`, description: 'Mobil uygulama üzerinden anlık denetim ve şeffaf tutanaklar.' },
           ]
       ).map((o) => ({
@@ -120,20 +120,6 @@ export function localBusinessAreaSchema(opts: {
     hasMap: `https://www.google.com/maps?q=Alo+Yönetim+${encodeURIComponent(opts.areaName)}&cid=11823908234123984`,
     areaServed: { '@type': 'AdministrativeArea', name: `${opts.areaName}, İstanbul` },
     parentOrganization: { '@id': ORG_ID },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '09:00',
-        closes: '18:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '09:00',
-        closes: '14:00',
-      },
-    ],
   };
 }
 
@@ -177,19 +163,11 @@ export function districtSecurityServiceSchema({
     '@type': 'SecurityService',
     '@id': `${url}#security-service`,
     name: `${districtName} Güvenlik Şirketleri — 5188 Özel Güvenlik & Site Emniyet Hizmetleri`,
-    description: `${districtName} genelinde 5188 sayılı kanun standartlarında Valilik ruhsatlı özel güvenlik personeli, 7/24 devriye, PTS plaka tanıma ve CCTV kamera izleme hizmeti.`,
+    description: `${districtName} genelinde 5188 sayılı kanun standartlarında Valilik ruhsatlı özel güvenlik personeli, devriye, PTS plaka tanıma ve CCTV kamera izleme hizmeti.`,
     url,
     priceRange: '₺₺',
     serviceType: '5188 Sayılı Kanun Kapsamında Özel Güvenlik ve Koruma',
     category: 'SecurityService',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: '00:00',
-        closes: '23:59',
-      },
-    ],
     provider: {
       '@type': 'Corporation',
       '@id': ORG_ID,
@@ -236,7 +214,7 @@ export function districtSecurityServiceSchema({
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'RFID Devriye Tur Kontrol ve 7/24 CCTV İzleme Merkezi'
+            name: 'RFID Devriye Tur Kontrol ve CCTV İzleme Merkezi'
           }
         },
         {
@@ -324,7 +302,7 @@ export function districtTechnicalServiceSchema(opts: {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: '7/24 Kesintisiz Jeneratör & Otomatik Transfer Panosu (ATS) Bakımı'
+            name: 'Jeneratör & Otomatik Transfer Panosu (ATS) Bakımı'
           }
         },
         {
@@ -495,14 +473,6 @@ export function districtFacilityServiceSchema(opts: {
         }
       : ORG_GEO,
     hasMap: `https://www.google.com/maps?q=Alo+Yönetim+${encodeURIComponent(districtName)}`,
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: '00:00',
-        closes: '23:59',
-      },
-    ],
     about: [
       { '@type': 'Thing', name: 'Facility management', sameAs: 'https://www.wikidata.org/wiki/Q1391515' },
       { '@type': 'Thing', name: 'Property management', sameAs: 'https://www.wikidata.org/wiki/Q1758229' },
@@ -533,7 +503,7 @@ export function districtFacilityServiceSchema(opts: {
         }
       } : {}),
       ...(neighborhoods && neighborhoods.length ? {
-        description: `${neighborhoods.join(', ')} mahallelerinde yerinde 7/24 tesis yönetim masası.`
+        description: `${neighborhoods.join(', ')} mahallelerinde yerinde tesis yönetim masası.`
       } : {})
     },
     hasOfferCatalog: {
@@ -551,14 +521,14 @@ export function districtFacilityServiceSchema(opts: {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: '5188 Lisanslı Özel Güvenlik, PTS Plaka Tanıma & 7/24 CCTV İzleme'
+            name: '5188 Lisanslı Özel Güvenlik, PTS Plaka Tanıma & CCTV İzleme'
           }
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Asansör, Jeneratör & Hidrofor 7/24 Mobil Önleyici Teknik Servisi'
+            name: 'Asansör, Jeneratör & Hidrofor Mobil Önleyici Teknik Servisi'
           }
         },
         {

@@ -116,7 +116,7 @@ export const KMK_LEGAL_QA_DISPUTES: KmkLegalQaDispute[] = [
     practicalGuidelines: [
       'Genel kurul karar defterinde güvenlik kamerası takılması kararı salt çoğunlukla onaylanmalıdır.',
       'Kameralar hiçbir komşunun daire içini veya özel alanını görmemelidir (Özel Hayatın Gizliliği TCK 134).',
-      'Bina giriş kapısına "Bu bina 7/24 güvenlik kamerası ile izlenmektedir" resmi tabelası asılmalıdır.',
+      'Bina giriş kapısına "Bu bina güvenlik kamerası ile izlenmektedir" resmi tabelası asılmalıdır.',
     ],
     upvoteCount: 247,
     answeredBy: 'Alo Yönetim Hukuk ve Kat Mülkiyeti Kurulu',

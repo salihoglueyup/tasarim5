@@ -28,7 +28,7 @@ export async function generateMetadata({
   const t = await getDictionary(lang);
 
   const title = '5188 Özel Güvenlik Şirketleri — Site ve Tesis Güvenliği | Alo Yönetim';
-  const description = '5188 sayılı Kanun kapsamında Valilik komisyon izinli özel güvenlik şirketi, 7/24 RFID devriye, CCTV izleme, kıdem tazminatı kalkanı ve profesyonel koruma.';
+  const description = '5188 sayılı Kanun kapsamında Valilik komisyon izinli özel güvenlik şirketi, RFID devriye, CCTV izleme, kıdem tazminatı kalkanı ve profesyonel koruma.';
 
   return buildMetadata({
     title,

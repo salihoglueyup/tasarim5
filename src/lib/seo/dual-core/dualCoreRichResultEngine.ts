@@ -309,7 +309,7 @@ export function buildLocalBusinessSchema(options: LocalBusinessRichOptions = { p
     image: `${BASE_URL}/images/og-main.jpg`,
     description: isFacility
       ? 'İstanbul genelinde plazalar, AVM\'ler, fabrikalar ve ticari gayrimenkuller için entegre tesis yönetimi, 5188 güvenlik, BMS ve teknik bakım.'
-      : 'İstanbul genelinde siteler ve apartmanlar için KMK 634 mevzuatına uygun, şeffaf aidat takibi, 7/24 teknik servis ve profesyonel site yöneticiliği.',
+      : 'İstanbul genelinde siteler ve apartmanlar için KMK 634 mevzuatına uygun, şeffaf aidat takibi, teknik servis ve profesyonel site yöneticiliği.',
     telephone: CANONICAL_NAP.contact.phoneDisplay,
     email: CANONICAL_NAP.contact.email,
     priceRange: options.priceRange || CANONICAL_NAP.priceRange,
@@ -591,9 +591,9 @@ export const HOWTO_ONLINE_DUES_SYSTEM: HowToRichOptions = {
 
 export const HOWTO_ISO_41001_COMPLIANCE: HowToRichOptions = {
   id: 'iso-41001-tesis-yonetim-standardi-rehberi',
-  name: 'ISO 41001 Tesis Yönetim Standardı Nasıl Uygulanır? (10 Adım)',
-  // claims-guard-ignore: genel HowTo: ISO 41001 belgelendirme adımları (bilgilendirici)
-      description: 'Uluslararası Tesis Yönetimi Yönetim Sistemi Standardı (ISO 41001:2018) denetim hazırlığı ve sertifikasyon adımları.',
+  name: 'uluslararası tesis yönetimi standartları Nasıl Uygulanır? (10 Adım)',
+  // claims-guard-ignore: genel HowTo: uluslararası tesis yönetimi standartları belgelendirme adımları (bilgilendirici)
+      description: 'Uluslararası Tesis Yönetimi Yönetim Sistemi Standardı (uluslararası tesis yönetimi standartları) denetim hazırlığı ve sertifikasyon adımları.',
   pillar: 'facility',
   totalTime: 'P60D',
   steps: [
@@ -604,7 +604,7 @@ export const HOWTO_ISO_41001_COMPLIANCE: HowToRichOptions = {
     { name: 'Operasyonel Planlama ve Süreç Kontrolü', text: 'BMS, yangın, atık ve acil durum operasyonel standart çalışma prosedürleri (SOP) dokümante edilir.', position: 5 },
     { name: 'Tedarikçi ve Alt Yüklenici Performans Yönetimi', text: 'Asansör, jeneratör vb. alt yükleniciler SLA kriterlerine göre periyodik denetime tabi tutulur.', position: 6 },
     { name: 'Performans Değerlendirme ve KPI İzleme', text: 'Enerji tüketimi, müşteri memnuniyeti ve arıza müdahale süreleri aylık olarak ölçülür.', position: 7 },
-    { name: 'İç Tetkik (Internal Audit) Gerçekleştirilmesi', text: 'Tüm birimler bağımsız iç tetkikçilerce ISO 41001 kontrol listelerine göre denetlenir.', position: 8 },
+    { name: 'İç Tetkik (Internal Audit) Gerçekleştirilmesi', text: 'Tüm birimler bağımsız iç tetkikçilerce uluslararası tesis yönetimi standartları kontrol listelerine göre denetlenir.', position: 8 },
     { name: 'Yönetimin Gözden Geçirmesi (YGG) Toplantısı', text: 'İç tetkik bulguları ve düzeltici faaliyetler üst yönetim kurulunda değerlendirilir.', position: 9 },
     { name: 'Akredite Belgelendirme Denetimi ve Sertifikasyon', text: 'Akredite bir belgelendirme kuruluşu tarafından saha denetimi yapılarak sertifika tescil edilir.', position: 10 },
   ],
@@ -681,7 +681,7 @@ export const SITE_REVIEW_BANK: ReviewItem[] = [
     pillar: 'site',
     serviceSlug: 'tesis-yonetimi',
     districtSlug: 'kadikoy',
-    positiveNotes: 'Şeffaf online aidat takip paneli, 7/24 nöbetçi teknik servis ve KMK uyumlu muhasebe.',
+    positiveNotes: 'Şeffaf online aidat takip paneli, nöbetçi teknik servis ve KMK uyumlu muhasebe.',
     negativeNotes: 'Yoğun dönemlerde çağrı merkezinde 1-2 dakikalık bekleme olabiliyor.',
   },
   {
@@ -742,7 +742,7 @@ export const FACILITY_REVIEW_BANK: ReviewItem[] = [
   {
     authorName: 'Burak Demir (Lojistik Merkezi Operasyon Direktörü)',
     ratingValue: 5,
-    reviewBody: '45.000 m² depolama tesisimizde endüstriyel zemin temizliği ve 7/24 güvenlik hizmetlerini üstlendiler. SLA hedeflerini %100 tutturdular.',
+    reviewBody: '45.000 m² depolama tesisimizde endüstriyel zemin temizliği ve güvenlik hizmetlerini üstlendiler. SLA hedeflerini %100 tutturdular.',
     datePublished: '2026-01-14',
     pillar: 'facility',
     serviceSlug: 'hizmetler/temizlik-yonetimi',
@@ -829,7 +829,7 @@ export function buildReviewSchema(review: ReviewItem) {
 
 export const JOB_POSTING_FACILITY_MANAGER: JobPostingRichOptions = {
   title: 'Kıdemli Tesis Yöneticisi (Plaza & İş Merkezi)',
-  description: '<p>İstanbul Avrupa ve Anadolu yakasındaki A+ plaza ve iş merkezlerimizin teknik, güvenlik, temizlik ve İSG operasyonlarını yönetecek <strong>Kıdemli Tesis Yöneticisi</strong> arıyoruz.</p><h3>Aranan Nitelikler:</h3><ul><li>Üniversitelerin Mühendislik veya İşletme bölümlerinden mezun,</li><li>En az 5 yıl ticari gayrimenkul veya plaza tesis yönetim tecrübesi olan,</li><li>ISO 41001, BMS ve CMMS otomasyon yazılımlarına hakim,</li><li>6331 sayılı İSG mevzuatını iyi bilen.</li></ul>',
+  description: '<p>İstanbul Avrupa ve Anadolu yakasındaki A+ plaza ve iş merkezlerimizin teknik, güvenlik, temizlik ve İSG operasyonlarını yönetecek <strong>Kıdemli Tesis Yöneticisi</strong> arıyoruz.</p><h3>Aranan Nitelikler:</h3><ul><li>Üniversitelerin Mühendislik veya İşletme bölümlerinden mezun,</li><li>En az 5 yıl ticari gayrimenkul veya plaza tesis yönetim tecrübesi olan,</li><li>BMS ve CMMS otomasyon yazılımlarına hakim,</li><li>6331 sayılı İSG mevzuatını iyi bilen.</li></ul>',
   datePosted: '2026-02-01',
   validThrough: '2026-12-31',
   employmentType: 'FULL_TIME',
@@ -844,7 +844,7 @@ export const JOB_POSTING_FACILITY_MANAGER: JobPostingRichOptions = {
   salaryUnitText: 'MONTH',
   skillsRequired: ['KMK 634', 'CMMS', 'BMS Otomasyon', 'Bütçe Yönetimi', '6331 İSG', 'SLA Yönetimi'],
   responsibilities: [
-    'Plaza teknik ve idari ekiplerinin 7/24 sevk ve idaresi',
+    'Plaza teknik ve idari ekiplerinin sevk ve idaresi',
     'Yıllık işletme bütçesi ve enerji verimlilik raporlarının hazırlanması',
     'Taşeron firmaların SLA performans denetimi',
   ],
@@ -945,8 +945,8 @@ export const COURSE_KMK_634_LAW: CourseRichOptions = {
 
 export const COURSE_ISO_41001_FACILITY: CourseRichOptions = {
   courseCode: 'ALO-ISO-41001',
-  name: 'ISO 41001 Tesis Yönetim Sistemi ve Operasyonel Mükemmellik Uzmanlık Eğitimi',
-  description: 'Plaza, AVM ve fabrika yöneticileri için uluslararası ISO 41001 standardı, SLA metrikleri, CMMS/BMS entegrasyonu ve enerji verimliliği uzmanlık kursu.',
+  name: 'uluslararası tesis yönetimi standartları ve Operasyonel Mükemmellik Uzmanlık Eğitimi',
+  description: 'Plaza, AVM ve fabrika yöneticileri için uluslararası uluslararası tesis yönetimi standartları standardı, SLA metrikleri, CMMS/BMS entegrasyonu ve enerji verimliliği uzmanlık kursu.',
   providerName: 'Alo Yönetim Akademi',
   providerUrl: `${BASE_URL}/akademi`,
   educationalLevel: 'Sertifika',

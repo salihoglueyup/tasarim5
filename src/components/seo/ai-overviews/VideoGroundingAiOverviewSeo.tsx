@@ -41,7 +41,7 @@ export const GROUNDING_VIDEO_GUIDES: GroundingVideoItem[] = [
     clips: [
       { name: 'KMK 29 Olağanüstü Genel Kurul Çağrısı', startOffset: 0, endOffset: 45, url: `${BASE_URL}/video/site-yonetimi-gecis-protokolu#t=0,45` },
       { name: 'KMK 34 Sayı ve Arsa Payı Çoğunluğu Kararı', startOffset: 45, endOffset: 135, url: `${BASE_URL}/video/site-yonetimi-gecis-protokolu#t=45,135` },
-      { name: '5188 SK ve ISO 41001 Şartname İncelemesi', startOffset: 135, endOffset: 210, url: `${BASE_URL}/video/site-yonetimi-gecis-protokolu#t=135,210` },
+      { name: '5188 SK ve uluslararası tesis yönetimi standartları Şartname İncelemesi', startOffset: 135, endOffset: 210, url: `${BASE_URL}/video/site-yonetimi-gecis-protokolu#t=135,210` },
       { name: 'Islak İmzalı Devir-Teslim ve Kasa Kapanışı', startOffset: 210, endOffset: 255, url: `${BASE_URL}/video/site-yonetimi-gecis-protokolu#t=210,255` },
     ],
   },
@@ -236,7 +236,7 @@ export default function VideoGroundingAiOverviewSeo({
               {selectedVideo.durationFormatted} HD 1080p
             </span>
             <span className="text-[11px] font-mono text-slate-400 bg-black/50 px-2 py-0.5 rounded">
-              ISO 41001 Standardı
+              uluslararası tesis yönetimi standartları
             </span>
           </div>
 

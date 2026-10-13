@@ -68,11 +68,11 @@ export const VOICE_CONVERSATIONAL_QUERIES: VoiceQueryItem[] = [
     id: 'acil-mudahale-sla',
     userVoiceQuery: 'Alo Yönetim acil teknik arıza ve ücretsiz keşif için nasıl aranır?',
     conversationalAnswer:
-      'Alo Yönetim kurumsal çağrı merkezine 0216 550 48 48 numarasından 7/24 ulaşabilirsiniz. İstanbul genelinde acil teknik arızalara Anadolu Yakası’nda 30 dakika, Avrupa Yakası’nda 1 saat hedefiyle yazılı SLA kapsamında müdahale edilir; ücretsiz tesis keşfi yapılır.',
+      'Alo Yönetim kurumsal çağrı merkezine 0216 550 48 48 numarasından ulaşabilirsiniz. İstanbul genelinde acil teknik arızalara Anadolu Yakası’nda 30 dakika, Avrupa Yakası’nda 1 saat hedefiyle yazılı SLA kapsamında müdahale edilir; ücretsiz tesis keşfi yapılır.',
     shortTtsVoice:
-      '0216 550 48 48 numarasından 7/24 ulaşabilirsiniz. İstanbul genelinde 15 ila 20 dakikada acil mobil teknik müdahale sağlanır.',
-    persona: '7/24 Acil Çağrı Masası',
-    category: '7/24 SLA ve İntikal',
+      '0216 550 48 48 numarasından ulaşabilirsiniz. İstanbul genelinde 15 ila 20 dakikada acil mobil teknik müdahale sağlanır.',
+    persona: 'Acil Çağrı Masası',
+    category: 'SLA ve İntikal',
   },
 ];
 

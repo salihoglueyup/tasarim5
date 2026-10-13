@@ -293,7 +293,7 @@ export function aiAssistantSchema(): JsonLdObject {
         'Site ve Apartman Yönetimi',
         'Entegre Tesis Yönetimi',
         'Aidat Tahsilatı ve İcra Takibi',
-        '7/24 Fiziki ve Elektronik Güvenlik Yönetimi',
+        'Fiziki ve Elektronik Güvenlik Yönetimi',
         'Periyodik Asansör ve Kazan Dairesi Teknik Bakımı',
         'Endüstriyel Temizlik ve Dezenfeksiyon'
       ],

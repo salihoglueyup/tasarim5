@@ -20,7 +20,7 @@ export const VERIFIED_AUTHORITY_CREDENTIALS: VerifiedCredential[] = [
     issuer: 'T.C. İçişleri Bakanlığı / İstanbul Valiliği',
     credentialNumber: CANONICAL_NAP.legal.securityPermitNumber,
     validUntil: 'Süresiz / Yıllık Denetimli',
-    scope: '7/24 Fiziki ve Elektronik Güvenlik, CCTV İzleme ve Devriye Hizmetleri',
+    scope: 'Fiziki ve Elektronik Güvenlik, CCTV İzleme ve Devriye Hizmetleri',
     wikidataId: 'Q115792942',
     verificationUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
   },

@@ -91,7 +91,7 @@ export const CANONICAL_NAP: CanonicalNapData = {
     phoneE164: '+902165504848',
     phoneDisplay: '0216 550 48 48',
     emergencyPhoneE164: '+902165504848',
-    emergencyPhoneDisplay: '0216 550 48 48 (7/24 Nöbetçi Santral)',
+    emergencyPhoneDisplay: '0216 550 48 48 (Santral)',
     email: 'info@aloyonetim.com.tr',
     supportEmail: 'info@aloyonetim.com.tr',
     privacyEmail: 'kvkk@aloyonetim.com.tr',
@@ -109,7 +109,7 @@ export const CANONICAL_NAP: CanonicalNapData = {
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
     opens: '08:30',
     closes: '18:30',
-    callCenterHours: '7/24 Kesintisiz',
+    callCenterHours: 'Kesintisiz',
   },
   sameAs: [
     'https://twitter.com/aloyonetim',
@@ -158,29 +158,6 @@ export function generateLocalBusinessJsonLd(options?: {
       latitude: CANONICAL_NAP.geo.latitude,
       longitude: CANONICAL_NAP.geo.longitude,
     },
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: CANONICAL_NAP.openingHours.dayOfWeek,
-        opens: CANONICAL_NAP.openingHours.opens,
-        closes: CANONICAL_NAP.openingHours.closes,
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday',
-        ],
-        opens: '00:00',
-        closes: '23:59',
-        description: '7/24 Nöbetçi Tesis Çağrı Merkezi ve Acil Müdahale',
-      },
-    ],
     areaServed: {
       '@type': 'City',
       name: 'İstanbul',

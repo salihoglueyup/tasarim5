@@ -34,7 +34,7 @@ export async function GET() {
       requiresSubscription: 'no',
       uploader: 'Alo Yönetim',
       category: 'Tesis Yönetimi',
-      tags: ['tesis yönetimi', 'site yönetimi', 'özel güvenlik', '5188', 'apartman yönetimi', 'iso 41001'],
+      tags: ['tesis yönetimi', 'site yönetimi', 'özel güvenlik', '5188', 'apartman yönetimi'],
     },
   ];
 

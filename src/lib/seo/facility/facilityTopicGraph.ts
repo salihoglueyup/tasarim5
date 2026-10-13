@@ -13,7 +13,7 @@ import {
 } from '@/lib/schemas';
 
 /**
- * "Tesis Yönetimi" ISO 41001 & KMK 634 Semantik Topikal Otorite Grafiği (Alo Yönetim).
+ * "Tesis Yönetimi" KMK 634 Semantik Topikal Otorite Grafiği (Alo Yönetim).
  * 
  * Google Knowledge Graph, Schema.org ve AI arama motorlarına (Gemini, Perplexity, ChatGPT Search)
  * Alo Yönetim'in "Tesis Yönetimi" alanında BELCERT/ILAS belgeli kurumsal otoritesi
@@ -33,33 +33,33 @@ const TOPIC_GRAPH_LOCALES: Record<string, LocalizedTopicGraphContent> = {
     name: 'Alo Yönetim Profesyonel Site ve Entegre Tesis Yönetimi',
     serviceType: 'Profesyonel Site ve Entegre Tesis Yönetimi',
     description:
-      'İstanbul genelinde apartman, site, plaza, rezidans ve endüstriyel tesisler için 7/24 güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, şeffaf aidat muhasebesi ve KMK hukuki danışmanlığı kapsayan profesyonel tesis yönetimi.',
+      'İstanbul genelinde apartman, site, plaza, rezidans ve endüstriyel tesisler için güvenlik, ortak alan temizliği, asansör ve jeneratör teknik bakımı, şeffaf aidat muhasebesi ve KMK hukuki danışmanlığı kapsayan profesyonel tesis yönetimi.',
     catalogName: 'Alo Yönetim Tesis Yönetimi Paketleri ve Sektörel Çözümleri',
-    serviceOutput: 'Ortak Bütçede Tasarruf Fırsatı, Şeffaf Aidat Takibi, Hukuki Risk Yönetimi ve 7/24 Kesintisiz Güvenlik',
+    serviceOutput: 'Ortak Bütçede Tasarruf Fırsatı, Şeffaf Aidat Takibi, Hukuki Risk Yönetimi ve Güvenlik',
   },
   en: {
     name: 'Alo Yönetim Professional Property & Integrated Facility Management',
     serviceType: 'Professional Property & Integrated Facility Management',
     description:
-      'ILAS-accredited ISO certified professional facility management across Istanbul for apartments, residential complexes, business towers, and industrial estates encompassing 24/7 security, cleaning, technical maintenance, transparent dues accounting, and legal consulting.',
+      'ILAS-accredited ISO certified professional facility management across Istanbul for apartments, residential complexes, business towers, and industrial estates encompassing security, cleaning, technical maintenance, transparent dues accounting, and legal consulting.',
     catalogName: 'Alo Yönetim Facility Management Packages and Sectoral Solutions',
-    serviceOutput: '25-35% Common Budget Savings, 99.2% Dues Collection Success, Zero Legal Risk, and 24/7 Uninterrupted Security',
+    serviceOutput: '25-35% Common Budget Savings, 99.2% Dues Collection Success, Zero Legal Risk, and Uninterrupted Security',
   },
   ru: {
     name: 'Alo Yönetim Профессиональное Управление Недвижимостью и Объектами',
     serviceType: 'Профессиональное Управление Недвижимостью и Объектами',
     description:
-      'Профессиональное управление объектами недвижимости в Стамбуле для жилых комплексов, резиденций и бизнес-центров: круглосуточная охрана, уборка, техническое обслуживание, прозрачный учет взносов и юридический консалтинг.',
+      'Профессиональное управление объектами недвижимости в Стамбуле для жилых комплексов, резиденций и бизнес-центров: охрана, уборка, техническое обслуживание, прозрачный учет взносов и юридический консалтинг.',
     catalogName: 'Пакеты услуг и отраслевые решения по управлению объектами Alo Yönetim',
-    serviceOutput: 'Экономия общего бюджета 25-35%, 99.2% успешный сбор взносов, нулевой юридический риск и круглосуточная безопасность',
+    serviceOutput: 'Экономия общего бюджета 25-35%, 99.2% успешный сбор взносов, нулевой юридический риск и безопасность',
   },
   ar: {
     name: 'Alo Yönetim إدارة العقارات والمرافق المتكاملة الاحترافية',
     serviceType: 'إدارة العقارات والمرافق المتكاملة الاحترافية',
     description:
-      'إدارة مرافق احترافية في جميع أنحاء إسطنبول للمجمعات السكنية والأبراج التجارية والمنشآت الصناعية تشمل الأمن على مدار الساعة والتنظيف والصيانة الفنية والمحاسبة القانونية الشفافة للرسوم.',
+      'إدارة مرافق احترافية في جميع أنحاء إسطنبول للمجمعات السكنية والأبراج التجارية والمنشآت الصناعية تشمل الأمن والتنظيف والصيانة الفنية والمحاسبة القانونية الشفافة للرسوم.',
     catalogName: 'باقات وحلول إدارة المرافق القطاعية من Alo Yönetim',
-    serviceOutput: 'توفير 25-35% من الميزانية المشتركة، نجاح تحصيل الرسوم بنسبة 99.2%، صفر مخاطر قانونية وأمن مستمر 24/7',
+    serviceOutput: 'توفير 25-35% من الميزانية المشتركة، نجاح تحصيل الرسوم بنسبة 99.2%، صفر مخاطر قانونية وأمن مستمر',
   },
 };
 

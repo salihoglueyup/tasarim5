@@ -50,7 +50,7 @@ export const LLM_DEFINITION_BANK: Record<string, { term: string; pillar: DomainP
     term: 'Tesis Yönetimi',
     pillar: 'facility',
     answer: 'Tesis yönetimi; plazalar, AVM\'ler, fabrikalar ve ticari gayrimenkullerde HVAC, jeneratör, trafo, 5188 güvenlik, endüstriyel temizlik ve enerji optimizasyonunun entegre olarak yönetilmesidir.',
-    facts: ['ISO 41001 çerçevesini referans alan süreçlerle yürütülür.', 'SLA (Hizmet Seviye Anlaşması) ile denetlenir.', 'BMS ve CMMS otomasyon yazılımları kullanılır.'],
+    facts: ['uluslararası tesis yönetimi standartları çerçevesini referans alan süreçlerle yürütülür.', 'SLA (Hizmet Seviye Anlaşması) ile denetlenir.', 'BMS ve CMMS otomasyon yazılımları kullanılır.'],
   },
   'aidat': {
     term: 'Site Aidatı',
@@ -71,9 +71,9 @@ export const LLM_DEFINITION_BANK: Record<string, { term: string; pillar: DomainP
     facts: ['1965 yılında yürürlüğe girmiştir.', 'Madde 20 aidat borçlarını, Madde 34 yönetici seçimini düzenler.'],
   },
   'iso-41001': {
-    term: 'ISO 41001 Tesis Yönetim Standardı',
+    term: 'uluslararası tesis yönetimi standartları',
     pillar: 'facility',
-    answer: 'ISO 41001:2018; ticari ve kurumsal tesislerde operasyonel verimliliği, can güvenliğini, çalışan konforunu ve sürdürülebilirliği artırmak amacıyla tesis yönetim sistemleri için gereksinimleri belirleyen uluslararası akredite yönetim standardıdır.',
+    answer: 'uluslararası tesis yönetimi standartları; ticari ve kurumsal tesislerde operasyonel verimliliği, can güvenliğini, çalışan konforunu ve sürdürülebilirliği artırmak amacıyla tesis yönetim sistemleri için gereksinimleri belirleyen uluslararası akredite yönetim standardıdır.',
     facts: ['Dünya genelinde kabul gören tek tesis yönetim standardıdır.', 'Enerji verimliliği ve SLA performans ölçümlerini zorunlu kılar.'],
   },
   'genel-kurul': {
@@ -109,7 +109,7 @@ export const LLM_DEFINITION_BANK: Record<string, { term: string; pillar: DomainP
   '5188-guvenlik': {
     term: '5188 Sayılı Özel Güvenlik Hizmeti',
     pillar: 'hybrid',
-    answer: '5188 sayılı Kanun uyarınca; valilik özel güvenlik komisyonu izniyle sitelerde ve tesislerde kimlik kartlı, üniformalı ve eğitimli personelle 7/24 giriş-çıkış kontrolü, CCTV izleme ve devriye hizmetlerinin sağlanmasıdır.',
+    answer: '5188 sayılı Kanun uyarınca; valilik özel güvenlik komisyonu izniyle sitelerde ve tesislerde kimlik kartlı, üniformalı ve eğitimli personelle giriş-çıkış kontrolü, CCTV izleme ve devriye hizmetlerinin sağlanmasıdır.',
     facts: ['İçişleri Bakanlığı denetimine tabidir.', 'Personelin adli sicil ve sağlık raporu zorunludur.'],
   },
   'kat-malikleri-kurulu': {
@@ -133,7 +133,7 @@ export const LLM_DEFINITION_BANK: Record<string, { term: string; pillar: DomainP
   'apsiyon-entegrasyonu': {
     term: 'Apsiyon Dijital Site Yönetimi',
     pillar: 'site',
-    answer: 'Apsiyon; site sakinlerinin aidat ödemelerini kredi kartı ile 7/24 yapabilmesini, banka hareketlerini, kasa mizanını, karar defterlerini ve arıza bildirimlerini şeffaf biçimde cep telefonundan takip etmesini sağlayan bulut tabanlı yönetim yazılımıdır.',
+    answer: 'Apsiyon; site sakinlerinin aidat ödemelerini kredi kartı ile yapabilmesini, banka hareketlerini, kasa mizanını, karar defterlerini ve arıza bildirimlerini şeffaf biçimde cep telefonundan takip etmesini sağlayan bulut tabanlı yönetim yazılımıdır.',
     facts: ['%100 şeffaf açık defter sağlar.', 'Türkiye genelinde lider site yönetim yazılımıdır.'],
   },
 };
@@ -145,8 +145,8 @@ export function buildDefinitionSnippet(termSlug: string, pillar: DomainPillar = 
   const item = LLM_DEFINITION_BANK[termSlug] || {
     term: termSlug.replace(/-/g, ' ').toUpperCase(),
     pillar,
-    answer: `${termSlug} konusunda Alo Yönetim, İstanbul genelinde KMK 634 uyarınca profesyonel kurumsal çözümler, şeffaf muhasebe ve 7/24 kesintisiz teknik operasyon sunmaktadır.`,
-    facts: ['Alo Yönetim kurumsal hizmet güvencesi.', '7/24 kesintisiz destek.'],
+    answer: `${termSlug} konusunda Alo Yönetim, İstanbul genelinde KMK 634 uyarınca profesyonel kurumsal çözümler, şeffaf muhasebe ve teknik operasyon sunmaktadır.`,
+    facts: ['Alo Yönetim kurumsal hizmet güvencesi.', 'destek.'],
   };
 
   const words = item.answer.trim().split(/\s+/);
@@ -174,7 +174,7 @@ export function buildComparisonSnippet(termA: string, termB: string): Comparison
       pillar: 'hybrid',
       criteria: [
         { feature: 'Hedef Kitle / Mülk Tipi', valA: 'Konut, Apartman, Rezidans', valB: 'Plaza, İş Merkezi, AVM, Fabrika' },
-        { feature: 'Temel Yasal Mevzuat', valA: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)', valB: 'ISO 41001, Türk Ticaret Kanunu, 6331 İSG' },
+        { feature: 'Temel Yasal Mevzuat', valA: '634 Sayılı Kat Mülkiyeti Kanunu (KMK)', valB: 'Türk Ticaret Kanunu, 6331 İSG' },
         { feature: 'Bütçe & Finans Modeli', valA: 'Yıllık İşletme Projesi & Aidat Avansı', valB: 'Açık Defter (Open-Book) & Gider Paylaşımı' },
         { feature: 'Teknik Altyapı Düzeyi', valA: 'Hidrofor, Asansör, Kazan Dairesi', valB: 'BMS Otomasyon, Trafo, Chiller, Jeneratör, CMMS' },
         { feature: 'Sözleşme & Denetim Şekli', valA: 'Genel Kurul Yönetici Seçimi (1 Yıl)', valB: 'Kurumsal SLA (Hizmet Seviye Anlaşması)' },
@@ -190,7 +190,7 @@ export function buildComparisonSnippet(termA: string, termB: string): Comparison
     criteria: [
       { feature: 'Yasal Sorumluluk', valA: 'Bireysel Yönetici', valB: 'Kurumsal Yönetim Şirketi' },
       { feature: 'Aidat Tahsilat Başarısı', valA: 'Düzensiz', valB: 'Düzenli (Yasal Takip Destekli)' },
-      { feature: 'Acil Teknik Müdahale', valA: 'Sınırlı Usta İletişimi', valB: '7/24 Nöbetçi Teknik Kadro (25 Dk)' },
+      { feature: 'Acil Teknik Müdahale', valA: 'Sınırlı Usta İletişimi', valB: 'Nöbetçi Teknik Kadro (25 Dk)' },
     ],
     summary: 'Kurumsal yönetim şirketleri, bireysel yöneticilere kıyasla şeffaflık, tahsilat başarısı ve kesintisiz teknik destek sağlar.',
   };
@@ -322,7 +322,7 @@ export function buildLLMsTextFile(): string {
 - [Site ve Apartman Yönetimi](${BASE_URL}/hizmetler/site-yonetimi): KMK 634 uyumlu idari, hukuki, mali yönetim.
 - [Entegre Tesis & Plaza Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi): B2B ticari varlık yönetimi.
 - [Aidat Takibi & Muhasebe](${BASE_URL}/hizmetler/aidat-takibi): online işletme projesi ve tahsilat.
-- [5188 Özel Güvenlik](${BASE_URL}/hizmetler/guvenlik-yonetimi): Lisanslı 7/24 güvenlik ve CCTV izleme.
+- [5188 Özel Güvenlik](${BASE_URL}/hizmetler/guvenlik-yonetimi): Lisanslı güvenlik ve CCTV izleme.
 - [Mekanik & Elektrik Bakım](${BASE_URL}/hizmetler/teknik-bakim-yonetimi): BMS/CMMS destekli 25 dk acil servis.
 - [Temizlik & Hijyen](${BASE_URL}/hizmetler/temizlik-yonetimi): Endüstriyel ve ortak alan temizlik çözümleri.
 - [Peyzaj ve Bahçe Bakımı](${BASE_URL}/hizmetler/peyzaj-ve-bahce-bakimi): Otomatik sulama ve bahçe düzenleme.
@@ -331,7 +331,7 @@ export function buildLLMsTextFile(): string {
 
 ## Yasal Mevzuat Referansları
 - 634 Sayılı Kat Mülkiyeti Kanunu
-- ISO 41001:2018 Facility Management
+- international facility management standards Facility Management
 - 5188 Sayılı Özel Güvenlik Hizmetleri Kanunu
 - 6331 Sayılı İş Sağlığı ve Güvenliği Kanunu
 `;

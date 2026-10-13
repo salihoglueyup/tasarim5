@@ -32,7 +32,7 @@ export default function DistrictSecurityAuditTableSeo({
       {
         item: "5188 Belgeli Üniformalı Güvenlik Görevlisi",
         standard: "T.C. İçişleri Bakanlığı ÖGİ Kimlik Kartlı & Adli Sicil Taramalı",
-        districtSpec: `${districtName} genelinde 8 ve 12 saatlik vardiya rotasyonu, 7/24 sabit nöbet ve yaya devriye.`,
+        districtSpec: `${districtName} genelinde 8 ve 12 saatlik vardiya rotasyonu, sabit nöbet ve yaya devriye.`,
         status: "Zorunlu"
       },
       {
@@ -58,7 +58,7 @@ export default function DistrictSecurityAuditTableSeo({
       {
         item: "4K Gece Görüşlü Çevre Güvenlik CCTV",
         standard: "H.265+ Sıkıştırma, 30 Günlük Yasal Kayıt & Kör Noktasız",
-        districtSpec: `Site dış çiti, çocuk oyun parkı ve bina girişleri 7/24 izlenir; kayıtlar KVKK 10. maddeye uygundur.`,
+        districtSpec: `Site dış çiti, çocuk oyun parkı ve bina girişleri izlenir; kayıtlar KVKK 10. maddeye uygundur.`,
         status: "Kesintisiz"
       },
       {

@@ -117,7 +117,7 @@ export async function GET(req: NextRequest) {
         // Güvenlik veya aidat kelimesi geçiyorsa direkt o hizmeti de öner
         if (normalizedQuery.includes('güvenlik') || normalizedQuery.includes('guvenlik')) {
           suggestions.push(`${district.name} Özel Güvenlik Şirketi & Site Güvenliği`);
-          descriptions.push(`5188 lisanslı güvenlik personeli, PTS ve 7/24 devriye hizmeti.`);
+          descriptions.push(`5188 lisanslı güvenlik personeli, PTS ve devriye hizmeti.`);
           urls.push(localizedUrl(`/bolgeler/${district.slug}/guvenlik-yonetimi`, lang));
         } else {
           suggestions.push(`${district.name} Tüm Hizmetler & Yerel Rehber`);

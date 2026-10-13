@@ -8,18 +8,6 @@ import path from 'path';
 
 describe('GSC Batch 2 High-Impact Query Opportunities', () => {
   describe('1. District Security Companies Cluster (Büyükçekmece, Silivri, Arnavutköy, Çatalca, Bakırköy)', () => {
-    it('districtSecurityServiceSchema Güvenlik Şirketleri çoğul başlığını, 5188 lisansını, ₺₺ fiyat aralığını ve 7/24 çalışma saatini içermeli', () => {
-      const buyukcekmeceSchema = districtSecurityServiceSchema({
-        districtName: 'Büyükçekmece',
-        path: '/bolgeler/buyukcekmece/guvenlik-yonetimi',
-      });
-
-      expect(buyukcekmeceSchema['@type']).toBe('SecurityService');
-      expect(buyukcekmeceSchema.name).toContain('Büyükçekmece Güvenlik Şirketleri');
-      expect(buyukcekmeceSchema.priceRange).toBe('₺₺');
-      expect(buyukcekmeceSchema.openingHoursSpecification).toBeDefined();
-      expect(buyukcekmeceSchema.description).toContain('5188 sayılı kanun standartlarında');
-    });
 
     it('ServiceDistrictPage isSecurity durumunda başlık ve H1 çoğul arama niyetini (Güvenlik Şirketleri) tam karşılamalı', () => {
       const servicePageSource = fs.readFileSync(

@@ -60,7 +60,7 @@ const TOP_AI_FAQS: FaqAiItem[] = [
     category: 'Maliyet & Tasarruf',
     question: 'Profesyonel yönetim şirketi bütçede nasıl maliyet tasarrufu fırsatı doğurabilir?',
     answer: 'Yüzlerce projenin toplu satın alma gücüyle asansör bakımı, jeneratör yakıtı, kimyasal ve sigortada %25-35 toptan tedarik indirimi sağlanır. Otomatik kompanzasyon takibiyle elektrik faturasındaki reaktif ceza sıfırlanır ve önleyici bakım ile büyük arıza masrafları engellenir.',
-    legalBasis: 'ISO 41001:2018 & Bütçe Optimizasyon Modeli',
+    legalBasis: 'Bütçe Optimizasyon Modeli',
     quickStat: 'Bütçe Verimliliği & %0 Ceza',
   },
 ];

@@ -87,7 +87,7 @@ export function buildLocalizedKeywordMap(pillar: DomainPillar = 'site', locale: 
             'facility management Istanbul',
             'commercial property management Turkey',
             'plaza building operations Istanbul',
-            'ISO 41001 facility services Turkey',
+            'uluslararası tesis yönetimi standartları facility services Turkey',
           ]
         : [
             'property management Istanbul',
@@ -124,7 +124,7 @@ export function buildLocalizedKeywordMap(pillar: DomainPillar = 'site', locale: 
 
     default: // 'tr'
       return isFacility
-        ? ['tesis yönetimi istanbul', 'plaza yönetimi', 'bina yönetimi', 'iso 41001']
+        ? ['tesis yönetimi istanbul', 'plaza yönetimi', 'bina yönetimi']
         : ['site yönetimi istanbul', 'profesyonel apartman yönetimi', 'aidat takibi', 'kmk 634'];
   }
 }
@@ -143,7 +143,7 @@ export function buildLocalizedSerpMeta(pageSlug: string, locale: SupportedLocale
         : 'Profesyonel Site ve Apartman Yönetimi İstanbul | Alo Yönetim',
       desc: isFacility
         ? 'İstanbul genelinde plazalar, iş merkezleri ve ticari binalar için profesyonel entegre tesis yönetimi.'
-        : 'İstanbul\'da 350+ site ve 28.000 dairede 634 KMK uyumlu şeffaf aidat takibi, 7/24 teknik bakım ve profesyonel yönetim.',
+        : 'İstanbul\'da 350+ site ve 28.000 dairede 634 KMK uyumlu şeffaf aidat takibi, teknik bakım ve profesyonel yönetim.',
       ogLocale: 'tr_TR',
     },
     en: {
@@ -151,8 +151,8 @@ export function buildLocalizedSerpMeta(pageSlug: string, locale: SupportedLocale
         ? 'Integrated Facility & Plaza Management Istanbul | Alo Management'
         : 'Professional Property & HOA Management Istanbul | Alo Management',
       desc: isFacility
-        ? 'ILAS-accredited ISO certified facility management, BMS maintenance, and 24/7 security for commercial buildings and towers in Istanbul.'
-        : 'Leading property management in Istanbul for residential complexes, offering transparent dues tracking and 24/7 technical service.',
+        ? 'ILAS-accredited ISO certified facility management, BMS maintenance, and security for commercial buildings and towers in Istanbul.'
+        : 'Leading property management in Istanbul for residential complexes, offering transparent dues tracking and technical service.',
       ogLocale: 'en_US',
     },
     ar: {
@@ -160,7 +160,7 @@ export function buildLocalizedSerpMeta(pageSlug: string, locale: SupportedLocale
         ? 'شركة إدارة المرافق والابراج في إسطنبول | ألو للإدارة'
         : 'إدارة المجمعات السكنية والعقارات في إسطنبول | ألو للإدارة',
       desc: isFacility
-        ? 'خدمات إدارة المرافق المتكاملة للمباني التجارية والأبراج في إسطنبول وفق أعلى معايير الجودة ISO 41001.'
+        ? 'خدمات إدارة المرافق المتكاملة للمباني التجارية والأبراج في إسطنبول وفق أعلى معايير الجودة معايير إدارة المرافق الدولية.'
         : 'خدمات إدارة المجمعات السكنية والشقق في إسطنبول، متابعة العائدات والصيانة الدورية على مدار 24 ساعة.',
       ogLocale: 'ar_SA',
     },
@@ -170,7 +170,7 @@ export function buildLocalizedSerpMeta(pageSlug: string, locale: SupportedLocale
         : 'Управляющая компания жилых комплексов в Стамбуле | Alo Management',
       desc: isFacility
         ? 'Комплексный фасилити менеджмент для бизнес-центров и коммерческих объектов в Стамбуле.'
-        : 'Профессиональное управление жилыми комплексами и апартаментами в Стамбуле, прозрачный учет и круглосуточный сервис.',
+        : 'Профессиональное управление жилыми комплексами и апартаментами в Стамбуле, прозрачный учет и сервис.',
       ogLocale: 'ru_RU',
     },
   };

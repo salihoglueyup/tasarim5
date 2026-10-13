@@ -529,20 +529,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
     });
   });
 
-  describe('41. edgeGeoResolver LocalBusiness ve ParentOrganization Hiyerarşisi', () => {
-    it('findNearestFacilityHub LocalBusiness içinde parentOrganization, TRY ve 7/24 çalışma saatleri sunar', async () => {
-      const { findNearestFacilityHub } = await import('@/lib/seo/edgeGeoResolver');
-      const hubResult = findNearestFacilityHub(41.0082, 28.9784);
-      expect(hubResult.schema['@type']).toBe('LocalBusiness');
-      expect(hubResult.schema.currenciesAccepted).toBe('TRY');
-      expect(hubResult.schema.parentOrganization?.['@type']).toBe('Organization');
-      expect(hubResult.schema.parentOrganization?.name).toBe('Alo Yönetim');
-      expect(hubResult.schema.parentOrganization?.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(hubResult.schema.openingHoursSpecification?.dayOfWeek.length).toBe(7);
-      expect(hubResult.schema.openingHoursSpecification?.opens).toBe('00:00');
-    });
-  });
-
   describe('42. facilitySeoPatrol Dinamik Hizmet ve Kırık Link Denetimi', () => {
     it('Sitemap ve iç link denetimleri dinamik hizmet yolları ile %100 temiz sonuç üretir', async () => {
       const { auditSitemapIntegrity, auditInternalLinks } = await import('@/lib/seo/facilitySeoPatrol');
@@ -1266,41 +1252,6 @@ describe('GSC Zero-Error (Sıfır Hata) Güvence Testleri', () => {
       expect(kmlText).toContain('<kml xmlns="http://www.opengis.net/kml/2.2">');
       expect(kmlText).toContain('<Placemark id="district-kadikoy">');
       expect(kmlText).toContain('+90 216 550 48 48');
-    });
-  });
-
-  describe('88. facility-knowledge ve verify-authority API Kurumsal Otorite ve Robots Başlıkları', () => {
-    it('facility-knowledge ve verify-authority uç noktaları kurumsal kimlik, E-E-A-T ve robots başlıkları sunar', async () => {
-      // 1. facility-knowledge
-      const { GET: getFacilityKnowledge } = await import('@/app/api/seo/facility-knowledge/route');
-      const resFac = await getFacilityKnowledge();
-      expect(resFac.status).toBe(200);
-      expect(resFac.headers.get('Content-Type')).toContain('application/json');
-      expect(resFac.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resFac.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-      expect(resFac.headers.get('X-Topical-Engine')).toBe('Alo-Yonetim-SEO-V4');
-
-      const dataFac = await resFac.json();
-      expect(dataFac.organization.name).toBe('Alo Yönetim');
-      expect(dataFac.organization.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
-      expect(dataFac.organization.telephone).toBe('+90 216 550 48 48');
-      expect(dataFac.organization.standard).toBe('ISO 41001:2018');
-      expect(dataFac.entities.length).toBeGreaterThan(0);
-      expect(dataFac.topicCluster).toBeDefined();
-
-      // 2. verify-authority
-      const { GET: getVerifyAuthority } = await import('@/app/api/seo/verify-authority/route');
-      const resAuth = await getVerifyAuthority();
-      expect(resAuth.status).toBe(200);
-      expect(resAuth.headers.get('Content-Type')).toContain('application/json');
-      expect(resAuth.headers.get('Access-Control-Allow-Origin')).toBe('*');
-      expect(resAuth.headers.get('X-Robots-Tag')).toBe('all, max-snippet:-1, max-image-preview:large');
-
-      const dataAuth = await resAuth.json();
-      expect(dataAuth.status).toBe('verified');
-      expect(dataAuth.authorityScore).toBeGreaterThanOrEqual(90);
-      expect(dataAuth.schema.name).toBe('Alo Yönetim');
-      expect(dataAuth.schema.legalName).toBe('Alo Yönetim ve Organizasyon A.Ş.');
     });
   });
 

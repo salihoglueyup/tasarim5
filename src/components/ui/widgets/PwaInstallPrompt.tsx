@@ -87,7 +87,7 @@ export function PwaInstallPrompt() {
             </span>
           </div>
           <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">
-            Ana ekranınıza ekleyin; aidat takibi, arıza bildirimi ve 7/24 nöbetçi santrale anında ulaşın.
+            Ana ekranınıza ekleyin; aidat takibi, arıza bildirimi ve nöbetçi santrale anında ulaşın.
           </p>
 
           <div className="flex items-center gap-2">

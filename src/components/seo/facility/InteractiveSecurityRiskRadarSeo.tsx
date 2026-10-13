@@ -65,7 +65,7 @@ const AUDIT_CRITERIA: AuditCriterion[] = [
     id: 'crit_cctv',
     category: 'Elektronik Donanım',
     title: 'Kör Noktasız 4K Gece Görüşlü IP Kamera Ağı & 30 Günlük Şifreli Kayıt',
-    desc: 'KVKK uyumlu, otopark, blok girişleri ve çocuk parklarını 7/24 izleyen NVR kayıt sistemi.',
+    desc: 'KVKK uyumlu, otopark, blok girişleri ve çocuk parklarını izleyen NVR kayıt sistemi.',
     points: 15,
     lawRef: 'KVKK 6698 Sayılı Kanun ve Güvenlik Standartları',
     icon: 'videocam'

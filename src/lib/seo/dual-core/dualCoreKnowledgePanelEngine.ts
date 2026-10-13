@@ -69,7 +69,7 @@ export const CORPORATE_MEMBERSHIPS = [
 
 export const CORPORATE_KNOWLEDGE_DOMAINS = [
   '634 Sayılı Kat Mülkiyeti Kanunu (KMK)',
-  'ISO 41001 Tesis Yönetim Standardı',
+  'uluslararası tesis yönetimi standartları',
   '5188 Sayılı Özel Güvenlik Hizmetleri Kanunu',
   '6331 Sayılı İş Sağlığı ve Güvenliği Kanunu',
   'Profesyonel Site ve Apartman Yönetimi',
@@ -391,12 +391,12 @@ export function buildEEATSignalBundle(pageType: string, pillar: DomainPillar = '
 
   const authoritativenessSignals = [
     { label: 'Resmî Mevzuat Dayanağı', citationSource: '634 Sayılı Kat Mülkiyeti Kanunu (Resmî Gazete)', url: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5' },
-    { label: 'Sektörel Tesis Standartları', citationSource: 'ISO 41001:2018 Facility Management', url: 'https://www.iso.org/standard/68020.html' },
+    { label: 'Sektörel Tesis Standartları', citationSource: 'uluslararası tesis yönetimi standartları Facility Management', url: 'https://www.iso.org/standard/68020.html' },
     { label: 'Mesleki Kuruluş Üyeliği', citationSource: 'TRFMA Türkiye Tesis Yönetim Derneği', url: 'https://www.trfma.org.tr' },
   ];
 
   const trustworthinessSignals = [
-    { label: 'Şeffaf Açık Defter Muhasebe', verificationMethod: 'Her malike 7/24 online banka ve harcama mutabakat paneli.', policyUrl: `${BASE_URL}/seffaflik-politikasi` },
+    { label: 'Şeffaf Açık Defter Muhasebe', verificationMethod: 'Her malike online banka ve harcama mutabakat paneli.', policyUrl: `${BASE_URL}/seffaflik-politikasi` },
     { label: 'Kişisel Veri Güvenliği (KVKK)', verificationMethod: '6698 sayılı KVKK mevzuatına tam uyumlu veri işleme altyapısı.', policyUrl: `${BASE_URL}/kvkk` },
     { label: 'Tek Kaynaklı NAP Güvencesi', verificationMethod: 'İstanbul Kadıköy fiziki ofis, MERSİS: 0054049823100018 ve sabit santral.', policyUrl: `${BASE_URL}/iletisim` },
   ];
@@ -471,7 +471,7 @@ export function buildCitationList(pillar: DomainPillar = 'site'): { title: strin
     return [
       ...common,
       {
-        title: 'ISO 41001:2018 Facility Management Systems',
+        title: 'international facility management standards Facility Management Systems',
         source: 'International Organization for Standardization',
         url: 'https://www.iso.org/standard/68020.html',
       },

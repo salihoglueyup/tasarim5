@@ -230,7 +230,7 @@ export default function LeadQuickModalSeo() {
                       className="w-full bg-slate-800 border border-white/15 rounded-2xl py-3 px-4 text-xs text-white focus:outline-none focus:border-slate-400 transition-colors"
                     >
                       <option value="Entegre Tesis & Site Yönetimi">Entegre Tesis & Site Yönetimi</option>
-                      <option value="7/24 Özel Güvenlik Hizmeti">7/24 Özel Güvenlik Hizmeti</option>
+                      <option value="Özel Güvenlik Hizmeti">Özel Güvenlik Hizmeti</option>
                       <option value="Profesyonel Temizlik & Hijyen">Profesyonel Temizlik & Hijyen</option>
                       <option value="Aidat Takibi & Hukuk Danışmanlığı">Aidat Takibi & Hukuk</option>
                       <option value="Teknik Bakım & Asansör">Teknik Bakım & Asansör</option>

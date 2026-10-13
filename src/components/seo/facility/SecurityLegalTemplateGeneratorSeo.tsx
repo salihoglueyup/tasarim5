@@ -32,7 +32,7 @@ BAĞIMSIZ BÖLÜM ADEDİ : ${blockCount || '1'} Blok / [DAİRE SAYISI] Bağıms�
 GÜNDEM: 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun Uyarınca Site Bünyesinde Özel Güvenlik İstihdam Edilmesi ve Valilik Başvurusu Yapılması.
 
 KARAR METNİ:
-${siteName || '[SİTE ADI]'} Kat Malikleri Genel Kurulu ${today} tarihinde toplanmış olup; site ortak alanları, sakinleri, otopark ve nizamiyesinin 7/24 can ve mal emniyetinin sağlanması amacıyla aşağıdaki kararlar alınmıştır:
+${siteName || '[SİTE ADI]'} Kat Malikleri Genel Kurulu ${today} tarihinde toplanmış olup; site ortak alanları, sakinleri, otopark ve nizamiyesinin can ve mal emniyetinin sağlanması amacıyla aşağıdaki kararlar alınmıştır:
 
 1. 5188 sayılı Özel Güvenlik Hizmetlerine Dair Kanun kapsamında, sitemizde ${guardCount || '4'} (dört) kişilik silahsız özel güvenlik personeli kadrosu tahsis edilmesine,
 2. İl Özel Güvenlik Komisyonu ve T.C. Valiliği'ne Özel Güvenlik İzni (ÖGİ) almak üzere gerekli tüm yasal ruhsat, harç ve müracaat işlemlerini yürütmek üzere Site Yöneticisi ${managerName || '[YÖNETİCİ ADI]'} yetkili kılınmasına,
@@ -56,7 +56,7 @@ KONU             : 5188 Sayılı Kanun Kapsamında Özel Güvenlik İzni (ÖGİ)
 AÇIKLAMALAR:
 ${cityDistrict || '[İLÇE / İL]'} adresinde kain ${siteName || '[SİTE ADI]'}, ${blockCount || '1'} blok ve [DAİRE SAYISI] bağımsız bölümden müteşekkil bir yaşam alanıdır. 
 
-Sitemizde can ve mal güvenliğinin sağlanması, giriş-çıkışların 7/24 kontrol altında tutulması amacıyla, Kat Malikleri Kurulumuzun ${today} tarihli ve 2026/02 sayılı kararı gereğince; 5188 sayılı Özel Güvenlik Hizmetlerine Dair Kanun hükümleri uyarınca ${guardCount || '4'} personel ile silahsız özel güvenlik hizmeti ifa edilmesi kararlaştırılmıştır.
+Sitemizde can ve mal güvenliğinin sağlanması, giriş-çıkışların kontrol altında tutulması amacıyla, Kat Malikleri Kurulumuzun ${today} tarihli ve 2026/02 sayılı kararı gereğince; 5188 sayılı Özel Güvenlik Hizmetlerine Dair Kanun hükümleri uyarınca ${guardCount || '4'} personel ile silahsız özel güvenlik hizmeti ifa edilmesi kararlaştırılmıştır.
 
 Bu kapsamda; sitemize "Özel Güvenlik İzni (ÖGİ)" verilmesi ve komisyonunuzca gerekli incelemenin yapılarak izin belgesinin tanzim edilmesi hususunu saygılarımla arz ve talep ederim.
 

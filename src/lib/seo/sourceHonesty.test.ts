@@ -6,10 +6,10 @@ import path from 'path';
 const BANNED: RegExp[] = [
   /4\.9 ?★/, /★ ?4\.9/, /\b(?:312|340|400)\+ ?(?:Tesis|Proje|Referans|site|tesis)/, /\b45[.,]000\+/, /\b34[.,]000\+/, /142M\+/,
   /%\s?99[.,][0-9]\b/, /%\s?98[.,]7\b/, /\b15-25 ?(?:Dk|dk|dakika)/, /\b45 ?(?:Dk|dk|dakika|Dakika) ?(?:SLA|Acil|Mobil)/,
-  /ratingValue=\{?4\.[0-9]/,
+  /ratingValue=\{?4\.[0-9]/, /7\/24/, /\b24\/7\b/,
 ];
 const ROOTS = ['src/app', 'src/components', 'src/data', 'src/lib'];
-const SKIP = /\.test\.|[\/]drafts[\/]|[\/]generated[\/]|[\/]blog[\/]|posts|postsMetadata|[\/]data[\/]blog/;
+const SKIP = /\.test\.|[\\/]drafts[\\/]|[\\/]generated[\\/]|[\\/]blog[\\/]|posts|postsMetadata|[\\/]data[\\/]blog/;
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {

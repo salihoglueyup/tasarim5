@@ -14,7 +14,7 @@ export const ENGLISH_TERMS: EnglishTerm[] = [
   {
     term: 'Facility Management (FM)',
     turkishEquivalent: 'Tesis Yönetimi',
-    definition: 'An organizational function which integrates people, place, and process within the built environment with the purpose of improving the quality of life of people and the productivity of the core business, as defined in ISO 41001.',
+    definition: 'An organizational function which integrates people, place, and process within the built environment with the purpose of improving the quality of life of people and the productivity of the core business, as defined in international facility management standards.',
     category: 'Facility Management',
     link: { href: '/en/services/facility-management', label: 'Facility Management Services' },
   },
@@ -83,7 +83,7 @@ export const ENGLISH_TERMS: EnglishTerm[] = [
   {
     term: 'CCTV & Perimeter Surveillance',
     turkishEquivalent: 'CCTV ve Çevre Güvenlik Sistemi',
-    definition: 'High-definition IP surveillance cameras, video analytics, perimeter infrared beams, and 24/7 central monitoring station operations ensuring complex-wide perimeter security.',
+    definition: 'High-definition IP surveillance cameras, video analytics, perimeter infrared beams, and central monitoring station operations ensuring complex-wide perimeter security.',
     category: 'Security & Surveillance',
     link: { href: '/en/services/security-management', label: 'Security Management' },
   },

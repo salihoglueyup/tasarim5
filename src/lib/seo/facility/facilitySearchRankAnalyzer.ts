@@ -11,7 +11,7 @@ export interface SerpAuditInput {
   hasGraphSchema?: boolean;
   hasBreadcrumbs?: boolean;
   hasFaq?: boolean;
-  hasLegalReference?: boolean; // KMK 634 or ISO 41001
+  hasLegalReference?: boolean; // KMK 634 or uluslararası tesis yönetimi standartları
 }
 
 export interface SerpScoreBreakdown {
@@ -121,7 +121,7 @@ export function analyzeFacilitySerpReadiness(input: SerpAuditInput): SerpReadine
   if (hasSavings || input.hasLegalReference) topicalScore += 5;
 
   if (!hasKmk && !hasIso) {
-    recommendations.push('İçerikte KMK 634 ve ISO 41001 yasal standartlarına doğrudan atıf yapın.');
+    recommendations.push('İçerikte KMK 634 ve uluslararası tesis yönetimi standartları yasal standartlarına doğrudan atıf yapın.');
   }
 
   // 4. Internal Link Readiness (Max 20)

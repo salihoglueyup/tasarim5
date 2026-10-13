@@ -44,7 +44,7 @@ const VAULT_DOCS: VaultDocument[] = [
     size: '420 KB',
     lawReference: '634 Sayılı KMK & ISO 45001:2018',
     description: 'Site ve plazaların profesyonel yönetim firmalarından teklif toplarken kullanacağı resmi hizmet şartnamesi.',
-    fileName: 'Alo_Yonetim_ISO41001_Tesis_Yonetim_Sartnamesi.pdf'
+    fileName: 'Alo_Yonetim_uluslararası tesis yönetimi standartları_Tesis_Yonetim_Sartnamesi.pdf'
   },
   {
     id: 'doc-5188-guvenlik',
@@ -96,7 +96,7 @@ export default function FacilityDownloadableVaultSeo() {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'Alo Yönetim Kat Mülkiyeti & Tesis Yönetimi İndirilebilir Resmi Doküman Kasası',
-    description: 'Yöneticiler ve kat malikleri için KMK m.37 işletme projesi, devir teslim tutanağı ve ISO 41001 tip sözleşme şablonları.',
+    description: 'Yöneticiler ve kat malikleri için KMK m.37 işletme projesi, devir teslim tutanağı ve uluslararası tesis yönetimi standartları tip sözleşme şablonları.',
     itemListElement: VAULT_DOCS.map((doc, index) => ({
       '@type': 'DigitalDocument',
       position: index + 1,

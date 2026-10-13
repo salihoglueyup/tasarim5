@@ -8,7 +8,7 @@ interface ComparisonTableProps {
 
 const DEFAULT_ROWS = [
   {
-    title: "7/24 Şeffaf Dijital Muhasebe",
+    title: "Şeffaf Dijital Muhasebe",
     alo: "Mobil uygulama ile anlık gelir-gider, kasa ve banka hareketleri canlı izlenir.",
     trad: "Yılda bir kez alelacele dağıtılan anlaşılmaz işletme projesi fotokopileri."
   },

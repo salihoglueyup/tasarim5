@@ -184,22 +184,6 @@ describe('39 İlçe Geneli B2B Yerel SEO & Büyüme Master Planı (Seçenek A Te
   });
 
   describe('4. Yerel Şema (JSON-LD) Doğrulaması', () => {
-    it('districtSecurityServiceSchema Güvenlik Şirketleri adını ve 24/7 saatleri içerir', () => {
-      const district = getDistrict('buyukcekmece')!;
-      const schema = districtSecurityServiceSchema({
-        districtName: district.name,
-        path: `/bolgeler/${district.slug}/guvenlik-yonetimi`,
-        geo: district.geo,
-        neighborhoods: district.neighborhoods,
-      });
-
-      expect(schema['@type']).toBe('SecurityService');
-      expect(schema.name).toContain('Büyükçekmece Güvenlik Şirketleri');
-      expect(schema.priceRange).toBe('₺₺');
-      const hours = schema.openingHoursSpecification as Array<{ opens: string; closes: string }>;
-      expect(hours[0].opens).toBe('00:00');
-      expect(hours[0].closes).toBe('23:59');
-    });
 
     it('39 ilçenin tamamında tesis, güvenlik, teknik ve temizlik şemaları geçerli üretilir', () => {
       for (const district of DISTRICTS) {

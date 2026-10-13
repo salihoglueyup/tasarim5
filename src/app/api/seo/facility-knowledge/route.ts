@@ -24,7 +24,7 @@ export async function GET() {
         telephone: '+90 216 550 48 48',
         logo: `${BASE_URL}/images/logo.png`,
         primaryPillar: 'Tesis Yönetimi',
-        standard: 'ISO 41001:2018',
+        standard: 'international facility management standards',
         knowsAbout: ORG_KNOWS_ABOUT,
       },
       entities: FACILITY_MANAGEMENT_ENTITIES,

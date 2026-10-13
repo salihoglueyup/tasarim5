@@ -1,7 +1,7 @@
 /**
  * B2B Kurumsal Tesis Yönetimi, ISO Standartları ve SLA Kademeleri Veri Modeli (facilityCorporateB2BData.ts)
  * 
- * Plazalar, fabrikalar ve ticari gayrimenkuller için ISO 41001 uyum matrisi,
+ * Plazalar, fabrikalar ve ticari gayrimenkuller için uluslararası tesis yönetimi standartları uyum matrisi,
  * Silver/Gold/Platinum kurumsal SLA taahhütleri ve B2B teknik şartname taslağı.
  */
 
@@ -71,7 +71,7 @@ export const B2B_SLA_TIERS: B2BSlaTier[] = [
     targetPropertyType: 'Bağımsız İş Merkezleri & Butik Plazalar (5.000 - 15.000 m²)',
     responseTimeMinutes: 45,
     bmsMonitoring: 'Haftalık Sistem Kontrolü & Periyodik Raporlama',
-    onSiteStaffing: 'Gündüz Sabit Tekniker + 7/24 Mobil Acil Servis',
+    onSiteStaffing: 'Gündüz Sabit Tekniker + Mobil Acil Servis',
     energySavingsGuarantee: 'Asgari %15 Bütçe Optimizasyonu',
     penaltyClause: 'SLA aşımında ilgili ay servis bedelinde %10 ceza kesintisi.',
   },
@@ -81,7 +81,7 @@ export const B2B_SLA_TIERS: B2BSlaTier[] = [
     badgeColor: 'amber',
     targetPropertyType: 'Büyük Ölçekli Plazalar, Karma Siteler & AVM’ler (15.000 - 50.000 m²)',
     responseTimeMinutes: 30,
-    bmsMonitoring: '7/24 Canlı BMS & IoT Telemetri İzleme',
+    bmsMonitoring: 'Canlı BMS & IoT Telemetri İzleme',
     onSiteStaffing: 'Vardiyalı Sabit Teknik Kadro + Özel Güvenlik Amiri',
     energySavingsGuarantee: 'Asgari %25 Bütçe Tasarrufu & %0 Reaktif Ceza Garantisi',
     penaltyClause: 'SLA aşımında ilgili ay servis bedelinde %20 indirim garantisi.',
@@ -92,7 +92,7 @@ export const B2B_SLA_TIERS: B2BSlaTier[] = [
     badgeColor: 'emerald',
     targetPropertyType: 'A+ Plazalar, Fabrikalar, Lojistik Üsler & Veri Merkezleri (50.000+ m²)',
     responseTimeMinutes: 15,
-    bmsMonitoring: 'Kesintisiz 7/24/365 Gerçek Zamanlı AI Destekli SCADA İzleme',
+    bmsMonitoring: 'Kesintisiz/365 Gerçek Zamanlı AI Destekli SCADA İzleme',
     onSiteStaffing: 'Tam Zamanlı Tesis Müdürü + 24 Saat Yerleşik Teknik & Güvenlik Kadrosu',
     energySavingsGuarantee: 'Asgari %33 Tasarruf + Karbon Ayak İzi Azaltım Sertifikası',
     penaltyClause: 'Kritik sistem duruşunda tüm mali zararı karşılayan kurumsal sorumluluk sigortası.',
@@ -116,7 +116,7 @@ ENTEGRE TESİS VE BİNA YÖNETİMİ HİZMET ALIMI TEKNİK VE İDARİ ŞARTNAMES�
 3. HİZMET SEVİYESİ TAAHHÜTLERİ (SLA):
 a) Acil Durum Müdahalesi: Tesis ana yangın alarmı, jeneratör devreye girmemesi, ana su hattı patlaması veya asansörde mahsur kalma durumlarında azami müdahale süresi 30 (otuz) dakikadır.
 b) Reaktif Enerji Güvencesi: Yüklenici, kompanzasyon panosunu haftalık kontrol edecek olup elektrik faturasına reaktif ceza yansıması halinde oluşan tüm ceza bedelini kusursuz sorumluluk esasına göre defaten tazmin edecektir.
-c) Şeffaf Dijital Yönetim: Tesis harcamaları, personel puantajları ve periyodik bakım formları işverenin 7/24 erişebileceği dijital yazılım portalı üzerinden canlı olarak sunulacaktır.
+c) Şeffaf Dijital Yönetim: Tesis harcamaları, personel puantajları ve periyodik bakım formları işverenin erişebileceği dijital yazılım portalı üzerinden canlı olarak sunulacaktır.
 
 4. İŞVEREN VE YÜKLENİCİ HAKLARI:
 Yüklenici; çalıştırdığı personelin tüm SGK primleri, maaşları ve iş sağlığı güvenliği ekipmanlarından bizzat sorumludur. Hizmet seviyesi aksadığında işveren şartnamede belirlenen oranlarda hakediş kesintisi yapma hakkına haizdir.`;

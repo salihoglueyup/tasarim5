@@ -111,7 +111,7 @@ export default async function Image({ params }: { params: Promise<{ lang?: strin
               maxWidth: '850px',
             }}
           >
-            634 Sayılı KMK Tam Uyumu • 5188 Özel Güvenlik • 7/24 Mobil Teknik Bakım • TSE 13811 Hijyen
+            634 Sayılı KMK Tam Uyumu • 5188 Özel Güvenlik • Mobil Teknik Bakım • TSE 13811 Hijyen
           </p>
         </div>
 

@@ -172,20 +172,6 @@ export function findNearestFacilityHub(lat: number, lng: number): NearestHubResu
         legalName: 'Alo Yönetim ve Organizasyon A.Ş.',
         url: BASE_URL,
       },
-      openingHoursSpecification: {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday',
-        ],
-        opens: '00:00',
-        closes: '23:59',
-      },
       geo: {
         '@type': 'GeoCoordinates',
         latitude: finalGeoLat,

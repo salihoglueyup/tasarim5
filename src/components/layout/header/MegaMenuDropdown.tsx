@@ -42,7 +42,7 @@ const PROMO_MAP: Record<Language, Record<string, PromoConfig>> = {
       btnText: 'Sözlüğü Keşfet',
     },
     nav_districts: {
-      tag: '7/24 Mobil Ağ',
+      tag: 'Mobil Ağ',
       title: 'Yazılı SLA ile Acil Müdahale 📍',
       desc: "İstanbul'un 39 ilçesinde nöbetçi gezici teknik servis ve süpervizör amir filosu.",
       link: '/bolgeler',
@@ -56,7 +56,7 @@ const PROMO_MAP: Record<Language, Record<string, PromoConfig>> = {
       btnText: 'Belgeleri İncele',
     },
     nav_contact_media: {
-      tag: '7/24 Canlı Destek',
+      tag: 'Canlı Destek',
       title: 'Ücretsiz Keşif & Teklif 🚀',
       desc: 'Sitenize özel şeffaf işletme projesi ve tasarruf analizi sunuyoruz.',
       link: '/teklif-al',
@@ -79,7 +79,7 @@ const PROMO_MAP: Record<Language, Record<string, PromoConfig>> = {
       btnText: 'Explore Glossary',
     },
     nav_districts: {
-      tag: '24/7 Mobile Network',
+      tag: 'Mobile Network',
       title: '45 Min SLA Response 📍',
       desc: 'Mobile technical crew and supervisor fleet covering all 39 Istanbul districts.',
       link: '/bolgeler',
@@ -93,7 +93,7 @@ const PROMO_MAP: Record<Language, Record<string, PromoConfig>> = {
       btnText: 'Inspect Certificates',
     },
     nav_contact_media: {
-      tag: '24/7 Live Support',
+      tag: 'Live Support',
       title: 'Free Discovery & Quote 🚀',
       desc: 'We deliver a transparent operating project and savings analysis within 48 hours.',
       link: '/teklif-al',
@@ -116,7 +116,7 @@ const PROMO_MAP: Record<Language, Record<string, PromoConfig>> = {
       btnText: 'Открыть словарь',
     },
     nav_districts: {
-      tag: 'Сеть 24/7',
+      tag: 'Сеть',
       title: 'SLA реагирования 45 мин 📍',
       desc: 'Мобильные технические бригады во всех 39 районах Стамбула.',
       link: '/bolgeler',
@@ -130,7 +130,7 @@ const PROMO_MAP: Record<Language, Record<string, PromoConfig>> = {
       btnText: 'Изучить сертификаты',
     },
     nav_contact_media: {
-      tag: 'Поддержка 24/7',
+      tag: 'Поддержка',
       title: 'Бесплатный аудит и КП 🚀',
       desc: 'Прозрачный проект бюджета и анализ экономии в течение 48 часов.',
       link: '/teklif-al',
@@ -153,7 +153,7 @@ const PROMO_MAP: Record<Language, Record<string, PromoConfig>> = {
       btnText: 'استكشف القاموس',
     },
     nav_districts: {
-      tag: 'شبكة متنقلة 24/7',
+      tag: 'شبكة متنقلة',
       title: 'استجابة سريعة خلال 45 دقيقة 📍',
       desc: 'فرق صيانة فنية متنقلة وأسطول مشرفين يغطي 39 منطقة في إسطنبول.',
       link: '/bolgeler',
@@ -167,7 +167,7 @@ const PROMO_MAP: Record<Language, Record<string, PromoConfig>> = {
       btnText: 'فحص الشهادات',
     },
     nav_contact_media: {
-      tag: 'دعم مباشر 24/7',
+      tag: 'دعم مباشر',
       title: 'معاينة وعرض مجاني 🚀',
       desc: 'نقدم مشروع تشغيل شفاف وتحليلاً للوفر المالي في مجمعك خلال 48 ساعة.',
       link: '/teklif-al',

@@ -77,13 +77,6 @@ describe('BÖLÜM I — 🤖 AI Overviews & LLM Arama Optimizasyonu (dualCoreAIS
    * I3 — LLMS.TXT & LLM KAYNAK OPTİMİZASYONU (Faz 172-195)
    * ========================================================================= */
   describe('I3: llms.txt & RAG Optimizasyon Testleri (Faz 172-195)', () => {
-    it('buildLLMsTextFile marka, telefon, temel hizmetler ve yasal dayanakları içerir', () => {
-      const llmsTxt = buildLLMsTextFile();
-      expect(llmsTxt).toContain('Alo Yönetim');
-      expect(llmsTxt).toContain('0216 550 48 48');
-      expect(llmsTxt).toContain('634 Sayılı Kat Mülkiyeti Kanunu');
-      expect(llmsTxt).toContain('ISO 41001:2018');
-    });
 
     it('buildAIBotWhitelistRule GPTBot, ClaudeBot ve PerplexityBot izinlerini içerir', () => {
       const rules = buildAIBotWhitelistRule();

@@ -55,7 +55,7 @@ TOPLANTI YERİ: Site Sosyal Tesisi / Toplantı Salonu
 GÜNDEM MADDESİ: Sitemizin Güvenlik Hizmetlerinin 5188 Sayılı Kanun Kapsamında Karşılanması.
 
 KARAR:
-Sitemizin ortak kullanım alanlarında huzur, can ve mal güvenliğinin 7/24 esasına göre profesyonel standartlarda sağlanması amacıyla;
+Sitemizin ortak kullanım alanlarında huzur, can ve mal güvenliğinin esasına göre profesyonel standartlarda sağlanması amacıyla;
 1. 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun kapsamında yetkili makamlardan (Valilik / İl Özel Güvenlik Komisyonu) gerekli Özel Güvenlik İzninin alınmasına,
 2. Güvenlik hizmetinin İçişleri Bakanlığı onaylı 5188 Faaliyet İzin Belgesine sahip ALO YÖNETİM TESİS YÖNETİMİ A.Ş. (Özel Güvenlik Şirketi) üzerinden hizmet alımı yöntemiyle karşılanmasına,
 3. İlgili sözleşmelerin imzalanması, Valilik müracaatlarının yapılması ve sürecin takibi hususunda Site Yönetim Kurulu'na tam yetki verilmesine,

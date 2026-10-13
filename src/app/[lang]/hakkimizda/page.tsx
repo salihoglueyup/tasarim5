@@ -48,7 +48,6 @@ export async function generateMetadata({
       'kurumsal tesis yönetimi',
       'site yönetim şirketi istanbul',
       'bina yönetim vizyonu',
-      'iso 41001 tesis standartları',
       '5188 özel güvenlik kurumsal'
     ],
   });

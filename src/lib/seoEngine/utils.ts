@@ -1,7 +1,7 @@
 export const CTR_TRIGGER_WORDS = [
   'profesyonel',
   'istanbul',
-  '7/24',
+  '',
   'ücretsiz keşif',
   'kmk 634',
   'şeffaf',

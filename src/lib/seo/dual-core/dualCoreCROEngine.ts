@@ -85,7 +85,7 @@ export function buildPrimaryCTASpec(pageType: string, pillar: DomainPillar = 'si
           text: '0216 550 48 48 Nolu Hattan Bilgi Alın',
           url: `tel:${CANONICAL_NAP.contact.phoneE164}`,
         },
-        socialProof: '%100 Lisanslı Personel, 7/24 Kesintisiz Denetim',
+        socialProof: '%100 Lisanslı Personel, Denetim',
         guarantee: 'İşletme projesine ve SLA taahhütlerine %100 uyum garantisi.',
       };
 
@@ -336,7 +336,7 @@ export function buildPackageSpec(pillar: DomainPillar = 'site'): PackageTier[] {
         pillar: 'facility',
         targetScale: 'Plaza & Karma Tesisler (5.000 - 30.000 m²)',
         monthlyFeeText: 'Açık Defter (Open-Book)',
-        features: ['7/24 Kesintisiz Güvenlik', 'BMS & CMMS Otomasyonu', 'Yıllık %18 Enerji Tasarruf Planı', 'ISO 41001 Süreçleri', 'Hukuk ve İSG Danışmanlığı'],
+        features: ['Güvenlik', 'BMS & CMMS Otomasyonu', 'Yıllık %18 Enerji Tasarruf Planı', 'uluslararası tesis yönetimi standartları Süreçleri', 'Hukuk ve İSG Danışmanlığı'],
         isPopular: true,
         ctaText: 'Enterprise Teklifi Alın',
       },

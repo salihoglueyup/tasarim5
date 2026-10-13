@@ -199,7 +199,7 @@ export default function PlazaYonetimiClient() {
         serviceCategory="Ticari Gayrimenkul İşletmesi"
         lawReferences={[
           {
-            title: "ISO 41001:2018 Tesis Yönetim Sistemi",
+            title: "uluslararası tesis yönetimi standartları",
             sourceName: "TSE & Uluslararası Standartlar Teşkilatı",
             url: "https://www.tse.org.tr",
             badge: "KMK 634",
@@ -224,7 +224,7 @@ export default function PlazaYonetimiClient() {
           {
             slug: "bina-otomasyon-sistemi-bms",
             term: "Plaza HVAC & BMS Otomasyonu",
-            summary: "Chiller, soğutma kuleleri ve fancoil ünitelerinin merkezi bina yönetim yazılımı üzerinden 7/24 izlenmesidir."
+            summary: "Chiller, soğutma kuleleri ve fancoil ünitelerinin merkezi bina yönetim yazılımı üzerinden izlenmesidir."
           },
           {
             slug: "jenerator-periyodik-bakimi-ve-yuk-testi",

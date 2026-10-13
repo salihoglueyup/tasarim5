@@ -43,7 +43,7 @@ export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesi
     title: 'Alo Yönetim — Profesyonel Site Yönetimi ve Toplu Yaşam Alanları',
     url: `${BASE_URL}${langPrefix}/hizmetler/site-yonetimi`,
     anchorText: 'İstanbul Profesyonel Site Yönetimi ve Apartman Yönetimi',
-    description: '634 sayılı KMK uyarınca kat malikleri kurulu, aidat takibi, hukuki danışmanlık ve 7/24 tesis işletimi.',
+    description: '634 sayılı KMK uyarınca kat malikleri kurulu, aidat takibi, hukuki danışmanlık ve tesis işletimi.',
     category: 'flagship',
   };
 

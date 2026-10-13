@@ -119,9 +119,9 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
           <div className="mb-16">
             <InstantAnswerCardSeo
               question="Site ve Apartman Yönetimi Hizmetleri Neleri Kapsar?"
-              shortAnswer="Profesyonel site yönetimi; 5188 sayılı kanun kapsamında 7/24 özel güvenlik, ortak alan temizliği, asansör ve jeneratör periyodik teknik bakımı, peyzaj sulama, havuz hijyeni ve KMK 37 uyarınca aidat takibi ile hukuk danışmanlığını tek çatı altında kapsayan entegre tesis işletmesidir."
+              shortAnswer="Profesyonel site yönetimi; 5188 sayılı kanun kapsamında özel güvenlik, ortak alan temizliği, asansör ve jeneratör periyodik teknik bakımı, peyzaj sulama, havuz hijyeni ve KMK 37 uyarınca aidat takibi ile hukuk danışmanlığını tek çatı altında kapsayan entegre tesis işletmesidir."
               bulletPoints={[
-                '5188 Sayılı Kanun Uyumlu 7/24 Fiziki Güvenlik ve Plaka Tanıma Sistemi (PTS)',
+                '5188 Sayılı Kanun Uyumlu Fiziki Güvenlik ve Plaka Tanıma Sistemi (PTS)',
                 'Kazan Dairesi, Asansör, Hidrofor ve Yangın Sistemleri Periyodik Bakımı',
                 'Sertifikalı Personelle Günlük Blok Temizliği ve Çöp Toplama Hizmeti',
                 'Şeffaf KMK İşletme Projesi, Mobil Sakin Aidat Takip Paneli ve İcra Danışmanlığı',
@@ -154,7 +154,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
                     'Özel güvenlik görevlisi istihdamı, valilik komisyon izinleri, üniforma ve yetki kuralları.',
                 },
                 {
-                  title: 'ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı',
+                  title: 'uluslararası tesis yönetimi standartları Standardı',
                   sourceName: 'Türk Standardları Enstitüsü (TSE)',
                   url: 'https://www.tse.org.tr',
                   badge: 'KMK 634',

@@ -45,7 +45,7 @@ export const SERVICE_PRICING_PACKAGES: ServicePricingPackage[] = [
     isPopular: false,
     deliverables: [
       '634 Sayılı KMK Madde 37 Uyumlu Yıllık İşletme Projesi ve Tebligatlar',
-      'Apsiyon Mobil Uygulaması (7/24 Şeffaf Kasa, Ekstre ve Kredi Kartı ile Aidat)',
+      'Apsiyon Mobil Uygulaması (Şeffaf Kasa, Ekstre ve Kredi Kartı ile Aidat)',
       'Aylık Düzenli Gelir-Gider Tablosu ve Banka Mutabakat Raporu',
       'Hukuk Departmanımız ile Geciken Aidatlarda İlamsız İcra Takibi (İİK m.68)',
       'Haftalık Ortak Alan Temizlik & Çöp Toplama Organizasyonu',
@@ -101,9 +101,9 @@ export const SERVICE_PRICING_PACKAGES: ServicePricingPackage[] = [
     isPopular: false,
     deliverables: [
       'Yerleşik Tam Zamanlı Tesis Müdürü ve Muhasebe Sorumlusu',
-      '7/24 Vardiyalı Özel Güvenlik, Resepsiyon ve Vale Koordinasyonu',
+      'Vardiyalı Özel Güvenlik, Resepsiyon ve Vale Koordinasyonu',
       'Merkezi Sistem Isınma / Isı Payölçer Kalorimetre Okuma ve Adil Fatura Paylaşımı',
-      'Elektromekanik Sistemler (Chiller, Trafo, Jeneratör, Yangın) 7/24 Teknik Kadro',
+      'Elektromekanik Sistemler (Chiller, Trafo, Jeneratör, Yangın) Teknik Kadro',
       'KMK Madde 66-74 Toplu Yapı Temsilciler Kurulu ve Blok Yöneticileri Koordinasyonu',
       'Sosyal Tesis, Kapalı Havuz, Fitness ve Spa Alanı Kurumsal İşletmesi',
     ],
@@ -129,7 +129,7 @@ export const SERVICE_PRICING_PACKAGES: ServicePricingPackage[] = [
     isPopular: false,
     deliverables: [
       'ISO 45001, ISO 14001 ve ISO 22301 Belgeli Entegre İşletme',
-      'BMS (Bina Otomasyonu) ve SCADA ile 7/24 Kesintisiz Enerji & İklimlendirme Takibi',
+      'BMS (Bina Otomasyonu) ve SCADA ile Enerji & İklimlendirme Takibi',
       'İş Sağlığı ve Güvenliği (İSG) Yasal Sorumluluk ve Sıfır Kaza Protokolü',
       'Kiracı & Mülk Sahibi İlişkileri, Kira & Aidat Mutabakat Yönetimi',
       'Sözleşmeli Taşeron (Asansör, Jeneratör, Soğutma Kuleleri) KPI ve SLA Denetimi',

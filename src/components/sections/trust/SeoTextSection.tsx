@@ -31,7 +31,7 @@ const TRUST_METRICS = {
     {
       icon: 'engineering',
       metric: 'Yazılı SLA ile Acil',
-      label: '7/24 Nöbetçi Teknik Kadro',
+      label: 'Nöbetçi Teknik Kadro',
       desc: 'Asansör, hidrofor ve jeneratöre anında müdahale',
       badge: 'Yazılı SLA',
       color: 'amber',
@@ -65,7 +65,7 @@ const TRUST_METRICS = {
     {
       icon: 'engineering',
       metric: '30 Min Dispatch',
-      label: '24/7 Technical Response',
+      label: 'Technical Response',
       desc: 'Immediate action for elevators, pumps and generators',
       badge: 'SLA Guaranteed',
       color: 'amber',
@@ -99,7 +99,7 @@ const TRUST_METRICS = {
     {
       icon: 'engineering',
       metric: '30 Мин Выезд',
-      label: '24/7 Техническая Служба',
+      label: 'Техническая Служба',
       desc: 'Немедленное обслуживание лифтов и генераторов',
       badge: 'Гарантия SLA',
       color: 'amber',
@@ -133,7 +133,7 @@ const TRUST_METRICS = {
     {
       icon: 'engineering',
       metric: '30 دقيقة',
-      label: 'طاقم فني على مدار 24/7',
+      label: 'طاقم فني على مدار',
       desc: 'استجابة فورية للمصاعد والمضخات والمولدات الكهربائية',
       badge: 'ضمان SLA',
       color: 'amber',

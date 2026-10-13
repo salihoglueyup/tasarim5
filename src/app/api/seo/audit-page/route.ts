@@ -73,7 +73,7 @@ KMK 37. maddesi gereğince her yıl kat malikleri kurulu öncesinde işletme pro
   `;
 
   const audit = auditFullPageSeo({
-    title: 'Profesyonel Tesis Yönetimi İstanbul | 7/24 Alo Yönetim',
+    title: 'Profesyonel Tesis Yönetimi İstanbul | Alo Yönetim',
     description: 'İstanbul genelinde profesyonel tesis yönetimi, 5188 güvenlik ve şeffaf KMK aidat takibi. Ücretsiz keşif için hemen arayın.',
     content: demoContent,
     targetKeyword: keyword,

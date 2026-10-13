@@ -83,7 +83,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
               <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 font-normal max-w-sm mx-auto">
                 {activeTab === 'sakin'
                   ? 'Alo Yönetim sakinleri ve kat malikleri için online aidat, arıza ve yönetim portalı'
-                  : 'Site yönetim ve denetim kurulları için 7/24 şeffaf finans ve operasyon paneli'}
+                  : 'Site yönetim ve denetim kurulları için şeffaf finans ve operasyon paneli'}
               </p>
             </div>
 

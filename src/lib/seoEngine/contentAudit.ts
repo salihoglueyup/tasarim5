@@ -144,7 +144,7 @@ export function extractKeyFactsAndKpis(content: string): ExtractedFact[] {
     );
     if (sameRawIdx !== -1) return;
 
-    // 2. Aynı cümlede birden fazla standart (ISO 9001, ISO 41001, ISO 45001) varsa sadece birini tut (ISO 41001 tercih edilir)
+    // 2. Aynı cümlede birden fazla standart (ISO 9001, ISO 45001) varsa sadece birini tut (uluslararası tesis yönetimi standartları tercih edilir)
     if (type === 'standard') {
       const existingStdIdx = facts.findIndex(
         (f) => f.type === 'standard' && (f.context === context || f.context.slice(0, 30) === context.slice(0, 30))

@@ -25,7 +25,7 @@ const TX_MAP: Record<string, string> = {
   "Hukuka Uygun Genel Kurul & Divan Yönetimi": "sbg_17",
   "Canlı Gelir-Gider & Banka Entegrasyonu": "sbg_18",
   "Mobil Sakin Paneli ile Anlık Talep Takibi": "sbg_19",
-  "7/24 AI Destekli Özel Güvenlik Yönetimi": "sbg_20",
+  "AI Destekli Özel Güvenlik Yönetimi": "sbg_20",
   "Özel Güvenlik": "sbg_21",
   "Güvenlik": "sbg_22",
   "T.C. İçişleri Bakanlığı 5188 Sayılı Kanun lisanslı, silahlı/silahsız üniformalı nöbet, RFID devriye tur kontrolü, yapay zeka destekli plaka tanıma (PTS) ve akıllı çevre güvenliği.": "sbg_23",
@@ -35,7 +35,7 @@ const TX_MAP: Record<string, string> = {
   "Akıllı Plaka Tanıma (PTS) & Bariyer Entegrasyonu": "sbg_27",
   "RFID Noktalarında Anlık Canlı Devriye Takibi": "sbg_28",
   "Kolluk Kuvvetleri ile Koordineli Güvenlik Komisyonu": "sbg_29",
-  "7/24 Teknik Bakım, Asansör & Jeneratör Onarımı": "sbg_30",
+  "Teknik Bakım, Asansör & Jeneratör Onarımı": "sbg_30",
   "Teknik Bakım": "sbg_31",
   "Asansör, jeneratör, hidrofor, kazan dairesi ve yangın otomasyon sistemlerinde periyodik bakım, kestirimci arıza tespiti ve yazılı SLA kapsamında acil mobil teknik müdahale.": "sbg_32",
   "Yazılı SLA ile Acil Müdahale": "sbg_33",
@@ -59,7 +59,7 @@ const TX_MAP: Record<string, string> = {
   "Sakinler için mobil kredi kartı ile aidat ödeme altyapısı, otomatik SMS/e-posta hatırlatmaları, gecikme tazminatı hesaplaması ve anlık dijital gelir-gider bilançosu.": "sbg_51",
   "Düzenli Aidat Takibi": "sbg_52",
   "Kredi Kartı & Otomatik POS": "sbg_53",
-  "Kredi Kartı & Sanal POS ile 7/24 Online Ödeme": "sbg_54",
+  "Kredi Kartı & Sanal POS ile Online Ödeme": "sbg_54",
   "Vadesi Geçen Borçlarda Otomatik SMS / E-posta": "sbg_55",
   "KMK m.20 Uyarınca Aylık %5 Gecikme Tazminatı": "sbg_56",
   "Mobil Uygulama Üzerinden Dekont ve Bilanço Görüntüleme": "sbg_57",
@@ -176,7 +176,7 @@ export const ALL_SERVICES_CATALOG: ServiceDefinition[] = [
   {
     id: 'guvenlik-yonetimi',
     slug: '/hizmetler/guvenlik-yonetimi',
-    title: '7/24 AI Destekli Özel Güvenlik Yönetimi',
+    title: 'AI Destekli Özel Güvenlik Yönetimi',
     shortTitle: 'Özel Güvenlik',
     category: 'security',
     categoryLabel: 'Güvenlik',
@@ -194,7 +194,7 @@ export const ALL_SERVICES_CATALOG: ServiceDefinition[] = [
   {
     id: 'teknik-bakim',
     slug: '/hizmetler/teknik-bakim',
-    title: '7/24 Teknik Bakım, Asansör & Jeneratör Onarımı',
+    title: 'Teknik Bakım, Asansör & Jeneratör Onarımı',
     shortTitle: 'Teknik Bakım',
     category: 'technical',
     categoryLabel: 'Teknik Bakım',
@@ -239,7 +239,7 @@ export const ALL_SERVICES_CATALOG: ServiceDefinition[] = [
     badge: 'Düzenli Aidat Takibi',
     stats: 'Kredi Kartı & Otomatik POS',
     bulletPoints: [
-      'Kredi Kartı & Sanal POS ile 7/24 Online Ödeme',
+      'Kredi Kartı & Sanal POS ile Online Ödeme',
       'Vadesi Geçen Borçlarda Otomatik SMS / E-posta',
       'KMK m.20 Uyarınca Aylık %5 Gecikme Tazminatı',
       'Mobil Uygulama Üzerinden Dekont ve Bilanço Görüntüleme'

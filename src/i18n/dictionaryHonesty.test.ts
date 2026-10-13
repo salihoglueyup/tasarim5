@@ -7,6 +7,7 @@ const load = (l: string) => JSON.parse(fs.readFileSync(path.join(process.cwd(), 
 
 /** Dil bağımsız sayısal iddialar: tahsilat/puan/portföy sayıları, uydurma süre ve tasarruf yüzdeleri. */
 const BANNED_ALL: RegExp[] = [
+  /7\/24/, /\b24\/7\b/, /ISO 41001/,
   /%\s?9[0-9]\b/, /\b9[0-9](?:[.,]\d)?\s?%/, /\b4[.,]9\s?(?:\/|★)/, /(?:120|150|200|340|400)\+/, /15\s?-\s?25\s?(?:dk|min|мин)/i,
   /\b45\s?(?:dk|dakika|min|minutes|мин|минут)\b/i, /%\s?(?:2[5-9]|3[0-5])\s?-\s?%?\s?(?:2[5-9]|3[0-9])/,
 ];

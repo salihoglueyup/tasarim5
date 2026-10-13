@@ -134,11 +134,11 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
     {
       id: 'iso_41001_tesis_yonetimi_sartnamesi',
       title: 'Entegre Tesis Yönetimi ve Kurumsal Hizmet Seviyesi (SLA) Şartnamesi',
-      lawReference: 'ISO 41001:2018 & 634 Sayılı Kat Mülkiyeti Kanunu',
+      lawReference: '634 Sayılı Kat Mülkiyeti Kanunu',
       authority: 'Site Yönetim Kurulu & Akredite Tesis Yönetim Şirketi',
       description: 'Acil durum müdahale süreleri (SLA), arıza onarım standartları, 5188 güvenlik ve TSE 13811 temizlik kriterlerini belirleyen kurumsal teknik şartname.',
       fieldsRequired: ['Site Adı', 'SLA Müdahale Süresi', 'Güvenlik Personeli Sayısı', 'Temizlik Frekansı'],
-      templateText: `[SITE_ADI] SİTESİ ISO 41001 TESİS YÖNETİMİ HİZMET VE PERFORMANS (SLA) ŞARTNAMESİ
+      templateText: `[SITE_ADI] SİTESİ uluslararası tesis yönetimi standartları TESİS YÖNETİMİ HİZMET VE PERFORMANS (SLA) ŞARTNAMESİ
 
 1. AMAC VE KAPSAM:
 İşbu şartname, [SITE_ADI] sitesinin 5188 sayılı kanun kapsamında güvenliğini, TSE 13811 standartlarında temizliğini, asansör/jeneratör önleyici teknik bakımını ve şeffaf KMK muhasebesini kapsar.
@@ -146,7 +146,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
 2. HİZMET SEVİYESİ TAAHHÜTLERİ (SLA):
 - Acil Teknik Arıza Müdahale Süresi: Azami 45 Dakika
 - Asansörde Mahsur Kalma Kurtarma Süresi: Azami 20 Dakika
-- 5188 Lisanslı Nizamiye & CCTV Güvenlik Denetimi: 7/24 Kesintisiz
+- 5188 Lisanslı Nizamiye & CCTV Güvenlik Denetimi: Kesintisiz
 - Ortak Alan ve Blok Merdiven Hijyen Frekansı: Günlük / Haftalık Plan
 
 3. ŞEFFAFLIK VE RAPORLAMA:

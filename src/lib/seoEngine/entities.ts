@@ -4,7 +4,7 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
     slug: 'tesis-yonetimi',
     pillarUrl: '/hizmetler/tesis-yonetimi',
     wikidata: 'https://www.wikidata.org/wiki/Q1391515',
-    isoStandard: 'ISO 41001:2018',
+    isoStandard: 'uluslararası tesis yönetimi standartları',
     variations: [
       'tesis yönetimi',
       'entegre tesis yönetimi',
@@ -26,7 +26,7 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
     slug: 'tesis-ve-mulk-hizmetleri',
     pillarUrl: '/hizmetler/tesis-yonetimi',
     wikidata: 'https://www.wikidata.org/wiki/Q1758229',
-    isoStandard: 'ISO 41001 & KMK 634',
+    isoStandard: 'KMK 634',
     variations: [
       'tesis ve mülk hizmetleri',
       'tesis ve mülk yönetimi',
@@ -43,7 +43,7 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
     slug: 'rezidans-site-yonetimi',
     pillarUrl: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
     wikidata: 'https://www.wikidata.org/wiki/Q108846399',
-    isoStandard: 'ISO 41001:2018',
+    isoStandard: 'uluslararası tesis yönetimi standartları',
     variations: [
       'rezidans yönetimi',
       'rezidans tesis yönetimi',
@@ -57,7 +57,7 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
     slug: 'plaza-yonetimi',
     pillarUrl: '/hizmetler/tesis-yonetimi/plaza-yonetimi',
     wikidata: 'https://www.wikidata.org/wiki/Q102163',
-    isoStandard: 'ISO 41001:2018',
+    isoStandard: 'uluslararası tesis yönetimi standartları',
     variations: [
       'plaza yönetimi',
       'iş merkezi yönetimi',
@@ -70,7 +70,7 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
     slug: 'toplu-konut-yonetimi',
     pillarUrl: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
     wikidata: 'https://www.wikidata.org/wiki/Q1391515',
-    isoStandard: 'ISO 41001:2018',
+    isoStandard: 'uluslararası tesis yönetimi standartları',
     variations: [
       'toplu konut yönetimi',
       'toki site yönetimi',
@@ -83,7 +83,7 @@ export const FACILITY_MANAGEMENT_ENTITIES = [
     slug: 'sanayi-tesisi-yonetimi',
     pillarUrl: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
     wikidata: 'https://www.wikidata.org/wiki/Q83405',
-    isoStandard: 'ISO 45001 & ISO 41001',
+    isoStandard: 'ISO 45001',
     variations: [
       'sanayi tesisi yönetimi',
       'fabrika yönetimi',

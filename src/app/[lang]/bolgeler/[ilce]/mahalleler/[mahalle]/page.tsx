@@ -164,14 +164,6 @@ export default async function NeighborhoodPage({
       ? { '@type': 'GeoCoordinates', latitude: neighborhood.geo.lat, longitude: neighborhood.geo.lng }
       : { '@type': 'GeoCoordinates', latitude: district.geo.lat, longitude: district.geo.lng },
     hasMap: `https://www.google.com/maps?q=Alo+Yönetim+${encodeURIComponent(`${neighborhood.name} ${district.name}`)}`,
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: '00:00',
-        closes: '23:59',
-      },
-    ],
     serviceType: ['Tesis Yönetimi', 'Site Güvenliği', 'Teknik Bakım', 'Aidat Yönetimi'],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',

@@ -165,7 +165,6 @@ const CUSTOM_LINKS: { term: string; href: string }[] = [
   { term: 'otomatik sulama sistemleri', href: '/hizmetler/peyzaj-ve-bahce-bakimi' },
   { term: 'çim biçme budama', href: '/hizmetler/peyzaj-ve-bahce-bakimi' },
   // 8 Resmi Akreditasyon ve Kalite Belgeleri (E-E-A-T Sinyalleri)
-  { term: 'iso 41001:2018', href: '/kurumsal/kalite-belgelerimiz' },
   { term: 'iso 41001', href: '/kurumsal/kalite-belgelerimiz' },
   { term: 'iso 9001:2015', href: '/kurumsal/kalite-belgelerimiz' },
   { term: 'iso 9001', href: '/kurumsal/kalite-belgelerimiz' },

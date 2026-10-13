@@ -40,7 +40,7 @@ export default function TesisYonetimiClient() {
     { name: t('fac_step_1_title') || '1. Ücretsiz Tesis Keşfi ve Risk Analizi', text: t('fac_step_1_desc') || 'Tesisinizin fiziki, teknik, güvenlik ve mali durumunu yerinde inceler, eksikleri raporlarız.' },
     { name: t('fac_step_2_title') || '2. Şeffaf İşletme Projesi ve Bütçe Planı', text: t('fac_step_2_desc') || 'KMK m.37 uyarınca yıllık tahmini gelir-gider ve tasarruf odaklı aidat işletme projesini hazırlarız.' },
     { name: t('fac_step_3_title') || '3. Resmi Kurul Onayı ve Sözleşme', text: t('fac_step_3_desc') || 'Kat malikleri kurulu kararıyla yetkilendirme sonrası noter onaylı devir teslim protokolünü işletiriz.' },
-    { name: t('fac_step_4_title') || '4. 7/24 Kesintisiz Entegre Tesis İşletmesi', text: t('fac_step_4_desc') || 'Güvenlik, temizlik, teknik bakım ve dijital aidat yönetimini tek merkezden kesintisiz başlatırız.' }
+    { name: t('fac_step_4_title') || '4. Entegre Tesis İşletmesi', text: t('fac_step_4_desc') || 'Güvenlik, temizlik, teknik bakım ve dijital aidat yönetimini tek merkezden kesintisiz başlatırız.' }
   ];
 
   const faqs = [
@@ -108,7 +108,7 @@ export default function TesisYonetimiClient() {
             
 
             <p className="text-lg md:text-xl text-white/90 font-light max-w-2xl mt-4">
-              {t('fac_banner_desc') || 'Apartman, site, plaza ve tesisler için 7/24 güvenlik, temizlik, teknik bakım, peyzaj ve şeffaf aidat takibi. ISO ve 5188 lisanslı kurumsal güvence.'}
+              {t('fac_banner_desc') || 'Apartman, site, plaza ve tesisler için güvenlik, temizlik, teknik bakım, peyzaj ve şeffaf aidat takibi. ISO ve 5188 lisanslı kurumsal güvence.'}
             </p>
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               <Link href={localePath('/teklif-al', language)} className="bg-slate-200 hover:bg-white text-slate-950 font-bold py-4 px-8 rounded-xl shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] transition-all hover:scale-105 flex items-center gap-2">
@@ -155,7 +155,7 @@ export default function TesisYonetimiClient() {
           id="tesis-yonetimi-nedir"
           answerId="facility-instant-answer-text"
           question="Tesis Yönetimi Nedir ve Neleri Kapsar?"
-          answer="Tesis Yönetimi (Facility Management); konut siteleri, çok katlı rezidanslar, plazalar ve sanayi tesislerinin 5188 lisanslı güvenlik, 7/24 kestirimci teknik bakım, endüstriyel temizlik, şeffaf aidat muhasebesi ve 634 sayılı KMK hukuki danışmanlık operasyonlarının tek bir kurumsal merkezden entegre olarak yönetilmesidir."
+          answer="Tesis Yönetimi (Facility Management); konut siteleri, çok katlı rezidanslar, plazalar ve sanayi tesislerinin 5188 lisanslı güvenlik, kestirimci teknik bakım, endüstriyel temizlik, şeffaf aidat muhasebesi ve 634 sayılı KMK hukuki danışmanlık operasyonlarının tek bir kurumsal merkezden entegre olarak yönetilmesidir."
           standardBadge="634 Sayılı KMK"
           subText="Alo Yönetim, uluslararası entegre tesis yönetimi ile işletme bütçelerinde tasarruf fırsatı ve yazılı SLA kapsamında acil teknik müdahale sunar."
           accentColor="slate"
@@ -204,7 +204,7 @@ export default function TesisYonetimiClient() {
               </Link>
               ,{' '}
               <a href="https://www.iso.org/standard/63022.html" target="_blank" rel="noopener noreferrer" className="text-[var(--color-primary)] font-semibold underline decoration-slate-300 hover:text-[var(--color-primary)] hover:opacity-80 transition-all inline-flex items-center gap-0.5">
-                ISO 41001:2018 Uluslararası Tesis Yönetimi Standartları
+                uluslararası tesis yönetimi standartları
                 <Icon name="open_in_new" className="text-[14px]" />
               </a>
               ,{' '}
@@ -224,7 +224,7 @@ export default function TesisYonetimiClient() {
                   <span>🛡️</span> 5188 Lisanslı Özel Güvenlik & Elektronik Koruma
                 </Link>
                 <p className="text-[var(--color-secondary)]">
-                  T.C. İçişleri Bakanlığı ve Valilik izinli lisanslama, üniformalı ve eğitimli güvenlik personeli, 7/24 kesintisiz CCTV video analiz gözetimi, yapay zeka destekli plaka tanıma (PTS), bariyer/turnike geçiş kontrolü, yangın/deprem/sel acil durum tahliye planları ve yetkisiz giriş önleme protokolleri.
+                  T.C. İçişleri Bakanlığı ve Valilik izinli lisanslama, üniformalı ve eğitimli güvenlik personeli, CCTV video analiz gözetimi, yapay zeka destekli plaka tanıma (PTS), bariyer/turnike geçiş kontrolü, yangın/deprem/sel acil durum tahliye planları ve yetkisiz giriş önleme protokolleri.
                 </p>
               </div>
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
@@ -253,7 +253,7 @@ export default function TesisYonetimiClient() {
               </div>
             </div>
             <p>
-              Tesislerimizde hayata geçirdiğimiz enerji verimliliği projeleri kapsamında; ortak aydınlatmalarda LED ve sensör dönüşümü, kompanzasyon panosu optimizasyonu ile <strong className="text-[var(--color-primary)] font-semibold">reaktif ceza riskinin azaltılması</strong>, hidrofor basınç optimizasyonu ve çatı Güneş Enerjisi Santrali (GES) fizibilite danışmanlığı sağlanır. 7/24 kesintisiz çalışan dijital sakin mobil uygulamamız sayesinde kat malikleri; tüm gelir-gider faturalarını, kasa/banka bakiyelerini, bağımsız denetim raporlarını ve teknik arıza loglarını anlık olarak şeffaflıkla denetleyebilir.
+              Tesislerimizde hayata geçirdiğimiz enerji verimliliği projeleri kapsamında; ortak aydınlatmalarda LED ve sensör dönüşümü, kompanzasyon panosu optimizasyonu ile <strong className="text-[var(--color-primary)] font-semibold">reaktif ceza riskinin azaltılması</strong>, hidrofor basınç optimizasyonu ve çatı Güneş Enerjisi Santrali (GES) fizibilite danışmanlığı sağlanır. çalışan dijital sakin mobil uygulamamız sayesinde kat malikleri; tüm gelir-gider faturalarını, kasa/banka bakiyelerini, bağımsız denetim raporlarını ve teknik arıza loglarını anlık olarak şeffaflıkla denetleyebilir.
             </p>
             <p>
               Alo Yönetim ile çalışan tesislerde; toplu satın alma yöntemleri, önleyici teknik bakım disiplini ve reaktif enerji cezası riskinin azaltılması sayesinde ortak işletme bütçelerinde <strong className="text-emerald-600 dark:text-emerald-400 font-bold">tasarruf fırsatı</strong> elde edilir. Aynı zamanda kat malikleri kurullarının ve bina yöneticilerinin şahsi hukuki ve cezai sorumlulukları, personel kıdem/ihbar tazminatı riskleri ve İSG yükümlülükleri şirketimizin kurumsal tüzel kişilik güvencesi altına alınarak tamamen sıfırlanır, gayrimenkulün piyasa değeri ve prestiji korunur.
@@ -291,7 +291,7 @@ export default function TesisYonetimiClient() {
                 <span className="w-8 h-8 rounded-xl bg-[var(--color-surface)] text-[var(--color-primary)] border border-[var(--color-outline)]/80 flex items-center justify-center shrink-0">
                   <Icon name="smartphone" className="text-lg" />
                 </span>
-                <span>7/24 Şeffaf Mobil Yönetim</span>
+                <span>Şeffaf Mobil Yönetim</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                 iOS/Android sakin uygulaması, banka entegrasyonlu canlı gelir-gider takibi ve yazılı SLA kapsamında acil mobil servis.
@@ -322,7 +322,7 @@ export default function TesisYonetimiClient() {
         {/* Mülk Tipinize Özel Çözümler (Sub-Sector Hub) */}
         <FacilitySubSectorCrossNav />
 
-        {/* ISO 41001 & B2B Kurumsal Tesis Yönetimi Hub'ı */}
+        {/* B2B Kurumsal Tesis Yönetimi Hub'ı */}
         {null}
       </section>
 </TrOnly>
@@ -558,7 +558,7 @@ export default function TesisYonetimiClient() {
                 'Kıdem tazminatı ve SGK işveren yükümlülüklerinin şirket sorumluluğunda olduğu sözleşmede yer almalıdır.',
                 'Acil teknik arızalarda maksimum yazılı SLA ile müdahale süresi taahhüdü aranmalıdır.'
               ]}
-              lawArticle="ISO 41001:2018 & 5188 Sayılı Özel Güvenlik Kanunu"
+              lawArticle="5188 Sayılı Özel Güvenlik Kanunu"
               verifiedBy="Alo Yönetim Kalite & Akreditasyon Direktörlüğü"
               category="Kurumsal Standartlar & Şirket Seçimi"
             />
@@ -598,7 +598,7 @@ export default function TesisYonetimiClient() {
               description: "Kat irtifakı, kat mülkiyeti, yönetim planı, genel kurul nisapları, yönetici ve denetçi hak ve sorumluluklarının ana kanuni çerçevesi."
             },
             {
-              title: "ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı",
+              title: "uluslararası tesis yönetimi standartları Standardı",
               sourceName: "Türk Standardları Enstitüsü (TSE)",
               url: "https://www.tse.org.tr",
               badge: "KMK 634",
@@ -632,7 +632,7 @@ export default function TesisYonetimiClient() {
         {/* Akademik & Hukuki Atıf Oluşturucu */}
         <AcademicCitationBoxSeo
           pageUrl="/hizmetler/tesis-yonetimi"
-          pageTitle="Entegre Tesis Yönetimi, ISO 41001 Standartları ve Kurumsal SLA Kılavuzu"
+          pageTitle="Entegre Tesis Yönetimi Standartları ve Kurumsal SLA Kılavuzu"
         /></TrOnly>
 
       </section>
@@ -640,7 +640,7 @@ export default function TesisYonetimiClient() {
 <TrOnly>
       {/* 5. BÖLÜM: Yıllık Periyodik Bakım, Enerji & Altyapı Yönetimi */}
       <section id="bakim-ve-enerji" className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-16">
-        {/* ISO 41001 & Tesis Yönetimi 12 Aylık Periyodik Bakım ve Denetim Takvimi */}
+        {/* Tesis Yönetimi 12 Aylık Periyodik Bakım ve Denetim Takvimi */}
         {null}
 
         {/* Binalarda Enerji, EV Şarj & Altyapı Sayaç Devir Kılavuzu (Tabbed Hub) */}

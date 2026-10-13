@@ -143,7 +143,7 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
         </div>
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)] text-center">
           <div className="text-xs text-[var(--color-tertiary)] font-medium mb-1">Kalite Belgesi</div>
-          <div className="text-sm font-bold text-[var(--color-primary)]">ISO 41001 & 10002</div>
+          <div className="text-sm font-bold text-[var(--color-primary)]">10002</div>
           <div className="text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">BELCERT A1808961</div>
         </div>
         <div className="p-3.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)] text-center">

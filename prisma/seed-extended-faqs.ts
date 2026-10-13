@@ -24,7 +24,7 @@ const extendedFaqs = [
   {
     category: 'Aidat Takibi',
     question: 'Aidat ödemelerini hangi kanallardan yapabiliriz?',
-    answer: 'Sakinlerimiz aidat ödemelerini mobil uygulamamız üzerinden kredi kartı ile, havale/EFT yoluyla veya online şube platformumuzdan 7/24 güvenle yapabilirler.',
+    answer: 'Sakinlerimiz aidat ödemelerini mobil uygulamamız üzerinden kredi kartı ile, havale/EFT yoluyla veya online şube platformumuzdan güvenle yapabilirler.',
     question_en: 'Through which channels can we pay our dues?',
     answer_en: 'Our residents can securely pay their dues 24/7 via credit card on our mobile app, through bank transfer/EFT, or our online branch platform.',
     order: 1,

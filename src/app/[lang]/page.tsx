@@ -51,8 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       'site yönetim şirketleri',
       'apartman yönetimi firmaları',
       'bina yönetimi',
-      '5188 özel güvenlik izinli site yönetimi',
-      'iso 41001'
+      '5188 özel güvenlik izinli site yönetimi'
     ],
   });
   
@@ -103,7 +102,7 @@ export default async function Home({ params }: Props) {
   }
 
   const businessLd = professionalServiceSchema({
-    description: t.business_ld_desc || 'Profesyonel mülk ve tesis yönetimi, 7/24 güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.',
+    description: t.business_ld_desc || 'Profesyonel mülk ve tesis yönetimi, güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.',
   });
 
   const videoLd = videoObjectSchema({

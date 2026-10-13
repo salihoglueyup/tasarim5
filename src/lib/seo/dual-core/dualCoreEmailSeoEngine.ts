@@ -70,7 +70,7 @@ export function buildWelcomeEmailSpec(segment: EmailSegment): EmailTemplateSpec 
       : 'Apartman ve Sitenizde Huzurlu Yaşam Başlıyor: Alo Yönetim\'e Hoş Geldiniz',
     preheader: isFacility
       ? 'Entegre tesis yönetimi ve enerji tasarrufu rehberiniz.'
-      : '634 sayılı KMK rehberi, aidat şeffaflığı ve 7/24 teknik destek avantajlarımız.',
+      : '634 sayılı KMK rehberi, aidat şeffaflığı ve teknik destek avantajlarımız.',
     headline: isFacility
       ? 'Kurumsal Tesis Yönetiminde Güvenilir Çözüm Ortağınız'
       : 'Sitenizde Profesyonel, Şeffaf ve Huzurlu Bir Dönem',
@@ -122,7 +122,7 @@ export function buildLeadNurtureSequence(segment: EmailSegment, touchpointStep: 
       stepNumber: 3,
       dayDelay: 7,
       subject: 'Kazan Dairesi ve Asansörde Yeşil Etiket Güvencesi',
-      headline: '7/24 Nöbetçi Teknik Servis ile 25 Dakikada Müdahale',
+      headline: 'Nöbetçi Teknik Servis ile 25 Dakikada Müdahale',
       keyTakeaway: 'Kırmızı etiketli asansör 60 gün içinde revize edilmelidir.',
       ctaText: 'Teknik Hizmetlerimizi Keşfedin',
       targetUrl: `${BASE_URL}/hizmetler/teknik-bakim-yonetimi`,
@@ -151,10 +151,10 @@ export function buildLeadNurtureSequence(segment: EmailSegment, touchpointStep: 
     {
       stepNumber: 1,
       dayDelay: 1,
-      subject: 'Plaza ve Tesis Yönetiminde ISO 41001 Standartları',
+      subject: 'Plaza ve Tesis Yönetiminde uluslararası tesis yönetimi standartları',
       headline: 'Uluslararası Hizmet Seviye Anlaşması (SLA) Kriterleri',
       keyTakeaway: 'Tesis yönetiminde tüm süreçler ölçülebilir KPI hedeflerine bağlanmalıdır.',
-      ctaText: 'ISO 41001 Rehberini İnceleyin',
+      ctaText: 'uluslararası tesis yönetimi standartları Rehberini İnceleyin',
       targetUrl: `${BASE_URL}/tesis-yonetimi`,
     },
     {
@@ -265,7 +265,7 @@ export function buildEmailSubjectLineVariants(topic: string, pillar: DomainPilla
   if (isFacility) {
     return [
       '🏢 Plazalarda Yıllık %18 Enerji Tasarrufu Sağlayan Tesis Yönetim Modeli',
-      '📋 ISO 41001 Tesis Yönetim Kontrol Listesi (Yöneticiler İçin)',
+      '📋 uluslararası tesis yönetimi standartları Tesis Yönetim Kontrol Listesi (Yöneticiler İçin)',
       '⚡ BMS ve HVAC Bakımında Sıfır Kesinti: Kurumsal SLA Rehberi',
     ];
   }
@@ -273,6 +273,6 @@ export function buildEmailSubjectLineVariants(topic: string, pillar: DomainPilla
   return [
     '🔑 Profesyonel Site Yönetimine Geçişte İlk 5 Adım',
     '📑 KMK 634 Karar Defteri Nasıl Tutulur? (Noter Tasdiki Rehberi)',
-    '🛡️ Sitenizde 7/24 Kesintisiz Güvenlik ve Teknik Bakım Avantajı',
+    '🛡️ Sitenizde Güvenlik ve Teknik Bakım Avantajı',
   ];
 }

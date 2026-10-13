@@ -12,7 +12,7 @@ const TX_MAP: Record<string, string> = {
   "634 Sayılı KMK m.34 Güvencesi": "shr_4",
   "Bina, Site ve Tesis Yönetiminde": "shr_5",
   "360° Entegre Çözümler": "shr_6",
-  "İstanbul'un 39 ilçesinde şeffaf KMK 37 bütçelemesi, 5188 lisanslı güvenlik kadrosu, 7/24 teknik bakım, asansör yeşil etiket takibi ve hijyenik ortak alan temizliğiyle mülkünüzün değerini koruyor, aidat uyuşmazlıklarına son veriyoruz.": "shr_7",
+  "İstanbul'un 39 ilçesinde şeffaf KMK 37 bütçelemesi, 5188 lisanslı güvenlik kadrosu, teknik bakım, asansör yeşil etiket takibi ve hijyenik ortak alan temizliğiyle mülkünüzün değerini koruyor, aidat uyuşmazlıklarına son veriyoruz.": "shr_7",
   "Hizmet arayın: Güvenlik, Asansör, Temizlik, KMK Aidat, Peyzaj...": "shr_8",
   "Aramayı temizle": "shr_9",
   "💡 10 ana hizmet alanı içerisinde anlık filtreleme": "shr_10",
@@ -89,7 +89,7 @@ export default function ServicesHeroSeo({
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-3xl mx-auto mb-10">
-            {tx("İstanbul'un 39 ilçesinde şeffaf KMK 37 bütçelemesi, 5188 lisanslı güvenlik kadrosu, 7/24 teknik bakım, asansör yeşil etiket takibi ve hijyenik ortak alan temizliğiyle mülkünüzün değerini koruyor, aidat uyuşmazlıklarına son veriyoruz.")}
+            {tx("İstanbul'un 39 ilçesinde şeffaf KMK 37 bütçelemesi, 5188 lisanslı güvenlik kadrosu, teknik bakım, asansör yeşil etiket takibi ve hijyenik ortak alan temizliğiyle mülkünüzün değerini koruyor, aidat uyuşmazlıklarına son veriyoruz.")}
           </p>
 
           {/* Search Bar & Quick Filter */}

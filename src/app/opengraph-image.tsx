@@ -51,7 +51,7 @@ export default async function Image() {
         <div style={{ display: 'flex', position: 'absolute', bottom: '40px', gap: '30px', color: '#94a3b8', fontSize: '24px' }}>
           <span>aloyonetim.com.tr</span>
           <span>•</span>
-          <span>7/24 Güvenlik & Temizlik & Teknik Bakım</span>
+          <span>Güvenlik & Temizlik & Teknik Bakım</span>
         </div>
       </div>
     ),

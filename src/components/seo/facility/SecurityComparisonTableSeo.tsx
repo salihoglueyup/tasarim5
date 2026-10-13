@@ -55,7 +55,7 @@ const COMPARISON_DATA: ComparisonRow[] = [
     lawReference: '4857 Sayılı İş Kanunu ve 5510 Sayılı Sosyal Sigortalar Kanunu'
   },
   {
-    criteria: '7/24 Kesintisiz Vardiya & Ani Rapor/İzin Durumunda Yedek Personel',
+    criteria: 'Vardiya & Ani Rapor/İzin Durumunda Yedek Personel',
     individualWatchman: {
       status: 'negative',
       text: 'Personel hastalandığında, izne çıktığında veya işi bıraktığında güvenlik noktası günlerce boş kalır veya komşular nöbet tutmak zorunda kalır.'

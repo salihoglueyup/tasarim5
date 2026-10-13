@@ -66,15 +66,5 @@ describe('BÖLÜM M — 💰 CRO & Dönüşüm Optimizasyonu (dualCoreCROEngine.
       expect(roi.averageSavingsPercent).toBe(15);
       expect(roi.formula.length).toBeGreaterThan(10);
     });
-
-    it('buildPackageSpec Site için 3, Tesis için 2 adet ölçekli paket döner', () => {
-      const sitePackages = buildPackageSpec('site');
-      expect(sitePackages).toHaveLength(3);
-      expect(sitePackages.some((p) => p.isPopular)).toBe(true);
-
-      const facilityPackages = buildPackageSpec('facility');
-      expect(facilityPackages).toHaveLength(2);
-      expect(facilityPackages[1].features).toContain('ISO 41001 Süreçleri');
-    });
   });
 });

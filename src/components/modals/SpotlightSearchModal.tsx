@@ -151,7 +151,7 @@ export default function SpotlightSearchModal() {
         title: 'Rezidans & Lüks Site Tesis Yönetimi',
         category: 'Hizmet',
         url: localePath(`/hizmetler/tesis-yonetimi/rezidans-site-yonetimi`, language),
-        description: 'Lüks konut ve rezidanslarda 7/24 lobi, resepsiyon, havuz, peyzaj ve aidat tahsilat sistemi.',
+        description: 'Lüks konut ve rezidanslarda lobi, resepsiyon, havuz, peyzaj ve aidat tahsilat sistemi.',
         searchIndex: 'rezidans luks site tesis yonetimi konut resepsiyon lobi havuz peyzaj aidat tahsilat'.toLowerCase(),
         icon: <Building className="w-4 h-4 text-slate-600 dark:text-slate-400" />,
       },

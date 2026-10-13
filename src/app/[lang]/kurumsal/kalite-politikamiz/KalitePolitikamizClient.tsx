@@ -22,7 +22,7 @@ export default function KalitePolitikamizClient({ lang = 'tr' }: KalitePolitikam
       {/* 2. Google AI Overviews & Speakable Regulatory Grounding */}
       <QualityAiOverviewSeo />
 
-      {/* 3. 6 Core Quality Standards Bento Grid (ISO 41001, 9001, 27001, 45001, 14001, TSE) */}
+      {/* 3. 6 Core Quality Standards Bento Grid (9001, 27001, 45001, 14001, TSE) */}
       <QualityPillarsSeo />
 
       {/* 4. Interactive PDCA (PUKÖ) Continuous Improvement Kaizen Cycle */}

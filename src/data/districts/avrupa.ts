@@ -39,13 +39,13 @@ export const AVRUPA_DISTRICTS: District[] = [
       "İş dünyası ile lüks konutun iç içe geçtiği Şişli, karma kullanımlı plaza-rezidans projelerinin merkezidir. Yoğun trafik ve ticari komşuluk, uzman güvenlik ve düzenli teknik işletme gerektirir.",
     localNeeds: [
       'Plaza-rezidans karma projelerde entegre bina otomasyonu',
-      'Ticari yoğunlukta 7/24 güvenlik ve akıllı ziyaretçi kontrolü',
+      'Ticari yoğunlukta güvenlik ve akıllı ziyaretçi kontrolü',
       'Merkezi HVAC iklimlendirme ve jeneratör sistemlerinde profesyonel teknik bakım',
     ],
     priority: 1,
-    regionalFacilityTraits: 'Yoğun ticari-konut karma kulelerde 7/24 merkezi bina otomasyonu (BMS), 3x senkron jeneratör işletmesi, yangın tahliye otomasyonu ve kurumsal güvenlik.',
+    regionalFacilityTraits: 'Yoğun ticari-konut karma kulelerde merkezi bina otomasyonu (BMS), 3x senkron jeneratör işletmesi, yangın tahliye otomasyonu ve kurumsal güvenlik.',
     neighborhoodData: [
-      { slug: 'mecidiyekoy', name: 'Mecidiyeköy', geo: { lat: 41.0672, lng: 29.0013 }, intro: 'Mecidiyeköy, İstanbul\'un ticari kalbi olup yüksek katlı plazaları ve ofis rezidanslarıyla karma kullanım yapısı ağır basar. Entegre bina otomasyonu ve 7/24 teknik destek zorunlu gereksinimlerin başında gelir.', characteristics: ['ticari merkez', 'yüksek katlı plaza', '7/24 teknik destek'] },
+      { slug: 'mecidiyekoy', name: 'Mecidiyeköy', geo: { lat: 41.0672, lng: 29.0013 }, intro: 'Mecidiyeköy, İstanbul\'un ticari kalbi olup yüksek katlı plazaları ve ofis rezidanslarıyla karma kullanım yapısı ağır basar. Entegre bina otomasyonu ve teknik destek zorunlu gereksinimlerin başında gelir.', characteristics: ['ticari merkez', 'yüksek katlı plaza', 'teknik destek'] },
       { slug: 'nisantasi', name: 'Nişantaşı', geo: { lat: 41.0497, lng: 28.9944 }, intro: 'Nişantaşı, İstanbul\'un lüks alışveriş ve konut semti olup prestijli apartman ve butik rezidanslar yoğundur. Değer koruyucu teknik bakım, güvenlik ve estetik ortak alan yönetimi kritik hizmetlerdir.', characteristics: ['lüks konut', 'butik rezidanslar', 'değer koruma'] },
       { slug: 'fulya', name: 'Fulya', geo: { lat: 41.059, lng: 28.9927 }, intro: 'Fulya, modern konut projeleri ve yoğun ticari yapısıyla Şişli\'nin dinamik mahallelerinden biridir. Karma konut-ofis projelerinde tesis yönetimi talebi giderek artmaktadır.', characteristics: ['modern rezidans', 'karma kullanım', 'hızlı gelişen'] },
       { slug: 'bomonti', name: 'Bomonti', geo: { lat: 41.0573, lng: 28.9786 }, intro: 'Bomonti, eski sanayi dokusunun yerini alan lüks rezidans ve butik otel projelerinin cazibe merkezidir. Yenileme projeleri ve gentrifikasyon süreci, uzman tesis yönetimini ön plana taşımaktadır.', characteristics: ['dönüşüm projesi', 'lüks rezidans', 'gentrifikasyon'] },
@@ -63,7 +63,7 @@ export const AVRUPA_DISTRICTS: District[] = [
       "Maslak'ın kurumsal kulelerinden Zekeriyaköy'ün villa sitelerine uzanan Sarıyer, geniş ve prestijli bir yapı stoğuna sahiptir. Orman komşuluğu ve düşük yoğunluklu yerleşimler, uzman peyzaj ve güvenlik yönetimi gerektirir.",
     localNeeds: [
       'Zekeriyaköy ve Uskumruköy villa sitelerinde geniş peyzaj ve havuz bakımı',
-      'Orman sınırı yerleşkelerde 7/24 perimetre ve devriye güvenliği',
+      'Orman sınırı yerleşkelerde perimetre ve devriye güvenliği',
       'Maslak gökdelenlerinde merkezi teknik işletme ve enerji optimizasyonu',
     ],
     priority: 1,
@@ -93,7 +93,7 @@ export const AVRUPA_DISTRICTS: District[] = [
     priority: 1,
     regionalFacilityTraits: 'Marmara Denizi kıyısında deniz tuzu kaynaklı korozyona karşı periyodik asansör halat ve kuyu kontrolleri, yeşil etiket muayeneleri, Florya villa sitelerinde havuz ve 5188 güvenlik.',
     neighborhoodData: [
-      { slug: 'atakoy', name: 'Ataköy', geo: { lat: 40.982, lng: 28.868 }, intro: 'Ataköy, sahil kuleleri ve yeşil koruluklu planlı etaplarıyla İstanbul\'un en köklü ve prestijli toplu konut-rezidans merkezidir. 7/24 profesyonel teknik işletme esastır.', characteristics: ['sahil kuleleri', 'planlı yerleşim', 'A+ rezidans'] },
+      { slug: 'atakoy', name: 'Ataköy', geo: { lat: 40.982, lng: 28.868 }, intro: 'Ataköy, sahil kuleleri ve yeşil koruluklu planlı etaplarıyla İstanbul\'un en köklü ve prestijli toplu konut-rezidans merkezidir. profesyonel teknik işletme esastır.', characteristics: ['sahil kuleleri', 'planlı yerleşim', 'A+ rezidans'] },
       { slug: 'florya', name: 'Florya', geo: { lat: 40.974, lng: 28.795 }, intro: 'Florya, geniş bahçeli müstakil villaları ve Atatürk Ormanı komşuluğuyla üst gelir grubuna yönelik özel güvenlik ve bahçe peyzaj bakımı talep eder.', characteristics: ['müstakil villalar', 'VIP güvenlik', 'özel peyzaj'] },
       { slug: 'yesilkoy', name: 'Yeşilköy', geo: { lat: 40.963, lng: 28.825 }, intro: 'Yeşilköy, sahil marinası ve butik apartmanlarıyla deniz kenarında sakin yaşam sunar. Tuzlu deniz nemine karşı düzenli teknik korozyon bakımı ister.', characteristics: ['sahil marinası', 'butik apartmanlar', 'korozyon koruması'] },
       { slug: 'senlikkoy', name: 'Şenlikköy', geo: { lat: 40.981, lng: 28.805 }, intro: 'Şenlikköy, Florya kavşağında yer alan modern konut siteleri ve sosyal donatılı projeleriyle öne çıkan bir yerleşim alanıdır.', characteristics: ['modern siteler', 'sosyal tesis', 'asansör bakımı'] },
@@ -119,7 +119,7 @@ export const AVRUPA_DISTRICTS: District[] = [
     regionalFacilityTraits: 'Geniş açık rüzgar koridorlarına açık yüksek katlı bloklarda dış cephe dayanıklılığı, marina sahilinde nem korozyonu denetimleri ve binlerce dairelik sitelerde merkezi dijital aidat tahsilatı.',
     neighborhoodData: [
       { slug: 'adnan-kahveci', name: 'Adnan Kahveci', geo: { lat: 41.012, lng: 28.635 }, intro: 'Adnan Kahveci, Beylikdüzü\'nün en yoğun nüfuslu ve en çok site projesine ev sahipliği yapan modern mahallesidir.', characteristics: ['yüksek katlı siteler', 'yoğun nüfus', 'şeffaf aidat'] },
-      { slug: 'baris', name: 'Barış', geo: { lat: 41.001, lng: 28.652 }, intro: 'Barış Mahallesi, metrobüs ve E-5 aksına komşu konumuyla ulaşım avantajlı büyük sitelerin yer aldığı merkezi bir bölgedir.', characteristics: ['metrobüs aksı', 'ulaşım kolaylığı', '7/24 güvenlik'] },
+      { slug: 'baris', name: 'Barış', geo: { lat: 41.001, lng: 28.652 }, intro: 'Barış Mahallesi, metrobüs ve E-5 aksına komşu konumuyla ulaşım avantajlı büyük sitelerin yer aldığı merkezi bir bölgedir.', characteristics: ['metrobüs aksı', 'ulaşım kolaylığı', 'güvenlik'] },
       { slug: 'yakuplu', name: 'Yakuplu', geo: { lat: 40.985, lng: 28.675 }, intro: 'Yakuplu, West Istanbul Marina ve deniz manzaralı lüks villa projeleriyle ilçenin en prestijli sahil kesimidir.', characteristics: ['marina komşuluğu', 'lüks villalar', 'VIP güvenlik'] },
       { slug: 'gurpinar', name: 'Gürpınar', geo: { lat: 40.975, lng: 28.618 }, intro: 'Gürpınar sahil hattı, deniz manzaralı ferah siteleri ve rüzgar koridorundaki yapılarıyla düzenli teknik bakım gerektirir.', characteristics: ['sahil hattı', 'deniz manzarası', 'korozyon önleme'] },
       { slug: 'cumhuriyet-beylikduzu', name: 'Cumhuriyet', geo: { lat: 41.015, lng: 28.655 }, intro: 'Cumhuriyet Mahallesi, Yaşam Vadisi parkı komşuluğunda modern aile sitelerinin yoğunlaştığı nezih bir semttir.', characteristics: ['Yaşam Vadisi komşuluğu', 'aile siteleri', 'peyzaj bakımı'] },
@@ -145,7 +145,7 @@ export const AVRUPA_DISTRICTS: District[] = [
       { slug: 'kayasehir', name: 'Kayaşehir', geo: { lat: 41.1025, lng: 28.772 }, intro: 'Kayaşehir, TOKİ ve özel sektörün birlikte geliştirdiği büyük ölçekli toplu konut projeleriyle Başakşehir\'in en kalabalık mahallesini oluşturmaktadır. Geniş ortak alanlar ve binlerce dairelik siteler kapsamlı profesyonel site ve tesis yönetimi hizmetleri gerektirmektedir.', characteristics: ['toplu konut', 'geniş ortak alan', 'büyük ölçek'] },
       { slug: 'bahcesehir', name: 'Bahçeşehir', geo: { lat: 41.0877, lng: 28.7788 }, intro: 'Bahçeşehir, göletleri ve yeşil alanlarıyla tanınan, planlı yapısıyla İstanbul\'un en tercih edilen aile yaşam merkezlerinden biridir. Peyzaj bakımı, gölet yönetimi ve geniş sosyal tesis işletmeciliği temel ihtiyaçlardandır.', characteristics: ['gölet ve yeşil alan', 'planlı yerleşim', 'aile odaklı'] },
       { slug: 'sahintepe', name: 'Şahintepe', geo: { lat: 41.088, lng: 28.793 }, intro: 'Şahintepe, orta ölçekli rezidans ve karma konut projelerinin yer aldığı, ulaşım bağlantısı güçlü bir Başakşehir mahallesdir. Düzenli aidat takibi ve teknik bakım servislerine talebin yoğun olduğu bir bölgedir.', characteristics: ['orta ölçek', 'karma konut', 'ulaşım avantajı'] },
-      { slug: 'guvercintepe', name: 'Güvercintepe', geo: { lat: 41.098, lng: 28.806 }, intro: 'Güvercintepe, modern konut bloklarının ve alışveriş merkezlerinin bulunduğu dinamik bir Başakşehir mahallesdir. Sosyal donatılı yapılarda 7/24 güvenlik ve profesyonel temizlik hizmetleri öncelikli beklentilerdir.', characteristics: ['modern bloklar', '7/24 güvenlik', 'sosyal donatı'] },
+      { slug: 'guvercintepe', name: 'Güvercintepe', geo: { lat: 41.098, lng: 28.806 }, intro: 'Güvercintepe, modern konut bloklarının ve alışveriş merkezlerinin bulunduğu dinamik bir Başakşehir mahallesdir. Sosyal donatılı yapılarda güvenlik ve profesyonel temizlik hizmetleri öncelikli beklentilerdir.', characteristics: ['modern bloklar', 'güvenlik', 'sosyal donatı'] },
     ],
   },
   {
@@ -160,10 +160,10 @@ export const AVRUPA_DISTRICTS: District[] = [
     localNeeds: [
       'Atakent mega konut projelerinde binlerce daireye yönelik dijital aidat yönetimi',
       'Sosyal tesis, yüzme havuzları ve spor alanlarında TSE hijyen denetimi',
-      'Geniş çevre çitlerinde 7/24 devriyeli özel güvenlik ekipleri',
+      'Geniş çevre çitlerinde devriyeli özel güvenlik ekipleri',
     ],
     priority: 1,
-    regionalFacilityTraits: 'Mega yerleşkelerde binlerce daireye yönelik merkezi payölçer ve kaskad kazan işletmesi, kapalı yüzme havuzları TSE hijyen sertifikasyonu ve 7/24 çevre perimetre güvenliği.',
+    regionalFacilityTraits: 'Mega yerleşkelerde binlerce daireye yönelik merkezi payölçer ve kaskad kazan işletmesi, kapalı yüzme havuzları TSE hijyen sertifikasyonu ve çevre perimetre güvenliği.',
     neighborhoodData: [
       { slug: 'atakent', name: 'Atakent', geo: { lat: 40.9978, lng: 28.7831 }, intro: 'Atakent, büyük markalı konut projelerinin yoğunlaştığı ve binlerce daireden oluşan mega sitelerin bulunduğu Küçükçekmece\'nin en kalabalık mahallesidir. Dijital aidat yönetimi, güvenlik ve büyük ölçekli teknik işletme kritik ihtiyaçlardandır.', characteristics: ['mega site', 'dijital yönetim', 'büyük ölçek'] },
       { slug: 'halkali', name: 'Halkalı', geo: { lat: 41.007, lng: 28.7997 }, intro: 'Halkalı, metrobüs hattı ve demiryolu bağlantısı sayesinde ulaşım açısından stratejik konumda büyük toplu konut sitelerini barındıran bir mahalledir. Yüksek doluluklu yapılarda aidat verimliliği ve teknik bakım sürekliliği önemlidir.', characteristics: ['ulaşım hub', 'toplu konut', 'yüksek yoğunluk'] },
@@ -188,7 +188,7 @@ export const AVRUPA_DISTRICTS: District[] = [
     priority: 1,
     regionalFacilityTraits: 'Cendere Vadisi plazalarında merkezi HVAC ve iklimlendirme işletmesi, x-ray ve turnike geçiş sistemleri, karma kullanım kulelerde şeffaf işletme projesi.',
     neighborhoodData: [
-      { slug: 'seyrantepe', name: 'Seyrantepe', geo: { lat: 41.098, lng: 28.988 }, intro: 'Seyrantepe, stadyum ve metro aksında hızla yükselen modern kuleler ve rezidanslarla Kağıthane\'nin en prestijli merkezidir.', characteristics: ['metro komşuluğu', 'modern kuleler', '7/24 güvenlik'] },
+      { slug: 'seyrantepe', name: 'Seyrantepe', geo: { lat: 41.098, lng: 28.988 }, intro: 'Seyrantepe, stadyum ve metro aksında hızla yükselen modern kuleler ve rezidanslarla Kağıthane\'nin en prestijli merkezidir.', characteristics: ['metro komşuluğu', 'modern kuleler', 'güvenlik'] },
       { slug: 'cendere', name: 'Cendere', geo: { lat: 41.085, lng: 28.972 }, intro: 'Cendere Vadisi, yeni nesil ofis ve lüks konut yerleşkelerine ev sahipliği yapan kurumsal tesis yönetim merkezidir.', characteristics: ['ofis vadisi', 'A+ rezidans', 'HVAC otomasyonu'] },
       { slug: 'hamidiye', name: 'Hamidiye', geo: { lat: 41.095, lng: 28.962 }, intro: 'Hamidiye, orman sınırında sakin aile sitelerinin ve modern konut bloklarının yer aldığı nezih bir semttir.', characteristics: ['orman komşuluğu', 'aile siteleri', 'peyzaj bakımı'] },
       { slug: 'celiktepe', name: 'Çeliktepe', geo: { lat: 41.08, lng: 29.002 }, intro: 'Çeliktepe, Levent plazalarına yürüme mesafesinde kentsel dönüşümle inşa edilen modern apartmanların bölgesidir.', characteristics: ['Levent komşuluğu', 'kentsel dönüşüm', 'asansör bakımı'] },
@@ -204,12 +204,12 @@ export const AVRUPA_DISTRICTS: District[] = [
     intro:
       "Göktürk ve Kemerburgaz'ın lüks orman içi sitelerinden Haliç kıyısındaki yerleşimlere kadar Eyüpsultan, çok zengin bir konut profiline sahiptir. Üst düzey güvenlik ve geniş peyzaj yönetimi temel ihtiyaçtır.",
     localNeeds: [
-      'Göktürk ve Kemerburgaz sitelerinde 7/24 lisanslı güvenlik ve alarm izleme',
+      'Göktürk ve Kemerburgaz sitelerinde lisanslı güvenlik ve alarm izleme',
       'Orman bitişiği yerleşkelerde profesyonel peyzaj, budama ve drenaj bakımı',
       'Alibeyköy kentsel dönüşüm bloklarında şeffaf aidat ve hukuki takip',
     ],
     priority: 1,
-    regionalFacilityTraits: 'Belgrad Ormanı komşuluğunda müstakil lüks villalar için 7/24 alarm izleme, perimetre devriyeleri, açık havuz kimyasal denetimleri ve orman drenaj pompa bakımları.',
+    regionalFacilityTraits: 'Belgrad Ormanı komşuluğunda müstakil lüks villalar için alarm izleme, perimetre devriyeleri, açık havuz kimyasal denetimleri ve orman drenaj pompa bakımları.',
     neighborhoodData: [
       { slug: 'gokturk', name: 'Göktürk', geo: { lat: 41.185, lng: 28.89 }, intro: 'Göktürk, orman içi lüks villa siteleri ve seçkin rezidanslarıyla İstanbul\'un en prestijli yerleşim alanlarından biridir. VIP güvenlik ve açık havuz yönetimi esastır.', characteristics: ['orman villaları', 'VIP güvenlik', 'özel peyzaj'] },
       { slug: 'kemerburgaz', name: 'Kemerburgaz', geo: { lat: 41.165, lng: 28.915 }, intro: 'Kemerburgaz, tarihi su kemerleri ve doğayla iç içe butik siteleriyle huzurlu yaşam sunar. Müstakil mülk teknik bakımı gerektirir.', characteristics: ['doğa içi', 'müstakil siteler', 'jeneratör yedekleme'] },
@@ -229,12 +229,12 @@ export const AVRUPA_DISTRICTS: District[] = [
     localNeeds: [
       'Yüksek bağımsız bölümlü sitelerde aidat ve icra takibi',
       'Yüksek katlı bloklarda asansör, jeneratör ve hidrofor arıza önleme bakımları',
-      'Kalabalık giriş-çıkış noktalarında 7/24 fiziki güvenlik ve bariyer kontrolü',
+      'Kalabalık giriş-çıkış noktalarında fiziki güvenlik ve bariyer kontrolü',
     ],
     priority: 1,
     regionalFacilityTraits: 'Türkiye\'nin en yoğun bağımsız bölüm hacmine sahip sitelerinde düzenli aidat takibi, KMK 20 icra takipleri, yüksek katlı asansör ve yangın güvenliği.',
     neighborhoodData: [
-      { slug: 'guzelyurt', name: 'Güzelyurt', geo: { lat: 41.0397, lng: 28.6739 }, intro: 'Güzelyurt, Esenyurt\'un hızla büyüyen ve yüksek katlı konut bloklarının yoğunlaştığı merkezi mahallelerinden biridir. Binlerce dairelik sitelerde şeffaf aidat yönetimi ve 7/24 güvenlik zorunlu hizmetlerdir.', characteristics: ['yüksek katlı blok', 'büyük ölçek', '7/24 güvenlik'] },
+      { slug: 'guzelyurt', name: 'Güzelyurt', geo: { lat: 41.0397, lng: 28.6739 }, intro: 'Güzelyurt, Esenyurt\'un hızla büyüyen ve yüksek katlı konut bloklarının yoğunlaştığı merkezi mahallelerinden biridir. Binlerce dairelik sitelerde şeffaf aidat yönetimi ve güvenlik zorunlu hizmetlerdir.', characteristics: ['yüksek katlı blok', 'büyük ölçek', 'güvenlik'] },
       { slug: 'akcaburgaz', name: 'Akçaburgaz', geo: { lat: 41.048, lng: 28.662 }, intro: 'Akçaburgaz, hızla gelişen konut projelerinin ve geniş sosyal donatılı sitelerin öne çıktığı bir Esenyurt mahallesdir. Aidat icra takibi ve teknik bakım sürekliliği özellikle büyük projeler için kritiktir.', characteristics: ['gelişen bölge', 'sosyal donatılı', 'aidat icra'] },
       { slug: 'mehtercesme', name: 'Mehterçeşme', geo: { lat: 41.0258, lng: 28.679 }, intro: 'Mehterçeşme, orta-büyük ölçekli toplu konutların yer aldığı, ulaşım aksına yakın bir Esenyurt mahallesdir. Toplu yapılarda bütçe şeffaflığı ve teknik arıza önleme hizmetleri öncelikli ihtiyaçlardandır.', characteristics: ['toplu konut', 'ulaşım yakını', 'bütçe şeffaflığı'] },
       { slug: 'talatpasa', name: 'Talatpaşa', geo: { lat: 41.028, lng: 28.688 }, intro: 'Talatpaşa, karma ticaret ve konut kullanımının yer aldığı yoğun nüfuslu bir Esenyurt mahallesdir. Yüksek bağımsız bölümlü yapılarda güvenlik ve ortak alan yönetimi yoğun talep görmektedir.', characteristics: ['karma kullanım', 'yüksek yoğunluk', 'ortak alan yönetimi'] },
@@ -283,7 +283,7 @@ export const AVRUPA_DISTRICTS: District[] = [
     neighborhoodData: [
       { slug: 'cihangir-avcilar', name: 'Cihangir', geo: { lat: 40.988, lng: 28.718 }, intro: 'Cihangir Avcılar, E-5 aksı ve metrobüse yakınlığı ile modern çok katlı rezidansların ve apartmanların yoğunlaştığı merkezdir.', characteristics: ['metrobüs komşuluğu', 'yüksek katlı binalar', 'aidat takibi'] },
       { slug: 'denizkoskler', name: 'Denizköşkler', geo: { lat: 40.972, lng: 28.735 }, intro: 'Denizköşkler sahil şeridi, deniz manzaralı kentsel dönüşüm blokları ve nem korozyonuna karşı koruyucu bakım ihtiyacıyla bilinir.', characteristics: ['sahil yerleşimi', 'deniz etkisi', 'asansör yeşil etiket'] },
-      { slug: 'ambarli', name: 'Ambarlı', geo: { lat: 40.968, lng: 28.705 }, intro: 'Ambarlı liman aksı ve sahil mahallesi, hem lojistik tesisler hem de yenilenen konut siteleriyle karma bir alandır.', characteristics: ['liman komşuluğu', 'karma yapılar', '7/24 güvenlik'] },
+      { slug: 'ambarli', name: 'Ambarlı', geo: { lat: 40.968, lng: 28.705 }, intro: 'Ambarlı liman aksı ve sahil mahallesi, hem lojistik tesisler hem de yenilenen konut siteleriyle karma bir alandır.', characteristics: ['liman komşuluğu', 'karma yapılar', 'güvenlik'] },
       { slug: 'tahtakale', name: 'Tahtakale', geo: { lat: 41.045, lng: 28.725 }, intro: 'Tahtakale Ispartakule bölgesi, Küçükçekmece Gölü manzaralı büyük ölçekli markalı kapalı sitelerin merkezidir.', characteristics: ['Ispartakule aksı', 'markalı siteler', 'sosyal tesis'] },
     ],
   },
@@ -297,7 +297,7 @@ export const AVRUPA_DISTRICTS: District[] = [
     intro:
       "Basın Ekspres yolu boyunca uzanan yeni nesil rezidans ve otel-konsept projeleriyle Bağcılar, modern kentsel dönüşümün simgesidir. Ticaret ve konut entegrasyonu güçlü güvenlik sistemleri gerektirir.",
     localNeeds: [
-      'Basın Ekspres rezidanslarında 7/24 lobi karşılama ve güvenlik kontrolü',
+      'Basın Ekspres rezidanslarında lobi karşılama ve güvenlik kontrolü',
       'Büyük sitelerde şeffaf aidat işletme bütçesi ve KMK danışmanlığı',
       'Ortak alanlarda yüksek standartlı endüstriyel temizlik ve hijyen',
     ],
@@ -307,7 +307,7 @@ export const AVRUPA_DISTRICTS: District[] = [
       { slug: 'gunesli', name: 'Güneşli', geo: { lat: 41.025, lng: 28.825 }, intro: 'Güneşli, Basın Ekspres hattındaki lüks rezidans kuleleri ve kurumsal merkezleriyle A+ tesis yönetimi standartları arar.', characteristics: ['Basın Ekspres aksı', 'lüks kuleler', 'lobi karşılama'] },
       { slug: 'mahmutbey', name: 'Mahmutbey', geo: { lat: 41.055, lng: 28.835 }, intro: 'Mahmutbey, metro kavşağı ve Batışehir gibi binlerce bağımsız bölümlü dev yerleşkelere ev sahipliği yapar.', characteristics: ['mega projeler', 'metro kavşağı', 'turnike güvenliği'] },
       { slug: 'barbaros-bagcilar', name: 'Barbaros', geo: { lat: 41.018, lng: 28.845 }, intro: 'Barbaros Mahallesi, yenilenen konut dokusu ve aile siteleriyle düzenli teknik bakım talep eden bir bölgedir.', characteristics: ['aile siteleri', 'asansör bakımı', 'aidat düzeni'] },
-      { slug: 'yuzyil', name: 'Yüzyıl', geo: { lat: 41.06, lng: 28.865 }, intro: 'Yüzyıl Mahallesi, matbaacılar ve ticaret merkezleri komşuluğunda modern konut sitelerinin yer aldığı alandır.', characteristics: ['ticaret komşuluğu', 'karma yapılar', '7/24 güvenlik'] },
+      { slug: 'yuzyil', name: 'Yüzyıl', geo: { lat: 41.06, lng: 28.865 }, intro: 'Yüzyıl Mahallesi, matbaacılar ve ticaret merkezleri komşuluğunda modern konut sitelerinin yer aldığı alandır.', characteristics: ['ticaret komşuluğu', 'karma yapılar', 'güvenlik'] },
     ],
   },
   {
@@ -343,7 +343,7 @@ export const AVRUPA_DISTRICTS: District[] = [
     intro:
       "Kazlıçeşme sahil hattındaki ultra lüks akıllı kuleleri ve tarihi sur içi komşuluğuyla Zeytinburnu, birinci sınıf tesis yönetimi standartları talep eder. Akıllı bina sistemleri ve concierge öne çıkar.",
     localNeeds: [
-      'Sahil rezidanslarında akıllı bina otomasyonu ve 7/24 VIP özel güvenlik',
+      'Sahil rezidanslarında akıllı bina otomasyonu ve VIP özel güvenlik',
       'Merkezefendi ve Kazlıçeşme projelerinde kapalı havuz, sauna ve spor salonu hijyeni',
       'Dış cephe cam temizliği ve deniz etkisine karşı teknik bakım programları',
     ],
@@ -375,7 +375,7 @@ export const AVRUPA_DISTRICTS: District[] = [
     neighborhoodData: [
       { slug: 'cihangir', name: 'Cihangir', geo: { lat: 41.032, lng: 28.983 }, intro: 'Cihangir, tarihi tescilli apartmanları ve sanatçı komünitesiyle butik, hassas ve güvenli apartman yönetimi gerektirir.', characteristics: ['tarihi apartmanlar', 'şifreli giriş', 'sessiz temizlik'] },
       { slug: 'galata', name: 'Galata', geo: { lat: 41.025, lng: 28.974 }, intro: 'Galata Kulesi çevresindeki tarihi taş binalar ve modern loft dairelerde teknik altyapı ve güvenlik entegrasyonu esastır.', characteristics: ['tarihi loftlar', 'akıllı kilit', 'yapısal denetim'] },
-      { slug: 'karakoy', name: 'Karaköy', geo: { lat: 41.023, lng: 28.978 }, intro: 'Karaköy, Galataport ve sahil hattında yer alan karma rezidanslar ve ticari binalarla 7/24 concierge ve güvenlik hizmeti arar.', characteristics: ['Galataport aksı', 'karma rezidans', '7/24 güvenlik'] },
+      { slug: 'karakoy', name: 'Karaköy', geo: { lat: 41.023, lng: 28.978 }, intro: 'Karaköy, Galataport ve sahil hattında yer alan karma rezidanslar ve ticari binalarla concierge ve güvenlik hizmeti arar.', characteristics: ['Galataport aksı', 'karma rezidans', 'güvenlik'] },
       { slug: 'taksim', name: 'Taksim', geo: { lat: 41.037, lng: 28.985 }, intro: 'Taksim ve Gümüşsuyu hattındaki prestijli apartmanlar ve rezidanslarda kat mülkiyeti hukuku ve merkezi sistem bakımı öne çıkar.', characteristics: ['Gümüşsuyu hattı', 'merkezi ısıtma', 'KMK hukuku'] },
     ],
   },
@@ -489,7 +489,7 @@ export const AVRUPA_DISTRICTS: District[] = [
     regionalFacilityTraits: 'İstanbul Havalimanı kargo ve Hadımköy lojistik antrepolarında 5188 lisanslı endüstriyel güvenlik, çevre çit denetimleri ve yeni havalimanı konutlarında şeffaf bütçe işletmesi.',
     neighborhoodData: [
       { slug: 'hadimkoy', name: 'Hadımköy', geo: { lat: 41.155, lng: 28.618 }, intro: 'Hadımköy, lojistik depolar, sanayi tesisleri ve yeni nesil konut yerleşkelerinde endüstriyel güvenlik ve tesis bakımı gerektirir.', characteristics: ['lojistik depolar', '5188 endüstriyel güvenlik', 'geniş arazi bakımı'] },
-      { slug: 'arnavutkoy-merkez', name: 'Merkez', geo: { lat: 41.183, lng: 28.741 }, intro: 'Arnavutköy Merkez, havalimanı personeline yönelik yeni sitelerde 7/24 güvenlik ve şeffaf aidat yazılımı ister.', characteristics: ['havalimanı personeli', '7/24 güvenlik', 'mobil aidat'] },
+      { slug: 'arnavutkoy-merkez', name: 'Merkez', geo: { lat: 41.183, lng: 28.741 }, intro: 'Arnavutköy Merkez, havalimanı personeline yönelik yeni sitelerde güvenlik ve şeffaf aidat yazılımı ister.', characteristics: ['havalimanı personeli', 'güvenlik', 'mobil aidat'] },
       { slug: 'bolluca', name: 'Bolluca', geo: { lat: 41.198, lng: 28.752 }, intro: 'Bolluca, orman kenarındaki butik konak ve villa sitelerinde çevre çit güvenliği ve peyzaj sulama altyapısı talep eder.', characteristics: ['orman komşuluğu', 'villa siteleri', 'peyzaj ve sulama'] },
       { slug: 'tasoluk', name: 'Taşoluk', geo: { lat: 41.171, lng: 28.715 }, intro: 'Taşoluk, TOKİ ve özel müteahhit bloklarında merkezi ısıtma, jeneratör ve düzenli temizlik organizasyonuna ihtiyaç duyar.', characteristics: ['TOKİ blokları', 'merkezi ısıtma', 'düzenli temizlik'] },
     ],
@@ -511,7 +511,7 @@ export const AVRUPA_DISTRICTS: District[] = [
     priority: 2,
     regionalFacilityTraits: 'Mega Center ve Forum İstanbul aksında karma yaşam alanları, ticari dükkan altı konut bloklarında yangın söndürme sistemleri ve KMK bağımsız bölüm gider paylaşımı.',
     neighborhoodData: [
-      { slug: 'kocatepe', name: 'Kocatepe', geo: { lat: 41.051, lng: 28.898 }, intro: 'Kocatepe, Forum İstanbul ve metro komşuluğundaki modern kulelerde 7/24 resepsiyon ve otopark yönetimi gerektirir.', characteristics: ['Forum İstanbul komşuluğu', 'kule rezidans', 'otopark otomasyonu'] },
+      { slug: 'kocatepe', name: 'Kocatepe', geo: { lat: 41.051, lng: 28.898 }, intro: 'Kocatepe, Forum İstanbul ve metro komşuluğundaki modern kulelerde resepsiyon ve otopark yönetimi gerektirir.', characteristics: ['Forum İstanbul komşuluğu', 'kule rezidans', 'otopark otomasyonu'] },
       { slug: 'muratpasa', name: 'Muratpaşa', geo: { lat: 41.045, lng: 28.908 }, intro: 'Muratpaşa, köklü apartman stoğu ve yenilenen binalarda asansör yeşil etiket ve şeffaf aidat programı uygular.', characteristics: ['köklü apartmanlar', 'asansör denetimi', 'şeffaf muhasebe'] },
       { slug: 'yildirim', name: 'Yıldırım', geo: { lat: 41.059, lng: 28.889 }, intro: 'Yıldırım Mahallesi, aile odaklı sitelerde çocuk oyun parkı güvenliği ve peyzaj ilaçlamasına önem verir.', characteristics: ['aile siteleri', 'oyun parkı bakımı', 'bahçe sulama'] },
       { slug: 'kartaltepe', name: 'Kartaltepe', geo: { lat: 41.041, lng: 28.912 }, intro: 'Kartaltepe, kentsel dönüşüm binalarında ortak alan aydınlatma, su deposu temizliği ve KMK danışmanlığı talep eder.', characteristics: ['kentsel dönüşüm', 'su deposu sterilizasyonu', 'KMK hukuki destek'] },

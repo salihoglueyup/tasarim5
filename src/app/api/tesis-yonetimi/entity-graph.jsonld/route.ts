@@ -8,7 +8,7 @@ export const revalidate = 86400;
 
 /**
  * Google Knowledge Graph ve Linked Data Robotları için
- * 39 İlçe, ISO 41001, KMK 634 ve Wikidata Varlıklarını bağlayan devasa JSON-LD Graph.
+ * 39 İlçe, KMK 634 ve Wikidata Varlıklarını bağlayan devasa JSON-LD Graph.
  */
 export async function GET() {
   const neighborhoodNodes = DISTRICTS.flatMap((d) =>

@@ -18,7 +18,7 @@ const steps = [
   },
   {
     title: "Dijital ve Şeffaf İşleyiş",
-    description: "Mobil uygulama üzerinden 7/24 aidat takibi, gelir-gider görüntüleme ve anında destek talebi oluşturma dönemi başlar.",
+    description: "Mobil uygulama üzerinden aidat takibi, gelir-gider görüntüleme ve anında destek talebi oluşturma dönemi başlar.",
     icon: "smartphone",
   }
 ];

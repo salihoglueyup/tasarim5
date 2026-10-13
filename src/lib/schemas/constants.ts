@@ -97,7 +97,7 @@ export const ORG_KNOWS_ABOUT = [
   { '@type': 'Thing', name: 'Kat Mülkiyeti Kanunu (KMK 634)', sameAs: 'https://www.wikidata.org/wiki/Q161851' },
   { '@type': 'Thing', name: '5188 Sayılı Özel Güvenlik Kanunu', sameAs: 'https://www.wikidata.org/wiki/Q11440' },
   { '@type': 'Thing', name: 'Önleyici Teknik Bakım (Preventive Maintenance)', sameAs: 'https://www.wikidata.org/wiki/Q183057' },
-  { '@type': 'Thing', name: 'ISO 41001 Tesis Yönetim Standardı', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
+  { '@type': 'Thing', name: 'uluslararası tesis yönetimi standartları', sameAs: 'https://www.wikidata.org/wiki/Q108846399' },
   { '@type': 'Thing', name: 'ISO 9001 Kalite Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q11029' },
   { '@type': 'Thing', name: 'ISO 14001 Çevre Yönetim Sistemi', sameAs: 'https://www.wikidata.org/wiki/Q832444' },
   { '@type': 'Thing', name: 'ISO 45001 İş Sağlığı ve Güvenliği', sameAs: 'https://www.wikidata.org/wiki/Q25052309' },

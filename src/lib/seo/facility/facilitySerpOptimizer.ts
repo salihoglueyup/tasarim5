@@ -152,7 +152,7 @@ export function getFacilitySerpMeta(
     'plaza tesis yönetimi',
     'rezidans tesis yönetimi',
     'toplu konut yönetimi',
-    'ISO 41001 tesis yönetimi',
+    'uluslararası tesis yönetimi standartları tesis yönetimi',
     'KMK 634 işletme projesi',
     ...getKeywordsByPillar(pillar).slice(0, 10),
   ];

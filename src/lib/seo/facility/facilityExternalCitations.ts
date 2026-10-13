@@ -56,8 +56,8 @@ export const OFFICIAL_LEGAL_CITATIONS: ExternalCitation[] = [
   },
   {
     id: 'iso-41001',
-    name: 'ISO 41001:2018 Facility Management — Management Systems',
-    officialNumber: 'ISO 41001:2018',
+    name: 'international facility management standards Facility Management — Management Systems',
+    officialNumber: 'uluslararası tesis yönetimi standartları',
     url: 'https://www.iso.org/standard/68021.html',
     sourceAuthority: 'International Organization for Standardization (ISO)',
     description: 'Entegre tesis yönetiminde küresel kalite, maliyet verimliliği ve kullanıcı memnuniyeti standardı.',

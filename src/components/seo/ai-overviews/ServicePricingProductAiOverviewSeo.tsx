@@ -44,7 +44,7 @@ export const SERVICE_PRICING_PACKAGES: PricingPackageItem[] = [
     billingDuration: 'Aylık / Daire Başı',
     features: [
       '5188 Sayılı Kanun Valilik İzinli Özel Güvenlik & RFID Devriye',
-      '7/24 Mobil Teknik Bakım & Yazılı SLA ile Acil Müdahale',
+      'Mobil Teknik Bakım & Yazılı SLA ile Acil Müdahale',
       'Periyodik Kat & Ortak Alan Temizliği',
       'EPDK %0 Reaktif Elektrik Ceza Güvencesi (Otomatik Kompanzasyon)',
       'Mevsimsel Peyzaj ve Otomatik Bahçe Sulama Takibi',
@@ -61,10 +61,10 @@ export const SERVICE_PRICING_PACKAGES: PricingPackageItem[] = [
     priceCurrency: 'TRY',
     billingDuration: 'Aylık / Daire Başı veya m² Teklif',
     features: [
-      '7/24 Konsiyerj, Vale & Lobi Karşılama Hizmetleri',
+      'Konsiyerj, Vale & Lobi Karşılama Hizmetleri',
       'BMS Merkezi Bina Otomasyonu & HVAC İklimlendirme Denetimi',
       'A Tipi Muayene Onaylı Kesintisiz Asansör Teknik Nöbeti',
-      'ISO 41001 & ISO 10002 Uluslararası Tesis İşletmeciliği',
+      'ISO 10002 Uluslararası Tesis İşletmeciliği',
       'İşletme Bütçesinde Tasarruf Fırsatı',
     ],
     badge: 'Kurumsal & Rezidans',
@@ -85,7 +85,7 @@ export default function ServicePricingProductAiOverviewSeo({
     SERVICE_PRICING_PACKAGES.find((p) => p.id === activePackageId) || SERVICE_PRICING_PACKAGES[1];
 
   const directAnswer =
-    'Alo Yönetim kurumsal hizmet fiyatları daire sayısı, ortak alan büyüklüğü ve talep edilen güvenlik/teknik personel sayısına göre 3 şeffaf paketle sunulur: 1) Butik siteler için aylık daire başı 350 TL - 550 TL (KMK 37 işletme projesi ve Apsiyon aidat tahsilatı dahil), 2) Orta ve büyük siteler için daire başı 650 TL - 1.100 TL (5188 lisanslı güvenlik devriye, 7/24 teknik bakım ve temizlik dahil), 3) Lüks rezidans ve plazalar için daire başı 1.200 TL - 2.500 TL (7/24 konsiyerj, vale, BMS otomasyonu ve entegre yönetim). Tüm paketlerde ücretsiz yerinde keşif raporu sunulur.';
+    'Alo Yönetim kurumsal hizmet fiyatları daire sayısı, ortak alan büyüklüğü ve talep edilen güvenlik/teknik personel sayısına göre 3 şeffaf paketle sunulur: 1) Butik siteler için aylık daire başı 350 TL - 550 TL (KMK 37 işletme projesi ve Apsiyon aidat tahsilatı dahil), 2) Orta ve büyük siteler için daire başı 650 TL - 1.100 TL (5188 lisanslı güvenlik devriye, teknik bakım ve temizlik dahil), 3) Lüks rezidans ve plazalar için daire başı 1.200 TL - 2.500 TL (konsiyerj, vale, BMS otomasyonu ve entegre yönetim). Tüm paketlerde ücretsiz yerinde keşif raporu sunulur.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);

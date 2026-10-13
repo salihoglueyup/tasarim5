@@ -37,7 +37,7 @@ export const FACILITY_SUB_SECTORS: Array<{
   {
     slug: 'rezidans-site-yonetimi',
     name: 'Rezidans & Lüks Site Yönetimi',
-    shortDesc: '7/24 Concierge, VIP güvenlik ve lüks mülk operasyonları.',
+    shortDesc: 'Concierge, VIP güvenlik ve lüks mülk operasyonları.',
     icon: 'apartment',
     keywords: ['rezidans yönetimi', 'lüks site yönetimi', 'concierge'],
   },

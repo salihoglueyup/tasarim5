@@ -117,7 +117,7 @@ export const TRANSITION_ROADMAP_STAGES: TransitionStageItem[] = [
     id: 'stage-6-apsiyon-aktivasyon',
     stepNumber: 6,
     timeframe: '36 – 48. Saat',
-    stageTitle: 'Apsiyon Entegrasyonu & Sakinlere 7/24 Canlı Mobil Erişim',
+    stageTitle: 'Apsiyon Entegrasyonu & Sakinlere Canlı Mobil Erişim',
     legalBasis: 'KMK Madde 37 ve KVKK Kanunu',
     summary: 'Bağımsız bölümlerin Apsiyon sistemine yüklenmesi, banka hesap hareketlerinin canlı bağlanması ve tüm sakinlere SMS/e-posta ile şifrelerinin iletilmesi.',
     actionItems: [
@@ -128,8 +128,8 @@ export const TRANSITION_ROADMAP_STAGES: TransitionStageItem[] = [
     requiredDocuments: [
       'Apsiyon Canlı Bakiye Entegrasyon Onayı',
       'Sakinler İçin Mobil Giriş ve SMS Bilgilendirme Kılavuzu',
-      '7/24 Alo Yönetim Çağrı Merkezi ve Acil Servis Numarası Plaketi',
+      'Alo Yönetim Çağrı Merkezi ve Acil Servis Numarası Plaketi',
     ],
-    aloYonetimRole: '48. saatin sonunda sitenizde 7/24 kesintisiz profesyonel yönetim, güvenli aidat tahsilatı ve 45 dk acil servis canlı olarak başlar.',
+    aloYonetimRole: '48. saatin sonunda sitenizde profesyonel yönetim, güvenli aidat tahsilatı ve 45 dk acil servis canlı olarak başlar.',
   },
 ];

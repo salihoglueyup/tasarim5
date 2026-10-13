@@ -14,15 +14,15 @@ interface EmergencyServiceBadgeSeoProps {
 }
 
 /**
- * 7/24 Acil Müdahale & Çağrı Merkezi Durum Rozeti (EmergencyServiceBadgeSeo)
+ * Acil Müdahale & Çağrı Merkezi Durum Rozeti (EmergencyServiceBadgeSeo)
  * 
- * Google ve Google Haritalar'a 7 gün 24 saat kesintisiz acil müdahale ve teknik destek
+ * Google ve Google Haritalar'a acil müdahale ve teknik destek
  * sunduğumuzu belirten `OpeningHoursSpecification` ve `EmergencyService` şemalarını enjekte eder.
  */
 export default function EmergencyServiceBadgeSeo({
   phone = ORG_PHONE,
-  serviceTitle = "7/24 Acil Teknik ve Güvenlik Operasyon Merkezi",
-  description = "Alo Yönetim bünyesinde İstanbul genelinde apartman, site ve tesislere kesintisiz 7/24 acil arıza, asansör ve güvenlik müdahale desteği.",
+  serviceTitle = "Acil Teknik ve Güvenlik Operasyon Merkezi",
+  description = "Alo Yönetim bünyesinde İstanbul genelinde apartman, site ve tesislere kesintisiz acil arıza, asansör ve güvenlik müdahale desteği.",
   showUI = true,
   className = ""
 }: EmergencyServiceBadgeSeoProps) {
@@ -35,22 +35,6 @@ export default function EmergencyServiceBadgeSeo({
     telephone: phone,
     url: `${BASE_URL}/iletisim`,
     address: ORG_ADDRESS,
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday'
-        ],
-        opens: '00:00',
-        closes: '23:59'
-      }
-    ]
   };
 
   return (
@@ -67,7 +51,7 @@ export default function EmergencyServiceBadgeSeo({
           </span>
 
           <span className="tracking-wide">
-            7/24 Kesintisiz Acil Müdahale & Operasyon Merkezi
+            Acil Müdahale & Operasyon Merkezi
           </span>
         </div>
       )}

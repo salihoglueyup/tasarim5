@@ -230,7 +230,7 @@ export default function TopluKonutYonetimiClient() {
             description: "Toplu yapılarda sayı ve arsa payı çift çoğunluğu ile yönetici seçimi, kesinleşen işletme projesi ve aidat tahsilat takvimi."
           },
           {
-            title: "ISO 41001:2018 Uluslararası Tesis Yönetim Sistemi Standardı",
+            title: "uluslararası tesis yönetimi standartları Standardı",
             sourceName: "TSE & Uluslararası Standardizasyon Örgütü",
             url: "https://www.tse.org.tr",
             badge: "KMK 634",
@@ -241,7 +241,7 @@ export default function TopluKonutYonetimiClient() {
             sourceName: "T.C. Sanayi ve Teknoloji Bakanlığı",
             url: "https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=25804&MevzuatTur=7&MevzuatTertip=5",
             badge: "Asansör Bakım",
-            description: "Çok katlı bloklarda yeşil etiket yıllık periyodik muayene, 7/24 asansör kurtarma servisi ve mekanik güvenlik."
+            description: "Çok katlı bloklarda yeşil etiket yıllık periyodik muayene, asansör kurtarma servisi ve mekanik güvenlik."
           }
         ]}
         glossaryTerms={[

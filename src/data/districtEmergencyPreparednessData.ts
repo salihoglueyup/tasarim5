@@ -154,7 +154,7 @@ export const DISTRICT_EMERGENCY_PROFILES: Record<string, DistrictEmergencyProfil
       'Merkezi yangın alarm panosunun siren ve flaşör hatlarının zon bazlı tetikleme testi',
       'Sığınak taze hava fanlarının partikül filtre temizliği',
       'Otopark otomatik yangın söndürme sprinkler vanalarının manometre kontrolü',
-      'Acil su deposu seviye otomasyonunun 7/24 telemetri izlemesi'
+      'Acil su deposu seviye otomasyonunun telemetri izlemesi'
     ]
   },
   tuzla: {
@@ -206,7 +206,7 @@ export const DISTRICT_EMERGENCY_PROFILES: Record<string, DistrictEmergencyProfil
     emergencyFirstResponseCenter: 'Sancaktepe Şehit Prof. Dr. İlhan Varank Eğitim ve Araştırma Hastanesi',
     criticalBuildingAgeRatioPre2000: '%31 (2008 sonrası ilçe olan bölgede yeni site ve toplu konut yoğunluğu yüksektir)',
     mandatoryShelterStandard: 'Toplu konut projelerinde ortak sığınak elektrik panolarında kaçak akım ve yangın koruma röleleri bulunması.',
-    aloYonetimDisasterPlanProtocol: 'Şehir hastanesi yakınlığında kesintisiz ambulans ve itfaiye giriş güzergahı emniyeti, 7/24 açık acil koridor.',
+    aloYonetimDisasterPlanProtocol: 'Şehir hastanesi yakınlığında kesintisiz ambulans ve itfaiye giriş güzergahı emniyeti, açık acil koridor.',
     checklistItems: [
       'Yangın acil kaçış koridorlarında kilitli veya eşya ile kapatılmış kapı bulunmadığının denetimi',
       'Merkezi hidrofor pompalarında basma yüksekliği ve yedekleme otomasyonu testi',
@@ -417,7 +417,7 @@ export const DISTRICT_EMERGENCY_PROFILES: Record<string, DistrictEmergencyProfil
     emergencyFirstResponseCenter: 'Avcılar Murat Kölük Devlet Hastanesi',
     criticalBuildingAgeRatioPre2000: '%69 (1999 depremi sonrası güçlendirilen ve dönüşüm bekleyen yoğun yapı stoğu)',
     mandatoryShelterStandard: 'Sığınaklarda acil su tahliye dalgıç motorları ve bağımsız akü destekli acil durum haberleşmesi.',
-    aloYonetimDisasterPlanProtocol: 'Avcılar projelerimizde öncelikli statik risk değerlendirmesi, sismik selenoid vanalar ve 7/24 nöbetçi mobil teknik servis.',
+    aloYonetimDisasterPlanProtocol: 'Avcılar projelerimizde öncelikli statik risk değerlendirmesi, sismik selenoid vanalar ve nöbetçi mobil teknik servis.',
     checklistItems: [
       'Zemin seviyesi altındaki elektrik ana panolarında su yükselme erken uyarı sensörü',
       'Merkezi jeneratörün otomatik start ve transfer süresi (8 saniye kuralı)',
@@ -493,7 +493,7 @@ export const DISTRICT_EMERGENCY_PROFILES: Record<string, DistrictEmergencyProfil
     emergencyFirstResponseCenter: 'Taksim Eğitim ve Araştırma Hastanesi & Kasımpaşa Ek Binası',
     criticalBuildingAgeRatioPre2000: '%71 (Tarihi tescilli kagir ve yığma binalar çoğunluktadır)',
     mandatoryShelterStandard: 'Tarihi binalarda ahşap taşıyıcı yangın geciktirici kaplamalar ve acil yangın merdiveni.',
-    aloYonetimDisasterPlanProtocol: 'Tarihi apartmanlarda koruyucu mühendislik, sismik gaz kesme vanaları ve 7/24 teknik izleme.',
+    aloYonetimDisasterPlanProtocol: 'Tarihi apartmanlarda koruyucu mühendislik, sismik gaz kesme vanaları ve teknik izleme.',
     checklistItems: [
       'Tarihi binalarda elektrik tesisatı yangın koruma rölesi testi',
       'Bina içi duman ve gaz dedektörlerinin test gazı ile uyarılması',
@@ -740,7 +740,7 @@ export const DISTRICT_EMERGENCY_PROFILES: Record<string, DistrictEmergencyProfil
     emergencyFirstResponseCenter: 'Silivri Prof. Dr. Necmi Ayanoğlu Devlet Hastanesi',
     criticalBuildingAgeRatioPre2000: '%48 (2019 Silivri depremi sonrası güçlendirme ve yenileme çalışmaları hızlanmıştır)',
     mandatoryShelterStandard: 'Yazlık sitelerde kışın donma riskine karşı yangın hidrant hatlarının yalıtımı.',
-    aloYonetimDisasterPlanProtocol: 'Marmara Fayı Silivri segmenti sebebiyle 7/24 sismik alarm entegrasyonu, otomatik gaz kesme ve mobil jeneratör.',
+    aloYonetimDisasterPlanProtocol: 'Marmara Fayı Silivri segmenti sebebiyle sismik alarm entegrasyonu, otomatik gaz kesme ve mobil jeneratör.',
     checklistItems: [
       'Bina deprem sensörünün doğalgaz kesme selenoidiyle testi',
       'Asansörlerin kata getirme ve kapı açma mekanizması testi',

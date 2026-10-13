@@ -60,7 +60,7 @@ export async function GET() {
     xml += `    </image:image>\n`;
     xml += `  </url>\n`;
 
-    // Kalite Belgeleri Sayfası Görseli (ISO 41001 & 9001)
+    // Kalite Belgeleri Sayfası Görseli (9001)
     xml += `  <url>\n`;
     xml += `    <loc>${BASE_URL}/kurumsal/kalite-belgelerimiz</loc>\n`;
     xml += `    <image:image>\n`;
@@ -105,7 +105,7 @@ export async function GET() {
       { slug: 'plaza-yonetimi', title: 'Plaza ve İş Merkezi Yönetimi', caption: 'A+ plazalar ve ticari gayrimenkullerde akıllı bina otomasyonu ve tesis işletmesi' },
       { slug: 'toplu-konut-yonetimi', title: 'Toplu Konut ve Uydukent Yönetimi', caption: 'Geniş parsel ve çok bloklu toplu konut sitelerinde bütçe ve operasyon yönetimi' },
       { slug: 'sanayi-tesisi-yonetimi', title: 'Sanayi Tesisi ve Fabrika Yönetimi', caption: 'Endüstriyel tesisler ve lojistik merkezlerinde teknik bakım ve İSG yönetimi' },
-      { slug: 'rehber', title: 'Entegre Tesis Yönetimi ve KMK 634 Rehberi', caption: 'KMK 634, ISO 41001 ve tesis yönetimi yasal mevzuat rehberi' },
+      { slug: 'rehber', title: 'Entegre Tesis Yönetimi ve KMK 634 Rehberi', caption: 'KMK 634 ve tesis yönetimi yasal mevzuat rehberi' },
     ];
     for (const sub of facilitySubsectors) {
       xml += `  <url>\n`;

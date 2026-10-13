@@ -10,7 +10,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: 'Alo Yönetim Sakin & Yönetici Mobil Portalı — Apsiyon Güvencesiyle',
     description:
-      'Alo Yönetim ve Apsiyon resmi entegrasyonu: 7/24 online aidat ödeme, arıza takibi, karar oylama ve yönetim paneli. App Store, Google Play ve Huawei AppGallery\'de aktif.',
+      'Alo Yönetim ve Apsiyon resmi entegrasyonu: online aidat ödeme, arıza takibi, karar oylama ve yönetim paneli. App Store, Google Play ve Huawei AppGallery\'de aktif.',
     path: '/app',
     lang,
     keywords: [

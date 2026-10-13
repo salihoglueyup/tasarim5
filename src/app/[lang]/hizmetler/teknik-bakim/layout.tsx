@@ -10,7 +10,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: "Teknik Bakım ve Onarım",
     description:
-      "Asansör, jeneratör, hidrofor ve elektrik sistemleri için 7/24 mobil teknik servis ve periyodik bakım hizmeti.",
+      "Asansör, jeneratör, hidrofor ve elektrik sistemleri için mobil teknik servis ve periyodik bakım hizmeti.",
     path: "/hizmetler/teknik-bakim",
     lang,
     ogImageType: 'service',

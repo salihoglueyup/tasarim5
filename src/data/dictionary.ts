@@ -306,7 +306,7 @@ export const TERMS: Term[] = [
   {
     term: 'CCTV Kamera Güvenlik Sistemi',
     definition:
-      'Site çevre sınırları, blok girişleri, otopark ve çocuk oyun alanlarını 7/24 yüksek çözünürlükle kaydeden, KVKK mevzuatına uygun kayıt saklama süreli kapalı devre kamera ağıdır.',
+      'Site çevre sınırları, blok girişleri, otopark ve çocuk oyun alanlarını yüksek çözünürlükle kaydeden, KVKK mevzuatına uygun kayıt saklama süreli kapalı devre kamera ağıdır.',
     link: { href: '/hizmetler/guvenlik-yonetimi', label: 'CCTV güvenlik altyapısı' },
   },
   {
@@ -396,7 +396,7 @@ export const TERMS: Term[] = [
   {
     term: 'Rezidans & Lüks Site Yönetimi Standartları',
     definition:
-      '7/24 konsiyerj, vale, teknik acil müdahale, kapalı havuz-spa hijyeni ve VIP güvenlik standartlarının entegre yazılımla yönetildiği yüksek standartlı konut işletmeciliğidir.',
+      'konsiyerj, vale, teknik acil müdahale, kapalı havuz-spa hijyeni ve VIP güvenlik standartlarının entegre yazılımla yönetildiği yüksek standartlı konut işletmeciliğidir.',
     link: { href: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi', label: 'Rezidans ve lüks site yönetimi' },
   },
   {

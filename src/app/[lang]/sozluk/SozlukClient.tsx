@@ -92,7 +92,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
                 <span className="text-[11px] font-semibold text-slate-400 mt-0.5">Özel Güvenlik</span>
               </div>
               <div className="p-3.5 rounded-2xl bg-white/[0.06] backdrop-blur-md border border-white/10 shadow-sm flex flex-col items-center text-center">
-                <span className="text-xl md:text-2xl font-black text-slate-100">ISO 41001</span>
+                <span className="text-xl md:text-2xl font-black text-slate-100">uluslararası tesis yönetimi standartları</span>
                 <span className="text-[11px] font-semibold text-slate-400 mt-0.5">Tesis Standardı</span>
               </div>
             </div>

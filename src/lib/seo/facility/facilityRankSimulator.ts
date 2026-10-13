@@ -62,7 +62,7 @@ export function simulatePageOnPageSeo(input: {
   if (!keywordInTitle) recommendations.push(`Başlığa "${kw}" anahtar kelimesi eklenmeli.`);
   if (!keywordInDescription) recommendations.push(`Açıklamaya "${kw}" anahtar kelimesi eklenmeli.`);
   if (!contentWordCount) recommendations.push('İçerik en az 300 kelimeye genişletilmeli.');
-  if (!hasLegalOrStandardCitation) recommendations.push('KMK 634 veya ISO 41001 yasal referansı eklenmeli.');
+  if (!hasLegalOrStandardCitation) recommendations.push('KMK 634 veya uluslararası tesis yönetimi standartları yasal referansı eklenmeli.');
 
   let grade: OnPageSeoSimulationResult['grade'] = 'D';
   if (score >= 90) grade = 'A+';

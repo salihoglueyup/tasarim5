@@ -193,7 +193,7 @@ export default function IletisimClient() {
           <p className="mt-5 text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
             {safeT(
               'contact_hero_desc',
-              'İstanbul genelinde site ve tesisler için şeffaf aidat yönetimi, 5188 güvenlik ve 7/24 teknik bakım çözümleri sunuyoruz.'
+              'İstanbul genelinde site ve tesisler için şeffaf aidat yönetimi, 5188 güvenlik ve teknik bakım çözümleri sunuyoruz.'
             )}
           </p>
         </div>

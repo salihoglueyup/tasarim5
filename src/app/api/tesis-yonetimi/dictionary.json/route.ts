@@ -52,7 +52,7 @@ export async function GET(req: Request) {
     '@type': 'DefinedTermSet',
     '@id': `${BASE_URL}/api/tesis-yonetimi/dictionary.json#terms`,
     name: 'Alo Yönetim Tesis Yönetimi ve Kat Mülkiyeti Kanunu Açık Terimler Sözlüğü',
-    description: '634 Sayılı KMK, ISO 41001 ve 5188 mevzuatlarına uygun profesyonel tesis yönetimi terimler rehberi.',
+    description: '634 Sayılı KMK ve 5188 mevzuatlarına uygun profesyonel tesis yönetimi terimler rehberi.',
     publisher: {
       '@type': 'Organization',
       name: 'Alo Yönetim ve Organizasyon A.Ş.',
@@ -61,7 +61,7 @@ export async function GET(req: Request) {
       telephone: '+90 216 550 48 48',
       knowsAbout: [
         'Kat Mülkiyeti Kanunu',
-        'ISO 41001 Tesis Yönetimi',
+        'uluslararası tesis yönetimi standartları Tesis Yönetimi',
         '5188 Özel Güvenlik',
         'Site ve Tesis Yönetimi',
       ],

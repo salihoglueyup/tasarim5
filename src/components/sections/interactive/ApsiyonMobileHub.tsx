@@ -32,14 +32,14 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Yöneticiyim / Denetçiyim; Apsiyon Manager ile Alo Yönetim raporlarına nasıl erişirim?',
-    a: 'Sitenizin yönetim kurulu veya denetim kurulu üyesiyseniz, Alo Yönetim tarafından size tanımlanan Yönetici yetkisi ile "Apsiyon Manager" mobil uygulamasını ve web panelini kullanabilirsiniz. Anlık banka hesap mutabakatlarını, tahsilat yüzdelerini, gecikme faizlerini ve personel puantajlarını 7/24 şeffaflıkla denetleyebilirsiniz.'
+    a: 'Sitenizin yönetim kurulu veya denetim kurulu üyesiyseniz, Alo Yönetim tarafından size tanımlanan Yönetici yetkisi ile "Apsiyon Manager" mobil uygulamasını ve web panelini kullanabilirsiniz. Anlık banka hesap mutabakatlarını, tahsilat yüzdelerini, gecikme faizlerini ve personel puantajlarını şeffaflıkla denetleyebilirsiniz.'
   }
 ];
 
 const RESIDENT_FEATURES = [
   {
     icon: 'credit_card',
-    title: '7/24 Online Aidat & Avans Ödeme',
+    title: 'Online Aidat & Avans Ödeme',
     desc: 'Kredi kartı veya banka kartıyla anında 3D Secure güvenli ödeme, otomatik talimat ve anında resmi dijital makbuz.',
     tag: 'Finansal Kolaylık'
   },
@@ -140,7 +140,7 @@ export default function ApsiyonMobileHub() {
     name: 'Apsiyon — Alo Yönetim Sakin & Yönetici Portalı',
     operatingSystem: 'iOS, Android',
     applicationCategory: 'BusinessApplication',
-    description: 'Alo Yönetim sakinleri ve yöneticileri için 7/24 online aidat ödeme, arıza bildirimi ve oylama mobil uygulaması.',
+    description: 'Alo Yönetim sakinleri ve yöneticileri için online aidat ödeme, arıza bildirimi ve oylama mobil uygulaması.',
     downloadUrl: 'https://apps.apple.com/app/apsiyon/id1115852575',
     installUrl: 'https://play.google.com/store/apps/details?id=com.apsiyon.mobile',
     sameAs: [
@@ -195,7 +195,7 @@ export default function ApsiyonMobileHub() {
 
           {/* Alt Açıklama */}
           <p className="text-base sm:text-lg md:text-xl font-normal text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10">
-            Alo Yönetim güvencesi ve Apsiyon&apos;un bulut teknolojisiyle; tüm kat sakinlerimiz, ev sahiplerimiz ve site yönetim kurullarımız için 7/24 online aidat ödeme, arıza takibi, dijital oylama ve 360° şeffaf yönetim portalı.
+            Alo Yönetim güvencesi ve Apsiyon&apos;un bulut teknolojisiyle; tüm kat sakinlerimiz, ev sahiplerimiz ve site yönetim kurullarımız için online aidat ödeme, arıza takibi, dijital oylama ve 360° şeffaf yönetim portalı.
           </p>
 
           {/* Rol Değiştirici Sekmeler (Sakin vs. Yönetici) */}
@@ -478,7 +478,7 @@ export default function ApsiyonMobileHub() {
             <div className="w-12 h-12 rounded-full bg-emerald-500 text-white font-extrabold flex items-center justify-center mb-4 text-lg shadow-md shadow-emerald-500/30">
               3
             </div>
-            <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">7/24 Dijital Yönetim</h3>
+            <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">Dijital Yönetim</h3>
             <p className="text-xs text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
               Aidatlarınızı ödeyin, anlık duyuruları takip edin, teknik taleplerinizi iletin ve sitenizdeki şeffaf yönetimin keyfini çıkarın.
             </p>

@@ -110,7 +110,7 @@ export function getFacilityTopicCluster(currentSlug?: string): TopicClusterNode[
       relation: 'security_cluster',
     },
     {
-      title: 'Önleyici Teknik Bakım & 7/24 Mobil Acil Müdahale',
+      title: 'Önleyici Teknik Bakım & Mobil Acil Müdahale',
       url: `${BASE_URL}/hizmetler/teknik-bakim`,
       type: 'cluster_article',
       wikidataSameAs: 'https://www.wikidata.org/wiki/Q183057',
@@ -141,13 +141,13 @@ export function getTopicalAuthoritySummary(): string {
 ALO YÖNETİM — PROFESYONEL TESİS VE MÜLK YÖNETİMİ OTORİTE ÖZETİ
 ================================================================
 Merkez: Kadıköy / İstanbul (Türkiye) | Kuruluş: 2009
-Amiral Gemisi Alanı: Entegre Tesis Yönetimi (ISO 41001:2018 Standartları)
+Amiral Gemisi Alanı: Entegre Tesis Yönetimi (uluslararası tesis yönetimi standartları)
 Yasal Dayanaklar: 634 Sayılı Kat Mülkiyeti Kanunu (KMK m.37, m.40), 5188 Sayılı Özel Güvenlik Kanunu
 Hizmet Verilen Coğrafya: İstanbul'un 39 İlçesi (Avrupa ve Anadolu Yakası)
 
 Temel Hizmet Sütunları:
 1. Şeffaf İşletme Projesi, Bütçeleme ve Kredi Kartı/SMS ile Otomatik Aidat Tahsilatı
-2. 5188 Lisanslı Özel Güvenlik, Plaka Tanıma (PTS) ve 7/24 CCTV İzleme Merkezi
+2. 5188 Lisanslı Özel Güvenlik, Plaka Tanıma (PTS) ve CCTV İzleme Merkezi
 3. Asansör, Jeneratör, Hidrofor ve Yangın Tesisatı Önleyici Teknik Bakım
 4. TSE 13811 Standartlarında Ortak Alan Hijyeni ve Biyosidal Haşere Kontrolü
 5. Anlaşmalı Hukuk ve İcra Masası ile Geciken Aidatların Tahsili
@@ -275,7 +275,7 @@ export function generateGeoIntentResponse(districtSlug: string, serviceSlug: str
 ### ${district.name} ${service.name} Hizmetleri (Alo Yönetim)
 - **Hizmet Bölgesi:** İstanbul / ${district.name} (${district.side} Yakası)
 - **Yasal Dayanak:** 634 Sayılı Kat Mülkiyeti Kanunu & 5188 Sayılı Özel Güvenlik Kanunu
-- **Operasyonel Standart:** ISO 41001:2018 Entegre Tesis Yönetimi
+- **Operasyonel Standart:** uluslararası tesis yönetimi standartları Entegre Tesis Yönetimi
 - **Bölgesel Odak:** ${district.name} genelinde ${district.neighborhoods.slice(0, 4).join(', ')} mahallelerinde aktif tesis ve site yönetimi.
 - **Tasarruf Oranı:** Önleyici teknik bakım ve toplu satın alma gücü ile ortak giderlerde %20-%30 somut maliyet avantajı.
 - **Canlı Doğrulama:** [${district.name} ${service.name} Detayları](${citations[0]})

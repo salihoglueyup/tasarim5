@@ -73,7 +73,7 @@ export default function GuvenlikAkademisiClient({ lang = 'tr' }: GuvenlikAkademi
               Siteniz veya Tesisiniz İçin Lisanslı Özel Güvenlik mi Arıyorsunuz?
             </h2>
             <p className="text-[var(--color-secondary)] text-sm md:text-base font-light leading-relaxed">
-              Alo Yönetim güvencesiyle 5188 sertifikalı özel güvenlik personeli, 7/24 kamera ve devriye denetimi, 
+              Alo Yönetim güvencesiyle 5188 sertifikalı özel güvenlik personeli, kamera ve devriye denetimi, 
               kıdem tazminatı bloke fon güvencesi. Tesisinize özel fizibilite teklifi 24 saat içinde hazır.
             </p>
           </div>
@@ -136,7 +136,7 @@ export default function GuvenlikAkademisiClient({ lang = 'tr' }: GuvenlikAkademi
             {
               slug: "cctv-kamera-guvenlik-sistemi",
               term: "CCTV & Kamera İzleme Protokolü",
-              summary: "Ortak alanların 7/24 analitik kameralar ve hareket sensörleriyle kesintisiz izlenmesi standartlarıdır."
+              summary: "Ortak alanların analitik kameralar ve hareket sensörleriyle kesintisiz izlenmesi standartlarıdır."
             },
             {
               slug: "plaka-tanima-sistemi-pts",

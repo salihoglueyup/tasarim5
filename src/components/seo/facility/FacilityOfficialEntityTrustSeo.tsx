@@ -256,7 +256,7 @@ export function FacilityOfficialEntityTrustSeo({
             </div>
 
             <div className="flex justify-between py-1.5">
-              <span className="text-[var(--color-tertiary)]">7/24 Çağrı Merkezi:</span>
+              <span className="text-[var(--color-tertiary)]">Çağrı Merkezi:</span>
               <a
                 href={`tel:${CANONICAL_NAP.contact.phoneE164}`}
                 className="font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1"

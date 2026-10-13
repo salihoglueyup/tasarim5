@@ -78,7 +78,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
             Profesyonel Yönetim
           </h1>
           <p style={{ fontSize: 32, color: '#94a3b8', margin: 0, marginTop: '20px' }}>
-            Operasyonel Mükemmellik • 7/24 Kesintisiz Hizmet
+            Operasyonel Mükemmellik • Hizmet
           </p>
         </div>
 
