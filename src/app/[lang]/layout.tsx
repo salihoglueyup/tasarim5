@@ -221,23 +221,13 @@ export default async function RootLayout({
           type="speculationrules"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
+              // Not: URL kalıbı (href_matches) yerine CSS seçici kullanılır; "/*" gibi kalıplar arama motorlarınca URL sanılıp taranıyordu.
               prefetch: [
                 {
                   where: {
                     and: [
-                      {
-                        or: [
-                          { href_matches: "/*/hizmetler*" },
-                          { href_matches: "/*/bolgeler*" },
-                          { href_matches: "/*/hakkimizda" },
-                          { href_matches: "/*/iletisim" },
-                          { href_matches: "/*/hesaplayici" },
-                          { href_matches: "/*/teklif-al" },
-                          { href_matches: "/*/sss" },
-                          { href_matches: "/*/referanslar" }
-                        ]
-                      },
-                      { not: { href_matches: "/*/admin*" } }
+                      { selector_matches: "a[href*='/hizmetler'], a[href*='/bolgeler'], a[href*='/hakkimizda'], a[href*='/iletisim'], a[href*='/hesaplayici'], a[href*='/teklif-al'], a[href*='/sss'], a[href*='/referanslar']" },
+                      { not: { selector_matches: "a[href*='/admin']" } }
                     ]
                   },
                   eagerness: "moderate"
@@ -247,9 +237,8 @@ export default async function RootLayout({
                 {
                   where: {
                     and: [
-                      { href_matches: "/*" },
-                      { not: { href_matches: "/*\\?*" } },
-                      { not: { href_matches: "/*/admin*" } }
+                      { selector_matches: "a[href^='/']" },
+                      { not: { selector_matches: "a[href*='?'], a[href*='/admin'], a[href*='/api/']" } }
                     ]
                   },
                   eagerness: "moderate"
