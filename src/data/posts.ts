@@ -10843,3 +10843,7 @@ export const POSTS: Post[] = [
     "dateModified": "2026-02-24T20:00:00.000Z"
   }
 ];
+
+// İlçe rehberleri (yalnızca Türkçe; en/ru/ar çevrilene kadar noindex)
+import { DISTRICT_GUIDES } from './districtGuides';
+POSTS.push(...DISTRICT_GUIDES);

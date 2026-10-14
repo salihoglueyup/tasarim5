@@ -2806,6 +2806,9 @@ export const POSTS_META: PostMeta[] = [
   }
 ];
 
+import { DISTRICT_GUIDES } from './districtGuides';
+POSTS_META.push(...DISTRICT_GUIDES.map(({ content: _c, ...meta }) => meta));
+
 // Global statik objeyi mühürle (Faz 13 - Runtime Bellek Sızıntısı Koruması)
 Object.freeze(POSTS_META);
 

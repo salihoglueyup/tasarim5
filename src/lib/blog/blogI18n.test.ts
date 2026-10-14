@@ -6,12 +6,16 @@ vi.mock('server-only', () => ({}));
 
 import { hashString, normalizeForMemory, memoryId, DISTRICTS, collectPostStrings, localizePostFields, type BlogLang } from './blogI18n';
 import { POSTS, POSTS_META, CATEGORIES } from '@/data/posts';
+import { TR_ONLY_BLOG_SLUGS } from '@/data/districtGuides';
 import { getLocalizedPost, getLocalizedPostMetas, getLocalizedCategories, TRANSLATED_BLOG_SLUGS } from './blogLocale';
 import { isIndexable } from '@/lib/seo/indexPolicy';
 // .mjs betiği: hash/normalize mantığının TS kütüphanesiyle aynı olduğunu doğrularız
 import * as script from '../../../scripts/blog-i18n.mjs';
 
 const LANGS: BlogLang[] = ['en', 'ru', 'ar'];
+// İlçe rehberleri yalnızca Türkçe yayımlanır; en/ru/ar sürümleri çevrilene kadar noindex kalır.
+const TR_ONLY = new Set(TR_ONLY_BLOG_SLUGS);
+const TRANSLATED_POSTS = POSTS.filter((p) => !TR_ONLY.has(p.slug));
 const readMem = (lang: BlogLang): Record<string, string> =>
   JSON.parse(fs.readFileSync(path.resolve(process.cwd(), `src/i18n/blog/${lang}.json`), 'utf8'));
 const MEM = Object.fromEntries(LANGS.map((l) => [l, readMem(l)])) as Record<BlogLang, Record<string, string>>;
@@ -42,11 +46,11 @@ describe('blog çeviri belleği: betik ve kütüphane tutarlılığı', () => {
 describe('blog çevirileri: kapsama ve yer tutucular', () => {
   it('her yazı, üst veri ve kategori en/ru/ar için eksiksiz çevrilmiş', () => {
     for (const lang of LANGS) {
-      for (const post of POSTS) {
+      for (const post of TRANSLATED_POSTS) {
         const r = localizePostFields(post, lang, MEM[lang]);
         expect(r.missing, `${lang} ${post.slug}`).toBe(0);
       }
-      for (const m of getLocalizedPostMetas(lang)) expect(m.missing, `${lang} meta ${m.meta.slug}`).toBe(0);
+      for (const m of getLocalizedPostMetas(lang).filter((m) => !TR_ONLY.has(m.meta.slug))) expect(m.missing, `${lang} meta ${m.meta.slug}`).toBe(0);
       for (const c of getLocalizedCategories(lang)) expect(c.missing, `${lang} kategori ${c.slug}`).toBe(0);
     }
   });
@@ -61,7 +65,7 @@ describe('blog çevirileri: kapsama ve yer tutucular', () => {
     }
   });
   it('coverage.json tüm yazıları kapsıyor', () => {
-    expect([...TRANSLATED_BLOG_SLUGS].sort()).toEqual(POSTS.map((p) => p.slug).sort());
+    expect([...TRANSLATED_BLOG_SLUGS].sort()).toEqual(TRANSLATED_POSTS.map((p) => p.slug).sort());
   });
   it('bellekteki her giriş üç dilde de var ve yer tutucu etiketleri uyumlu', () => {
     const tagsOf = (s: string) => (s.match(/\{d\d*\}/g) || []).sort().join(',');
@@ -76,7 +80,7 @@ describe('blog çevirileri: kapsama ve yer tutucular', () => {
   });
   it('çevrilmiş çıktıda doldurulmamış yer tutucu kalmaz', () => {
     for (const lang of LANGS) {
-      for (const post of POSTS) {
+      for (const post of TRANSLATED_POSTS) {
         const loc = getLocalizedPost(post.slug, lang)!;
         const all = JSON.stringify([loc.title, loc.description, loc.tldr, loc.content]);
         expect(all, `${lang} ${post.slug}`).not.toMatch(/\{d\d*\}/);
@@ -130,5 +134,16 @@ describe('blog: indeks politikası', () => {
   it('kategori listesi çevrilmiş', () => {
     expect(getLocalizedCategories('en').map((c) => c.name)).toContain('Law & Legislation');
     expect(CATEGORIES.length).toBeGreaterThan(0);
+  });
+});
+
+describe('yalnızca Türkçe ilçe rehberleri', () => {
+  it('rehberler Türkçe indekslenir, en/ru/ar sürümleri noindex kalır', () => {
+    expect(TR_ONLY_BLOG_SLUGS.length).toBe(12);
+    for (const slug of TR_ONLY_BLOG_SLUGS) {
+      expect(POSTS.some((p) => p.slug === slug), slug).toBe(true);
+      expect(isIndexable(`/blog/${slug}`, 'tr'), slug).toBe(true);
+      for (const lang of LANGS) expect(isIndexable(`/blog/${slug}`, lang), `${lang} ${slug}`).toBe(false);
+    }
   });
 });
