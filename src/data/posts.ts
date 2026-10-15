@@ -3118,6 +3118,30 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Takipte Delil Düzeni"
+      },
+      {
+        "type": "p",
+        "text": "Aidat tahsilatında süreç kadar belge düzeni de belirleyicidir. İşletme projesi ve onay kararı, kat maliklerine yapılan bildirim, borç dökümü, hatırlatma ve ihtar kayıtları dosyada eksiksiz bulunmalıdır. Belge eksikliği, haklı bir alacakta bile itirazın kabulüne ve zaman kaybına yol açabilir."
+      },
+      {
+        "type": "h2",
+        "text": "5. Uzlaşma ve Yapılandırma"
+      },
+      {
+        "type": "p",
+        "text": "Borçlunun ödeme gücü geçici olarak zayıfsa yazılı bir ödeme planı yapılabilir. Gecikme tazminatından vazgeçilmesi veya indirim yapılması gibi kararların kat malikleri kurulu kararıyla ve eşit işlem ilkesine uygun alınması, diğer maliklerin itirazlarını önler."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ödeme planı yazılı yapılmalı ve vade tarihleri net olmalıdır.",
+          "Plana uyulmazsa hangi adımın atılacağı metinde belirtilmelidir.",
+          "Planın kurula bilgi olarak sunulması şeffaflığı artırır."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3135,6 +3159,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Yargıtay içtihatlarına göre asansör kartının iptali veya suyun kesilmesi hukuka aykırı sayılabilir ve sorumluluk doğurabilir; tahsilat yalnızca yasal icra yoluyla yapılmalıdır."
+      },
+      {
+        "type": "h3",
+        "text": "Borçlu sakinlerin isimleri ilan panosuna asılabilir mi?"
+      },
+      {
+        "type": "p",
+        "text": "Borç bilgisi kişisel veri niteliği taşıdığından herkese açık ilan, kişisel verilerin korunması ve kişilik hakları bakımından risklidir. Bilginin yalnızca ilgili kişi ve yetkili organlarla paylaşılması önerilir; somut durum için avukata danışın."
+      },
+      {
+        "type": "h3",
+        "text": "Takipten önce arabulucu veya uzlaşma yolu denenebilir mi?"
+      },
+      {
+        "type": "p",
+        "text": "Evet; taraflar isterlerse uzlaşma yolunu deneyebilir. Bu, hak düşürücü süreleri ve alacağın ispatını ortadan kaldırmaz; süreyi avukatla birlikte planlamak gerekir."
       },
       {
         "type": "cta",
@@ -3268,6 +3308,44 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "3. Gelir ve Giderleri Gerçekçi Tahmin Etmek"
+      },
+      {
+        "type": "p",
+        "text": "İşletme projesinin değeri, tahminlerin gerçeğe yakınlığına bağlıdır. Tahmin yaparken önceki yılın fiili giderleri, mevcut hizmet sözleşmelerinin bedelleri ve yıl içinde beklenen fiyat artışları birlikte değerlendirilmelidir. Tek seferlik büyük işler (çatı, cephe, asansör yenileme) olağan aidattan ayrı bir kalem olarak gösterilmelidir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Personel, güvenlik ve temizlik hizmet bedelleri ile yasal kesintiler.",
+          "Ortak alan elektrik, su ve doğal gaz giderleri; geçen yılın aynı dönemiyle karşılaştırma.",
+          "Asansör, jeneratör, hidrofor ve yangın sistemlerinin periyodik bakım bedelleri.",
+          "Beklenmeyen arızalar için makul bir yedek bütçe veya yönetim planında öngörülen fon."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "4. 7579 Sayılı Kanun Sonrası Dikkat Edilecekler"
+      },
+      {
+        "type": "p",
+        "text": "Onaylı işletme projesi bulunan sitelerde, geçici projedeki bedel bir önceki yılın yeniden değerleme oranını aşamaz. Bu nedenle aidat artışı yapmadan önce mevcut projenin onay tarihi ve tutarı doğrulanmalı, artışın hangi çerçevede yapıldığı kurul kararında yazılı olmalıdır. Ayrıntılar için KMK 2026 değişiklikleri sayfasına bakabilirsiniz; somut durum için hukuk danışmanından görüş alınması önerilir."
+      },
+      {
+        "type": "h2",
+        "text": "5. Sık Yapılan Hatalar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Projenin kurulda onaylanmadan uygulanması.",
+          "Gider kalemlerinin tek bir \"genel gider\" başlığı altında toplanması.",
+          "Projenin kat maliklerine bildirilmemesi veya bildirimin ispatlanamaması.",
+          "Yıl içinde bütçe aşıldığında ek proje hazırlanmadan ek aidat istenmesi."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3285,6 +3363,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Yönetici \"Ek İşletme Projesi (Ek Bütçe)\" hazırlayarak aynı usulle kurula sunar ve ek aidat/demirbaş avansı toplar."
+      },
+      {
+        "type": "h3",
+        "text": "İşletme projesini kim hazırlar?"
+      },
+      {
+        "type": "p",
+        "text": "Yönetici hazırlar; profesyonel bir yönetim şirketi görev yapıyorsa hazırlık şirket tarafından yapılır, onay yetkisi ise kat malikleri kuruluna aittir."
+      },
+      {
+        "type": "h3",
+        "text": "Giderler kat malikleri arasında nasıl paylaşılır?"
+      },
+      {
+        "type": "p",
+        "text": "Yönetim planında başka bir yöntem öngörülmemişse genel kural olarak arsa payı oranında; yönetim planı farklı bir ölçü belirleyebilir. Planınızdaki hükme bakın."
       },
       {
         "type": "cta",
@@ -3519,6 +3613,29 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "3. Sözleşmede Bulunması Gereken Maddeler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hizmet kapsamı: hangi işler dahil, hangileri ayrıca ücretlendirilir.",
+          "Ücret ve artış koşulları: artışın hangi göstergeye bağlı olduğu.",
+          "Yetki sınırları: yönetimin tek başına yapabileceği harcama limiti.",
+          "Raporlama: aylık gelir-gider raporu ve belgelerin kat maliklerine sunulma biçimi.",
+          "Acil müdahale hedefi ve ölçüm yöntemi.",
+          "Fesih, devir-teslim ve belge iadesi koşulları."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "4. Teklifleri Karşılaştırırken"
+      },
+      {
+        "type": "p",
+        "text": "Teklifleri yalnızca toplam fiyata göre değil, kalem kalem karşılaştırın. Aynı hizmetin farklı kapsamlarla sunulması fiyat farkının ana nedenidir. Şirketin referans verdiği sitelerden en az ikisiyle görüşmek, vaat edilen hizmetin gerçek uygulamasını görmenin en güvenilir yoludur."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3536,6 +3653,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Alo Yönetim modelinde tüm paralar site adına açılan resmi banka hesabında tutulur; kat malikleri ve denetçi hesap hareketlerini izleyebilir."
+      },
+      {
+        "type": "h3",
+        "text": "En düşük fiyatlı teklif mi seçilmeli?"
+      },
+      {
+        "type": "p",
+        "text": "Yalnızca fiyata bakmak, kapsam dışı kalan işler için sonradan ek ücret istenmesine yol açabilir. Kapsamı eşitlenmiş tekliflerde fiyatı karşılaştırmak daha sağlıklıdır."
+      },
+      {
+        "type": "h3",
+        "text": "Mevcut yönetici nasıl değiştirilir?"
+      },
+      {
+        "type": "p",
+        "text": "Kat malikleri kurulu kararıyla yönetici değiştirilebilir; karar için KMK ve yönetim planındaki toplantı ve nisap şartları aranır. Devir sırasında hesap, belge ve demirbaşlar tutanakla teslim edilmelidir."
       },
       {
         "type": "cta",
