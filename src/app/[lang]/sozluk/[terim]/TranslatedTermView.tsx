@@ -5,6 +5,7 @@ import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { BASE_URL } from '@/lib/seo';
 import { localePath } from '@/lib/i18n/localePath';
 import { TRANSLATED_TERMS, type TranslatedLang } from '@/data/dictionaryTranslated';
+import { TERM_DETAILS_TRANSLATED } from '@/data/dictionaryDetailsTranslated';
 
 type Dict = Record<string, string>;
 
@@ -22,6 +23,15 @@ export default function TranslatedTermView({
   const current = TRANSLATED_TERMS.find((x) => x.slug === slug);
   if (!current) return null;
   const text = current[lang];
+  const detail = TERM_DETAILS_TRANSLATED[slug]?.[lang];
+  const faqLd = detail?.faq?.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        inLanguage: lang,
+        mainEntity: detail.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+      }
+    : null;
   const related = TRANSLATED_TERMS.filter((x) => x.slug !== slug).slice(0, 4);
 
   const breadcrumbLd = generateBreadcrumbs([
@@ -55,7 +65,7 @@ export default function TranslatedTermView({
 
   return (
     <>
-      <JsonLd data={[termLd, pageLd, breadcrumbLd]} />
+      <JsonLd data={[termLd, pageLd, breadcrumbLd, ...(faqLd ? [faqLd] : [])]} />
       <section className="pt-36 pb-12 md:pt-44 bg-slate-950 text-white border-b border-white/10 px-[var(--spacing-gutter)]">
         <div className="max-w-4xl mx-auto">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-slate-400 mb-5">
@@ -78,6 +88,42 @@ export default function TranslatedTermView({
             {t('sozx_disclaimer')}
           </p>
         </div>
+
+        {detail && (
+          <div className="flex flex-col gap-8">
+            <section>
+              <h2 className="text-xl font-bold text-[var(--color-primary)] mb-4">{t('sozx_detail_h')}</h2>
+              <div className="flex flex-col gap-4 text-base text-[var(--color-secondary)] leading-relaxed">
+                {detail.explain.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            </section>
+            {detail.tips && detail.tips.length > 0 && (
+              <section>
+                <h2 className="text-xl font-bold text-[var(--color-primary)] mb-4">{t('sozx_tips_h')}</h2>
+                <ul className="list-disc ps-6 flex flex-col gap-2 text-base text-[var(--color-secondary)] leading-relaxed">
+                  {detail.tips.map((tip) => (
+                    <li key={tip}>{tip}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+            {detail.faq && detail.faq.length > 0 && (
+              <section>
+                <h2 className="text-xl font-bold text-[var(--color-primary)] mb-4">{t('sozx_faq_h')}</h2>
+                <div className="flex flex-col gap-4">
+                  {detail.faq.map(([q, a]) => (
+                    <div key={q}>
+                      <h3 className="font-bold text-base text-[var(--color-primary)]">{q}</h3>
+                      <p className="text-base text-[var(--color-secondary)] leading-relaxed mt-1">{a}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+        )}
 
         <div>
           <h2 className="text-xl font-bold text-[var(--color-primary)] mb-4">{t('sozx_related')}</h2>
