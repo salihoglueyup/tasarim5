@@ -11,3 +11,6 @@ export function retiredBlogTarget(slug: string): string | undefined {
   if (!m || !DISTRICT_SLUGS.includes(m[1]) || !SERVICE_SLUGS.includes(m[2])) return undefined;
   return `/bolgeler/${m[1]}/${m[2]}`;
 }
+
+/** Veritabanında hâlâ kayıtlı olabilecek kaldırılmış yazıların slug listesi (sorgularda `notIn` ile dışlanır). */
+export const RETIRED_BLOG_SLUGS: string[] = DISTRICT_SLUGS.flatMap((d) => SERVICE_SLUGS.map((s) => `${d}-${s}-2026`));

@@ -58,20 +58,6 @@ export const TERMS: Term[] = [
     sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
   },
   {
-    term: 'KMK Madde 37 (İşletme Projesi & İtiraz Süresi)',
-    definition:
-      '634 sayılı KMK Madde 37; sitenin 1 yıllık tahmini gelir-gider bütçesini ve bağımsız bölümlere düşen avans tutarlarını gösteren işletme projesinin hazırlanmasını düzenler. Yönetici tarafından hazırlanıp kat maliklerine taahhütlü mektup veya imza karşılığı tebliğ edilir. 22 Mayıs 2026 tarihli 7579 sayılı Kanun\'la işletme projesinin kat malikleri kurulunda onaylanması esası getirildi; onaylı proje yoksa yönetici geçici proje hazırlar ve en geç 3 ay içinde kurula onaylatır. Tebliğden itibaren 7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve İİK m.68 kapsamındaki ilamsız icra takibine resmi dayanak teşkil eder.',
-    link: { href: '/hizmetler/aidat-takibi', label: 'İşletme projesi ve aidat takibi' },
-    sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
-  },
-  {
-    term: 'KMK Madde 45 (Önemli İşler & Oybirliği Kararları)',
-    definition:
-      '634 sayılı KMK Madde 45; ana taşınmazın bir hakla kayıtlanması, arsanın bölünmesi, ortak yerlerin üçüncü kişilere kiralanması veya mülkiyet yapısını değiştiren önemli tasarrufi işlemlerde bütün kat maliklerinin oybirliğini şart koşar.',
-    link: { href: '/hizmetler/hukuk-ve-icra-danismanligi', label: 'Kat mülkiyeti hukuk danışmanlığı' },
-    sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
-  },
-  {
     term: 'Demirbaş',
     definition:
       'Sitenin ortak kullanımına ait, uzun ömürlü ve envantere kayıtlı taşınır mallardır (jeneratör, hidrofor, güvenlik kamerası, bahçe ekipmanı). Yönetim değişiminde tutanakla devredilir.',
@@ -428,7 +414,7 @@ export const TERMS: Term[] = [
   {
     term: 'KMK 37 (İşletme Projesi & Bütçe İtiraz Süresi)',
     definition:
-      '634 sayılı Kat Mülkiyeti Kanunu Madde 37; sitenin 1 yıllık tahmini gelir-gider bütçesini ve bağımsız bölümlere düşen avans tutarlarını gösteren işletme projesinin hazırlanmasını düzenler. Yönetici tarafından hazırlanıp kat maliklerine taahhütlü mektup veya imza karşılığı tebliğ edilir. 22 Mayıs 2026 tarihli 7579 sayılı Kanun\'la işletme projesinin kat malikleri kurulunda onaylanması esası getirildi; onaylı proje yoksa yönetici geçici proje hazırlar ve en geç 3 ay içinde kurula onaylatır. Tebliğden itibaren 7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve İİK m.68 kapsamındaki ilamsız icra takibine resmi dayanak teşkil eder.',
+      '634 sayılı Kat Mülkiyeti Kanunu Madde 37; sitenin 1 yıllık tahmini gelir-gider bütçesini ve bağımsız bölümlere düşen avans tutarlarını gösteren işletme projesinin hazırlanmasını düzenler. Yönetici tarafından hazırlanıp kat maliklerine taahhütlü mektup veya imza karşılığı tebliğ edilir. 22 Mayıs 2026 tarihli 7579 sayılı Kanun\'la işletme projesinin kat malikleri kurulunda onaylanması esası getirildi; onaylı proje yoksa yönetici geçici proje hazırlar ve en geç 3 ay içinde kurula onaylatır. Onaylanan projenin ilamsız icra takibinde dayanak olup olmayacağı İİK m.68 ve güncel mevzuata göre değerlendirilir.',
     link: { href: '/hizmetler/aidat-takibi', label: 'İşletme projesi ve aidat takibi' },
     sameAs: 'https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5',
   },

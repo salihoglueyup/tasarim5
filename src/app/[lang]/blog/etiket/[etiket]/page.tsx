@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import PostGrid from '@/components/blog/PostGrid';
@@ -20,7 +21,7 @@ const getTagPosts = cache(async (etiket: string) => {
   const hasTag = (raw: unknown) => parseTags(typeof raw === 'string' ? raw : JSON.stringify(raw ?? [])).some((t: string) => tagToSlug(t) === wanted);
 
   const all = await prisma.post.findMany({
-    where: { published: true },
+    where: { published: true, slug: { notIn: RETIRED_BLOG_SLUGS } },
     select: {
       id: true, slug: true, title: true, description: true, image: true, datePublished: true,
       dateModified: true, category: true, tags: true, authorId: true, published: true,

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
@@ -93,7 +94,7 @@ export default async function CategoryArchive({
   if (!cat) notFound();
 
   let posts = await prisma.post.findMany({
-    where: { categoryId: cat.id, published: true },
+    where: { categoryId: cat.id, published: true, slug: { notIn: RETIRED_BLOG_SLUGS } },
     select: {
       id: true,
       slug: true,

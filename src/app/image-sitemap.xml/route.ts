@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import { prisma } from '@/lib/prisma';
 import { BASE_URL } from '@/lib/seo';
 import { SERVICES } from '@/data/services';
@@ -29,7 +30,7 @@ export async function GET() {
     // Görselli tüm blog yazılarını çek (DB sorgusu)
     try {
       posts = await prisma.post.findMany({
-        where: { published: true, image: { not: null } },
+        where: { published: true, slug: { notIn: RETIRED_BLOG_SLUGS }, image: { not: null } },
         select: { slug: true, image: true, title: true }
       });
     } catch (err) {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { permanentRedirect } from 'next/navigation';
-import { resolveLegacyDistrictSlug, resolveLegacyTermSlug } from '@/lib/legacySlugs';
+import { resolveLegacyDistrictSlug, resolveLegacyTermSlug, RETIRED_TERM_REDIRECTS } from '@/lib/legacySlugs';
 import { localePath } from '@/lib/i18n/localePath';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -63,8 +63,8 @@ export async function generateMetadata({
     title = 'ÖGG Kartı Nedir, Nasıl Alınır? — 5188 Güvenlik Kimlik Kartı Rehberi | Alo Yönetim';
     description = 'ÖGG kartı nedir, kimlere verilir? 5188 sayılı Kanun kapsamında silahlı ve silahsız özel güvenlik görevlisi kimlik kartı alma şartları ve yenileme eğitimi rehberi.';
   } else if (termLower.includes('kmk 37') || (termLower.includes('kmk') && termLower.includes('37'))) {
-    title = 'KMK 37 Nedir? İşletme Projesi ve 7 Günlük İtiraz Süresi | Alo Yönetim';
-    description = '634 sayılı KMK Madde 37 işletme projesi nedir? 1 yıllık tahmini site bütçesi, tebligat usulü ve ilamsız icra takibi şartları.';
+    title = 'KMK 37 Nedir? İşletme Projesi ve Kurul Onayı | Alo Yönetim';
+    description = '634 sayılı KMK Madde 37 işletme projesi nedir? 1 yıllık tahmini site bütçesi, kat malikleri kurulunda onay, geçici proje ve 7579 sayılı Kanun değişikliği.';
   } else if (termLower.includes('kmk 45') || (termLower.includes('kmk') && termLower.includes('45'))) {
     title = 'KMK 45 Nedir? Oybirliği Gerektiren Önemli Kararlar | Alo Yönetim';
     description = '634 sayılı KMK Madde 45 önemli işler nedir? Kat mülkiyetinde ortak yerlerin kiralanması, devri ve oybirliği şartı aranan kararlar.';
@@ -119,7 +119,7 @@ export default async function TermPage({
   }
   const term = slugToTerm(terim);
   if (!term) {
-    const fixed = resolveLegacyTermSlug(terim);
+    const fixed = RETIRED_TERM_REDIRECTS[terim] ?? resolveLegacyTermSlug(terim);
     if (fixed) permanentRedirect(localePath(`/sozluk/${fixed}`, lang));
     notFound();
   }

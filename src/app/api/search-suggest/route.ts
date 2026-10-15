@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import { prisma } from '@/lib/prisma';
 import { BASE_URL, localizedUrl } from '@/lib/seo';
 import { rateLimit, pruneBuckets } from '@/lib/leads/rate-limit';
@@ -167,7 +168,7 @@ export async function GET(req: NextRequest) {
     // 4. Blog Makalesi Eşleşmeleri (Posts)
     const posts = await prisma.post.findMany({
       where: {
-        published: true,
+        published: true, slug: { notIn: RETIRED_BLOG_SLUGS },
         OR: [
           { title: { contains: q, mode: 'insensitive' } },
           { description: { contains: q, mode: 'insensitive' } },

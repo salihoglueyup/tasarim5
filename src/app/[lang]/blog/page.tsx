@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import { Suspense } from 'react';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';;
@@ -78,7 +79,7 @@ export default async function Blog({ params }: { params: Promise<{ lang: string 
   if (finalPosts.length === 0) {
     const [dbPosts, dbCategories] = await Promise.all([
       prisma.post.findMany({
-        where: { published: true },
+        where: { published: true, slug: { notIn: RETIRED_BLOG_SLUGS } },
         orderBy: { datePublished: 'desc' },
         select: {
           id: true,

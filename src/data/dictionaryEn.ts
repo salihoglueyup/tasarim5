@@ -110,7 +110,7 @@ export const ENGLISH_TERMS: EnglishTerm[] = [
   {
     term: 'KMK Article 37 Operating Budget',
     turkishEquivalent: 'KMK 37 (İşletme Projesi & Bütçe İtiraz Süresi)',
-    definition: 'Statutory annual operating budget projection for condominium complexes detailing monthly advances per unit and the 7-day objection window after formal service.',
+    definition: 'Statutory annual operating budget projection for condominium complexes detailing monthly advances per unit; since Law No. 7579 it is approved by the unit owners assembly.',
     category: 'Property Law & KMK',
     link: { href: '/en/services/facility-management', label: 'Condominium Budget Planning' },
   },

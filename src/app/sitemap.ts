@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import { buildLanguageAlternates, localizedUrl, sitemapLocales } from '@/lib/seo';
 import { MIN_POSTS_FOR_TAG_INDEX, tagToSlug } from '@/lib/seo/indexPolicy';
 import { prisma } from '@/lib/prisma';
@@ -28,7 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const [dbPosts, dbCategories, dbAuthors, dbSectoral] = await Promise.all([
       prisma.post.findMany({
-        where: { published: true },
+        where: { published: true, slug: { notIn: RETIRED_BLOG_SLUGS } },
         select: { slug: true, dateModified: true, tags: true }
       }),
       prisma.category.findMany({ select: { slug: true, updatedAt: true } }),

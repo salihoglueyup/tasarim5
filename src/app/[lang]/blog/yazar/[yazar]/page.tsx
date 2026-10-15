@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -98,7 +99,7 @@ export default async function AuthorArchive({
   if (!author) notFound();
 
   let posts = await prisma.post.findMany({
-    where: { authorId: author.id, published: true },
+    where: { authorId: author.id, published: true, slug: { notIn: RETIRED_BLOG_SLUGS } },
     select: {
       id: true,
       slug: true,

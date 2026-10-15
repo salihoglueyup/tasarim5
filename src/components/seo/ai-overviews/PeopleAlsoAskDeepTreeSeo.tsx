@@ -112,9 +112,9 @@ export const PAA_DEEP_TREE_QUESTIONS: PaaQuestionItem[] = [
     id: 'aidat-2',
     category: 'aidat-butce',
     categoryLabel: 'Aidat & Bütçe',
-    question: 'İşletme projesi tebliğ edildikten sonra kaç gün içinde kesinleşir?',
-    answer: 'KMK Madde 37 uyarınca işletme projesi kat maliklerine taahhütlü mektupla veya imza karşılığı tebliğ edilir. Tebliğden itibaren 7 gün içinde Sulh Hukuk Mahkemesi’ne veya yönetime itiraz edilmezse kesinleşir.',
-    legalAnchor: 'KMK Madde 37 (7 Günlük İtiraz Süresi)',
+    question: 'İşletme projesi nasıl kesinleşir?',
+    answer: '22 Mayıs 2026 tarihli 7579 sayılı Kanun’dan sonra KMK Madde 37 uyarınca işletme projesi kat malikleri kurulunda onaylanır. Onaylı proje yoksa yönetici en geç 3 ay içinde onaylanacak geçici proje hazırlar. Güncel usul için hukuk danışmanına başvurun.',
+    legalAnchor: 'KMK Madde 37 (İşletme Projesi)',
   },
   {
     id: 'aidat-3',

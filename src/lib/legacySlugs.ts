@@ -22,3 +22,9 @@ export function resolveLegacyDistrictSlug(raw: string): string | undefined {
 export function resolveLegacyTermSlug(raw: string): string | undefined {
   return TERM_KEYS.get(lettersOnly(decodeURIComponent(raw)));
 }
+
+/** Tekrar eden sözlük maddeleri birleştirildi; eski adresler kalıcı yönlendirilir. */
+export const RETIRED_TERM_REDIRECTS: Record<string, string> = {
+  'kmk-madde-37-isletme-projesi-itiraz-suresi': 'kmk-37-isletme-projesi-butce-itiraz-suresi',
+  'kmk-madde-45-onemli-isler-oybirligi-kararlari': 'kmk-45-onemli-isler-oybirligi-kararlari',
+};

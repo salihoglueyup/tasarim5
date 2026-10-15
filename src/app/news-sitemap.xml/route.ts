@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import { prisma } from '@/lib/prisma';
 import { BASE_URL } from '@/lib/seo';
 
@@ -25,7 +26,7 @@ export async function GET() {
     const twoDaysAgo = new Date(Date.now() - 48 * 60 * 60 * 1000);
     const dbPosts = await prisma.post.findMany({
       where: {
-        published: true,
+        published: true, slug: { notIn: RETIRED_BLOG_SLUGS },
         datePublished: { gte: twoDaysAgo },
       },
       orderBy: { datePublished: 'desc' },
@@ -41,7 +42,7 @@ export async function GET() {
     // Son yazı yoksa, en güncel 10 yayını al
     if (dbPosts.length === 0) {
       const fallbackPosts = await prisma.post.findMany({
-        where: { published: true },
+        where: { published: true, slug: { notIn: RETIRED_BLOG_SLUGS } },
         orderBy: { datePublished: 'desc' },
         take: 10,
         select: {

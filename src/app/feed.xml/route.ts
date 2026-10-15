@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import { prisma } from '@/lib/prisma';
 import { BASE_URL } from '@/lib/seo';
 import { ORG_NAME } from '@/lib/schemas';
@@ -24,7 +25,7 @@ export async function GET() {
   let posts: any[] = [];
   try {
     posts = await prisma.post.findMany({
-      where: { published: true },
+      where: { published: true, slug: { notIn: RETIRED_BLOG_SLUGS } },
       include: { category: true, author: true },
       orderBy: { datePublished: 'desc' },
       take: 30
