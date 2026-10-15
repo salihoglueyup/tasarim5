@@ -906,6 +906,26 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "5. Sözleşme ile Sorumluluk Dağılımı"
+      },
+      {
+        "type": "p",
+        "text": "Şirket yönetici sıfatıyla yasal yükümlülüklerini yerine getirmekle birlikte, hizmet kapsamı ve sorumluluk dağılımı sözleşmede açıkça yazılmalıdır. Hangi işlerin şirket, hangilerinin kat malikleri kurulu ya da üçüncü taraf yüklenicilerce yapılacağı belirsiz bırakılmamalıdır."
+      },
+      {
+        "type": "h2",
+        "text": "6. Sigorta ve Teminatlar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Mesleki sorumluluk sigortasının kapsamı ve limiti.",
+          "Ortak alanlar için yapı ve sorumluluk sigortaları.",
+          "Hizmet sağlayıcıların sigorta ve yetki belgeleri."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -915,6 +935,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Denetçi yönetim şirketini nasıl denetler?\nCevap: Denetçi KMK uyarınca belirli aralıklarla kasa, banka hesapları, gelir-gider makbuzları ve karar defterini inceler ve raporunu kat malikleri kuruluna sunar."
+      },
+      {
+        "type": "h3",
+        "text": "Yönetim şirketi kat malikleri adına dava açabilir mi?"
+      },
+      {
+        "type": "p",
+        "text": "KMK, yöneticiye ortak giderlere ilişkin dava ve icra takibi yetkisi tanır; kapsam için yönetim planına ve hukuk danışmanına bakın."
+      },
+      {
+        "type": "h3",
+        "text": "Şirketin banka hesabındaki yetkileri nasıl denetlenir?"
+      },
+      {
+        "type": "p",
+        "text": "Hesap site adına açılır; denetçi ve kurul hesap hareketlerine ve dekontlara erişebilir. Yetki sınırları yazılı belirlenmelidir."
       },
       {
         "type": "cta",
@@ -1187,6 +1223,31 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Enerji İzleme Göstergeleri"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Metrekare başına aylık elektrik tüketimi.",
+          "Soğutma ve ısıtma dönemi tüketim karşılaştırması.",
+          "Reaktif enerji oranları.",
+          "Doluluk saatleri ile tüketim ilişkisi."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Bu göstergeleri ölçebilmek için alt sayaç ve izleme altyapısı gerekir; ölçülmeyen tüketim yönetilemez."
+      },
+      {
+        "type": "h2",
+        "text": "7. Yatırım Öncesi Fizibilite"
+      },
+      {
+        "type": "p",
+        "text": "Otomasyon yatırımının geri dönüşü; bina yaşı, mevcut ekipman, kullanım saatleri ve enerji fiyatlarına göre değişir. Yatırım kararından önce ön enerji etüdü ve alternatiflerin maliyet karşılaştırması yapılmalıdır."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -1196,6 +1257,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: BMS bina otomasyon sistemi ne kadar enerji tasarrufu sağlar?\nCevap: Doğru kalibre edilmiş ve programlanmış bir BMS otomasyonu, plazanın HVAC ve aydınlatma elektrik tüketiminde tasarruf sağlanmasına yardımcı olabilir; sonuç tesise göre değişir."
+      },
+      {
+        "type": "h3",
+        "text": "Enerji etüdü nedir?"
+      },
+      {
+        "type": "p",
+        "text": "Binanın enerji tüketiminin ölçülüp iyileştirme fırsatlarının belirlendiği çalışmadır; yetkili uzmanlarca yapılması gerekir."
+      },
+      {
+        "type": "h3",
+        "text": "Alt sayaç kullanmak zorunlu mu?"
+      },
+      {
+        "type": "p",
+        "text": "Zorunlu olmayabilir; ancak kiracılara adil faturalama için önerilir. Kira sözleşmesi ve yönetim planı belirleyicidir."
       },
       {
         "type": "cta",
@@ -1275,6 +1352,27 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Mega Sitelerde Bütçe ve Hesap Verebilirlik"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Blok bazlı giderler ile tüm siteyi ilgilendiren giderler ayrı izlenmelidir.",
+          "Aylık gelir-gider raporu kalem kalem sunulmalıdır.",
+          "Büyük alımlarda en az üç teklif toplanmalı ve kurula bilgi verilmelidir.",
+          "Denetçi, belgelere ve banka hareketlerine düzenli erişebilmelidir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "7. Tasarruf Beklentisini Gerçekçi Tutmak"
+      },
+      {
+        "type": "p",
+        "text": "Toplu tedarik maliyet avantajı sağlayabilir; ancak tasarruf oranı sözleşmelere, piyasa koşullarına ve hizmet kapsamına göre değişir. Vaat edilen oranlar yerine mevcut giderlerin kalem kalem analizi ve teklif karşılaştırması esas alınmalıdır."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -1284,6 +1382,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Toplu konutlarda aidatını ödemeyen bloklara karşı ne yapılır?\nCevap: Yönetim planı ve KMK hükümleri çerçevesinde ortak gider borcunu ödemeyen bağımsız bölümler hakkında toplu yapı yönetimi icra takibi başlatabilir."
+      },
+      {
+        "type": "h3",
+        "text": "Her blok için ayrı hizmet sözleşmesi mi yapılmalı?"
+      },
+      {
+        "type": "p",
+        "text": "Toplu yapı yönetim planına bağlıdır. Ortak hizmetler tek sözleşmede toplanabilir, blok özel giderler ayrıca izlenebilir."
+      },
+      {
+        "type": "h3",
+        "text": "Tasarruf nasıl ölçülür?"
+      },
+      {
+        "type": "p",
+        "text": "Önceki yılın kalem bazlı giderleriyle yeni dönem giderleri aynı hizmet kapsamı üzerinden karşılaştırılır."
       },
       {
         "type": "cta",
@@ -1358,6 +1472,31 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. 6331 Sayılı Kanun Kapsamında Temel Yükümlülükler"
+      },
+      {
+        "type": "p",
+        "text": "6331 sayılı İş Sağlığı ve Güvenliği Kanunu kapsamında işveren; risk değerlendirmesi yapmak, çalışanlara eğitim vermek ve acil durum planı hazırlamak gibi yükümlülükler taşır. Tesis yönetimi hizmeti bu süreçlerin takibini kolaylaştırır; yasal sorumluluk ise işverende kalır."
+      },
+      {
+        "type": "h2",
+        "text": "7. Periyodik Kontrol Takvimi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kaldırma ve iletme ekipmanları (vinç, forklift, asansör).",
+          "Basınçlı kaplar ve kazanlar.",
+          "Elektrik tesisatı, topraklama ve paratoner.",
+          "Yangın söndürücüler, hidrant hatları ve algılama sistemleri."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kontrol sıklıkları ilgili mevzuata göre belirlenir; her kontrol tarihli ve imzalı rapora bağlanmalıdır."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -1367,6 +1506,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Organize Sanayi Bölgelerinde (OSB) tesis yönetimi avantajı nedir?\nCevap: OSB mevzuatına uyum, ağır bakım maliyetlerinin yönetilmesi ve İSG teftişlerinde ceza riskinin azaltılmasına yardımcı olur."
+      },
+      {
+        "type": "h3",
+        "text": "ISO 45001 belgesi zorunlu mudur?"
+      },
+      {
+        "type": "p",
+        "text": "Hayır, ISO 45001 gönüllü bir yönetim sistemi standardıdır; ancak 6331 sayılı Kanun ve ilgili yönetmeliklerdeki yasal yükümlülükler zorunludur."
+      },
+      {
+        "type": "h3",
+        "text": "Alt işveren çalıştırılan işlerde İSG sorumluluğu kimdedir?"
+      },
+      {
+        "type": "p",
+        "text": "Genel olarak asıl işveren ile alt işveren birlikte sorumludur. İSG yükümlülükleri sözleşmede yazılı olmalı; somut durum için uzmana danışılmalıdır."
       },
       {
         "type": "cta",
@@ -1444,6 +1599,33 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "Referans Kontrolü Nasıl Yapılır?"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Şirketten güncel referans listesi isteyin.",
+          "Listedeki sitelerden en az ikisinin yöneticisi veya kat malikleriyle görüşün.",
+          "Bakım kayıtlarını ve raporlama örneklerini inceleyin.",
+          "Mümkünse bir sitede yerinde inceleme yapın."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Dikkat Edilmesi Gereken Uyarı İşaretleri"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Piyasa ortalamasının çok altında fiyat.",
+          "Belge veya referans göstermekten kaçınma.",
+          "Banka hesabına erişim ve raporlama şeffaflığı vermeme.",
+          "Garantili tasarruf vaadi.",
+          "Yazılı sözleşme yapmadan hizmete başlama teklifi."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -1453,6 +1635,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Yönetim şirketinden memnun kalınmazsa sözleşme nasıl feshedilir?\nCevap: Kat Malikleri Kurulu gerekli çoğunlukla toplanarak yöneticiyi görevden alma kararı alabilir; sözleşmenin feshi ise sözleşme hükümlerine ve haklı neden bulunup bulunmadığına göre değerlendirilir."
+      },
+      {
+        "type": "h3",
+        "text": "Referanslar nasıl doğrulanır?"
+      },
+      {
+        "type": "p",
+        "text": "Referans gösterilen sitelerle doğrudan görüşerek, hizmet süresi ve kapsamı hakkında bilgi alarak."
+      },
+      {
+        "type": "h3",
+        "text": "Deneme veya gözden geçirme dönemi istenebilir mi?"
+      },
+      {
+        "type": "p",
+        "text": "Sözleşmede gözden geçirme dönemi ve fesih şartları yazılı olarak belirlenebilir; bu koşullar tarafların anlaşmasına bağlıdır."
       },
       {
         "type": "cta",
@@ -2410,6 +2608,36 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Günlük ve Haftalık Ölçüm Rutini"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Günlük: pH ve serbest klor ölçümü, kayıt defterine işleme.",
+          "Haftalık: toplam alkalinite ve stabilizatör kontrolü.",
+          "Düzenli: filtre ters yıkama ve skimmer sepetlerinin temizliği.",
+          "Sezon sonu: kış kapatma prosedürü."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Ölçüm sıklığı havuz tipine ve ilgili mevzuata göre değişebilir; kayıtlar denetimlerde delil olarak kullanılabilir."
+      },
+      {
+        "type": "h2",
+        "text": "5. Ne Zaman Uzman Çağrılmalı?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Su sürekli bulanık kalıyorsa.",
+          "Ölçümler dengelenmiyorsa.",
+          "Pompa veya filtre arızası varsa.",
+          "Kimyasal sızıntı olmuşsa."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -2427,6 +2655,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Güneşin UV ışınlarının kloru uçurmasını önler. Ancak yüksek seviyelere çıktığında \"klor kilitlenmesi\" yaparak klorun mikrop öldürmesini durdurur; bu durumda havuza taze su basılmalıdır."
+      },
+      {
+        "type": "h3",
+        "text": "Havuz suyu ne sıklıkla değiştirilir?"
+      },
+      {
+        "type": "p",
+        "text": "Bakım kalitesine ve kullanım yoğunluğuna bağlıdır. Stabilizatör seviyesi yükselmişse kısmi su değişimi gerekebilir."
+      },
+      {
+        "type": "h3",
+        "text": "Kimyasal sıçraması olursa ne yapılır?"
+      },
+      {
+        "type": "p",
+        "text": "Cildi ve gözü bol suyla yıkayın, ürün güvenlik bilgi formundaki (SDS) talimatlara uyun ve gerekirse sağlık kuruluşuna başvurun."
       },
       {
         "type": "cta",
