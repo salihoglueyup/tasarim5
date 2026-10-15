@@ -1486,6 +1486,27 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "8. HVAC Bakım Sözleşmesinde Kapsam"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Periyodik bakım sayısı ve kapsamı (filtre, serpantin, kayış, soğutucu gaz).",
+          "Arıza çağrısına müdahale süresi ve çağrı kayıtları.",
+          "Yedek parça ve sarf malzeme dahil olup olmadığı.",
+          "Bakım raporlarının biçimi ve paylaşım sıklığı."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "9. Kiracı Konforu ve Talep Yönetimi"
+      },
+      {
+        "type": "p",
+        "text": "Plazalarda sıcaklık ve havalandırma şikâyetleri en sık gelen taleplerdendir. Talepleri tek kanaldan kaydetmek, kapanış sürelerini izlemek ve kat bazlı sıcaklık verilerini düzenli incelemek hem konforu hem de enerji tüketimini dengelemeye yardımcı olur."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -1611,6 +1632,27 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "8. Merkezi Yönetime Geçişte Riskler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Blok yönetimleri arasında yetki ve hesap devrinin belirsiz kalması.",
+          "Mevcut sözleşmelerin bitiş tarihlerinin ve cezai şartların kontrol edilmemesi.",
+          "Toplu yapı yönetim planı ile uygulamanın uyuşmaması.",
+          "Geçiş döneminde raporlama ve iletişim eksikliği."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "9. Temsilciler Kurulu Toplantı Düzeni"
+      },
+      {
+        "type": "p",
+        "text": "Büyük sitelerde temsilciler kurulu toplantılarının takvimi, gündemi ve karar kayıtları önceden belirlenmeli; bloklara toplantı sonuçları yazılı iletilmelidir. Yönetim planının toplu yapıya ilişkin hükümleri ve KMK'daki toplu yapı düzenlemeleri, kurulun yetki sınırlarını belirler."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -1732,6 +1774,33 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Kontrol sıklıkları ilgili mevzuata göre belirlenir; her kontrol tarihli ve imzalı rapora bağlanmalıdır."
+      },
+      {
+        "type": "h2",
+        "text": "8. Risk Değerlendirmesi Adımları"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Tehlikeler belirlenir (kimyasal, yüksekte çalışma, makine, elektrik, yangın).",
+          "Her tehlike için olasılık ve şiddet değerlendirilerek risk sınıflandırılır.",
+          "Önlemler belirlenir ve sorumlular atanır.",
+          "Önlemler uygulanır ve çalışanlar bilgilendirilir.",
+          "Sonuçlar periyodik olarak izlenir ve değişiklik olduğunda güncellenir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "9. Acil Durum Planının Unsurları"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Yangın, patlama, kimyasal döküntü ve deprem senaryoları.",
+          "Tahliye yolları, toplanma alanları ve görevli listeleri.",
+          "Acil durum iletişim zinciri ve dış kurumlarla koordinasyon.",
+          "Periyodik tatbikat takvimi ve tatbikat sonrası değerlendirme."
+        ]
       },
       {
         "type": "h2",
@@ -1861,6 +1930,28 @@ export const POSTS: Post[] = [
           "Garantili tasarruf vaadi.",
           "Yazılı sözleşme yapmadan hizmete başlama teklifi."
         ]
+      },
+      {
+        "type": "h2",
+        "text": "İhale Süreci Adım Adım"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "İhtiyaç analizi ve şartname hazırlığı.",
+          "Aday firmalardan belge ve referans toplama.",
+          "Yerinde keşif ve kalem kalem teklif alma.",
+          "Tekliflerin aynı kapsamda karşılaştırılması.",
+          "Kat malikleri kurulunda karar ve sözleşme imzası."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Karşılaştırma Matrisi Nasıl Kurulur?"
+      },
+      {
+        "type": "p",
+        "text": "Tekliflerin yalnızca fiyata göre sıralanması yanıltıcı olabilir. Fiyat, hizmet kapsamı, referanslar, raporlama düzeni ve sözleşme koşulları gibi ölçütler için yönetim kurulu tarafından önceden ağırlıklar belirlenir ve her teklif aynı tablo üzerinde puanlanır. Ağırlıklar sitenin önceliklerine göre değişir; bu yöntem kararın gerekçesini kat maliklerine anlatmayı kolaylaştırır."
       },
       {
         "type": "h2",
@@ -2061,6 +2152,28 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Fiyat farkı çoğu zaman personel sayısı, ekipman ve denetim sıklığındaki farktan kaynaklanır. Teklifleri aynı vardiya planı ve aynı ekipman listesi üzerinden karşılaştırın."
+      },
+      {
+        "type": "h2",
+        "text": "5. Şirketle Görüşmede Sorulacak Sorular"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hizmet verdiğiniz sitelerden hangileriyle görüşebilirim?",
+          "Personel değişikliklerinde yönetime nasıl bilgi verilir?",
+          "Devriye ve olay kayıtları nasıl tutulur ve paylaşılır?",
+          "Yedek personel planınız nedir?",
+          "Sözleşme sona erdiğinde devir nasıl yapılır?"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "6. Deneme ve Gözden Geçirme Dönemi"
+      },
+      {
+        "type": "p",
+        "text": "Hizmetin ilk haftalarında nöbet defteri, devriye kayıtları ve olay raporlarını yakından izlemek, sözleşmede belirlenen göstergelerin gerçekten karşılandığını görmenin en kolay yoludur. Sözleşmeye bir gözden geçirme tarihi ve fesih koşulları yazılabilir; bu koşullar tarafların anlaşmasına bağlıdır."
       },
       {
         "type": "h2",
@@ -2282,6 +2395,38 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Başvurudan Hizmete: Örnek Akış"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Ön hazırlık: güvenlik ihtiyacı ve riskler belirlenir, mevcut izinler kontrol edilir.",
+          "Karar: kat malikleri kurulunda özel güvenlik hizmeti alınmasına karar verilir.",
+          "Dosya: karar, plan/kroki, personel ve sigorta bilgileri hazırlanır.",
+          "İnceleme: ilgili idare dosyayı inceler, gerekirse yerinde keşif yapar.",
+          "İzin: uygun görülmesi halinde izin düzenlenir.",
+          "Hizmet: güvenlik şirketiyle sözleşme imzalanır ve personel göreve başlar."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Her adımın süresi idarenin iş yüküne ve dosyanın eksiksizliğine göre değişir; süre vaat edilemez."
+      },
+      {
+        "type": "h2",
+        "text": "5. Dosyada Sık Görülen Eksikler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Karar defterinde kararın nisap bilgilerinin eksik yazılması.",
+          "Güvenlik noktalarını gösteren krokinin güncel olmaması.",
+          "Personel sayısı ile vardiya planının tutarsız olması.",
+          "Sigorta ve sözleşme belgelerinin eksik veya süresi geçmiş olması."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -2401,6 +2546,33 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Aylık olay raporu, devriye kayıtları ve kamera arıza listesi yönetime düzenli sunulmalıdır. Kayıtların karşılaştırılabilir olması, güvenlik hizmetinin sözleşmedeki hedeflere uygun yürüyüp yürümediğini objektif biçimde gösterir."
+      },
+      {
+        "type": "h2",
+        "text": "6. Güvenlik Risk Değerlendirmesi Adımları"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Sitenin giriş-çıkış noktaları, çevre sınırı ve kör noktaları keşfedilir.",
+          "Geçmiş olaylar (hırsızlık, izinsiz giriş, trafik) kayıtlardan çıkarılır.",
+          "Riskler olasılık ve etkiye göre sınıflandırılır.",
+          "Personel, kamera ve bariyer gibi önlemler risklere göre seçilir.",
+          "Önlemlerin etkisi aylık raporlarla izlenir ve plan güncellenir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "7. Kamera Yerleşiminde Dikkat Edilecekler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Giriş-çıkışlar, otopark girişleri ve çevre sınırı öncelikli alanlardır.",
+          "Kameralar daire içini veya özel yaşam alanlarını görmeyecek şekilde yönlendirilir.",
+          "Gece görüş ve yeterli aydınlatma birlikte planlanır.",
+          "Kayıt cihazına erişim yetkili kişilerle sınırlandırılır."
+        ]
       },
       {
         "type": "h2",
@@ -3049,6 +3221,20 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Sezon Açılışı Kontrol Listesi"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Havuz kabuğu, derz ve zemin kaplaması gözle kontrol edilir.",
+          "Pompa, filtre ve dozaj ekipmanları test edilir.",
+          "Su dolum sonrası ilk ölçümler yapılır ve değerler dengelenir.",
+          "Kurtarma ekipmanı, uyarı levhaları ve çevre güvenliği kontrol edilir.",
+          "Ölçüm kayıt defteri ve kimyasal stok listesi güncellenir."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3168,6 +3354,34 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Ortak alanlardaki eksik ve kusurları fotoğraf, tarih ve liste halinde belgeleyin. Garanti süreleri ve ihbar şartlarını kontrol edin; müteahhide bildirimi yazılı ve ispatlanabilir yolla yapın."
+      },
+      {
+        "type": "h2",
+        "text": "6. İlk Genel Kurul Gündem Örneği"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Açılış, divan oluşturulması ve hazirun cetvelinin onaylanması.",
+          "Geçici yönetimin devir teslim raporunun sunulması.",
+          "Yönetici ve denetçi seçimi.",
+          "İşletme projesi veya geçici proje görüşülmesi.",
+          "Hizmet sözleşmelerinin ve sigortaların bilgilendirilmesi.",
+          "Dilek ve temenniler."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "7. Sık Yapılan Hatalar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Devir teslimin sözlü yapılması ve tutanak tutulmaması.",
+          "Abonelik ve sayaç kayıtlarının müteahhit adına bırakılması.",
+          "Garanti sürelerinin takip edilmemesi.",
+          "İlk yıl bütçesinin onaysız uygulanması."
+        ]
       },
       {
         "type": "h2",
