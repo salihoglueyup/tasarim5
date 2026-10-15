@@ -60,7 +60,8 @@ export function postStrings(p) {
   return [p.title, p.description, ...(p.tldr ? [p.tldr] : []), ...blockStrings(p.content)].filter((x) => typeof x === 'string' && x.trim() !== '');
 }
 
-function loadPosts() { return parseArray('src/data/posts.ts', 'export const POSTS'); }
+function loadGuides() { const f = path.join(MEM_DIR, 'guides.snapshot.json'); return fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : []; }
+function loadPosts() { return [...parseArray('src/data/posts.ts', 'export const POSTS'), ...loadGuides()]; }
 export function loadMetas() { return parseArray('src/data/postsMetadata.ts', 'export const POSTS_META'); }
 function loadCategories() { return parseArray('src/data/posts.ts', 'export const CATEGORIES'); }
 function loadMemory(lang) {

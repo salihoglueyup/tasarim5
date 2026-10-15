@@ -6,7 +6,7 @@ vi.mock('server-only', () => ({}));
 
 import { hashString, normalizeForMemory, memoryId, DISTRICTS, collectPostStrings, localizePostFields, type BlogLang } from './blogI18n';
 import { POSTS, POSTS_META, CATEGORIES } from '@/data/posts';
-import { TR_ONLY_BLOG_SLUGS } from '@/data/districtGuides';
+import { TR_ONLY_BLOG_SLUGS, TRANSLATED_GUIDES } from '@/data/districtGuides';
 import { getLocalizedPost, getLocalizedPostMetas, getLocalizedCategories, TRANSLATED_BLOG_SLUGS } from './blogLocale';
 import { isIndexable } from '@/lib/seo/indexPolicy';
 // .mjs betiği: hash/normalize mantığının TS kütüphanesiyle aynı olduğunu doğrularız
@@ -137,13 +137,20 @@ describe('blog: indeks politikası', () => {
   });
 });
 
-describe('yalnızca Türkçe ilçe rehberleri', () => {
-  it('rehberler Türkçe indekslenir, en/ru/ar sürümleri noindex kalır', () => {
-    expect(TR_ONLY_BLOG_SLUGS.length).toBe(12);
+describe('ilçe rehberleri: çevrilenler ve yalnızca Türkçe olanlar', () => {
+  it('yalnızca Türkçe rehberler en/ru/ar sürümlerinde noindex kalır; çevrilenler indekslenir', () => {
+    expect(TR_ONLY_BLOG_SLUGS.length + TRANSLATED_GUIDES.length).toBe(12);
     for (const slug of TR_ONLY_BLOG_SLUGS) {
       expect(POSTS.some((p) => p.slug === slug), slug).toBe(true);
       expect(isIndexable(`/blog/${slug}`, 'tr'), slug).toBe(true);
       for (const lang of LANGS) expect(isIndexable(`/blog/${slug}`, lang), `${lang} ${slug}`).toBe(false);
     }
+    for (const g of TRANSLATED_GUIDES) {
+      for (const lang of LANGS) expect(isIndexable(`/blog/${g.slug}`, lang), `${lang} ${g.slug}`).toBe(true);
+    }
+  });
+  it('çeviri aracının rehber anlık görüntüsü kaynakla aynıdır (npx tsx scripts/dump-guides.ts)', () => {
+    const snap = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'src/i18n/blog/guides.snapshot.json'), 'utf8'));
+    expect(snap).toEqual(JSON.parse(JSON.stringify(TRANSLATED_GUIDES)));
   });
 });
