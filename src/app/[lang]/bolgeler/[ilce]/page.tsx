@@ -263,7 +263,7 @@ export default async function DistrictPage({
           >
             <span className="text-xs font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-400">Rehber</span>
             <span className="mt-1 block text-lg font-bold text-[var(--color-primary)]">{guide.title}</span>
-            <span className="mt-1 block text-sm text-[var(--color-on-surface-variant)]">Mahalle farkları, KMK adımları ve yönetim şirketi seçerken sorulacak sorular.</span>
+            <span className="mt-1 block text-sm text-[var(--color-on-surface)]">Mahalle farkları, KMK adımları ve yönetim şirketi seçerken sorulacak sorular.</span>
           </Link>
         )}
 
