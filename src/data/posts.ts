@@ -163,6 +163,20 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Yöneticiler İçin Hızlı Kontrol Listesi"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Sitenizde onaylı bir işletme projesi var mı kontrol edin.",
+          "Yoksa 3 aylık geçici proje takvimini belirleyin.",
+          "Projenin bildirimlerini ve ispat kayıtlarını düzenleyin.",
+          "Toplu yapı olup olmadığınızı ve yönetim planı nisabını doğrulayın.",
+          "Avans toplama ve aidat artışı kararlarınızı güncel çerçeveye göre gözden geçirin."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -188,6 +202,14 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Önce onaylı bir işletme projesi olup olmadığını kontrol edin. Yoksa geçici proje hazırlayıp 3 ay içinde kurula sunun; yönetim planınızda 2/3 nisabına aykırı hüküm varsa bunun uygulanmayacağını göz önünde bulundurun ve bir avukata danışın."
+      },
+      {
+        "type": "h3",
+        "text": "Kiracılar bu değişiklikten etkilenir mi?"
+      },
+      {
+        "type": "p",
+        "text": "Aidat yükümlülüğü esas olarak kat malikine aittir; kiracı kira miktarı kadar müteselsilen sorumlu olabilir. Kira sözleşmesi hükümlerine ve somut duruma bakın."
       },
       {
         "type": "cta",
@@ -441,6 +463,20 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Entegre Yönetime Geçiş Adımları"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Keşif ve envanter: ekipman, ortak alan ve sözleşme listesi çıkarılır.",
+          "Teklif ve kapsam: hizmetler kalem kalem yazılır.",
+          "Sözleşme ve devir: hesap, belge ve anahtarlar tutanakla devralınır.",
+          "İlk 30 gün: bakım takvimi, vardiya düzeni ve raporlama formatı oturtulur.",
+          "Düzenli denetim: aylık rapor ve yıllık kurul sunumu yapılır."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -450,6 +486,14 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Entegre yönetim modeli apartmanlara uygun mudur?\nCevap: Evet, küçük apartmanlardan büyük yaşam alanlarına kadar her ölçekteki bina entegre yönetim avantajlarından yararlanabilir."
+      },
+      {
+        "type": "h3",
+        "text": "Entegre yönetim sözleşmesi ne kadar sürede devreye girer?"
+      },
+      {
+        "type": "p",
+        "text": "Keşif, sözleşme ve devir teslim kapsamına bağlıdır. Takvim, teklif aşamasında yazılı olarak paylaşılmalıdır."
       },
       {
         "type": "cta",
@@ -1161,6 +1205,20 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "5. Yönetim Planı Hazırlarken Kontrol Listesi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Tapu ve onaylı proje ile ortak alan tanımlarının uyumu.",
+          "Gider paylaşım ölçüsü (arsa payı, eşit pay veya farklı bir ölçü).",
+          "Yönetici ve denetçi ücreti ile görev süreleri.",
+          "Otopark, eklenti ve ortak alan kullanım kuralları.",
+          "Ticari kullanım ve evcil hayvan gibi kısıtlamaların hukuka uygunluğu."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -1170,6 +1228,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Yeni ev alan kişi eski yönetim planına uymak zorunda mıdır?\nCevap: Evet. KMK m.28 uyarınca yönetim planı bağımsız bölümü sonradan edinenleri bağlar, kiracılar da bu kurallara uymak zorundadır."
+      },
+      {
+        "type": "h3",
+        "text": "Yönetim planı tapuya nasıl işlenir?"
+      },
+      {
+        "type": "p",
+        "text": "Plan, yetkili merciin onayladığı örneğiyle tapu müdürlüğüne sunularak kat mülkiyeti kütüğüne şerh edilir. İşlemlerin güncel şartlarını tapu müdürlüğünden teyit edin."
+      },
+      {
+        "type": "h3",
+        "text": "Plan değişikliği kiracılara bildirilmeli midir?"
+      },
+      {
+        "type": "p",
+        "text": "Plan kiracıları da bağladığı için değişikliklerin duyuru yoluyla bildirilmesi, uyuşmazlıkları önler."
       },
       {
         "type": "cta",
