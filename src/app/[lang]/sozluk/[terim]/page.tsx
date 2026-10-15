@@ -10,6 +10,7 @@ import PageHeader from '@/components/layout/page/PageHeader';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import TermAiOverviewCard from '@/components/seo/ai-overviews/TermAiOverviewCard';
 import { TERMS, termToSlug, slugToTerm, TERM_SLUG_ALIASES } from '@/data/dictionary';
+import { TERM_DETAILS } from '@/data/dictionaryDetails';
 import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { getDictionary } from '@/lib/i18n';
 import { getTranslatedTerm } from '@/data/dictionaryTranslated';
@@ -166,6 +167,14 @@ export default async function TermPage({
   });
 
   const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
+  const detail = TERM_DETAILS[terim];
+  const faqLd = detail?.faq?.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: detail.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+      }
+    : null;
 
   const relatedTerms = TERMS.filter(
     (rt) => rt.term !== term.term && (
@@ -176,7 +185,7 @@ export default async function TermPage({
 
   return (
     <>
-      <JsonLd data={[termLd, pageLd, breadcrumbLd]} />
+      <JsonLd data={[termLd, pageLd, breadcrumbLd, ...(faqLd ? [faqLd] : [])]} />
       <PageHeader 
         title={`${term.term} Nedir?`}
         description={term.definition.slice(0, 160)}
@@ -205,6 +214,44 @@ export default async function TermPage({
             </div>
           )}
         </div>
+
+        {/* Ayrıntılı açıklama, dikkat edilecekler ve SSS */}
+        {detail && (
+          <div className="flex flex-col gap-8">
+            <section>
+              <h2 className="text-xl font-bold text-[var(--color-primary)] mb-4">{term.term} hakkında ayrıntılı bilgi</h2>
+              <div className="flex flex-col gap-4 text-base text-[var(--color-secondary)] leading-relaxed">
+                {detail.explain.map((para, i) => (
+                  <p key={i}>{para}</p>
+                ))}
+              </div>
+            </section>
+            {detail.tips && detail.tips.length > 0 && (
+              <section>
+                <h2 className="text-xl font-bold text-[var(--color-primary)] mb-4">Dikkat edilecekler</h2>
+                <ul className="list-disc pl-6 flex flex-col gap-2 text-base text-[var(--color-secondary)] leading-relaxed">
+                  {detail.tips.map((tip) => (
+                    <li key={tip}>{tip}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+            {detail.faq && detail.faq.length > 0 && (
+              <section>
+                <h2 className="text-xl font-bold text-[var(--color-primary)] mb-4">Sık sorulan sorular</h2>
+                <div className="flex flex-col gap-4">
+                  {detail.faq.map(([q, a]) => (
+                    <div key={q}>
+                      <h3 className="font-bold text-base text-[var(--color-primary)]">{q}</h3>
+                      <p className="text-base text-[var(--color-secondary)] leading-relaxed mt-1">{a}</p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-xs text-[var(--color-tertiary)] mt-4">Bu bilgiler genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez.</p>
+              </section>
+            )}
+          </div>
+        )}
 
         {/* Google AI Overviews & DefinedTerm Grounding Card */}
         <TermAiOverviewCard
