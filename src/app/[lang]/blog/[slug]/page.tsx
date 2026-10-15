@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { tagToSlug } from '@/lib/seo/indexPolicy';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import PostBody from '@/components/blog/PostBody';
@@ -25,6 +25,7 @@ import { resolveTopicalEntityGraph, extractKeyFactsAndKpis } from '@/lib/seoEngi
 import type { Metadata } from 'next';
 import { getDictionary } from '@/lib/i18n';
 import { localePath } from '@/lib/i18n/localePath';
+import { retiredBlogTarget } from '@/lib/retiredBlogSlugs';
 import { isBlogLang, getLocalizedPost, getLocalizedPostMetas } from '@/lib/blog/blogLocale';
 
 import { POSTS, POSTS_META, CATEGORIES } from '@/data/posts';
@@ -132,6 +133,8 @@ export default async function BlogDetail({
   params: Promise<{ lang: string; slug: string }>;
 }) {
   const { slug, lang } = await params;
+  const retired = retiredBlogTarget(slug);
+  if (retired) permanentRedirect(localePath(retired, lang));
   const dict = await getDictionary(lang);
   const t = (key: string) => dict?.[key] || key;
   

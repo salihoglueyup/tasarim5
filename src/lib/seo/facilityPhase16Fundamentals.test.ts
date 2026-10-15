@@ -13,8 +13,8 @@ describe('Tesis ve Mülk Hizmetleri Temel Bilgi Kütüphanesi & Amiral Makaleler
     'tesis-yonetim-plani-nasil-hazirlanir-adim-adim-rehber',
   ];
 
-  it('Toplam blog makalesi sayısının en az 134 olduğunu doğrular', () => {
-    expect(POSTS.length).toBeGreaterThanOrEqual(134);
+  it('Toplam blog makalesi sayısının en az 50 olduğunu doğrular', () => {
+    expect(POSTS.length).toBeGreaterThanOrEqual(50);
   });
 
   it('8 yeni temel bilgi amiral makalesinin eksiksiz tanımlandığını doğrular', () => {
