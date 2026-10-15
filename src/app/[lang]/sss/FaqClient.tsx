@@ -1,7 +1,7 @@
 'use client';
 
 import { INITIAL_VISIBLE_FAQS } from './constants';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, Copy, Check, ChevronDown, Sparkles } from 'lucide-react';
 import DOMPurify from 'isomorphic-dompurify';
@@ -47,12 +47,14 @@ export function filterFaqsByLanguage(
   });
 }
 
-export default function FaqClient({ 
-  faqs, 
+export default function FaqClient({
+  faqs: initialFaqs,
+  total,
   categories,
   lang
-}: { 
-  faqs: any[], 
+}: {
+  faqs: any[],
+  total: number,
   categories: { name: string; count: number }[],
   lang: string
 }) {
@@ -126,8 +128,47 @@ export default function FaqClient({
   };
 
   // Faz 164: 4 Dilde Aranabilir ve Filtrelenebilir SSS Motoru
-  const filteredFaqs = filterFaqsByLanguage(faqs, searchQuery, activeCategory, lang);
-  const visibleFaqs = filteredFaqs.slice(0, visibleCount);
+  // Sayfa yalnızca ilk INITIAL_VISIBLE_FAQS soruyu gömer; arama, kategori ve "daha fazla" /api/faqs'ten gelir.
+  const [items, setItems] = useState<any[]>(initialFaqs);
+  const [filteredTotal, setFilteredTotal] = useState(total);
+  const [loading, setLoading] = useState(false);
+  const firstRun = useRef(true);
+
+  const fetchPage = async (offset: number) => {
+    const params = new URLSearchParams({ lang, category: activeCategory, q: searchQuery.trim(), offset: String(offset), limit: '20' });
+    const res = await fetch('/api/faqs?' + params.toString());
+    return (await res.json()) as { items: any[]; total: number };
+  };
+
+  useEffect(() => {
+    if (firstRun.current) { firstRun.current = false; return; }
+    const isDefault = !searchQuery.trim() && (activeCategory === 'Tümü');
+    if (isDefault) { setItems(initialFaqs); setFilteredTotal(total); return; }
+    let cancelled = false;
+    const timer = setTimeout(async () => {
+      setLoading(true);
+      try {
+        const data = await fetchPage(0);
+        if (!cancelled) { setItems(data.items); setFilteredTotal(data.total); }
+      } catch { /* ağ hatasında mevcut liste korunur */ }
+      if (!cancelled) setLoading(false);
+    }, searchQuery.trim() ? 250 : 0);
+    return () => { cancelled = true; clearTimeout(timer); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery, activeCategory]);
+
+  const loadMore = async () => {
+    setLoading(true);
+    try {
+      const data = await fetchPage(items.length);
+      setItems((prev) => [...prev, ...data.items]);
+      setFilteredTotal(data.total);
+    } catch { /* yoksay */ }
+    setLoading(false);
+  };
+
+  const filteredFaqs = { length: filteredTotal } as { length: number };
+  const visibleFaqs = items;
 
   const areAllOpen = visibleFaqs.length > 0 && visibleFaqs.every((f) => openIndices.has(f.id));
 
@@ -231,7 +272,7 @@ export default function FaqClient({
                   {t('sss_topics')}
                 </span>
                 <span className="text-[11px] font-mono font-bold text-slate-700 dark:text-slate-400 bg-slate-500/10 px-2.5 py-0.5 rounded-full border border-slate-500/20">
-                  {t('sss_n_questions').replace('{n}', String(faqs.length))}
+                  {t('sss_n_questions').replace('{n}', String(total))}
                 </span>
               </div>
 
@@ -482,16 +523,17 @@ export default function FaqClient({
                     );
                   })}
                   
-                  {filteredFaqs.length > visibleCount && (
+                  {filteredFaqs.length > items.length && (
                     <div className="flex justify-center mt-6">
                       <button 
-                        onClick={() => setVisibleCount(prev => prev + 20)}
+                        onClick={loadMore}
+                        disabled={loading}
                         className="px-8 py-3.5 bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-950 font-bold text-sm rounded-full shadow-sm hover:shadow-md transition-all flex items-center gap-2 group cursor-pointer"
                       >
                         <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
                         <span>{t('sss_load_more')}</span>
                         <span className="text-xs opacity-75 font-normal">
-                          ({visibleCount} / {filteredFaqs.length})
+                          ({items.length} / {filteredFaqs.length})
                         </span>
                       </button>
                     </div>

@@ -50,7 +50,7 @@ export default async function Blog({ params }: { params: Promise<{ lang: string 
 
   if (isBlogLang(lang)) {
     // en/ru/ar: çeviri belleğiyle uyumlu olması için içerik DB'den değil statik kaynaktan okunur.
-    finalPosts = getLocalizedPostMetas(lang).map((m, idx) => ({
+    finalPosts = getLocalizedPostMetas(lang).filter((m) => m.missing === 0).map((m, idx) => ({
       id: `static-${idx}`,
       slug: m.meta.slug,
       title: m.title,
@@ -178,6 +178,18 @@ export default async function Blog({ params }: { params: Promise<{ lang: string 
     })) as any;
   }
 
+  // İstemciye yalnızca liste kartında ve aramada kullanılan alanlar gönderilir (RSC yükünü küçültür).
+  const listPosts = finalPosts.map((p: any) => ({
+    slug: p.slug,
+    title: p.title,
+    description: p.description,
+    image: p.image,
+    datePublished: p.datePublished,
+    tags: p.tags,
+    category: p.category ? { slug: p.category.slug, name: p.category.name } : null,
+  }));
+  const listCategories = finalCategories.map((c: any) => ({ slug: c.slug, name: c.name }));
+
   const breadcrumbLd = generateBreadcrumbs([
     { name: t('breadcrumb_home'), url: '/' },
     { name: 'Blog', url: '/blog' },
@@ -188,7 +200,7 @@ export default async function Blog({ params }: { params: Promise<{ lang: string 
     name: t('blgx_hdr_title'),
     description: t('blgx_meta_desc'),
     url: `${BASE_URL}${localePath('/blog', lang)}`,
-    blogPost: finalPosts.map((post: any) => ({
+    blogPost: finalPosts.slice(0, 12).map((post: any) => ({
       '@type': 'BlogPosting',
       headline: post.title,
       datePublished: post.datePublished instanceof Date
@@ -199,7 +211,7 @@ export default async function Blog({ params }: { params: Promise<{ lang: string 
     })),
   };
   
-  const carouselItems = finalPosts.map((post: any) => ({
+  const carouselItems = finalPosts.slice(0, 12).map((post: any) => ({
     name: post.title,
     url: `${BASE_URL}${localePath(`/blog/${post.slug}`, lang)}`,
     image: post.image || undefined,
@@ -213,7 +225,7 @@ export default async function Blog({ params }: { params: Promise<{ lang: string 
       <PageHeader title={t('blgx_hdr_title')} description={t('blgx_hdr_desc')} />
 
       <Suspense fallback={<div className="h-96 flex items-center justify-center">{t('blgx_loading')}</div>}>
-        <BlogListClient posts={finalPosts} categories={finalCategories} />
+        <BlogListClient posts={listPosts} categories={listCategories} />
       </Suspense>
     </>
   );

@@ -2,11 +2,10 @@ import { INITIAL_VISIBLE_FAQS } from './constants';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, faqPageSchema, webPageSchema } from '@/lib/schemas';
-import { prisma } from '@/lib/prisma';
+import { CURATED_FAQS } from '@/data/faqCurated';
 import FaqClient from './FaqClient';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
-import { redis } from '@/lib/redis';
 import FaqAiOverviewHubSeo from '@/components/seo/ai-overviews/FaqAiOverviewHubSeo';
 import FactCheckAiGroundingSeo from '@/components/seo/ai-overviews/FactCheckAiGroundingSeo';
 import PeopleAlsoAskDeepTreeSeo from '@/components/seo/ai-overviews/PeopleAlsoAskDeepTreeSeo';
@@ -28,7 +27,7 @@ export async function generateMetadata({
   const { lang } = await params;
   return buildMetadata({
     title: 'Sıkça Sorulan Sorular & KMK 634 Rehberi | Alo Yönetim',
-    description: 'Site yönetimi, aidat icra takibi, 5188 özel güvenlik ve KMK 634 hakkında en çok merak edilen 40+ soru ve uzman yanıtları. Hukuki rehberi inceleyin!',
+    description: 'Site yönetimi, aidat icra takibi, 5188 özel güvenlik ve KMK 634 hakkında en çok merak edilen soruların yanıtları. Hukuki rehberi inceleyin!',
     path: '/sss',
     lang,
     targetKeyword: 'site yönetimi sıkça sorulan sorular',
@@ -46,25 +45,8 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
   const { lang } = await params;
   const dict = await getDictionary(lang as any);
 
-  let faqs: any[] = [];
-  const cacheKeyFaqs = `sss_faqs_list_v2_${lang}`;
-
-  try {
-    const cached = await redis.get(cacheKeyFaqs);
-    if (cached) faqs = JSON.parse(cached);
-  } catch {
-    // Redis offline fallback
-  }
-
-  if (faqs.length === 0) {
-    faqs = await prisma.faq.findMany({
-      orderBy: [{ category: 'asc' }, { order: 'asc' }],
-    }).catch(() => []);
-
-    if (faqs.length > 0) {
-      redis.setex(cacheKeyFaqs, 3600, JSON.stringify(faqs)).catch(() => {});
-    }
-  }
+  // SSS içeriği özenle yazılmış statik kaynaktan gelir (tüm diller çevrilmiştir).
+  let faqs: any[] = [...CURATED_FAQS];
 
   // Türkçe dışındaki dillerde çevirisi olmayan maddeler listeden çıkarılır (Türkçe metin sızmasın).
   if (lang !== 'tr') {
@@ -111,7 +93,7 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-7xl mx-auto space-y-16 md:space-y-24">
         {/* 1. Canlı SSS Arama, Kategori Filtreleme ve 595+ Soru Listesi */}
-        <FaqClient faqs={faqs} categories={categories} lang={lang} />
+        <FaqClient faqs={faqs.slice(0, INITIAL_VISIBLE_FAQS)} total={faqs.length} categories={categories} lang={lang} />
 
         {/* 2. Yapay Zeka Karar Masası, Hukuki Mitler ve PAA Ağacı */}
         {lang === 'tr' && (
