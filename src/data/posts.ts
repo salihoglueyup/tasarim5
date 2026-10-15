@@ -549,6 +549,23 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "7. Hizmet Seviyesi Beklentilerini Yazıya Dökmek"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Temizlik sıklığı ve kontrol listeleri.",
+          "Güvenlik vardiya düzeni ve devriye kayıtları.",
+          "Peyzaj bakım takvimi.",
+          "İlaçlama periyodu ve kullanılan ürünlerin ruhsat bilgileri."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Beklentilerin yazılı olması, hizmet kalitesinin sakin yorumuna değil ölçülebilir kayıtlara göre değerlendirilmesini sağlar."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -558,6 +575,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Güvenlik görevlilerinin nöbet çizelgeleri nasıl denetlenir?\nCevap: Nöbet ve devriye kayıtları RFID devriye kontrol noktalarıyla izlenir, devriye aksamaları tespit edilebilir."
+      },
+      {
+        "type": "h3",
+        "text": "Soft hizmetler tek firmadan mı alınmalı?"
+      },
+      {
+        "type": "p",
+        "text": "Tek firma koordinasyonu kolaylaştırır, ayrı firmalar uzmanlık avantajı sağlayabilir. Hangisi seçilirse seçilsin sorumluluk dağılımı yazılı olmalıdır."
+      },
+      {
+        "type": "h3",
+        "text": "Hizmet kalitesiyle ilgili şikâyet nasıl iletilir?"
+      },
+      {
+        "type": "p",
+        "text": "Yönetimin belirlediği tek kanal üzerinden yazılı veya uygulama yoluyla; her şikâyete kayıt numarası verilmesi takibi kolaylaştırır."
       },
       {
         "type": "cta",
@@ -650,6 +683,27 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Bakım Planı ve Kayıt Düzeni"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Tüm ekipmanların envanteri (marka, model, kurulum yılı).",
+          "Periyodik bakım takvimi.",
+          "Arıza kayıtları ve müdahale süreleri.",
+          "Kritik yedek parça stok listesi."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "7. Planlı Bakım ile Arıza Bakımı Dengesi"
+      },
+      {
+        "type": "p",
+        "text": "Yalnızca arıza çıktığında müdahale etmek kısa vadede ucuz görünse de ani duruşlara ve yüksek onarım maliyetlerine yol açabilir. Planlı bakım, bütçenin öngörülebilir olmasını sağlar; ancak her ekipmanın bakım sıklığı üretici önerilerine ve mevzuata göre belirlenmelidir."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -659,6 +713,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Jeneratör bakımı ne sıklıkla yapılmalıdır?\nCevap: Bakım sıklığı üreticinin kullanım kılavuzuna göre belirlenir. Genel olarak düzenli yüksüz çalıştırma testleri, akü ve şarj ünitesi kontrolü ile periyodik filtre/yağ bakımı yapılır."
+      },
+      {
+        "type": "h3",
+        "text": "Asansör bakım sözleşmesinde nelere bakılmalı?"
+      },
+      {
+        "type": "p",
+        "text": "Parçanın dahil olup olmadığı, acil çağrı süresi, aylık bakım sayısı ve periyodik muayene sorumluluğu sözleşmede açık yazılmalıdır."
+      },
+      {
+        "type": "h3",
+        "text": "Kazan bakımı ne zaman yapılmalı?"
+      },
+      {
+        "type": "p",
+        "text": "Isıtma sezonu öncesinde, üretici ve yönetmelikteki sıklığa uygun olarak yapılmalıdır."
       },
       {
         "type": "cta",
@@ -820,6 +890,19 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "Faydanın Gerçekleşmesi İçin Sözleşmeden Beklenenler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ölçülebilir hedefler ve raporlama sıklığı.",
+          "Kalem kalem hizmet kapsamı ve fiyat.",
+          "Aylık gelir-gider raporu ve belgelerin kat maliklerine açılması.",
+          "Devir-teslim ve fesih koşullarının yazılı olması."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -829,6 +912,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Site adına açılan banka hesabındaki para yönetim şirketine mi ait olur?\nCevap: Hayır. Banka hesabı site veya bina adına açılır. Yönetim şirketi sadece kat malikleri kurulu kararları ve işletme projesi çerçevesinde yetkili temsilcidir; kat malikleri ve denetçi hesap hareketlerini inceleyebilir."
+      },
+      {
+        "type": "h3",
+        "text": "Küçük apartmanlar için de uygun mudur?"
+      },
+      {
+        "type": "p",
+        "text": "Daire sayısı az olan binalarda hizmet kapsamı daraltılarak kalem bazlı seçim yapılabilir. Maliyet ve fayda dengesi keşif sonrasında değerlendirilmelidir."
+      },
+      {
+        "type": "h3",
+        "text": "Profesyonel yönetime geçiş ne kadar sürer?"
+      },
+      {
+        "type": "p",
+        "text": "Devir teslim tutanakları, abonelik ve sözleşme devirlerinin kapsamına bağlı olarak değişir."
       },
       {
         "type": "cta",
@@ -1131,6 +1230,27 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Sakin Deneyimi Nasıl Ölçülür?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Talebin kaydedilme ve kapatılma süresi.",
+          "Yıllık sakin memnuniyet anketi.",
+          "Ortak alan ve sosyal tesis kullanım verileri.",
+          "Şikâyetlere geri dönüş süresi."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "7. Hizmet Seviyesi Sözleşmesinde Yer Alması Gerekenler"
+      },
+      {
+        "type": "p",
+        "text": "Lüks bir rezidansta hizmet kalitesinin sürdürülebilir olması, beklentilerin yazılı ve ölçülebilir olmasına bağlıdır. Concierge kadrosunun vardiya saatleri, yanıt süresi hedefleri, raporlama sıklığı ve memnuniyet göstergeleri hizmet sözleşmesinde açıkça belirtilmelidir."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -1140,6 +1260,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Kargo ve kurye güvenliği rezidansta nasıl sağlanır?\nCevap: Dışarıdan gelen kuryelerin paketleri güvenlik lobisinde kayıt altına alınır ve sakine bildirim yapılarak temas riski azaltılır."
+      },
+      {
+        "type": "h3",
+        "text": "Concierge hizmeti aidata ne kadar yansır?"
+      },
+      {
+        "type": "p",
+        "text": "Kadro, vardiya saatleri ve hizmet kapsamına göre değişir. Teklif aşamasında kalem kalem yazılı olarak sunulmalıdır."
+      },
+      {
+        "type": "h3",
+        "text": "Sakin talepleri nasıl kayıt altına alınır?"
+      },
+      {
+        "type": "p",
+        "text": "Mobil uygulama, telefon veya resepsiyon üzerinden; her talebe kayıt numarası verilerek kapanış süresi izlenir."
       },
       {
         "type": "cta",
@@ -2343,6 +2479,31 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Süreçte Sık Karşılaşılan Sorunlar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Borçluya tebligat yapılamaması (adres sorunu).",
+          "Borçlunun itirazı ve takibin durması.",
+          "Belgelerin eksik olması.",
+          "Borçlunun haczedilebilir malvarlığının bulunmaması."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Bu sorunların çoğu, takip öncesinde belgelerin ve bildirimlerin eksiksiz hazırlanmasıyla azaltılabilir; sorun yaşandığında avukat desteği önerilir."
+      },
+      {
+        "type": "h2",
+        "text": "7. Zamanaşımı ve Sürelere Dikkat"
+      },
+      {
+        "type": "p",
+        "text": "Alacağın tabi olduğu zamanaşımı ve hak düşürücü süreler somut olaya göre değişir. Gecikmeden hukuk danışmanından görüş alınması, hak kaybını önler."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -2352,6 +2513,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Kiracı evden ayrılırsa eski aidat borcu kime kalır?\nCevap: KMK uyarınca kat maliki asıl borçludur. Kiracı çıksa bile gayrimenkulün sahibi borçtan sorumlu olmaya devam eder."
+      },
+      {
+        "type": "h3",
+        "text": "Takip için avukat şart mı?"
+      },
+      {
+        "type": "p",
+        "text": "Yönetici kendisi de takip başlatabilir; ancak itiraz ve dava aşamalarında avukat desteği önerilir. Masraf ve vekâlet ücreti konusunda güncel mevzuata bakın."
+      },
+      {
+        "type": "h3",
+        "text": "Borçlu ödeme planı isterse ne yapılır?"
+      },
+      {
+        "type": "p",
+        "text": "Takip sürerken de yazılı bir plan yapılabilir; planın kurul yetkisi ve eşit işlem ilkesiyle uyumlu olması gerekir."
       },
       {
         "type": "cta",
@@ -2445,6 +2622,30 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Süreç Boyunca Kontrol Listesi"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Riskli yapı tespiti için başvuru yapılır.",
+          "Rapor ve tebligat süreci takip edilir.",
+          "Kat malikleri toplanır ve karar alınır.",
+          "Müteahhit seçilir ve sözleşme yapılır.",
+          "Geçici barınma ve kira yardımı başvuruları yapılır.",
+          "Yıkım ve inşaat süreci izlenir.",
+          "İskân alınır ve yeni yapıda yönetim kurulur."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "7. Yönetim Açısından Önemli Noktalar"
+      },
+      {
+        "type": "p",
+        "text": "Tahliye öncesinde ortak giderler, abonelikler ve belge arşivi düzenlenmelidir. Eski binanın hesapları, karar defterleri ve sözleşmeleri tutanakla kapatılmalı; yeni bina teslim edildiğinde ilk yönetim kurulumu için siteye geçiş rehberindeki adımlar izlenmelidir."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -2454,6 +2655,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Riskli yapı tespit raporu masrafını kim öder?\nCevap: Raporu talep eden taraf öder; masrafın nasıl paylaşılacağı mevzuata ve malikler arasındaki anlaşmaya göre belirlenir."
+      },
+      {
+        "type": "h3",
+        "text": "Kentsel dönüşümde kiracılar ne yapar?"
+      },
+      {
+        "type": "p",
+        "text": "Tahliye süreleri ve haklar kira sözleşmesi ve mevzuata göre belirlenir; kira yardımı kapsamı mevzuatla düzenlenir."
+      },
+      {
+        "type": "h3",
+        "text": "Dönüşüm sürecinde aidat devam eder mi?"
+      },
+      {
+        "type": "p",
+        "text": "Bina kullanılırken ortak giderler sürer. Tahliye sonrası aboneliklerin ve ortak giderlerin durumu kurul kararıyla ve mevzuata göre düzenlenmelidir."
       },
       {
         "type": "cta",
