@@ -21,7 +21,6 @@ export { default as SecurityComparisonTableSeo } from './SecurityComparisonTable
 export { default as SecurityLegalTemplateGeneratorSeo } from './SecurityLegalTemplateGeneratorSeo';
 export { default as SecurityTrustBadgeGridSeo } from './SecurityTrustBadgeGridSeo';
 export { default as ServiceAuthorityHubSeo } from './ServiceAuthorityHubSeo';
-export { default as ServicePricingCatalogSeo } from './ServicePricingCatalogSeo';
 export { default as ServiceComparisonMatrixSeo } from './ServiceComparisonMatrixSeo';
 export { default as EmergencyDisasterAuditSeo } from './EmergencyDisasterAuditSeo';
 export { default as EmergencyServiceBadgeSeo } from './EmergencyServiceBadgeSeo';

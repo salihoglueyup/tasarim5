@@ -75,7 +75,7 @@ export default function SanayiTesisiYonetimiClient() {
           id="sanayi-tesisi-yonetimi-nedir"
           answerId="industrial-instant-answer-text"
           question="Sanayi Tesisi ve Fabrika Yönetimi Nedir ve Neleri Kapsar?"
-          answer="Sanayi tesisi ve fabrika yönetimi; üretim sahalarında ISO 45001 İSG ve ATEX patlamadan korunma mevzuat uyumu, 34.5 kV OG trafo işletme ve kompanzasyon takibi ile %0 reaktif ceza güvencesi, ağır endüstriyel epoksi zemin drenajı, kantar/rampa PPM bakımı ve MOTAT tehlikeli atık bertarafının entegre yönetilmesidir."
+          answer="Sanayi tesisi ve fabrika yönetimi; üretim sahalarında ISO 45001 İSG ve ATEX patlamadan korunma mevzuat uyumu, 34.5 kV OG trafo işletme ve kompanzasyon takibi, ağır endüstriyel epoksi zemin drenajı, kantar/rampa PPM bakımı ve MOTAT tehlikeli atık bertarafının entegre yönetilmesidir."
           standardBadge="ISO 45001 & ISO 14001 Endüstriyel Standart"
           subText="Alo Yönetim, üretim hatlarında plansız duruşları azaltma hedefi, yazılı SLA kapsamında acil mekanik müdahale ve 5188 perimetre çevre güvenliği sunar."
           accentColor="orange"

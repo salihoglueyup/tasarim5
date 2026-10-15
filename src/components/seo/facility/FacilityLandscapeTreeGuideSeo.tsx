@@ -33,7 +33,7 @@ export default function FacilityLandscapeTreeGuideSeo({
         "@type": "TechArticle",
         "@id": "https://aloyonetim.com/#techarticle-landscape-tree-guide",
         "headline": "Sitelerde Peyzaj Bakımı, Akıllı Sulama Su Tasarrufu ve Ağaç Budama İzinleri Rehberi",
-        "description": "6831 Sayılı Orman Kanunu ve belediye yönetmeliklerinde anıt ağaç koruma, izinsiz ağaç kesme cezaları, 4 mevsim çim bakımı ve %50 su tasarruflu otomatik sulama sistemleri.",
+        "description": "6831 Sayılı Orman Kanunu ve belediye yönetmeliklerinde anıt ağaç koruma, izinsiz ağaç kesme cezaları, 4 mevsim çim bakımı ve verimli otomatik sulama sistemleri.",
         "inLanguage": "tr",
         "author": {
           "@type": "Organization",
@@ -359,7 +359,7 @@ export default function FacilityLandscapeTreeGuideSeo({
               Alo Yönetim Ziraat & Peyzaj Mühendisliği Güvencesi
             </div>
             <div className="text-xs text-slate-500 dark:text-slate-400">
-              Belediye ruhsatlı ağaç budama, %50 tasarruflu akıllı sulama ve 12 aylık periyodik yeşil alan bakımı.
+              Belediye ruhsatlı ağaç budama, akıllı sulama ve 12 aylık periyodik yeşil alan bakımı.
             </div>
           </div>
         </div>

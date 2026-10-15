@@ -23,7 +23,7 @@ describe('Tesis Hizmetleri Faz 4 İleri Düzey Backend SEO & GEO Motorları', ()
 
       const savingsSnippet = payload.snippets.find((s) => s.id === 'ai-snippet-dues-savings');
       expect(savingsSnippet).toBeDefined();
-      expect(savingsSnippet?.directSummaryText).toContain('%20 ile %30');
+      expect(savingsSnippet?.directSummaryText).not.toMatch(/%\s?\d{2}/);
 
       const electionSnippet = payload.snippets.find((s) => s.id === 'ai-snippet-manager-election');
       expect(electionSnippet).toBeDefined();

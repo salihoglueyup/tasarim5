@@ -70,7 +70,7 @@ export const UTILITY_SUBSCRIPTION_PROVIDERS: UtilityProviderProfile[] = [
       }
     ],
     criticalRisksIfNotDone: 'Şantiye tarifesinde kalındığında elektrik faturaları %60-80 daha yüksek ödenir; kompanzasyon devri yapılmazsa aylık on binlerce lira reaktif ceza faturaya yansır.',
-    aloYonetimGuarantee: 'BEDAŞ devir işlemlerini tamamlayarak site bütçesini şantiye tarifesi ve reaktif cezalardan %100 koruyoruz.'
+    aloYonetimGuarantee: 'BEDAŞ devir işlemlerini takip ederek site bütçesinin şantiye tarifesi ve reaktif cezalar açısından doğru tarifeye geçmesini hedefliyoruz.'
   },
   {
     providerId: 'ayedas',
@@ -150,7 +150,7 @@ export const UTILITY_SUBSCRIPTION_PROVIDERS: UtilityProviderProfile[] = [
       }
     ],
     criticalRisksIfNotDone: 'Şantiye suyu tarifesinde kalındığında kat kat fazla su faturası; kuyu suyu kullanılıp İSKİ\'ye bildirilmezse kaçak atıksu cezası kesilmesi.',
-    aloYonetimGuarantee: 'Bahçe sulama alt sayaç ayrımı ile atıksu bedelinden muafiyet sağlanarak sitenize yılda %25 su tasarrufu kazandırılır.'
+    aloYonetimGuarantee: 'Bahçe sulama alt sayaç ayrımı, uygun olduğu durumlarda atıksu bedeli kalemlerinin ayrıştırılmasına yardımcı olur; kapsam ilgili idarenin kurallarına bağlıdır.'
   },
   {
     providerId: 'igdas',

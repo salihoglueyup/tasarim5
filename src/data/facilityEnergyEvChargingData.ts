@@ -89,7 +89,7 @@ export const ENERGY_EFFICIENCY_PILLARS: EnergyEfficiencyPillar[] = [
     pillarCode: 'led-otomasyon-kompanzasyon',
     pillarName: 'Ortak Alan LED Aydınlatma, Hareket Sensörü & Kompanzasyon Takibi',
     legalStandard: 'Elektrik İç Tesisleri Yönetmeliği & EPDK Reaktif Enerji Tebliği',
-    targetClassOrSaving: '%0 Reaktif Ceza & Ortak Elektrikte %30 Tasarruf',
+    targetClassOrSaving: 'Reaktif Güç Takibi & Ortak Elektrik İzleme',
     description: 'Merdiven boşlukları, otoparklar, çevre çitleri ve sosyal tesislerde floresan/akkor ampullerin radar sensörlü LED armatürlere dönüştürülmesi ve reaktif cezanın sıfırlanması.',
     checklist: [
       'Tüm kat sahanlıklarında bekleme modlu (%10 loş, hareket görünce %100 yanan) akıllı radar armatür dönüşümü',

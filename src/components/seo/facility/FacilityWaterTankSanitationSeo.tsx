@@ -257,7 +257,7 @@ export default function FacilityWaterTankSanitationSeo({
                 </div>
 
                 <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-900 dark:text-slate-200 text-xs border border-slate-200 dark:border-slate-800">
-                  <strong className="font-semibold block mb-0.5">Alo Yönetim Otomasyon Garantisi:</strong>
+                  <strong className="font-semibold block mb-0.5">Alo Yönetim Otomasyon Yaklaşımı:</strong>
                   <span>{protocol.aloYonetimGuarantee}</span>
                 </div>
               </div>

@@ -102,7 +102,7 @@ export function generateFacilityMeshLinks(currentPath: string = '/hizmetler/tesi
       title: 'Aidat Hesaplayıcı ve KMK Bütçe Simülasyonu',
       url: `${BASE_URL}${langPrefix}/hesaplayici`,
       anchorText: 'Online Tesis & Site Aidat Bütçesi Hesaplama Aracı',
-      description: 'KMK 634 standartlarında tahmini işletme bütçesi ve %30 tasarruf simülasyonu.',
+      description: 'KMK 634 standartlarında tahmini işletme bütçesi hesaplama aracı.',
       category: 'legal_guide',
     },
     {

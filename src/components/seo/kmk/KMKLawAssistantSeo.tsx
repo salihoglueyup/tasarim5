@@ -124,7 +124,7 @@ const KMK_LAW_DATABASE: KMKLawItem[] = [
     summary: 'Asansörlerde yıllık A Tipi akredite muayenede yeşil etiket alınması can güvenliği için zorunludur; kompanzasyon takibiyle elektrik faturasındaki reaktif ceza sıfırlanır.',
     fullRule: 'Bina sorumlusu, asansörün güvenli bir şekilde kullanılmasını sağlamak amacıyla periyodik kontrolünü yılda en az bir defa A tipi muayene kuruluşuna yaptırmakla yükümlüdür. Kırmızı etiketli asansör 60 gün içinde güvenli hale getirilmezse belediyece mühürlenir.',
     precedent: 'Yargıtay Hukuk Genel Kurulu: "Yeşil etiketsiz asansörden kaynaklanan kazalarda bina yöneticisi ve kat malikleri kurulu müştereken ve müteselsilen kusurlu sorumludur."',
-    solution: 'Alo Yönetim teknik masası, TMMOB/A Tipi muayenelerde asansörlerin yeşil etiket almasını koordine eder ve kompanzasyon panolarını haftalık izleyerek %0 reaktif ceza garantisi verir.'
+    solution: 'Alo Yönetim teknik masası, TMMOB/A Tipi muayenelerde asansörlerin yeşil etiket almasını koordine eder ve kompanzasyon panolarını düzenli izleyerek reaktif ceza riskini azaltır.'
   },
   {
     id: 'kmk-biyosidal-ilaclama',
@@ -136,7 +136,7 @@ const KMK_LAW_DATABASE: KMKLawItem[] = [
     summary: 'Toplu yaşam alanlarında tarım ilacı veya yetkisiz kimyasal kullanılması suçtur; yalnızca Sağlık Bakanlığı ruhsatlı biyosidal ürünlerle ve izin belgeli kurumsal firmalarca yapılabilir.',
     fullRule: 'Halk sağlığını korumak amacıyla kapalı ve açık toplu yaşam alanlarında yapılacak haşere ve kemirgen mücadelesinde yalnızca Sağlık Bakanlığı onaylı biyosidal ürünler ve yetki belgeli uygulayıcılar görevlendirilebilir.',
     precedent: 'Yargıtay Ceza Dairesi: "Apartmanda yetkisiz kimyasal ilaçlama sonucu sakinlerin zehirlenmesi halinde uygulayıcı ve yönetici hakkında taksirle yaralama suçundan ceza verilir."',
-    solution: 'Alo Yönetim, kokusuz Sağlık Bakanlığı ruhsatlı jel ve mikroenkapsüle biyosidal solüsyonlarla 4 mevsim periyodik ve garantili haşere kontrolü sağlar.'
+    solution: 'Alo Yönetim, kokusuz Sağlık Bakanlığı ruhsatlı jel ve mikroenkapsüle biyosidal solüsyonlarla 4 mevsim periyodik haşere kontrolü sağlar.'
   }
 ];
 

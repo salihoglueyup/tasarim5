@@ -58,8 +58,8 @@ export default function AcademyHeroSeo({ lang = 'tr', onOpenEnrollment }: Academ
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-slate-300 font-light leading-relaxed">
             Silahlı ve silahsız özel güvenlik temel eğitimi, 5 yılda bir zorunlu kimlik kartı yenileme, 
-            profesyonel poligon atışları ve EGM sınav hazırlığı. Kurs bitiminde Alo Yönetim&apos;in 1.200&apos;den fazla 
-            prestijli rezidans ve tesis projesinde doğrudan istihdam garantisi.
+            profesyonel poligon atışları ve EGM sınav hazırlığı. Kurs bitiminde Alo Yönetim projelerinde 
+            değerlendirilme imkânı sunulur; istihdam garantisi verilmez.
           </p>
         </div>
 

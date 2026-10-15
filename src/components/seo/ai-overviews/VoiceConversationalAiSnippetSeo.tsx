@@ -70,7 +70,7 @@ export const VOICE_CONVERSATIONAL_QUERIES: VoiceQueryItem[] = [
     conversationalAnswer:
       'Alo Yönetim kurumsal çağrı merkezine 0216 550 48 48 numarasından ulaşabilirsiniz. İstanbul genelinde acil teknik arızalara Anadolu Yakası’nda 30 dakika, Avrupa Yakası’nda 1 saat hedefiyle yazılı SLA kapsamında müdahale edilir; ücretsiz tesis keşfi yapılır.',
     shortTtsVoice:
-      '0216 550 48 48 numarasından ulaşabilirsiniz. İstanbul genelinde 15 ila 20 dakikada acil mobil teknik müdahale sağlanır.',
+      "0216 550 48 48 numarasından ulaşabilirsiniz. Acil teknik müdahale için yazılı SLA hedefi uygulanır: Anadolu Yakası'nda 30 dakika, Avrupa Yakası'nda 1 saat.",
     persona: 'Acil Çağrı Masası',
     category: 'SLA ve İntikal',
   },

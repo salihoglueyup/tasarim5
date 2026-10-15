@@ -54,7 +54,7 @@ const NEIGHBORHOOD_TYPOLOGY_MAP: Record<string, MicroNeighborhoodItem[]> = {
     { name: 'Esentepe', slug: 'esentepe', typology: 'commercial', typologyLabel: 'Kurumsal Plazalar', focusKeyword: 'Esentepe tesis yönetimi', notableTraits: 'B2B teknik şartname ve kurumsal SLA odaklı işletme.' },
   ],
   sariyer: [
-    { name: 'Maslak', slug: 'maslak', typology: 'commercial', typologyLabel: 'Finans & Kule', focusKeyword: 'Maslak plaza tesis yönetimi', notableTraits: 'Bina otomasyon sistemleri (BMS), SCADA ve %0 reaktif ceza güvencesi.' },
+    { name: 'Maslak', slug: 'maslak', typology: 'commercial', typologyLabel: 'Finans & Kule', focusKeyword: 'Maslak plaza tesis yönetimi', notableTraits: 'Bina otomasyon sistemleri (BMS), SCADA ve reaktif güç takibi.' },
     { name: 'Zekeriyaköy', slug: 'zekeriyakoy', typology: 'luxury_coastal', typologyLabel: 'Villa Siteleri', focusKeyword: 'Zekeriyaköy villa site yönetimi', notableTraits: 'Biyolojik arıtma, jeneratör yakıt ikmali ve geniş peyzaj ekipleri.' },
     { name: 'Tarabya', slug: 'tarabya', typology: 'luxury_coastal', typologyLabel: 'Boğaz Konutları', focusKeyword: 'Tarabya site yönetimi', notableTraits: 'Kıyı rutubetine karşı önleyici korozyon ve hidrofor kontrolü.' },
     { name: 'İstinye', slug: 'istinye', typology: 'luxury_coastal', typologyLabel: 'Lüks Rezidans', focusKeyword: 'İstinye rezidans yönetimi', notableTraits: 'Kapalı havuz, sauna, fitness ve 5188 silahlı/silahsız güvenlik.' },
@@ -108,7 +108,7 @@ export function getDistrictNeighborhoodCluster(slug: string): DistrictNeighborho
       typology: 'residential' as const,
       typologyLabel: 'Konut & Apartman',
       focusKeyword: `${n} site ve apartman yönetimi`,
-      notableTraits: `${name} ${n} mahallesinde 634 KMK uyumlu profesyonel yönetim, şeffaf aidat ve 45 dk acil servis.`,
+      notableTraits: `${name} ${n} mahallesinde 634 KMK uyumlu profesyonel yönetim, şeffaf aidat ve yazılı SLA kapsamında acil servis.`,
     }));
   } else {
     prominentNeighborhoods = [

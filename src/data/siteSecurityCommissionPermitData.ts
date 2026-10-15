@@ -115,7 +115,7 @@ export const SECURITY_EMPLOYMENT_COMPARISON: SecurityEmploymentComparisonRow[] =
   {
     aspect: 'Haftalık İzin, Rapor ve Yıllık İzin İkamesi',
     directEmployment: 'Personel hastalandığında veya izne çıktığında nizamiye boş kalır ya da diğer personele çift vardiya fazla mesai yüklenir.',
-    aloYonetimOutsourcing: 'Joker/yedek güvenlik havuzumuzdan 45 dakikada aynı lisans ve üniforma standardında ikame personel sahaya verilir; nizamiye asla boş kalmaz.',
+    aloYonetimOutsourcing: 'Joker/yedek güvenlik havuzumuzdan yedek personel planıyla aynı lisans ve üniforma standardında ikame personel sağlanması hedeflenir.',
     riskSeverity: 'Orta Risk'
   },
   {

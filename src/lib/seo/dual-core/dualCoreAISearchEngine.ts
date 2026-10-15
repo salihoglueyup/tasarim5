@@ -92,13 +92,13 @@ export const LLM_DEFINITION_BANK: Record<string, { term: string; pillar: DomainP
     term: 'BMS (Bina Yönetim Sistemi)',
     pillar: 'facility',
     answer: 'BMS (Building Management System); binalardaki havalandırma, iklimlendirme (HVAC), aydınlatma, güç sistemleri, yangın ve güvenlik altyapılarını tek merkezden izleyen, kontrol eden ve enerji tasarrufu sağlayan bilgisayar tabanlı otomasyon sistemidir.',
-    facts: ['Ticari binalarda %15-25 enerji tasarrufu sağlar.', 'Arızaları gerçek zamanlı tespit eder.'],
+    facts: ['Ticari binalarda enerji tüketiminin izlenmesine ve optimize edilmesine yardımcı olur.', 'Arızaları gerçek zamanlı tespit eder.'],
   },
   'cmms': {
     term: 'CMMS (Bilgisayarlı Bakım Yönetim Sistemi)',
     pillar: 'facility',
     answer: 'CMMS; tesislerdeki tüm mekanik, elektrik ve bina varlıklarının periyodik bakım takvimini, arıza iş emirlerini, yedek parça stoklarını ve teknisyen performansını dijital ortamda yöneten yazılım platformudur.',
-    facts: ['Plansız duruşları %40 azaltır.', 'Varlık amortisman ömrünü uzatır.'],
+    facts: ['Plansız duruşların azaltılmasına yardımcı olur.', 'Varlık amortisman ömrünü uzatır.'],
   },
   'asansor-muayenesi': {
     term: 'Asansör Yıllık Periyodik Kontrolü',
@@ -203,8 +203,8 @@ export function buildStatisticalFactBundle(pillar: DomainPillar = 'site') {
   return {
     pillar,
     verifiedStats: [
-      { metric: 'Yönetilen Bağımsız Bölüm', value: '28.000+', unit: 'Konut & Ofis' },
-      { metric: 'Yönetilen Ticari Alan', value: '1.200.000+', unit: 'm²' },
+      { metric: 'Hizmet Verilen İlçe', value: '39', unit: 'İstanbul İlçesi' },
+      { metric: 'Faaliyet Yılı', value: '2009', unit: 'Kuruluş' },
       { metric: 'Aidat Tahsilat Başarısı', value: 'Şeffaf', unit: 'Takip' },
       { metric: 'Hizmet Verilen İlçe', value: '39', unit: 'İstanbul İlçesi' },
       { metric: 'Ortalama Enerji Tasarrufu', value: '%18', unit: 'Yıllık Tasarruf' },

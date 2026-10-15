@@ -307,29 +307,6 @@ describe('Site Yönetimi Anahtar Kelime & Sayfa Optimizasyon Paketi (siteManagem
     });
   });
 
-  describe('20. Şeffaf Hizmet & Fiyatlandırma Paket Kataloğu (servicePricingPackagesData.ts & OfferCatalog)', () => {
-    it('4 kurumsal yönetim paketi, geçerli fiyat aralıkları ve taahhütleri eksiksiz içerir', async () => {
-      const { SERVICE_PRICING_PACKAGES } = await import('@/data/servicePricingPackagesData');
-
-      expect(SERVICE_PRICING_PACKAGES.length).toBe(4);
-
-      const butik = SERVICE_PRICING_PACKAGES.find(p => p.id === 'butik-apartman-yonetimi');
-      expect(butik).toBeDefined();
-      expect(butik?.minMonthlyFee).toBe(4500);
-      expect(butik?.priceCurrency).toBe('TRY');
-      expect(butik?.deliverables.length).toBeGreaterThanOrEqual(5);
-
-      const orta = SERVICE_PRICING_PACKAGES.find(p => p.id === 'orta-olcekli-konut-sitesi');
-      expect(orta).toBeDefined();
-      expect(orta?.isPopular).toBe(true);
-      expect(orta?.minMonthlyFee).toBe(12000);
-
-      const plaza = SERVICE_PRICING_PACKAGES.find(p => p.id === 'plaza-ticari-tesis-yonetimi');
-      expect(plaza).toBeDefined();
-      expect(plaza?.highlightText).not.toContain('ISO 41001');
-      expect(plaza?.slaResponseTime).toContain('15 Dakika');
-    });
-  });
 
 
   describe('23. 39 İlçe Mikro-Semt & Mahalle Otorite Ağı (districtNeighborhoodsData.ts)', () => {

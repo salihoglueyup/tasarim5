@@ -672,114 +672,11 @@ export function buildHowToSchema(options: HowToRichOptions) {
  * F4 — AGGREGATE RATING & REVIEW ŞEMALARI (Faz 35-44)
  * ========================================================================= */
 
-export const SITE_REVIEW_BANK: ReviewItem[] = [
-  {
-    authorName: 'Murat Kara (Site Yönetim Kurulu Başkanı)',
-    ratingValue: 5,
-    reviewBody: '120 daireli sitemizde 3 yıldır Alo Yönetim ile çalışıyoruz. Aidat tahsilat oranımız %65\'ten %99\'a çıktı. Hukuki ve teknik süreçlerde çok profesyoneller.',
-    datePublished: '2026-02-15',
-    pillar: 'site',
-    serviceSlug: 'tesis-yonetimi',
-    districtSlug: 'kadikoy',
-    positiveNotes: 'Şeffaf online aidat takip paneli, nöbetçi teknik servis ve KMK uyumlu muhasebe.',
-    negativeNotes: 'Yoğun dönemlerde çağrı merkezinde 1-2 dakikalık bekleme olabiliyor.',
-  },
-  {
-    authorName: 'Selin Yıldız (Kat Maliki)',
-    ratingValue: 5,
-    reviewBody: 'Apartmanımızda yönetici bulamıyorduk. Alo Yönetim devraldıktan sonra karar defteri, asansör yeşil etiket ve bina temizliği düzene girdi.',
-    datePublished: '2026-01-20',
-    pillar: 'site',
-    serviceSlug: 'tesis-yonetimi',
-    districtSlug: 'besiktas',
-    positiveNotes: 'Temizlik personeli çok disiplinli, aidat makbuzları SMS ile anında geliyor.',
-  },
-  {
-    authorName: 'Av. Kemal Erdem (Site Denetçisi)',
-    ratingValue: 5,
-    reviewBody: 'KMK 37 uyarınca hazırladıkları yıllık işletme projesi ve denetim raporları kusursuz. Noter onayları ve banka mutabakatları tam zamanında yapılıyor.',
-    datePublished: '2025-12-10',
-    pillar: 'site',
-    serviceSlug: 'hizmetler/aidat-takibi',
-    districtSlug: 'atasehir',
-    positiveNotes: 'Hukuki tebligat ve icra süreçlerinde yasal sürelere harfiyen uyuluyor.',
-  },
-  {
-    authorName: 'Ahmet Çelik (Rezidans Sakini)',
-    ratingValue: 4,
-    reviewBody: 'Güvenlik görevlileri çok nazik ve dikkatli. Giriş çıkış kontrolleri ve plaka tanıma sistemi çok başarılı çalışıyor.',
-    datePublished: '2025-11-28',
-    pillar: 'site',
-    serviceSlug: 'hizmetler/guvenlik-yonetimi',
-    districtSlug: 'umraniye',
-    positiveNotes: '5188 lisanslı personel, modern güvenlik donanımı.',
-    negativeNotes: 'Otopark kartı ilk tanımlama süresi 1 gün sürdü.',
-  },
-  {
-    authorName: 'Zeynep Aktaş (Apartman Yöneticisi)',
-    ratingValue: 5,
-    reviewBody: 'Kazan dairesi ve hidrofor arızasında teknik ekipleri 25 dakikada sitemize ulaştı. Kış ortasında mağdur olmadık.',
-    datePublished: '2025-11-05',
-    pillar: 'site',
-    serviceSlug: 'hizmetler/teknik-bakim-yonetimi',
-    districtSlug: 'uskudar',
-    positiveNotes: '25 dakikada hızlı acil müdahale, garantili parça değişimi.',
-  },
-];
+/** Doğrulanmış müşteri yorumu yoksa boş bırakılır; uydurma yorum eklenmez. */
+export const SITE_REVIEW_BANK: ReviewItem[] = [];
 
-export const FACILITY_REVIEW_BANK: ReviewItem[] = [
-  {
-    authorName: 'Engin Vural (Plaza Varlık Yöneticisi)',
-    ratingValue: 5,
-    reviewBody: 'Levent\'teki 34 katlı iş merkezimizin entegre tesis yönetimini Alo Yönetim yürütüyor. HVAC otomasyonu ve enerji optimizasyonu ile yılda %18 elektrik tasarrufu sağladık.',
-    datePublished: '2026-02-01',
-    pillar: 'facility',
-    serviceSlug: 'tesis-yonetimi',
-    districtSlug: 'sisli',
-    positiveNotes: 'süreçler, CMMS arıza takip yazılımı ve enerji tasarrufu.',
-    negativeNotes: 'Aylık yönetim raporları çok detaylı olduğundan incelemesi zaman alıyor.',
-  },
-  {
-    authorName: 'Burak Demir (Lojistik Merkezi Operasyon Direktörü)',
-    ratingValue: 5,
-    reviewBody: '45.000 m² depolama tesisimizde endüstriyel zemin temizliği ve güvenlik hizmetlerini üstlendiler. SLA hedeflerini %100 tutturdular.',
-    datePublished: '2026-01-14',
-    pillar: 'facility',
-    serviceSlug: 'hizmetler/temizlik-yonetimi',
-    districtSlug: 'basaksehir',
-    positiveNotes: 'Endüstriyel binicili makineler, periyodik denetimler.',
-  },
-  {
-    authorName: 'Merve Tan (AVM İdari İşler Müdürü)',
-    ratingValue: 5,
-    reviewBody: 'AVM ortak alan yangın algılama, jeneratör senkronizasyonu ve chiller bakımlarında kesintisiz teknik destek alıyoruz. Denetimlerden sıfır uygunsuzlukla geçtik.',
-    datePublished: '2025-12-22',
-    pillar: 'facility',
-    serviceSlug: 'hizmetler/teknik-bakim-yonetimi',
-    districtSlug: 'bakirkoy',
-    positiveNotes: 'BMS entegrasyonu, İSG mevzuatına tam uyum.',
-  },
-  {
-    authorName: 'Dr. Serkan Koç (Özel Hastane Teknik Koordinatörü)',
-    ratingValue: 5,
-    reviewBody: 'Medikal atık yönetimi ve hijyenik havalandırma kontrollerinde gösterdikleri titizlik takdire şayan. ISO sertifikasyon süreçlerimize büyük katkı sağladılar.',
-    datePublished: '2025-11-30',
-    pillar: 'facility',
-    serviceSlug: 'tesis-yonetimi',
-    districtSlug: 'kartal',
-    positiveNotes: 'Hijyen sertifikalı uzman kadro, hassas iklimlendirme kontrolü.',
-  },
-  {
-    authorName: 'Tolga Güler (Finans Merkezi İhale Komisyonu Üyesi)',
-    ratingValue: 5,
-    reviewBody: 'Şeffaf açık defter (open-book) muhasebe modeli sayesinde tüm taşeron giderlerini kuruşu kuruşuna denetleyebiliyoruz.',
-    datePublished: '2025-10-18',
-    pillar: 'facility',
-    serviceSlug: 'hizmetler/aidat-takibi',
-    districtSlug: 'atasehir',
-    positiveNotes: 'Açık defter bütçe modeli, bağımsız mali denetim desteği.',
-  },
-];
+/** Doğrulanmış müşteri yorumu yoksa boş bırakılır; uydurma yorum eklenmez. */
+export const FACILITY_REVIEW_BANK: ReviewItem[] = [];
 
 /**
  * Bireysel müşteri yorumu için Schema.org Review üretir.

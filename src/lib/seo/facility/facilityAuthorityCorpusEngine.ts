@@ -67,12 +67,6 @@ export interface FacilityAuthorityCorpus {
   iso41001KpiSystem: FacilityStandardKpi[];
   subSectors: SubSectorAuthorityProfile[];
   districtMatrix: DistrictFacilityMatrixItem[];
-  provenMetrics: {
-    averageCostReductionPercent: number;
-    activeFacilityPortfolioCount: number;
-    technicalSlaResolutionRatePercent: number;
-    duesCollectionEfficiencyRatePercent: number;
-  };
 }
 
 /**
@@ -279,11 +273,5 @@ export function buildFacilityAuthorityCorpus(lang: string = 'tr'): FacilityAutho
     iso41001KpiSystem: isoKpis,
     subSectors,
     districtMatrix,
-    provenMetrics: {
-      averageCostReductionPercent: 30,
-      activeFacilityPortfolioCount: 340,
-      technicalSlaResolutionRatePercent: 99.4,
-      duesCollectionEfficiencyRatePercent: 99.2,
-    },
   };
 }

@@ -153,7 +153,7 @@ export const TERMS: Term[] = [
   {
     term: 'Önleyici Bakım (Preventive Maintenance)',
     definition:
-      'Asansör, jeneratör, hidrofor ve yangın sistemlerinde arıza oluşmadan önce yapılan periyodik kontroller ve parça yenilemeleridir. Sitenin büyük onarım maliyetlerini %40\'a kadar düşürür.',
+      'Asansör, jeneratör, hidrofor ve yangın sistemlerinde arıza oluşmadan önce yapılan periyodik kontroller ve parça yenilemeleridir. Sitenin büyük onarım maliyetlerinin azaltılmasına yardımcı olur.',
     link: { href: '/hizmetler/teknik-bakim', label: 'Önleyici teknik bakım' },
   },
   {

@@ -143,7 +143,7 @@ export function buildLocalizedSerpMeta(pageSlug: string, locale: SupportedLocale
         : 'Profesyonel Site ve Apartman Yönetimi İstanbul | Alo Yönetim',
       desc: isFacility
         ? 'İstanbul genelinde plazalar, iş merkezleri ve ticari binalar için profesyonel entegre tesis yönetimi.'
-        : 'İstanbul\'da 350+ site ve 28.000 dairede 634 KMK uyumlu şeffaf aidat takibi, teknik bakım ve profesyonel yönetim.',
+        : 'İstanbul\'da 634 KMK uyumlu şeffaf aidat takibi, teknik bakım ve profesyonel site yönetimi.',
       ogLocale: 'tr_TR',
     },
     en: {

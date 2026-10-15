@@ -6,7 +6,6 @@ import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import QuoteAiOverviewCardSeo from '@/components/seo/ai-overviews/QuoteAiOverviewCardSeo';
 import RfpTransitionAiGroundingSeo from '@/components/seo/ai-overviews/RfpTransitionAiGroundingSeo';
-import ServicePricingProductAiOverviewSeo from '@/components/seo/ai-overviews/ServicePricingProductAiOverviewSeo';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 import { buildMetadata, LOCALES } from '@/lib/seo';
@@ -144,14 +143,11 @@ export default async function TeklifAl({
           ))}
         </div>
 
-        {/* Google AI Overviews & Şeffaf Fiyatlandırma / Keşif Garantisi */}
         {lang === 'tr' && <QuoteAiOverviewCardSeo />}
 
         {/* Google AI Overviews & B2B Profesyonel Yönetime Geçiş Şartnamesi (Wave 66) */}
         {lang === 'tr' && <RfpTransitionAiGroundingSeo />}
 
-        {/* Google Merchant & Servis Fiyatlandırma Paketleri (Wave 69) */}
-        {lang === 'tr' && <ServicePricingProductAiOverviewSeo />}
 
         {/* Gömülü Teklif & Keşif Formu ve Fiyatlandırma Rehberi */}
         <TeklifAlClient />

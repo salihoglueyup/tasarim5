@@ -50,7 +50,7 @@ export default function TesisYonetimiClient() {
     },
     {
       question: t('fac_faq_2_q') || 'Tesis yönetimi şirketiyle çalışmak aidatları düşürür mü?',
-      answer: t('fac_faq_2_a') || 'Evet. Toplu satın alma gücü, önleyici teknik bakım ve enerji tasarrufu uygulamaları sayesinde Alo Yönetim ile çalışan tesislerde işletme giderlerinde %20 ile %30 arasında somut maliyet tasarrufu sağlanır.'
+      answer: t('fac_faq_2_a') || 'Evet. Toplu satın alma gücü, önleyici teknik bakım ve enerji tasarrufu uygulamaları sayesinde işletme giderlerinde tasarruf fırsatları oluşabilir; oran sitenin mevcut sözleşmelerine ve ihtiyaçlarına göre değişir, keşif sonrasında kalem kalem değerlendirilir.'
     },
     {
       question: t('fac_faq_3_q') || 'Yönetim devir süreci ne kadar sürer ve site sakinleri etkilenir mi?',
@@ -240,7 +240,7 @@ export default function TesisYonetimiClient() {
                   <span>⚙️</span> Kestirimci & Önleyici Teknik Mühendislik Servisi
                 </Link>
                 <p className="text-[var(--color-secondary)]">
-                  Asansörlerin A tipi muayene kuruluşu (MMO/TÜRKAK) yeşil etiket koordinasyonu, senkron jeneratör grupları, yangın algılama ve sprinkler sistemleri, hidrofor ve su arıtma tesisatları, BMS bina otomasyonu ve kompanzasyon panosu yönetimi ile %0 reaktif enerji cezası taahhüdü ve yazılı SLA kapsamında acil teknik müdahale.
+                  Asansörlerin A tipi muayene kuruluşu (MMO/TÜRKAK) yeşil etiket koordinasyonu, senkron jeneratör grupları, yangın algılama ve sprinkler sistemleri, hidrofor ve su arıtma tesisatları, BMS bina otomasyonu ve kompanzasyon panosu yönetimi ile reaktif enerji takibi ve yazılı SLA kapsamında acil teknik müdahale.
                 </p>
               </div>
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
@@ -436,7 +436,7 @@ export default function TesisYonetimiClient() {
           <FacilityGroupSecurityTrustSeo />
         </div>
 
-        {/* Kanıtlanmış Başarı & Müşteri Deneyimi */}
+        {/* Referanslar & Müşteri Deneyimi */}
         <div className="space-y-16">
           {null}
           <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
@@ -525,10 +525,10 @@ export default function TesisYonetimiClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <InstantAnswerCardSeo
               question="Profesyonel Tesis Yönetimi Şirketi ile Çalışmak Aidatları ve Giderleri Nasıl Düşürür?"
-              shortAnswer="Profesyonel tesis yönetimi firmaları, toplu satın alma yöntemleri sayesinde asansör bakımı, jeneratör yakıtı, temizlik kimyasalları ve sigorta gibi ortak gider kalemlerinde %25 ile %35 arasında toptan fiyat avantajı sağlar. Ayrıca önleyici teknik bakım ile büyük arıza masraflarını önler ve reaktif güç cezalarını %100 engelleyerek doğrudan aidat yükünü düşürür."
+              shortAnswer="Profesyonel tesis yönetimi firmaları, toplu satın alma yöntemleri sayesinde asansör bakımı, jeneratör yakıtı, temizlik kimyasalları ve sigorta gibi ortak gider kalemlerinde fiyat avantajı sağlayabilir; sonuç sitenin mevcut sözleşmelerine göre değişir. Ayrıca önleyici teknik bakım büyük arıza masraflarının azaltılmasına, reaktif güç takibi ise cezaların önlenmesine yardımcı olabilir."
               bulletPoints={[
                 'Toplu tedarik gücü ile malzeme, bakım ve sigorta primlerinde tasarruf fırsatı.',
-                'Kompanzasyon panosu ve sayaç takibiyle elektrikte %0 reaktif ceza güvencesi.',
+                'Kompanzasyon panosu ve sayaç takibiyle elektrikte reaktif güç takibi.',
                 'Kapıcı/personel kıdem tazminatı yükü kat maliklerinin üzerinden alınır.',
                 'Otomatik SMS ve kredi kartlı tahsilat ile bütçe açığı ve faiz yükü sıfırlanır.'
               ]}
@@ -551,7 +551,7 @@ export default function TesisYonetimiClient() {
             />
             <InstantAnswerCardSeo
               question="Tesis Yönetim Şirketi Seçerken Nelere Dikkat Edilmeli ve Hangi Yasal Belgeler İstenmelidir?"
-              shortAnswer="Tesis yönetim şirketi seçerken akredite kuruluşlarca verilmiş güncel ISO yönetim sistemi belgelerinin (ör. ISO 45001 İSG, ISO 14001 Çevre) bulunması, fiziki güvenlik için T.C. İçişleri Bakanlığı 5188 lisansı ve Valilik izinlerinin güncel olması zorunludur. Ayrıca şirketin en az 3 aktif referans projesi, 45 dakikalık acil teknik müdahale SLA taahhüdü ve şeffaf dijital mobil muhasebe paneli sorgulanmalıdır."
+              shortAnswer="Tesis yönetim şirketi seçerken akredite kuruluşlarca verilmiş güncel ISO yönetim sistemi belgelerinin (ör. ISO 45001 İSG, ISO 14001 Çevre) bulunması, fiziki güvenlik için T.C. İçişleri Bakanlığı 5188 lisansı ve Valilik izinlerinin güncel olması zorunludur. Ayrıca şirketin doğrulanabilir referanslar, yazılı acil teknik müdahale SLA hedefi ve şeffaf dijital mobil muhasebe paneli sorgulanmalıdır."
               bulletPoints={[
                 'ISO belgelerinin akreditasyonu, geçerlilik tarihi ve belgelendirme kuruluşu üzerinden doğrulanmalıdır.',
                 '5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi şirket adına tescilli olmalıdır.',

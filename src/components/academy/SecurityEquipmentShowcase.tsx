@@ -338,7 +338,7 @@ export default function SecurityEquipmentShowcase() {
                   <div>
                     <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">Alo Güvenlik Ayrıcalığı</div>
                     <div className="text-sm font-bold mt-0.5">Sertifikalı Personel Öncelikli İstihdam</div>
-                    <div className="text-xs text-slate-300 mt-1">Eğitimi tamamlayan başarılı kursiyerler Alo Yönetim bünyesindeki 85+ tesiste doğrudan görevlendirilir.</div>
+                    <div className="text-xs text-slate-300 mt-1">Eğitimi tamamlayan kursiyerlere Alo Yönetim projelerinde değerlendirilme imkânı sunulur; istihdam garantisi verilmez.</div>
                   </div>
                 </div>
               </div>

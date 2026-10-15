@@ -49,7 +49,7 @@ export const RFP_TRANSITION_STEPS: TransitionStep[] = [
     step: 5,
     title: 'Tahmini İşletme Projesinin Tebliği ve Bütçe Optimizasyonu',
     summary:
-      'KMK Madde 37 gereğince yeni işletme projesi hazırlanır ve tüm maliklere iadeli taahhütlü tebliğ edilir. 7 gün içinde itiraz edilmeyen bütçe kesinleşir ve İİK 68 kapsamında doğrudan ilamsız icra gücü kazanır; %30 tasarruf modeli devreye girer.',
+      'KMK Madde 37 gereğince yeni işletme projesi hazırlanır ve tüm maliklere iadeli taahhütlü tebliğ edilir. 7579 sayılı Kanun sonrası işletme projesi kat malikleri kurulunda onaylanır; onaylanan proje İİK 68 kapsamında icra takibinde dayanak olabilir. Güncel usul için hukuk danışmanına başvurun.',
     legalBasis: '634 Sayılı KMK Madde 37 & İİK Madde 68',
     badge: '7 Günlük Kesinleşme',
   },

@@ -373,12 +373,12 @@ export function buildEEATSignalBundle(pageType: string, pillar: DomainPillar = '
 
   const experienceSignals = isFacility
     ? [
-        { label: 'Yönetilen Ticari Alan', proof: '1.200.000+ m² Plaza ve İş Merkezi', metrics: '1.2M m²' },
-        { label: 'Enerji Tasarrufu Vaka Çalışması', proof: 'BMS optimizasyonu ile yıllık ortalama %18 elektrik tasarrufu kanıtlandı.', metrics: '%18 Tasarruf' },
+        { label: 'Hizmet Bölgesi', proof: 'İstanbul genelinde 39 ilçede hizmet.', metrics: '39 İlçe' },
+        { label: 'Enerji İzleme', proof: 'BMS optimizasyonu enerji tüketiminin izlenmesine yardımcı olur.', metrics: 'Enerji İzleme' },
         { label: 'SLA Başarı Oranı', proof: 'Arıza müdahale süresi taahhütleri yazılı SLA ile belirlenir.', metrics: 'Yazılı SLA' },
       ]
     : [
-        { label: 'Yönetilen Konut & Daire', proof: 'İstanbul genelinde 28.000+ bağımsız bölüm ve 350+ site.', metrics: '28.000+ Daire' },
+        { label: 'Hizmet Bölgesi', proof: 'İstanbul genelinde 39 ilçede hizmet.', metrics: '39 İlçe' },
         { label: 'Aidat Tahsilat Başarısı', proof: 'Düzenli hukuki ve dijital takip.', metrics: 'Düzenli Takip' },
         { label: 'Sektörel Tecrübe', proof: '2009 yılından bu yana 17 yıllık kesintisiz profesyonel yönetim.', metrics: '17 Yıl' },
       ];

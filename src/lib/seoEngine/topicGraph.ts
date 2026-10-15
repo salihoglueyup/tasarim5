@@ -277,7 +277,7 @@ export function generateGeoIntentResponse(districtSlug: string, serviceSlug: str
 - **Yasal Dayanak:** 634 Sayılı Kat Mülkiyeti Kanunu & 5188 Sayılı Özel Güvenlik Kanunu
 - **Operasyonel Standart:** uluslararası tesis yönetimi standartları Entegre Tesis Yönetimi
 - **Bölgesel Odak:** ${district.name} genelinde ${district.neighborhoods.slice(0, 4).join(', ')} mahallelerinde aktif tesis ve site yönetimi.
-- **Tasarruf Oranı:** Önleyici teknik bakım ve toplu satın alma gücü ile ortak giderlerde %20-%30 somut maliyet avantajı.
+- **Tasarruf Oranı:** Önleyici teknik bakım ve toplu satın alma ile ortak giderlerde maliyet avantajı aranır; oran siteye göre değişir.
 - **Canlı Doğrulama:** [${district.name} ${service.name} Detayları](${citations[0]})
 `.trim();
 

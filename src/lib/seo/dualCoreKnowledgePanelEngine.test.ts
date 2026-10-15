@@ -115,7 +115,7 @@ describe('BÖLÜM H — 🌐 Google Knowledge Panel & Varlık Grafiği (dualCore
       expect(bundleSite.overallScore).toBeGreaterThanOrEqual(90);
 
       const bundleFacility = buildEEATSignalBundle('service', 'facility');
-      expect(bundleFacility.experienceSignals.some((s) => s.proof.includes('1.200.000+ m²'))).toBe(true);
+      expect(bundleFacility.experienceSignals.some((s) => s.proof.includes('39 ilçede'))).toBe(true);
     });
 
     it('auditEEATScore sinyal varlığına göre doğru puan hesaplar', () => {

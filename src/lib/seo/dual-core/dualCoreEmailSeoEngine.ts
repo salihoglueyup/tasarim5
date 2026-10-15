@@ -130,7 +130,7 @@ export function buildLeadNurtureSequence(segment: EmailSegment, touchpointStep: 
     {
       stepNumber: 4,
       dayDelay: 14,
-      subject: 'Komşularınız Ne Diyor? İstanbul Genelinde 350+ Site Referansı',
+      subject: 'İstanbul Genelinde Referans Projelerimiz',
       headline: 'Kadıköy, Beşiktaş ve Başakşehir Başarı Hikayeleri',
       keyTakeaway: 'Alo Yönetim ile çalışan sitelerde aidat borçluluk oranı sıfıra iniyor.',
       ctaText: 'Müşteri Yorumlarını Okuyun',
@@ -141,7 +141,7 @@ export function buildLeadNurtureSequence(segment: EmailSegment, touchpointStep: 
       dayDelay: 30,
       subject: 'Siteniz İçin Ücretsiz Hukuki & Mali Denetim Fırsatı',
       headline: 'Mevcut Yönetim Planınızı ve Bütçenizi İnceleyelim',
-      keyTakeaway: 'Ücretsiz denetim raporu ile yıllık %15 aidat tasarrufu sağlayın.',
+      keyTakeaway: 'Ücretsiz keşif ile aidat bütçenizi kalem kalem değerlendirin.',
       ctaText: 'Ücretsiz Denetim Talep Edin',
       targetUrl: `${BASE_URL}/teklif-al`,
     },
@@ -160,7 +160,7 @@ export function buildLeadNurtureSequence(segment: EmailSegment, touchpointStep: 
     {
       stepNumber: 2,
       dayDelay: 3,
-      subject: 'BMS ve Chiller Otomasyonu ile Yıllık %18 Enerji Tasarrufu',
+      subject: 'BMS ve Chiller Otomasyonu ile Enerji Verimliliği',
       headline: 'Ticari Binalarda Enerji Maliyetlerini Düşürme Stratejisi',
       keyTakeaway: 'Reaktif ceza ve kompanzasyon takibi ile binlerce lira tasarruf edin.',
       ctaText: 'Teknik İşletim Detayları',
@@ -256,7 +256,7 @@ export function buildEmailSubjectLineVariants(topic: string, pillar: DomainPilla
 
   if (topic.includes('aidat') || topic.includes('fiyat')) {
     return [
-      '💡 Apartman Aidatları Nasıl Düşürülür? (Yıllık %15 Tasarruf Formülü)',
+      '💡 Apartman Aidatları Nasıl Düşürülür? (Kalem Kalem Bütçe Analizi)',
       '📊 2026 Aidat Hesaplama Rehberi: Sitenizin Gerçek Maliyeti Nedir?',
       '⚠️ Aidatını Ödemeyen Malikler İçin Yasal Süreç Nasıl İşler?',
     ];
@@ -264,7 +264,7 @@ export function buildEmailSubjectLineVariants(topic: string, pillar: DomainPilla
 
   if (isFacility) {
     return [
-      '🏢 Plazalarda Yıllık %18 Enerji Tasarrufu Sağlayan Tesis Yönetim Modeli',
+      '🏢 Plazalarda Enerji Verimliliğini Artıran Tesis Yönetim Modeli',
       '📋 uluslararası tesis yönetimi standartları Tesis Yönetim Kontrol Listesi (Yöneticiler İçin)',
       '⚡ BMS ve HVAC Bakımında Sıfır Kesinti: Kurumsal SLA Rehberi',
     ];

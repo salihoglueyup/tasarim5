@@ -98,7 +98,7 @@ export default function TeknikBakimClient() {
           id="teknik-bakim-nedir"
           answerId="technical-instant-answer-text"
           question="Bina ve Tesis Teknik Bakımı Nedir ve Neleri Kapsar?"
-          answer="Bina ve tesis teknik bakımı; asansör, jeneratör, hidrofor, yangın ve elektrik sistemlerinin kesintisiz çalışmasını sağlayan planlı mühendislik disiplinidir. Sanayi Bakanlığı A Tipi muayene ile asansörlerde yeşil etiket tescili ve kompanzasyon takibiyle %0 reaktif ceza güvencesi sağlayarak işletme giderlerini düşürür."
+          answer="Bina ve tesis teknik bakımı; asansör, jeneratör, hidrofor, yangın ve elektrik sistemlerinin kesintisiz çalışmasını sağlayan planlı mühendislik disiplinidir. Sanayi Bakanlığı A Tipi muayene ile asansörlerde yeşil etiket tescili ve kompanzasyon takibiyle reaktif ceza riskini azaltarak işletme giderlerinin yönetilmesine yardımcı olur."
           standardBadge="Sanayi Bakanlığı & A Tipi Yeşil Etiket"
           subText="Alo Yönetim, TMMOB standartlarında periyodik muayeneler ve yazılı SLA kapsamında acil teknik müdahale ile binalarınızda altyapı arızalarını azaltmayı hedefler."
           accentColor="blue"
@@ -150,7 +150,7 @@ export default function TeknikBakimClient() {
               <Link href="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-slate-600 dark:hover:text-slate-400 transition-colors">
                 endüstriyel tesis ve fabrikaların
               </Link>{' '}
-              elektromekanik, ısıtma, soğutma, yangın ve enerji altyapılarının kesintisiz, güvenli ve ekonomik olarak işletilmesini sağlayan kestirimci mühendislik disiplinidir. Reaktif (arıza oluştuktan sonra tamir eden) anlayışın yerine planlı önleyici bakım modelini koyarak cihazların amortisman ömrünü uzatır, acil arıza maliyetlerini %40 azaltır ve bina sakinlerine kesintisiz konfor sunar.
+              elektromekanik, ısıtma, soğutma, yangın ve enerji altyapılarının kesintisiz, güvenli ve ekonomik olarak işletilmesini sağlayan kestirimci mühendislik disiplinidir. Reaktif (arıza oluştuktan sonra tamir eden) anlayışın yerine planlı önleyici bakım modelini koyarak cihazların amortisman ömrünü uzatır, acil arıza maliyetlerini azaltmayı hedefler ve bina sakinlerine kesintisiz konfor sunar.
             </p>
             <p>
               Tüm teknik operasyonlarımız;{' '}
@@ -198,7 +198,7 @@ export default function TeknikBakimClient() {
 
               <div className="p-4 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 text-xs leading-relaxed space-y-1.5">
                 <span className="font-bold text-sm text-[var(--color-primary)] flex items-center gap-1.5">
-                  <span>⚡</span> Jeneratör, Trafo & Kompanzasyon (%0 Reaktif Ceza)
+                  <span>⚡</span> Jeneratör, Trafo & Kompanzasyon (Reaktif Ceza Takibi)
                 </span>
                 <p className="text-[var(--color-secondary)]">
                   Senkron jeneratör gruplarının haftalık test çalıştırmaları, termal kamera ile pano ısınma kontrolleri ve kompanzasyon rölesi optimizasyonu ile elektrik faturalarında reaktif ceza riskinin azaltılması.
@@ -260,7 +260,7 @@ export default function TeknikBakimClient() {
                 <span className="w-8 h-8 rounded-xl bg-slate-500/10 text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0">
                   <Icon name="energy_savings_leaf" className="text-lg" />
                 </span>
-                <span>%0 Reaktif Elektrik Cezası</span>
+                <span>Reaktif Elektrik Cezası Takibi</span>
               </div>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                 Kompanzasyon panosu ve güç kontrol rölesi takibiyle ortak elektrik faturasında ceza bedelinin engellenmesi.
@@ -349,7 +349,7 @@ export default function TeknikBakimClient() {
               {
                 step: "04",
                 title: "Yazılı SLA ile Acil Servis",
-                desc: "Asansörde kalma veya arıza durumunda mobil nöbetçi teknik servisimiz en geç 45 dakikada kabin kurtarmasını tamamlar.",
+                desc: "Asansörde kalma veya arıza durumunda mobil nöbetçi teknik servisimiz kabin kurtarma için yazılı SLA kapsamında acil müdahale sağlar.",
                 icon: "timer",
               }
             ].map((s, idx) => (
@@ -386,7 +386,7 @@ export default function TeknikBakimClient() {
                 <div className="w-10 h-10 rounded-xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
                   <Icon name="energy_savings_leaf" className="text-xl" />
                 </div>
-                <h3 className="text-lg font-bold text-[var(--color-primary)]">%0 Reaktif Elektrik Cezası</h3>
+                <h3 className="text-lg font-bold text-[var(--color-primary)]">Reaktif Elektrik Cezası Takibi</h3>
                 <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
                   Kondansatör kademe testleri ve akıllı reaktif güç rölesi takibi ile Bedaş/Ayedaş faturalarında reaktif ceza riskini azaltma.
                 </p>

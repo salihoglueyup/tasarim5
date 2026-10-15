@@ -166,7 +166,7 @@ export default function AidatTakibiClient() {
               <Link href="/hizmetler/tesis-yonetimi/plaza-yonetimi" className="text-[var(--color-primary)] font-medium underline decoration-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 iş merkezleri ve kurumsal plazaların
               </Link>{' '}
-              ortak alan elektrik, su, doğalgaz, personel maaşları, asansör bakımı ve güvenlik gibi tüm cari giderlerinin karşılanması amacıyla yürütülen dijital bütçe ve tahsilat disiplinidir. Amatör bina yönetimlerinde sıkça yaşanan bakiye kayıpları, tahsilat tıkanıklıkları ve komşuluk ihtilaflarını tamamen ortadan kaldıran bu kurumsal model; %99 tahsilat oranı, sıfır bakiye hatası ve anlık denetlenebilir şeffaf muhasebe altyapısı sunar.
+              ortak alan elektrik, su, doğalgaz, personel maaşları, asansör bakımı ve güvenlik gibi tüm cari giderlerinin karşılanması amacıyla yürütülen dijital bütçe ve tahsilat disiplinidir. Amatör bina yönetimlerinde sıkça yaşanan bakiye kayıpları, tahsilat tıkanıklıkları ve komşuluk ihtilaflarını azaltmayı hedefleyen bu kurumsal model; kalem kalem kayıt, düzenli raporlama ve denetlenebilir şeffaf muhasebe altyapısı sunar.
             </p>
             <p>
               Tüm finansal süreçlerimiz;{' '}

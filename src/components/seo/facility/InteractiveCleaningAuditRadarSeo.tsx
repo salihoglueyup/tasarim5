@@ -230,7 +230,7 @@ export default function InteractiveCleaningAuditRadarSeo({ districtName }: { dis
           </p>
           <div className="pt-3 border-t border-gray-200/60 dark:border-white/10 flex flex-wrap items-center justify-between gap-4">
             <div className="text-xs text-[var(--color-secondary)] font-medium">
-              <strong className="text-[var(--color-primary)]">Tazminat Garantisi:</strong> Alo Yönetim ile çalışan sitelerde temizlik personelinin tüm kıdem ve ihbar sorumluluğu %100 şirketimize aittir.
+              <strong className="text-[var(--color-primary)]">Personel Sorumluluğu:</strong> Şirket bordrosundaki temizlik personelinin kıdem ve ihbar yükümlülükleri işveren sıfatıyla şirkete aittir; kapsam sözleşmede belirlenir.
             </div>
             <Link
               href="/teklif-al"

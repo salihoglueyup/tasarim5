@@ -7,7 +7,6 @@ export const BASE_URL = 'https://aloyonetim.com.tr';
 export const ORG_NAME = 'Alo Yönetim';
 export const ORG_LEGAL_NAME = 'Alo Yönetim ve Organizasyon A.Ş.';
 export const ORG_FOUNDING_YEAR = '2009';
-export const ORG_STAFF_COUNT = '200+';
 export const ORG_PHONE = '+902165504848';
 export const ORG_PHONE_DISPLAY = '0 (216) 550 48 48';
 export const ORG_EMAIL = 'info@aloyonetim.com.tr';

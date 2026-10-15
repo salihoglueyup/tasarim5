@@ -322,7 +322,7 @@ export default function AcademyCoursePackagesSeo({ onSelectCourse }: AcademyCour
               <div>
                 <div className="flex items-center gap-2 mb-3 text-rose-300 font-bold text-sm">
                   <Icon name="work" className="text-lg" />
-                  <span>Alo Yönetim İstihdam Garantisi</span>
+                  <span>Alo Yönetim İstihdam Köprüsü</span>
                 </div>
                 <h4 className="text-base font-bold text-white mb-3">
                   Eğitimden Göreve Doğrudan Geçiş

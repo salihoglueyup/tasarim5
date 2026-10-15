@@ -231,7 +231,7 @@ export function auditFacilityEcosystemGoldenStandard(): FacilityEcosystemGoldenR
   // Pillar 5: SERP Hazırlığı & Arama Motoru Sıralama Simülasyonu
   const sampleSerpAudit = analyzeFacilitySerpReadiness({
     title: 'ILAS Akrediteli ISO Belgeli Tesis Yönetimi İstanbul | Alo Yönetim',
-    metaDescription: '39 ilçede profesyonel tesis yönetimi, KMK 634, 5188 özel güvenlik, temizlik ve teknik bakım ile aidatlarda %30 tasarruf.',
+    metaDescription: '39 ilçede profesyonel tesis yönetimi, KMK 634, 5188 özel güvenlik, temizlik ve teknik bakım ile şeffaf aidat yönetimi.',
     h1: 'İstanbul Profesyonel Tesis ve Site Yönetimi Şirketi',
     content: '<p>KMK 634 uyarınca profesyonel site yönetimi; ISO 45001 ve ISO 14001 belgeli süreçlerle aidat takibi ve teknik bakım.</p><a href="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi">Rezidans</a><a href="/hizmetler/tesis-yonetimi/plaza-yonetimi">Plaza</a><a href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi">Toplu Konut</a>',
     hasGraphSchema: true,

@@ -43,12 +43,11 @@ describe('İç Backend SEO Mega Motoru (facilityBackendSeoMega.test.ts)', () => 
       expect(corpus.legalFramework.executionLaw2004.article68Scope).toContain('İİK 68');
     });
 
-    it('ISO 41001 KPI sistemini ve doğrulanmış başarı metriklerini içerir', () => {
+    it('KPI sistemini içerir (uydurma başarı metrikleri yoktur)', () => {
       const corpus = buildFacilityAuthorityCorpus('tr');
 
       expect(corpus.iso41001KpiSystem.length).toBeGreaterThanOrEqual(4);
-      expect(corpus.provenMetrics.activeFacilityPortfolioCount).toBeGreaterThanOrEqual(100);
-      expect(corpus.provenMetrics.duesCollectionEfficiencyRatePercent).toBeGreaterThanOrEqual(98);
+      expect((corpus as unknown as Record<string, unknown>).provenMetrics).toBeUndefined();
     });
   });
 

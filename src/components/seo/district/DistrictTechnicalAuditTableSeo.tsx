@@ -37,7 +37,7 @@ export default function DistrictTechnicalAuditTableSeo({
       {
         item: "Asansörde Kalma Acil Kurtarma Masası",
         standard: "TSE EN 81-20/50 Standartlarına Uygun Operasyon",
-        districtSpec: `${sampleNeighborhoods} lokasyonlarına en geç 30-45 dakikada yerinde müdahale.`,
+        districtSpec: `${sampleNeighborhoods} lokasyonlarına yazılı SLA kapsamında yerinde müdahale.`,
         status: "SLA Garantili"
       },
       {
@@ -51,7 +51,7 @@ export default function DistrictTechnicalAuditTableSeo({
       {
         item: "Kompanzasyon Panosu & Reaktif Ceza Koruması",
         standard: "BEDAŞ / AYEDAŞ %20 Endüktif & %15 Kapasitif Limit Takibi",
-        districtSpec: `${districtName} sitelerinde reaktif güç cezalarını %100 engelleyen haftalık sayaç okuma.`,
+        districtSpec: `${districtName} sitelerinde reaktif güç cezası riskini azaltmaya yönelik düzenli sayaç okuma.`,
         status: "Sıfır Ceza"
       },
       {

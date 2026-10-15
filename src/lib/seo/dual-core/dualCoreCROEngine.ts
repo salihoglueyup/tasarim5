@@ -67,7 +67,7 @@ export function buildPrimaryCTASpec(pageType: string, pillar: DomainPillar = 'si
           text: isFacility ? 'Hizmetlerimizi İnceleyin' : 'Online Aidat Hesaplayıcıyı Deneyin',
           url: isFacility ? `${BASE_URL}/tesis-yonetimi` : `${BASE_URL}/hesaplayici`,
         },
-        socialProof: isFacility ? '1.200.000+ m² Yönetilen Plaza ve AVM Alanı' : '39 İlçede Hizmet',
+        socialProof: '39 İlçede Hizmet',
         guarantee: '30 gün içinde memnun kalmazsanız sözleşmeden hiçbir cezai şart olmadan ayrılma garantisi.',
         urgencyTrigger: 'Bu ay geçerli ilk ay aidat muhasebesi kurulumu ücretsiz!',
       };
@@ -336,7 +336,7 @@ export function buildPackageSpec(pillar: DomainPillar = 'site'): PackageTier[] {
         pillar: 'facility',
         targetScale: 'Plaza & Karma Tesisler (5.000 - 30.000 m²)',
         monthlyFeeText: 'Açık Defter (Open-Book)',
-        features: ['Güvenlik', 'BMS & CMMS Otomasyonu', 'Yıllık %18 Enerji Tasarruf Planı', 'uluslararası tesis yönetimi standartları Süreçleri', 'Hukuk ve İSG Danışmanlığı'],
+        features: ['Güvenlik', 'BMS & CMMS Otomasyonu', 'Enerji İzleme Planı', 'uluslararası tesis yönetimi standartları Süreçleri', 'Hukuk ve İSG Danışmanlığı'],
         isPopular: true,
         ctaText: 'Enterprise Teklifi Alın',
       },

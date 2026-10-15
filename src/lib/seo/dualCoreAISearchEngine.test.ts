@@ -44,7 +44,7 @@ describe('BÖLÜM I — 🤖 AI Overviews & LLM Arama Optimizasyonu (dualCoreAIS
     it('buildStatisticalFactBundle doğrulanmış sayısal istatistikler içerir', () => {
       const stats = buildStatisticalFactBundle('site');
       expect(stats.verifiedStats.length).toBeGreaterThanOrEqual(5);
-      expect(stats.verifiedStats.some((s) => s.metric.includes('Bağımsız Bölüm'))).toBe(true);
+      expect(stats.verifiedStats.some((s) => s.metric.includes('İlçe'))).toBe(true);
     });
   });
 

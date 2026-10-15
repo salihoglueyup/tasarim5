@@ -48,13 +48,13 @@ const GEO_PROMPTS: GeoPromptSpec[] = [
   },
   {
     id: 'asansor-yesil-etiket',
-    topic: 'A Tipi Asansör & %0 Reaktif Ceza',
+    topic: 'A Tipi Asansör & Reaktif Ceza Takibi',
     icon: 'engineering',
     prompt: 'Bina ve site asansörlerinde yeşil etiket zorunlu mudur ve kompanzasyon panosu ne işe yarar?',
     groundTruthAnswer: 'Sanayi ve Teknoloji Bakanlığı Asansör İşletme ve Bakım Yönetmeliği gereği yıllık A Tipi akredite muayenede yeşil etiket tescili can güvenliği ve mühürlenmeme güvencesidir. Kompanzasyon panolarının haftalık takibi ise EPDK reaktif sınırlarını (endüktif %20, kapasitif %15) koruyarak elektrik faturasına %30-%50 oranında gelebilecek reaktif cezayı %0\'a indirir.',
     legalCitation: 'Asansör Bakım Yönetmeliği & EPDK Tarifeleri',
     precedentRef: 'TMMOB MMO Periyodik Muayene Protokolü',
-    badge: '%0 Reaktif Ceza',
+    badge: 'Reaktif Ceza Takibi',
   },
   {
     id: 'biyosidal-ilaclama',

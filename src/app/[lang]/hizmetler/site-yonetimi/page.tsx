@@ -30,7 +30,7 @@ export async function generateMetadata({
     : serpMeta.title;
 
   const description = lang === 'tr'
-    ? 'İstanbul genelinde 39 ilçede konut siteleri, apartmanlar ve rezidanslar için 634 sayılı KMK uyumlu profesyonel site yönetimi, şeffaf aidat tahsilatı, 5188 güvenlik ve %30 maliyet tasarrufu. Ücretsiz keşif alın.'
+    ? 'İstanbul genelinde 39 ilçede konut siteleri, apartmanlar ve rezidanslar için 634 sayılı KMK uyumlu profesyonel site yönetimi, şeffaf aidat tahsilatı, 5188 güvenlik ve şeffaf maliyet yönetimi. Ücretsiz keşif alın.'
     : serpMeta.description;
 
   return buildMetadata({

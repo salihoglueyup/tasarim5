@@ -75,9 +75,9 @@ export default function PlazaYonetimiClient() {
           id="plaza-yonetimi-nedir"
           answerId="plaza-instant-answer-text"
           question="Plaza ve İş Merkezi Yönetimi Nedir ve Neleri Kapsar?"
-          answer="Plaza ve iş merkezi yönetimi; kurumsal ofis binalarının kesintisiz çalışması için adresli BMS yangın otomasyonu, 3x senkron jeneratör şebekesi, fancoil ve chiller iklimlendirmesi, 5188 lisanslı turnike/QR ziyaretçi güvenliği, TSE 13811 dış cephe cam silimi ve %0 reaktif ceza güvencesinin entegre yönetilmesidir."
+          answer="Plaza ve iş merkezi yönetimi; kurumsal ofis binalarının kesintisiz çalışması için adresli BMS yangın otomasyonu, 3x senkron jeneratör şebekesi, fancoil ve chiller iklimlendirmesi, 5188 lisanslı turnike/QR ziyaretçi güvenliği, TSE 13811 dış cephe cam silimi ve reaktif güç takibinin entegre yönetilmesidir."
           standardBadge="Yangın Yönetmeliği"
-          subText="Alo Yönetim, kurumsal plazalarda yazılı SLA kapsamında acil teknik müdahale, M-Bus alt sayaç okuma ile adil gider paylaşımı ve %0 reaktif ceza taahhüdü sunar."
+          subText="Alo Yönetim, kurumsal plazalarda yazılı SLA kapsamında acil teknik müdahale, M-Bus alt sayaç okuma ile adil gider paylaşımı ve reaktif güç takibi sunar."
           accentColor="blue"
         />
 </TrOnly>

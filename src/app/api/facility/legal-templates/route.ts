@@ -144,7 +144,7 @@ DEVREDEN (Eski Yönetim)              DEVRALAN (Alo Yönetim A.Ş.)
 İşbu şartname, [SITE_ADI] sitesinin 5188 sayılı kanun kapsamında güvenliğini, TSE 13811 standartlarında temizliğini, asansör/jeneratör önleyici teknik bakımını ve şeffaf KMK muhasebesini kapsar.
 
 2. HİZMET SEVİYESİ TAAHHÜTLERİ (SLA):
-- Acil Teknik Arıza Müdahale Süresi: Azami 45 Dakika
+- Acil Teknik Arıza Müdahale Süresi: Sözleşmede yazılı SLA hedefi
 - Asansörde Mahsur Kalma Kurtarma Süresi: Azami 20 Dakika
 - 5188 Lisanslı Nizamiye & CCTV Güvenlik Denetimi: Kesintisiz
 - Ortak Alan ve Blok Merdiven Hijyen Frekansı: Günlük / Haftalık Plan

@@ -123,7 +123,7 @@ export const SERVICES: ServiceDef[] = [
       'entegre tesis yönetimi sözleşmesi ve teknik şartname',
       'iso 45001 belgeli tesis yönetim şirketleri istanbul',
       'plaza ve iş merkezi entegre tesis yönetimi firmaları',
-      'tesis yönetiminde %30 maliyet tasarrufu nasıl sağlanır',
+      'tesis yönetiminde maliyet yönetimi nasıl yapılır',
       'kadıköy profesyonel tesis ve site yönetimi firması',
       'ataşehir rezidans ve tesis yönetim şirketleri',
       'büyük ölçekli toplu konut ve sanayi tesisi yönetimi',
@@ -155,11 +155,11 @@ export const SERVICES: ServiceDef[] = [
       },
       {
         q: 'Tesis yönetim şirketi aidat ve işletme maliyetlerini nasıl düşürür?',
-        a: 'Toplu satın alma gücü, önleyici teknik mühendislik bakımı, reaktif ceza önleyici kompanzasyon takibi ve enerji optimizasyonu ile işletme bütçelerinde %20 ile %30 arasında net tasarruf sağlar.',
+        a: 'Toplu satın alma gücü, önleyici teknik mühendislik bakımı, reaktif ceza önleyici kompanzasyon takibi ve enerji optimizasyonu ile işletme bütçelerinde tasarruf fırsatı oluşturabilir; oran siteye göre değişir.',
       },
       {
         q: 'Tesis yönetim şirketi seçerken nelere dikkat edilmelidir?',
-        a: 'Akredite kuruluşlarca verilmiş güncel ISO yönetim sistemi belgeleri (ör. ISO 45001, ISO 14001), 5188 sayılı özel güvenlik izinleri, en az 100+ referans konut/plaza portföyü, 45 dakikalık acil müdahale SLA taahhüdü ve şeffaf dijital yönetim yazılımı aranmalıdır.',
+        a: 'Akredite kuruluşlarca verilmiş güncel ISO yönetim sistemi belgeleri (ör. ISO 45001, ISO 14001), 5188 sayılı özel güvenlik izinleri, doğrulanabilir referans portföyü, yazılı acil müdahale SLA hedefi ve şeffaf dijital yönetim yazılımı aranmalıdır.',
       },
       {
         q: 'Profesyonel site yönetimi şirketi ne iş yapar?',
@@ -334,7 +334,7 @@ export const SERVICES: ServiceDef[] = [
       'site ortak alan hidrofor su kesintisi acil müdahale servisi',
     ],
     kmkArticles: ['KMK Madde 35 (Ortak Tesislerin Bakımı)', 'Asansör İşletme ve Bakım Yönetmeliği'],
-    slaGuarantee: '%0 Reaktif Ceza Garantisi, Acil Arızalarda Maksimum 25 Dk SLA',
+    slaGuarantee: 'Reaktif Güç Takibi, Yazılı Acil Müdahale SLA Hedefi',
     targetPersonas: ['Bina Yöneticileri', 'Teknik Personel', 'Kat Malikleri'],
     pillar: '/hizmetler/teknik-bakim',
     standards: ['Asansör Periyodik Kontrol Yönetmeliği', 'Binaların Yangından Korunması Hakkında Yönetmelik'],

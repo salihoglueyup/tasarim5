@@ -4,7 +4,6 @@ export { default as AccreditedCertificationsTrustSeo } from './AccreditedCertifi
 export { default as AiOverviewStepSolverSeo } from './AiOverviewStepSolverSeo';
 export { default as VideoGroundingAiOverviewSeo } from './VideoGroundingAiOverviewSeo';
 export { default as VoiceConversationalAiSnippetSeo } from './VoiceConversationalAiSnippetSeo';
-export { default as ServicePricingProductAiOverviewSeo } from './ServicePricingProductAiOverviewSeo';
 export { default as CorporateEntityAiOverviewSeo } from './CorporateEntityAiOverviewSeo';
 export { default as ContactAiOverviewCardSeo } from './ContactAiOverviewCardSeo';
 export { default as QuoteAiOverviewCardSeo } from './QuoteAiOverviewCardSeo';

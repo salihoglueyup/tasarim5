@@ -136,7 +136,7 @@ export const SITE_VOICE_FAQS: DualCoreFaqItem[] = [
     pillar: 'site',
     intent: 'commercial',
     voiceQuery: 'Profesyonel site yönetimi şirketi tutmanın avantajı nedir?',
-    speakableAnswer: 'Profesyonel site yönetimi komşuluk ilişkilerini zedelemeden aidat tahsilatını %98 üzerine çıkarır, 5188 güvenlik ve teknik bakım maliyetlerinde toplu alımla %30 tasarruf sağlar.',
+    speakableAnswer: 'Profesyonel site yönetimi komşuluk ilişkilerini zedelemeden aidat tahsilatını düzenli ve izlenebilir hâle getirir; 5188 güvenlik ve teknik bakım maliyetlerinde toplu alımla avantaj aranır.',
     detailedAnswer: 'Alo Yönetim bünyesindeki KMK uzmanı avukatlar, sertifikalı teknisyenler ve 5188 güvenlik şefleri binaları şeffaf mobil yazılımla yöneterek gayrimenkul değerini korur, komşuluk sürtüşmelerini önler ve yasal güvence sağlar.',
     legalReference: 'KMK Madde 34',
     targetKeyword: 'profesyonel site yönetimi avantajları',

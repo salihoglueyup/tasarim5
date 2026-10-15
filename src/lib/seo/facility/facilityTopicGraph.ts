@@ -43,7 +43,7 @@ const TOPIC_GRAPH_LOCALES: Record<string, LocalizedTopicGraphContent> = {
     description:
       'ILAS-accredited ISO certified professional facility management across Istanbul for apartments, residential complexes, business towers, and industrial estates encompassing security, cleaning, technical maintenance, transparent dues accounting, and legal consulting.',
     catalogName: 'Alo Yönetim Facility Management Packages and Sectoral Solutions',
-    serviceOutput: '25-35% Common Budget Savings, 99.2% Dues Collection Success, Zero Legal Risk, and Uninterrupted Security',
+    serviceOutput: 'Itemized Budget Transparency, Regular Dues Follow-up, Legal Support, and Licensed Security',
   },
   ru: {
     name: 'Alo Yönetim Профессиональное Управление Недвижимостью и Объектами',
@@ -51,7 +51,7 @@ const TOPIC_GRAPH_LOCALES: Record<string, LocalizedTopicGraphContent> = {
     description:
       'Профессиональное управление объектами недвижимости в Стамбуле для жилых комплексов, резиденций и бизнес-центров: охрана, уборка, техническое обслуживание, прозрачный учет взносов и юридический консалтинг.',
     catalogName: 'Пакеты услуг и отраслевые решения по управлению объектами Alo Yönetim',
-    serviceOutput: 'Экономия общего бюджета 25-35%, 99.2% успешный сбор взносов, нулевой юридический риск и безопасность',
+    serviceOutput: 'Постатейная прозрачность бюджета, регулярный контроль взносов, юридическая поддержка и лицензированная охрана',
   },
   ar: {
     name: 'Alo Yönetim إدارة العقارات والمرافق المتكاملة الاحترافية',
@@ -59,7 +59,7 @@ const TOPIC_GRAPH_LOCALES: Record<string, LocalizedTopicGraphContent> = {
     description:
       'إدارة مرافق احترافية في جميع أنحاء إسطنبول للمجمعات السكنية والأبراج التجارية والمنشآت الصناعية تشمل الأمن والتنظيف والصيانة الفنية والمحاسبة القانونية الشفافة للرسوم.',
     catalogName: 'باقات وحلول إدارة المرافق القطاعية من Alo Yönetim',
-    serviceOutput: 'توفير 25-35% من الميزانية المشتركة، نجاح تحصيل الرسوم بنسبة 99.2%، صفر مخاطر قانونية وأمن مستمر',
+    serviceOutput: 'شفافية الميزانية بنداً بنداً، متابعة منتظمة للمستحقات، دعم قانوني، وأمن مرخص',
   },
 };
 

@@ -51,7 +51,7 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
   const pageTitle = options?.pageTitle || 'Profesyonel Tesis Yönetimi İstanbul | Alo Yönetim';
   const pageDescription =
     options?.pageDescription ||
-    'İstanbul genelinde 39 ilçede entegre tesis yönetimi, 5188 özel güvenlik, temizlik, teknik bakım ve aidatlarda %30 tasarruf.';
+    'İstanbul genelinde 39 ilçede entegre tesis yönetimi, 5188 özel güvenlik, temizlik, teknik bakım ve şeffaf aidat yönetimi.';
 
   // 1. Organization Node
   const organizationNode = {
@@ -137,15 +137,6 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
       'https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi',
     ],
     priceRange: '₺₺',
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'TRY',
-      lowPrice: 550,
-      highPrice: 1600,
-      offerCount: 400,
-      priceValidUntil: '2027-12-31',
-      description: 'Daire başı aylık entegre yönetim, güvenlik, temizlik ve teknik bakım birim maliyet aralığı.',
-    },
     hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
@@ -212,7 +203,7 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
     '@type': 'ItemList',
     '@id': districtListId,
     name: 'İstanbul 39 İlçe Entegre Tesis Yönetimi Hizmet Ağı',
-    description: 'Alo Yönetim tarafından 45 dakika acil SLA müdahale taahhüdüyle hizmet verilen 39 İstanbul ilçesi.',
+    description: 'Alo Yönetim tarafından yazılı SLA hedefiyle hizmet verilen 39 İstanbul ilçesi.',
     numberOfItems: DISTRICTS.length,
     itemListElement: DISTRICTS.map((d, idx) => ({
       '@type': 'ListItem',
@@ -492,7 +483,7 @@ export function buildDistrictFacilityGraphSchema(options: DistrictFacilityGraphO
   const pageTitle = options.pageTitle || `${options.districtName} Tesis Yönetimi | Alo Yönetim İstanbul`;
   const pageDescription =
     options.pageDescription ||
-    `${options.districtName} genelinde apartman, site, plaza ve konut projeleri için 5188 güvenlik ve %30 tasarruflu profesyonel tesis yönetimi.`;
+    `${options.districtName} genelinde apartman, site, plaza ve konut projeleri için 5188 güvenlik ve şeffaf maliyet yönetimiyle profesyonel tesis yönetimi.`;
 
   // 1. Organization Node
   const organizationNode = {

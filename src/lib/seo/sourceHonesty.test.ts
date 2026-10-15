@@ -7,6 +7,8 @@ const BANNED: RegExp[] = [
   /4\.9 ?★/, /★ ?4\.9/, /\b(?:312|340|400)\+ ?(?:Tesis|Proje|Referans|site|tesis)/, /\b45[.,]000\+/, /\b34[.,]000\+/, /142M\+/,
   /%\s?99[.,][0-9]\b/, /%\s?98[.,]7\b/, /\b15-25 ?(?:Dk|dk|dakika)/, /\b45 ?(?:Dk|dk|dakika|Dakika) ?(?:SLA|Acil|Mobil)/,
   /ratingValue=\{?4\.[0-9]/, /7\/24/, /\b24\/7\b/,
+  /%\s?0 Reaktif/i, /Kanıtlanmış Tasarruf/, /%\s?(?:15|18|20|25|30|35|40|50)(?:-\d\d)?\s?(?:maliyet |enerji |aidat |su )?tasarruf/i, /\bAggregateOffer\b/, /\blowPrice\b/,
+  /\b(?:28\.000|1\.200\.000|50\.000)\+/, /\b350\+ ?site/i, /99[.,]2\b/, /98[.,]8\b/, /yüzde 9[89]\b/, /\b45 ?(?:dk|dakika|dakikalık)\b/i, /\b15 ila 20\b/,
 ];
 const ROOTS = ['src/app', 'src/components', 'src/data', 'src/lib'];
 const SKIP = /\.test\.|[\\/]drafts[\\/]|[\\/]generated[\\/]|[\\/]blog[\\/]|posts|postsMetadata|[\\/]data[\\/]blog/;

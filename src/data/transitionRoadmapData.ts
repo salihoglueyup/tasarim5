@@ -65,7 +65,7 @@ export const TRANSITION_ROADMAP_STAGES: TransitionStageItem[] = [
     summary: 'Genel kurul kararının karar defterine tescili, noter tasdikinin kontrolü ve taraflar arasında cezai şart ve SLA güvencelerini içeren yönetim sözleşmesinin akdi.',
     actionItems: [
       'Genel kurul karar tutanağının noter onaylı karar defterine yapıştırılıp divanca imzalanması.',
-      'Tüm kat maliklerine taahhüt edilen SLA (45 dk acil servis, %0 reaktif ceza) sözleşmesinin imzalanması.',
+      'Tüm kat maliklerine taahhüt edilen SLA (yazılı acil müdahale hedefi, reaktif güç takibi) sözleşmesinin imzalanması.',
       'Apartman giriş panosuna yönetici levhasının asılması (KMK m.34/son).',
     ],
     requiredDocuments: [
@@ -130,6 +130,6 @@ export const TRANSITION_ROADMAP_STAGES: TransitionStageItem[] = [
       'Sakinler İçin Mobil Giriş ve SMS Bilgilendirme Kılavuzu',
       'Alo Yönetim Çağrı Merkezi ve Acil Servis Numarası Plaketi',
     ],
-    aloYonetimRole: '48. saatin sonunda sitenizde profesyonel yönetim, güvenli aidat tahsilatı ve 45 dk acil servis canlı olarak başlar.',
+    aloYonetimRole: 'Devir tamamlandığında sitenizde profesyonel yönetim, düzenli aidat tahsilatı ve yazılı SLA kapsamında acil servis başlar.',
   },
 ];

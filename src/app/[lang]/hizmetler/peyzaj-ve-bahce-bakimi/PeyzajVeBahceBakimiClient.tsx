@@ -25,7 +25,7 @@ export default function PeyzajVeBahceBakimiClient() {
   const landscapePoints = [
     {
       title: t('land_feat_1_title') || 'Otomatik Sulama & Drenaj Sistemleri',
-      desc: t('land_feat_1_desc') || 'Akıllı yağmur sensörlü damlama ve rotor sulama sistemleri ile %40 su tasarruflu ve verimli sulama altyapısı.',
+      desc: t('land_feat_1_desc') || 'Akıllı yağmur sensörlü damlama ve rotor sulama sistemleri ile verimli sulama altyapısı.',
       icon: "water_drop"
     },
     {
@@ -114,7 +114,7 @@ export default function PeyzajVeBahceBakimiClient() {
           id="peyzaj-bakimi-standartlari"
           answerId="landscape-instant-answer-text"
           question="Sitelerde Profesyonel Peyzaj ve Bahçe Bakımı Neleri Kapsar?"
-          answer="Site ve toplu konut peyzaj yönetimi; 4 mevsim periyodik çim biçme, verticut havalandırma, ağaç budama, yabani ot mücadelesi ve toprak analizi ile birlikte yağmur sensörlü otomatik sulama otomasyonu kurularak ortak alan su tüketiminde %40 tasarruf sağlanmasını kapsar."
+          answer="Site ve toplu konut peyzaj yönetimi; 4 mevsim periyodik çim biçme, verticut havalandırma, ağaç budama, yabani ot mücadelesi ve toprak analizi ile birlikte yağmur sensörlü otomatik sulama otomasyonu kurularak ortak alan su tüketiminin verimli yönetilmesini kapsar."
           standardBadge="Akıllı Sulama & 4 Mevsim PPM"
           subText="Alo Yönetim, ziraat mühendisleri ve peyzaj mimarları denetiminde bitki sağlığı pasaportu, organik gübreleme ve periyodik mevsimlik çiçeklendirme sunar."
           accentColor="emerald"

@@ -157,27 +157,13 @@ describe('BÖLÜM F — 🏆 Rich Result & Zengin Snippet Motoru (dualCoreRichRe
    * F4 — AGGREGATE RATING & REVIEW ŞEMALARI (Faz 35-44)
    * ========================================================================= */
   describe('F4: Rating & Review Şema Testleri (Faz 35-44)', () => {
-    it('SITE_REVIEW_BANK en az 5 adet konut/site müşteri yorumu içerir', () => {
-      expect(SITE_REVIEW_BANK.length).toBeGreaterThanOrEqual(5);
-      SITE_REVIEW_BANK.forEach((review) => {
-        expect(review.ratingValue).toBeGreaterThanOrEqual(1);
-        expect(review.ratingValue).toBeLessThanOrEqual(5);
-        expect(review.authorName.length).toBeGreaterThan(3);
-        expect(review.datePublished).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-        expect(review.positiveNotes).toBeDefined();
-      });
-    });
-
-    it('FACILITY_REVIEW_BANK en az 5 adet B2B tesis yönetimi müşteri yorumu içerir', () => {
-      expect(FACILITY_REVIEW_BANK.length).toBeGreaterThanOrEqual(5);
-      FACILITY_REVIEW_BANK.forEach((review) => {
-        expect(review.pillar).toBe('facility');
-        expect(review.districtSlug).toBeDefined();
-      });
+    it('uydurma müşteri yorumu bankası boştur (doğrulanmış yorum yoksa eklenmez)', () => {
+      expect(SITE_REVIEW_BANK).toHaveLength(0);
+      expect(FACILITY_REVIEW_BANK).toHaveLength(0);
     });
 
     it('buildReviewSchema geçerli Schema.org Review üretir', () => {
-      const review = SITE_REVIEW_BANK[0];
+      const review = { authorName: 'Test Yazar', ratingValue: 5, reviewBody: 'Test', datePublished: '2026-01-01', pillar: 'site' as const, positiveNotes: 'Test notu' };
       const schema = buildReviewSchema(review);
       expect(schema['@type']).toBe('Review');
       expect(schema.author).toEqual({ '@type': 'Person', name: review.authorName });

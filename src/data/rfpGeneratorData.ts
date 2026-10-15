@@ -27,11 +27,11 @@ export function generateFacilityRfpDocument(config: RfpConfig) {
     },
     {
       heading: '2. YÜKLENİCİ FİRMADA ARANAN ASGARİ NİTELİKLER (E-E-A-T ŞARTLARI)',
-      content: `• Akredite kuruluşça verilmiş güncel ISO 45001 İSG ve ISO 10002 Müşteri Memnuniyeti Yönetim Sistemi Belgeleri\n• T.C. İçişleri Bakanlığı / Valilik onaylı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi\n• En az 10 yıl sektörel deneyim ve aktif yönetilen 200+ bağımsız bölüm referansı\n• Mesleki Sorumluluk ve 3. Şahıs Mali Mesuliyet Sigorta Poliçesi (En az 10.000.000 TL teminatlı).`,
+      content: `• Akredite kuruluşça verilmiş güncel ISO 45001 İSG ve ISO 10002 Müşteri Memnuniyeti Yönetim Sistemi Belgeleri\n• T.C. İçişleri Bakanlığı / Valilik onaylı 5188 Sayılı Özel Güvenlik Faaliyet İzin Belgesi\n• En az 10 yıl sektörel deneyim ve doğrulanabilir referanslar\n• Mesleki Sorumluluk ve 3. Şahıs Mali Mesuliyet Sigorta Poliçesi (En az 10.000.000 TL teminatlı).`,
     },
     {
       heading: '3. HİZMET STANDARTLARI VE SLA (HİZMET SEVİYESİ) TAAHHÜTLERİ',
-      content: `• Acil Arıza Müdahale Süresi: ${district.name} bölgesi için en fazla 45 dakika\n• Güvenlik ve CCTV Kayıt Kontrolü (5188 Sayılı Kanun Uyumlu)\n• TSE Onaylı Kimyasallarla Günlük Kat ve Ortak Alan Hijyen Takvimi\n• Asansör, Jeneratör, Kompanzasyon Panosu ve Yangın Tesisatı Aylık Periyodik Bakımı\n• Kat Maliklerine Özel Mobil Aidat, Borç ve Arıza Takip Platformu Erişimi.`,
+      content: `• Acil Arıza Müdahale Süresi: ${district.name} bölgesi için sözleşmede yazılı SLA hedefi\n• Güvenlik ve CCTV Kayıt Kontrolü (5188 Sayılı Kanun Uyumlu)\n• TSE Onaylı Kimyasallarla Günlük Kat ve Ortak Alan Hijyen Takvimi\n• Asansör, Jeneratör, Kompanzasyon Panosu ve Yangın Tesisatı Aylık Periyodik Bakımı\n• Kat Maliklerine Özel Mobil Aidat, Borç ve Arıza Takip Platformu Erişimi.`,
     },
     {
       heading: '4. YASAL VE MALİ ŞARTLAR (KMK 634 UYUMU)',

@@ -63,7 +63,7 @@ export default function IstanbulInteractiveDistrictMapSeo({
             İstanbul Tesis Yönetimi <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-500 to-slate-600">Saha Operasyon Haritası</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-light mt-2 max-w-2xl leading-relaxed">
-            İstanbul genelindeki 39 ilçeyi harita üzerinden seçin; yerel saha amirliği koordinatlarını, 45 dakikalık acil müdahale SLA taahhüdümüzü ve sitenize en yakın tesis yönetimi birimini inceleyin.
+            İstanbul genelindeki 39 ilçeyi harita üzerinden seçin; yerel saha amirliği koordinatlarını, yazılı acil müdahale SLA hedefimizi ve sitenize en yakın tesis yönetimi birimini inceleyin.
           </p>
         </div>
 

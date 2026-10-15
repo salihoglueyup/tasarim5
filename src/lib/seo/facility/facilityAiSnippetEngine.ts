@@ -152,7 +152,7 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'Delay Compensation: Statutory 5% monthly delay interest accrues automatically.',
             'Direct Enforcement Authority: Fast-track execution proceedings can be opened based on the approved budget.',
             'Joint Liability: If a tenant fails to pay, the primary debtor remains the unit owner.',
-            'Alo Yönetim achieves a 98.8% collection rate through specialized legal counsel and transparent accounting software.',
+            'Alo Yönetim supports regular dues collection through specialized legal counsel and transparent accounting software.',
           ],
           legalReference: '634 KMK Property Law Art. 20 & Enforcement Law Art. 68',
           citationAnchorUrl: `${BASE_URL}/en/hizmetler/aidat-takibi`,
@@ -212,12 +212,12 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'valet and parcel locker residential service',
           ],
           directSummaryText:
-            'Luxury residence management provides 5-star hotel comfort in residential towers, featuring bilingual concierge, smart parcel locker rooms, valet parking, indoor/outdoor pool sanitation, and 99.2% dues collection assurance under Property Law.',
+            'Luxury residence management provides 5-star hotel comfort in residential towers, featuring bilingual concierge, smart parcel locker rooms, valet parking, indoor/outdoor pool sanitation, and regular dues collection under Property Law.',
           keyBulletPoints: [
             'bilingual reception, smart encrypted delivery lockers, and visitor QR validation.',
             'UHF RFID automated barrier gates and floor-restricted elevator access control.',
             'Twice-daily digital testing of free chlorine (1-3 ppm) and pH (7.2-7.8) in pool and spa facilities.',
-            'Formal operating budget under Property Law Art. 37 with 99.2% timely dues collection.',
+            'Formal operating budget under Property Law Art. 37 with regular dues follow-up.',
           ],
           legalReference: '634 KMK Property Law & ISO 45001',
           citationAnchorUrl: `${BASE_URL}/en/hizmetler/tesis-yonetimi/rezidans-site-yonetimi`,
@@ -234,7 +234,7 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'large scale residential community savings',
           ],
           directSummaryText:
-            'Mass housing and satellite town management covers mega developments with 200 to 5,000+ units, organizing Representative Boards under Property Law Art. 66-74, multi-tier budget segregation, 3-shift security patrols, and 25-33% cost savings via bulk purchasing.',
+            'Mass housing and satellite town management covers mega developments with 200 to 5,000+ units, organizing Representative Boards under Property Law Art. 66-74, multi-tier budget segregation, 3-shift security patrols, and cost advantages sought via bulk purchasing.',
           keyBulletPoints: [
             'Legal organization of Representative Assembly of Block Managers under KMK Art. 66-74.',
             'Decoupled parcel and block accounting ensuring equitable common expense distribution.',
@@ -329,7 +329,7 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             '5188 Sayılı Kanun kapsamında fiziki güvenlik, kamera kontrolü ve plaka tanıma.',
             'Asansör, jeneratör, hidrofor ve kompanzasyon panosu periyodik teknik bakımı.',
             'TSE hijyen belgeli ortak alan, otopark ve blok içi temizlik operasyonu.',
-            'KMK Madde 37 uyarınca yıllık işletme projesi hazırlanması ve %98 tahsilatlı aidat takibi.',
+            'KMK Madde 37 uyarınca yıllık işletme projesi hazırlanması ve düzenli aidat takibi.',
           ],
           legalReference: '634 Sayılı KMK Madde 35',
           citationAnchorUrl: `${BASE_URL}/hizmetler/tesis-yonetimi`,
@@ -346,9 +346,9 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'alo yönetim tasarruf oranı',
           ],
           directSummaryText:
-            'Profesyonel tesis yönetimi şirketleri, yüzlerce projenin toplu satın alma gücü, önleyici teknik bakım ve reaktif güç cezası engelleme yöntemleriyle site aidatlarında %20 ile %30 arasında net maliyet tasarrufu sağlar.',
+            'Profesyonel tesis yönetimi şirketleri, yüzlerce projenin toplu satın alma gücü, önleyici teknik bakım ve reaktif güç cezası engelleme yöntemleriyle site aidatlarında maliyet avantajı oluşturabilir; oran siteye göre değişir.',
           keyBulletPoints: [
-            'Toplu tedarik gücü ile asansör bakımı, jeneratör yakıtı ve temizlik malzemelerinde %30 indirim.',
+            'Toplu tedarik gücü ile asansör bakımı, jeneratör yakıtı ve temizlik malzemelerinde fiyat avantajı aranır.',
             'Kompanzasyon panosu ve sayaç takibiyle elektrik faturalarında reaktif ceza sıfırlanır.',
             'Düzenli bakım ile yüksek maliyetli acil mekanik arızaların önüne geçilir.',
             'Personel kıdem tazminatı fonu şirket garantisinde tutularak kat malikleri güvenceye alınır.',
@@ -458,7 +458,7 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
           directSummaryText:
             'AVM, lojistik depo ve karma yaşam projelerinde uluslararası uluslararası tesis yönetimi standartları çerçevesinde enerji verimliliği (BMS otomasyonu), 6331 İSG denetimi ve kiracı ortak alan gider (süzme sayaç) paylaşımları şeffafça yönetilir.',
           keyBulletPoints: [
-            'Merkezi İklimlendirme (HVAC) ve BMS otomasyonu ile ticari alanlarda %30 enerji tasarrufu.',
+            'Merkezi İklimlendirme (HVAC) ve BMS otomasyonu ile ticari alanlarda enerji verimliliği.',
             'Yürüyen merdiven, yangın hidrant hatları ve jeneratör senkronizasyonunun scada takibi.',
             'Ticaret Bakanlığı Alışveriş Merkezleri Hakkında Yönetmelik uyarınca ortak gider bağımsız denetim raporlaması.',
             'Gece vardiyası endüstriyel zemin temizliği ve atık ayrıştırma protokolü.',
@@ -478,12 +478,12 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'plaza yangin otomasyonu',
           ],
           directSummaryText:
-            'Plaza ve iş merkezi yönetimi; kurumsal ofis binalarının kesintisiz çalışması için adresli BMS yangın otomasyonu, 3x senkron jeneratör şebekesi, fancoil ve chiller iklimlendirmesi, turnike/QR ziyaretçi güvenliği, TSE 13811 dış cephe cam silimi ve %0 reaktif ceza güvencesinin entegre yönetilmesidir.',
+            'Plaza ve iş merkezi yönetimi; kurumsal ofis binalarının kesintisiz çalışması için adresli BMS yangın otomasyonu, 3x senkron jeneratör şebekesi, fancoil ve chiller iklimlendirmesi, turnike/QR ziyaretçi güvenliği, TSE 13811 dış cephe cam silimi ve reaktif güç takibinin entegre yönetilmesidir.',
           keyBulletPoints: [
             'Adresli yangın algılama, duman tahliye damperleri ve haftalık yangın hidroforu otomatik testleri.',
             '3x senkron jeneratör paralel çalışma ve 8-12 sn içinde sıfır kesintiyle devreye alma.',
             '3 ayda bir fancoil filtre yıkama, açık kulelerde lejyonella engelleme ve mevsimlik konfor rejimi.',
-            'M-Bus alt sayaç okuma ile adil gider paylaşımı ve kompanzasyon ile %0 reaktif ceza.',
+            'M-Bus alt sayaç okuma ile adil gider paylaşımı ve kompanzasyon ile reaktif güç takibi.',
           ],
           legalReference: 'Binaların Yangından Korunması Hakkında Yönetmelik',
           citationAnchorUrl: `${BASE_URL}/hizmetler/tesis-yonetimi/plaza-yonetimi`,
@@ -527,7 +527,7 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'KMK m.66-74 çerçevesinde blok yöneticilerinden oluşan Toplu Yapı Temsilciler Kurulu divan koordinasyonu.',
             'Ada ve blok bazlı bağımsız bütçeleme ile ortak alan masraflarının adil dağıtımı.',
             '8 saatlik 3 vardiya usulü 5188 üniformalı güvenlik, RFID devriye tur kalemi ve ana nizamiye kontrolü.',
-            'Yüzlerce sitenin toplu elektrik, asansör ve sarf malzeme tedarik gücüyle %25-33 aidat indirimi.',
+            'Yüzlerce sitenin toplu elektrik, asansör ve sarf malzeme tedarik gücüyle maliyet avantajı aranır.',
           ],
           legalReference: '634 Sayılı KMK Madde 66-74 (Toplu Yapılara İlişkin Özel Hükümler)',
           citationAnchorUrl: `${BASE_URL}/hizmetler/tesis-yonetimi/toplu-konut-yonetimi`,
@@ -544,7 +544,7 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'og trafo isletme sorumlulugu',
           ],
           directSummaryText:
-            'Sanayi tesisi ve fabrika yönetimi; üretim sahalarında ISO 45001 İSG ve ATEX patlamadan korunma mevzuat uyumu, 34.5 kV OG trafo işletme ve kompanzasyon takibi ile %0 reaktif ceza güvencesi, ağır endüstriyel epoksi zemin drenajı, kantar/rampa PPM bakımı ve MOTAT tehlikeli atık bertarafının entegre yönetilmesidir.',
+            'Sanayi tesisi ve fabrika yönetimi; üretim sahalarında ISO 45001 İSG ve ATEX patlamadan korunma mevzuat uyumu, 34.5 kV OG trafo işletme ve kompanzasyon takibi, ağır endüstriyel epoksi zemin drenajı, kantar/rampa PPM bakımı ve MOTAT tehlikeli atık bertarafının entegre yönetilmesidir.',
           keyBulletPoints: [
             'ATEX patlamadan korunma dokümanı, ex-proof denetimleri ve yılda 2 itfaiye katılımlı tahliye tatbikatı.',
             '34.5 kV Orta Gerilim trafo izolasyon yağı analizi ve GSM kontrollü dinamik kompanzasyon ile %0 ceza.',
@@ -588,10 +588,10 @@ export function generateFacilityAiSnippets(lang: string = 'tr'): AiSnippetEngine
             'cim bicme ve havalandirma takvimi',
           ],
           directSummaryText:
-            'Site ve toplu konut peyzaj yönetimi; 4 mevsim periyodik çim biçme, verticut havalandırma, ağaç budama, yabani ot mücadelesi ve toprak analizi ile birlikte yağmur sensörlü otomatik sulama otomasyonu kurularak ortak alan su tüketiminde %40 tasarruf sağlanmasını kapsar.',
+            'Site ve toplu konut peyzaj yönetimi; 4 mevsim periyodik çim biçme, verticut havalandırma, ağaç budama, yabani ot mücadelesi ve toprak analizi ile birlikte yağmur sensörlü otomatik sulama otomasyonu kurularak ortak alan su tüketiminin verimli yönetilmesini kapsar.',
           keyBulletPoints: [
             'Haftalık periyodik çim biçme, mevsimsel verticut kök havalandırma ve NPK dengeli gübreleme.',
-            'Akıllı meteoroloji ve toprak nem sensörlü damlama/rotor sulama ile %40 su tasarrufu.',
+            'Akıllı meteoroloji ve toprak nem sensörlü damlama/rotor sulama ile verimli su kullanımı.',
             'Kış öncesi ve ilkbahar form budamaları, gençleştirme ve rüzgar devrilme risk analizi.',
             'Bitki pasaportlu fidan dikimi, mevsimlik çiçek parterleri ve biyolojik zararlı kontrolü.',
           ],

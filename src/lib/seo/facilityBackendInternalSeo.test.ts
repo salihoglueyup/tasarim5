@@ -26,8 +26,6 @@ describe('Tesis Yönetimi Backend İç SEO ve Semantik Otorite Motorları Test P
       const corpus = buildFacilityAuthorityCorpus('tr');
       expect(corpus.subSectors.length).toBe(5);
       expect(corpus.districtMatrix.length).toBe(39);
-      expect(corpus.provenMetrics.averageCostReductionPercent).toBe(30);
-      expect(corpus.provenMetrics.activeFacilityPortfolioCount).toBeGreaterThanOrEqual(100);
     });
   });
 
