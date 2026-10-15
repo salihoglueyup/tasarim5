@@ -276,7 +276,107 @@ const SPECS: Spec[] = [
   },
 ];
 
-const IMAGE = 'https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop';
+/** İlçeye özgü ek bölümler: yıllık bakım takvimi, ek konu başlıkları ve ilçeye özel seçim sorusu. */
+const EXTRAS: Record<string, { segments: Segment[]; calendar: string[]; question: string }> = {
+  kadikoy: {
+    segments: [
+      { h: 'Kadıköy\'de komşuluk ilişkisi ve toplantı kültürü', p: "Kadıköy'de özellikle eski apartmanlarda kat malikleri birbirini uzun yıllardır tanır; bu, kararların hızlı alınmasını kolaylaştırdığı kadar kayıt tutmayı ihmal etmeye de yol açar. Sözlü anlaşmalar, el yazısı defterler ve fotoğraflanmış fişler zamanla kaybolur. Karar defteri, toplantı çağrısı ve gider belgelerinin düzenli arşivlenmesi, yönetici değiştiğinde süreci kesintisiz sürdürmenin en ucuz yoludur." },
+      { h: 'Kiracılı daireler ve yönetim bildirimleri', p: "Üniversite ve iş merkezlerine yakınlık nedeniyle Kadıköy'de kiracı oranı yüksek binalar çoktur. Aidat ve ortak gider sorumluluğu kat malikine aittir; kiracıyla iletişim ise sözleşmeye göre değişir. Duyuruların hem malike hem fiilen oturan kişiye ulaşması için güncel bir iletişim listesi tutmak toplantı katılımını artırır." },
+    ],
+    calendar: ['Ocak-Şubat: yıllık işletme projesi ve genel kurul hazırlığı', 'Nisan-Mayıs: çatı, oluk ve cephe kontrolü (yağış sezonu sonrası)', 'Haziran: havuzlu sitelerde sezon açılışı ve hijyen kontrolü', 'Eylül-Ekim: kalorifer/kazan bakımı ve yakıt sistemi hazırlığı'],
+    question: 'Eski binalarda asansör, çatı ve tesisat yenilemeleri için bütçeyi yıllara yayan bir bakım planı sunuluyor mu?',
+  },
+  atasehir: {
+    segments: [
+      { h: 'Kurumsal kiracı ve ziyaretçi trafiği', p: "Ofis ve konutun yakın olduğu bölgelerde ziyaretçi, kurye ve servis trafiği konut sitelerinden çok daha yüksektir. Girişte kimlik ve randevu denetimi, kargo teslim noktası ve otopark kotası gibi kurallar yönetim planı ya da kurul kararıyla yazıya geçirilmezse güvenlik görevlisi her gün sözlü kararlarla çalışmak zorunda kalır." },
+      { h: 'Enerji giderlerinin izlenmesi', p: "Yüksek katlı binalarda ortak alan elektriği, asansör, aydınlatma ve iklimlendirme bütçenin önemli kısmıdır. Aylık tüketimin önceki yılın aynı ayıyla kıyaslanması ve olağan dışı artışların nedeninin araştırılması, küçük kaçakların büyük faturaya dönüşmesini önler." },
+    ],
+    calendar: ['Ocak: işletme projesi ve genel kurul gündemi', 'Mart: jeneratör ve UPS yük testi, yangın sistemi kontrolü', 'Mayıs: iklimlendirme sezon hazırlığı', 'Ekim: asansör periyodik muayene takvimi ve kış hazırlığı'],
+    question: 'Ofis ve konut bölümleri için ayrı gider takibi ve raporlama yapılıyor mu?',
+  },
+  uskudar: {
+    segments: [
+      { h: 'Nem, rutubet ve bodrum katlar', p: "Yamaç ve Boğaz yakınındaki binalarda bodrum ve zemin katlarda rutubet sık görülen bir şikâyettir. Su yalıtımı, drenaj hattı ve sığınak/otopark havalandırması yılda en az bir kez gözle kontrol edilmeli; tespit edilen sorunlar fotoğraf ve tarihle kayda geçirilmelidir. Erken müdahale, kapsamlı tadilat kararını genel kurula taşımadan önce çoğu zaman maliyeti düşürür." },
+      { h: 'Konsiyerj ve girişte karşılama hizmeti', p: "Boğaz'a bakan butik sitelerde karşılama, paket teslimi ve misafir yönlendirmesi gibi hizmetler talep edilebilir. Bu hizmetin güvenlik görevinden farklı bir iş tanımı olduğu, sözleşmede ayrı yazılmalı ve bütçede ayrı kalem olarak gösterilmelidir." },
+    ],
+    calendar: ['Şubat: istinat duvarı, drenaj ve su yalıtımı gözle kontrol', 'Nisan: hidrofor ve pompa bakımı', 'Haziran: bahçe ve havuz sezonu hazırlığı', 'Kasım: çatı, oluk ve yağmur giderleri temizliği'],
+    question: 'Eğimli arazi, drenaj ve nem kontrolleri bakım takvimine yazılı olarak giriyor mu?',
+  },
+  maltepe: {
+    segments: [
+      { h: 'Rüzgâr ve cephe güvenliği', p: "Sahil ve tepe konumundaki yüksek yapılarda rüzgâr; çatı kaplaması, cephe elemanları, tabela ve balkon eşyaları için risk oluşturabilir. Fırtına öncesi balkon eşyaları için duyuru yapılması ve cephe elemanlarının periyodik gözle kontrolü hem can hem mal güvenliği açısından basit ama etkili önlemlerdir." },
+      { h: 'Sosyal tesislerin işletilmesi', p: "Geniş kapalı sitelerde spor salonu, havuz ve çocuk alanı gibi tesislerin kullanım saatleri, kuralları ve bakım giderleri açık yazılmalıdır. Tesisi az kullanan malikler ile çok kullananlar arasında gider paylaşımı tartışması sıktır; yönetim planı ve kurul kararı bu noktada belirleyicidir." },
+    ],
+    calendar: ['Ocak: işletme projesi ve geçici proje takibi', 'Mart: cephe ve balkon korkulukları kontrolü', 'Mayıs: havuz ve sosyal tesis sezon hazırlığı', 'Ekim: asansör bakımı ve kış öncesi çatı/oluk kontrolü'],
+    question: 'Sahil ve rüzgâr etkisine yönelik cephe ve asansör kontrolleri sözleşmede ayrı kalem olarak yer alıyor mu?',
+  },
+  kartal: {
+    segments: [
+      { h: 'Devir teslim belgeleri neden önemlidir?', p: "Yeni yapılarda teslim sonrası çıkan eksikler ve ortak alan arızaları, müteahhit sorumluluğu ile yönetim sorumluluğu arasındaki sınırın bulanıklaşmasına yol açar. Teslim tutanağı, eksik listesi, ekipman garanti belgeleri ve proje arşivinin düzenli saklanması hem hak kaybını önler hem de ileride yönetim değişse bile sürekliliği sağlar." },
+      { h: 'Metro çevresindeki yoğunlaşma', p: "Soğanlık ve metro çevresindeki yeni projelerde nüfus yoğunluğu otopark, çöp toplama, asansör kullanımı ve ortak alan temizliği giderlerini artırır. Kullanım yoğunluğuna göre temizlik ve teknik bakım sıklığının ayarlanması gerekir." },
+    ],
+    calendar: ['Ocak-Şubat: ilk yıl veya yeni dönem işletme projesi', 'Nisan: garanti kapsamındaki ekipman kontrol listesi', 'Eylül: sahil bandındaki yapılarda cephe ve korozyon kontrolü', 'Kasım: kazan, kalorifer ve yangın ekipmanı bakımı'],
+    question: 'Yeni teslim edilen sitelerde devir teslim ve garanti takibini kim, nasıl yürütüyor?',
+  },
+  umraniye: {
+    segments: [
+      { h: 'Kule ve rezidanslarda kurumsal beklenti', p: "Finanskent çevresindeki kule ve rezidans projelerinde kat malikleri ve kiracılar yönetimden kurumsal düzeyde raporlama bekler. Arıza kaydı, müdahale süresi ve bakım geçmişinin sistemli tutulması, hem şikâyet yönetimini hem de genel kurulda hesap vermeyi kolaylaştırır." },
+      { h: 'Büyük sitelerde şikâyet ve talep yönetimi', p: "Yüzlerce daireli sitelerde arıza ve talep bildirimi için tek bir kanal (telefon, uygulama veya yazılı form) belirlemek ve her talebe kayıt numarası vermek gerekir. Kimin ne zaman ne bildirdiğinin kayıtlı olması, sorunların takipsiz kalmasını önler." },
+    ],
+    calendar: ['Ocak: yıllık bütçe ve genel kurul hazırlığı', 'Mart: otopark ve zemin kat su baskını kontrolü', 'Mayıs: iklimlendirme ve havalandırma bakımı', 'Ekim: yangın sistemleri ve tahliye tatbikatı planı'],
+    question: 'Talepler için tek kanallı, kayıt numaralı ve raporlanabilir bir takip sistemi var mı?',
+  },
+  besiktas: {
+    segments: [
+      { h: 'Yüksek değerli mülklerde sigorta ve risk', p: "Değeri yüksek binalarda zorunlu deprem sigortasının (DASK) yanı sıra yapı ve sorumluluk sigortalarının kapsamı da gözden geçirilmelidir. Poliçe teminatlarının yıllık olarak kontrol edilmesi, hasar anında kapsam tartışmasını önler." },
+      { h: 'Etkinlik ve yoğun ziyaretçi dönemleri', p: "Ortaköy ve Bebek gibi turistik bölgelerde hafta sonu ve yaz dönemlerinde ziyaretçi yoğunluğu artar. Giriş kontrolü, çöp toplama ve ortak alan temizliği bu dönemlere göre planlanmalıdır." },
+    ],
+    calendar: ['Ocak: poliçe ve sözleşme yenileme takvimi', 'Mart: Boğaz hattında cephe ve balkon kontrolü', 'Mayıs: peyzaj ve havuz sezon açılışı', 'Ekim: asansör ve jeneratör periyodik kontrolleri'],
+    question: 'Sigorta poliçeleri ve sözleşme yenilemeleri için yıllık bir takvim sunuluyor mu?',
+  },
+  sisli: {
+    segments: [
+      { h: 'Ticari yoğunlukta çöp, yük ve servis girişleri', p: "Plaza ve ofis çevresinde yük, kurye ve servis araçları için ayrı giriş saatleri ve noktaları tanımlanması, konut sakinlerinin günlük yaşamını rahatlatır. Atık toplama saatleri ve ayrıştırma kuralları da yazılı olmalıdır." },
+      { h: 'Gürültü ve komşuluk uyuşmazlıkları', p: "Konut ve işyerinin iç içe olduğu binalarda gürültü, çalışma saatleri ve ortak alan kullanımı uyuşmazlıkları sık görülür. Yönetim planındaki kullanım kuralları ve gerekirse kurul kararıyla belirlenen saat sınırları, şikâyetlerin kişiselleşmesini engeller." },
+    ],
+    calendar: ['Ocak: işletme projesi ve genel kurul', 'Mart: merkezi iklimlendirme ve bina otomasyonu bakımı', 'Mayıs: yangın algılama ve tahliye sistemi testi', 'Ekim: asansör periyodik kontrolleri ve jeneratör testi'],
+    question: 'Ticari ve konut bölümleri için ayrı kullanım kuralları ve gider kalemleri tanımlı mı?',
+  },
+  sariyer: {
+    segments: [
+      { h: 'Orman komşuluğu ve doğa kaynaklı riskler', p: "Orman ve vadi komşuluğu olan sitelerde kuru ağaç ve dal temizliği, yangın güvenliği ve yaban hayvanı kaynaklı sorunlar yönetimin gündemine girer. Mevsime göre budama ve çevre temizliği planı hem güvenliği hem peyzaj bakımını destekler." },
+      { h: 'Havuz ve sulama sistemlerinin mevsimsel yönetimi', p: "Havuz sezonu açılışı, kış kapatma, sulama sisteminin donmaya karşı boşaltılması gibi işler yılın belirli zamanlarında yoğunlaşır. Bu işlerin takvimle bütçeye yayılması ve yüklenici sözleşmelerinde zamanlamanın yazılı olması önemlidir." },
+    ],
+    calendar: ['Şubat: kuru dal, ağaç ve yangın güvenliği kontrolü', 'Nisan: sulama sistemi devreye alma, havuz sezon hazırlığı', 'Eylül: havuz kış kapatma planı', 'Kasım: yağmur giderleri, oluk ve yol temizliği'],
+    question: 'Mevsimsel işler (budama, havuz, sulama) için takvimli ve ayrı kalemli bir plan sunuluyor mu?',
+  },
+  bakirkoy: {
+    segments: [
+      { h: 'Yenileme bütçesini etaplandırma', p: "Yaşı ilerlemiş sitelerde yenileme ihtiyaçlarını bir arada yapmak aidatı aniden yükseltir. İhtiyaçları aciliyet sırasına koyup yıllara yaymak, kat maliklerinin ödeme gücünü korur. Her iş için keşif, en az iki teklif ve yazılı karar yöntemi izlenmelidir." },
+      { h: 'Sahil rüzgârı ve tuzlu hava', p: "Marmara kıyısına yakın yapılarda tuzlu hava metal aksamı ve elektrik panolarını etkiler. Panolar, kapı kilitleri ve dış cephe metal elemanlarının düzenli kontrolü ve gerektiğinde koruyucu boyası arızaları önler." },
+    ],
+    calendar: ['Ocak: bütçe ve yenileme planı', 'Nisan: cephe, balkon ve çatı kontrolü', 'Haziran: havuz ve sosyal alan sezonu', 'Ekim: asansör, kazan ve elektrik pano bakımı'],
+    question: 'Büyük yenileme işleri için etaplı bütçe ve çoklu teklif usulü uygulanıyor mu?',
+  },
+  basaksehir: {
+    segments: [
+      { h: 'Okul, park ve sosyal alan yoğunluğu', p: "Aile yaşamının ağırlıkta olduğu sitelerde çocuk alanları, park, okul servisleri ve otopark kullanımı günlük konulardır. Ortak alan kullanım kuralları ve oyun alanı güvenlik kontrolleri düzenli yapılmalıdır." },
+      { h: 'Merkezi sistemler ve enerji', p: "Büyük yerleşimlerde merkezi ısıtma, hidrofor ve sulama sistemleri ölçeklendikçe arızanın etkisi de büyür. Yedek ekipman, bakım sözleşmesi ve arıza durumunda iletişim planı önceden belirlenmelidir." },
+    ],
+    calendar: ['Ocak: bütçe ve genel kurul hazırlığı', 'Mart: oyun alanı ve park güvenlik kontrolü', 'Mayıs: peyzaj sulama ve gölet bakımı', 'Ekim: merkezi ısıtma ve kazan bakımı'],
+    question: 'Büyük ölçekli sitelerde birimler arası (muhasebe, teknik, güvenlik) koordinasyon nasıl sağlanıyor?',
+  },
+  beylikduzu: {
+    segments: [
+      { h: 'Otopark, trafik ve giriş çıkış düzeni', p: "Binlerce dairelik sitelerde sabah ve akşam saatlerinde giriş çıkış yoğunluğu oluşur. Plaka tanıma, ziyaretçi kartı ve geçici park uygulamaları kurulabilir; ancak bunların kişisel verilerin korunması mevzuatına uygun işletilmesi gerekir." },
+      { h: 'Yaşam Vadisi ve park çevresi siteleri', p: "Park komşuluğu olan sitelerde peyzaj ve sulama bakımı, çevre temizliği ve güvenlik devriyesi planlanırken ortak parkın belediye alanı olduğu unutulmamalı; site sınırı ve sorumluluk alanı net tanımlanmalıdır." },
+    ],
+    calendar: ['Ocak: işletme projesi ve bütçe', 'Mart: cephe, çatı ve balkon korkulukları kontrolü', 'Mayıs: havuz ve sosyal tesis sezon açılışı', 'Ekim: asansör bakımı, kazan ve kış hazırlığı'],
+    question: 'Giriş çıkış ve otopark uygulamaları kişisel veri mevzuatına uygun şekilde kuruluyor mu?',
+  },
+};
+
+const IMAGE ='https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop';
 const EXCLUDED_REF = /Çocuk ve Gençlik Merkezi/;
 
 function build(s: Spec): Post {
@@ -284,6 +384,7 @@ function build(s: Spec): Post {
   const utilities = s.side === 'Anadolu'
     ? `${s.name} Anadolu Yakası'nda olduğundan elektrik dağıtımı AYEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür.`
     : `${s.name} Avrupa Yakası'nda olduğundan elektrik dağıtımı BEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür.`;
+  const x = EXTRAS[s.slug];
   const refs = REAL_REFERENCES.filter((r) => r.district === s.name && !EXCLUDED_REF.test(r.name)).slice(0, 3).map((r) => r.name);
   const refText = refs.length
     ? `Referans listemizde ${s.loc} ${refs.join(', ')} gibi kurumlar bulunur; tam liste Referanslar sayfasındadır.`
@@ -299,7 +400,10 @@ function build(s: Spec): Post {
     { type: 'h2', text: 'Mahalle mahalle: ne öne çıkar?' },
     { type: 'table', headers: ['Mahalle', 'Tipik yapı', 'Yönetimde öne çıkan konular'], rows: s.rows },
     { type: 'p', text: 'Bu tablo genel bir çerçevedir; her bina için gerçek ihtiyaç, yönetim planı ve bina yaşı gibi verilere bakılarak belirlenmelidir.' },
-    ...s.segments.flatMap((g): PostBlock[] => [{ type: 'h2', text: g.h }, { type: 'p', text: g.p }]),
+    ...[...s.segments, ...x.segments].flatMap((g): PostBlock[] => [{ type: 'h2', text: g.h }, { type: 'p', text: g.p }]),
+    { type: 'h2', text: `${s.name} için örnek yıllık yönetim takvimi` },
+    { type: 'p', text: 'Aşağıdaki takvim genel bir örnektir; gerçek plan binanın yaşı, sistemleri ve yönetim planına göre hazırlanmalıdır.' },
+    { type: 'ul', items: x.calendar },
     { type: 'h2', text: s.focus.h },
     { type: 'p', text: s.focus.p },
     { type: 'h2', text: 'Genel kurul, işletme projesi ve aidat: adımlar' },
@@ -323,6 +427,7 @@ function build(s: Spec): Post {
         'Aylık gelir-gider raporu ve harcama belgeleri kat maliklerine açık mı?',
         `Acil teknik müdahale için yazılı bir süre hedefi var mı? (Alo Yönetim'in yazılı SLA kapsamındaki hedefi ${s.side} Yakası'nda ${emergency} olarak belirlenmiştir; süre sözleşmedeki hükümlere bağlıdır.)`,
         'Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle mi veriliyor?',
+        x.question,
         'Sözleşmeden çıkış ve devir-teslim koşulları yazılı mı?',
       ],
     },

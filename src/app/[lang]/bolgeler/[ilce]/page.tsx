@@ -25,6 +25,7 @@ import { DISTRICTS, getDistrict, type NeighborhoodInfo } from '@/data/districts'
 import { SERVICES } from '@/data/services';
 import { REAL_REFERENCES } from '@/data/realReferences';
 import { FACTS } from '@/lib/facts';
+import { DISTRICT_GUIDES } from '@/data/districtGuides';
 import { getNeighborDistrictLinks, getCrossSideDistrictLinks } from '@/lib/seo/facility/districtCrossLinker';
 import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
 
@@ -140,6 +141,7 @@ export default async function DistrictPage({
     speakableSelectors: ['h1', '.tldr'],
   });
 
+  const guide = DISTRICT_GUIDES.find((g) => g.pillar === `/bolgeler/${district.slug}/site-yonetimi`);
   const neighborLinks = getNeighborDistrictLinks(district.slug, lang);
   const crossSideLinks = getCrossSideDistrictLinks(district.slug, lang);
 
@@ -252,6 +254,18 @@ export default async function DistrictPage({
             ))}
           </div>
         </div>
+
+        {/* İlçe rehberi (yalnızca Türkçe yayımlanır) */}
+        {lang === 'tr' && guide && (
+          <Link
+            href={`/blog/${district.slug}-site-yonetimi-rehberi-2026`}
+            className="block rounded-[2rem] border border-[var(--color-outline)]/60 bg-[var(--color-surface)] p-6 hover:border-brand-500 transition-colors"
+          >
+            <span className="text-xs font-semibold uppercase tracking-wide text-brand-600 dark:text-brand-400">Rehber</span>
+            <span className="mt-1 block text-lg font-bold text-[var(--color-primary)]">{guide.title}</span>
+            <span className="mt-1 block text-sm text-[var(--color-on-surface-variant)]">Mahalle farkları, KMK adımları ve yönetim şirketi seçerken sorulacak sorular.</span>
+          </Link>
+        )}
 
         {/* Hiper-Yerel Mahalleler SILO Bağlantı Motoru */}
         <NeighborhoodDirectorySeo
