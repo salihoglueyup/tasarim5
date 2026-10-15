@@ -199,8 +199,8 @@ export const POSTS: Post[] = [
   },
   {
     "slug": "tesis-yonetimi-nedir-kapsami-ve-iso-41001-standartlari",
-    "title": "Tesis Yönetimi Nedir? Kapsamı, ISO 41001 Standartları ve Binalar İçin Önemi (2026 Rehberi)",
-    "description": "Tesis yönetimi (Facility Management) tanımı, uluslararası ISO 41001 standartları, geleneksel apartman yöneticiliğinden farkı ve binalara sağladığı operasyonel verimlilik.",
+    "title": "Tesis Yönetimi Nedir? Kapsamı, Temel Yaklaşımlar ve Binalar İçin Önemi (2026 Rehberi)",
+    "description": "Tesis yönetimi (Facility Management) tanımı, temel yaklaşımlar ve yöntemler, geleneksel apartman yöneticiliğinden farkı ve binalara sağladığı operasyonel verimlilik.",
     "category": "tesis-yonetimi",
     "tags": [
       "tesis yönetimi nedir",
@@ -235,11 +235,11 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "2. ISO 41001:2018 Entegre Tesis Yönetim Standardı ve İlkeleri"
+        "text": "2. Entegre Tesis Yönetiminin Temel İlkeleri"
       },
       {
         "type": "p",
-        "text": "Küresel ölçekte kabul gören ISO 41001:2018 Entegre Tesis Yönetim Sistemi Standardı, kurumsal işletmeciliğin anayasası niteliğindedir. Bu standart tesis yönetiminin şu 4 ana hedefe odaklanmasını şart koşar:"
+        "text": "Kurumsal tesis yönetimi yaklaşımları, tesis yönetiminin şu 4 ana hedefe odaklanmasını öngörür:"
       },
       {
         "type": "ul",
@@ -247,7 +247,7 @@ export const POSTS: Post[] = [
           "Kaynak ve Enerji Verimliliği: Ortak alan enerji tüketimi, su tüketimi ve kimyasal kullanımında ölçülebilir tasarruf hedeflemek.",
           "Operasyonel İş Sürekliliği (Business Continuity): Jeneratör, trafo, hidrofor ve asansör gibi kritik bileşenlerde arıza duruş sürelerini azaltmak.",
           "Yasal Mevzuat Uyumu: 634 Sayılı Kat Mülkiyeti Kanunu (KMK), 5188 Sayılı Özel Güvenlik Kanunu ve 6331 Sayılı İSG Kanunu gereklerini eksiksiz yerine getirmek.",
-          "Müşteri ve Sakin Memnuniyeti (SLA): 7/24 çağrı merkezi ve dijital talep sistemi üzerinden arızalara hızlı müdahale taahhüdü sunmak."
+          "Müşteri ve Sakin Memnuniyeti (SLA): Çağrı merkezi ve dijital talep sistemi üzerinden arızalara hızlı müdahale için yazılı hedefler belirlemek."
         ]
       },
       {
@@ -267,7 +267,7 @@ export const POSTS: Post[] = [
         "items": [
           "Hukuki Güvence Sunar: İşletme projesi tebligatı ve KMK m.20 icra takipleri uzman hukukçularca yürütülür.",
           "Toplu Tedarik Gücü Sağlar: Birden çok projeyi yönetmenin getirdiği satın alma hacmi ile asansör, kimyasal ve sigorta gibi kalemlerde maliyet avantajı hedeflenir.",
-          "7/24 Şeffaf Mobil Takip Sağlar: Sakinler tüm gelir-gider faturalarını ve denetim raporlarını cep telefonu uygulamasından anlık görebilir.",
+          "Şeffaf Mobil Takip Sağlar: Sakinler tüm gelir-gider faturalarını ve denetim raporlarını cep telefonu uygulamasından anlık görebilir.",
           "İşveren Risklerini Azaltır: Kapıcı, güvenlik ve temizlik personelinin kıdem tazminatı ve SGK sorumlulukları kurumsal işveren yapısı altında yürütülür.",
           "Mülk Değerini Korur: Düzenli ve iyi işletilen binalarda dairelerin değerinin korunmasına katkı sağlanır."
         ]
@@ -379,7 +379,7 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "5188 Lisanslı Özel Güvenlik: 7/24 fiziki koruma, CCTV çevre güvenlik kameraları izleme ve plaka tanıma sistemi (PTS) yönetimi (Grup şirketimiz 3G Özel Güvenlik güvencesiyle).",
+          "5188 Lisanslı Özel Güvenlik: fiziki koruma, CCTV çevre güvenlik kameraları izleme ve plaka tanıma sistemi (PTS) yönetimi (Grup şirketimiz 3G Özel Güvenlik güvencesiyle).",
           "Endüstriyel Hijyen ve Temizlik: Ortak alanlar, merdivenler, otoparklar, çöp şutları ve cam cephelerin ruhsatlı kimyasallarla temizliği.",
           "VIP Concierge ve Resepsiyon: Lobi karşılama, kargo/kurye kabul otomasyonu, VIP transfer ve sakin talep yönetimi.",
           "Peyzaj ve Bahçe Bakımı: Çim biçme, mevsimlik budama, otomatik sulama sistemi yönetimi ve bitki besleme.",
@@ -489,7 +489,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Modern sitelerde güvenlik, kapıdaki personelin varlığından çok daha kapsamlı bir stratejidir. T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun uyarınca lisanslı ve eğitimli personellerimizle 7/24 kesintisiz koruma sağlanır."
+        "text": "Modern sitelerde güvenlik, kapıdaki personelin varlığından çok daha kapsamlı bir stratejidir. T.C. İçişleri Bakanlığı 5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun uyarınca lisanslı ve eğitimli personellerimizle vardiya düzeniyle koruma sağlanır."
       },
       {
         "type": "ul",
@@ -585,7 +585,7 @@ export const POSTS: Post[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Hard hizmetler; binanın fiziksel varlıklarını, mekanik ve elektrik altyapısını 7/24 çalışır durumda tutan, can ve mal güvenliğini teminat altına alan teknik işletme disiplinidir.",
+    "tldr": "Hard hizmetler; binanın fiziksel varlıklarını, mekanik ve elektrik altyapısını çalışır durumda tutan, can ve mal güvenliğini teminat altına alan teknik işletme disiplinidir.",
     "content": [
       {
         "type": "p",
@@ -714,7 +714,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Tesis yönetimi ise binanın fiziksel varlığını, teknik cihazlarını, ortak alanlarını, temizliğini ve güvenliğini 7/24 çalışır durumda tutan operasyonel işletme disiplinidir. Binanın kalbini ve ciğerlerini (HVAC, jeneratör, güvenlik, asansör) yaşatır."
+        "text": "Tesis yönetimi ise binanın fiziksel varlığını, teknik cihazlarını, ortak alanlarını, temizliğini ve güvenliğini çalışır durumda tutan operasyonel işletme disiplinidir. Binanın kalbini ve ciğerlerini (HVAC, jeneratör, güvenlik, asansör) yaşatır."
       },
       {
         "type": "h2",
@@ -800,7 +800,7 @@ export const POSTS: Post[] = [
           "Düzenli Aidat Tahsilatı: KMK m.20 kapsamında ihtar ve ilamsız icra takipleriyle borçların diğer maliklere yansımasının önüne geçilmesi hedeflenir.",
           "Komşuluk Huzuru ve Tarafsızlık: Aidat isteme, gürültü ikazı ve kural koyma tartışmaları komşular arasından çıkar; kurumsal ve tarafsız yönetimce yürütülür.",
           "Yasal Uyum ve Ceza Riskinin Azaltılması: Kaçak bekçi çalıştırma, İSG ihlalleri veya asansör kırmızı etiket cezaları kurumsal denetimle azaltılır.",
-          "7/24 Şeffaf Mobil Finansal Takip: Kat malikleri her bir kuruşun nereye harcandığını, kasa mevcudunu ve banka hesap ekstrelerini mobil uygulamadan anlık görür.",
+          "Şeffaf Mobil Finansal Takip: Kat malikleri her bir kuruşun nereye harcandığını, kasa mevcudunu ve banka hesap ekstrelerini mobil uygulamadan anlık görür.",
           "Acil Müdahale SLA Taahhüdü: Asansörde mahsur kalma, ana boru patlaması veya elektrik kesintilerine karşı teknik ekipler hızlı müdahale eder.",
           "Personel Kıdem Tazminatı ve SGK Takibi: Kapıcı ve temizlikçilerin SGK ve kıdem tazminatı yükümlülükleri kurumsal işveren yapısı altında planlı biçimde yönetilir.",
           "Sürdürülebilirlik ve Sıfır Atık: Çevre dostu enerji kullanımının yanı sıra atık yönetimi Sıfır Atık Yönetmeliği ilkelerine uygun şekilde planlanır."
@@ -1019,7 +1019,7 @@ export const POSTS: Post[] = [
   {
     "slug": "luks-rezidanslarda-concierge-ve-tesis-yonetimi-standartlari-2026",
     "title": "Lüks Rezidanslarda Concierge ve 5 Yıldızlı Tesis Yönetimi Standartları (2026 Rehberi)",
-    "description": "A+ lüks rezidans ve karma yaşam projelerinde 7/24 VIP concierge, lobi karşılama, akıllı bina otomasyonu ve KMK 37 bütçe optimizasyonu standartları.",
+    "description": "A+ lüks rezidans ve karma yaşam projelerinde VIP concierge, lobi karşılama, akıllı bina otomasyonu ve KMK 37 bütçe optimizasyonu standartları.",
     "category": "tesis-yonetimi",
     "tags": [
       "rezidans yönetimi",
@@ -1034,7 +1034,7 @@ export const POSTS: Post[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi/rezidans-site-yonetimi",
-    "tldr": "Lüks rezidanslarda 5 yıldızlı tesis yönetimi; 7/24 concierge, VIP güvenlik, önleyici akıllı bina otomasyonu ve KMK 37 bütçe şeffaflığını tek merkezde birleştirir.",
+    "tldr": "Lüks rezidanslarda 5 yıldızlı tesis yönetimi; concierge, VIP güvenlik, önleyici akıllı bina otomasyonu ve KMK 37 bütçe şeffaflığını tek merkezde birleştirir.",
     "content": [
       {
         "type": "p",
@@ -1046,7 +1046,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Rezidans yönetiminin vitrini lobidir. Profesyonel concierge ekibimiz; misafir karşılama, kurye ve kargo kabul otomasyonu, VIP transfer rezervasyonları ve teknik talep yönetimini 7/24 kesintisiz olarak yürütür."
+        "text": "Rezidans yönetiminin vitrini lobidir. Profesyonel concierge ekibimiz; misafir karşılama, kurye ve kargo kabul otomasyonu, VIP transfer rezervasyonları ve teknik talep yönetimini yürütür."
       },
       {
         "type": "ul",
@@ -1063,7 +1063,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Lüks rezidanslarda mahremiyet ve güvenlik en kritik önceliktir. T.C. İçişleri Bakanlığı 5188 sayılı kanun kapsamında lisanslı özel güvenlik personelimiz ve grup şirketimiz 3G Özel Güvenlik desteğiyle tesis güvenliği 7/24 organize edilir."
+        "text": "Lüks rezidanslarda mahremiyet ve güvenlik en kritik önceliktir. T.C. İçişleri Bakanlığı 5188 sayılı kanun kapsamında lisanslı özel güvenlik personelimiz ve grup şirketimiz 3G Özel Güvenlik desteğiyle tesis güvenliği organize edilir."
       },
       {
         "type": "quote",
@@ -1409,11 +1409,11 @@ export const POSTS: Post[] = [
           "1. Akredite kuruluşça verilmiş güncel ISO yönetim sistemi belgeleri (ör. ISO 45001 İSG, ISO 14001 Çevre)",
           "2. T.C. İçişleri Bakanlığı / Emniyet onaylı 5188 Özel Güvenlik Faaliyet İzin Belgesi",
           "3. Belgelerin belge numarası ve belgelendirme kuruluşu üzerinden doğrulanabilir olması",
-          "4. En az 10 yıl sektörel tecrübe ve aktif yönetilen 200+ bağımsız bölüm referansı",
+          "4. En az 10 yıl sektörel tecrübe ve aktif yönetilen bağımsız bölüm referansı",
           "5. Mesleki Sorumluluk ve 3. Şahıs Mali Mesuliyet Sigorta Poliçesi",
           "6. KMK m.37 çerçevesinde şeffaf bütçe ve raporlama",
           "7. Acil teknik arıza müdahale SLA taahhüdü",
-          "8. Sakinlere özel 7/24 mobil aidat, arıza ve otopark takip yazılımı",
+          "8. Sakinlere özel mobil aidat, arıza ve otopark takip yazılımı",
           "9. Hukuki icra ve aidat takip departmanının şirket bünyesinde bulunması",
           "10. Tutanakla yapılan devir teslim ve eksiksiz demirbaş sayım protokolü"
         ]
@@ -1792,7 +1792,7 @@ export const POSTS: Post[] = [
   {
     "slug": "ozel-guvenlik-sirketi-ve-site-guvenlik-yonetimi-2026",
     "title": "Özel Güvenlik Şirketi ve Entegre Site Güvenlik Yönetimi: Nizamiye, Kamera ve Devriye Rehberi",
-    "description": "Sitelerde 7/24 entegre güvenlik operasyonu: nizamiyede kimlik kontrolü, plaka tanıma, çevre güvenlik kameraları ve acil durum müdahale protokolleri.",
+    "description": "Sitelerde entegre güvenlik operasyonu: nizamiyede kimlik kontrolü, plaka tanıma, çevre güvenlik kameraları ve acil durum müdahale protokolleri.",
     "category": "guvenlik",
     "tags": [
       "site güvenlik yönetimi",
@@ -1806,7 +1806,7 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Entegre site güvenliği; eğitimli 5188 personeli, çevre güvenlik kameraları, akıllı plaka tanıma bariyerleri ve 7/24 operasyon merkezi takibi ile sağlam bir koruma oluşturur.",
+    "tldr": "Entegre site güvenliği; eğitimli 5188 personeli, çevre güvenlik kameraları, akıllı plaka tanıma bariyerleri ve operasyon merkezi takibi ile sağlam bir koruma oluşturur.",
     "content": [
       {
         "type": "p",
@@ -1830,7 +1830,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
-        "text": "2. 7/24 CCTV İzleme ve Akıllı Video Analizi"
+        "text": "2. CCTV İzleme ve Akıllı Video Analizi"
       },
       {
         "type": "p",
@@ -2403,7 +2403,7 @@ export const POSTS: Post[] = [
   {
     "slug": "guvenlik-yonetimi-hizmeti-rehberi-2026",
     "title": "Güvenlik Yönetimi Hizmeti Rehberi: Siteler, Rezidanslar ve Plazalar İçin 360 Derece Koruma",
-    "description": "Profesyonel güvenlik yönetimi rehberi: risk değerlendirmesi, elektronik güvenlik entegrasyonu, yangın erken uyarı ve 7/24 operasyon merkezi yönetimi.",
+    "description": "Profesyonel güvenlik yönetimi rehberi: risk değerlendirmesi, elektronik güvenlik entegrasyonu, yangın erken uyarı ve operasyon merkezi yönetimi.",
     "category": "guvenlik",
     "tags": [
       "güvenlik yönetimi rehberi",
@@ -2416,11 +2416,11 @@ export const POSTS: Post[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Profesyonel güvenlik yönetimi; fiziksel güvenlik personeli ile ileri teknoloji elektronik sistemleri birleştirerek mülk değerinin korunmasına katkı sağlar ve 7/24 huzurlu yaşam alanı sunar.",
+    "tldr": "Profesyonel güvenlik yönetimi; fiziksel güvenlik personeli ile ileri teknoloji elektronik sistemleri birleştirerek mülk değerinin korunmasına katkı sağlar ve huzurlu yaşam alanı sunar.",
     "content": [
       {
         "type": "p",
-        "text": "Konut sitelerinde ve ticari plazalarda profesyonel güvenlik yönetimi; yalnızca fiziki insan gücünden ibaret olmayıp, caydırıcı teknoloji altyapısı, standart operasyon prosedürleri (SOP) ve 7/24 denetim ağının uyumlu entegrasyonudur."
+        "text": "Konut sitelerinde ve ticari plazalarda profesyonel güvenlik yönetimi; yalnızca fiziki insan gücünden ibaret olmayıp, caydırıcı teknoloji altyapısı, standart operasyon prosedürleri (SOP) ve denetim ağının uyumlu entegrasyonudur."
       },
       {
         "type": "h2",
@@ -2488,7 +2488,7 @@ export const POSTS: Post[] = [
   {
     "slug": "tesis-yonetimi-hizmeti-rehberi-2026",
     "title": "Tesis Yönetimi Hizmeti Kapsamlı Rehberi (2026): Hard/Soft Hizmetler, SLA ve Bütçe Yönetimi",
-    "description": "Profesyonel tesis yönetimi hizmet rehberi: Entegre tesis işletmesi, ISO 41001 standartları, KPI/SLA performans göstergeleri ve şeffaf dijital raporlama.",
+    "description": "Profesyonel tesis yönetimi hizmet rehberi: Entegre tesis işletmesi, KPI/SLA performans göstergeleri ve şeffaf dijital raporlama.",
     "category": "yonetim",
     "tags": [
       "tesis yönetimi rehberi",
@@ -3500,9 +3500,9 @@ export const POSTS: Post[] = [
       {
         "type": "ul",
         "items": [
-          "1. Mali Şeffaflık ve Online ERP Takibi: Kat sakinlerinin 7/24 mobil uygulama üzerinden sitenin banka hesabını, gelir-gider faturalarını ve kasa bakiyesini kuruşu kuruşuna görebilmesi.",
+          "1. Mali Şeffaflık ve Online ERP Takibi: Kat sakinlerinin mobil uygulama üzerinden sitenin banka hesabını, gelir-gider faturalarını ve kasa bakiyesini kuruşu kuruşuna görebilmesi.",
           "2. 5188 Sayılı Kanun ve Güvenlik Lisansı: Şirketin bünyesinde Alo Güvenlik (guvenlikkursu.com) ve 3G Güvenlik (3gguvenlik.com) gibi lisanslı kurumsal güvenlik güvencesi bulunması.",
-          "3. Kadrolu Teknik Servis ve Mühendislik: Dışarıdan pahalı taşeronlar yerine firmanın kendi bünyesinde elektrik/makine mühendisleri ve 7/24 nöbetçi teknisyen barındırması.",
+          "3. Kadrolu Teknik Servis ve Mühendislik: Dışarıdan pahalı taşeronlar yerine firmanın kendi bünyesinde elektrik/makine mühendisleri ve nöbetçi teknisyen barındırması.",
           "4. Hukuk ve İcra Departmanı Gücü: Aidat alacaklarının gecikmeksizin tahsili için tam zamanlı kat mülkiyeti avukatı kadrosunun bulunması.",
           "5. Referans Proje Büyüklüğü: Benzer ölçekte (500-1000+ konut veya A+ plaza) başarılı yönetim referanslarına sahip olması.",
           "6. Kalite ve Yönetim Sertifikaları: Akredite kuruluşlarca verilmiş güncel ISO 45001 İSG ve ISO 14001 Çevre gibi yönetim sistemi belgelerinin bulunması.",

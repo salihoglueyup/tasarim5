@@ -41,8 +41,8 @@ export const POSTS_META: PostMeta[] = [
   },
   {
     "slug": "tesis-yonetimi-nedir-kapsami-ve-iso-41001-standartlari",
-    "title": "Tesis Yönetimi Nedir? Kapsamı, ISO 41001 Standartları ve Binalar İçin Önemi (2026 Rehberi)",
-    "description": "Tesis yönetimi (Facility Management) tanımı, uluslararası ISO 41001 standartları, geleneksel apartman yöneticiliğinden farkı ve binalara sağladığı operasyonel verimlilik.",
+    "title": "Tesis Yönetimi Nedir? Kapsamı, Temel Yaklaşımlar ve Binalar İçin Önemi (2026 Rehberi)",
+    "description": "Tesis yönetimi (Facility Management) tanımı, temel yaklaşımlar ve yöntemler, geleneksel apartman yöneticiliğinden farkı ve binalara sağladığı operasyonel verimlilik.",
     "category": "tesis-yonetimi",
     "tags": [
       "tesis yönetimi nedir",
@@ -116,7 +116,7 @@ export const POSTS_META: PostMeta[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/teknik-bakim",
-    "tldr": "Hard hizmetler; binanın fiziksel varlıklarını, mekanik ve elektrik altyapısını 7/24 çalışır durumda tutan, can ve mal güvenliğini teminat altına alan teknik işletme disiplinidir."
+    "tldr": "Hard hizmetler; binanın fiziksel varlıklarını, mekanik ve elektrik altyapısını çalışır durumda tutan, can ve mal güvenliğini teminat altına alan teknik işletme disiplinidir."
   },
   {
     "slug": "mulk-yonetimi-ile-tesis-yonetimi-arasindaki-farklar-nelerdir",
@@ -197,7 +197,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "luks-rezidanslarda-concierge-ve-tesis-yonetimi-standartlari-2026",
     "title": "Lüks Rezidanslarda Concierge ve 5 Yıldızlı Tesis Yönetimi Standartları (2026 Rehberi)",
-    "description": "A+ lüks rezidans ve karma yaşam projelerinde 7/24 VIP concierge, lobi karşılama, akıllı bina otomasyonu ve KMK 37 bütçe optimizasyonu standartları.",
+    "description": "A+ lüks rezidans ve karma yaşam projelerinde VIP concierge, lobi karşılama, akıllı bina otomasyonu ve KMK 37 bütçe optimizasyonu standartları.",
     "category": "tesis-yonetimi",
     "tags": [
       "rezidans yönetimi",
@@ -212,7 +212,7 @@ export const POSTS_META: PostMeta[] = [
     "dateModified": "2026-02-24T14:00:00.000Z",
     "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/tesis-yonetimi/rezidans-site-yonetimi",
-    "tldr": "Lüks rezidanslarda 5 yıldızlı tesis yönetimi; 7/24 concierge, VIP güvenlik, önleyici akıllı bina otomasyonu ve KMK 37 bütçe şeffaflığını tek merkezde birleştirir."
+    "tldr": "Lüks rezidanslarda 5 yıldızlı tesis yönetimi; concierge, VIP güvenlik, önleyici akıllı bina otomasyonu ve KMK 37 bütçe şeffaflığını tek merkezde birleştirir."
   },
   {
     "slug": "ticari-plazalarda-hvac-ve-leed-tesis-enerji-verimliligi",
@@ -372,7 +372,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "ozel-guvenlik-sirketi-ve-site-guvenlik-yonetimi-2026",
     "title": "Özel Güvenlik Şirketi ve Entegre Site Güvenlik Yönetimi: Nizamiye, Kamera ve Devriye Rehberi",
-    "description": "Sitelerde 7/24 entegre güvenlik operasyonu: nizamiyede kimlik kontrolü, plaka tanıma, çevre güvenlik kameraları ve acil durum müdahale protokolleri.",
+    "description": "Sitelerde entegre güvenlik operasyonu: nizamiyede kimlik kontrolü, plaka tanıma, çevre güvenlik kameraları ve acil durum müdahale protokolleri.",
     "category": "guvenlik",
     "tags": [
       "site güvenlik yönetimi",
@@ -386,7 +386,7 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Entegre site güvenliği; eğitimli 5188 personeli, çevre güvenlik kameraları, akıllı plaka tanıma bariyerleri ve 7/24 operasyon merkezi takibi ile sağlam bir koruma oluşturur.",
+    "tldr": "Entegre site güvenliği; eğitimli 5188 personeli, çevre güvenlik kameraları, akıllı plaka tanıma bariyerleri ve operasyon merkezi takibi ile sağlam bir koruma oluşturur.",
     "dateModified": "2026-02-24T18:00:00.000Z"
   },
   {
@@ -514,7 +514,7 @@ export const POSTS_META: PostMeta[] = [
   {
     "slug": "guvenlik-yonetimi-hizmeti-rehberi-2026",
     "title": "Güvenlik Yönetimi Hizmeti Rehberi: Siteler, Rezidanslar ve Plazalar İçin 360 Derece Koruma",
-    "description": "Profesyonel güvenlik yönetimi rehberi: risk değerlendirmesi, elektronik güvenlik entegrasyonu, yangın erken uyarı ve 7/24 operasyon merkezi yönetimi.",
+    "description": "Profesyonel güvenlik yönetimi rehberi: risk değerlendirmesi, elektronik güvenlik entegrasyonu, yangın erken uyarı ve operasyon merkezi yönetimi.",
     "category": "guvenlik",
     "tags": [
       "güvenlik yönetimi rehberi",
@@ -527,13 +527,13 @@ export const POSTS_META: PostMeta[] = [
     "datePublished": "2026-08-06T08:00:00+03:00",
     "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop",
     "pillar": "/hizmetler/guvenlik-yonetimi",
-    "tldr": "Profesyonel güvenlik yönetimi; fiziksel güvenlik personeli ile ileri teknoloji elektronik sistemleri birleştirerek mülk değerinin korunmasına katkı sağlar ve 7/24 huzurlu yaşam alanı sunar.",
+    "tldr": "Profesyonel güvenlik yönetimi; fiziksel güvenlik personeli ile ileri teknoloji elektronik sistemleri birleştirerek mülk değerinin korunmasına katkı sağlar ve huzurlu yaşam alanı sunar.",
     "dateModified": "2026-02-24T19:15:00.000Z"
   },
   {
     "slug": "tesis-yonetimi-hizmeti-rehberi-2026",
     "title": "Tesis Yönetimi Hizmeti Kapsamlı Rehberi (2026): Hard/Soft Hizmetler, SLA ve Bütçe Yönetimi",
-    "description": "Profesyonel tesis yönetimi hizmet rehberi: Entegre tesis işletmesi, ISO 41001 standartları, KPI/SLA performans göstergeleri ve şeffaf dijital raporlama.",
+    "description": "Profesyonel tesis yönetimi hizmet rehberi: Entegre tesis işletmesi, KPI/SLA performans göstergeleri ve şeffaf dijital raporlama.",
     "category": "yonetim",
     "tags": [
       "tesis yönetimi rehberi",
