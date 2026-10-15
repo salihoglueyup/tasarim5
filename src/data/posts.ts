@@ -816,6 +816,18 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "5. Hangi Durumda Hangisine İhtiyaç Duyarsınız?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kiraya verdiğiniz tek bir daire için: mülk yönetimi.",
+          "Site veya apartmanın ortak alanları için: tesis yönetimi.",
+          "Hem kiraya verilmiş daire hem site yönetimi için: ikisinin birlikte ele alındığı bir paket."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -825,6 +837,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Yurt dışında yaşayan mülk sahipleri için hangi paket uygundur?\nCevap: Hem mülk yönetimi (kira tahsilatı ve vergi) hem de tesis yönetimi (aidat ve bakım takibi) hizmetlerinin bir arada sunulduğu bir paket düşünülebilir."
+      },
+      {
+        "type": "h3",
+        "text": "İkisi aynı firmadan mı alınmalı?"
+      },
+      {
+        "type": "p",
+        "text": "Zorunlu değildir; tek firma koordinasyonu kolaylaştırır. Hangisi seçilirse seçilsin hizmet kapsamı sözleşmede ayrı ayrı yazılmalıdır."
+      },
+      {
+        "type": "h3",
+        "text": "Daire içi bir sorun kime iletilir?"
+      },
+      {
+        "type": "p",
+        "text": "Daire içi sorunlar mülk sahibine veya mülk yönetimine, ortak alan sorunları ise site yönetimine iletilir."
       },
       {
         "type": "cta",
@@ -2078,6 +2106,19 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Borçların Birikmesini Önleyen Uygulamalar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Vade tarihlerinin yönetim planında ve duyurularda net yazılması.",
+          "Vadeden önce hatırlatma yapılması.",
+          "Birden fazla ödeme kanalı sunulması.",
+          "Gecikmelerde süreç ve ihtar adımlarının yazılı prosedüre bağlanması."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -2087,6 +2128,14 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: İcra takibi açmak için avukat tutmak zorunlu mudur?\nCevap: Yönetici şahsen de takip açabilir; ancak usul hataları ve itiraz risklerine karşı uzman bir gayrimenkul icra avukatı ile çalışılması önerilir."
+      },
+      {
+        "type": "h3",
+        "text": "Gecikme tazminatı hangi tutar üzerinden hesaplanır?"
+      },
+      {
+        "type": "p",
+        "text": "Ödenmeyen gider veya avans payı üzerinden, gecikilen süre için hesaplanır. Hesaplama yöntemini ve sürelerini avukatla netleştirin."
       },
       {
         "type": "cta",
@@ -2370,6 +2419,23 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Aidat Artış Önerisini Gerekçelendirmek"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Önceki yılın gerçekleşen gider tablosu.",
+          "Hizmet sözleşmelerindeki artışları gösteren belgeler.",
+          "Enerji ve su giderlerindeki değişim.",
+          "Planlanan büyük bakım veya yenileme işleri."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Artış önerisini kurul toplantısına kalem bazlı bir tabloyla götürmek, tartışmayı yüzdelere değil verilere taşır."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -2387,6 +2453,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Yönetici işletme projesini hazırlar; 7579 sayılı Kanun'dan sonra işletme projesi kat malikleri kurulunda onaylanır."
+      },
+      {
+        "type": "h3",
+        "text": "Aidat artışı için hangi belgeler sunulmalıdır?"
+      },
+      {
+        "type": "p",
+        "text": "Önceki yıl gelir-gider tablosu, sözleşme artışlarını gösteren belgeler ve yeni dönem işletme projesi taslağı."
+      },
+      {
+        "type": "h3",
+        "text": "Aidatı artırmadan tasarruf mümkün müdür?"
+      },
+      {
+        "type": "p",
+        "text": "Teklif karşılaştırması, enerji izleme ve planlı bakımla bazı giderler azaltılabilir; sonuç sitenin yapısına göre değişir."
       },
       {
         "type": "cta",
@@ -2740,6 +2822,28 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Yönetimin Yapabilecekleri"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Yazılı bir acil durum planı hazırlamak.",
+          "Toplanma alanını belirlemek ve işaretlemek.",
+          "Yılda en az bir kez tahliye tatbikatı yapmak.",
+          "Gaz, elektrik ve su ana vanalarının yerini işaretlemek.",
+          "Sakinleri yazılı olarak bilgilendirmek."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "5. Raporu Okurken"
+      },
+      {
+        "type": "p",
+        "text": "Rapor, binanın hangi koşullarda hangi hedefe göre değerlendirildiğini belirtir. Sonuçların yorumlanması lisanslı mühendis ve yetkili kurumun işidir; kat malikleri karar almadan önce raporun kapsamını ve varsayımlarını uzmanından dinlemelidir."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -2757,6 +2861,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Hayır. Bilgi amaçlı deprem dayanıklılık raporu için kararın nasıl alınacağı yönetim planına ve KMK'ya göre belirlenir; 6306 sayılı resmi riskli yapı tespiti için ise tek bir kat malikinin başvurusu kanunen yeterlidir."
+      },
+      {
+        "type": "h3",
+        "text": "Deprem sigortası (DASK) yeterli midir?"
+      },
+      {
+        "type": "p",
+        "text": "DASK zorunlu deprem sigortasıdır ve belirli bir teminat limiti vardır; kapsamı ve limitini güncel mevzuata göre kontrol edin. Yapı güvenliğinin yerini tutmaz."
+      },
+      {
+        "type": "h3",
+        "text": "Rapor ne kadar süre geçerlidir?"
+      },
+      {
+        "type": "p",
+        "text": "Geçerlilik süresi mevzuata ve binada yapılan değişikliklere göre değişir; güncel durumu yetkili kuruluştan teyit edin."
       },
       {
         "type": "cta",
@@ -3749,7 +3869,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Borçlunun ödeme gücü geçici olarak zayıfsa yazılı bir ödeme planı yapılabilir. Gecikme tazminatından vazgeçilmesi veya indirim yapılması gibi kararların kat malikleri kurulu kararıyla ve eşit işlem ilkesine uygun alınması, diğer maliklerin itirazlarını önler."
+        "text": "Borçlunun ödeme gücü geçici olarak zayıfsa yazılı bir ödeme planı yapılabilir. Ödeme planı yapılırken gecikme tazminatının nasıl ele alınacağı hukuk danışmanıyla netleştirilmeli; alınan kararların kat malikleri kurulu kararıyla ve eşit işlem ilkesine uygun olması, diğer maliklerin itirazlarını önler."
       },
       {
         "type": "ul",
@@ -3997,7 +4117,7 @@ export const POSTS: Post[] = [
       },
       {
         "type": "p",
-        "text": "Yönetim planında başka bir yöntem öngörülmemişse genel kural olarak arsa payı oranında; yönetim planı farklı bir ölçü belirleyebilir. Planınızdaki hükme bakın."
+        "text": "KMK m.20 uyarınca, yönetim planında aksi yazmıyorsa kapıcı, kaloriferci, bahçıvan ve bekçi giderlerine tüm kat malikleri eşit oranda, diğer ortak giderlere ise arsa payı oranında katılır. Planınızdaki hükme bakın."
       },
       {
         "type": "cta",
