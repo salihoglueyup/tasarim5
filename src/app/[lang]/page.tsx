@@ -5,8 +5,7 @@ import Hero from '@/components/sections/core/Hero';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { professionalServiceSchema, videoObjectSchema, webPageSchema } from '@/lib/schemas';
 import { getDictionary } from '@/lib/i18n';
-import { prisma } from '@/lib/prisma';
-import { redis } from '@/lib/redis';
+import { CURATED_FAQS } from '@/data/faqCurated';
 
 import { generateFacilityManagementGraph } from '@/lib/seo/facility/facilityTopicGraph';
 
@@ -69,37 +68,9 @@ export default async function Home({ params }: Props) {
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  let dbFaqs: any[] = [];
-  const cacheKeyFaqs = `home_faqs_v2_${lang}`;
-
-  try {
-    const cachedFaqs = await redis.get(cacheKeyFaqs);
-    if (cachedFaqs) dbFaqs = JSON.parse(cachedFaqs);
-  } catch {
-    // Redis offline/error fallback
-  }
-
-  if (dbFaqs.length === 0) {
-    dbFaqs = await prisma.faq.findMany({
-      take: 5,
-      where: {
-        NOT: {
-          question: {
-            contains: 'ilçesinde'
-          }
-        }
-      },
-      orderBy: { order: 'asc' },
-      select: { 
-        question: true, question_en: true, question_ru: true, question_ar: true,
-        answer: true, answer_en: true, answer_ru: true, answer_ar: true
-      }
-    }).catch(() => []);
-
-    if (dbFaqs.length > 0) {
-      redis.setex(cacheKeyFaqs, 3600, JSON.stringify(dbFaqs)).catch(() => {});
-    }
-  }
+  // Anasayfa SSS'si özenle yazılmış statik kaynaktan gelir (aidat, işletme projesi, gecikme tazminatı, yönetici seçimi, hizmetler).
+  const HOME_FAQ_IDS = ['faq-01', 'faq-02', 'faq-05', 'faq-11', 'faq-45'];
+  const dbFaqs: any[] = CURATED_FAQS.filter((f) => HOME_FAQ_IDS.includes(f.id));
 
   const businessLd = professionalServiceSchema({
     description: t.business_ld_desc || 'Profesyonel mülk ve tesis yönetimi, güvenlik, temizlik ve teknik bakım hizmetleri. Kadıköy merkezli, İstanbul genelinde premium tesis yönetimi sunuyoruz.',
