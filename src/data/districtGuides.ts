@@ -7,6 +7,7 @@
 import type { Post, PostBlock } from './posts';
 import { REAL_REFERENCES } from './realReferences';
 import { FACTS } from '@/lib/facts';
+import { DISTRICT_SCENARIOS } from './districtGuideScenarios';
 
 type Segment = { h: string; p: string };
 type Spec = {
@@ -404,6 +405,8 @@ function build(s: Spec): Post {
     { type: 'h2', text: `${s.name} için örnek yıllık yönetim takvimi` },
     { type: 'p', text: 'Aşağıdaki takvim genel bir örnektir; gerçek plan binanın yaşı, sistemleri ve yönetim planına göre hazırlanmalıdır.' },
     { type: 'ul', items: x.calendar },
+    { type: 'h2', text: `${s.loc} sık karşılaşılan durumlar ve yanıtları` },
+    ...(DISTRICT_SCENARIOS[s.slug] ?? []).flatMap(([q, a]): PostBlock[] => [{ type: 'h3', text: q }, { type: 'p', text: a }]),
     { type: 'h2', text: s.focus.h },
     { type: 'p', text: s.focus.p },
     { type: 'h2', text: 'Genel kurul, işletme projesi ve aidat: adımlar' },
