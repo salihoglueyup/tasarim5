@@ -1606,6 +1606,28 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "3. Sözleşmede Kontrol Edilecekler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Görev tanımı, vardiya sayısı ve personel sayısı.",
+          "Nöbet defteri ve rapor sıklığı.",
+          "Personel değişikliğinde yönetime bildirim şartı.",
+          "Sigorta teminatı ve hasar durumunda sorumluluk dağılımı.",
+          "Fesih ve ceza koşulları."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "4. Teklifleri Karşılaştırırken"
+      },
+      {
+        "type": "p",
+        "text": "Fiyat farkı çoğu zaman personel sayısı, ekipman ve denetim sıklığındaki farktan kaynaklanır. Teklifleri aynı vardiya planı ve aynı ekipman listesi üzerinden karşılaştırın."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -1615,6 +1637,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Güvenlik şirketinin sözleşme süresi ne olmalıdır?\nCevap: Genellikle sözleşmeler 1 yıllık yapılır; performans değerlendirmesine ve SLA memnuniyetine göre her yıl yenilenir."
+      },
+      {
+        "type": "h3",
+        "text": "Güvenlik personeli kimin çalışanıdır?"
+      },
+      {
+        "type": "p",
+        "text": "Şirketle hizmet sözleşmesi yapılıyorsa personel şirketin çalışanıdır; işçilik, SGK ve izin yükümlülükleri şirkete aittir. Bunun sözleşmede yazılı olması yönetimi korur."
+      },
+      {
+        "type": "h3",
+        "text": "Hizmet kalitesi nasıl ölçülür?"
+      },
+      {
+        "type": "p",
+        "text": "Nöbet defteri, devriye kayıtları, olay raporları ve kat maliklerinden gelen geri bildirimler üzerinden, sözleşmede tanımlı göstergelerle."
       },
       {
         "type": "cta",
@@ -1770,6 +1808,23 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "3. Başvuru Öncesi Hazırlık Listesi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Yönetim planı ve karar defteri kopyası.",
+          "Güvenlik noktalarını gösteren güncel kroki.",
+          "Çalışacak personel sayısı ve vardiya planı.",
+          "Hizmet sözleşmesi ve sigorta taslakları."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Güncel başvuru şartları, formlar ve ücretler zaman içinde değişebileceğinden başvurudan önce ilgili valilik biriminden veya İçişleri Bakanlığı mevzuatından teyit alın."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -1779,6 +1834,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: ÖGİ başvuru sürecini kim takip eder?\nCevap: Alo Yönetim ve grup şirketimiz 3G Güvenlik, dosya hazırlık ve Valilik takip süreçlerinde site yönetimi adına destek verebilir."
+      },
+      {
+        "type": "h3",
+        "text": "Küçük apartmanlarda da izin gerekir mi?"
+      },
+      {
+        "type": "p",
+        "text": "Yükümlülük, güvenlik hizmetinin türüne ve kapsamına göre değişir. Hangi durumda izin gerektiğini ilgili valilik birimine veya hukuk danışmanına sorun."
+      },
+      {
+        "type": "h3",
+        "text": "Başvuruyu kim yürütür?"
+      },
+      {
+        "type": "p",
+        "text": "Kat malikleri kurulu karar verir; başvuruyu genellikle yönetici veya görevli yönetim şirketi yürütür."
       },
       {
         "type": "cta",
@@ -1843,6 +1914,56 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Sitenin yangın merdivenleri, kapalı otoparkları, sığınakları ve çevre çitleri boyunca yerleştirilen RFID kontrol noktaları, güvenlik görevlilerimiz tarafından periyodik olarak taranır ve kayıtlar raporlanır."
+      },
+      {
+        "type": "h2",
+        "text": "4. Acil Durum ve Olay Müdahale Planı"
+      },
+      {
+        "type": "p",
+        "text": "Güvenlik yönetiminin başarısı, olağan günlerde değil olağandışı anlarda ortaya çıkar. Yazılı bir acil durum planı şu başlıkları kapsamalıdır:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Olay bildirimi akışı: kim kimi, hangi sırayla arar.",
+          "Yangın ve tahliye prosedürü.",
+          "Sağlık acil durumu ve ambulans yönlendirmesi.",
+          "Elektrik kesintisi ve jeneratör devreye alma.",
+          "Deprem sonrası kontrol ve toplanma alanı."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Planın bir yazılı kopyası güvenlik odasında bulunmalı ve yılda en az bir kez tatbikatla denenmelidir."
+      },
+      {
+        "type": "h2",
+        "text": "5. Raporlama ve Denetim"
+      },
+      {
+        "type": "p",
+        "text": "Aylık olay raporu, devriye kayıtları ve kamera arıza listesi yönetime düzenli sunulmalıdır. Kayıtların karşılaştırılabilir olması, güvenlik hizmetinin sözleşmedeki hedeflere uygun yürüyüp yürümediğini objektif biçimde gösterir."
+      },
+      {
+        "type": "h2",
+        "text": "Sıkça Sorulan Sorular (SSS)"
+      },
+      {
+        "type": "h3",
+        "text": "Kamera sayısı nasıl belirlenir?"
+      },
+      {
+        "type": "p",
+        "text": "Risk analizine göre; giriş-çıkışlar, otopark, çevre sınırı ve ortak alanlar önceliklidir. Kör nokta taraması keşif sırasında yapılır."
+      },
+      {
+        "type": "h3",
+        "text": "Misafir onayı mobil uygulamayla verilebilir mi?"
+      },
+      {
+        "type": "p",
+        "text": "Teknik olarak mümkündür; uygulamanın kişisel veri ve erişim güvenliği açısından değerlendirilmesi gerekir."
       },
       {
         "type": "cta",
@@ -2374,6 +2495,27 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Devir Sonrası İlk 90 Günlük Plan"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "İlk hafta: anahtar, şifre, sayaç ve abonelik kayıtlarını teslim alın.",
+          "İlk ay: mevcut hizmet sözleşmelerinin envanterini çıkarın ve hizmet sağlayıcılarla görüşün.",
+          "İkinci ay: ortak alan eksik ve kusur listesini hazırlayın.",
+          "Üçüncü ay: işletme projesini kat malikleri kuruluna sunun; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "5. Eksik ve Kusurların Belgelenmesi"
+      },
+      {
+        "type": "p",
+        "text": "Ortak alanlardaki eksik ve kusurları fotoğraf, tarih ve liste halinde belgeleyin. Garanti süreleri ve ihbar şartlarını kontrol edin; müteahhide bildirimi yazılı ve ispatlanabilir yolla yapın."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -2391,6 +2533,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Henüz satılmamış boş bağımsız bölümlerin aidat ve ortak gider avansları müteahhit firma (inşaat şirketi) tarafından ödenmek zorundadır."
+      },
+      {
+        "type": "h3",
+        "text": "Garanti süresi ne kadardır?"
+      },
+      {
+        "type": "p",
+        "text": "Ekipmana ve sözleşmeye göre değişir. Belgelerdeki süreleri ve ihbar şartlarını kontrol edin."
+      },
+      {
+        "type": "h3",
+        "text": "İlk genel kurul gündemi neler içermelidir?"
+      },
+      {
+        "type": "p",
+        "text": "Yönetici ve denetçi seçimi, işletme projesi, hizmet sözleşmeleri, yönetim planının kontrolü ve devir teslim tutanağının sunulması."
       },
       {
         "type": "cta",
@@ -3459,6 +3617,28 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Yöneticinin Yıllık Görev Takvimi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Yıllık işletme projesini hazırlamak ve kurula sunmak.",
+          "Olağan genel kurulu çağırmak.",
+          "Karar defterini ve işletme defterini düzenli tutmak.",
+          "Sigorta ve periyodik bakımları takip etmek.",
+          "Avans toplamak ve gecikmiş borçları takip etmek."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "7. Yönetici Değişiminde Devir"
+      },
+      {
+        "type": "p",
+        "text": "Yönetici değiştiğinde hesaplar, defterler, belgeler, anahtarlar ve demirbaşlar tutanakla yeni yöneticiye teslim edilmelidir. Banka hesabı, abonelik ve sözleşme kayıtlarının yeni yönetici adına güncellenmesi de devrin parçasıdır."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3468,6 +3648,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Yönetici toplantı yapmadan istifa edebilir mi?\nCevap: Yönetici istifa dilekçesini denetçiye sunarak olağanüstü genel kurul çağrısı yapılmasını talep etmeli ve yeni yönetici seçilene kadar acil işleri vekaleten yürütmelidir."
+      },
+      {
+        "type": "h3",
+        "text": "Yönetici ücretini kim belirler?"
+      },
+      {
+        "type": "p",
+        "text": "Yönetim planında yazılı değilse kat malikleri kurulu karar verir."
+      },
+      {
+        "type": "h3",
+        "text": "Yönetici belgeleri ne kadar saklamalıdır?"
+      },
+      {
+        "type": "p",
+        "text": "Saklama süresini hukuk danışmanına sorun; devir sırasında tüm belgeler yeni yöneticiye teslim edilmelidir."
       },
       {
         "type": "cta",
@@ -3537,6 +3733,32 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Olay Anında İzlenecek Adımlar"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Önce can güvenliğini sağlayın; gerekirse acil çağrı hatlarını arayın.",
+          "Olay yerini ve delilleri koruyun.",
+          "Olayı yazılı tutanağa bağlayın.",
+          "Kamera kayıtlarını saklayın ve yetkili kolluğa teslim edin.",
+          "Yönetimi ve ilgili kişileri bilgilendirin."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Bu adımlar genel bilgi amaçlıdır; olayın niteliğine göre kolluk ve avukat yönlendirmesine uyun."
+      },
+      {
+        "type": "h2",
+        "text": "5. Kamera ve Kişisel Verilere Dikkat"
+      },
+      {
+        "type": "p",
+        "text": "Güvenlik kamerası kayıtları kişisel veri niteliği taşır. Kamera yerleri, kayıt saklama süresi ve erişim yetkisi yazılı olarak belirlenmeli, kat maliklerine bilgilendirme yapılmalıdır. Kameralar daire içini veya özel yaşam alanlarını görecek şekilde yönlendirilmemelidir."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3554,6 +3776,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Konut sitelerinde güvenlik genellikle silahsızdır. Silahlı görevli istihdamı için Valilik İl Özel Güvenlik Komisyonu'ndan özel gerekçeli karar alınması gerekir."
+      },
+      {
+        "type": "h3",
+        "text": "Kamera kayıtları ne kadar saklanır?"
+      },
+      {
+        "type": "p",
+        "text": "Süre, amaç için gerekli olandan uzun olmamalıdır. Saklama süresini yönetim politikasında yazılı belirleyin ve hukuk danışmanıyla teyit edin."
+      },
+      {
+        "type": "h3",
+        "text": "Ziyaretçi kaydı tutmak zorunlu mu?"
+      },
+      {
+        "type": "p",
+        "text": "Zorunlu olup olmadığı yönetim planı ve izin şartlarına göre değişir. Kayıt tutulacaksa kişisel verilerin korunmasına uygun biçimde ve gerektiği süre kadar saklanmalıdır."
       },
       {
         "type": "cta",
