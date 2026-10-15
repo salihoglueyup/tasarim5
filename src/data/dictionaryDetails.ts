@@ -1,3 +1,5 @@
+import { TERM_DETAILS_2 } from './dictionaryDetails2';
+
 /**
  * Sözlük terimleri için ayrıntılı açıklamalar (yalnızca Türkçe terim sayfalarında gösterilir).
  * Anahtar: termToSlug(term). Yalnızca doğrulanabilir hukuki/teknik bilgi; oran, vaka ve garanti ifadesi içermez.
@@ -8,7 +10,7 @@ export interface TermDetail {
   faq?: [string, string][];
 }
 
-export const TERM_DETAILS: Record<string, TermDetail> = {
+const BASE_DETAILS: Record<string, TermDetail> = {
   aidat: {
     explain: [
       "Aidat, kat malikinin ortak giderlere yaptığı düzenli katkıdır. Elektrik, su, asansör bakımı, temizlik, güvenlik, personel ücretleri ve küçük onarımlar gibi giderler yıllık işletme projesinde gösterilir; her bağımsız bölüme düşen pay aylık avans olarak toplanır.",
@@ -342,3 +344,5 @@ export const TERM_DETAILS: Record<string, TermDetail> = {
     ],
   },
 };
+
+export const TERM_DETAILS: Record<string, TermDetail> = { ...BASE_DETAILS, ...TERM_DETAILS_2 };
