@@ -1,5 +1,1497 @@
 [
  {
+  "slug": "kadikoy-site-yonetimi-rehberi-2026",
+  "title": "Kadıköy'de Site ve Apartman Yönetimi Rehberi (2026)",
+  "description": "Kadıköy'de site ve apartman yönetimi: mahalle farkları, KMK süreçleri, 7579 sayılı Kanun'la değişenler ve yönetim şirketi seçerken sorulacak sorular.",
+  "category": "yonetim",
+  "tags": [
+   "kadıköy",
+   "site yönetimi",
+   "apartman yönetimi",
+   "moda",
+   "caddebostan"
+  ],
+  "author": "alo-yonetim",
+  "datePublished": "2026-10-14T09:00:00.000Z",
+  "dateModified": "2026-10-14T09:00:00.000Z",
+  "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+  "pillar": "/bolgeler/kadikoy/site-yonetimi",
+  "tldr": "Kadıköy'de konut yapısı mahalleden mahalleye değişir; yönetim ihtiyacı da buna göre farklılaşır. Genel kurul, işletme projesi ve aidat takibi KMK'ya göre yürür; 7579 sayılı Kanun işletme projesi ve toplu yapı nisaplarını değiştirdi.",
+  "content": [
+   {
+    "type": "h2",
+    "text": "Kadıköy'de yönetim ihtiyacı neden mahalleden mahalleye değişir?"
+   },
+   {
+    "type": "p",
+    "text": "Kadıköy, Anadolu Yakası'nın en yoğun ve en çeşitli konut ilçelerinden biridir. Tek bir \"Kadıköy sitesi\" yoktur: Moda'da onlarca yıllık, az daireli apartmanlar; Caddebostan ve Suadiye'de havuzlu, kapalı otoparklı sahil siteleri; Bostancı'da konut ve ticaretin iç içe geçtiği karma yapılar; Göztepe'de eski ve yeni binaların yan yana durduğu bir doku görülür. Yönetimden beklenen şey de buna göre değişir."
+   },
+   {
+    "type": "p",
+    "text": "Bu rehber, Kadıköy'de site veya apartman yönetimiyle ilgilenen kat malikleri ve yöneticiler için mahalle bazlı farkları ve Kat Mülkiyeti Kanunu (KMK) çerçevesindeki adımları özetler."
+   },
+   {
+    "type": "h2",
+    "text": "Mahalle mahalle: ne öne çıkar?"
+   },
+   {
+    "type": "table",
+    "headers": [
+     "Mahalle",
+     "Tipik yapı",
+     "Yönetimde öne çıkan konular"
+    ],
+    "rows": [
+     [
+      "Moda",
+      "Tarihi ve eski apartman stoğu",
+      "Bina bakımı, asansör ve tesisat yenileme kararları, az daireli yapılarda aidatın yeterliliği"
+     ],
+     [
+      "Caddebostan",
+      "Sahil hattında yüksek katlı siteler ve rezidanslar",
+      "Havuz, kapalı otopark, güvenlik hizmetlerinin bütçeye yansıması"
+     ],
+     [
+      "Fenerbahçe",
+      "Villa ve rezidans karışımı",
+      "Güvenlik, peyzaj ve ortak alan bakımı"
+     ],
+     [
+      "Göztepe",
+      "Eski ve yeni yapıların karışık olduğu konutlar",
+      "Eski binalarda teknik bakım, aidat takibi"
+     ],
+     [
+      "Bostancı",
+      "Konut ve ticaretin karıştığı hareketli bölge",
+      "Karma kullanımlı binalarda ortak giderlerin adil dağıtımı"
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Bu tablo genel bir çerçevedir; her bina için gerçek ihtiyaç, yönetim planı ve bina yaşı gibi verilere bakılarak belirlenmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Eski apartmanlarda yönetim: Moda ve Göztepe"
+   },
+   {
+    "type": "p",
+    "text": "Eski binalarda en sık gündem asansör, çatı, cephe ve ortak tesisat yenileme kararlarıdır. KMK'ya göre ortak giderler, yönetim planında başka bir yöntem yoksa kat malikleri arasında paylaştırılır; olağan giderler için yönetici avans toplar. Büyük yenilemelerde karar nisapları farklıdır; kararı genel kurula götürmeden önce yönetim planınızı ve gündemi hukuk danışmanıyla kontrol edin."
+   },
+   {
+    "type": "h2",
+    "text": "Havuzlu siteler ve rezidanslar: Caddebostan, Suadiye, Fenerbahçe"
+   },
+   {
+    "type": "p",
+    "text": "Sosyal donatısı fazla olan sitelerde bütçenin büyük kısmı güvenlik, temizlik, havuz ve teknik bakım kalemlerinde toplanır. İki sorun tekrar eder: giderlerin kalem kalem şeffaf gösterilmemesi ve hizmet sözleşmelerinin kapsamının belirsiz kalması. İyi bir işletme projesi bu kalemleri ayrı ayrı yazar; sözleşmede hizmetin kapsamı, raporlama sıklığı ve acil müdahale hedefi açıkça belirtilir."
+   },
+   {
+    "type": "h2",
+    "text": "Kadıköy'de komşuluk ilişkisi ve toplantı kültürü"
+   },
+   {
+    "type": "p",
+    "text": "Kadıköy'de özellikle eski apartmanlarda kat malikleri birbirini uzun yıllardır tanır; bu, kararların hızlı alınmasını kolaylaştırdığı kadar kayıt tutmayı ihmal etmeye de yol açar. Sözlü anlaşmalar, el yazısı defterler ve fotoğraflanmış fişler zamanla kaybolur. Karar defteri, toplantı çağrısı ve gider belgelerinin düzenli arşivlenmesi, yönetici değiştiğinde süreci kesintisiz sürdürmenin en ucuz yoludur."
+   },
+   {
+    "type": "h2",
+    "text": "Kiracılı daireler ve yönetim bildirimleri"
+   },
+   {
+    "type": "p",
+    "text": "Üniversite ve iş merkezlerine yakınlık nedeniyle Kadıköy'de kiracı oranı yüksek binalar çoktur. Aidat ve ortak gider sorumluluğu kat malikine aittir; kiracıyla iletişim ise sözleşmeye göre değişir. Duyuruların hem malike hem fiilen oturan kişiye ulaşması için güncel bir iletişim listesi tutmak toplantı katılımını artırır."
+   },
+   {
+    "type": "h2",
+    "text": "Kadıköy için örnek yıllık yönetim takvimi"
+   },
+   {
+    "type": "p",
+    "text": "Aşağıdaki takvim genel bir örnektir; gerçek plan binanın yaşı, sistemleri ve yönetim planına göre hazırlanmalıdır."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Ocak-Şubat: yıllık işletme projesi ve genel kurul hazırlığı",
+     "Nisan-Mayıs: çatı, oluk ve cephe kontrolü (yağış sezonu sonrası)",
+     "Haziran: havuzlu sitelerde sezon açılışı ve hijyen kontrolü",
+     "Eylül-Ekim: kalorifer/kazan bakımı ve yakıt sistemi hazırlığı"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Kadıköy'de sık karşılaşılan durumlar ve yanıtları"
+   },
+   {
+    "type": "h3",
+    "text": "Moda'daki 8 daireli eski apartmanda asansör yenileme kararı çıkmıyor; ne yapılabilir?"
+   },
+   {
+    "type": "p",
+    "text": "Önce iki-üç firmadan keşif ve kalem kalem teklif alın, bütçeyi aylık avansa yayan bir ödeme planı çıkarın ve gündemi yönetim planındaki nisaba göre yazılı olarak kurula taşıyın. Karar nisabı konusunda hukuk danışmanından görüş almak toplantıyı boşa çıkarmaz."
+   },
+   {
+    "type": "h3",
+    "text": "Bostancı'daki binada zemin kat dükkânlar asansör giderine katılmıyor; bu doğru mu?"
+   },
+   {
+    "type": "p",
+    "text": "Yönetim planı gider paylaşımını arsa payı, bağımsız bölüm sayısı veya kullanım biçimine göre farklı belirleyebilir. Planda açık hüküm yoksa KMK'nın genel kuralı uygulanır; uyuşmazlıkta planın ilgili maddesi ve tapu kayıtları incelenmelidir."
+   },
+   {
+    "type": "h3",
+    "text": "Caddebostan'daki sitede havuz ve otopark giderleri bütçeyi şişiriyor; nasıl şeffaflaştırılır?"
+   },
+   {
+    "type": "p",
+    "text": "İşletme projesinde havuz, otopark, güvenlik ve temizlik kalemlerini ayrı gösterin, aylık gerçekleşen-bütçe tablosunu maliklere sunun ve büyük alımlarda en az üç teklif toplayın."
+   },
+   {
+    "type": "h3",
+    "text": "Kiracısı çok olan binada duyurular ulaşmıyor; toplantı yeter sayısı sağlanamıyor. Çözüm nedir?"
+   },
+   {
+    "type": "p",
+    "text": "Güncel malik iletişim listesi tutun, çağrıyı yazılı ve ispatlanabilir yolla yapın, vekâlet usulünü planda netleştirin. Çağrı kayıtları sonradan itirazlara karşı korur."
+   },
+   {
+    "type": "h2",
+    "text": "Karma kullanımlı binalarda gider paylaşımı"
+   },
+   {
+    "type": "p",
+    "text": "Bostancı gibi zemin katında dükkân, üst katlarında konut bulunan binalarda ortak giderlerin paylaşımı sık tartışma çıkarır. Yönetim planı arsa payı, bağımsız bölüm sayısı veya kullanım biçimine göre farklı bir paylaşım öngörebilir; plan yoksa KMK'nın genel kuralı uygulanır. Paylaşım kuralını denemek için aidat paylaşım hesaplayıcısını kullanabilirsiniz."
+   },
+   {
+    "type": "h2",
+    "text": "Genel kurul, işletme projesi ve aidat: adımlar"
+   },
+   {
+    "type": "ol",
+    "items": [
+     "Yönetici seçimi. KMK m.34'e göre yönetici, kat maliklerinin hem sayı hem de arsa payı bakımından çoğunluğuyla seçilir; profesyonel bir yönetim şirketiyle sözleşme yapılması da bu kararla mümkündür.",
+     "İşletme projesi. KMK m.37 gereği her yıl gider tahmini hazırlanır. 7579 sayılı Kanun (22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete) bu maddeyi değiştirdi: proje kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar. Ayrıntılar için KMK 2026 değişiklikleri sayfasına bakın.",
+     "Aidat ve avans. Gider ve avans payını ödemeyen kat maliki için KMK m.20 uyarınca aylık yüzde beş gecikme tazminatı işler; yönetici veya diğer kat malikleri dava açabilir ya da icra takibi yapabilir.",
+     "Yönetim planı değişikliği. Tek yapılarda KMK m.28/3 uyarınca beşte dört; birden fazla yapıdan oluşan toplu yapılarda m.70 uyarınca üçte iki oy aranır."
+    ]
+   },
+   {
+    "type": "cta",
+    "text": "Aidat paylaşım kuralını kendi sitenizde denemek ister misiniz?",
+    "href": "/hesaplayici",
+    "label": "Aidat paylaşım hesaplayıcısı"
+   },
+   {
+    "type": "h2",
+    "text": "Kadıköy'de elektrik, su ve doğal gaz: abonelik ve devir"
+   },
+   {
+    "type": "p",
+    "text": "Kadıköy Anadolu Yakası'nda olduğundan elektrik dağıtımı AYEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür. Yönetim devrinde ortak alan sayaçlarının abonelik sahibi ve tarifesi kontrol edilmeli, eski borç ve alacak durumu tutanakla ortaya konmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Yönetim şirketi seçerken sorulacaklar"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Sözleşme kalem kalem hizmet kapsamını ve fiyatı içeriyor mu?",
+     "Aylık gelir-gider raporu ve harcama belgeleri kat maliklerine açık mı?",
+     "Acil teknik müdahale için yazılı bir süre hedefi var mı? (Alo Yönetim'in yazılı SLA kapsamındaki hedefi Anadolu Yakası'nda 30 dakika olarak belirlenmiştir; süre sözleşmedeki hükümlere bağlıdır.)",
+     "Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle mi veriliyor?",
+     "Eski binalarda asansör, çatı ve tesisat yenilemeleri için bütçeyi yıllara yayan bir bakım planı sunuluyor mu?",
+     "Sözleşmeden çıkış ve devir-teslim koşulları yazılı mı?"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Kadıköy'de Alo Yönetim"
+   },
+   {
+    "type": "p",
+    "text": "Alo Yönetim'in genel merkezi Osmanağa, Kadıköy'dedir ve 2009'dan beri faaliyet gösterir. Referans listemizde Kadıköy'de Koşuyolu Konakları, Meşeli Gold Park Sitesi, Suryapı Exelence Evleri gibi kurumlar bulunur; tam liste Referanslar sayfasındadır."
+   },
+   {
+    "type": "cta",
+    "text": "Siteniz için Kadıköy site yönetimi hizmetini inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+    "href": "/bolgeler/kadikoy/site-yonetimi",
+    "label": "Kadıköy site yönetimi"
+   },
+   {
+    "type": "h2",
+    "text": "Sık sorulan sorular"
+   },
+   {
+    "type": "h3",
+    "text": "Eski bir apartmanda profesyonel yönetime geçmek için ne gerekir?"
+   },
+   {
+    "type": "p",
+    "text": "Kat malikleri kurulunda KMK m.34'teki çoğunlukla karar alınması ve şirketle yazılı sözleşme yapılması. Mevcut yönetimden demirbaş ve hesap devri tutanakla yapılır."
+   },
+   {
+    "type": "h3",
+    "text": "Aidatını ödemeyen komşum için ne yapabiliriz?"
+   },
+   {
+    "type": "p",
+    "text": "Önce yazılı hatırlatma ve ihtar, ardından KMK m.20 çerçevesinde icra takibi veya dava yolu. Süreç borçlunun itirazına göre değişir; avukat desteği önerilir."
+   },
+   {
+    "type": "quote",
+    "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+   }
+  ]
+ },
+ {
+  "slug": "atasehir-site-yonetimi-rehberi-2026",
+  "title": "Ataşehir'de Site ve Apartman Yönetimi Rehberi (2026)",
+  "description": "Ataşehir'de site ve apartman yönetimi: mahalle farkları, KMK süreçleri, 7579 sayılı Kanun'la değişenler ve yönetim şirketi seçerken sorulacak sorular.",
+  "category": "yonetim",
+  "tags": [
+   "ataşehir",
+   "site yönetimi",
+   "rezidans yönetimi",
+   "finans merkezi"
+  ],
+  "author": "alo-yonetim",
+  "datePublished": "2026-10-14T09:00:00.000Z",
+  "dateModified": "2026-10-14T09:00:00.000Z",
+  "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+  "pillar": "/bolgeler/atasehir/site-yonetimi",
+  "tldr": "Ataşehir'de konut yapısı mahalleden mahalleye değişir; yönetim ihtiyacı da buna göre farklılaşır. Genel kurul, işletme projesi ve aidat takibi KMK'ya göre yürür; 7579 sayılı Kanun işletme projesi ve toplu yapı nisaplarını değiştirdi.",
+  "content": [
+   {
+    "type": "h2",
+    "text": "Ataşehir'de yönetim ihtiyacı neden mahalleden mahalleye değişir?"
+   },
+   {
+    "type": "p",
+    "text": "Ataşehir, İstanbul Finans Merkezi'ne ev sahipliği yapan, yüksek katlı rezidansların ve büyük kapalı sitelerin yoğunlaştığı bir ilçedir. Konut ve ofis çoğu zaman aynı bölgede, hatta aynı kompleksin içinde yer alır. Bu yapı, bütçenin kalem kalem izlenmesini ve teknik bakımın planlı yürütülmesini zorunlu kılar."
+   },
+   {
+    "type": "p",
+    "text": "Bu rehber, Ataşehir'de site veya apartman yönetimiyle ilgilenen kat malikleri ve yöneticiler için mahalle bazlı farkları ve Kat Mülkiyeti Kanunu (KMK) çerçevesindeki adımları özetler."
+   },
+   {
+    "type": "h2",
+    "text": "Mahalle mahalle: ne öne çıkar?"
+   },
+   {
+    "type": "table",
+    "headers": [
+     "Mahalle",
+     "Tipik yapı",
+     "Yönetimde öne çıkan konular"
+    ],
+    "rows": [
+     [
+      "Barbaros",
+      "Konut ve ofis karışık, kurumsal kiracı profili",
+      "Ofis-konut ortak gider ayrımı, teknik bakım"
+     ],
+     [
+      "Batı Ataşehir",
+      "Büyük ölçekli kapalı siteler",
+      "Geniş ortak alan, havuz, güvenlik"
+     ],
+     [
+      "Küçükbakkalköy",
+      "Orta-üst segment siteler",
+      "Aidat düzeni, teknik bakım servisleri"
+     ],
+     [
+      "İçerenköy",
+      "Villa ve site karışımı",
+      "Güvenlik ve akıllı bina sistemleri"
+     ],
+     [
+      "Ferhatpaşa",
+      "Orta ölçekli toplu konutlar",
+      "Düzenli bakım, enerji verimliliği, aidat şeffaflığı"
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Bu tablo genel bir çerçevedir; her bina için gerçek ihtiyaç, yönetim planı ve bina yaşı gibi verilere bakılarak belirlenmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Yüksek katlı rezidanslarda teknik işletme"
+   },
+   {
+    "type": "p",
+    "text": "Çok katlı yapılarda asansör, jeneratör, yangın algılama ve iklimlendirme sistemleri bütçenin önemli bir bölümünü oluşturur. Bu sistemlerin periyodik bakımı yasal muayene takvimine ve üretici önerilerine göre planlanmalı, her bakım yazılı raporla kat maliklerine sunulmalıdır. Bakım sözleşmesinin kapsamı (parça dahil mi, acil çağrı dahil mi) önceden netleştirilmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Büyük kapalı sitelerde aidat ve şeffaflık"
+   },
+   {
+    "type": "p",
+    "text": "Yüzlerce bağımsız bölümü olan sitelerde aidat tahsilatı ve gecikmiş borçların takibi tek başına bir iş yüküdür. Dijital kayıt, aylık gelir-gider tablosu ve belgelerin yönetim kurulunun denetimine açık olması hem tartışmayı azaltır hem de genel kurulda hesap vermeyi kolaylaştırır."
+   },
+   {
+    "type": "h2",
+    "text": "Kurumsal kiracı ve ziyaretçi trafiği"
+   },
+   {
+    "type": "p",
+    "text": "Ofis ve konutun yakın olduğu bölgelerde ziyaretçi, kurye ve servis trafiği konut sitelerinden çok daha yüksektir. Girişte kimlik ve randevu denetimi, kargo teslim noktası ve otopark kotası gibi kurallar yönetim planı ya da kurul kararıyla yazıya geçirilmezse güvenlik görevlisi her gün sözlü kararlarla çalışmak zorunda kalır."
+   },
+   {
+    "type": "h2",
+    "text": "Enerji giderlerinin izlenmesi"
+   },
+   {
+    "type": "p",
+    "text": "Yüksek katlı binalarda ortak alan elektriği, asansör, aydınlatma ve iklimlendirme bütçenin önemli kısmıdır. Aylık tüketimin önceki yılın aynı ayıyla kıyaslanması ve olağan dışı artışların nedeninin araştırılması, küçük kaçakların büyük faturaya dönüşmesini önler."
+   },
+   {
+    "type": "h2",
+    "text": "Ataşehir için örnek yıllık yönetim takvimi"
+   },
+   {
+    "type": "p",
+    "text": "Aşağıdaki takvim genel bir örnektir; gerçek plan binanın yaşı, sistemleri ve yönetim planına göre hazırlanmalıdır."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Ocak: işletme projesi ve genel kurul gündemi",
+     "Mart: jeneratör ve UPS yük testi, yangın sistemi kontrolü",
+     "Mayıs: iklimlendirme sezon hazırlığı",
+     "Ekim: asansör periyodik muayene takvimi ve kış hazırlığı"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Ataşehir'de sık karşılaşılan durumlar ve yanıtları"
+   },
+   {
+    "type": "h3",
+    "text": "Ofis ve konutun bulunduğu karma projede asansör ve güvenlik gideri nasıl paylaşılır?"
+   },
+   {
+    "type": "p",
+    "text": "Yönetim planında ticari ve konut bölümleri için ayrı kullanım ve gider paylaşım kuralları yoksa tartışma çıkar. Plan değişikliği için tek yapıda beşte dört, toplu yapıda üçte iki oy aranır; öncesinde hukuk görüşü alın."
+   },
+   {
+    "type": "h3",
+    "text": "Yüksek katlı rezidansta jeneratör ve yangın sistemi bakım kayıtları neden önemli?"
+   },
+   {
+    "type": "p",
+    "text": "Bu sistemlerin periyodik test ve bakım kayıtları, hem arıza anında müdahale hızını hem de olası bir uyuşmazlıkta yönetimin özenini gösteren belgedir. Tarihli ve imzalı rapor düzeni kurun."
+   },
+   {
+    "type": "h3",
+    "text": "Büyük sitede yüzlerce daire için aidat takibi nasıl düzenli tutulur?"
+   },
+   {
+    "type": "p",
+    "text": "Dijital kayıt, aylık borç listesi ve yazılı hatırlatma/ihtar prosedürü kullanın; gecikme için KMK m.20 çerçevesinde hukuki yolu önceden belirlenmiş adımlara bağlayın."
+   },
+   {
+    "type": "h3",
+    "text": "Ziyaretçi ve kurye trafiği güvenlik görevlisini zorluyor; ne yapılmalı?"
+   },
+   {
+    "type": "p",
+    "text": "Giriş kuralları, kargo teslim noktası ve otopark kotası kurul kararı veya yönetim planıyla yazılı hâle getirilmeli; kişisel verilerin korunması ilkelerine uygun kayıt tutulmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Ofis ve konutun birlikte bulunduğu projeler"
+   },
+   {
+    "type": "p",
+    "text": "Karma kullanımlı projelerde konut ve ticari bölümlerin giderleri farklı işleyebilir: ofis katlarının asansör kullanımı, çalışma saatleri ve güvenlik ihtiyacı konuttan ayrışır. Yönetim planında bu ayrımın yazılı olması, sonradan çıkabilecek paylaşım uyuşmazlıklarını önler. Birden fazla yapıdan oluşan komplekslerde 7579 sayılı Kanun'la değişen m.70 kapsamında yönetim planı değişikliği için üçte iki çoğunluk aranır."
+   },
+   {
+    "type": "h2",
+    "text": "Genel kurul, işletme projesi ve aidat: adımlar"
+   },
+   {
+    "type": "ol",
+    "items": [
+     "Yönetici seçimi. KMK m.34'e göre yönetici, kat maliklerinin hem sayı hem de arsa payı bakımından çoğunluğuyla seçilir; profesyonel bir yönetim şirketiyle sözleşme yapılması da bu kararla mümkündür.",
+     "İşletme projesi. KMK m.37 gereği her yıl gider tahmini hazırlanır. 7579 sayılı Kanun (22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete) bu maddeyi değiştirdi: proje kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar. Ayrıntılar için KMK 2026 değişiklikleri sayfasına bakın.",
+     "Aidat ve avans. Gider ve avans payını ödemeyen kat maliki için KMK m.20 uyarınca aylık yüzde beş gecikme tazminatı işler; yönetici veya diğer kat malikleri dava açabilir ya da icra takibi yapabilir.",
+     "Yönetim planı değişikliği. Tek yapılarda KMK m.28/3 uyarınca beşte dört; birden fazla yapıdan oluşan toplu yapılarda m.70 uyarınca üçte iki oy aranır."
+    ]
+   },
+   {
+    "type": "cta",
+    "text": "Aidat paylaşım kuralını kendi sitenizde denemek ister misiniz?",
+    "href": "/hesaplayici",
+    "label": "Aidat paylaşım hesaplayıcısı"
+   },
+   {
+    "type": "h2",
+    "text": "Ataşehir'de elektrik, su ve doğal gaz: abonelik ve devir"
+   },
+   {
+    "type": "p",
+    "text": "Ataşehir Anadolu Yakası'nda olduğundan elektrik dağıtımı AYEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür. Yönetim devrinde ortak alan sayaçlarının abonelik sahibi ve tarifesi kontrol edilmeli, eski borç ve alacak durumu tutanakla ortaya konmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Yönetim şirketi seçerken sorulacaklar"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Sözleşme kalem kalem hizmet kapsamını ve fiyatı içeriyor mu?",
+     "Aylık gelir-gider raporu ve harcama belgeleri kat maliklerine açık mı?",
+     "Acil teknik müdahale için yazılı bir süre hedefi var mı? (Alo Yönetim'in yazılı SLA kapsamındaki hedefi Anadolu Yakası'nda 30 dakika olarak belirlenmiştir; süre sözleşmedeki hükümlere bağlıdır.)",
+     "Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle mi veriliyor?",
+     "Ofis ve konut bölümleri için ayrı gider takibi ve raporlama yapılıyor mu?",
+     "Sözleşmeden çıkış ve devir-teslim koşulları yazılı mı?"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Ataşehir'de Alo Yönetim"
+   },
+   {
+    "type": "p",
+    "text": "Alo Yönetim'in genel merkezi Osmanağa, Kadıköy'dedir ve 2009'dan beri faaliyet gösterir. Referans listemizde Ataşehir'de Palandöken Sitesi, Meklim Mimoza Sitesi, Ataşehir Belediyesi gibi kurumlar bulunur; tam liste Referanslar sayfasındadır."
+   },
+   {
+    "type": "cta",
+    "text": "Siteniz için Ataşehir site yönetimi hizmetini inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+    "href": "/bolgeler/atasehir/site-yonetimi",
+    "label": "Ataşehir site yönetimi"
+   },
+   {
+    "type": "h2",
+    "text": "Sık sorulan sorular"
+   },
+   {
+    "type": "h3",
+    "text": "Ataşehir'de rezidans yönetim şirketi seçerken neye bakmalı?"
+   },
+   {
+    "type": "p",
+    "text": "Teknik sistemlerin (asansör, jeneratör, yangın) bakım takvimine, raporlama sıklığına ve acil müdahale süresinin yazılı olup olmadığına. Sözleşmede kapsam kalem kalem yazılmalıdır."
+   },
+   {
+    "type": "h3",
+    "text": "Ofis ve konut aynı komplekste ise aidat nasıl bölünür?"
+   },
+   {
+    "type": "p",
+    "text": "Yönetim planında aksi yazmıyorsa KMK'daki genel paylaşım kuralı uygulanır. Karma projelerde plan değişikliği için hukuk danışmanından görüş alınması önerilir."
+   },
+   {
+    "type": "quote",
+    "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+   }
+  ]
+ },
+ {
+  "slug": "uskudar-site-yonetimi-rehberi-2026",
+  "title": "Üsküdar'da Site ve Apartman Yönetimi Rehberi (2026)",
+  "description": "Üsküdar'da site ve apartman yönetimi: mahalle farkları, KMK süreçleri, 7579 sayılı Kanun'la değişenler ve yönetim şirketi seçerken sorulacak sorular.",
+  "category": "yonetim",
+  "tags": [
+   "üsküdar",
+   "site yönetimi",
+   "apartman yönetimi",
+   "çengelköy",
+   "altunizade"
+  ],
+  "author": "alo-yonetim",
+  "datePublished": "2026-10-14T09:00:00.000Z",
+  "dateModified": "2026-10-14T09:00:00.000Z",
+  "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+  "pillar": "/bolgeler/uskudar/site-yonetimi",
+  "tldr": "Üsküdar'da konut yapısı mahalleden mahalleye değişir; yönetim ihtiyacı da buna göre farklılaşır. Genel kurul, işletme projesi ve aidat takibi KMK'ya göre yürür; 7579 sayılı Kanun işletme projesi ve toplu yapı nisaplarını değiştirdi.",
+  "content": [
+   {
+    "type": "h2",
+    "text": "Üsküdar'da yönetim ihtiyacı neden mahalleden mahalleye değişir?"
+   },
+   {
+    "type": "p",
+    "text": "Boğaz yamaçları, yalılar ve tarihi doku Üsküdar'a özgü bir konut yapısı kazandırır: Altunizade'de plaza ve rezidans, Acıbadem'de köklü aile siteleri, Çengelköy ve Kandilli'de Boğaz'a bakan yamaç yapıları, Kuzguncuk'ta tarihi dokunun içinde küçük apartmanlar. Eğimli arazi, nem ve eski yapı stoğu yönetimde ayrı bir dikkat gerektirir."
+   },
+   {
+    "type": "p",
+    "text": "Bu rehber, Üsküdar'da site veya apartman yönetimiyle ilgilenen kat malikleri ve yöneticiler için mahalle bazlı farkları ve Kat Mülkiyeti Kanunu (KMK) çerçevesindeki adımları özetler."
+   },
+   {
+    "type": "h2",
+    "text": "Mahalle mahalle: ne öne çıkar?"
+   },
+   {
+    "type": "table",
+    "headers": [
+     "Mahalle",
+     "Tipik yapı",
+     "Yönetimde öne çıkan konular"
+    ],
+    "rows": [
+     [
+      "Acıbadem",
+      "Köklü aile siteleri, merkezi konum",
+      "Teknik bakım, düzenli aidat"
+     ],
+     [
+      "Altunizade",
+      "Plaza ve rezidans karışımı",
+      "Enerji verimliliği, güvenlik"
+     ],
+     [
+      "Kuzguncuk",
+      "Tarihi doku, butik apartmanlar",
+      "Koruma şartları, bina bakımı"
+     ],
+     [
+      "Çengelköy",
+      "Sahil hattı ve yamaç siteleri",
+      "Peyzaj, havuz, çevre güvenliği"
+     ],
+     [
+      "Kısıklı ve Kandilli",
+      "Villa ve yalı dokusu, koru komşuluğu",
+      "Bahçe bakımı, güvenlik"
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Bu tablo genel bir çerçevedir; her bina için gerçek ihtiyaç, yönetim planı ve bina yaşı gibi verilere bakılarak belirlenmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Eğimli arazide teknik altyapı"
+   },
+   {
+    "type": "p",
+    "text": "Yamaçtaki sitelerde hidrofor basıncı, drenaj ve istinat yapıları sıradan sitelerden daha fazla izlenmelidir. Boğaz'a yakın yapılarda nem ve tuzlu hava metal aksamda korozyonu hızlandırabilir; cephe, balkon korkulukları ve asansör aksamı için periyodik kontrol planı yapmak uzun vadede onarım maliyetini düşürür."
+   },
+   {
+    "type": "h2",
+    "text": "Tarihi doku ve butik binalarda yönetim"
+   },
+   {
+    "type": "p",
+    "text": "Kuzguncuk ve Kandilli gibi bölgelerde az daireli ve eski binalar çoğunluktadır. Böyle yapılarda cephe veya çatı kararlarında koruma mevzuatının getirdiği izin süreçleri devreye girebilir; karar almadan önce ilgili belediye ve koruma kurulu şartlarının araştırılması gerekir."
+   },
+   {
+    "type": "h2",
+    "text": "Nem, rutubet ve bodrum katlar"
+   },
+   {
+    "type": "p",
+    "text": "Yamaç ve Boğaz yakınındaki binalarda bodrum ve zemin katlarda rutubet sık görülen bir şikâyettir. Su yalıtımı, drenaj hattı ve sığınak/otopark havalandırması yılda en az bir kez gözle kontrol edilmeli; tespit edilen sorunlar fotoğraf ve tarihle kayda geçirilmelidir. Erken müdahale, kapsamlı tadilat kararını genel kurula taşımadan önce çoğu zaman maliyeti düşürür."
+   },
+   {
+    "type": "h2",
+    "text": "Konsiyerj ve girişte karşılama hizmeti"
+   },
+   {
+    "type": "p",
+    "text": "Boğaz'a bakan butik sitelerde karşılama, paket teslimi ve misafir yönlendirmesi gibi hizmetler talep edilebilir. Bu hizmetin güvenlik görevinden farklı bir iş tanımı olduğu, sözleşmede ayrı yazılmalı ve bütçede ayrı kalem olarak gösterilmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Üsküdar için örnek yıllık yönetim takvimi"
+   },
+   {
+    "type": "p",
+    "text": "Aşağıdaki takvim genel bir örnektir; gerçek plan binanın yaşı, sistemleri ve yönetim planına göre hazırlanmalıdır."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Şubat: istinat duvarı, drenaj ve su yalıtımı gözle kontrol",
+     "Nisan: hidrofor ve pompa bakımı",
+     "Haziran: bahçe ve havuz sezonu hazırlığı",
+     "Kasım: çatı, oluk ve yağmur giderleri temizliği"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Üsküdar'da sık karşılaşılan durumlar ve yanıtları"
+   },
+   {
+    "type": "h3",
+    "text": "Boğaz yamacındaki sitede istinat duvarı ve drenaj kontrolü ne sıklıkla yapılmalı?"
+   },
+   {
+    "type": "p",
+    "text": "En az yılda bir görsel kontrol, yağış sezonu öncesi ve sonrasında ek inceleme önerilir. Tespitler fotoğraf ve tarihle kaydedilmeli, büyük onarımlar için keşif ve çoklu teklif alınmalıdır."
+   },
+   {
+    "type": "h3",
+    "text": "Kuzguncuk'taki tarihi binada cephe boyatmak için izin gerekir mi?"
+   },
+   {
+    "type": "p",
+    "text": "Bina koruma altındaysa cephe ve çatı müdahalelerinde ilgili belediye ve koruma kurulundan izin gerekebilir. İşe başlamadan önce yetkili kurumdan yazılı teyit alın."
+   },
+   {
+    "type": "h3",
+    "text": "Altunizade'de plaza-rezidans karma binada enerji giderleri nasıl izlenir?"
+   },
+   {
+    "type": "p",
+    "text": "Alt sayaçlarla konut ve ticari bölüm tüketimini ayırın, aylık tüketimi önceki yılın aynı ayıyla karşılaştırın ve olağan dışı artışları araştırın."
+   },
+   {
+    "type": "h3",
+    "text": "Çengelköy'deki villa sitesinde peyzaj ve havuz bakımı bütçesi nasıl planlanır?"
+   },
+   {
+    "type": "p",
+    "text": "Mevsimsel işleri (budama, sulama, havuz açılış-kapanış) takvime yayın ve işletme projesinde ayrı kalem gösterin; böylece ani aidat artışı gündeme gelmez."
+   },
+   {
+    "type": "h2",
+    "text": "Büyük onarımlarda karar nisabı"
+   },
+   {
+    "type": "p",
+    "text": "Çatı, cephe veya istinat duvarı gibi büyük onarımlarda kararın hangi çoğunlukla alınacağı yapının niteliğine ve yönetim planına bağlıdır. Genel kural olarak yönetim planı değişikliği için KMK m.28/3 uyarınca beşte dört oy gerekir; birden fazla yapıdan oluşan toplu yapılarda 7579 sayılı Kanun'la değişen m.70 uyarınca üçte iki aranır. Kararı almadan önce gündem maddesinin hukuken doğru yazıldığından emin olun."
+   },
+   {
+    "type": "h2",
+    "text": "Genel kurul, işletme projesi ve aidat: adımlar"
+   },
+   {
+    "type": "ol",
+    "items": [
+     "Yönetici seçimi. KMK m.34'e göre yönetici, kat maliklerinin hem sayı hem de arsa payı bakımından çoğunluğuyla seçilir; profesyonel bir yönetim şirketiyle sözleşme yapılması da bu kararla mümkündür.",
+     "İşletme projesi. KMK m.37 gereği her yıl gider tahmini hazırlanır. 7579 sayılı Kanun (22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete) bu maddeyi değiştirdi: proje kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar. Ayrıntılar için KMK 2026 değişiklikleri sayfasına bakın.",
+     "Aidat ve avans. Gider ve avans payını ödemeyen kat maliki için KMK m.20 uyarınca aylık yüzde beş gecikme tazminatı işler; yönetici veya diğer kat malikleri dava açabilir ya da icra takibi yapabilir.",
+     "Yönetim planı değişikliği. Tek yapılarda KMK m.28/3 uyarınca beşte dört; birden fazla yapıdan oluşan toplu yapılarda m.70 uyarınca üçte iki oy aranır."
+    ]
+   },
+   {
+    "type": "cta",
+    "text": "Aidat paylaşım kuralını kendi sitenizde denemek ister misiniz?",
+    "href": "/hesaplayici",
+    "label": "Aidat paylaşım hesaplayıcısı"
+   },
+   {
+    "type": "h2",
+    "text": "Üsküdar'de elektrik, su ve doğal gaz: abonelik ve devir"
+   },
+   {
+    "type": "p",
+    "text": "Üsküdar Anadolu Yakası'nda olduğundan elektrik dağıtımı AYEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür. Yönetim devrinde ortak alan sayaçlarının abonelik sahibi ve tarifesi kontrol edilmeli, eski borç ve alacak durumu tutanakla ortaya konmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Yönetim şirketi seçerken sorulacaklar"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Sözleşme kalem kalem hizmet kapsamını ve fiyatı içeriyor mu?",
+     "Aylık gelir-gider raporu ve harcama belgeleri kat maliklerine açık mı?",
+     "Acil teknik müdahale için yazılı bir süre hedefi var mı? (Alo Yönetim'in yazılı SLA kapsamındaki hedefi Anadolu Yakası'nda 30 dakika olarak belirlenmiştir; süre sözleşmedeki hükümlere bağlıdır.)",
+     "Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle mi veriliyor?",
+     "Eğimli arazi, drenaj ve nem kontrolleri bakım takvimine yazılı olarak giriyor mu?",
+     "Sözleşmeden çıkış ve devir-teslim koşulları yazılı mı?"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Üsküdar'da Alo Yönetim"
+   },
+   {
+    "type": "p",
+    "text": "Alo Yönetim'in genel merkezi Osmanağa, Kadıköy'dedir ve 2009'dan beri faaliyet gösterir. Referans listemizde Üsküdar'da Çamlıca Konakları, Site 59, Göztepe Soyak Residence gibi kurumlar bulunur; tam liste Referanslar sayfasındadır."
+   },
+   {
+    "type": "cta",
+    "text": "Siteniz için Üsküdar site yönetimi hizmetini inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+    "href": "/bolgeler/uskudar/site-yonetimi",
+    "label": "Üsküdar site yönetimi"
+   },
+   {
+    "type": "h2",
+    "text": "Sık sorulan sorular"
+   },
+   {
+    "type": "h3",
+    "text": "Yamaçtaki sitelerde en sık ne ihmal edilir?"
+   },
+   {
+    "type": "p",
+    "text": "Drenaj ve istinat yapılarının düzenli kontrolü; arıza oluşana kadar bütçeye girmeyebilir. İşletme projesinde periyodik kontrol için kalem ayırmak faydalıdır."
+   },
+   {
+    "type": "h3",
+    "text": "Tarihi binada cephe boyatmak için izin gerekir mi?"
+   },
+   {
+    "type": "p",
+    "text": "Bina koruma altındaysa cephe müdahaleleri için ilgili kurul ve belediyeden izin gerekebilir. İşe başlamadan önce yetkili kurumdan teyit alın."
+   },
+   {
+    "type": "quote",
+    "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+   }
+  ]
+ },
+ {
+  "slug": "maltepe-site-yonetimi-rehberi-2026",
+  "title": "Maltepe'de Site ve Apartman Yönetimi Rehberi (2026)",
+  "description": "Maltepe'de site ve apartman yönetimi: mahalle farkları, KMK süreçleri, 7579 sayılı Kanun'la değişenler ve yönetim şirketi seçerken sorulacak sorular.",
+  "category": "yonetim",
+  "tags": [
+   "maltepe",
+   "site yönetimi",
+   "apartman yönetimi",
+   "dragos",
+   "küçükyalı"
+  ],
+  "author": "alo-yonetim",
+  "datePublished": "2026-10-14T09:00:00.000Z",
+  "dateModified": "2026-10-14T09:00:00.000Z",
+  "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+  "pillar": "/bolgeler/maltepe/site-yonetimi",
+  "tldr": "Maltepe'de konut yapısı mahalleden mahalleye değişir; yönetim ihtiyacı da buna göre farklılaşır. Genel kurul, işletme projesi ve aidat takibi KMK'ya göre yürür; 7579 sayılı Kanun işletme projesi ve toplu yapı nisaplarını değiştirdi.",
+  "content": [
+   {
+    "type": "h2",
+    "text": "Maltepe'de yönetim ihtiyacı neden mahalleden mahalleye değişir?"
+   },
+   {
+    "type": "p",
+    "text": "Maltepe, sahil dolgu alanı, Dragos ve Süreyyapaşa sırtlarındaki projeleriyle Anadolu Yakası'nın hızla gelişen konut aksıdır. Küçükyalı'dan Dragos'a uzanan hatta deniz etkisi, rüzgâr ve geniş sosyal alanlar yönetim bütçesini şekillendirir; Cevizli ve Altayçeşme'de ise daha çok yoğun aile siteleri ve yüksek katlı karma yapılar öne çıkar."
+   },
+   {
+    "type": "p",
+    "text": "Bu rehber, Maltepe'de site veya apartman yönetimiyle ilgilenen kat malikleri ve yöneticiler için mahalle bazlı farkları ve Kat Mülkiyeti Kanunu (KMK) çerçevesindeki adımları özetler."
+   },
+   {
+    "type": "h2",
+    "text": "Mahalle mahalle: ne öne çıkar?"
+   },
+   {
+    "type": "table",
+    "headers": [
+     "Mahalle",
+     "Tipik yapı",
+     "Yönetimde öne çıkan konular"
+    ],
+    "rows": [
+     [
+      "Küçükyalı",
+      "Sahil şeridi, butik siteler",
+      "Peyzaj, deniz etkisi bakımı"
+     ],
+     [
+      "Cevizli",
+      "E-5 aksında yüksek katlı karma yapılar",
+      "Güvenlik, asansör, ticari-konut gider ayrımı"
+     ],
+     [
+      "Altayçeşme",
+      "Aile siteleri",
+      "Düzenli bütçe, asansör bakımı"
+     ],
+     [
+      "Bağlarbaşı",
+      "Kentsel dönüşümle yenilenen apartmanlar",
+      "İlk yönetim kurulumu, aidat takibi"
+     ],
+     [
+      "Dragos",
+      "Villa ve sahil konutları",
+      "Güvenlik, özel peyzaj"
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Bu tablo genel bir çerçevedir; her bina için gerçek ihtiyaç, yönetim planı ve bina yaşı gibi verilere bakılarak belirlenmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Sahil hattında deniz etkisi"
+   },
+   {
+    "type": "p",
+    "text": "Sahile yakın yapılarda tuzlu nem asansör, kapı, korkuluk ve dış cephe aksamında korozyonu hızlandırabilir. Bu yapılarda bakım takvimi, boya ve koruyucu işlemleri önceden planlamak; asansör ve elektrik panolarında periyodik temizlik ve kontrolü sözleşmeye yazmak yararlıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Kentsel dönüşümle yenilenen binalar"
+   },
+   {
+    "type": "p",
+    "text": "Bağlarbaşı gibi bölgelerde yeni teslim edilen binalarda ilk yönetim kurulumu belirleyicidir: yönetim planının tapuya uygun olması, devir teslim tutanakları, garanti kapsamındaki ekipmanın listesi ve ilk işletme projesinin hazırlanması yeni sitelerin ilk yılında bütçeyi dengede tutar."
+   },
+   {
+    "type": "h2",
+    "text": "Rüzgâr ve cephe güvenliği"
+   },
+   {
+    "type": "p",
+    "text": "Sahil ve tepe konumundaki yüksek yapılarda rüzgâr; çatı kaplaması, cephe elemanları, tabela ve balkon eşyaları için risk oluşturabilir. Fırtına öncesi balkon eşyaları için duyuru yapılması ve cephe elemanlarının periyodik gözle kontrolü hem can hem mal güvenliği açısından basit ama etkili önlemlerdir."
+   },
+   {
+    "type": "h2",
+    "text": "Sosyal tesislerin işletilmesi"
+   },
+   {
+    "type": "p",
+    "text": "Geniş kapalı sitelerde spor salonu, havuz ve çocuk alanı gibi tesislerin kullanım saatleri, kuralları ve bakım giderleri açık yazılmalıdır. Tesisi az kullanan malikler ile çok kullananlar arasında gider paylaşımı tartışması sıktır; yönetim planı ve kurul kararı bu noktada belirleyicidir."
+   },
+   {
+    "type": "h2",
+    "text": "Maltepe için örnek yıllık yönetim takvimi"
+   },
+   {
+    "type": "p",
+    "text": "Aşağıdaki takvim genel bir örnektir; gerçek plan binanın yaşı, sistemleri ve yönetim planına göre hazırlanmalıdır."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Ocak: işletme projesi ve geçici proje takibi",
+     "Mart: cephe ve balkon korkulukları kontrolü",
+     "Mayıs: havuz ve sosyal tesis sezon hazırlığı",
+     "Ekim: asansör bakımı ve kış öncesi çatı/oluk kontrolü"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Maltepe'de sık karşılaşılan durumlar ve yanıtları"
+   },
+   {
+    "type": "h3",
+    "text": "Sahil hattındaki binada asansör ve kapılarda paslanma hızlanıyor; ne yapılmalı?"
+   },
+   {
+    "type": "p",
+    "text": "Tuzlu havanın etkisini azaltmak için periyodik temizlik ve koruyucu boya işlerini bakım takvimine ekleyin, asansör ve panoların kontrolünü bakım sözleşmesinde ayrı kalem yapın."
+   },
+   {
+    "type": "h3",
+    "text": "Yeni teslim edilen sitede müteahhitten hangi belgeler istenmeli?"
+   },
+   {
+    "type": "p",
+    "text": "Yönetim planı, onaylı projeler, iskân, ekipman garanti belgeleri, sayaç ve abonelik kayıtları ve ortak alanların tutanaklı teslimi istenmeli; eksikler tutanağa şerh düşülmelidir."
+   },
+   {
+    "type": "h3",
+    "text": "Süreyyapaşa'daki yüksek binada rüzgâr kaynaklı riskler için ne yapılır?"
+   },
+   {
+    "type": "p",
+    "text": "Fırtına öncesi balkon eşyaları için duyuru yapın, cephe elemanlarını ve çatı kaplamasını periyodik olarak gözle kontrol edin ve tespitleri kayda alın."
+   },
+   {
+    "type": "h3",
+    "text": "Sosyal tesisli sitede spor salonunu az kullananlar gider paylaşımına itiraz ediyor; çözüm?"
+   },
+   {
+    "type": "p",
+    "text": "Tesis işletme giderlerini işletme projesinde ayrı kalem gösterin; paylaşım yönetim planı ve kurul kararıyla belirlenir. Plan değişikliği gerekiyorsa uygun nisapla karar alınmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Yeni teslim edilen sitede ilk yıl"
+   },
+   {
+    "type": "p",
+    "text": "İlk yıl işletme projesi 7579 sayılı Kanun'la değişen KMK m.37 kapsamında kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar. Devir teslimde müteahhitten teslim alınan belgeler (as-built projeler, garanti belgeleri, sayaç kayıtları) bir listeyle kayda geçirilmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Genel kurul, işletme projesi ve aidat: adımlar"
+   },
+   {
+    "type": "ol",
+    "items": [
+     "Yönetici seçimi. KMK m.34'e göre yönetici, kat maliklerinin hem sayı hem de arsa payı bakımından çoğunluğuyla seçilir; profesyonel bir yönetim şirketiyle sözleşme yapılması da bu kararla mümkündür.",
+     "İşletme projesi. KMK m.37 gereği her yıl gider tahmini hazırlanır. 7579 sayılı Kanun (22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete) bu maddeyi değiştirdi: proje kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar. Ayrıntılar için KMK 2026 değişiklikleri sayfasına bakın.",
+     "Aidat ve avans. Gider ve avans payını ödemeyen kat maliki için KMK m.20 uyarınca aylık yüzde beş gecikme tazminatı işler; yönetici veya diğer kat malikleri dava açabilir ya da icra takibi yapabilir.",
+     "Yönetim planı değişikliği. Tek yapılarda KMK m.28/3 uyarınca beşte dört; birden fazla yapıdan oluşan toplu yapılarda m.70 uyarınca üçte iki oy aranır."
+    ]
+   },
+   {
+    "type": "cta",
+    "text": "Aidat paylaşım kuralını kendi sitenizde denemek ister misiniz?",
+    "href": "/hesaplayici",
+    "label": "Aidat paylaşım hesaplayıcısı"
+   },
+   {
+    "type": "h2",
+    "text": "Maltepe'de elektrik, su ve doğal gaz: abonelik ve devir"
+   },
+   {
+    "type": "p",
+    "text": "Maltepe Anadolu Yakası'nda olduğundan elektrik dağıtımı AYEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür. Yönetim devrinde ortak alan sayaçlarının abonelik sahibi ve tarifesi kontrol edilmeli, eski borç ve alacak durumu tutanakla ortaya konmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Yönetim şirketi seçerken sorulacaklar"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Sözleşme kalem kalem hizmet kapsamını ve fiyatı içeriyor mu?",
+     "Aylık gelir-gider raporu ve harcama belgeleri kat maliklerine açık mı?",
+     "Acil teknik müdahale için yazılı bir süre hedefi var mı? (Alo Yönetim'in yazılı SLA kapsamındaki hedefi Anadolu Yakası'nda 30 dakika olarak belirlenmiştir; süre sözleşmedeki hükümlere bağlıdır.)",
+     "Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle mi veriliyor?",
+     "Sahil ve rüzgâr etkisine yönelik cephe ve asansör kontrolleri sözleşmede ayrı kalem olarak yer alıyor mu?",
+     "Sözleşmeden çıkış ve devir-teslim koşulları yazılı mı?"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Maltepe'de Alo Yönetim"
+   },
+   {
+    "type": "p",
+    "text": "Alo Yönetim'in genel merkezi Osmanağa, Kadıköy'dedir ve 2009'dan beri faaliyet gösterir. Referans listemizde Maltepe'de Sevgi Evleri Çocuk Yuvası (Küçükyalı), VM Medical Park Maltepe Hastanesi gibi kurumlar bulunur; tam liste Referanslar sayfasındadır."
+   },
+   {
+    "type": "cta",
+    "text": "Siteniz için Maltepe site yönetimi hizmetini inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+    "href": "/bolgeler/maltepe/site-yonetimi",
+    "label": "Maltepe site yönetimi"
+   },
+   {
+    "type": "h2",
+    "text": "Sık sorulan sorular"
+   },
+   {
+    "type": "h3",
+    "text": "Yeni siteyi müteahhitten devralırken ne istenmeli?"
+   },
+   {
+    "type": "p",
+    "text": "Yönetim planı, onaylı projeler, ekipman garanti belgeleri, sayaç ve abonelik kayıtları ve ortak alanların tutanaklı teslimi. Eksikler tutanağa şerh düşülerek yazılmalıdır."
+   },
+   {
+    "type": "h3",
+    "text": "Sahil sitelerinde asansör bakımı sıklığı nasıl belirlenir?"
+   },
+   {
+    "type": "p",
+    "text": "Yasal periyodik muayeneye ek olarak bakım firmasının önerisi ve cihaz yaşına göre. Sözleşmede aylık bakım ve arıza müdahalesi ayrı yazılmalıdır."
+   },
+   {
+    "type": "quote",
+    "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+   }
+  ]
+ },
+ {
+  "slug": "kartal-site-yonetimi-rehberi-2026",
+  "title": "Kartal'da Site ve Apartman Yönetimi Rehberi (2026)",
+  "description": "Kartal'da site ve apartman yönetimi: mahalle farkları, KMK süreçleri, 7579 sayılı Kanun'la değişenler ve yönetim şirketi seçerken sorulacak sorular.",
+  "category": "yonetim",
+  "tags": [
+   "kartal",
+   "site yönetimi",
+   "apartman yönetimi",
+   "kentsel dönüşüm",
+   "soğanlık"
+  ],
+  "author": "alo-yonetim",
+  "datePublished": "2026-10-14T09:00:00.000Z",
+  "dateModified": "2026-10-14T09:00:00.000Z",
+  "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+  "pillar": "/bolgeler/kartal/site-yonetimi",
+  "tldr": "Kartal'da konut yapısı mahalleden mahalleye değişir; yönetim ihtiyacı da buna göre farklılaşır. Genel kurul, işletme projesi ve aidat takibi KMK'ya göre yürür; 7579 sayılı Kanun işletme projesi ve toplu yapı nisaplarını değiştirdi.",
+  "content": [
+   {
+    "type": "h2",
+    "text": "Kartal'da yönetim ihtiyacı neden mahalleden mahalleye değişir?"
+   },
+   {
+    "type": "p",
+    "text": "Kartal, kentsel dönüşümün yoğun yaşandığı ilçelerden biridir: eski apartman stokunun bir bölümü yerini yeni sitelere bırakmakta, sahil ve metro hattı çevresinde büyük projeler yükselmektedir. Soğanlık ve Uğur Mumcu'da planlı toplu konutlar, Yakacık ve Orhantepe'de daha sakin aile bölgeleri bulunur."
+   },
+   {
+    "type": "p",
+    "text": "Bu rehber, Kartal'da site veya apartman yönetimiyle ilgilenen kat malikleri ve yöneticiler için mahalle bazlı farkları ve Kat Mülkiyeti Kanunu (KMK) çerçevesindeki adımları özetler."
+   },
+   {
+    "type": "h2",
+    "text": "Mahalle mahalle: ne öne çıkar?"
+   },
+   {
+    "type": "table",
+    "headers": [
+     "Mahalle",
+     "Tipik yapı",
+     "Yönetimde öne çıkan konular"
+    ],
+    "rows": [
+     [
+      "Soğanlık",
+      "Metro çevresinde büyük siteler",
+      "Aidat optimizasyonu, ortak alan bakımı"
+     ],
+     [
+      "Yakacık",
+      "Orman ve deniz manzaralı siteler",
+      "Peyzaj, çevre güvenliği"
+     ],
+     [
+      "Cevizli",
+      "Karma ticaret ve rezidans",
+      "Ticari-konut gider ayrımı, teknik bakım"
+     ],
+     [
+      "Uğur Mumcu",
+      "Planlı toplu konut",
+      "Geniş ortak alan, aidat tahsilatı"
+     ],
+     [
+      "Orhantepe",
+      "Sahil bandı, deniz manzaralı binalar",
+      "Asansör, cephe ve korozyon bakımı"
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Bu tablo genel bir çerçevedir; her bina için gerçek ihtiyaç, yönetim planı ve bina yaşı gibi verilere bakılarak belirlenmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Dönüşüm sonrası yeni yönetimler"
+   },
+   {
+    "type": "p",
+    "text": "Dönüşümle teslim edilen binalarda maliklerin çoğu ilk kez ortak bir yönetim içinde yer alır. Kat malikleri kurulunun toplanması, yöneticinin seçilmesi, yönetim planının tapuya şerhi ve ilk yıl bütçesinin hazırlanması kısa sürede yapılmalıdır; aksi halde ortak giderler plansız toplanır ve tartışma kaçınılmaz olur."
+   },
+   {
+    "type": "h2",
+    "text": "Büyük sitelerde aidat disiplini"
+   },
+   {
+    "type": "p",
+    "text": "Yüzlerce daireli sitelerde birkaç malikin geciken borcu bile nakit akışını bozabilir. KMK m.20 uyarınca gider ve avans payını ödemeyen kat malikinden aylık yüzde beş gecikme tazminatı istenebilir; yönetici veya diğer malikler dava veya icra yoluna başvurabilir. Hatırlatma, ihtar ve takip adımlarının yazılı bir prosedüre bağlanması sürecin kişiselleşmesini önler."
+   },
+   {
+    "type": "h2",
+    "text": "Devir teslim belgeleri neden önemlidir?"
+   },
+   {
+    "type": "p",
+    "text": "Yeni yapılarda teslim sonrası çıkan eksikler ve ortak alan arızaları, müteahhit sorumluluğu ile yönetim sorumluluğu arasındaki sınırın bulanıklaşmasına yol açar. Teslim tutanağı, eksik listesi, ekipman garanti belgeleri ve proje arşivinin düzenli saklanması hem hak kaybını önler hem de ileride yönetim değişse bile sürekliliği sağlar."
+   },
+   {
+    "type": "h2",
+    "text": "Metro çevresindeki yoğunlaşma"
+   },
+   {
+    "type": "p",
+    "text": "Soğanlık ve metro çevresindeki yeni projelerde nüfus yoğunluğu otopark, çöp toplama, asansör kullanımı ve ortak alan temizliği giderlerini artırır. Kullanım yoğunluğuna göre temizlik ve teknik bakım sıklığının ayarlanması gerekir."
+   },
+   {
+    "type": "h2",
+    "text": "Kartal için örnek yıllık yönetim takvimi"
+   },
+   {
+    "type": "p",
+    "text": "Aşağıdaki takvim genel bir örnektir; gerçek plan binanın yaşı, sistemleri ve yönetim planına göre hazırlanmalıdır."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Ocak-Şubat: ilk yıl veya yeni dönem işletme projesi",
+     "Nisan: garanti kapsamındaki ekipman kontrol listesi",
+     "Eylül: sahil bandındaki yapılarda cephe ve korozyon kontrolü",
+     "Kasım: kazan, kalorifer ve yangın ekipmanı bakımı"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Kartal'da sık karşılaşılan durumlar ve yanıtları"
+   },
+   {
+    "type": "h3",
+    "text": "Kentsel dönüşümle yapılan yeni sitede ilk yönetim nasıl kurulur?"
+   },
+   {
+    "type": "p",
+    "text": "Kat malikleri kurulunu toplayıp yönetici ve denetçi seçin, yönetim planını kontrol edin, devir teslim belgelerini tutanakla alın ve ilk işletme projesini hazırlayın. Onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar."
+   },
+   {
+    "type": "h3",
+    "text": "Soğanlık'taki büyük sitede borç biriktiren malikler yüzünden nakit akışı bozuluyor; ne yapılır?"
+   },
+   {
+    "type": "p",
+    "text": "Yazılı hatırlatma ve ihtar adımlarını prosedüre bağlayın; KMK m.20 uyarınca gecikme tazminatı ve icra takibi yolunu gecikmeden işletin. Süreç için avukat desteği alın."
+   },
+   {
+    "type": "h3",
+    "text": "Orhantepe'de sahile yakın binada cephe bakımı ne zaman yapılmalı?"
+   },
+   {
+    "type": "p",
+    "text": "Her yıl ilkbahar ve sonbaharda görsel kontrol yapın, korozyon ve çatlak tespitlerini kayda alın ve onarımı etaplayarak bütçeleyin."
+   },
+   {
+    "type": "h3",
+    "text": "Yeni teslim sitede garanti kapsamındaki arızalar nasıl takip edilir?"
+   },
+   {
+    "type": "p",
+    "text": "Ekipman listesi ve garanti sürelerini bir tabloda tutun, arızaları yazılı ve ispatlanabilir yolla müteahhide bildirin ve süreleri takvime işleyin."
+   },
+   {
+    "type": "h2",
+    "text": "Yönetim planı ve toplu yapılar"
+   },
+   {
+    "type": "p",
+    "text": "Birden fazla yapıdan oluşan toplu yapılarda yönetim planı değişikliği için 7579 sayılı Kanun'la değişen KMK m.70 uyarınca üçte iki oy aranır; tek yapılarda ise m.28/3 uyarınca beşte dört. Kartal'daki büyük projelerde hangi hükmün uygulanacağı sitenin tapu ve plan yapısına göre belirlenir."
+   },
+   {
+    "type": "h2",
+    "text": "Genel kurul, işletme projesi ve aidat: adımlar"
+   },
+   {
+    "type": "ol",
+    "items": [
+     "Yönetici seçimi. KMK m.34'e göre yönetici, kat maliklerinin hem sayı hem de arsa payı bakımından çoğunluğuyla seçilir; profesyonel bir yönetim şirketiyle sözleşme yapılması da bu kararla mümkündür.",
+     "İşletme projesi. KMK m.37 gereği her yıl gider tahmini hazırlanır. 7579 sayılı Kanun (22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete) bu maddeyi değiştirdi: proje kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar. Ayrıntılar için KMK 2026 değişiklikleri sayfasına bakın.",
+     "Aidat ve avans. Gider ve avans payını ödemeyen kat maliki için KMK m.20 uyarınca aylık yüzde beş gecikme tazminatı işler; yönetici veya diğer kat malikleri dava açabilir ya da icra takibi yapabilir.",
+     "Yönetim planı değişikliği. Tek yapılarda KMK m.28/3 uyarınca beşte dört; birden fazla yapıdan oluşan toplu yapılarda m.70 uyarınca üçte iki oy aranır."
+    ]
+   },
+   {
+    "type": "cta",
+    "text": "Aidat paylaşım kuralını kendi sitenizde denemek ister misiniz?",
+    "href": "/hesaplayici",
+    "label": "Aidat paylaşım hesaplayıcısı"
+   },
+   {
+    "type": "h2",
+    "text": "Kartal'de elektrik, su ve doğal gaz: abonelik ve devir"
+   },
+   {
+    "type": "p",
+    "text": "Kartal Anadolu Yakası'nda olduğundan elektrik dağıtımı AYEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür. Yönetim devrinde ortak alan sayaçlarının abonelik sahibi ve tarifesi kontrol edilmeli, eski borç ve alacak durumu tutanakla ortaya konmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Yönetim şirketi seçerken sorulacaklar"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Sözleşme kalem kalem hizmet kapsamını ve fiyatı içeriyor mu?",
+     "Aylık gelir-gider raporu ve harcama belgeleri kat maliklerine açık mı?",
+     "Acil teknik müdahale için yazılı bir süre hedefi var mı? (Alo Yönetim'in yazılı SLA kapsamındaki hedefi Anadolu Yakası'nda 30 dakika olarak belirlenmiştir; süre sözleşmedeki hükümlere bağlıdır.)",
+     "Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle mi veriliyor?",
+     "Yeni teslim edilen sitelerde devir teslim ve garanti takibini kim, nasıl yürütüyor?",
+     "Sözleşmeden çıkış ve devir-teslim koşulları yazılı mı?"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Kartal'da Alo Yönetim"
+   },
+   {
+    "type": "p",
+    "text": "Alo Yönetim'in genel merkezi Osmanağa, Kadıköy'dedir ve 2009'dan beri faaliyet gösterir. Referans listemizde Kartal'da Feriha Özyuva Sitesi, Vakıfbank Umut Çocukları Sosyal Rehabilitasyon Merkezi, Durmuşoğlu Sağlık Hizmetleri gibi kurumlar bulunur; tam liste Referanslar sayfasındadır."
+   },
+   {
+    "type": "cta",
+    "text": "Siteniz için Kartal site yönetimi hizmetini inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+    "href": "/bolgeler/kartal/site-yonetimi",
+    "label": "Kartal site yönetimi"
+   },
+   {
+    "type": "h2",
+    "text": "Sık sorulan sorular"
+   },
+   {
+    "type": "h3",
+    "text": "Dönüşümle yeni teslim alınan binada ilk adım nedir?"
+   },
+   {
+    "type": "p",
+    "text": "Kat malikleri kurulunu toplayıp yönetici seçmek, yönetim planını kontrol etmek ve ilk yıl işletme projesini hazırlamak. Devir teslim tutanakları saklanmalıdır."
+   },
+   {
+    "type": "h3",
+    "text": "Gecikme tazminatı otomatik işler mi?"
+   },
+   {
+    "type": "p",
+    "text": "KMK m.20 aylık yüzde beş gecikme tazminatını öngörür; uygulama için yönetimin talep etmesi ve gerekirse hukuki yola başvurması gerekir. Somut durum için avukata danışılmalıdır."
+   },
+   {
+    "type": "quote",
+    "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+   }
+  ]
+ },
+ {
+  "slug": "umraniye-site-yonetimi-rehberi-2026",
+  "title": "Ümraniye'de Site ve Apartman Yönetimi Rehberi (2026)",
+  "description": "Ümraniye'de site ve apartman yönetimi: mahalle farkları, KMK süreçleri, 7579 sayılı Kanun'la değişenler ve yönetim şirketi seçerken sorulacak sorular.",
+  "category": "yonetim",
+  "tags": [
+   "ümraniye",
+   "site yönetimi",
+   "apartman yönetimi",
+   "finanskent"
+  ],
+  "author": "alo-yonetim",
+  "datePublished": "2026-10-14T09:00:00.000Z",
+  "dateModified": "2026-10-14T09:00:00.000Z",
+  "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+  "pillar": "/bolgeler/umraniye/site-yonetimi",
+  "tldr": "Ümraniye'de konut yapısı mahalleden mahalleye değişir; yönetim ihtiyacı da buna göre farklılaşır. Genel kurul, işletme projesi ve aidat takibi KMK'ya göre yürür; 7579 sayılı Kanun işletme projesi ve toplu yapı nisaplarını değiştirdi.",
+  "content": [
+   {
+    "type": "h2",
+    "text": "Ümraniye'de yönetim ihtiyacı neden mahalleden mahalleye değişir?"
+   },
+   {
+    "type": "p",
+    "text": "Ümraniye, İstanbul Finans Merkezi'ne komşu konumu, metro hatları ve çok bloklu büyük siteleriyle Anadolu Yakası'nın nüfusu en yüksek ilçelerinden biridir. Çakmak, Atatürk ve İnkılap mahallelerinde yoğun konut stoku; Finanskent çevresinde ise kule ve rezidans projeleri öne çıkar. Ölçek büyüdükçe bütçe disiplini ve düzenli raporlama önem kazanır."
+   },
+   {
+    "type": "p",
+    "text": "Bu rehber, Ümraniye'de site veya apartman yönetimiyle ilgilenen kat malikleri ve yöneticiler için mahalle bazlı farkları ve Kat Mülkiyeti Kanunu (KMK) çerçevesindeki adımları özetler."
+   },
+   {
+    "type": "h2",
+    "text": "Mahalle mahalle: ne öne çıkar?"
+   },
+   {
+    "type": "table",
+    "headers": [
+     "Mahalle",
+     "Tipik yapı",
+     "Yönetimde öne çıkan konular"
+    ],
+    "rows": [
+     [
+      "Çakmak",
+      "Metro çevresinde çok bloklu siteler",
+      "Blok bazlı gider ayrımı, şeffaf aidat"
+     ],
+     [
+      "Atatürk",
+      "Merkezi, yoğun konut stoku",
+      "Asansör denetimi, teknik bakım"
+     ],
+     [
+      "Tepeüstü",
+      "AVM aksında karma yapılar",
+      "Güvenlik, otopark"
+     ],
+     [
+      "İnkılap",
+      "Kentsel dönüşümle yapılan siteler",
+      "İlk yönetim kurulumu, otopark kontrolü"
+     ],
+     [
+      "Finanskent",
+      "Finans merkezi çevresinde kule ve rezidanslar",
+      "Kurumsal standartta teknik işletme"
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Bu tablo genel bir çerçevedir; her bina için gerçek ihtiyaç, yönetim planı ve bina yaşı gibi verilere bakılarak belirlenmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Çok bloklu sitelerde ölçek sorunu"
+   },
+   {
+    "type": "p",
+    "text": "Birden fazla bloktan oluşan sitelerde ortak gider kalemleri (güvenlik, temizlik, peyzaj, otopark) bloklar arasında paylaşılır; blok bazlı giderler ise ayrıca izlenmelidir. Gider tablosunda hangi kalemin tüm siteyi, hangisinin yalnızca tek bloğu ilgilendirdiğini ayırmak, itirazları baştan önler."
+   },
+   {
+    "type": "h2",
+    "text": "Otopark ve giriş kontrolü"
+   },
+   {
+    "type": "p",
+    "text": "Yoğun nüfuslu sitelerde otopark düzeni ve ziyaretçi girişi en çok şikâyet konusudur. Kural ve ücretlendirme yönetim planında ve genel kurul kararında yazılı olmalı; güvenlik hizmeti alınıyorsa 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle yürütülmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Kule ve rezidanslarda kurumsal beklenti"
+   },
+   {
+    "type": "p",
+    "text": "Finanskent çevresindeki kule ve rezidans projelerinde kat malikleri ve kiracılar yönetimden kurumsal düzeyde raporlama bekler. Arıza kaydı, müdahale süresi ve bakım geçmişinin sistemli tutulması, hem şikâyet yönetimini hem de genel kurulda hesap vermeyi kolaylaştırır."
+   },
+   {
+    "type": "h2",
+    "text": "Büyük sitelerde şikâyet ve talep yönetimi"
+   },
+   {
+    "type": "p",
+    "text": "Yüzlerce daireli sitelerde arıza ve talep bildirimi için tek bir kanal (telefon, uygulama veya yazılı form) belirlemek ve her talebe kayıt numarası vermek gerekir. Kimin ne zaman ne bildirdiğinin kayıtlı olması, sorunların takipsiz kalmasını önler."
+   },
+   {
+    "type": "h2",
+    "text": "Ümraniye için örnek yıllık yönetim takvimi"
+   },
+   {
+    "type": "p",
+    "text": "Aşağıdaki takvim genel bir örnektir; gerçek plan binanın yaşı, sistemleri ve yönetim planına göre hazırlanmalıdır."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Ocak: yıllık bütçe ve genel kurul hazırlığı",
+     "Mart: otopark ve zemin kat su baskını kontrolü",
+     "Mayıs: iklimlendirme ve havalandırma bakımı",
+     "Ekim: yangın sistemleri ve tahliye tatbikatı planı"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Ümraniye'de sık karşılaşılan durumlar ve yanıtları"
+   },
+   {
+    "type": "h3",
+    "text": "Çok bloklu sitede bir bloğun asansör gideri ortak gidere nasıl yansıtılır?"
+   },
+   {
+    "type": "p",
+    "text": "Giderleri blok bazlı ve tüm siteyi ilgilendiren olarak ayırın; hangi kalemin hangi ölçüyle paylaşıldığını işletme projesinde gösterin. Yönetim planında yazan paylaşım ölçüsü esastır."
+   },
+   {
+    "type": "h3",
+    "text": "Finanskent çevresindeki rezidansta kiracılar için şikâyet yönetimi nasıl kurulur?"
+   },
+   {
+    "type": "p",
+    "text": "Tek kanallı (telefon, uygulama veya form), kayıt numaralı bir talep sistemi kurun; kapanış sürelerini aylık raporlayın."
+   },
+   {
+    "type": "h3",
+    "text": "İnkılap'taki yeni sitede otopark kuralları kavgaya yol açıyor; ne yapılır?"
+   },
+   {
+    "type": "p",
+    "text": "Otopark kullanımı ve ücretlendirme yönetim planı ve kurul kararıyla yazılı belirlenmeli, ziyaretçi park kuralları duyurulmalıdır."
+   },
+   {
+    "type": "h3",
+    "text": "Büyük sitede genel kurul yeter sayısı sağlanamıyor; ne yapılır?"
+   },
+   {
+    "type": "p",
+    "text": "Çağrıyı yazılı yapın, vekâlet usulünü planda netleştirin ve ikinci toplantı koşulları için hukuki dayanağı önceden doğrulayın."
+   },
+   {
+    "type": "h2",
+    "text": "Genel kurulda katılım ve karar"
+   },
+   {
+    "type": "p",
+    "text": "Büyük sitelerde genel kurul toplantı yeter sayısı ve karar sayısı sık sorun olur. KMK m.34'e göre yönetici, kat maliklerinin hem sayı hem arsa payı bakımından çoğunluğuyla seçilir. Toplantıya katılamayan malikler için vekâlet düzenini ve çağrı usulünü önceden planlamak, kararların sonradan iptal edilme riskini azaltır."
+   },
+   {
+    "type": "h2",
+    "text": "Genel kurul, işletme projesi ve aidat: adımlar"
+   },
+   {
+    "type": "ol",
+    "items": [
+     "Yönetici seçimi. KMK m.34'e göre yönetici, kat maliklerinin hem sayı hem de arsa payı bakımından çoğunluğuyla seçilir; profesyonel bir yönetim şirketiyle sözleşme yapılması da bu kararla mümkündür.",
+     "İşletme projesi. KMK m.37 gereği her yıl gider tahmini hazırlanır. 7579 sayılı Kanun (22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete) bu maddeyi değiştirdi: proje kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar. Ayrıntılar için KMK 2026 değişiklikleri sayfasına bakın.",
+     "Aidat ve avans. Gider ve avans payını ödemeyen kat maliki için KMK m.20 uyarınca aylık yüzde beş gecikme tazminatı işler; yönetici veya diğer kat malikleri dava açabilir ya da icra takibi yapabilir.",
+     "Yönetim planı değişikliği. Tek yapılarda KMK m.28/3 uyarınca beşte dört; birden fazla yapıdan oluşan toplu yapılarda m.70 uyarınca üçte iki oy aranır."
+    ]
+   },
+   {
+    "type": "cta",
+    "text": "Aidat paylaşım kuralını kendi sitenizde denemek ister misiniz?",
+    "href": "/hesaplayici",
+    "label": "Aidat paylaşım hesaplayıcısı"
+   },
+   {
+    "type": "h2",
+    "text": "Ümraniye'de elektrik, su ve doğal gaz: abonelik ve devir"
+   },
+   {
+    "type": "p",
+    "text": "Ümraniye Anadolu Yakası'nda olduğundan elektrik dağıtımı AYEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür. Yönetim devrinde ortak alan sayaçlarının abonelik sahibi ve tarifesi kontrol edilmeli, eski borç ve alacak durumu tutanakla ortaya konmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Yönetim şirketi seçerken sorulacaklar"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Sözleşme kalem kalem hizmet kapsamını ve fiyatı içeriyor mu?",
+     "Aylık gelir-gider raporu ve harcama belgeleri kat maliklerine açık mı?",
+     "Acil teknik müdahale için yazılı bir süre hedefi var mı? (Alo Yönetim'in yazılı SLA kapsamındaki hedefi Anadolu Yakası'nda 30 dakika olarak belirlenmiştir; süre sözleşmedeki hükümlere bağlıdır.)",
+     "Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle mi veriliyor?",
+     "Talepler için tek kanallı, kayıt numaralı ve raporlanabilir bir takip sistemi var mı?",
+     "Sözleşmeden çıkış ve devir-teslim koşulları yazılı mı?"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Ümraniye'de Alo Yönetim"
+   },
+   {
+    "type": "p",
+    "text": "Alo Yönetim'in genel merkezi Osmanağa, Kadıköy'dedir ve 2009'dan beri faaliyet gösterir. Referans listemizde Ümraniye'de Türk Eximbank (Türkiye İhracat Kredi Bankası A.Ş.) gibi kurumlar bulunur; tam liste Referanslar sayfasındadır."
+   },
+   {
+    "type": "cta",
+    "text": "Siteniz için Ümraniye site yönetimi hizmetini inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+    "href": "/bolgeler/umraniye/site-yonetimi",
+    "label": "Ümraniye site yönetimi"
+   },
+   {
+    "type": "h2",
+    "text": "Sık sorulan sorular"
+   },
+   {
+    "type": "h3",
+    "text": "Ümraniye'de çok bloklu sitede gider paylaşımı nasıl yapılır?"
+   },
+   {
+    "type": "p",
+    "text": "Yönetim planında aksi yazmıyorsa genel kural uygulanır. Blok bazlı kalemleri ayrı izlemek ve işletme projesinde göstermek uyuşmazlığı azaltır."
+   },
+   {
+    "type": "h3",
+    "text": "Otopark ücreti genel kurul kararıyla belirlenebilir mi?"
+   },
+   {
+    "type": "p",
+    "text": "Yönetim planı ve kat malikleri kurulu kararı çerçevesinde belirlenebilir. Uygulamanın hukuka uygunluğu için yönetim planınızı kontrol edin."
+   },
+   {
+    "type": "quote",
+    "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+   }
+  ]
+ },
+ {
   "slug": "besiktas-site-yonetimi-rehberi-2026",
   "title": "Beşiktaş'ta Site ve Apartman Yönetimi Rehberi (2026)",
   "description": "Beşiktaş'ta site ve apartman yönetimi: mahalle farkları, KMK süreçleri, 7579 sayılı Kanun'la değişenler ve yönetim şirketi seçerken sorulacak sorular.",
@@ -739,6 +2231,742 @@
    {
     "type": "p",
     "text": "Sezonluk işlerin yıla yayılması bütçe dengesi için önerilir; kış bakımı ve sezon açılışı ayrı kalemler olarak yazılabilir."
+   },
+   {
+    "type": "quote",
+    "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+   }
+  ]
+ },
+ {
+  "slug": "bakirkoy-site-yonetimi-rehberi-2026",
+  "title": "Bakırköy'de Site ve Apartman Yönetimi Rehberi (2026)",
+  "description": "Bakırköy'de site ve apartman yönetimi: mahalle farkları, KMK süreçleri, 7579 sayılı Kanun'la değişenler ve yönetim şirketi seçerken sorulacak sorular.",
+  "category": "yonetim",
+  "tags": [
+   "bakırköy",
+   "site yönetimi",
+   "apartman yönetimi",
+   "ataköy",
+   "florya"
+  ],
+  "author": "alo-yonetim",
+  "datePublished": "2026-10-14T09:00:00.000Z",
+  "dateModified": "2026-10-14T09:00:00.000Z",
+  "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+  "pillar": "/bolgeler/bakirkoy/site-yonetimi",
+  "tldr": "Bakırköy'de konut yapısı mahalleden mahalleye değişir; yönetim ihtiyacı da buna göre farklılaşır. Genel kurul, işletme projesi ve aidat takibi KMK'ya göre yürür; 7579 sayılı Kanun işletme projesi ve toplu yapı nisaplarını değiştirdi.",
+  "content": [
+   {
+    "type": "h2",
+    "text": "Bakırköy'de yönetim ihtiyacı neden mahalleden mahalleye değişir?"
+   },
+   {
+    "type": "p",
+    "text": "Bakırköy; Ataköy'ün planlı sahil kuleleri ve etapları, Florya'nın bahçeli konutları, Yeşilköy'ün sahil dokusu ve Şenlikköy'ün modern sitelerinden oluşan, köklü ve planlı bir yerleşimdir. Marmara kıyısına yakın olması deniz etkisine bağlı bakım ihtiyaçlarını, eski sitelerin çokluğu ise yenileme kararlarını gündeme getirir."
+   },
+   {
+    "type": "p",
+    "text": "Bu rehber, Bakırköy'de site veya apartman yönetimiyle ilgilenen kat malikleri ve yöneticiler için mahalle bazlı farkları ve Kat Mülkiyeti Kanunu (KMK) çerçevesindeki adımları özetler."
+   },
+   {
+    "type": "h2",
+    "text": "Mahalle mahalle: ne öne çıkar?"
+   },
+   {
+    "type": "table",
+    "headers": [
+     "Mahalle",
+     "Tipik yapı",
+     "Yönetimde öne çıkan konular"
+    ],
+    "rows": [
+     [
+      "Ataköy",
+      "Sahil kuleleri ve planlı etaplar",
+      "Etap bazlı gider ayrımı, teknik işletme"
+     ],
+     [
+      "Florya",
+      "Müstakil ve bahçeli konutlar",
+      "Güvenlik, peyzaj, havuz"
+     ],
+     [
+      "Yeşilköy",
+      "Sahil dokusu, butik apartmanlar",
+      "Nem ve korozyon bakımı"
+     ],
+     [
+      "Şenlikköy",
+      "Modern siteler",
+      "Asansör bakımı, sosyal tesis işletmesi"
+     ],
+     [
+      "Yeşilyurt",
+      "Sakin sahil yerleşimi",
+      "Temizlik, güvenlik düzeni"
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Bu tablo genel bir çerçevedir; her bina için gerçek ihtiyaç, yönetim planı ve bina yaşı gibi verilere bakılarak belirlenmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Ataköy: etaplı büyük yerleşim"
+   },
+   {
+    "type": "p",
+    "text": "Etap bazlı planlanan yerleşimlerde her etabın kendi yönetimi ve bazı ortak alanları olabilir. Hangi giderin etap, hangisinin bina bazında olduğu net olmalı; ortak alan kullanımına ilişkin kurallar yönetim planında yer almalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Deniz kıyısında bakım: Yeşilköy ve Florya"
+   },
+   {
+    "type": "p",
+    "text": "Deniz tuzu ve nem; asansör, kapı ve cephe aksamında korozyonu hızlandırabilir. Periyodik kontroller ve koruyucu bakım, ani arıza maliyetini düşürür. Bahçeli sitelerde havuz hijyeni ve peyzaj bakımı mevsime göre planlanmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Yenileme bütçesini etaplandırma"
+   },
+   {
+    "type": "p",
+    "text": "Yaşı ilerlemiş sitelerde yenileme ihtiyaçlarını bir arada yapmak aidatı aniden yükseltir. İhtiyaçları aciliyet sırasına koyup yıllara yaymak, kat maliklerinin ödeme gücünü korur. Her iş için keşif, en az iki teklif ve yazılı karar yöntemi izlenmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Sahil rüzgârı ve tuzlu hava"
+   },
+   {
+    "type": "p",
+    "text": "Marmara kıyısına yakın yapılarda tuzlu hava metal aksamı ve elektrik panolarını etkiler. Panolar, kapı kilitleri ve dış cephe metal elemanlarının düzenli kontrolü ve gerektiğinde koruyucu boyası arızaları önler."
+   },
+   {
+    "type": "h2",
+    "text": "Bakırköy için örnek yıllık yönetim takvimi"
+   },
+   {
+    "type": "p",
+    "text": "Aşağıdaki takvim genel bir örnektir; gerçek plan binanın yaşı, sistemleri ve yönetim planına göre hazırlanmalıdır."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Ocak: bütçe ve yenileme planı",
+     "Nisan: cephe, balkon ve çatı kontrolü",
+     "Haziran: havuz ve sosyal alan sezonu",
+     "Ekim: asansör, kazan ve elektrik pano bakımı"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Bakırköy'de sık karşılaşılan durumlar ve yanıtları"
+   },
+   {
+    "type": "h3",
+    "text": "Ataköy'deki etaplı sitede ortak gider hangi etaba yazılır?"
+   },
+   {
+    "type": "p",
+    "text": "Yönetim planı ve etap sınırlarına göre kalemler ayrılmalı; etap bazlı ve tüm yerleşimi ilgilendiren giderler işletme projesinde ayrı gösterilmelidir."
+   },
+   {
+    "type": "h3",
+    "text": "Yeşilköy'de deniz kıyısına yakın binada elektrik panolarında korozyon sorunu; ne yapılır?"
+   },
+   {
+    "type": "p",
+    "text": "Panoların düzenli temizliği ve kontrolü, koruyucu bakım ve gerekirse yenileme bütçesi planlayın; işlemleri yetkili elektrik mühendisliğiyle yapın."
+   },
+   {
+    "type": "h3",
+    "text": "Florya'daki bahçeli sitede havuz ve peyzaj giderleri ne zaman bütçelenir?"
+   },
+   {
+    "type": "p",
+    "text": "Havuz sezonu, budama ve sulama dönemlerini yıla yayarak işletme projesinde ayrı kalemlerle gösterin."
+   },
+   {
+    "type": "h3",
+    "text": "Eski sitede yenileme ihtiyaçları birikti; aidatı birden artırmadan nasıl çözülür?"
+   },
+   {
+    "type": "p",
+    "text": "İhtiyaçları aciliyet sırasına koyup yıllara yayın, her iş için keşif ve çoklu teklif alın, kararı yazılı gündemle kurulda alın."
+   },
+   {
+    "type": "h2",
+    "text": "Eski sitelerde yenileme kararı"
+   },
+   {
+    "type": "p",
+    "text": "Yaşı ilerlemiş sitelerde asansör, çatı veya ortak tesisat yenilemesi için bütçe yetersiz kalabilir. Bu durumda yenilemeyi etaplara bölmek, birden fazla teklif almak ve kararı genel kurulda yazılı gündemle almak yöntemdir. Gecikmiş aidat varsa KMK m.20 uyarınca aylık yüzde beş gecikme tazminatı ve icra yolu gündeme gelebilir; somut durum için avukata danışılmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Genel kurul, işletme projesi ve aidat: adımlar"
+   },
+   {
+    "type": "ol",
+    "items": [
+     "Yönetici seçimi. KMK m.34'e göre yönetici, kat maliklerinin hem sayı hem de arsa payı bakımından çoğunluğuyla seçilir; profesyonel bir yönetim şirketiyle sözleşme yapılması da bu kararla mümkündür.",
+     "İşletme projesi. KMK m.37 gereği her yıl gider tahmini hazırlanır. 7579 sayılı Kanun (22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete) bu maddeyi değiştirdi: proje kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar. Ayrıntılar için KMK 2026 değişiklikleri sayfasına bakın.",
+     "Aidat ve avans. Gider ve avans payını ödemeyen kat maliki için KMK m.20 uyarınca aylık yüzde beş gecikme tazminatı işler; yönetici veya diğer kat malikleri dava açabilir ya da icra takibi yapabilir.",
+     "Yönetim planı değişikliği. Tek yapılarda KMK m.28/3 uyarınca beşte dört; birden fazla yapıdan oluşan toplu yapılarda m.70 uyarınca üçte iki oy aranır."
+    ]
+   },
+   {
+    "type": "cta",
+    "text": "Aidat paylaşım kuralını kendi sitenizde denemek ister misiniz?",
+    "href": "/hesaplayici",
+    "label": "Aidat paylaşım hesaplayıcısı"
+   },
+   {
+    "type": "h2",
+    "text": "Bakırköy'de elektrik, su ve doğal gaz: abonelik ve devir"
+   },
+   {
+    "type": "p",
+    "text": "Bakırköy Avrupa Yakası'nda olduğundan elektrik dağıtımı BEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür. Yönetim devrinde ortak alan sayaçlarının abonelik sahibi ve tarifesi kontrol edilmeli, eski borç ve alacak durumu tutanakla ortaya konmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Yönetim şirketi seçerken sorulacaklar"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Sözleşme kalem kalem hizmet kapsamını ve fiyatı içeriyor mu?",
+     "Aylık gelir-gider raporu ve harcama belgeleri kat maliklerine açık mı?",
+     "Acil teknik müdahale için yazılı bir süre hedefi var mı? (Alo Yönetim'in yazılı SLA kapsamındaki hedefi Avrupa Yakası'nda 1 saat olarak belirlenmiştir; süre sözleşmedeki hükümlere bağlıdır.)",
+     "Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle mi veriliyor?",
+     "Büyük yenileme işleri için etaplı bütçe ve çoklu teklif usulü uygulanıyor mu?",
+     "Sözleşmeden çıkış ve devir-teslim koşulları yazılı mı?"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Bakırköy'de Alo Yönetim"
+   },
+   {
+    "type": "p",
+    "text": "Alo Yönetim'in genel merkezi Osmanağa, Kadıköy'dedir ve 2009'dan beri faaliyet gösterir. Referans listemizin tamamı Referanslar sayfasındadır."
+   },
+   {
+    "type": "cta",
+    "text": "Siteniz için Bakırköy site yönetimi hizmetini inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+    "href": "/bolgeler/bakirkoy/site-yonetimi",
+    "label": "Bakırköy site yönetimi"
+   },
+   {
+    "type": "h2",
+    "text": "Sık sorulan sorular"
+   },
+   {
+    "type": "h3",
+    "text": "Etaplı sitede ortak gider nasıl paylaşılır?"
+   },
+   {
+    "type": "p",
+    "text": "Yönetim planı ve etap sınırlarına göre; hangi kalemlerin etap, hangilerinin bina bazlı olduğu işletme projesinde ayrı gösterilmelidir."
+   },
+   {
+    "type": "h3",
+    "text": "Deniz kenarındaki binada asansör ne sıklıkla kontrol edilmeli?"
+   },
+   {
+    "type": "p",
+    "text": "Yasal periyodik muayeneye ek olarak bakım firmasının önerdiği sıklıkta; aylık bakım ve arıza müdahalesi sözleşmede ayrı yazılmalıdır."
+   },
+   {
+    "type": "quote",
+    "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+   }
+  ]
+ },
+ {
+  "slug": "basaksehir-site-yonetimi-rehberi-2026",
+  "title": "Başakşehir'de Site ve Apartman Yönetimi Rehberi (2026)",
+  "description": "Başakşehir'de site ve apartman yönetimi: mahalle farkları, KMK süreçleri, 7579 sayılı Kanun'la değişenler ve yönetim şirketi seçerken sorulacak sorular.",
+  "category": "yonetim",
+  "tags": [
+   "başakşehir",
+   "site yönetimi",
+   "toplu yapı yönetimi",
+   "bahçeşehir"
+  ],
+  "author": "alo-yonetim",
+  "datePublished": "2026-10-14T09:00:00.000Z",
+  "dateModified": "2026-10-14T09:00:00.000Z",
+  "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+  "pillar": "/bolgeler/basaksehir/site-yonetimi",
+  "tldr": "Başakşehir'de konut yapısı mahalleden mahalleye değişir; yönetim ihtiyacı da buna göre farklılaşır. Genel kurul, işletme projesi ve aidat takibi KMK'ya göre yürür; 7579 sayılı Kanun işletme projesi ve toplu yapı nisaplarını değiştirdi.",
+  "content": [
+   {
+    "type": "h2",
+    "text": "Başakşehir'de yönetim ihtiyacı neden mahalleden mahalleye değişir?"
+   },
+   {
+    "type": "p",
+    "text": "Başakşehir; Bahçeşehir ve Başakşehir etaplarındaki planlı toplu konut projeleriyle İstanbul'un en büyük site yerleşimlerinden biridir. Binlerce bağımsız bölümden oluşan siteler, göletler ve geniş ortak alanlar yönetimde ölçek sorununu öne çıkarır: bütçe büyüktür, hata payı küçüktür."
+   },
+   {
+    "type": "p",
+    "text": "Bu rehber, Başakşehir'de site veya apartman yönetimiyle ilgilenen kat malikleri ve yöneticiler için mahalle bazlı farkları ve Kat Mülkiyeti Kanunu (KMK) çerçevesindeki adımları özetler."
+   },
+   {
+    "type": "h2",
+    "text": "Mahalle mahalle: ne öne çıkar?"
+   },
+   {
+    "type": "table",
+    "headers": [
+     "Mahalle",
+     "Tipik yapı",
+     "Yönetimde öne çıkan konular"
+    ],
+    "rows": [
+     [
+      "Bahçeşehir",
+      "Göletli, yeşil alanı geniş siteler",
+      "Peyzaj, sosyal tesis işletmesi"
+     ],
+     [
+      "Şahintepe",
+      "Orta ölçekli karma konutlar",
+      "Aidat takibi, teknik bakım"
+     ],
+     [
+      "Güvercintepe",
+      "Modern bloklar ve sosyal donatılı yapılar",
+      "Güvenlik, temizlik"
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Bu tablo genel bir çerçevedir; her bina için gerçek ihtiyaç, yönetim planı ve bina yaşı gibi verilere bakılarak belirlenmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Binlerce dairelik sitelerde yönetim"
+   },
+   {
+    "type": "p",
+    "text": "Büyük yerleşimlerde yönetim tek kişinin işi olmaktan çıkar: muhasebe, teknik bakım, güvenlik, temizlik ve peyzaj ayrı birimlerce yürütülür. İşler arasındaki koordinasyonun yazılı prosedürlerle tanımlanması, aylık raporların standart formatta sunulması ve harcama belgelerinin kat maliklerine açık olması güveni artırır."
+   },
+   {
+    "type": "h2",
+    "text": "Göletli ve geniş yeşil alanlı siteler"
+   },
+   {
+    "type": "p",
+    "text": "Bahçeşehir'deki göletli ve yeşil alanı geniş sitelerde peyzaj, sulama ve gölet bakımı büyük bütçe kalemleridir. Bu kalemlerin yıllık plana göre yazılması ve mevsimsel dalgalanmaların işletme projesinde gösterilmesi gerekir."
+   },
+   {
+    "type": "h2",
+    "text": "Okul, park ve sosyal alan yoğunluğu"
+   },
+   {
+    "type": "p",
+    "text": "Aile yaşamının ağırlıkta olduğu sitelerde çocuk alanları, park, okul servisleri ve otopark kullanımı günlük konulardır. Ortak alan kullanım kuralları ve oyun alanı güvenlik kontrolleri düzenli yapılmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Merkezi sistemler ve enerji"
+   },
+   {
+    "type": "p",
+    "text": "Büyük yerleşimlerde merkezi ısıtma, hidrofor ve sulama sistemleri ölçeklendikçe arızanın etkisi de büyür. Yedek ekipman, bakım sözleşmesi ve arıza durumunda iletişim planı önceden belirlenmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Başakşehir için örnek yıllık yönetim takvimi"
+   },
+   {
+    "type": "p",
+    "text": "Aşağıdaki takvim genel bir örnektir; gerçek plan binanın yaşı, sistemleri ve yönetim planına göre hazırlanmalıdır."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Ocak: bütçe ve genel kurul hazırlığı",
+     "Mart: oyun alanı ve park güvenlik kontrolü",
+     "Mayıs: peyzaj sulama ve gölet bakımı",
+     "Ekim: merkezi ısıtma ve kazan bakımı"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Başakşehir'de sık karşılaşılan durumlar ve yanıtları"
+   },
+   {
+    "type": "h3",
+    "text": "Binlerce dairelik sitede aidat takibi için hangi düzen kurulmalı?"
+   },
+   {
+    "type": "p",
+    "text": "Dijital kayıt, aylık borç listesi ve yazılı hatırlatma/ihtar prosedürü kurun; gecikme tazminatı ve icra yolunu önceden belirlenmiş adımlara bağlayın."
+   },
+   {
+    "type": "h3",
+    "text": "Göletli sitede peyzaj ve gölet bakımı aidata nasıl yansıtılır?"
+   },
+   {
+    "type": "p",
+    "text": "Peyzaj, sulama ve gölet bakımını işletme projesinde ayrı kalem gösterin; mevsimsel giderleri yıla yayın."
+   },
+   {
+    "type": "h3",
+    "text": "Toplu yapıda yönetim planı değiştirmek istiyoruz; kaç oy gerekir?"
+   },
+   {
+    "type": "p",
+    "text": "Birden fazla yapıdan oluşan toplu yapılarda KMK m.70 uyarınca üçte iki; tek yapılarda beşte dört. Sitenizin toplu yapı olup olmadığını tapu ve proje yapısından doğrulayın."
+   },
+   {
+    "type": "h3",
+    "text": "Merkezi ısıtma ve hidrofor sistemlerinde arıza riski nasıl azaltılır?"
+   },
+   {
+    "type": "p",
+    "text": "Yedek ekipman ve bakım sözleşmesi planlayın, arıza durumunda iletişim zincirini yazılı belirleyin ve periyodik testleri kayda alın."
+   },
+   {
+    "type": "h2",
+    "text": "Toplu yapılarda yönetim planı: m.70"
+   },
+   {
+    "type": "p",
+    "text": "Birden fazla yapıdan oluşan toplu yapılarda yönetim planı değişikliği için 7579 sayılı Kanun'la (22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete) değişen KMK m.70 uyarınca üçte iki oy aranır. Başakşehir'deki büyük sitelerde plan değişikliği gündeme gelmeden önce hangi hükmün uygulandığını tapu ve proje yapısına göre doğrulamak gerekir. Ayrıntılar için KMK 2026 değişiklikleri sayfasına bakabilirsiniz."
+   },
+   {
+    "type": "h2",
+    "text": "Genel kurul, işletme projesi ve aidat: adımlar"
+   },
+   {
+    "type": "ol",
+    "items": [
+     "Yönetici seçimi. KMK m.34'e göre yönetici, kat maliklerinin hem sayı hem de arsa payı bakımından çoğunluğuyla seçilir; profesyonel bir yönetim şirketiyle sözleşme yapılması da bu kararla mümkündür.",
+     "İşletme projesi. KMK m.37 gereği her yıl gider tahmini hazırlanır. 7579 sayılı Kanun (22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete) bu maddeyi değiştirdi: proje kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar. Ayrıntılar için KMK 2026 değişiklikleri sayfasına bakın.",
+     "Aidat ve avans. Gider ve avans payını ödemeyen kat maliki için KMK m.20 uyarınca aylık yüzde beş gecikme tazminatı işler; yönetici veya diğer kat malikleri dava açabilir ya da icra takibi yapabilir.",
+     "Yönetim planı değişikliği. Tek yapılarda KMK m.28/3 uyarınca beşte dört; birden fazla yapıdan oluşan toplu yapılarda m.70 uyarınca üçte iki oy aranır."
+    ]
+   },
+   {
+    "type": "cta",
+    "text": "Aidat paylaşım kuralını kendi sitenizde denemek ister misiniz?",
+    "href": "/hesaplayici",
+    "label": "Aidat paylaşım hesaplayıcısı"
+   },
+   {
+    "type": "h2",
+    "text": "Başakşehir'de elektrik, su ve doğal gaz: abonelik ve devir"
+   },
+   {
+    "type": "p",
+    "text": "Başakşehir Avrupa Yakası'nda olduğundan elektrik dağıtımı BEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür. Yönetim devrinde ortak alan sayaçlarının abonelik sahibi ve tarifesi kontrol edilmeli, eski borç ve alacak durumu tutanakla ortaya konmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Yönetim şirketi seçerken sorulacaklar"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Sözleşme kalem kalem hizmet kapsamını ve fiyatı içeriyor mu?",
+     "Aylık gelir-gider raporu ve harcama belgeleri kat maliklerine açık mı?",
+     "Acil teknik müdahale için yazılı bir süre hedefi var mı? (Alo Yönetim'in yazılı SLA kapsamındaki hedefi Avrupa Yakası'nda 1 saat olarak belirlenmiştir; süre sözleşmedeki hükümlere bağlıdır.)",
+     "Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle mi veriliyor?",
+     "Büyük ölçekli sitelerde birimler arası (muhasebe, teknik, güvenlik) koordinasyon nasıl sağlanıyor?",
+     "Sözleşmeden çıkış ve devir-teslim koşulları yazılı mı?"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Başakşehir'de Alo Yönetim"
+   },
+   {
+    "type": "p",
+    "text": "Alo Yönetim'in genel merkezi Osmanağa, Kadıköy'dedir ve 2009'dan beri faaliyet gösterir. Referans listemizin tamamı Referanslar sayfasındadır."
+   },
+   {
+    "type": "cta",
+    "text": "Siteniz için Başakşehir site yönetimi hizmetini inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+    "href": "/bolgeler/basaksehir/site-yonetimi",
+    "label": "Başakşehir site yönetimi"
+   },
+   {
+    "type": "h2",
+    "text": "Sık sorulan sorular"
+   },
+   {
+    "type": "h3",
+    "text": "Binlerce daireli sitede aidat takibi nasıl yapılır?"
+   },
+   {
+    "type": "p",
+    "text": "Dijital kayıt, aylık borç listesi ve yazılı hatırlatma/ihtar prosedürüyle. Gecikmeler için KMK m.20 çerçevesinde hukuki yol izlenir."
+   },
+   {
+    "type": "h3",
+    "text": "Toplu yapıda yönetici seçimi nasıl olur?"
+   },
+   {
+    "type": "p",
+    "text": "KMK m.34 uyarınca kat maliklerinin sayı ve arsa payı bakımından çoğunluğuyla; toplu yapılarda yapı yapısına göre ek usuller için yönetim planına bakılmalıdır."
+   },
+   {
+    "type": "quote",
+    "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+   }
+  ]
+ },
+ {
+  "slug": "beylikduzu-site-yonetimi-rehberi-2026",
+  "title": "Beylikdüzü'nde Site ve Apartman Yönetimi Rehberi (2026)",
+  "description": "Beylikdüzü'nde site ve apartman yönetimi: mahalle farkları, KMK süreçleri, 7579 sayılı Kanun'la değişenler ve yönetim şirketi seçerken sorulacak sorular.",
+  "category": "yonetim",
+  "tags": [
+   "beylikdüzü",
+   "site yönetimi",
+   "apartman yönetimi",
+   "adnan kahveci",
+   "yakuplu"
+  ],
+  "author": "alo-yonetim",
+  "datePublished": "2026-10-14T09:00:00.000Z",
+  "dateModified": "2026-10-14T09:00:00.000Z",
+  "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+  "pillar": "/bolgeler/beylikduzu/site-yonetimi",
+  "tldr": "Beylikdüzü'nde konut yapısı mahalleden mahalleye değişir; yönetim ihtiyacı da buna göre farklılaşır. Genel kurul, işletme projesi ve aidat takibi KMK'ya göre yürür; 7579 sayılı Kanun işletme projesi ve toplu yapı nisaplarını değiştirdi.",
+  "content": [
+   {
+    "type": "h2",
+    "text": "Beylikdüzü'nde yönetim ihtiyacı neden mahalleden mahalleye değişir?"
+   },
+   {
+    "type": "p",
+    "text": "Beylikdüzü, geniş bulvarları ve çok sayıda büyük sitesiyle planlı kentleşmenin örneklerinden biridir. Adnan Kahveci ve Barış'ta yoğun site stoku, Yakuplu ve Gürpınar'da deniz komşuluğu, Cumhuriyet Mahallesi'nde park çevresindeki aile siteleri öne çıkar. Sosyal tesisli siteler, açık otoparklar ve rüzgâra açık yüksek bloklar yönetimin gündemini belirler."
+   },
+   {
+    "type": "p",
+    "text": "Bu rehber, Beylikdüzü'nde site veya apartman yönetimiyle ilgilenen kat malikleri ve yöneticiler için mahalle bazlı farkları ve Kat Mülkiyeti Kanunu (KMK) çerçevesindeki adımları özetler."
+   },
+   {
+    "type": "h2",
+    "text": "Mahalle mahalle: ne öne çıkar?"
+   },
+   {
+    "type": "table",
+    "headers": [
+     "Mahalle",
+     "Tipik yapı",
+     "Yönetimde öne çıkan konular"
+    ],
+    "rows": [
+     [
+      "Adnan Kahveci",
+      "Yoğun nüfuslu, çok sayıda site",
+      "Şeffaf aidat, ortak alan bakımı"
+     ],
+     [
+      "Barış",
+      "Ulaşım aksında büyük siteler",
+      "Güvenlik, otopark"
+     ],
+     [
+      "Yakuplu",
+      "Marina çevresi, villa ve sitelerin karışımı",
+      "Güvenlik, peyzaj"
+     ],
+     [
+      "Gürpınar",
+      "Sahil hattı, rüzgâra açık yapılar",
+      "Cephe ve nem bakımı"
+     ],
+     [
+      "Cumhuriyet",
+      "Park çevresinde aile siteleri",
+      "Peyzaj bakımı, ortak alan düzeni"
+     ]
+    ]
+   },
+   {
+    "type": "p",
+    "text": "Bu tablo genel bir çerçevedir; her bina için gerçek ihtiyaç, yönetim planı ve bina yaşı gibi verilere bakılarak belirlenmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Sosyal tesisli büyük siteler"
+   },
+   {
+    "type": "p",
+    "text": "Havuz, spor salonu, çocuk alanı gibi sosyal donatıları olan sitelerde kullanım kuralları, çalışma saatleri ve bakım giderleri açık yazılmalıdır. Bu tesislerin işletme gideri aidata nasıl yansıyacaksa işletme projesinde ayrı kalem olarak gösterilmelidir."
+   },
+   {
+    "type": "h2",
+    "text": "Rüzgâra açık bloklar ve deniz komşuluğu"
+   },
+   {
+    "type": "p",
+    "text": "Gürpınar ve Yakuplu gibi sahile yakın bölgelerde rüzgâr ve nem; cephe, balkon ve çatı kaplamalarında yıpranmaya yol açabilir. Düzenli cephe ve çatı kontrolünün bütçelenmesi, ani ve pahalı onarımları engeller."
+   },
+   {
+    "type": "h2",
+    "text": "Otopark, trafik ve giriş çıkış düzeni"
+   },
+   {
+    "type": "p",
+    "text": "Binlerce dairelik sitelerde sabah ve akşam saatlerinde giriş çıkış yoğunluğu oluşur. Plaka tanıma, ziyaretçi kartı ve geçici park uygulamaları kurulabilir; ancak bunların kişisel verilerin korunması mevzuatına uygun işletilmesi gerekir."
+   },
+   {
+    "type": "h2",
+    "text": "Yaşam Vadisi ve park çevresi siteleri"
+   },
+   {
+    "type": "p",
+    "text": "Park komşuluğu olan sitelerde peyzaj ve sulama bakımı, çevre temizliği ve güvenlik devriyesi planlanırken ortak parkın belediye alanı olduğu unutulmamalı; site sınırı ve sorumluluk alanı net tanımlanmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Beylikdüzü için örnek yıllık yönetim takvimi"
+   },
+   {
+    "type": "p",
+    "text": "Aşağıdaki takvim genel bir örnektir; gerçek plan binanın yaşı, sistemleri ve yönetim planına göre hazırlanmalıdır."
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Ocak: işletme projesi ve bütçe",
+     "Mart: cephe, çatı ve balkon korkulukları kontrolü",
+     "Mayıs: havuz ve sosyal tesis sezon açılışı",
+     "Ekim: asansör bakımı, kazan ve kış hazırlığı"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Beylikdüzü'nde sık karşılaşılan durumlar ve yanıtları"
+   },
+   {
+    "type": "h3",
+    "text": "Binlerce dairelik sitede otopark ve giriş çıkış düzeni nasıl kurulur?"
+   },
+   {
+    "type": "p",
+    "text": "Ziyaretçi kartı, geçici park ve plaka tanıma uygulamalarını kurul kararıyla belirleyin; kişisel veri ilkelerine uygun kayıt ve saklama süreleri belirleyin."
+   },
+   {
+    "type": "h3",
+    "text": "Sosyal tesisli sitede havuz ve spor salonu giderleri nasıl paylaştırılır?"
+   },
+   {
+    "type": "p",
+    "text": "İşletme projesinde tesis giderlerini ayrı kalemle gösterin ve paylaşım ölçüsünü yönetim planıyla netleştirin."
+   },
+   {
+    "type": "h3",
+    "text": "Gürpınar'daki rüzgâra açık blokta cephe ve çatı kontrolü ne zaman yapılır?"
+   },
+   {
+    "type": "p",
+    "text": "Fırtına sezonu öncesi ve sonrası görsel kontrol yapın, tespitleri kayda alın ve onarımları etaplayın."
+   },
+   {
+    "type": "h3",
+    "text": "Yeni teslim sitede sayaç aboneliği müteahhit adına kalmış; ne yapılır?"
+   },
+   {
+    "type": "p",
+    "text": "Abonelikleri site yönetimi adına devralın, ilk dönem fatura ve borç durumunu tutanakla müteahhitle netleştirin."
+   },
+   {
+    "type": "h2",
+    "text": "Elektrik, su ve doğal gaz abonelikleri"
+   },
+   {
+    "type": "p",
+    "text": "Beylikdüzü Avrupa Yakası'nda olduğundan elektrik dağıtımı BEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür. Yeni teslim edilen sitelerde ortak alan sayaçlarının abonelik sahibi müteahhit olabilir; yönetim kurulunca devir alınması ve ilk dönem faturalarının tutanakla netleştirilmesi gerekir."
+   },
+   {
+    "type": "h2",
+    "text": "Genel kurul, işletme projesi ve aidat: adımlar"
+   },
+   {
+    "type": "ol",
+    "items": [
+     "Yönetici seçimi. KMK m.34'e göre yönetici, kat maliklerinin hem sayı hem de arsa payı bakımından çoğunluğuyla seçilir; profesyonel bir yönetim şirketiyle sözleşme yapılması da bu kararla mümkündür.",
+     "İşletme projesi. KMK m.37 gereği her yıl gider tahmini hazırlanır. 7579 sayılı Kanun (22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete) bu maddeyi değiştirdi: proje kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar. Ayrıntılar için KMK 2026 değişiklikleri sayfasına bakın.",
+     "Aidat ve avans. Gider ve avans payını ödemeyen kat maliki için KMK m.20 uyarınca aylık yüzde beş gecikme tazminatı işler; yönetici veya diğer kat malikleri dava açabilir ya da icra takibi yapabilir.",
+     "Yönetim planı değişikliği. Tek yapılarda KMK m.28/3 uyarınca beşte dört; birden fazla yapıdan oluşan toplu yapılarda m.70 uyarınca üçte iki oy aranır."
+    ]
+   },
+   {
+    "type": "cta",
+    "text": "Aidat paylaşım kuralını kendi sitenizde denemek ister misiniz?",
+    "href": "/hesaplayici",
+    "label": "Aidat paylaşım hesaplayıcısı"
+   },
+   {
+    "type": "h2",
+    "text": "Beylikdüzü'de elektrik, su ve doğal gaz: abonelik ve devir"
+   },
+   {
+    "type": "p",
+    "text": "Beylikdüzü Avrupa Yakası'nda olduğundan elektrik dağıtımı BEDAŞ, su ve kanalizasyon İSKİ, doğal gaz İGDAŞ üzerinden yürür. Yönetim devrinde ortak alan sayaçlarının abonelik sahibi ve tarifesi kontrol edilmeli, eski borç ve alacak durumu tutanakla ortaya konmalıdır."
+   },
+   {
+    "type": "h2",
+    "text": "Yönetim şirketi seçerken sorulacaklar"
+   },
+   {
+    "type": "ul",
+    "items": [
+     "Sözleşme kalem kalem hizmet kapsamını ve fiyatı içeriyor mu?",
+     "Aylık gelir-gider raporu ve harcama belgeleri kat maliklerine açık mı?",
+     "Acil teknik müdahale için yazılı bir süre hedefi var mı? (Alo Yönetim'in yazılı SLA kapsamındaki hedefi Avrupa Yakası'nda 1 saat olarak belirlenmiştir; süre sözleşmedeki hükümlere bağlıdır.)",
+     "Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle mi veriliyor?",
+     "Giriş çıkış ve otopark uygulamaları kişisel veri mevzuatına uygun şekilde kuruluyor mu?",
+     "Sözleşmeden çıkış ve devir-teslim koşulları yazılı mı?"
+    ]
+   },
+   {
+    "type": "h2",
+    "text": "Beylikdüzü'nde Alo Yönetim"
+   },
+   {
+    "type": "p",
+    "text": "Alo Yönetim'in genel merkezi Osmanağa, Kadıköy'dedir ve 2009'dan beri faaliyet gösterir. Referans listemizde Beylikdüzü'nde Tüyap Gıda Fuarı gibi kurumlar bulunur; tam liste Referanslar sayfasındadır."
+   },
+   {
+    "type": "cta",
+    "text": "Siteniz için Beylikdüzü site yönetimi hizmetini inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+    "href": "/bolgeler/beylikduzu/site-yonetimi",
+    "label": "Beylikdüzü site yönetimi"
+   },
+   {
+    "type": "h2",
+    "text": "Sık sorulan sorular"
+   },
+   {
+    "type": "h3",
+    "text": "Sosyal tesis giderleri aidata nasıl yansıtılır?"
+   },
+   {
+    "type": "p",
+    "text": "İşletme projesinde sosyal tesis kalemleri ayrı gösterilir; paylaşım yönetim planına göre yapılır."
+   },
+   {
+    "type": "h3",
+    "text": "Yeni sitede sayaç aboneliği kimin adına olmalı?"
+   },
+   {
+    "type": "p",
+    "text": "Devir sonrası ortak alan sayaçları site yönetimi adına kayıtlı olmalıdır; müteahhitle ilk dönem fatura ve borç durumu tutanakla netleştirilmelidir."
    },
    {
     "type": "quote",

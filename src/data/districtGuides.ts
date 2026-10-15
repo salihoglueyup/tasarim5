@@ -460,7 +460,7 @@ function build(s: Spec): Post {
 export const DISTRICT_GUIDES: Post[] = SPECS.map(build);
 
 /** En/ru/ar çevirisi tamamlanan ilçe rehberleri (çeviri belleği: scripts/dump-guides.ts → guides.snapshot.json). */
-export const TRANSLATED_GUIDE_DISTRICTS: readonly string[] = ['besiktas', 'sisli', 'sariyer'];
+export const TRANSLATED_GUIDE_DISTRICTS: readonly string[] = ['besiktas', 'sisli', 'sariyer', 'kadikoy', 'atasehir', 'uskudar', 'maltepe', 'kartal', 'umraniye', 'bakirkoy', 'basaksehir', 'beylikduzu'];
 
 export const TRANSLATED_GUIDES: Post[] = DISTRICT_GUIDES.filter((p) => TRANSLATED_GUIDE_DISTRICTS.some((d) => p.slug === d + "-site-yonetimi-rehberi-2026"));
 
