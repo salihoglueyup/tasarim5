@@ -37,6 +37,9 @@ import { LOCALES } from '@/lib/seo';
 import { ORG_CREDENTIALS } from '@/lib/schemas';
 
 import Icon from '@/components/ui/branding/Icon';
+import { getDistrictLocalBrief } from '@/data/districtGuides';
+
+const LOCAL_BRIEF_SERVICES = new Set(['site-yonetimi', 'apartman-yonetimi', 'bina-yonetimi', 'site-yonetim-sirketleri', 'profesyonel-site-yonetimi', 'tesis-yonetimi']);
 // ISR (Faz 120): 96 kombinasyon sayfası günlük yeniden doğrulanır.
 export const revalidate = 86400;
 export const dynamicParams = true;
@@ -337,9 +340,13 @@ export default async function ServiceDistrictPage({
   const isCleaning = service.slug === 'temizlik-ve-hijyen';
 
   const synthesizedDistrictFaq = isFacility ? synthesizeDistrictFacilityFaq(district.slug) : null;
-  const faqs = (isFacility && synthesizedDistrictFaq)
+  const localBrief = LOCAL_BRIEF_SERVICES.has(hizmet) || LOCAL_BRIEF_SERVICES.has(service.slug) ? getDistrictLocalBrief(district.slug) : null;
+  const baseFaqs = (isFacility && synthesizedDistrictFaq)
     ? synthesizedDistrictFaq.faqs.map(f => ({ question: f.question, answer: f.answer }))
     : serviceDistrictFaqs(service.name, district.name, service.benefits[0], service.slug);
+  const faqs = localBrief
+    ? [...baseFaqs, ...localBrief.faq.map(([question, answer]) => ({ question, answer }))]
+    : baseFaqs;
 
   let pageHeaderTitle = `${service.name} — ${district.name}`;
   let pageHeaderDesc = `${district.name} ve mahallelerinde profesyonel ${service.name.toLowerCase()} hizmeti.`;
@@ -570,6 +577,50 @@ export default async function ServiceDistrictPage({
             tüm mahallelerinde yerinde hizmet veriyoruz.
           </p>
         </div>
+
+        {/* Yerel özet: mahalle tablosu + sık karşılaşılan iki durum (ilçe rehberinden) */}
+        {localBrief && (
+          <div className="flex flex-col gap-6 max-w-4xl">
+            <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">
+              {district.name} mahalle mahalle: yönetimde öne çıkanlar
+            </h2>
+            <div className="overflow-x-auto rounded-2xl border border-[var(--color-outline)]/60 bg-[var(--color-surface)]">
+              <table className="w-full text-sm text-left">
+                <thead>
+                  <tr className="text-xs uppercase tracking-wider text-[var(--color-secondary)]">
+                    <th className="p-4">Mahalle</th>
+                    <th className="p-4">Tipik yapı</th>
+                    <th className="p-4">Öne çıkan konular</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {localBrief.rows.map((r) => (
+                    <tr key={r[0]} className="border-t border-[var(--color-outline)]/40 align-top">
+                      <td className="p-4 font-semibold text-[var(--color-primary)]">{r[0]}</td>
+                      <td className="p-4 text-[var(--color-secondary)]">{r[1]}</td>
+                      <td className="p-4 text-[var(--color-secondary)]">{r[2]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="flex flex-col gap-4">
+              {localBrief.scenarios.map(([q, a]) => (
+                <div key={q} className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-2xl p-6">
+                  <h3 className="font-bold text-[var(--color-primary)] mb-2">{q}</h3>
+                  <p className="text-sm text-[var(--color-secondary)] font-light leading-relaxed">{a}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-sm text-[var(--color-secondary)]">
+              Daha fazlası için{' '}
+              <Link href={`/blog/${localBrief.guideSlug}`} className="font-semibold text-[var(--color-primary)] hover:underline">
+                {district.name} site ve apartman yönetimi rehberini
+              </Link>{' '}
+              okuyabilirsiniz.
+            </p>
+          </div>
+        )}
 
         {/* Tesis Yönetimi Hizmeti için Özel Denetim Matrisi & Radar & Hukuk Jeneratörü & B2B Şartname & Silo Ağı */}
         {isFacility && (

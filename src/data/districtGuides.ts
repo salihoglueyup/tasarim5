@@ -471,3 +471,21 @@ export const TRANSLATED_GUIDES: Post[] = DISTRICT_GUIDES.filter((p) => TRANSLATE
 
 /** En/ru/ar çevirisi henüz yapılmamış (yalnızca Türkçe) yazılar; bu sürümler noindex kalır. */
 export const TR_ONLY_BLOG_SLUGS: readonly string[] = DISTRICT_GUIDES.filter((p) => !TRANSLATED_GUIDES.includes(p)).map((p) => p.slug);
+
+/** İlçe × site/apartman/tesis yönetimi hizmet sayfalarında gösterilen kısa yerel özet (rehberden türetilir, ayrı metin tutulmaz). */
+export type DistrictLocalBrief = {
+  guideSlug: string;
+  rows: string[][];
+  faq: [string, string][];
+  scenarios: [string, string][];
+};
+export function getDistrictLocalBrief(districtSlug: string): DistrictLocalBrief | null {
+  const s = SPECS.find((x) => x.slug === districtSlug);
+  if (!s) return null;
+  return {
+    guideSlug: `${s.slug}-site-yonetimi-rehberi-2026`,
+    rows: s.rows,
+    faq: s.faq,
+    scenarios: (DISTRICT_SCENARIOS[s.slug] ?? []).slice(0, 2),
+  };
+}
