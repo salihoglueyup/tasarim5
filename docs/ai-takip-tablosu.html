@@ -1,0 +1,183 @@
+<title>Yapay Zekâ Takip Tablosu</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Düzen: sorgu kümeleri üstte süzgeç, altta aylık işaretlenebilir tablo. Özet satırı ilk bakışta kaç sorguda görünüldüğünü verir. */
+:root{
+  --bg:#f6f7f4; --surface:#ffffff; --fg:#1d2a26; --muted:#5d6b66; --line:#dfe4df;
+  --accent:#1f6f5c; --accent-soft:#e1f0ea; --warn:#a15c00; --warn-soft:#fbefd9; --bad:#a3302c;
+  --font-body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-head:"Fraunces",Georgia,"Times New Roman",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101614; --surface:#18211e; --fg:#e6ece8; --muted:#9aa8a2; --line:#2a3733;
+    --accent:#59c0a3; --accent-soft:#1c3830; --warn:#e0a24a; --warn-soft:#3a2d14; --bad:#e8847f; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101614; --surface:#18211e; --fg:#e6ece8; --muted:#9aa8a2; --line:#2a3733;
+  --accent:#59c0a3; --accent-soft:#1c3830; --warn:#e0a24a; --warn-soft:#3a2d14; --bad:#e8847f; color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-family:var(--font-head);font-size:clamp(26px,5vw,36px);line-height:1.15;margin:0;text-wrap:balance}
+p.lead{margin:6px 0 0;color:var(--muted);max-width:62ch}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:6px 12px;border-radius:999px;font:inherit;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.summary{display:flex;flex-wrap:wrap;gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 16px;min-width:140px}
+.stat b{display:block;font-size:26px;font-variant-numeric:tabular-nums;font-family:var(--font-head)}
+.stat span{color:var(--muted);font-size:13px}
+.tablebox{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:760px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:none}
+.q{font-weight:600}
+.cl{font-size:12px;color:var(--muted)}
+select,textarea{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:5px 8px;max-width:100%}
+textarea{width:100%;min-width:160px;resize:vertical}
+select:focus-visible,textarea:focus-visible,.chip:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.st-var{background:var(--accent-soft)}
+.st-kaynak{background:var(--accent-soft)}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+button.act{font:inherit;border:1px solid var(--accent);background:var(--accent);color:#fff;padding:7px 14px;border-radius:8px;cursor:pointer}
+button.act.ghost{background:transparent;color:var(--accent)}
+.note{color:var(--muted);font-size:13px;max-width:70ch}
+@media (prefers-reduced-motion: no-preference){.chip,button.act{transition:background .15s}}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600&display=swap">
+
+<div class="wrap">
+  <header>
+    <h1>Yapay zekâ takip tablosu</h1>
+    <p class="lead">30 hedef sorguyu ayda bir elle arayın (gizli sekme, Google). Sonucu işaretleyin: yapay zekâ özeti çıktı mı, Alo Yönetim kaynak olarak geçti mi? Kayıtlar yalnızca bu tarayıcıda saklanır.</p>
+  </header>
+
+  <div class="bar">
+    <div class="chips" id="chips" role="group" aria-label="Sorgu kümesi"></div>
+    <label>Ay
+      <select id="month"></select>
+    </label>
+  </div>
+
+  <div class="summary" id="summary" aria-live="polite"></div>
+
+  <div class="tablebox">
+    <table>
+      <thead><tr><th>Sorgu</th><th>Hedef sayfa</th><th>Özet çıktı mı?</th><th>Kaynak olarak geçti mi?</th><th>Not</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+
+  <div class="btns">
+    <button class="act" id="copy">Sonucu kopyala (tablo)</button>
+    <button class="act ghost" id="reset">Bu ayı temizle</button>
+  </div>
+  <p class="note">Not: Google Search Console yapay zekâ özeti tıklamalarını ayrı raporlamaz, "web" içinde görünür. Bu tablo, GSC sorgu raporuyla birlikte okunmalıdır. Sonuçlar kişiselleştirme ve konuma göre değişebilir; aynı koşullarda (aynı cihaz, gizli sekme) ölçün.</p>
+</div>
+
+<script>
+const QUERIES = [
+  ['Aidat ve bütçe','aidat artış sınırı 2026','/kmk-2026-degisiklikleri'],
+  ['Aidat ve bütçe','işletme projesi nedir','/sozluk/isletme-projesi'],
+  ['Aidat ve bütçe','geçici işletme projesi nedir','/sozluk/gecici-isletme-projesi-kmk-m37'],
+  ['Aidat ve bütçe','aidat nasıl hesaplanır arsa payı','/hesaplayici'],
+  ['Aidat ve bütçe','yeniden değerleme oranı aidat artışı','/kmk-2026-degisiklikleri'],
+  ['Gecikme ve icra','aidat ödenmezse ne olur','/sss'],
+  ['Gecikme ve icra','aidat icra takibi nasıl yapılır','/blog/aidat-icra-takibi-nasil-yapilir'],
+  ['Gecikme ve icra','gecikme tazminatı yüzde kaç','/sozluk/gecikme-tazminati-5-yasal-faiz'],
+  ['Gecikme ve icra','kiracı aidattan sorumlu mu','/sss'],
+  ['Gecikme ve icra','aidat borcu olanın suyu kesilir mi','/sss'],
+  ['Yönetim','site yöneticisi nasıl seçilir','/sss'],
+  ['Yönetim','yönetim planı nasıl değişir','/sozluk/yonetim-plani'],
+  ['Yönetim','toplu yapı yönetim planı kaç oy','/sozluk/toplu-yapi-kmk-m66-70'],
+  ['Yönetim','genel kurul karar nisabı','/sss'],
+  ['Yönetim','yönetim şirketi nasıl seçilir','/blog/tesis-yonetim-sirketi-nasil-secilir-2026'],
+  ['Güvenlik','site güvenliği 5188 izin','/blog/sitelerde-5188-ozel-guvenlik-mevzuati-ve-valilik-izni-2026'],
+  ['Güvenlik','güvenlik görevlisi yetkileri','/blog/site-guvenligi-icin-5188-kanunu-kapsami-2026'],
+  ['Güvenlik','site kamera kayıtları KVKK','/sss'],
+  ['Güvenlik','plaka tanıma sistemi site','/sozluk/plaka-tanima-sistemi-pts'],
+  ['Güvenlik','güvenlik şirketi seçerken nelere bakılır','/blog/sitelerde-5188-lisansli-ozel-guvenlik-sirketi-secim-kriterleri'],
+  ['Teknik','asansör etiket renkleri anlamı','/sozluk/yesil-etiket-asansor'],
+  ['Teknik','kazan bakımı ne zaman yapılır','/sss'],
+  ['Teknik','jeneratör bakım sıklığı','/sss'],
+  ['Teknik','havuz suyu klor pH değerleri','/blog/yuzme-havuzu-bakim-kimyasallari'],
+  ['Teknik','DASK zorunlu mu','/sss'],
+  ['Yerel','Kadıköy site yönetimi şirketi','/bolgeler/kadikoy/site-yonetimi'],
+  ['Yerel','Ataşehir site yönetimi','/bolgeler/atasehir/site-yonetimi'],
+  ['Yerel','Beşiktaş apartman yönetimi','/bolgeler/besiktas/site-yonetimi'],
+  ['Yerel','Başakşehir site yönetimi','/bolgeler/basaksehir/site-yonetimi'],
+  ['Yerel','Beylikdüzü site yönetimi','/bolgeler/beylikduzu/site-yonetimi']
+];
+const CLUSTERS = ['Tümü', ...new Set(QUERIES.map(q => q[0]))];
+const YN = [['', '—'], ['evet','Evet'], ['hayir','Hayır']];
+let cluster = 'Tümü';
+let data = {};
+const KEY = 'ai-takip-v1';
+try { data = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { data = {}; }
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {} }
+
+const monthSel = document.getElementById('month');
+const now = new Date();
+for (let i = 0; i < 12; i++) {
+  const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+  const v = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
+  const o = document.createElement('option');
+  o.value = v; o.textContent = d.toLocaleDateString('tr-TR', { month: 'long', year: 'numeric' });
+  monthSel.appendChild(o);
+}
+const chips = document.getElementById('chips');
+CLUSTERS.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'chip'; b.textContent = c; b.setAttribute('aria-pressed', c === cluster);
+  b.onclick = () => { cluster = c; [...chips.children].forEach(x => x.setAttribute('aria-pressed', x.textContent === c)); render(); };
+  chips.appendChild(b);
+});
+
+function get(m, i){ return (data[m] && data[m][i]) || { ov:'', src:'', note:'' }; }
+function set(m, i, k, v){ data[m] = data[m] || {}; data[m][i] = Object.assign(get(m, i), { [k]: v }); save(); summarize(); }
+function sel(val, onchange, label){
+  const s = document.createElement('select'); s.setAttribute('aria-label', label);
+  YN.forEach(([v, t]) => { const o = document.createElement('option'); o.value = v; o.textContent = t; if (v === val) o.selected = true; s.appendChild(o); });
+  s.onchange = () => onchange(s.value); return s;
+}
+function render(){
+  const m = monthSel.value, body = document.getElementById('rows'); body.innerHTML = '';
+  QUERIES.forEach((q, i) => {
+    if (cluster !== 'Tümü' && q[0] !== cluster) return;
+    const r = get(m, i), tr = document.createElement('tr');
+    const t1 = document.createElement('td'); t1.innerHTML = '<div class="q"></div><div class="cl"></div>';
+    t1.firstChild.textContent = q[1]; t1.lastChild.textContent = q[0];
+    const t2 = document.createElement('td'); t2.textContent = q[2]; t2.style.wordBreak = 'break-all';
+    const t3 = document.createElement('td'); t3.appendChild(sel(r.ov, v => set(m, i, 'ov', v), q[1] + ' için özet çıktı mı'));
+    const t4 = document.createElement('td'); t4.appendChild(sel(r.src, v => set(m, i, 'src', v), q[1] + ' için kaynak olarak geçti mi'));
+    const t5 = document.createElement('td'); const ta = document.createElement('textarea'); ta.rows = 1; ta.value = r.note; ta.setAttribute('aria-label', q[1] + ' notu');
+    ta.onchange = () => set(m, i, 'note', ta.value); t5.appendChild(ta);
+    [t1, t2, t3, t4, t5].forEach(x => tr.appendChild(x)); body.appendChild(tr);
+  });
+  summarize();
+}
+function summarize(){
+  const m = monthSel.value; let ov = 0, src = 0, done = 0;
+  QUERIES.forEach((q, i) => { const r = get(m, i); if (r.ov) done++; if (r.ov === 'evet') ov++; if (r.src === 'evet') src++; });
+  document.getElementById('summary').innerHTML =
+    '<div class="stat"><b>' + done + '/30</b><span>ölçülen sorgu</span></div>' +
+    '<div class="stat"><b>' + ov + '</b><span>yapay zekâ özeti çıkan</span></div>' +
+    '<div class="stat"><b>' + src + '</b><span>Alo Yönetim kaynak gösterilen</span></div>';
+}
+monthSel.onchange = render;
+document.getElementById('reset').onclick = () => { delete data[monthSel.value]; save(); render(); };
+document.getElementById('copy').onclick = async () => {
+  const m = monthSel.value;
+  const lines = ['Ay\tKüme\tSorgu\tÖzet çıktı\tKaynak geçti\tNot'];
+  QUERIES.forEach((q, i) => { const r = get(m, i); lines.push([m, q[0], q[1], r.ov, r.src, r.note.replace(/\s+/g, ' ')].join('\t')); });
+  const text = lines.join('\n');
+  try { await navigator.clipboard.writeText(text); document.getElementById('copy').textContent = 'Kopyalandı'; setTimeout(() => document.getElementById('copy').textContent = 'Sonucu kopyala (tablo)', 1800); }
+  catch (e) { prompt && 0; const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); }
+};
+render();
+</script>

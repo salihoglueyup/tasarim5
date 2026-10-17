@@ -7,7 +7,8 @@
 import type { Post, PostBlock } from './posts';
 import { REAL_REFERENCES } from './realReferences';
 import { FACTS } from '@/lib/facts';
-import { DISTRICT_SCENARIOS } from './districtGuideScenarios';
+import { DISTRICT_SCENARIOS as SCENARIOS_A } from './districtGuideScenarios';
+import { SPECS_BATCH2, EXTRAS_BATCH2, SCENARIOS_BATCH2 } from './districtGuidesBatch2';
 
 type Segment = { h: string; p: string };
 type Spec = {
@@ -24,7 +25,7 @@ type Spec = {
   tags: string[];
 };
 
-const SPECS: Spec[] = [
+const SPECS_A: Spec[] = [
   {
     slug: 'kadikoy', name: 'Kadıköy', side: 'Anadolu', loc: "Kadıköy'de",
     lead: "Kadıköy, Anadolu Yakası'nın en yoğun ve en çeşitli konut ilçelerinden biridir. Tek bir \"Kadıköy sitesi\" yoktur: Moda'da onlarca yıllık, az daireli apartmanlar; Caddebostan ve Suadiye'de havuzlu, kapalı otoparklı sahil siteleri; Bostancı'da konut ve ticaretin iç içe geçtiği karma yapılar; Göztepe'de eski ve yeni binaların yan yana durduğu bir doku görülür. Yönetimden beklenen şey de buna göre değişir.",
@@ -278,7 +279,7 @@ const SPECS: Spec[] = [
 ];
 
 /** İlçeye özgü ek bölümler: yıllık bakım takvimi, ek konu başlıkları ve ilçeye özel seçim sorusu. */
-const EXTRAS: Record<string, { segments: Segment[]; calendar: string[]; question: string }> = {
+const EXTRAS_A: Record<string, { segments: Segment[]; calendar: string[]; question: string }> = {
   kadikoy: {
     segments: [
       { h: 'Kadıköy\'de komşuluk ilişkisi ve toplantı kültürü', p: "Kadıköy'de özellikle eski apartmanlarda kat malikleri birbirini uzun yıllardır tanır; bu, kararların hızlı alınmasını kolaylaştırdığı kadar kayıt tutmayı ihmal etmeye de yol açar. Sözlü anlaşmalar, el yazısı defterler ve fotoğraflanmış fişler zamanla kaybolur. Karar defteri, toplantı çağrısı ve gider belgelerinin düzenli arşivlenmesi, yönetici değiştiğinde süreci kesintisiz sürdürmenin en ucuz yoludur." },
@@ -377,6 +378,10 @@ const EXTRAS: Record<string, { segments: Segment[]; calendar: string[]; question
   },
 };
 
+const SPECS: Spec[] = [...SPECS_A, ...SPECS_BATCH2];
+const EXTRAS: Record<string, { segments: Segment[]; calendar: string[]; question: string }> = { ...EXTRAS_A, ...EXTRAS_BATCH2 };
+const DISTRICT_SCENARIOS: Record<string, [string, string][]> = { ...SCENARIOS_A, ...SCENARIOS_BATCH2 };
+
 const IMAGE ='https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop';
 const EXCLUDED_REF = /Çocuk ve Gençlik Merkezi/;
 
@@ -460,7 +465,7 @@ function build(s: Spec): Post {
 export const DISTRICT_GUIDES: Post[] = SPECS.map(build);
 
 /** En/ru/ar çevirisi tamamlanan ilçe rehberleri (çeviri belleği: scripts/dump-guides.ts → guides.snapshot.json). */
-export const TRANSLATED_GUIDE_DISTRICTS: readonly string[] = ['besiktas', 'sisli', 'sariyer', 'kadikoy', 'atasehir', 'uskudar', 'maltepe', 'kartal', 'umraniye', 'bakirkoy', 'basaksehir', 'beylikduzu'];
+export const TRANSLATED_GUIDE_DISTRICTS: readonly string[] = ['besiktas', 'sisli', 'sariyer', 'kadikoy', 'atasehir', 'uskudar', 'maltepe', 'kartal', 'umraniye', 'bakirkoy', 'basaksehir', 'beylikduzu', 'pendik', 'esenyurt', 'kucukcekmece', 'kagithane', 'bahcelievler', 'cekmekoy'];
 
 export const TRANSLATED_GUIDES: Post[] = DISTRICT_GUIDES.filter((p) => TRANSLATED_GUIDE_DISTRICTS.some((d) => p.slug === d + "-site-yonetimi-rehberi-2026"));
 
