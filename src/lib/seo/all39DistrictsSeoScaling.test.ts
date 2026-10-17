@@ -117,7 +117,7 @@ describe('39 İlçe Geneli B2B Yerel SEO & Büyüme Master Planı (Seçenek A Te
       });
 
       expect(meta.title).toContain('Bakırköy Asansör Bakımı ve Arıza');
-      expect(meta.description).toContain('MMO yeşil etiket');
+      expect(meta.description).toContain('yeşil etiket');
       expect(meta.alternates?.canonical).toBe(
         `${BASE_URL}/bolgeler/bakirkoy/teknik-bakim`
       );

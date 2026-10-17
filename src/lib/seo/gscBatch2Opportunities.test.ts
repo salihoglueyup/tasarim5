@@ -60,7 +60,7 @@ describe('GSC Batch 2 High-Impact Query Opportunities', () => {
       );
 
       expect(servicePageSource).toContain('pageHeaderTitle = `${district.name} Asansör Bakımı, Arıza Müdahalesi & Bina Teknik Servis`');
-      expect(servicePageSource).toContain('${district.name} Sitelerinde TMMOB & Sanayi Bakanlığı Uyumlu Asansör ve Teknik Bakım');
+      expect(servicePageSource).toContain('${district.name} Sitelerinde Asansör ve Teknik Bakım');
     });
 
     it('ServiceDistrictPage isCleaning durumunda apartman temizliği aramasını hedeflemeli', () => {

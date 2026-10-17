@@ -57,19 +57,19 @@ export function generateStaticParams() {
 const SERVICE_SPECIFIC_Q3: Record<string, { q: string; a: string }> = {
   'aidat-takibi': {
     q: 'Aidat ödenmezse yasal süreç nasıl işler?',
-    a: 'Ödenmeyen aidatlar için önce yazılı ihtarname gönderilir; ardından 634 sayılı KMK m.20 kapsamında icra takibi başlatılır. Dijital sistemimiz gecikmeleri takip eder ve süreci yönetim adına yürütür.',
+    a: 'Ödenmeyen aidatlar için önce yazılı ihtarname gönderilir; ardından 634 sayılı KMK m.20 kapsamında icra takibi başlatılır. Gecikmeler kayıt altında izlenir; süreç yönetim kurulu kararı ve sözleşme kapsamında yürütülür.',
   },
   'guvenlik-yonetimi': {
     q: 'Güvenlik personeli 5188 sayılı Kanun\'a uygun mu?',
-    a: 'Evet. Tüm personelimiz 5188 sayılı Özel Güvenlik Hizmetlerine Dair Kanun kapsamında lisanslı ve periyodik eğitimden geçmiş uzman güvenlik görevlilerinden oluşur.',
+    a: 'Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle verilmelidir. Sözleşme öncesi şirketin izin belgesini ve personelin kimlik ve sertifika kayıtlarını isteyebilirsiniz.',
   },
   'tesis-yonetimi': {
     q: 'Yıllık işletme projesi ne zaman ve nasıl hazırlanır?',
-    a: 'İşletme projesi, her yıl Ocak ayında KMK m.37 uyarınca kat malikleri kuruluna sunulmak üzere hazırlanır. Gelir-gider tahmini, demirbaş planı ve acil fon ayırımı şeffaf biçimde raporlanır.',
+    a: 'İşletme projesi KMK m.37 kapsamında yıllık gider tahminini içerir ve kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar (7579 sayılı Kanun). Gelir-gider tahmini ve demirbaş planı şeffaf biçimde raporlanır.',
   },
   'temizlik-ve-hijyen': {
     q: 'Temizlik hangi sıklıkla yapılır, programa nasıl ulaşırım?',
-    a: 'Temizlik takvimi sitenizin büyüklüğüne ve sözleşme kapsamına göre günlük, haftalık veya 2 haftada bir olarak planlanır. Uygulama üzerinden temizlik raporuna ve fotoğraflı doğrulamaya anlık erişebilirsiniz.',
+    a: 'Temizlik takvimi sitenizin büyüklüğüne ve sözleşme kapsamına göre günlük, haftalık veya 2 haftada bir olarak planlanır. Temizlik kayıtları sözleşmede belirlenen sıklıkta yönetime iletilir.',
   },
   'teknik-bakim': {
     q: 'Periyodik bakım raporları nasıl takip edilir?',
@@ -81,11 +81,11 @@ const SERVICE_SPECIFIC_Q3: Record<string, { q: string; a: string }> = {
   },
   'havuz-bakimi-ve-hijyen': {
     q: 'Havuz suyu kalitesi nasıl kontrol ediliyor?',
-    a: 'pH, klor, alkalinite ve bulanıklık değerleri günlük ölçülür; sonuçlar dijital havuz günlüğüne kaydedilir. Sağlık Bakanlığı standartlarına aykırı değer tespit edilirse havuz hemen devre dışı bırakılır.',
+    a: 'pH, klor, alkalinite ve bulanıklık değerleri düzenli ölçülür ve kayda alınır. Değerler ilgili mevzuatın aradığı aralığın dışına çıkarsa havuzun kullanıma kapatılması dahil önlemler yönetim kuruluyla birlikte kararlaştırılır.',
   },
   'hasere-ve-dezenfeksiyon': {
     q: 'İlaçlama sonrası sakinlerin dikkat etmesi gerekenler neler?',
-    a: 'Uygulama sonrası havalandırma süresi (genellikle 2-4 saat) geçene kadar ilaçlanan alanlara girilmemesi önerilir. Kullanılan tüm ürünler Sağlık Bakanlığı onaylı ve çocuk/evcil hayvan güvenliği test edilmiş preparatlardır.',
+    a: 'Havalandırma süresi için ilaçlama firmasının ürün etiketindeki talimat esastır; bu süre geçene kadar ilaçlanan alanlara girilmemesi önerilir. Uygulamadan önce kullanılacak ürünlerin ruhsat bilgisini isteyebilirsiniz.',
   },
   'hukuk-ve-icra-danismanligi': {
     q: 'Aidat icrası ne zaman başlatılır, süreç ne kadar sürer?',
@@ -146,7 +146,7 @@ export async function generateMetadata({
 
   if (hizmet === 'site-yonetimi') {
     metaTitle = `${district.name} Site Yönetimi Şirketleri — Profesyonel Apartman ve Site Yönetimi | Alo Yönetim`;
-    metaDesc = `${district.name}'de 634 sayılı KMK tam uyumlu profesyonel site yönetimi, aidat tahsilatı ve işletme projesi. Şeffaf muhasebe ve ücretsiz keşif.`;
+    metaDesc = `${district.name}'de 634 sayılı KMK çerçevesinde profesyonel site yönetimi, aidat tahsilatı ve işletme projesi. Şeffaf muhasebe ve ücretsiz keşif.`;
     serviceKeywords = [
       `${district.name} site yönetimi`,
       `${district.name} site yönetim şirketi`,
@@ -171,7 +171,7 @@ export async function generateMetadata({
     ];
   } else if (hizmet === 'bina-yonetimi') {
     metaTitle = `${district.name} Bina Yönetimi Şirketleri — Profesyonel Bina İşletmesi | Alo Yönetim`;
-    metaDesc = `${district.name} genelinde apartman, bina ve iş merkezleri için KMK 634 tam uyumlu profesyonel yönetim, şeffaf bütçe ve periyodik teknik bakım.`;
+    metaDesc = `${district.name} genelinde apartman, bina ve iş merkezleri için KMK çerçevesinde profesyonel yönetim, şeffaf bütçe ve periyodik teknik bakım.`;
     serviceKeywords = [
       `${district.name} bina yönetimi`,
       `${district.name} bina yönetim şirketi`,
@@ -187,7 +187,7 @@ export async function generateMetadata({
     ];
   } else if (hizmet === 'asansor-bakimi' || hizmet === 'asansor-ariza') {
     metaTitle = `${district.name} Asansör Bakımı ve Arıza — Acil Servis & Yeşil Etiket | Alo Yönetim`;
-    metaDesc = `${district.name}'de asansör arıza ve aylık periyodik bakımı, MMO yeşil etiket muayenesi ve jeneratör teknik servisi. Acil müdahale desteği.`;
+    metaDesc = `${district.name}'de asansör arıza ve periyodik bakımı, yeşil etiket (periyodik kontrol) takibi ve jeneratör teknik servisi. Acil müdahale desteği.`;
     serviceKeywords = [
       `${district.name} asansör bakım`,
       `${district.name} asansör arıza`,
@@ -211,7 +211,7 @@ export async function generateMetadata({
     ];
   } else if (hizmet === 'guvenlik-sirketleri' || hizmet === 'guvenlik-firmalari' || hizmet === 'ozel-guvenlik' || isSecurity) {
     metaTitle = `${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik & Hızlı Teklif | Alo Yönetim`;
-    metaDesc = `${district.name} güvenlik şirketleri arasında 5188 sayılı Kanun standartlarında Valilik izinli özel güvenlik personeli, devriye ve CCTV kamera denetimi. Hemen ücretsiz güvenlik keşfi ve hızlı teklif alın.`;
+    metaDesc = `${district.name} güvenlik şirketleri arasında 5188 sayılı Kanun çerçevesinde özel güvenlik, devriye ve kamera izleme koordinasyonu. Ücretsiz keşif ve net teklif.`;
     serviceKeywords = [
       `${district.name} güvenlik şirketleri`,
       `${district.name} özel güvenlik şirketi`,
@@ -241,7 +241,7 @@ export async function generateMetadata({
     ];
   } else if (isTechnical) {
     metaTitle = `${district.name} Asansör Bakımı ve Arıza — Acil Servis & Yeşil Etiket | Alo Yönetim`;
-    metaDesc = `${district.name}'de asansör arıza ve aylık periyodik bakımı, MMO yeşil etiket muayenesi ve jeneratör teknik servisi. Acil müdahale desteği.`;
+    metaDesc = `${district.name}'de asansör arıza ve periyodik bakımı, yeşil etiket (periyodik kontrol) takibi ve jeneratör teknik servisi. Acil müdahale desteği.`;
     serviceKeywords = [
       `${district.name} asansör bakım`,
       `${district.name} asansör arıza`,
@@ -255,12 +255,12 @@ export async function generateMetadata({
     ];
   } else if (isCleaning) {
     metaTitle = `${district.name} Site & Apartman Temizliği, Dış Cephe Cam Silimi — Alo Yönetim`;
-    metaDesc = `${district.name}'de ortak alan temizliği, dağcı iple erişim dış cephe cam silimi ve Sağlık Bakanlığı onaylı biyosidal ilaçlama. Ücretsiz keşif.`;
+    metaDesc = `${district.name}'de ortak alan temizliği, dış cephe cam temizliği ve ilaçlama koordinasyonu. Ücretsiz keşif.`;
     serviceKeywords = [
       `${district.name} site temizlik şirketi`,
       `${district.name} apartman temizliği`,
       `${district.name} dış cephe cam silimi`,
-      `${district.name} dağcı cam temizliği`,
+      `${district.name} dış cephe cam temizliği`,
       `${district.name} site böcek ilaçlama`,
       `${district.name} otopark zemin yıkama`,
     ];
@@ -287,7 +287,7 @@ export async function generateMetadata({
     ];
   } else if (isPool) {
     metaTitle = `${district.name} Site Havuz Bakımı, Kimyasal & Hijyen Servisi — Alo Yönetim`;
-    metaDesc = `${district.name}'de Sağlık Bakanlığı onaylı havuz suyu analizi, periyodik filtre temizliği ve havuz kimyasalları yönetimi. Ücretsiz analiz randevusu alın.`;
+    metaDesc = `${district.name}'de havuz suyu ölçümü ve kaydı, periyodik filtre temizliği ve havuz kimyasalları yönetimi. Ücretsiz keşif randevusu alın.`;
     serviceKeywords = [
       `${district.name} havuz bakım firması`,
       `${district.name} site havuz bakımı`,
@@ -353,34 +353,34 @@ export default async function ServiceDistrictPage({
 
   if (hizmet === 'site-yonetimi') {
     pageHeaderTitle = `${district.name} Site Yönetimi Şirketleri — Profesyonel Apartman ve Site Yönetimi`;
-    pageHeaderDesc = `${district.name} genelinde 634 sayılı KMK tam uyumlu profesyonel site yönetimi, aidat takibi ve şeffaf işletme projesi. Ücretsiz keşif ve net teklif.`;
+    pageHeaderDesc = `${district.name} genelinde 634 sayılı KMK çerçevesinde profesyonel site yönetimi, aidat takibi ve şeffaf işletme projesi. Ücretsiz keşif ve net teklif.`;
   } else if (hizmet === 'apartman-yonetimi') {
     pageHeaderTitle = `${district.name} Apartman Yönetimi Şirketleri — Profesyonel Apartman Yöneticiliği`;
     pageHeaderDesc = `${district.name} apartmanları için dışarıdan profesyonel yöneticilik, KMK m.34/35 idari ve mali yönetim, periyodik asansör/merdiven bakımı ve şeffaf aidat takibi.`;
   } else if (hizmet === 'bina-yonetimi') {
     pageHeaderTitle = `${district.name} Bina Yönetimi Şirketleri — Profesyonel Bina İşletmeciliği`;
-    pageHeaderDesc = `${district.name} genelinde apartman, bina ve iş merkezleri için KMK 634 tam uyumlu profesyonel yönetim, şeffaf bütçe ve periyodik teknik bakım.`;
+    pageHeaderDesc = `${district.name} genelinde apartman, bina ve iş merkezleri için KMK çerçevesinde profesyonel yönetim, şeffaf bütçe ve periyodik teknik bakım.`;
   } else if (hizmet === 'site-yonetim-sirketleri' || hizmet === 'profesyonel-site-yonetimi') {
     pageHeaderTitle = `${district.name} Site Yönetim Şirketleri `;
-    pageHeaderDesc = `${district.name} genelinde 634 sayılı KMK tam uyumlu profesyonel site ve tesis yönetimi, şeffaf muhasebe ve 5188 güvenlik.`;
+    pageHeaderDesc = `${district.name} genelinde 634 sayılı KMK çerçevesinde profesyonel site ve tesis yönetimi, şeffaf muhasebe ve 5188 güvenlik.`;
   } else if (hizmet === 'asansor-bakimi' || hizmet === 'asansor-ariza') {
     pageHeaderTitle = `${district.name} Asansör Bakımı ve Arıza — Acil Servis & Yeşil Etiket`;
-    pageHeaderDesc = `${district.name} genelinde Sanayi Bakanlığı ve MMO yeşil etiket uyumlu asansör periyodik bakımı, acil müdahale ve revizyon hizmeti.`;
+    pageHeaderDesc = `${district.name} genelinde asansör periyodik bakımı, yeşil etiket (periyodik kontrol) takibi, acil müdahale ve revizyon desteği.`;
   } else if (hizmet === 'apartman-temizligi' || hizmet === 'site-temizligi' || hizmet === 'merdiven-temizligi') {
     pageHeaderTitle = `${district.name} Apartman & Site Temizlik Şirketleri`;
     pageHeaderDesc = `${district.name} apartman ve siteleri için periyodik merdiven yıkama, bina içi dezenfeksiyon ve güvenilir temizlik personeli.`;
   } else if (hizmet === 'guvenlik-sirketleri' || hizmet === 'guvenlik-firmalari' || hizmet === 'ozel-guvenlik' || isSecurity) {
     pageHeaderTitle = `${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik ve Koruma`;
-    pageHeaderDesc = `${district.name} genelinde 5188 sayılı kanun standartlarında Valilik izinli özel güvenlik personeli, devriye ve CCTV kamera izleme hizmeti.`;
+    pageHeaderDesc = `${district.name} genelinde 5188 sayılı Kanun çerçevesinde özel güvenlik personeli, devriye ve kamera izleme koordinasyonu.`;
   } else if (isFacility) {
     pageHeaderTitle = `${district.name} Profesyonel Tesis Yönetimi & Site İşletmeciliği`;
-    pageHeaderDesc = `${district.name} genelinde 634 sayılı KMK tam uyumlu profesyonel tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve şeffaf aidat muhasebesi.`;
+    pageHeaderDesc = `${district.name} genelinde 634 sayılı KMK çerçevesinde profesyonel tesis yönetimi, 5188 lisanslı güvenlik, teknik bakım ve şeffaf aidat muhasebesi.`;
   } else if (isTechnical) {
     pageHeaderTitle = `${district.name} Asansör Bakımı, Arıza Müdahalesi & Bina Teknik Servis`;
-    pageHeaderDesc = `${district.name} genelinde Sanayi Bakanlığı ve MMO yeşil etiket uyumlu asansör periyodik bakımı, jeneratör ve kompanzasyon teknik işletmeciliği.`;
+    pageHeaderDesc = `${district.name} genelinde asansör periyodik bakımı, yeşil etiket (periyodik kontrol) takibi, jeneratör ve kompanzasyon teknik işletmeciliği.`;
   } else if (isCleaning) {
     pageHeaderTitle = `${district.name} Apartman & Site Temizlik Şirketleri`;
-    pageHeaderDesc = `${district.name} siteleri ve apartmanları için blok kat temizliği, dağcı cam silimi ve biyosidal ilaçlama.`;
+    pageHeaderDesc = `${district.name} siteleri ve apartmanları için blok kat temizliği, dış cephe cam temizliği ve ilaçlama koordinasyonu.`;
   }
 
   const breadcrumbName = hizmet === 'site-yonetimi'
@@ -525,7 +525,7 @@ export default async function ServiceDistrictPage({
           {isFacility ? (
             `${district.name}'de 634 sayılı KMK uyumlu profesyonel site ve tesis yönetimi için Alo Yönetim; şeffaf bütçe ve işletme projesi, 5188 lisanslı güvenlik, teknik bakım ve hijyen hizmeti sunar. Ücretsiz tesis keşfi için: 0216 550 48 48.`
           ) : isSecurity ? (
-            `${district.name}'de 5188 sayılı Kanun kapsamında site ve tesis güvenliği için Alo Yönetim; Valilik izinli lisanslı güvenlik personeli ve kamera izleme sistemleriyle hizmet verir. Ücretsiz güvenlik keşfi için: 0216 550 48 48.`
+            `${district.name}'de 5188 sayılı Kanun kapsamında site ve tesis güvenliği için Alo Yönetim; 5188 kapsamında lisanslı güvenlik personeli ve kamera izleme sistemleriyle hizmet verir. Ücretsiz güvenlik keşfi için: 0216 550 48 48.`
           ) : isTechnical ? (
             `${district.name}'de bina ve site teknik işletmesi için Alo Yönetim; asansör bakımı, jeneratör kontrolleri, kompanzasyon takibi ve hidrofor kontrolü sunar. İletişim: 0216 550 48 48.`
           ) : isCleaning ? (
@@ -544,7 +544,7 @@ export default async function ServiceDistrictPage({
               : isSecurity
               ? `${district.name}'de 5188 Lisanslı Güvenlik Şirketleri Arasında Neden Alo Yönetim?`
               : isTechnical
-              ? `${district.name} Sitelerinde TMMOB & Sanayi Bakanlığı Uyumlu Asansör ve Teknik Bakım`
+              ? `${district.name} Sitelerinde Asansör ve Teknik Bakım`
               : isCleaning
               ? `${district.name}'de Apartman ve Site Temizlik Hizmetleri`
               : service.name}
@@ -556,15 +556,15 @@ export default async function ServiceDistrictPage({
               </>
             ) : isSecurity ? (
               <>
-                {district.name} genelindeki sitelerde, rezidanslarda ve iş merkezlerinde 5188 sayılı Kanun şartlarına tam uyumlu, T.C. İçişleri Bakanlığı ve İstanbul Valiliği lisanslı özel güvenlik operasyonları yürütüyoruz. 2009'dan beri faaliyet gösteren ekibimiz ve lisanslı güvenlik personelimizle sitenizin güvenliğini sağlıyoruz. Tüm operasyonlarımızı <Link href="/hizmetler/tesis-yonetimi" className="text-slate-600 dark:text-slate-400 font-semibold underline hover:text-slate-800">profesyonel tesis yönetimi</Link> altyapısıyla koordine ediyoruz.
+                {district.name} genelindeki sitelerde, rezidanslarda ve iş merkezlerinde 5188 sayılı Kanun çerçevesinde özel güvenlik hizmetini planlıyor ve koordine ediyoruz. 2009'dan beri faaliyet gösteriyoruz; sözleşme öncesinde izin ve personel belgelerini talep edebilirsiniz. Tüm operasyonlarımızı <Link href="/hizmetler/tesis-yonetimi" className="text-slate-600 dark:text-slate-400 font-semibold underline hover:text-slate-800">profesyonel tesis yönetimi</Link> altyapısıyla koordine ediyoruz.
               </>
             ) : isTechnical ? (
               <>
-                {district.name} sitelerinin kritik mekanik ve elektrik altyapısını; asansör aylık periyodik bakımı, MMO yeşil etiket denetimleri, jeneratör ATS kontrolleri ve kompanzasyon takibiyle yönetiyoruz. Teknik altyapı hizmetlerimiz <Link href="/hizmetler/tesis-yonetimi" className="text-slate-600 dark:text-slate-400 font-semibold underline hover:text-slate-800">tesis yönetimi firmaları</Link> standartlarında, acil durumlarda mobil ekiplerle yürütülmektedir.
+                {district.name} sitelerinin kritik mekanik ve elektrik altyapısını; asansör periyodik bakımı, yeşil etiket (periyodik kontrol) takibi, jeneratör ve kompanzasyon kontrolleriyle yönetiyoruz. Teknik altyapı hizmetlerimiz <Link href="/hizmetler/tesis-yonetimi" className="text-slate-600 dark:text-slate-400 font-semibold underline hover:text-slate-800">tesis yönetimi firmaları</Link> standartlarında yürütülür; acil durum müdahalesi sözleşmedeki yazılı hedefe göre planlanır.
               </>
             ) : isCleaning ? (
               <>
-                {district.name} apartman ve sitelerinde günlük kat koridoru hijyeninden, endüstriyel dağcı cam silimine ve Sağlık Bakanlığı onaylı biyosidal haşere ilaçlamasına kadar uçtan uca hijyen sağlıyoruz. Temizlik operasyonlarımız kurumsal <Link href="/hizmetler/tesis-yonetimi" className="text-slate-600 dark:text-slate-400 font-semibold underline hover:text-slate-800">tesis yönetimi</Link> şeffaflığı ve fotoğraflı doğrulama takvimiyle denetlenir.
+                {district.name} apartman ve sitelerinde kat koridoru temizliğinden dış cephe cam temizliğine ve ilaçlama koordinasyonuna kadar hijyen hizmetlerini planlıyoruz. Temizlik operasyonlarımız kurumsal <Link href="/hizmetler/tesis-yonetimi" className="text-slate-600 dark:text-slate-400 font-semibold underline hover:text-slate-800">tesis yönetimi</Link> şeffaflığı ve periyodik kontrol listeleriyle izlenir.
               </>
             ) : (
               service.summary

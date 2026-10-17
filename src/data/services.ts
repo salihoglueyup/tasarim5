@@ -80,12 +80,12 @@ export const SERVICES: ServiceDef[] = [
     ],
     icon: 'apartment',
     summary:
-      'Aidat takibinden bütçe planlamasına, 5188 güvenlikten teknik bakıma tüm ortak alan işletmesini şeffaf ve dijital olarak yöneten entegre tesis yönetimi.',
+      'Aidat takibinden bütçe planlamasına, 5188 güvenlikten teknik bakıma tüm ortak alan işletmesini şeffaf kayıtlarla yöneten entegre tesis yönetimi.',
     benefits: [
       'Entegre tesis yönetimi',
-      '634 Sayılı Kat Mülkiyeti Kanunu (KMK) tam hukuki uyum',
-      'Dijital aidat tahsilatı ve şeffaf işletme projesi bütçeleme',
-      'mobil teknik bakım, acil müdahale ve enerji tasarrufu',
+      '634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde yönetim ve kayıt düzeni',
+      'Aidat takibi ve işletme projesinde şeffaf bütçeleme',
+      'Planlı teknik bakım ve acil müdahale desteği',
     ],
     keywords: [
       'tesis yönetimi',
@@ -137,7 +137,7 @@ export const SERVICES: ServiceDef[] = [
       'KMK Madde 38 (Yöneticinin Sorumluluğu)',
       'KMK Madde 66-74 (Toplu Yapı Yönetimi)',
     ],
-    slaGuarantee: 'Yazılı SLA ile Acil Mobil Arıza Müdahalesi, Şeffaf Bütçe Teslimi',
+    slaGuarantee: 'Yazılı SLA hedefi ile acil arıza müdahalesi, şeffaf bütçe raporlaması',
     targetPersonas: [
       'Kat Malikleri Genel Kurulu',
       'Site Denetim Kurulu Üyeleri',
@@ -151,11 +151,11 @@ export const SERVICES: ServiceDef[] = [
       },
       {
         q: 'Entegre tesis yönetimi ile klasik site yönetimi arasındaki fark nedir?',
-        a: 'Klasik site yönetimi temel aidat ve kapıcı hizmetlerine odaklanırken; entegre tesis yönetimi mühendislik tabanlı kestirimci bakım, merkezi otomasyon (HVAC, jeneratör), yasal iş güvenliği (İSG), şeffaf dijital denetim ve kurumsal SLA garantileri sunar.',
+        a: 'Klasik site yönetimi temel aidat ve kapıcı hizmetlerine odaklanırken; entegre tesis yönetimi mühendislik tabanlı kestirimci bakım, merkezi otomasyon (HVAC, jeneratör), yasal iş güvenliği (İSG), şeffaf denetim kayıtları ve yazılı SLA hedefleri sunar.',
       },
       {
         q: 'Tesis yönetim şirketi aidat ve işletme maliyetlerini nasıl düşürür?',
-        a: 'Toplu satın alma gücü, önleyici teknik mühendislik bakımı, reaktif ceza önleyici kompanzasyon takibi ve enerji optimizasyonu ile işletme bütçelerinde tasarruf fırsatı oluşturabilir; oran siteye göre değişir.',
+        a: 'Toplu satın alma gücü, önleyici teknik mühendislik bakımı, reaktif ceza önleyici kompanzasyon takibi ve enerji takibi ile gider kalemlerinde iyileştirme imkânı doğabilir; sonuç siteye göre değişir ve garanti edilmez.',
       },
       {
         q: 'Tesis yönetim şirketi seçerken nelere dikkat edilmelidir?',
@@ -184,12 +184,12 @@ export const SERVICES: ServiceDef[] = [
     shortName: 'Aidat Takibi',
     icon: 'payments',
     summary:
-      'Aidat borçlarının şeffaf takibi, dijital tahsilat yönetimi ve kat malikleri için hızlı ödeme kolaylığı.',
+      'Aidat borçlarının şeffaf takibi, yazılı hatırlatma süreci ve KMK çerçevesinde tahsilat yönetimi.',
     benefits: [
-      'Dijital aidat takip sistemi ve kredi kartı ödemesi',
-      'Online ve güvenli 3D Secure ödeme altyapısı',
-      'Otomatik SMS ve WhatsApp borç hatırlatmaları',
-      'Şeffaf canlı gelir-gider ve banka ekstresi raporlaması',
+      'Aidat takibi ve borç listesi',
+      'Ödeme yöntemleri sözleşmede netleştirilir',
+      'Yazılı hatırlatma ve ihtar süreci',
+      'Gelir-gider ve banka ekstresi raporlaması',
     ],
     keywords: [
       'aidat takibi',
@@ -214,7 +214,7 @@ export const SERVICES: ServiceDef[] = [
       'KMK Madde 37 (İşletme Projesi Kesinleşmesi)',
       'İİK Madde 68 (İlamsız İcra Belgesi Hükmü)',
     ],
-    slaGuarantee: 'Şeffaf Yıllık Aidat Takibi, Anlık Canlı Banka Mutabakatı',
+    slaGuarantee: 'Şeffaf yıllık aidat takibi, banka ekstresi mutabakatı',
     targetPersonas: [
       'Site Sakinleri & Kiracılar',
       'Kat Malikleri',
@@ -236,11 +236,11 @@ export const SERVICES: ServiceDef[] = [
     shortName: 'Güvenlik',
     icon: 'security',
     summary:
-      '5188 sayılı kanuna uygun, kimlikli özel güvenlik personeli ve entegre kamera sistemleriyle site güvenliği.',
+      '5188 sayılı Kanun çerçevesinde özel güvenlik personeli ve kamera sistemleri koordinasyonuyla site güvenliği.',
     benefits: [
       '5188 Sayılı Kanun lisanslı özel güvenlik görevlileri',
-      'AI analizli kamera izleme ve GPS devriye',
-      'Plaka tanıma (PTS) ve kartlı turnike kontrolü',
+      'Kamera izleme ve devriye kayıtları (kapsam sözleşmeye göre)',
+      'Plaka tanıma (PTS) ve kartlı geçiş sistemleriyle koordinasyon',
       'Acil durum, yangın ve tahliye eylem protokolleri',
     ],
     keywords: [
@@ -262,7 +262,7 @@ export const SERVICES: ServiceDef[] = [
       'site gece devriye ve bekçi hizmeti istanbul',
     ],
     kmkArticles: ['5188 Sayılı Özel Güvenlik Kanunu', 'KMK Madde 35 (Güvenlik Önlemleri)'],
-    slaGuarantee: 'Nöbet, GPS Denetimli QR Kodlu Devriye Turları',
+    slaGuarantee: 'Vardiya düzeni ve devriye kayıtları',
     targetPersonas: ['Site Yönetim Kurulu', 'Site Sakinleri', 'Güvenlik Amiri'],
     pillar: '/hizmetler/guvenlik-yonetimi',
     sameAs: 'https://tr.wikipedia.org/wiki/%C3%96zel_g%C3%BCvenlik_g%C3%B6revlisi',
@@ -275,12 +275,12 @@ export const SERVICES: ServiceDef[] = [
     shortName: 'Temizlik',
     icon: 'cleaning_services',
     summary:
-      'Ortak alanlar, dış cephe ve sosyal donatılar için düzenli, sertifikalı temizlik ve hijyen programı.',
+      'Ortak alanlar, dış cephe ve sosyal donatılar için düzenli temizlik ve hijyen programı.',
     benefits: [
       'Profesyonel ekipmanla ortak alan ve blok temizliği',
       'Düzenli dezenfeksiyon ve hijyen kontrolü',
       'Mevsimsel dış cephe ve cam temizliği',
-      'Sertifikalı çevre dostu temizlik kimyasalları',
+      'Kullanılacak ürünler sözleşmede belirlenir',
     ],
     keywords: [
       'profesyonel temizlik',
@@ -298,11 +298,11 @@ export const SERVICES: ServiceDef[] = [
       'kapalı otopark zemin yıkama ve süpürme hizmeti istanbul',
     ],
     kmkArticles: ['KMK Madde 20 (Temizlik ve Kapıcı Giderleri)'],
-    slaGuarantee: 'TSE 13811 Hijyen Protokolü, Günlük Fotoğraflı Süpervizör Denetimi',
+    slaGuarantee: 'Yazılı temizlik planı ve periyodik kontrol listeleri',
     targetPersonas: ['Site Sakinleri', 'Site Yöneticisi', 'Temizlik Şefi'],
     pillar: '/hizmetler/temizlik-ve-hijyen',
     sameAs: 'https://tr.wikipedia.org/wiki/Temizlik',
-    standards: ['TSE 13811 Hijyen ve Sanitasyon Standardı', 'ISO 14001:2026'],
+    standards: ['ISO 14001:2026'],
   },
   {
     slug: 'teknik-bakim',
@@ -315,7 +315,7 @@ export const SERVICES: ServiceDef[] = [
       'Asansör ve jeneratör periyodik bakımı',
       'Elektrik ve kompanzasyon pano denetimi',
       'Hidrofor ve su tesisatı kontrolü',
-      'Arıza öncesi önleyici mühendislik bakımı',
+      'Önleyici (planlı) bakım takvimi',
     ],
     keywords: [
       'teknik bakım',
@@ -334,7 +334,7 @@ export const SERVICES: ServiceDef[] = [
       'site ortak alan hidrofor su kesintisi acil müdahale servisi',
     ],
     kmkArticles: ['KMK Madde 35 (Ortak Tesislerin Bakımı)', 'Asansör İşletme ve Bakım Yönetmeliği'],
-    slaGuarantee: 'Reaktif Güç Takibi, Yazılı Acil Müdahale SLA Hedefi',
+    slaGuarantee: 'Reaktif güç takibi, yazılı acil müdahale SLA hedefi',
     targetPersonas: ['Bina Yöneticileri', 'Teknik Personel', 'Kat Malikleri'],
     pillar: '/hizmetler/teknik-bakim',
     standards: ['Asansör Periyodik Kontrol Yönetmeliği', 'Binaların Yangından Korunması Hakkında Yönetmelik'],
@@ -348,7 +348,7 @@ export const SERVICES: ServiceDef[] = [
       'Yeşil alanların düzenli bakımı, sulama sistemleri ve mevsimsel bitkilendirmeyle değer katan peyzaj yönetimi.',
     benefits: [
       'Düzenli çim biçme, gübreleme ve budama',
-      'Otomatik sulama sistemi yönetimi ve su tasarrufu',
+      'Sulama sistemi yönetimi',
       'Mevsimsel bitkilendirme ve peyzaj tasarımı',
       'Ağaç ve bitki sağlığı periyodik kontrolü',
     ],
@@ -366,7 +366,7 @@ export const SERVICES: ServiceDef[] = [
       'site ortak bahçe peyzaj ve periyodik budama sözleşmesi',
     ],
     kmkArticles: ['KMK Madde 19 (Ortak Bahçe ve Alanların Korunması)'],
-    slaGuarantee: 'Mevsimsel 4 Mevsim Bahçe Takvimi, Ziraat Mühendisi Danışmanlığı',
+    slaGuarantee: 'Mevsimlik bahçe bakım takvimi',
     targetPersonas: ['Site Sakinleri', 'Peyzaj Komitesi'],
     pillar: '/hizmetler/peyzaj-ve-bahce-bakimi',
   },
@@ -376,11 +376,11 @@ export const SERVICES: ServiceDef[] = [
     shortName: 'Havuz Bakımı',
     icon: 'pool',
     summary:
-      'Havuz suyu kimyasal dengesi, filtrasyon ve hijyen denetimiyle sağlık standartlarına uygun havuz işletmesi.',
+      'Havuz suyu kimyasal dengesi, filtrasyon ve hijyen kayıtlarıyla havuz işletmesi.',
     benefits: [
-      'Günlük serbest klor ve pH kimyasal ölçümleri',
+      'Düzenli serbest klor ve pH ölçümü ve kayıt',
       'Filtrasyon ve ters yıkama dezenfeksiyonu',
-      'Sağlık Bakanlığı mikrobiyolojik su analiz uyumu',
+      'Su analizi gerekliliklerinin ilgili kurum şartlarına göre takibi',
       'Sezon açılış, kışlama ve genel havuz temizliği',
     ],
     keywords: [
@@ -396,7 +396,7 @@ export const SERVICES: ServiceDef[] = [
       'site açık havuz kışlama ve yosun önleyici bakımı',
     ],
     kmkArticles: ['Sağlık Bakanlığı Yüzme Havuzlarının Tabi Olacağı Sağlık Esasları Yönetmeliği'],
-    slaGuarantee: 'Günlük Dijital Ölçüm Panosu, Aylık Akredite Laboratuvar Raporu',
+    slaGuarantee: 'Ölçüm kayıtları ve periyodik su analizi takibi',
     targetPersonas: ['Site Sakinleri', 'Havuz Operatörleri'],
     pillar: '/hizmetler/havuz-bakimi-ve-hijyen',
   },
@@ -406,12 +406,12 @@ export const SERVICES: ServiceDef[] = [
     shortName: 'İlaçlama',
     icon: 'pest_control',
     summary:
-      'Ortak alanlar ve çevre için sertifikalı ilaçlama, haşere kontrolü ve periyodik dezenfeksiyon hizmeti.',
+      'Ortak alanlar ve çevre için ilaçlama, haşere kontrolü ve periyodik dezenfeksiyon koordinasyonu.',
     benefits: [
-      'Sağlık Bakanlığı ruhsatlı biyosidal ürünlerle ilaçlama',
+      'Mevzuata uygun, ruhsatlı ürünlerin kullanımı sözleşmede aranır',
       'Periyodik kemirgen ve böcek kontrol istasyonları',
       'Ortak alan ve sığınak dezenfeksiyonu',
-      'İnsan ve evcil hayvan sağlığına zararsız kokusuz uygulama',
+      'Uygulama sonrası havalandırma ve kullanım uyarıları',
     ],
     keywords: [
       'haşere ilaçlama',
@@ -426,7 +426,7 @@ export const SERVICES: ServiceDef[] = [
       'sağlık bakanlığı onaylı site haşere ilaçlama raporu',
     ],
     kmkArticles: ['Biyosidal Ürünlerin Kullanım Usul ve Esasları Hakkında Yönetmelik'],
-    slaGuarantee: 'Garantili İlaçlama Uygulaması, Ücretsiz Tekrar Ziyareti Güvencesi',
+    slaGuarantee: 'Uygulama kayıtları ve sözleşmedeki tekrar ziyaret koşulları',
     targetPersonas: ['Site Yöneticileri', 'Site Sakinleri'],
     pillar: '/hizmetler/hasere-ve-dezenfeksiyon',
   },
@@ -439,7 +439,7 @@ export const SERVICES: ServiceDef[] = [
       'Aidat icra takibi ve Kat Mülkiyeti Kanunu kapsamında yönetim hukuku danışmanlığıyla haklarınızın korunması.',
     benefits: [
       'Aidat borçlarında ilamsız icra takibi ve tahsilat',
-      '634 Sayılı Kat Mülkiyeti Kanunu (KMK) tam uzmanlığı',
+      '634 Sayılı Kat Mülkiyeti Kanunu (KMK) kapsamında danışmanlık',
       'Genel kurul divan yönetimi ve usul hukuku desteği',
       'Yönetim planı revizyonu ve tedarikçi sözleşmeleri',
     ],
@@ -464,7 +464,7 @@ export const SERVICES: ServiceDef[] = [
       'KMK Madde 37 (İşletme Projesi)',
       'İİK Madde 68 (İcra ve İflas Kanunu)',
     ],
-    slaGuarantee: 'Noter İhtarnamesini Takiben 7 Günde İcra Dosyası Açılışı',
+    slaGuarantee: 'İhtarname sonrası icra sürecinin yazılı plan çerçevesinde yürütülmesi',
     targetPersonas: ['Kat Malikleri Kurulu', 'Site Yönetim Kurulu', 'Denetçiler'],
     pillar: '/hizmetler/hukuk-ve-icra-danismanligi',
     standards: ['634 Sayılı Kat Mülkiyeti Kanunu', '2004 Sayılı İcra ve İflas Kanunu'],

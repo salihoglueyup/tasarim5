@@ -37,3 +37,21 @@ describe('kaynak kodda doğrulanamayan iddialar yok', () => {
     expect(found, found.slice(0, 40).join('\n')).toEqual([]);
   });
 });
+
+describe('ilçe hizmet şablonu ve hizmet verisinde doğrulanamayan iddialar yok', () => {
+  const FILES = ['src/data/services.ts', 'src/app/[lang]/bolgeler/[ilce]/[hizmet]/page.tsx'];
+  const PATTERNS: RegExp[] = [
+    /Sağlık Bakanlığı (?:onaylı|ruhsatlı|standartlarına)/, /Valilik izinli/, /İçişleri Bakanlığı ve İstanbul Valiliği/, /Sanayi Bakanlığı ve MMO/,
+    /3D Secure/, /WhatsApp borç/, /AI analizli/, /GPS (?:devriye|Denetimli)/, /dağcı/i, /fotoğraflı (?:doğrulama|süpervizör)/i, /Akredite Laboratuvar/,
+    /TSE 13811/, /Garantili İlaçlama/, /tam (?:hukuki )?uyum/, /mobil ekip/i,
+  ];
+  it('yasaklı kalıplar yok', () => {
+    const found: string[] = [];
+    for (const f of FILES) {
+      fs.readFileSync(path.join(process.cwd(), f), 'utf8').split('\n').forEach((line, i) => {
+        for (const re of PATTERNS) if (re.test(line)) found.push(`${f}:${i + 1} ${re}`);
+      });
+    }
+    expect(found, found.join('\n')).toEqual([]);
+  });
+});
