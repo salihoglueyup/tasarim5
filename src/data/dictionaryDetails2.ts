@@ -266,6 +266,22 @@ export const TERM_DETAILS_2: Record<string, TermDetail> = {
     tips: ['Borç dökümünü ay ay tutun.', 'Hatırlatma ve ihtar adımlarını yazılı prosedüre bağlayın.'],
     faq: [['Aidat borcunda zamanaşımı var mı?', 'Alacağın tabi olduğu süreler somut olaya göre değişir; gecikmeden hukuk danışmanından görüş alın.']],
   },
+  'ogg-karti-ozel-guvenlik-gorevlisi-kimlik-karti': {
+    explain: [
+      "ÖGG kartı, 5188 sayılı Kanun kapsamında özel güvenlik görevlisi olarak çalışacak kişiye verilen kimlik kartıdır. Kart, kişinin gerekli eğitimi ve şartları tamamladığını gösterir ve görev sırasında yanında bulundurulması gerekir.",
+      "Kartın verilmesi, geçerlilik süresi ve yenileme koşulları mevzuatla belirlenir; güncel şartlar için ilgili idarenin duyurularına bakılmalıdır. Site yönetimi, güvenlik şirketinden personelin kartlarının geçerli olduğuna dair bilgi isteyebilir.",
+    ],
+    tips: ['Yeni görevlinin kartını göreve başlamadan önce kontrol edin.', 'Kart bilgilerini kişisel verilerin korunması ilkelerine uygun saklayın.'],
+    faq: [['Kartı olmayan kişi güvenlik görevlisi olarak çalışabilir mi?', 'Hayır. Özel güvenlik hizmeti kimlik kartı olan personelle yürütülmelidir.']],
+  },
+  'kmk-37-isletme-projesi-butce-itiraz-suresi': {
+    explain: [
+      "KMK m.37, yöneticinin yıllık işletme projesini hazırlamasını düzenler. 7579 sayılı Kanun'dan sonra proje kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde onaylanacak geçici proje hazırlar.",
+      "Mevcut projesi olan sitelerde geçici projedeki bedel, bir önceki yıla ilişkin yeniden değerleme oranını aşamaz. Projeye itiraz ve kesinleşme usulü için güncel mevzuat ve hukuk danışmanı esas alınmalıdır; eski usule ait ifadeler 7579 sonrası geçerliliği açısından teyit edilmelidir.",
+    ],
+    tips: ['Projeyi kalem kalem hazırlayın ve bildirim kayıtlarını saklayın.', 'İtiraz ve kesinleşme sürelerini hukuk danışmanıyla netleştirin.'],
+    faq: [['KMK m.37 neyi düzenler?', 'Yıllık işletme projesinin hazırlanması, onayı ve geçici proje usulünü düzenler.']],
+  },
   'kmk-ne-demek-634-sayili-kat-mulkiyeti-kanunu': {
     explain: [
       "KMK, 634 sayılı Kat Mülkiyeti Kanunu'nun kısaltmasıdır. Bir binadaki bağımsız bölümlerin ayrı mülkiyetini ve ortak yerlerin yönetimini düzenler: kat irtifakı ve kat mülkiyeti, yönetim planı, kat malikleri kurulu, yönetici, denetçi ve ortak giderlere katılım.",
