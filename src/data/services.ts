@@ -186,9 +186,9 @@ export const SERVICES: ServiceDef[] = [
     summary:
       'Aidat borçlarının şeffaf takibi, yazılı hatırlatma süreci ve KMK çerçevesinde tahsilat yönetimi.',
     benefits: [
-      'Aidat takibi ve borç listesi',
-      'Ödeme yöntemleri sözleşmede netleştirilir',
-      'Yazılı hatırlatma ve ihtar süreci',
+      'Apsiyon üzerinden borç ve ödeme geçmişi görüntüleme',
+      'Kredi kartıyla online aidat ödemesi (Apsiyon altyapısıyla)',
+      'Apsiyon üzerinden hatırlatma bildirimleri ve yazılı ihtar süreci',
       'Gelir-gider ve banka ekstresi raporlaması',
     ],
     keywords: [

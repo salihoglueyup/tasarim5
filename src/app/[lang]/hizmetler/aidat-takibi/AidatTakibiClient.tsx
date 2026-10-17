@@ -21,6 +21,7 @@ import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAi
 
 import Icon from '@/components/ui/branding/Icon';
 import TrOnly from '@/components/seo/TrOnly';
+import ApsiyonResidentPortalSection from '@/components/sections/trust/ApsiyonResidentPortalSection';
 import { localePath } from '@/lib/i18n/localePath';
 export default function AidatTakibiClient() {
   const { t, language } = useLanguage();
@@ -28,7 +29,7 @@ export default function AidatTakibiClient() {
   const duesPoints = [
     {
       title: t('dues_feat_1_title') || 'Online Kredi Kartı ile Ödeme',
-      desc: t('dues_feat_1_desc') || 'Web panelimiz ve mobil uygulamamız üzerinden tüm banka ve kredi kartlarıyla 3D Secure güvencesiyle anında aidat ödeme imkanı.',
+      desc: t('dues_feat_1_desc') || 'Sakinler aidatlarını Apsiyon üzerinden kredi kartıyla online ödeyebilir.',
       icon: "smartphone"
     },
     {
@@ -110,6 +111,7 @@ export default function AidatTakibiClient() {
       </div>
 
       <section className="py-12 md:py-20 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto space-y-20">
+        <ApsiyonResidentPortalSection />
         
 
         {/* Google Position Zero (Featured Snippet) & Hızlı Yanıt Kutusu */}
@@ -120,7 +122,7 @@ export default function AidatTakibiClient() {
           question="Apartman ve Site Aidat Takibi Nedir ve Yasal Süreç Nasıl İşler?"
           answer="Aidat takibi; KMK Madde 20 ve 37 kapsamında sitenin ortak gider bütçesinin bağımsız bölümlere paylaştırılması ve dijital tahsilatıdır. Tebliğden itibaren 7 gün içinde itiraz edilmeyen işletme projesi İİK Madde 68 uyarınca kesinleşir; ödenmeyen aidatlara aylık yasal %5 gecikme tazminatı işletilerek ilamsız icra takibi açılır."
           standardBadge="KMK Madde 20 & İİK Madde 68"
-          subText="Alo Yönetim, Apsiyon entegrasyonu, kredi kartıyla online ödeme ve kurumsal hukuk desteğiyle sitelerde düzenli aidat takibi sağlar."
+          subText="Alo Yönetim, Apsiyon üzerinden kredi kartıyla online ödeme, borç görüntüleme ve hatırlatma bildirimleri ile hukuk desteğiyle düzenli aidat takibi yürütür."
           accentColor="emerald"
         />
 </TrOnly>
@@ -204,7 +206,7 @@ export default function AidatTakibiClient() {
                   <span>📱</span> Mobil Uygulama & Kredi Kartı ile Online Ödeme
                 </span>
                 <p className="text-[var(--color-secondary)]">
-                  Site sakinleri ve kiracılar için iOS/Android mobil uygulama üzerinden 3D Secure güvencesiyle tek çekim veya taksitli kredi kartı ödemesi, otomatik ödeme talimatı ve anlık borç sorgulama.
+                  Site sakinleri ve kiracılar Apsiyon mobil uygulaması üzerinden aidatlarını kredi kartıyla online öder ve borç durumlarını görüntüler.
                 </p>
               </div>
 

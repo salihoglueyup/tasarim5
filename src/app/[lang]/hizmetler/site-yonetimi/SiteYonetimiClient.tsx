@@ -18,6 +18,7 @@ import AcademicCitationBoxSeo from '@/components/seo/kmk/AcademicCitationBoxSeo'
 import PositionZeroAnswerBox from '@/components/seo/ai-overviews/PositionZeroAnswerBox';
 import GoogleAiOverviewGroundingSeo from '@/components/seo/ai-overviews/GoogleAiOverviewGroundingSeo';
 import ApsiyonLogo from '@/components/ui/branding/ApsiyonLogo';
+import ApsiyonResidentPortalSection from '@/components/sections/trust/ApsiyonResidentPortalSection';
 import TrOnly from '@/components/seo/TrOnly';
 import { localePath } from '@/lib/i18n/localePath';
 import FacilityTestimonials from '@/components/sections/testimonials/FacilityTestimonials';
@@ -129,6 +130,10 @@ export default function SiteYonetimiClient() {
         </div>
       </div>
 
+<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        <ApsiyonResidentPortalSection />
+      </div>
+
 <TrOnly>
       {/* 2. BÖLÜM: Google Sıfırıncı Sıra (Featured Snippet) & Hızlı Yanıt Kartı */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-30">
@@ -138,7 +143,7 @@ export default function SiteYonetimiClient() {
           question="Profesyonel Site Yönetimi Nedir ve Neleri Kapsar?"
           answer="Profesyonel site yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu (KMK) kapsamında kat malikleri kurulunca onaylanan işletme projesinin yürütülmesi, düzenli aidat takibi, 5188 lisanslı güvenlik, periyodik teknik bakım ve temizlik hizmetlerinin tek elden, şeffaf ve kurumsal olarak idare edilmesidir."
           standardBadge="634 Sayılı KMK & Düzenli Tahsilat"
-          subText="Alo Yönetim, Apsiyon dijital entegrasyonu, KMK m.20 aylık %5 gecikme faizi takibi ve yazılı SLA kapsamındaki acil teknik servisiyle sitelerde kusursuz huzur sağlar."
+          subText="Alo Yönetim, Apsiyon ile aidat takibi, KMK m.20 kapsamında gecikme tazminatı süreci ve yazılı SLA hedefi çerçevesinde acil teknik servisle sitelerin yönetimini yürütür."
           accentColor="indigo"
           className="mb-8"
         />
@@ -148,7 +153,7 @@ export default function SiteYonetimiClient() {
             shortAnswer="Site yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu (KMK) kapsamında çok bağımsız bölümlü konut siteleri ve apartmanların aidat tahsilatı, bütçe işletme projesi tanzimi, 5188 lisanslı fiziki güvenlik, asansör/hidrofor teknik bakımı, ortak alan temizliği ve yasal genel kurul süreçlerini tek elden yürüten profesyonel yönetim organizasyonudur."
             bulletPoints={[
               "634 Sayılı KMK Madde 34-40 kapsamında tam kanuni güvence ve işletme projesi tanzimi",
-              "Apsiyon entegrasyonu ile şeffaf banka hesapları, canlı gelir-gider dökümü ve online kartla ödeme",
+              "Apsiyon ile sakinler borçlarını görür, kartla online öder; gelir-gider bilgilerinin büyük bölümü sakinlere gösterilir",
               "KMK Madde 20 uyarınca geciken aidatlara aylık yasal %5 faiz işletimi ve hızlı icra takibi",
               "hazır bekleyen gezici mobil teknik servis ile yazılı SLA kapsamında yerinde arıza müdahalesi"
             ]}
