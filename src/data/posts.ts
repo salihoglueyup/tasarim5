@@ -1097,6 +1097,27 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "7. Aylık Raporda Bulunması Gerekenler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Gelir-gider tablosu ve banka hesap özeti.",
+          "Tahsil edilen ve geciken aidatlar.",
+          "Yapılan bakım ve arıza kayıtları.",
+          "Bir sonraki ay için planlanan işler."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "8. Yıllık Kurul Sunumu"
+      },
+      {
+        "type": "p",
+        "text": "Olağan genel kurulda yönetim şirketi yıllık faaliyetini, gerçekleşen bütçeyi, büyük işleri ve gelecek dönem önerilerini kat maliklerine sunmalıdır. Sunumun belgelerle desteklenmesi ve kayıtların kurula açık olması ibra oylamasını daha sağlıklı kılar."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -1350,6 +1371,28 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Lüks bir rezidansta hizmet kalitesinin sürdürülebilir olması, beklentilerin yazılı ve ölçülebilir olmasına bağlıdır. Concierge kadrosunun vardiya saatleri, yanıt süresi hedefleri, raporlama sıklığı ve memnuniyet göstergeleri hizmet sözleşmesinde açıkça belirtilmelidir."
+      },
+      {
+        "type": "h2",
+        "text": "8. Concierge Görev Tanımı: Örnek Maddeler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Misafir karşılama ve yönlendirme.",
+          "Kargo ve paket kabul, kayıt ve bildirim.",
+          "Sakin taleplerinin kaydı ve ilgili ekibe iletilmesi.",
+          "Ortak alan rezervasyonlarının takibi.",
+          "Vardiya devir teslim notları."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "9. Sakin Bilgilerinin Gizliliği"
+      },
+      {
+        "type": "p",
+        "text": "Concierge ekibi sakinlerin kişisel bilgilerine (daire numarası, iletişim, ziyaretçi geçmişi) erişir. Bu bilgilerin yalnızca görev için kullanılması, üçüncü kişilere verilmemesi ve erişim yetkilerinin yazılı belirlenmesi gerekir."
       },
       {
         "type": "h2",
@@ -1800,6 +1843,27 @@ export const POSTS: Post[] = [
           "Tahliye yolları, toplanma alanları ve görevli listeleri.",
           "Acil durum iletişim zinciri ve dış kurumlarla koordinasyon.",
           "Periyodik tatbikat takvimi ve tatbikat sonrası değerlendirme."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "10. İş İzni Uygulaması"
+      },
+      {
+        "type": "p",
+        "text": "Yüksekte çalışma, sıcak iş, kapalı alan veya elektrik işlerinde yazılı iş izni uygulaması, işe başlamadan önce risklerin ve önlemlerin kontrol edilmesini sağlar. İzin formunda işin tanımı, yeri, süresi, alınacak önlemler ve onaylayan kişi bulunur."
+      },
+      {
+        "type": "h2",
+        "text": "11. Taşeron Yönetimi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Taşeronun yetki ve eğitim belgelerinin kontrolü.",
+          "Sahaya giriş öncesi İSG bilgilendirmesi.",
+          "İş izni ve denetim sorumluluklarının sözleşmede yazılı olması.",
+          "Olay halinde bildirim zinciri."
         ]
       },
       {
@@ -2427,6 +2491,22 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. İzin Sonrası Yükümlülükler"
+      },
+      {
+        "type": "p",
+        "text": "İzin alındıktan sonra personel sayısı, görev yeri veya hizmet kapsamı değiştiğinde ilgili idareye bildirim veya izin güncellemesi gerekebilir. Güncel yükümlülükleri ilgili valilik biriminden teyit edin ve değişiklikleri karar defterine işleyin."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Personel değişikliklerini kayıt altına alın.",
+          "İzin ve sigorta belgelerinin geçerlilik tarihlerini takvime işleyin.",
+          "Yönetim değişikliğinde belgeleri yeni yöneticiye tutanakla teslim edin."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -2572,6 +2652,33 @@ export const POSTS: Post[] = [
           "Kameralar daire içini veya özel yaşam alanlarını görmeyecek şekilde yönlendirilir.",
           "Gece görüş ve yeterli aydınlatma birlikte planlanır.",
           "Kayıt cihazına erişim yetkili kişilerle sınırlandırılır."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "8. Olay Raporu Nasıl Yazılır?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Olayın tarihi, saati ve yeri.",
+          "Olayın kısa ve tarafsız tanımı.",
+          "İlgili kişiler ve görevliler.",
+          "Alınan önlemler ve bilgilendirilen kurumlar.",
+          "Varsa kamera kaydı ve fotoğraf gibi deliller."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "9. Aylık Güvenlik Toplantısı Gündemi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Önceki ayın olay raporlarının değerlendirilmesi.",
+          "Devriye ve kamera arıza kayıtları.",
+          "Personel değişiklikleri ve eğitim ihtiyacı.",
+          "Bir sonraki ay için riskler ve alınacak önlemler."
         ]
       },
       {
@@ -4508,6 +4615,33 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "8. Yönetici Dosyasında Bulunması Gereken Belgeler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Yönetim planı ve tapu kayıtlarının örneği.",
+          "Karar defteri ve genel kurul belgeleri (çağrı, hazirun cetveli).",
+          "İşletme projesi ve bildirim kayıtları.",
+          "Banka hesap ekstreleri ve gider belgeleri.",
+          "Sözleşmeler, sigorta poliçeleri ve bakım raporları."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "9. Sorumluluğu Azaltmak İçin Öneriler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Önemli kararları kurul kararına bağlayın ve yazılı tutun.",
+          "Harcamaları belgeleyin ve denetçiye sunun.",
+          "Bildirimleri ispatlanabilir yolla yapın.",
+          "Hukuki konularda erken aşamada avukattan görüş alın."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -4628,6 +4762,23 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Ziyaretçi Kaydında Tutulacak Bilgiler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ziyaretçinin adı ve soyadı.",
+          "Ziyaret edilen bağımsız bölüm.",
+          "Giriş ve çıkış saati.",
+          "Araç plakası (araçla geliyorsa)."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kayıtlarda yalnızca amaç için gerekli bilgi toplanmalı, kayıtlar yetkisiz kişilerce görülemeyecek biçimde saklanmalı ve belirlenen süre sonunda silinmelidir."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -4740,6 +4891,34 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Teklifleri yalnızca toplam fiyata göre değil, kalem kalem karşılaştırın. Aynı hizmetin farklı kapsamlarla sunulması fiyat farkının ana nedenidir. Şirketin referans verdiği sitelerden en az ikisiyle görüşmek, vaat edilen hizmetin gerçek uygulamasını görmenin en güvenilir yoludur."
+      },
+      {
+        "type": "h2",
+        "text": "5. Teklif Tablosunda Bulunması Gereken Sütunlar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hizmet kalemi ve kapsamı.",
+          "Birim fiyat ve toplam aylık bedel.",
+          "Personel sayısı ve çalışma saatleri.",
+          "Hariç tutulan işler.",
+          "Fiyat artış koşulları."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "6. Karardan Sonraki İlk 30 Gün"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Devir teslim tutanağı hazırlanır.",
+          "Abonelik, sayaç ve sözleşme kayıtları güncellenir.",
+          "Bakım takvimi ve raporlama formatı belirlenir.",
+          "Sakinlere iletişim kanalları duyurulur.",
+          "İlk aylık rapor kat maliklerine sunulur."
+        ]
       },
       {
         "type": "h2",
