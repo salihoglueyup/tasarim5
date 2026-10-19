@@ -6,6 +6,7 @@ import TrOnly from '@/components/seo/TrOnly';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, howToSchema, ORG_CREDENTIALS } from '@/lib/schemas';
 import DefinedTermSetSeo from '@/components/seo/schema/DefinedTermSetSeo';
+import CalculatorAiOverviewSeo from '@/components/seo/ai-overviews/CalculatorAiOverviewSeo';
 
 export const revalidate = 86400;
 
@@ -73,7 +74,7 @@ export default async function HesaplayiciServer({
     name: t.calx_page_ld_name,
     description: t.calx_page_ld_desc,
     path: '/hesaplayici',
-    speakableSelectors: ['h1', 'h2', 'p'],
+    speakableSelectors: ['h1', 'h2', 'p', '#calculator-instant-answer-text'],
   });
 
   return (
@@ -82,16 +83,17 @@ export default async function HesaplayiciServer({
       <CalculatorClient />
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-20 space-y-8">
         <TrOnly>
-        <DefinedTermSetSeo
-          name={t.calx_dts_name}
-          description={t.calx_dts_desc}
-          path="/hesaplayici"
-          detailLinks={false}
-          terms={[1, 2, 3].map((n) => ({
-            term: t[`calx_term_${n}` as keyof typeof t] as string,
-            definition: t[`calx_term_${n}_def` as keyof typeof t] as string,
-          }))}
-        />
+          <CalculatorAiOverviewSeo />
+          <DefinedTermSetSeo
+            name={t.calx_dts_name}
+            description={t.calx_dts_desc}
+            path="/hesaplayici"
+            detailLinks={false}
+            terms={[1, 2, 3].map((n) => ({
+              term: t[`calx_term_${n}` as keyof typeof t] as string,
+              definition: t[`calx_term_${n}_def` as keyof typeof t] as string,
+            }))}
+          />
         </TrOnly>
       </div>
     </>
