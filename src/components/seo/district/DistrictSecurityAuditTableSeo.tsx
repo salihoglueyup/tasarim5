@@ -118,7 +118,7 @@ export default function DistrictSecurityAuditTableSeo({
         </div>
 
         <Link
-          href={`/teklif-al?hizmet=guvenlik&bolge=${encodeURIComponent(districtName)}`}
+          href="/teklif-al"
           className="inline-flex items-center justify-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold px-5 py-3 rounded-xl hover:opacity-90 transition-opacity text-sm shrink-0 shadow-md"
         >
           <Icon name="fact_check" className="text-lg" />

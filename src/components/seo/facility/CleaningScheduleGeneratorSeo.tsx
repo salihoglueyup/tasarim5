@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
@@ -286,7 +286,7 @@ ${monthlyTasks.map((t, i) => `${i + 1}. ${t}`).join('\n')}
 
         <div className="flex items-center gap-3">
           <Link
-            href={`/teklif-al?hizmet=temizlik&bolge=${encodeURIComponent(districtName)}`}
+            href="/teklif-al"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold transition-all shadow-md shadow-slate-600/20"
           >
             <Icon name="handshake" className="text-sm" />

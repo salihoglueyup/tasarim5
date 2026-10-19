@@ -230,7 +230,7 @@ export function districtSecurityServiceSchema({
       '@type': 'ReserveAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${BASE_URL}/teklif-al?hizmet=guvenlik&bolge=${encodeURIComponent(districtName)}`,
+        urlTemplate: `${BASE_URL}/teklif-al`,
         inLanguage: 'tr-TR',
         actionPlatform: [
           'http://schema.org/DesktopWebPlatform',
@@ -325,7 +325,7 @@ export function districtTechnicalServiceSchema(opts: {
       '@type': 'ReserveAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${BASE_URL}/teklif-al?hizmet=teknik-bakim&bolge=${encodeURIComponent(districtName)}`,
+        urlTemplate: `${BASE_URL}/teklif-al`,
         inLanguage: 'tr-TR',
         actionPlatform: [
           'http://schema.org/DesktopWebPlatform',
@@ -420,7 +420,7 @@ export function districtCleaningServiceSchema(opts: {
       '@type': 'ReserveAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${BASE_URL}/teklif-al?hizmet=temizlik&bolge=${encodeURIComponent(districtName)}`,
+        urlTemplate: `${BASE_URL}/teklif-al`,
         inLanguage: 'tr-TR',
         actionPlatform: [
           'http://schema.org/DesktopWebPlatform',
@@ -558,7 +558,7 @@ export function districtFacilityServiceSchema(opts: {
       '@type': 'ReserveAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${BASE_URL}/teklif-al?hizmet=tesis-yonetimi&bolge=${encodeURIComponent(districtName)}`,
+        urlTemplate: `${BASE_URL}/teklif-al`,
         inLanguage: 'tr-TR',
         actionPlatform: [
           'http://schema.org/DesktopWebPlatform',
