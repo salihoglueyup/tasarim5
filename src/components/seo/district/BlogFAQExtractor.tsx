@@ -1,4 +1,4 @@
-﻿import JsonLd from '@/components/seo/schema/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 import { faqPageSchema } from '@/lib/schemas';
 
 interface BlogFAQExtractorProps {
@@ -16,16 +16,17 @@ export default function BlogFAQExtractor({ htmlContent }: BlogFAQExtractorProps)
   if (!htmlContent) return null;
 
   // H2 veya H3 etiketi içinde soru işareti (?) ile biten başlıkları ve 
-  // hemen ardındaki <p> etiketini yakalayan Regex.
-  const regex = /<h[23][^>]*>(.*?[?؟])<\/h[23]>[\s\S]*?<p[^>]*>(.*?)<\/p>/gi;
+  // hemen ardındaki <p>, <ul> veya <ol> etiketini yakalayan Regex.
+  const regex = /<h[23][^>]*>(.*?[?؟])<\/h[23]>\s*(?:<p[^>]*>([\s\S]*?)<\/p>|<ul[^>]*>([\s\S]*?)<\/ul>|<ol[^>]*>([\s\S]*?)<\/ol>)/gi;
   
   const faqs: { question: string; answer: string }[] = [];
   let match;
 
   while ((match = regex.exec(htmlContent)) !== null) {
     // HTML tag'lerini temizleyelim
-    const question = match[1].replace(/<[^>]+>/g, '').trim();
-    const answer = match[2].replace(/<[^>]+>/g, '').trim();
+    const question = (match[1] || '').replace(/<[^>]+>/g, '').trim();
+    const rawAnswer = match[2] || match[3] || match[4] || '';
+    const answer = rawAnswer.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
     
     if (question && answer) {
       faqs.push({ question, answer });

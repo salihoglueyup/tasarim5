@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import { BASE_URL } from '@/lib/seo';
-
 import Icon from '@/components/ui/branding/Icon';
+
 export interface BlogAiTakeawaysProps {
   title: string;
   takeaways?: string[];
@@ -13,21 +12,60 @@ export interface BlogAiTakeawaysProps {
   lang?: string;
 }
 
+const TAKEAWAY_COPY: Record<
+  string,
+  {
+    badge: string;
+    copyBtn: string;
+    copiedBtn: string;
+    heading: string;
+    itemPrefix: string;
+  }
+> = {
+  tr: {
+    badge: 'Google AI & Gemini • Önemli Çıkarımlar (Key Takeaways)',
+    copyBtn: 'Maddeleri Kopyala',
+    copiedBtn: 'Kopyalandı',
+    heading: 'Bu Yazıdan Bilmeniz Gereken 4 Temel Hukuki ve Operasyonel Not',
+    itemPrefix: 'Hukuki & Operasyonel Çıkarım',
+  },
+  en: {
+    badge: 'Google AI & Gemini • Key Takeaways',
+    copyBtn: 'Copy Takeaways',
+    copiedBtn: 'Copied',
+    heading: '4 Key Legal & Operational Takeaways from This Guide',
+    itemPrefix: 'Key Takeaway',
+  },
+  ru: {
+    badge: 'Google AI & Gemini • Ключевые выводы (Key Takeaways)',
+    copyBtn: 'Скопировать пункты',
+    copiedBtn: 'Скопировано',
+    heading: '4 ключевых правовых и практических вывода из этой статьи',
+    itemPrefix: 'Ключевой вывод',
+  },
+  ar: {
+    badge: 'Google AI & Gemini • أهم النقاط المستخلصة (Key Takeaways)',
+    copyBtn: 'نسخ النقاط',
+    copiedBtn: 'تم النسخ',
+    heading: '4 نقاط قانونية وتشغيلية أساسية من هذا الدليل',
+    itemPrefix: 'نقطة أساسية',
+  },
+};
+
 export default function BlogAiTakeawaysSeo({
   title,
   takeaways,
-  slug,
-  category = 'Tesis & Kat Mülkiyeti Hukuku',
   className = '',
   lang = 'tr',
 }: BlogAiTakeawaysProps) {
   const [copied, setCopied] = useState(false);
+  const copy = TAKEAWAY_COPY[lang] || TAKEAWAY_COPY.tr;
 
   const defaultTakeaways = [
-    '634 Sayılı Kat Mülkiyeti Kanunu ve güncel Yargıtay emsal kararları çerçevesinde kat malikleri hakları güvenceye alınmıştır.',
-    'Bütçe ve aidat hesaplamalarında işletme projesinin usulüne uygun onaylanması ve bildirilmesi önemlidir; onaylı proje icra takibinde dayanak olabilir (İİK m.68).',
+    '634 Sayılı Kat Mülkiyeti Kanunu ve 7579 sayılı Kanun (2026) çerçevesinde kat malikleri kurulu kararları ve işletme projesi süreçleri yasal güvence altındadır.',
+    'Bütçe ve aidat hesaplamalarında işletme projesinin kat malikleri kurulunda onaylanması (veya en çok 3 aylık geçici proje sınırına uyulması) icra takibinde temel dayanaktır.',
     'Ortak teknik alanlar, 5188 lisanslı güvenlik ve asansör periyodik yeşil etiket denetimleri yasal zorunluluktur.',
-    'Merkezi satın alma ve otomasyon sayesinde işletme giderlerinde tasarruf fırsatı doğabilir; sonuç sitenin mevcut sözleşmelerine göre değişir.',
+    'Kalem kalem şeffaf raporlama ve planlı önleyici bakım sayesinde işletme giderlerinde öngörülebilirlik sağlanır.',
   ];
 
   const items = takeaways && takeaways.length > 0 ? takeaways : defaultTakeaways;
@@ -42,19 +80,19 @@ export default function BlogAiTakeawaysSeo({
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: `${title} — Google AI Önemli Çıkarımlar & Yasal Notlar`,
-      description: 'Makaleden derlenen temel kanun maddeleri, operasyonel standartlar ve yapay zeka özet çıkarımları.',
+      name: `${title} — ${copy.badge}`,
+      description: copy.heading,
       itemListElement: items.map((item, idx) => ({
         '@type': 'ListItem',
         position: idx + 1,
-        name: `Hukuki Çıkarım ${idx + 1}`,
+        name: `${copy.itemPrefix} ${idx + 1}`,
         description: item,
       })),
     },
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: `${title} | Yapay Zeka Özeti ve Anahtar Noktalar`,
+      name: `${title} | Key Takeaways`,
       speakable: {
         '@type': 'SpeakableSpecification',
         cssSelector: ['#blog-ai-takeaway-text'],
@@ -65,7 +103,7 @@ export default function BlogAiTakeawaysSeo({
   return (
     <aside
       id="blog-ai-takeaways"
-      aria-label="Google AI Önemli Çıkarımlar ve Yasal Hap Bilgiler"
+      aria-label={copy.badge}
       className={`bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-7 my-6 relative overflow-hidden shadow-xs ${className}`}
     >
       {/* Schema.org JSON-LD */}
@@ -81,7 +119,7 @@ export default function BlogAiTakeawaysSeo({
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4 relative z-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/5 dark:bg-white/10 border border-slate-900/10 dark:border-white/15 text-slate-900 dark:text-white text-xs font-bold uppercase tracking-wider shadow-2xs">
           <Icon name="auto_awesome" className="text-[15px] text-slate-500 dark:text-slate-400" />
-          <span>Google AI & Gemini • Önemli Çıkarımlar (Key Takeaways)</span>
+          <span>{copy.badge}</span>
         </div>
 
         <button
@@ -89,12 +127,12 @@ export default function BlogAiTakeawaysSeo({
           className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white dark:bg-white/10 hover:bg-slate-100 dark:hover:bg-white/15 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-white/10 text-xs font-bold transition-colors shadow-xs cursor-pointer"
         >
           <Icon name={copied ? 'done' : 'content_copy'} className="text-sm text-slate-500 dark:text-slate-400" />
-          <span>{copied ? 'Kopyalandı' : 'Maddeleri Kopyala'}</span>
+          <span>{copied ? copy.copiedBtn : copy.copyBtn}</span>
         </button>
       </div>
 
       <h3 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 relative z-10">
-        Bu Yazıdan Bilmeniz Gereken 4 Temel Hukuki ve Operasyonel Not
+        {copy.heading}
       </h3>
 
       <div id="blog-ai-takeaway-text" className="space-y-2.5 relative z-10">
