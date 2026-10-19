@@ -8,6 +8,8 @@ import {
   serviceSchema, 
   faqPageSchema 
 } from '@/lib/schemas';
+import ServiceAiOverviewSnippetSeo from '@/components/seo/ai-overviews/ServiceAiOverviewSnippetSeo';
+import TrOnly from '@/components/seo/TrOnly';
 import HasereVeDezenfeksiyonClient from './HasereVeDezenfeksiyonClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -82,13 +84,21 @@ export default async function HasereVeDezenfeksiyonPage({
     name: t.hase_page_name,
     description: t.hase_svc_desc,
     path: '/hizmetler/hasere-ve-dezenfeksiyon',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
   });
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, faqLd, pageLd]} />
       <HasereVeDezenfeksiyonClient />
+      <TrOnly>
+        <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+          <ServiceAiOverviewSnippetSeo
+            serviceSlug="hasere-ve-dezenfeksiyon"
+            serviceName="Biyosidal Haşere İlaçlama ve Dezenfeksiyon"
+          />
+        </div>
+      </TrOnly>
     </>
   );
 }

@@ -87,13 +87,13 @@ export const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
   'site-yonetimi': {
     question: 'Apartman ve Site Yönetim Şirketleri Nasıl Çalışır ve KMK 35 Yasal Görevleri Nelerdir?',
     answer:
-      '634 Sayılı Kat Mülkiyeti Kanunu (KMK) Madde 34 uyarınca site yöneticisi kat malikleri kurulunun hem sayı hem arsa payı salt çoğunluğu (%50 + 1) ile seçilir. Yöneticinin KMK Madde 35 kapsamındaki yasal görevleri; yıllık tahmini işletme projesini (KMK 37) hazırlayıp tebliğ etmek, site adına banka hesabı açmak, aidat avanslarını toplamak, geciken ödemelere aylık %5 gecikme tazminatı işletmek ve genel kurul divanını sevk ve idare etmektir.',
-    legalBasis: '634 Sayılı Kat Mülkiyeti Kanunu Madde 34, 35, 37 & İİK Madde 68',
+      '634 Sayılı Kat Mülkiyeti Kanunu (KMK) Madde 34 uyarınca site yöneticisi kat malikleri kurulunun hem sayı hem arsa payı salt çoğunluğu (%50 + 1) ile seçilir. Yöneticinin KMK Madde 35 ve 7579 sayılı Kanun kapsamındaki yasal görevleri; yıllık işletme projesini (KMK 37) kat malikleri kurulunun onayına sunmak (onaylı proje yoksa 3 ay içinde geçici proje hazırlamak), site adına banka hesabı açmak, aidat avanslarını toplamak, geciken ödemelere aylık %5 gecikme tazminatı işletmek ve genel kurul divanını sevk ve idare etmektir.',
+    legalBasis: '634 Sayılı KMK Madde 34, 35, 37 (7579 S.K.) & İİK Madde 68',
     badge: 'KMK 34 & 35 Uyumlu',
     keyPoints: [
       { label: 'Seçim Nisabı', value: 'Sayı ve Arsa Payı %50+1' },
       { label: 'Yasal Görev', value: 'KMK 35 Şeffaf İşletim' },
-      { label: 'İşletme Projesi', value: 'KMK 37 (7 Günde Kesinleşme)' },
+      { label: 'İşletme Projesi', value: 'KMK 37 Kurul Onayı (7579)' },
       { label: 'Tasarruf', value: 'Bütçe Verimliliği' },
     ],
   },
@@ -108,6 +108,45 @@ export const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
       { label: 'Operasyon Alanı', value: 'Teknik, Güvenlik, Hijyen' },
       { label: 'Enerji Yönetimi', value: 'Kompanzasyon Takibi & Otomasyon' },
       { label: 'Acil İntikal', value: 'Mobil Teknik Ekip' },
+    ],
+  },
+  'hukuk-ve-icra-danismanligi': {
+    question: 'Kat Mülkiyeti Hukukunda Ödenmeyen Aidat İcra Takibi ve 7579 Sayılı Kanun Kuralları Nelerdir?',
+    answer:
+      '634 Sayılı Kat Mülkiyeti Kanunu Madde 20/2 uyarınca aidat ve ortak gider avansını ödemeyen bağımsız bölüm malikine aylık %5 yasal gecikme tazminatı uygulanır. 7579 sayılı Kanun ile değişik KMK Madde 37 kapsamında kat malikleri kurulunda onaylanan veya kesinleşen işletme projesi kararları, İcra ve İflas Kanunu (İİK) Madde 68/1 uyarınca resmi belge niteliğinde olup Örnek No: 7 ilamsız icra takibine konu edilir.',
+    legalBasis: '634 Sayılı KMK m.20, m.37 (7579 S.K.) & İİK m.68',
+    badge: 'KMK 634 & İİK 68',
+    keyPoints: [
+      { label: 'Gecikme Tazminatı', value: 'Aylık %5 Yasal Oran' },
+      { label: 'Takip Türü', value: 'Örnek No: 7 İlamsız İcra' },
+      { label: 'Yönetim Planı', value: 'Toplu Yapıda 2/3 Çoğunluk' },
+      { label: 'Hukuki Dayanak', value: 'İİK m.68 Resmi Belge' },
+    ],
+  },
+  'hasere-ve-dezenfeksiyon': {
+    question: 'Apartman ve Sitelerde Biyosidal Haşere İlaçlama ve Dezenfeksiyonun Yasal Şartları Nelerdir?',
+    answer:
+      'T.C. Sağlık Bakanlığı Biyosidal Ürünler Yönetmeliği (Resmî Gazete: 27449) uyarınca apartman, site ve ticari tesislerin ortak alanlarında yalnızca Sağlık Bakanlığı Halk Sağlığı Genel Müdürlüğü ruhsatlı biyosidal ürünler ve WHO onaylı kokusuz/jel formülasyonlar kullanılabilir. Uygulama öncesinde MSDS (Malzeme Güvenlik Bilgi Formu) ve Bakanlık uygulama izin belgesi yönetime teslim edilir.',
+    legalBasis: 'Biyosidal Ürünler Yönetmeliği (RG 27449) & 634 Sayılı KMK m.35',
+    badge: 'Sağlık Bak. Ruhsatlı',
+    keyPoints: [
+      { label: 'Ürün Standardı', value: 'Bakanlık Biyosidal Ruhsat' },
+      { label: 'Güvenlik Formu', value: 'MSDS & Uygulama Tutanakları' },
+      { label: 'Yöntem', value: 'Kokusuz ULV & Jel İstasyon' },
+      { label: 'Periyot', value: 'Mevsimsel Koruyucu Takvim' },
+    ],
+  },
+  'peyzaj-ve-bahce-bakimi': {
+    question: 'Sitelerde Profesyonel Peyzaj Bakımı, Ağaç Budama ve Otomatik Sulama Nasıl Planlanır?',
+    answer:
+      '634 Sayılı KMK Madde 20/1-a ve Madde 35 kapsamında site ortak bahçe ve yeşil alanlarının korunması, 4 mevsim periyodik çim biçme, organik gübreleme, mevsimlik budama ve akıllı otomatik sulama otomasyonuyla yürütülür. Yağmur sensörlü damlama ve sprinkler sulama sistemleri ile ortak alan su tüketimi dengelenir ve peyzaj demirbaş değeri korunur.',
+    legalBasis: '634 Sayılı KMK Madde 20/1-a & Madde 35',
+    badge: '4 Mevsim Periyodik',
+    keyPoints: [
+      { label: 'Bakım Takvimi', value: '4 Mevsim Periyodik Plan' },
+      { label: 'Sulama Sistemi', value: 'Otomatik & Sensörlü' },
+      { label: 'Gider Paylaşımı', value: 'KMK m.20/1-a Kapsamı' },
+      { label: 'Raporlama', value: 'Aylık Saha Kontrol Kaydı' },
     ],
   },
 };

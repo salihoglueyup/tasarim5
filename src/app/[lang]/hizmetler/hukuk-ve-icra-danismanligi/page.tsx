@@ -9,6 +9,8 @@ import {
   faqPageSchema,
   legalServiceSchema,
 } from '@/lib/schemas';
+import ServiceAiOverviewSnippetSeo from '@/components/seo/ai-overviews/ServiceAiOverviewSnippetSeo';
+import TrOnly from '@/components/seo/TrOnly';
 import HukukVeIcraDanismanligiClient from './HukukVeIcraDanismanligiClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -87,13 +89,21 @@ export default async function HukukVeIcraDanismanligiPage({
     name: t.legal_page_name,
     description: t.legal_page_desc,
     path: '/hizmetler/hukuk-ve-icra-danismanligi',
-    speakableSelectors: ['h1', 'p'],
+    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
   });
 
   return (
     <>
       <JsonLd data={[breadcrumbLd, serviceLd, legalLd, faqLd, pageLd]} />
       <HukukVeIcraDanismanligiClient />
+      <TrOnly>
+        <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
+          <ServiceAiOverviewSnippetSeo
+            serviceSlug="hukuk-ve-icra-danismanligi"
+            serviceName="634 KMK Hukuk ve Aidat İcra Danışmanlığı"
+          />
+        </div>
+      </TrOnly>
     </>
   );
 }
