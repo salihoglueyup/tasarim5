@@ -9,6 +9,7 @@ import { ORG_ADDRESS_DISPLAY } from '@/lib/constants';
 import AppBadges from '@/components/ui/branding/AppBadges';
 import { waLink } from '@/lib/cro';
 import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
+import { localePath } from '@/lib/i18n/localePath';
 
 import Icon from '@/components/ui/branding/Icon';
 // Faz 14: Bülten formu sadece kullanıcı Footer'a indiğinde (göründüğünde) dinamik yüklenir
@@ -20,7 +21,7 @@ export default function Footer() {
 
   const getLocalizedPath = (path: string) => {
     if (!path) return '/';
-    return language === 'tr' ? path : `/${language}${path === '/' ? '' : path}`;
+    return localePath(path, language);
   };
 
   useEffect(() => {

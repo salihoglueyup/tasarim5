@@ -9,6 +9,7 @@ import Logo from '@/components/ui/branding/Logo';
 import type { translations } from '@/i18n/translations';
 
 import Icon from '@/components/ui/branding/Icon';
+import { localePath } from '@/lib/i18n/localePath';
 export type SubItem = {
   nameKey: keyof typeof translations['tr'];
   path: string;
@@ -94,10 +95,8 @@ export default function MobileMenu({
       }
     }
     
-    let newUrl = cleanPath;
-    if (newLang !== 'tr') {
-      newUrl = `/${newLang}${cleanPath === '/' ? '' : cleanPath}`;
-    }
+    const candidateUrl = localePath(cleanPath, newLang);
+    const newUrl = newLang !== 'tr' && candidateUrl === cleanPath ? `/${newLang}` : candidateUrl;
     
     if (typeof document !== 'undefined') {
       document.cookie = `NEXT_LOCALE=${newLang}; path=/; max-age=31536000; SameSite=Lax`;

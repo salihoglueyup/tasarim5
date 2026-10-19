@@ -12,6 +12,7 @@ import { useQuote } from '@/context/QuoteContext';
 import type { translations } from '@/i18n/translations';
 import SiteNavigationSeo from '@/components/seo/schema/SiteNavigationSeo';
 import Icon from '@/components/ui/branding/Icon';
+import { localePath } from '@/lib/i18n/localePath';
 
 // Faz 7, 109: LoginModal sadece butona tıklandığında yüklenir, ilk bundle'ı şişirmez.
 const LoginModal = dynamic(() => import('./LoginModal'), { ssr: false });
@@ -113,8 +114,7 @@ export default function Header() {
   const getLocalizedPath = (path: string) => {
     if (!path) return language === 'tr' ? '/' : `/${language}`;
     if (path.startsWith('http') || path.startsWith('tel:') || path.startsWith('mailto:')) return path;
-    if (language === 'tr') return path;
-    return `/${language}${path === '/' ? '' : path}`;
+    return localePath(path, language);
   };
 
 
@@ -207,10 +207,8 @@ export default function Header() {
       }
     }
     
-    let newUrl = cleanPath;
-    if (newLang !== 'tr') {
-      newUrl = `/${newLang}${cleanPath === '/' ? '' : cleanPath}`;
-    }
+    const candidateUrl = localePath(cleanPath, newLang);
+    const newUrl = newLang !== 'tr' && candidateUrl === cleanPath ? `/${newLang}` : candidateUrl;
     
     if (typeof document !== 'undefined') {
       document.cookie = `NEXT_LOCALE=${newLang}; path=/; max-age=31536000; SameSite=Lax`;
