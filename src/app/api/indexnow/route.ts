@@ -99,7 +99,7 @@ export async function GET(req: Request) {
 
     const { DISTRICTS } = await import('@/data/districts');
 
-    let urlsToPing: string[] = [];
+    const urlsToPing: string[] = [];
 
     if (scope === 'security' || scope === 'all') {
       urlsToPing.push(

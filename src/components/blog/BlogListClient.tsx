@@ -25,7 +25,10 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
 
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [query, setQuery] = useState('');
-  
+  const [page, setPage] = useState(1);
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
   useEffect(() => {
     const q = searchParams.get('q');
     if (q) setQuery(q);
@@ -35,10 +38,6 @@ export default function BlogListClient({ posts, categories }: { posts: any[], ca
       if (!isNaN(parsed) && parsed > 0) setPage(parsed);
     }
   }, [searchParams]);
-
-  const [page, setPage] = useState(1);
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
 
   // Faz 20: Tek seferlik normalize edilmiş arama indeksi
   const searchIndex = useMemo(() => createBlogSearchIndex(posts), [posts]);

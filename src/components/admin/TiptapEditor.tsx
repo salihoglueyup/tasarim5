@@ -24,6 +24,30 @@ interface TiptapProps {
   onChange: (content: string) => void;
 }
 
+const activeClass = 'bg-brand-500/20 text-brand-600 dark:text-brand-400';
+const inactiveClass = 'text-slate-600 hover:text-slate-900 hover:bg-slate-200 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5';
+
+interface BtnProps {
+  onClick: () => void;
+  disabled?: boolean;
+  isActive?: boolean;
+  icon: string;
+  title: string;
+}
+
+const Btn = ({ onClick, disabled = false, isActive = false, icon, title }: BtnProps) => (
+  <button
+    onClick={(e) => { e.preventDefault(); onClick(); }}
+    disabled={disabled}
+    title={title}
+    className={`p-1.5 rounded-lg flex items-center justify-center transition-colors ${isActive ? activeClass : inactiveClass} disabled:opacity-50`}
+  >
+    <Icon name={icon} className="text-[20px]" />
+  </button>
+);
+
+const Divider = () => <div className="w-px h-6 bg-slate-300 dark:bg-white/10 mx-1 self-center"></div>;
+
 const MenuBar = ({ editor }: { editor: any }) => {
   if (!editor) {
     return null;
@@ -39,22 +63,6 @@ const MenuBar = ({ editor }: { editor: any }) => {
       });
     }
   };
-
-  const activeClass = 'bg-brand-500/20 text-brand-600 dark:text-brand-400';
-  const inactiveClass = 'text-slate-600 hover:text-slate-900 hover:bg-slate-200 dark:text-gray-400 dark:hover:text-white dark:hover:bg-white/5';
-  
-  const Btn = ({ onClick, disabled = false, isActive = false, icon, title }: any) => (
-    <button
-      onClick={(e) => { e.preventDefault(); onClick(); }}
-      disabled={disabled}
-      title={title}
-      className={`p-1.5 rounded-lg flex items-center justify-center transition-colors ${isActive ? activeClass : inactiveClass} disabled:opacity-50`}
-    >
-      <Icon name={icon} className="text-[20px]" />
-    </button>
-  );
-
-  const Divider = () => <div className="w-px h-6 bg-slate-300 dark:bg-white/10 mx-1 self-center"></div>;
 
   return (
     <div className="flex flex-wrap items-center gap-1 p-2 bg-slate-50 dark:bg-white/[0.02] border-b border-slate-200 dark:border-white/10 rounded-t-xl sticky top-0 z-10 backdrop-blur-md">
