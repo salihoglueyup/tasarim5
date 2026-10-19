@@ -5,13 +5,42 @@ import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 import { buildHttpLinkHeader, buildXRobotsTag } from './lib/seo/edgeHeaderInjector';
 import { analyzeCrawlBudget } from './lib/seo/crawlBudgetDefender';
-import { isIndexable } from './lib/seo/indexPolicy';
+import { isIndexable, isLocaleIndexable, tagToSlug } from './lib/seo/indexPolicy';
+import {
+  resolveLegacyDistrictSlug,
+  resolveLegacyTermSlug,
+  RETIRED_TERM_REDIRECTS,
+  INDEXABLE_TAG_SLUGS,
+} from './lib/legacySlugs';
+import { getDistrict } from './data/districts';
+import { slugToTerm } from './data/dictionary';
 import { detectAndLogAiCrawler, checkAiCrawlerRateLimit } from './lib/seo/aiBotTelemetry';
 import { buildFacilityEdgeHeaders, generateFacilityContentHash } from './lib/seo/facilityEdgeOptimizer';
 import { recordBotCrawlEvent } from './lib/seo/facilityBotAuditLog';
 
 const locales = ['tr', 'en', 'ru', 'ar'];
 const defaultLocale = 'tr';
+
+const LEGACY_STATIC_REDIRECTS: Record<string, string> = {
+  '/kurumsal': '/hakkimizda',
+  '/kurumsal/hakkimizda': '/hakkimizda',
+  '/kurumsal/sertifikalar': '/kurumsal/kalite-belgelerimiz',
+  '/hizmetler/aidat-ve-butce-yonetimi': '/hizmetler/aidat-takibi',
+  '/hizmetler/havuz-bakim': '/hizmetler/havuz-bakimi-ve-hijyen',
+  '/hizmetler/ozel-guvenlik': '/hizmetler/guvenlik-yonetimi',
+  '/hizmetler/hasere-kontrol': '/hizmetler/hasere-ve-dezenfeksiyon',
+  '/hizmetler/tesis-yonetimi/acik-veri': '/hizmetler/tesis-yonetimi',
+  '/sektorel-cozumler/toplukonut': '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
+  '/sektorel-cozumler/avm': '/hizmetler/tesis-yonetimi/plaza-yonetimi',
+  '/sektorel-cozumler/sanayi': '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
+  '/sektorel-cozumler/rezidans': '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
+  '/sektorel-cozumler/site-ve-toplu-konut-yonetimi': '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
+  '/sektorel-cozumler/rezidans-yonetimi': '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
+  '/sektorel-cozumler/plaza-ve-is-merkezi-yonetimi': '/hizmetler/tesis-yonetimi/plaza-yonetimi',
+  '/sektorel-cozumler/avm-yonetimi': '/hizmetler/tesis-yonetimi/plaza-yonetimi',
+  '/sektorel-cozumler/sanayi-ve-lojistik-tesis-yonetimi': '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
+  '/basari-hikayeleri': '/referanslar',
+};
 
 const protectedRoutes = ['/admin'];
 const publicRoutes = ['/admin/login'];
@@ -194,13 +223,13 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // 0. CANONICAL HOST REDIRECT (Faz 252: www -> non-www kalıcı 301 yönlendirmesi)
-  const host = request.headers.get('host') || '';
-  if (host.startsWith('www.')) {
-    const nonWwwHost = host.replace(/^www\./, '');
-    const targetUrl = new URL(request.nextUrl.pathname + request.nextUrl.search, `https://${nonWwwHost}`);
-    return NextResponse.redirect(targetUrl, 301);
-  }
+  // 0. CANONICAL HOST & PROTOCOL CHECK (Faz 252: www -> non-www ve http -> https tek adımda 301)
+  const rawHost = request.headers.get('host') || request.nextUrl.host || '';
+  const forwardedProto = request.headers.get('x-forwarded-proto');
+  const isWwwHost = rawHost.startsWith('www.') || request.nextUrl.hostname.startsWith('www.');
+  const isProdDomain = /(?:^|\.)aloyonetim\.com\.tr(?::\d+)?$/i.test(rawHost || request.nextUrl.hostname);
+  const isHttpOnProd = isProdDomain && (request.nextUrl.protocol === 'http:' || forwardedProto === 'http');
+  const canonicalHost = (rawHost || request.nextUrl.host || 'aloyonetim.com.tr').replace(/^www\./i, '');
 
   // 0.9. GOOGLE SEARCH CONSOLE HTML DOSYA DOĞRULAMA MOTORU
   if (/^\/google[a-z0-9_-]+\.html$/i.test(pathname)) {
@@ -214,6 +243,14 @@ export async function middleware(request: NextRequest) {
     });
   }
 
+  // 0.95. ESKİ NEXT/FONT STATİK WOFF2 DOSYALARI KURTARMA (GSC Robots.txt / 404 Kalkanı)
+  if (pathname.startsWith('/_next/static/media/') && pathname.endsWith('.woff2')) {
+    if (isWwwHost || isHttpOnProd) {
+      return NextResponse.redirect(new URL('/fonts/inter-latin-wght-normal.woff2', `https://${canonicalHost}`), 301);
+    }
+    return NextResponse.rewrite(new URL('/fonts/inter-latin-wght-normal.woff2', request.url));
+  }
+
   // 1. MEŞRU STATİK DOSYA, .WELL-KNOWN VE API KONTROLÜ
   if (
     pathname.startsWith('/_next') ||
@@ -222,6 +259,7 @@ export async function middleware(request: NextRequest) {
     pathname === '/auth.md' ||
     pathname === '/icon' ||
     pathname === '/apple-icon' ||
+    pathname.endsWith('.woff2') ||
     pathname.endsWith('.png') ||
     pathname.endsWith('.jpg') ||
     pathname.endsWith('.jpeg') ||
@@ -236,15 +274,25 @@ export async function middleware(request: NextRequest) {
     pathname.endsWith('.webmanifest') ||
     pathname.endsWith('.ico')
   ) {
+    if (isWwwHost || isHttpOnProd) {
+      return NextResponse.redirect(new URL(request.nextUrl.pathname + request.nextUrl.search, `https://${canonicalHost}`), 301);
+    }
     return NextResponse.next();
   }
 
-  // 1.5. URL NORMALIZATION (SEO Faz 5, Faz 19, Faz 171 & Faz 252: Lowercase, Hyphen, Space & Typo Stripping)
+  // 1.5. URL NORMALIZATION & WILDCARD / ARAMA RECOVERY (SEO Faz 5, Faz 19, Faz 171 & Faz 252)
   let rawDecoded = pathname;
   try {
     rawDecoded = decodeURIComponent(pathname);
   } catch {
     // Malformed URI durumunda orijinali koru
+  }
+
+  // Bozuk wildcard yolları (/*, /*/referanslar, /*/sss, /*/hesaplayici, /*/iletisim) -> doğrudan kanonik hedefe 301
+  if (rawDecoded.startsWith('/*')) {
+    const cleanWildcard = rawDecoded.replace(/^\/\*+/, '') || '/';
+    const baseOrigin = isWwwHost || isHttpOnProd ? `https://${canonicalHost}` : request.url;
+    return NextResponse.redirect(new URL(cleanWildcard, baseOrigin), 301);
   }
 
   let normalizedPath = rawDecoded
@@ -259,10 +307,13 @@ export async function middleware(request: NextRequest) {
     normalizedPath = normalizedPath.slice(0, -1);
   }
 
-  if (pathname !== normalizedPath && rawDecoded !== normalizedPath) {
-    const url = request.nextUrl.clone();
-    url.pathname = normalizedPath;
-    return NextResponse.redirect(url, 301);
+  // Eski /arama ve /arama?q={search_term_string} isteklerini doğrudan /blog merkezine 301 yönlendir
+  const aramaMatch = normalizedPath.match(/^(?:\/(tr|en|ru|ar))?\/arama$/);
+  if (aramaMatch) {
+    const aramaLang = aramaMatch[1];
+    const targetBlog = aramaLang && aramaLang !== defaultLocale ? `/${aramaLang}/blog` : '/blog';
+    const baseOrigin = isWwwHost || isHttpOnProd ? `https://${canonicalHost}` : request.url;
+    return NextResponse.redirect(new URL(targetBlog, baseOrigin), 301);
   }
 
   // 2. AUTHENTICATION (Yönetim Paneli)
@@ -294,14 +345,14 @@ export async function middleware(request: NextRequest) {
 
   // 3. LOCALE (DİL) YÖNLENDİRMESİ & SLUG ÇEVİRİLERİ
   const pathnameIsMissingLocale = locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+    (locale) => !normalizedPath.startsWith(`/${locale}/`) && normalizedPath !== `/${locale}`
   );
 
   // Faz 159 & Faz 160: NEXT_LOCALE çerezi varsa hatırla, yoksa Accept-Language ile yönlendir (Botlar hariç)
   const isSocialPreviewBot = /WhatsApp|facebookexternalhit|Facebot|meta-externalagent|Twitterbot|TelegramBot|LinkedInBot|Slackbot|Discordbot|Pinterest|vkShare|Viber/i.test(userAgent);
   const isCrawler = isSocialPreviewBot || /Googlebot|bingbot|YandexBot|DuckDuckBot|Baiduspider|GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot|Amazonbot|DeepSeek|SEOptimer|Lighthouse|HeadlessChrome|bot|crawl|spider/i.test(userAgent);
 
-  if (pathname === '/') {
+  if (pathname === '/' && !isWwwHost && !isHttpOnProd) {
     const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
     // Faz 159 & Faz 160: Varsayılan dil Türkçe'dir (tr).
     // Ana sayfa ('/') her zaman doğrudan canonical Türkçe olarak açılır.
@@ -316,18 +367,161 @@ export async function middleware(request: NextRequest) {
     // Arama motorları, denetim botları ve tüm ilk ziyaretçiler doğrudan canonical '/' (Türkçe) içeriğini alır (Faz 161).
   }
 
-  // Locale var. /tr prefix'i kullanılıyorsa ana sayfaya at (Canonical için 301 kalıcı yönlendirme)
-  if (pathname.startsWith('/tr/') || pathname === '/tr') {
-    const newPathname = pathname.replace(/^\/tr/, '') || '/';
-    return NextResponse.redirect(new URL(newPathname, request.url), 301);
+  const hasExplicitTrPrefix = normalizedPath.startsWith('/tr/') || normalizedPath === '/tr';
+  const currentLocale = locales.find(
+    (locale) => normalizedPath.startsWith(`/${locale}/`) || normalizedPath === `/${locale}`
+  );
+  const effectiveLocale = currentLocale || defaultLocale;
+  const subPath = currentLocale ? (normalizedPath.slice(currentLocale.length + 1) || '/') : normalizedPath;
+
+  // 3.1. Çevrilmiş slug, eski/bozuk slug, /tr/ öneki ve çevrilmemiş dil rotalarını TEK ADIMDA (1-hop) kanonik hedefe çözümle
+  let resolvedTrPath = subPath;
+  let rewrittenPath: string | null = null;
+
+  if (currentLocale && currentLocale !== defaultLocale) {
+    const segments = normalizedPath.split('/').filter(Boolean); // ["en", "services", "facility-management"]
+    if (segments.length > 1) {
+      const fullSubPath = segments.slice(1).join('/');
+      const originalSlug = segments[1];
+
+      if (translatedSlugs[currentLocale]?.[fullSubPath]) {
+        const translatedPath = translatedSlugs[currentLocale][fullSubPath];
+        resolvedTrPath = `/${translatedPath}`;
+        rewrittenPath = `/${currentLocale}/${translatedPath}`;
+      } else if (translatedSlugs[currentLocale]?.[originalSlug]) {
+        const copy = [...segments];
+        copy[1] = translatedSlugs[currentLocale][originalSlug];
+        resolvedTrPath = `/${copy.slice(1).join('/')}`;
+        rewrittenPath = `/${copy.join('/')}`;
+      }
+    }
+  }
+
+  let targetTrPath = resolvedTrPath;
+  let forceCanonicalRedirect =
+    hasExplicitTrPrefix ||
+    isWwwHost ||
+    isHttpOnProd ||
+    (pathname !== normalizedPath && rawDecoded !== normalizedPath);
+
+  // A. Statik eski URL yönlendirmeleri (/kurumsal, /kurumsal/sertifikalar, /hizmetler/havuz-bakim, /sektorel-cozumler/toplukonut vb.)
+  if (LEGACY_STATIC_REDIRECTS[targetTrPath]) {
+    targetTrPath = LEGACY_STATIC_REDIRECTS[targetTrPath];
+    forceCanonicalRedirect = true;
+  }
+
+  // A.2. Kaldırılan referans detay sayfaları (/referanslar/:slug), eski WordPress (/tag/*, /category/*, /author/*) ve .html haber linkleri
+  if (/^\/referanslar\/[^/]+$/.test(targetTrPath)) {
+    targetTrPath = '/referanslar';
+    forceCanonicalRedirect = true;
+  } else if (targetTrPath === '/tag/guvenlik-egitimi' || targetTrPath === '/tag/guvenlik-kursu') {
+    targetTrPath = '/guvenlik-akademisi';
+    forceCanonicalRedirect = true;
+  } else if (/^\/(tag|category|author)(\/.*)?$/.test(targetTrPath)) {
+    targetTrPath = '/blog';
+    forceCanonicalRedirect = true;
+  } else if (/^\/[^/]+\/.+\.html$/.test(targetTrPath)) {
+    targetTrPath = '/blog';
+    forceCanonicalRedirect = true;
+  } else if (/^\/blog\/yazar\/(alo-yonetim-editor|av-mehmet-kaya)$/.test(targetTrPath)) {
+    targetTrPath = '/blog/yazar/alo-yonetim';
+    forceCanonicalRedirect = true;
+  }
+
+  // B. Bozuk ilçe slug kurtarma (/bolgeler/-mraniye, /bolgeler/g-ng-ren, /bolgeler/ey-psultan, /bolgeler/be-ikta- vb.)
+  const bolgeMatch = targetTrPath.match(/^\/bolgeler\/([^/]+)(\/.*)?$/);
+  if (bolgeMatch) {
+    const rawIlce = bolgeMatch[1];
+    const rest = bolgeMatch[2] || '';
+    if (!getDistrict(rawIlce)) {
+      const fixedIlce = resolveLegacyDistrictSlug(rawIlce);
+      if (fixedIlce) {
+        targetTrPath = `/bolgeler/${fixedIlce}${rest}`;
+        forceCanonicalRedirect = true;
+      }
+    }
+  }
+
+  // C. Bozuk veya birleştirilmiş sözlük terimi kurtarma (/sozluk/motat-tehlikeli-atik-yonetimi, /sozluk/i-sletme-projesi vb.)
+  const sozlukMatch = targetTrPath.match(/^\/sozluk\/([^/]+)$/);
+  if (sozlukMatch) {
+    const rawTerim = sozlukMatch[1];
+    const retired = RETIRED_TERM_REDIRECTS[rawTerim];
+    if (retired) {
+      targetTrPath = `/sozluk/${retired}`;
+      forceCanonicalRedirect = true;
+    } else if (!slugToTerm(rawTerim)) {
+      const fixedTerim = resolveLegacyTermSlug(rawTerim);
+      if (fixedTerim) {
+        targetTrPath = `/sozluk/${fixedTerim}`;
+        forceCanonicalRedirect = true;
+      }
+    }
+  }
+
+  // D. Blog etiket arşivi normalizasyonu ve ince etiketlerin (<3 yazı) /blog merkezine 301 yönlendirilmesi
+  const etiketMatch = targetTrPath.match(/^\/blog\/etiket\/(.+)$/);
+  if (etiketMatch) {
+    const rawTag = etiketMatch[1];
+    const canonicalTag = tagToSlug(rawTag);
+    if (!canonicalTag || !INDEXABLE_TAG_SLUGS.has(canonicalTag)) {
+      targetTrPath = '/blog';
+      forceCanonicalRedirect = true;
+    } else if (rawTag !== canonicalTag) {
+      targetTrPath = `/blog/etiket/${canonicalTag}`;
+      forceCanonicalRedirect = true;
+    }
+  }
+
+  // E. Çevrilmemiş en/ru/ar sayfalarını (200 + noindex kopya üretmek yerine) doğrudan kanonik Türkçe URL'ye 301 yönlendir
+  let finalLocale = effectiveLocale;
+  if (
+    finalLocale !== defaultLocale &&
+    !targetTrPath.startsWith('/admin') &&
+    !isLocaleIndexable(targetTrPath, finalLocale)
+  ) {
+    finalLocale = defaultLocale;
+    forceCanonicalRedirect = true;
+  }
+
+  // F. /teklif-al üzerindeki eski SEO / paket sorgu parametrelerini (?hizmet=..., ?bolge=..., ?paket=..., ?skor=...)
+  // tek adımda (301) temiz kanonik /teklif-al URL'sine yönlendir (GSC "Robots.txt tarafından engellendi" & Kopya Sayfa Çözümü)
+  const QUOTE_LEGACY_PARAMS = ['hizmet', 'bolge', 'paket', 'skor'];
+  const hasLegacyQuoteParams =
+    targetTrPath === '/teklif-al' &&
+    QUOTE_LEGACY_PARAMS.some((p) => request.nextUrl.searchParams.has(p));
+  if (hasLegacyQuoteParams) {
+    forceCanonicalRedirect = true;
+  }
+
+  if (forceCanonicalRedirect) {
+    const finalPathname =
+      finalLocale === defaultLocale
+        ? targetTrPath
+        : `/${finalLocale}${targetTrPath === '/' ? '' : targetTrPath}`;
+    const cleanedSearchParams = new URLSearchParams(request.nextUrl.search);
+    if (hasLegacyQuoteParams) {
+      for (const p of QUOTE_LEGACY_PARAMS) {
+        cleanedSearchParams.delete(p);
+      }
+    }
+    const cleanedSearch = cleanedSearchParams.toString() ? `?${cleanedSearchParams.toString()}` : '';
+    if (isWwwHost || isHttpOnProd) {
+      return NextResponse.redirect(
+        new URL(finalPathname + cleanedSearch, `https://${canonicalHost}`),
+        301
+      );
+    }
+    const url = request.nextUrl.clone();
+    url.pathname = finalPathname;
+    url.search = cleanedSearch;
+    return NextResponse.redirect(url, 301);
   }
 
   let response = pathnameIsMissingLocale
     ? NextResponse.rewrite(new URL(`/${defaultLocale}${pathname}`, request.url))
     : NextResponse.next();
 
-  // URL Çevirilerini Rewrite Etme (Örn: /en/services/facility-management -> /en/hizmetler/tesis-yonetimi)
-  const currentLocale = locales.find((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
   if (currentLocale && currentLocale !== defaultLocale) {
     if (request.cookies.get('NEXT_LOCALE')?.value !== currentLocale) {
       response.cookies.set('NEXT_LOCALE', currentLocale, {
@@ -337,20 +531,8 @@ export async function middleware(request: NextRequest) {
       });
     }
 
-    const segments = pathname.split('/').filter(Boolean); // ["en", "services", "facility-management"]
-    if (segments.length > 1) {
-      const fullSubPath = segments.slice(1).join('/');
-      const originalSlug = segments[1];
-      
-      if (translatedSlugs[currentLocale]?.[fullSubPath]) {
-        const translatedPath = translatedSlugs[currentLocale][fullSubPath];
-        const rewrittenPath = `/${currentLocale}/${translatedPath}`;
-        response = NextResponse.rewrite(new URL(rewrittenPath, request.url));
-      } else if (translatedSlugs[currentLocale]?.[originalSlug]) {
-        segments[1] = translatedSlugs[currentLocale][originalSlug];
-        const rewrittenPath = `/${segments.join('/')}`;
-        response = NextResponse.rewrite(new URL(rewrittenPath, request.url));
-      }
+    if (rewrittenPath) {
+      response = NextResponse.rewrite(new URL(rewrittenPath, request.url));
     }
   }
 
