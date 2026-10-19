@@ -25,3 +25,5 @@ export { default as PositionZeroAnswerBox } from './PositionZeroAnswerBox';
 export { default as DistrictAiOverviewSeo } from './DistrictAiOverviewSeo';
 export { default as CalculatorAiOverviewSeo } from './CalculatorAiOverviewSeo';
 export { default as HomeAiOverviewGroundingSeo } from './HomeAiOverviewGroundingSeo';
+export { default as BlogStructuredKnowledgeSeo } from './BlogStructuredKnowledgeSeo';
+export { default as BlogHubAiOverviewSeo } from './BlogHubAiOverviewSeo';
