@@ -35,6 +35,8 @@ import { DISTRICTS, getDistrict } from '@/data/districts';
 import { SERVICES, getService, isServiceAlias } from '@/data/services';
 import { LOCALES } from '@/lib/seo';
 import { ORG_CREDENTIALS } from '@/lib/schemas';
+import { FACTS } from '@/lib/facts';
+import DistrictAiOverviewSeo from '@/components/seo/ai-overviews/DistrictAiOverviewSeo';
 
 import Icon from '@/components/ui/branding/Icon';
 import { getDistrictLocalBrief } from '@/data/districtGuides';
@@ -535,6 +537,17 @@ export default async function ServiceDistrictPage({
           )}
         </TldrBlock>
 
+        {/* Google AI Overviews & SGE Doğrulanmış Yerel Hizmet Özeti */}
+        <DistrictAiOverviewSeo
+          districtName={district.name}
+          districtSlug={district.slug}
+          side={district.side}
+          slaTarget={district.side === 'Anadolu' ? FACTS.emergencyResponse.anatolian : FACTS.emergencyResponse.european}
+          neighborhoods={district.neighborhoods}
+          localNeeds={district.localNeeds}
+          serviceName={service.name}
+          serviceSlug={service.slug}
+        />
 
         {/* Giriş — hizmet + ilçe bağlamı (özgün) */}
         <div className="flex flex-col gap-5 max-w-3xl">

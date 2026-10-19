@@ -11,6 +11,7 @@ import TldrBlock from '@/components/ui/primitives/TldrBlock';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import NeighborhoodDirectorySeo from '@/components/seo/district/NeighborhoodDirectorySeo';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import DistrictAiOverviewSeo from '@/components/seo/ai-overviews/DistrictAiOverviewSeo';
 import ReferenceCard from '@/components/sections/references/ReferenceCard';
 
 import { buildMetadata, LOCALES } from '@/lib/seo';
@@ -139,7 +140,7 @@ export default async function DistrictPage({
     name: `${district.name} Tesis ve Site Yönetimi`,
     description: district.intro,
     path,
-    speakableSelectors: ['h1', '.tldr'],
+    speakableSelectors: ['h1', '.tldr', '#district-ai-overview-answer'],
   });
 
   const guide = DISTRICT_GUIDES.find((g) => g.pillar === `/bolgeler/${district.slug}/site-yonetimi`);
@@ -160,6 +161,17 @@ export default async function DistrictPage({
           {district.name}&apos;de site, apartman ve tesis yönetimi için Alo Yönetim; güvenlik, temizlik, teknik bakım, peyzaj ve aidat takibi dahil tüm hizmetleri tek çatı altında sunar.
           {' '}{district.name} {district.side} Yakası&apos;nda yer alır; yazılı SLA kapsamında acil teknik müdahale hedefi: {responseTarget(side)}.
         </TldrBlock>
+
+        {/* Google AI Overviews & SGE Doğrulanmış Yerel Özet */}
+        <DistrictAiOverviewSeo
+          districtName={district.name}
+          districtSlug={district.slug}
+          side={side}
+          slaTarget={responseTarget(side)}
+          neighborhoods={district.neighborhoods}
+          localNeeds={district.localNeeds}
+          referenceCount={districtReferences.length}
+        />
 
         {/* Giriş + yerel bilgiler */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
