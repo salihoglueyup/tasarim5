@@ -8,6 +8,7 @@ import { getDictionary } from '@/lib/i18n';
 import { CURATED_FAQS } from '@/data/faqCurated';
 
 import { generateFacilityManagementGraph } from '@/lib/seo/facility/facilityTopicGraph';
+import HomeAiOverviewGroundingSeo from '@/components/seo/ai-overviews/HomeAiOverviewGroundingSeo';
 
 // Heavy components loaded dynamically for performance
 const BentoServices = dynamic(() => import('@/components/sections/core/BentoServices'), { ssr: true });
@@ -107,6 +108,7 @@ export default async function Home({ params }: Props) {
       <div className="lazy-section"><TestimonialSlider /></div>
       <div className="lazy-section"><CertificateBadgeGrid /></div>
       <div className="lazy-section"><Faq dbFaqs={dbFaqs} lang={lang} /></div>
+      <HomeAiOverviewGroundingSeo lang={lang} />
 
       <PreFooterCta />
     </>
