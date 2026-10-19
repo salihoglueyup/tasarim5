@@ -187,9 +187,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ),
   ]);
 
-  const sectoralRoutes: MetadataRoute.Sitemap = sectoralSolutions.flatMap((s) =>
-    makeItems(`/sektorel-cozumler/${s.slug}`, 0.8, 'weekly', s.updatedAt.toISOString())
-  );
+  const REDIRECTED_SECTORAL_SLUGS = new Set([
+    'toplukonut',
+    'avm',
+    'sanayi',
+    'rezidans',
+    'site-ve-toplu-konut-yonetimi',
+    'rezidans-yonetimi',
+    'plaza-ve-is-merkezi-yonetimi',
+    'avm-yonetimi',
+    'sanayi-ve-lojistik-tesis-yonetimi',
+  ]);
+  const sectoralRoutes: MetadataRoute.Sitemap = sectoralSolutions
+    .filter((s) => !REDIRECTED_SECTORAL_SLUGS.has(s.slug))
+    .flatMap((s) =>
+      makeItems(`/sektorel-cozumler/${s.slug}`, 0.8, 'weekly', s.updatedAt.toISOString())
+    );
 
   const blogRoutes: MetadataRoute.Sitemap = posts.flatMap((p) =>
     makeItems(`/blog/${p.slug}`, 0.75, 'monthly', p.dateModified.toISOString())
