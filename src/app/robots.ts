@@ -31,7 +31,15 @@ const AI_BOTS = [
 export default function robots(): MetadataRoute.Robots {
   const allow = [
     '/',
+    '/api/og',
     '/api/search-suggest',
+    '/api/ai/',
+    '/api/ai-knowledge',
+    '/api/knowledge-graph',
+    '/api/markdown/',
+    '/api/geo/',
+    '/api/tesis-yonetimi/',
+    '/api/facility/',
     '/feed/tesis-yonetimi.xml',
     '/image-sitemap.xml',
     '/video-sitemap.xml',
