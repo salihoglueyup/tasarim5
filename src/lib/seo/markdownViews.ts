@@ -75,3 +75,19 @@ ${RESPONSE_TARGET_TEXT.tr}
 
 ${CONTACT}`;
 }
+
+export function estimateMarkdownTokens(markdown: string): number {
+  return Math.max(1, Math.ceil(markdown.length / 4));
+}
+
+export function buildMarkdownResponseHeaders(markdown: string): Record<string, string> {
+  return {
+    'Content-Type': 'text/markdown; charset=utf-8',
+    'x-markdown-tokens': String(estimateMarkdownTokens(markdown)),
+    'Vary': 'Accept',
+    'Cache-Control': 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=604800',
+    'Access-Control-Allow-Origin': '*',
+    'X-Robots-Tag': 'all, max-snippet:-1, max-image-preview:large',
+  };
+}
+

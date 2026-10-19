@@ -214,10 +214,12 @@ export async function middleware(request: NextRequest) {
     });
   }
 
-  // 1. MEŞRU STATİK DOSYA VE API KONTROLÜ
+  // 1. MEŞRU STATİK DOSYA, .WELL-KNOWN VE API KONTROLÜ
   if (
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api') ||
+    pathname.startsWith('/.well-known/') ||
+    pathname === '/auth.md' ||
     pathname === '/icon' ||
     pathname === '/apple-icon' ||
     pathname.endsWith('.png') ||
@@ -228,6 +230,7 @@ export async function middleware(request: NextRequest) {
     pathname.endsWith('.pdf') ||
     pathname.endsWith('.xml') ||
     pathname.endsWith('.txt') ||
+    pathname.endsWith('.md') ||
     pathname.endsWith('.json') ||
     pathname.endsWith('.jsonld') ||
     pathname.endsWith('.webmanifest') ||
@@ -440,6 +443,9 @@ export async function middleware(request: NextRequest) {
       `<https://aloyonetim.com.tr/api/tesis-yonetimi/llm-facts.json>; rel="describedby"; type="application/json"`,
       `<https://aloyonetim.com.tr/api/ai/facility-agent-context.json>; rel="describedby"; type="application/json"`,
       `<https://aloyonetim.com.tr/api/ai/site-agent-context.json>; rel="describedby"; type="application/json"`,
+      `<https://aloyonetim.com.tr/.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"`,
+      `<https://aloyonetim.com.tr/.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/json"`,
+      `<https://aloyonetim.com.tr/.well-known/agent-card.json>; rel="describedby"; type="application/json"`,
       `<https://aloyonetim.com.tr/api/markdown/site-yonetimi>; rel="alternate"; type="text/markdown"`,
       `<https://aloyonetim.com.tr/api/markdown/tesis-yonetimi>; rel="alternate"; type="text/markdown"`
     ];
@@ -466,10 +472,12 @@ export async function middleware(request: NextRequest) {
         response.headers.set('X-AI-Markdown-Alternative', 'https://aloyonetim.com.tr/api/markdown/site-yonetimi');
       } else if (pathname.includes('tesis-yonetimi')) {
         response.headers.set('X-AI-Markdown-Alternative', 'https://aloyonetim.com.tr/api/markdown/tesis-yonetimi');
+      } else {
+        response.headers.set('X-AI-Markdown-Alternative', 'https://aloyonetim.com.tr/api/markdown');
       }
     }
 
-    // AI Bot Content Negotiation (Saf Markdown talebi kontrolü)
+    // AI Bot Content Negotiation (Saf Markdown talebi kontrolü — Markdown for Agents)
     const acceptHeader = request.headers.get('accept') || '';
     if (acceptHeader.includes('text/markdown') && request.method === 'GET') {
       if (pathname.endsWith('/hizmetler/site-yonetimi')) {
@@ -478,6 +486,9 @@ export async function middleware(request: NextRequest) {
       if (pathname.endsWith('/hizmetler/tesis-yonetimi')) {
         return NextResponse.rewrite(new URL('/api/markdown/tesis-yonetimi', request.url));
       }
+      return NextResponse.rewrite(
+        new URL(`/api/markdown?path=${encodeURIComponent(pathname)}`, request.url)
+      );
     }
   }
 
