@@ -59,11 +59,12 @@ export const metadata: Metadata = {
     siteName: "Alo Yönetim",
     images: [
       {
-        url: '/images/hero-poster-v5.webp',
+        url: 'https://aloyonetim.com.tr/images/og-aloyonetim.jpg',
+        secureUrl: 'https://aloyonetim.com.tr/images/og-aloyonetim.jpg',
         width: 1200,
         height: 630,
         alt: 'Alo Yönetim İstanbul Profesyonel Tesis Yönetimi',
-        type: 'image/webp',
+        type: 'image/jpeg',
       },
     ],
   },
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Alo Yönetim — İstanbul Profesyonel Tesis Yönetimi",
     description: "İstanbul genelinde 39 ilçede profesyonel tesis yönetimi, 5188 lisanslı özel güvenlik ve şeffaf aidat takibi.",
-    images: ['/images/hero-poster-v5.webp'],
+    images: ['https://aloyonetim.com.tr/images/og-aloyonetim.jpg'],
   },
   robots: {
     index: true,
@@ -159,6 +160,8 @@ export default async function RootLayout({
             {...(hint.crossOrigin ? { crossOrigin: hint.crossOrigin } : {})}
           />
         ))}
+        {/* WhatsApp, Telegram & Legacy Link Preview Bot Direct Image Hint */}
+        <link rel="image_src" href="https://aloyonetim.com.tr/images/og-aloyonetim.jpg" />
         {/* Hero poster preload'u artık next/image'in kendi ürettiği responsive
             (imageSrcSet tabanlı) preload'a bırakıldı — bkz. Hero.tsx (loading="eager"
             + fetchPriority="high"). Burada elle sabit-boyutlu bir tane daha eklemek

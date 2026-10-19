@@ -22,10 +22,10 @@ describe('Wave 5: Faz 116 - Faz 120 Medya & Görsel Optimizasyonları', () => {
     expect(ogContent).toContain('s-maxage=604800');
   });
 
-  it('Faz 118: layout.tsx sosyal medya openGraph görsellerinde optimize WebP kullanır', () => {
+  it('Faz 118: layout.tsx sosyal medya openGraph görsellerinde WhatsApp/Telegram uyumlu statik JPEG kullanır', () => {
     const layoutContent = fs.readFileSync(layoutPath, 'utf-8');
-    expect(layoutContent).toContain('type: \'image/webp\'');
-    expect(layoutContent).toContain('hero-poster-v5.webp');
+    expect(layoutContent).toContain('type: \'image/jpeg\'');
+    expect(layoutContent).toContain('og-aloyonetim.jpg');
   });
 
   it('Faz 119: Projede ağır animasyonlu GIF bulunmaz (0 GIF kuralı)', () => {

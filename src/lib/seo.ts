@@ -16,6 +16,8 @@ export { BASE_URL };
 
 /** Varsayılan (marka) OG görselinin alt metni. */
 export const DEFAULT_OG_ALT = 'Alo Yönetim - Profesyonel Mülk ve Tesis Yönetimi İstanbul';
+/** WhatsApp, Telegram ve Sosyal Medya için ultra hızlı (<50ms) statik Open Graph görseli. */
+export const DEFAULT_OG_IMAGE = `${BASE_URL}/images/og-aloyonetim.jpg`;
 
 export const LOCALES = ['tr', 'en', 'ru', 'ar'] as const;
 export type Locale = (typeof LOCALES)[number];
@@ -283,6 +285,13 @@ export function formatBrandTitle(title: string, brand: string = 'Alo Yönetim'):
   return clean ? `${clean} | ${brand}` : brand;
 }
 
+const DEFAULT_DESCRIPTIONS: Record<Locale, string> = {
+  tr: 'İstanbul genelinde 39 ilçede profesyonel site ve tesis yönetimi, 5188 lisanslı özel güvenlik, teknik bakım ve şeffaf aidat muhasebesi.',
+  en: 'Professional residential site and facility management across 39 districts of Istanbul: licensed 5188 security, technical maintenance and transparent dues accounting.',
+  ru: 'Профессиональное управление жилыми комплексами и объектами в 39 районах Стамбула: лицензированная охрана 5188, техобслуживание и прозрачный учет.',
+  ar: 'إدارة المجمعات السكنية والمرافق الاحترافية في 39 منطقة بإسطنبول: أمن مرخص 5188 وصيانة فنية ومحاسبة شفافة للعائدات.',
+};
+
 /**
  * Sayfa metadata'sı üretir. Canonical + hreflang + OG + Twitter + Googlebot gelişmiş direktifleri dahil.
  */
@@ -294,7 +303,6 @@ export function buildMetadata({
   images,
   noindex = false,
   ogType = 'website',
-  ogImageType,
   datePublished,
   dateModified,
   authorName,
@@ -304,28 +312,38 @@ export function buildMetadata({
   // Türkçe dışındaki dillerde, çevirisi varsa sayfanın verdiği Türkçe başlık/açıklama yerine kullanılır.
   const translated = getPageMeta(path, locale);
   const title = translated?.title ?? titleArg;
-  const description = translated?.description ?? descriptionArg;
+  const rawDescription = (translated?.description ?? descriptionArg)?.trim();
+  const description = rawDescription || DEFAULT_DESCRIPTIONS[locale] || DEFAULT_DESCRIPTIONS.tr;
   const resolvedTitle = formatBrandTitle(title);
   const canonical = canonicalUrl || localizedUrl(path, locale);
   const shouldNoindex = noindex || !isIndexable(path, locale);
 
   // <meta name="keywords"> Google tarafından kullanılmadığı için yayınlanmaz (keywords/targetKeyword yalnızca çağıran API uyumluluğu için kabul edilir).
 
-  const resolvedOgType: 'default' | 'service' | 'local' | 'article' =
-    ogImageType ?? (ogType === 'article' ? 'article' : 'default');
+  const defaultStaticImage = {
+    url: DEFAULT_OG_IMAGE,
+    secureUrl: DEFAULT_OG_IMAGE,
+    width: 1200,
+    height: 630,
+    alt: resolvedTitle || DEFAULT_OG_ALT,
+    type: 'image/jpeg',
+  };
 
-  const ogParams = new URLSearchParams({ title: resolvedTitle, type: resolvedOgType }).toString();
   const resolvedImages =
     images && images.length
-      ? images
-      : [
-          {
-            url: `${BASE_URL}/api/og?${ogParams}`,
+      ? images.map((imgUrl) => {
+          const absUrl = imgUrl.startsWith('http')
+            ? imgUrl
+            : `${BASE_URL}${imgUrl.startsWith('/') ? imgUrl : `/${imgUrl}`}`;
+          return {
+            url: absUrl,
+            secureUrl: absUrl,
             width: 1200,
             height: 630,
-            alt: resolvedTitle,
-          },
-        ];
+            alt: resolvedTitle || DEFAULT_OG_ALT,
+          };
+        })
+      : [defaultStaticImage];
 
   return {
     metadataBase: new URL(BASE_URL),
