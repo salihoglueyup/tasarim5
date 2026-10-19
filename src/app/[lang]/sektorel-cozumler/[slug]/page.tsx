@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { prisma } from '@/lib/prisma';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
+import { localePath } from '@/lib/i18n/localePath';
 import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import PageHeader from '@/components/layout/page/PageHeader';
@@ -22,6 +23,18 @@ const SLUG_KPI: Record<string, string> = {
   'guvenlik-rezidans-plaza': 'Mevzuata uygun güvenlik odağı',
 };
 
+const LEGACY_SECTORAL_REDIRECTS: Record<string, string> = {
+  toplukonut: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
+  'site-ve-toplu-konut-yonetimi': '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
+  avm: '/hizmetler/tesis-yonetimi/plaza-yonetimi',
+  'avm-yonetimi': '/hizmetler/tesis-yonetimi/plaza-yonetimi',
+  'plaza-ve-is-merkezi-yonetimi': '/hizmetler/tesis-yonetimi/plaza-yonetimi',
+  sanayi: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
+  'sanayi-ve-lojistik-tesis-yonetimi': '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
+  rezidans: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
+  'rezidans-yonetimi': '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
+};
+
 export const dynamicParams = true;
 export const revalidate = 3600;
 
@@ -32,7 +45,9 @@ export async function generateStaticParams() {
       select: { slug: true },
     });
     return LOCALES.flatMap((lang) =>
-      solutions.map((s) => ({ lang, slug: s.slug }))
+      solutions
+        .filter((s) => !(s.slug in LEGACY_SECTORAL_REDIRECTS))
+        .map((s) => ({ lang, slug: s.slug }))
     );
   } catch {
     return [];
@@ -45,6 +60,16 @@ export async function generateMetadata({
   params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
   const { lang, slug } = await params;
+  const redirectTarget = LEGACY_SECTORAL_REDIRECTS[slug];
+  if (redirectTarget) {
+    return buildMetadata({
+      title: 'Profesyonel Tesis Yönetimi | Alo Yönetim',
+      description: 'Profesyonel tesis ve site yönetimi çözümleri.',
+      path: redirectTarget,
+      lang,
+    });
+  }
+
   const solution = await prisma.sectoralSolution.findUnique({
     where: { slug },
   }).catch(() => null);
@@ -87,6 +112,11 @@ export default async function SectoralSolutionDetailPage({
   params: Promise<{ lang: string; slug: string }>;
 }) {
   const { lang, slug } = await params;
+  const redirectTarget = LEGACY_SECTORAL_REDIRECTS[slug];
+  if (redirectTarget) {
+    permanentRedirect(localePath(redirectTarget, lang));
+  }
+
   const solution = await prisma.sectoralSolution.findUnique({
     where: { slug },
   }).catch(() => null);

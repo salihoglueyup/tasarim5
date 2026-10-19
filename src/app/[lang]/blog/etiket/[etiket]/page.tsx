@@ -79,10 +79,8 @@ export async function generateMetadata({
   return buildMetadata({
     title,
     description,
-    path: `/blog/etiket/${etiket}`,
+    path: `/blog/etiket/${tagToSlug(decoded)}`,
     lang,
-    // Az yazılı etiket arşivleri ince içeriktir; kullanıcı için kalır, indekslenmez
-    noindex: posts.length < MIN_POSTS_FOR_TAG_INDEX,
   });
 }
 
@@ -93,9 +91,12 @@ export default async function TagArchive({
 }) {
   const { lang, etiket } = await params;
   const canonicalSlug = tagToSlug(decodeURIComponent(etiket));
+  const posts = await getTagPosts(etiket);
+  if (posts.length < MIN_POSTS_FOR_TAG_INDEX) {
+    permanentRedirect(localePath('/blog', lang));
+  }
   if (canonicalSlug && canonicalSlug !== etiket) permanentRedirect(localePath(`/blog/etiket/${canonicalSlug}`, lang));
   const normalizedSpaces = decodeURIComponent(etiket).replace(/-/g, ' ');
-  const posts = await getTagPosts(etiket);
 
   const path = `/blog/etiket/${etiket}`;
   const langPrefix = lang === 'tr' ? '' : `/${lang}`;

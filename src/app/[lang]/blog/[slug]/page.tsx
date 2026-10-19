@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { tagToSlug } from '@/lib/seo/indexPolicy';
+import { INDEXABLE_TAG_SLUGS } from '@/lib/legacySlugs';
 import Image from 'next/image';
 import { notFound, permanentRedirect } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
@@ -558,15 +559,28 @@ export default async function BlogDetail({
           {tags.length > 0 && (
             <div className="flex flex-wrap items-center gap-2 pt-6 border-t border-[var(--color-outline)]/60 dark:border-white/10">
               <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mr-1">{t('blgx_tags')}:</span>
-              {tags.map((tag: string) => (
-                <Link
-                  key={tag}
-                  href={`/blog/etiket/${tagToSlug(tag)}`}
-                  className="text-xs font-medium bg-slate-100 hover:bg-slate-900 hover:text-white dark:bg-white/5 dark:hover:bg-white dark:hover:text-slate-950 text-slate-700 dark:text-slate-300 rounded-xl px-3 py-1.5 border border-slate-200/80 dark:border-white/10 transition-all shadow-2xs hover:scale-105"
-                >
-                  #{tag}
-                </Link>
-              ))}
+              {tags.map((tag: string) => {
+                const slug = tagToSlug(tag);
+                if (INDEXABLE_TAG_SLUGS.has(slug)) {
+                  return (
+                    <Link
+                      key={tag}
+                      href={`/blog/etiket/${slug}`}
+                      className="text-xs font-medium bg-slate-100 hover:bg-slate-900 hover:text-white dark:bg-white/5 dark:hover:bg-white dark:hover:text-slate-950 text-slate-700 dark:text-slate-300 rounded-xl px-3 py-1.5 border border-slate-200/80 dark:border-white/10 transition-all shadow-2xs hover:scale-105"
+                    >
+                      #{tag}
+                    </Link>
+                  );
+                }
+                return (
+                  <span
+                    key={tag}
+                    className="text-xs font-medium bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 rounded-xl px-3 py-1.5 border border-slate-200/80 dark:border-white/10 shadow-2xs"
+                  >
+                    #{tag}
+                  </span>
+                );
+              })}
             </div>
           )}
 

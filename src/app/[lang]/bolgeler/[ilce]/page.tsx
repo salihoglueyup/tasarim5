@@ -78,7 +78,8 @@ export async function generateMetadata({
   params: Promise<{ lang: string; ilce: string }>;
 }): Promise<Metadata> {
   const { lang, ilce } = await params;
-  const district = getDistrict(ilce);
+  const resolvedIlce = getDistrict(ilce) ? ilce : (resolveLegacyDistrictSlug(ilce) ?? ilce);
+  const district = getDistrict(resolvedIlce);
   if (!district) {
     return buildMetadata({
       title: 'Bölge Bulunamadı',
@@ -94,7 +95,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: serpMeta.title,
     description: serpMeta.description,
-    path: `/bolgeler/${ilce}`,
+    path: `/bolgeler/${district.slug}`,
     lang,
     targetKeyword: serpMeta.targetKeyword,
     ogImageType: 'local',

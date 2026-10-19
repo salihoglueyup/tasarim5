@@ -35,18 +35,19 @@ export async function generateMetadata({
   params: Promise<{ lang: string; terim: string }>;
 }): Promise<Metadata> {
   const { lang, terim } = await params;
-  const translated = getTranslatedTerm(terim, lang);
+  const resolvedTerim = RETIRED_TERM_REDIRECTS[terim] ?? resolveLegacyTermSlug(terim) ?? terim;
+  const translated = getTranslatedTerm(resolvedTerim, lang);
   if (translated) {
     const tdict = await getDictionary(lang);
     return buildMetadata({
       title: tdict.sozx_term_title.replace('{term}', translated.term),
       description: translated.definition.length > 158 ? `${translated.definition.slice(0, 155)}...` : translated.definition,
-      path: `/sozluk/${terim}`,
+      path: `/sozluk/${resolvedTerim}`,
       lang,
       keywords: [translated.term],
     });
   }
-  const term = slugToTerm(terim);
+  const term = slugToTerm(resolvedTerim);
   if (!term) {
     return buildMetadata({ title: 'Terim Bulunamadı', description: '', path: '/sozluk', lang, noindex: true });
   }
