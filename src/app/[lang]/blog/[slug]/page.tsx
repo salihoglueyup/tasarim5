@@ -12,6 +12,7 @@ import ImageWithSeo from '@/components/seo/schema/ImageWithSeo';
 import BlogArticleEcosystemSeo from '@/components/seo/district/BlogArticleEcosystemSeo';
 import ArticleAiOverviewCard from '@/components/seo/ai-overviews/ArticleAiOverviewCard';
 import BlogAiTakeawaysSeo from '@/components/seo/ai-overviews/BlogAiTakeawaysSeo';
+import BlogStructuredKnowledgeSeo from '@/components/seo/ai-overviews/BlogStructuredKnowledgeSeo';
 import TableOfContents from '@/components/blog/TableOfContents';
 import { prisma } from '@/lib/prisma';
 import {
@@ -20,7 +21,7 @@ import {
   webPageSchema,
 } from '@/lib/schemas';
 import { parseTags } from '@/lib/jsonSafe';
-import BlogFAQExtractor from '@/components/seo/district/BlogFAQExtractor';
+import { extractArticleTakeaways, extractArticleFaqs, hasTableBlock } from '@/lib/blog/blogAiEnricher';
 import { LOCALES, buildMetadata, BASE_URL } from '@/lib/seo';
 import { resolveTopicalEntityGraph, extractKeyFactsAndKpis } from '@/lib/seoEngine';
 import type { Metadata } from 'next';
@@ -222,6 +223,7 @@ export default async function BlogDetail({
         description_en: null,
         description_ru: null,
         description_ar: null,
+        tldr: staticP.tldr,
         summary: staticP.tldr,
         content: JSON.stringify(staticP.content),
         content_en: null,
@@ -399,10 +401,14 @@ export default async function BlogDetail({
     speakableSelectors: ['#article-instant-answer-text', '.tldr', 'h1'],
   });
 
+  const resolvedTldr = post.tldr || post.summary || post.description || '';
+  const articleTakeaways = extractArticleTakeaways(post.content, resolvedTldr, lang);
+  const articleFaqs = extractArticleFaqs(post.content, renderedHtml);
+  const postHasInlineTable = hasTableBlock(post.content);
+
   return (
     <>
       <JsonLd data={[breadcrumbLd, articleLd, pageLd]} />
-      {renderedHtml && <BlogFAQExtractor htmlContent={renderedHtml} />}
       <ReadingProgress />
       <PageHeader title={post.title} description={post.description} breadcrumbs={breadcrumbs} />
 
@@ -464,33 +470,27 @@ export default async function BlogDetail({
             />
           </div>
 
-          {/* Google AI Overviews & Gemini TL;DR Grounding Card */}
-          {(post.tldr || post.description || post.summary) && (lang === 'tr' ? (
+          {/* Google AI Overviews & Gemini TL;DR Grounding Card (4 dil + tek birleşik FAQPage JSON-LD) */}
+          {resolvedTldr && (
             <ArticleAiOverviewCard
               title={post.title}
-              tldr={post.tldr || post.description || post.summary}
+              tldr={resolvedTldr}
               authorName={author?.name}
               category={category?.name}
               slug={slug}
-            />
-          ) : (
-            <div className="rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-[var(--color-surface)] p-6 shadow-xs">
-              <div className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-500">{t('blgx_tldr_title')}</div>
-              <p className="tldr text-base leading-relaxed text-slate-800 dark:text-slate-200">{post.tldr || post.description}</p>
-            </div>
-          ))}
-
-          {/* Google AI & Gemini Key Takeaways Box (Wave 66) — içeriği Türkçe, yalnızca Türkçe sayfada */}
-          {lang === 'tr' && (
-            <BlogAiTakeawaysSeo
-              title={post.title}
-              slug={slug}
-              category={category?.name}
               lang={lang}
+              extraFaqs={articleFaqs}
             />
           )}
 
-
+          {/* Google AI & Gemini Key Takeaways Box — makale bloklarından dinamik 4 çıkarım */}
+          <BlogAiTakeawaysSeo
+            title={post.title}
+            takeaways={articleTakeaways}
+            slug={slug}
+            category={category?.name}
+            lang={lang}
+          />
 
           {/* Mobilde İçindekiler Tablosu (Katlanabilir Akordeon) */}
           <div className="lg:hidden w-full">
@@ -505,6 +505,15 @@ export default async function BlogDetail({
             locale={lang}
             ctaBadge={t('blgx_cta_blk_badge')}
             ctaNote={t('blgx_cta_blk_note')}
+          />
+
+          {/* Google AI Overviews Yapılandırılmış Karşılaştırma Tablosu & Makale Q&A Özeti */}
+          <BlogStructuredKnowledgeSeo
+            title={post.title}
+            categorySlug={category?.slug || post.categoryId || 'tesis-yonetimi'}
+            lang={lang}
+            showComparisonTable={!postHasInlineTable}
+            qaItems={articleFaqs.map((f) => ({ heading: f.question, body: f.answer }))}
           />
 
           {/* AI Search Key Facts & Quantitative Signals */}

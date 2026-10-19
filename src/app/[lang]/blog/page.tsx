@@ -4,7 +4,8 @@ import { Suspense } from 'react';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
-import { generateBreadcrumbs } from '@/lib/schemas';
+import BlogHubAiOverviewSeo from '@/components/seo/ai-overviews/BlogHubAiOverviewSeo';
+import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import BlogListClient from '@/components/blog/BlogListClient';
 import { notFound } from 'next/navigation';
@@ -197,6 +198,7 @@ export default async function Blog({ params }: { params: Promise<{ lang: string 
   ]);
 
   const blogLd = {
+    '@context': 'https://schema.org',
     '@type': 'Blog',
     name: t('blgx_hdr_title'),
     description: t('blgx_meta_desc'),
@@ -211,6 +213,13 @@ export default async function Blog({ params }: { params: Promise<{ lang: string 
       image: post.image,
     })),
   };
+
+  const pageLd = webPageSchema({
+    name: t('blgx_hdr_title'),
+    description: t('blgx_meta_desc'),
+    path: '/blog',
+    speakableSelectors: ['h1', '#blog-hub-ai-overview-answer'],
+  });
   
   const carouselItems = finalPosts.slice(0, 12).map((post: any) => ({
     name: post.title,
@@ -238,9 +247,13 @@ export default async function Blog({ params }: { params: Promise<{ lang: string 
           ]}
         />
       )}
-      <JsonLd data={[breadcrumbLd, blogLd]} />
+      <JsonLd data={[breadcrumbLd, blogLd, pageLd]} />
       <ItemListSeo items={carouselItems} />
       <PageHeader title={t('blgx_hdr_title')} description={t('blgx_hdr_desc')} />
+
+      <div className="container mx-auto px-4 max-w-7xl pt-6">
+        <BlogHubAiOverviewSeo lang={lang} postCount={finalPosts.length || 57} />
+      </div>
 
       <Suspense fallback={<div className="h-96 flex items-center justify-center">{t('blgx_loading')}</div>}>
         <BlogListClient posts={listPosts} categories={listCategories} />
