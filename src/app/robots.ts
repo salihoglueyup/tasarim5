@@ -68,18 +68,20 @@ export default function robots(): MetadataRoute.Robots {
     '/.well-known/openid-configuration',
     '/.well-known/http-message-signatures-directory',
     '/.well-known/poppy.json',
+    '/teklif-al',
     '/_next/static/',
+    '/_next/static/media/',
+    '/_next/image',
   ];
 
   // Özel/teknik, oturum, form ve exploit deneme yolları botlara kapalıdır
-  // GSC Crawl Bloat & Parametre Patlaması Kalkanı (Faz 251 & Faz 254: Teklif Al, API & Query Disallow)
+  // GSC Crawl Bloat & Parametre Patlaması Kalkanı:
+  // /teklif-al?hizmet=...&bolge=... ve /teklif-al?paket=... istekleri robots.txt ile engellenmez
+  // (GSC "Robots.txt tarafından engellendi" doğrulamasının geçmesi ve middleware 301 kanonikleştirmesinin görülmesi için).
   const disallow = [
     '/admin',
     '/api/',
     '/~offline',
-    '/teklif-al?*',
-    '/*?*hizmet=*',
-    '/*?*bolge=*',
     '/*?*skor=*',
     '/*?*filter=*',
     '/*?*sort=*',
@@ -87,7 +89,7 @@ export default function robots(): MetadataRoute.Robots {
     '/*?*fbclid=*',
     '/*?*gclid=*',
     '/*?*source=*',
-    '/_next/',
+    '/_next/data/',
     '/@fs/',
     '/.*',
     '/*.php$',

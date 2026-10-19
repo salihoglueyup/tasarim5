@@ -17,9 +17,20 @@ describe('Google Search Console 2000+ İndeks İyileştirme ve Hata Düzeltme Pa
         Array.isArray(r.disallow) ? r.disallow : r.disallow ? [r.disallow] : []
       );
 
-      expect(allDisallows).toContain('/teklif-al?*');
-      expect(allDisallows).toContain('/*?*hizmet=*');
-      expect(allDisallows).toContain('/*?*bolge=*');
+      const allAllows = userAgentRules.flatMap((r) =>
+        Array.isArray(r.allow) ? r.allow : r.allow ? [r.allow] : []
+      );
+
+      // /teklif-al?* ve /_next/static/media/* GSC "Robots.txt tarafından engellendi" doğrulaması için açık olmalı
+      expect(allAllows).toContain('/teklif-al');
+      expect(allAllows).toContain('/_next/static/');
+      expect(allAllows).toContain('/_next/static/media/');
+      expect(allDisallows).not.toContain('/teklif-al?*');
+      expect(allDisallows).not.toContain('/*?*hizmet=*');
+      expect(allDisallows).not.toContain('/*?*bolge=*');
+      expect(allDisallows).not.toContain('/_next/');
+
+      // İzleme ve sıralama parametreleri engellenmeye devam etmeli
       expect(allDisallows).toContain('/*?*skor=*');
       expect(allDisallows).toContain('/*?*utm_*');
       expect(allDisallows).toContain('/*?*fbclid=*');
