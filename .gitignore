@@ -50,6 +50,7 @@ next-env.d.ts
 # temporary scripts and artifacts
 /scratch/
 /archive/
+/tmp-admin-reset/
 
 /src/generated/prisma
 *.db
