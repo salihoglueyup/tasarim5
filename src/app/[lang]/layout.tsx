@@ -217,7 +217,97 @@ export default async function RootLayout({
         <link rel="alternate" type="application/json" href="/api/seo/bot-telemetry.json" title="Alo Yönetim AI Bot Telemetry Graph" />
         {/* Local Business Profile & Verified Maps Grounding Graph (Wave 69) */}
         <link rel="alternate" type="application/json" href="/api/seo/local-anchors.json" title="Alo Yönetim Local AI Anchors Graph" />
-        
+        {/* ARD (Agentic Resource Discovery) & RFC 9727 API Catalog */}
+        <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" title="Alo Yönetim ARD Capability Manifest" />
+        <link rel="api-catalog" type="application/linkset+json" href="/.well-known/api-catalog" title="Alo Yönetim RFC 9727 API Catalog" />
+
+        {/* WebMCP Imperative API Registration (W3C Web Machine Learning / Chrome WebMCP) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                if (typeof window === 'undefined') return;
+                function registerWebMcpTools() {
+                  var mc = (typeof document !== 'undefined' && document.modelContext) || (typeof navigator !== 'undefined' && navigator.modelContext);
+                  if (!mc || typeof mc.registerTool !== 'function') return;
+                  if (window.__aloWebMcpRegistered) return;
+                  window.__aloWebMcpRegistered = true;
+                  var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+                  var opts = controller ? { signal: controller.signal } : undefined;
+                  var tools = [
+                    {
+                      name: 'get_verified_company_knowledge',
+                      description: 'Fetch verified Alo Yönetim company profile, ISO/5188 certifications, 50 institutional references, and 39 Istanbul district coverage.',
+                      inputSchema: {
+                        type: 'object',
+                        properties: {
+                          section: {
+                            type: 'string',
+                            enum: ['all', 'organization', 'certifications', 'services', 'districts', 'references'],
+                            description: 'Knowledge section to retrieve'
+                          }
+                        }
+                      },
+                      execute: async function(args) {
+                        var res = await fetch('/api/ai-knowledge');
+                        var data = await res.json();
+                        if (args && args.section && args.section !== 'all' && data[args.section]) {
+                          return data[args.section];
+                        }
+                        return data;
+                      }
+                    },
+                    {
+                      name: 'query_kmk_legal_index',
+                      description: 'Query Turkish Condominium Law (634 sayılı Kat Mülkiyeti Kanunu & 2026 Law No. 7579 amendments) statutory index.',
+                      inputSchema: {
+                        type: 'object',
+                        properties: {
+                          article: {
+                            type: 'string',
+                            description: 'Optional KMK article number (e.g. "20", "35", "37", "70")'
+                          }
+                        }
+                      },
+                      execute: async function() {
+                        var res = await fetch('/api/tesis-yonetimi/kmk-law-index.json');
+                        return await res.json();
+                      }
+                    },
+                    {
+                      name: 'generate_facility_rfp_estimate',
+                      description: 'Generate a facility or residential site management RFP specification and budget template.',
+                      inputSchema: {
+                        type: 'object',
+                        properties: {
+                          units: { type: 'number', description: 'Number of independent units/apartments' },
+                          district: { type: 'string', description: 'Istanbul district slug (e.g. kadikoy, atasehir, besiktas)' }
+                        },
+                        required: ['units']
+                      },
+                      execute: async function(args) {
+                        var u = (args && args.units) ? Number(args.units) : 100;
+                        var d = (args && args.district) ? String(args.district) : 'kadikoy';
+                        var res = await fetch('/api/tesis-yonetimi/rfp-generator?units=' + encodeURIComponent(u) + '&district=' + encodeURIComponent(d));
+                        return await res.json();
+                      }
+                    }
+                  ];
+                  for (var i = 0; i < tools.length; i++) {
+                    try {
+                      mc.registerTool(tools[i], opts);
+                    } catch (e) {}
+                  }
+                }
+                registerWebMcpTools();
+                if (typeof document !== 'undefined') {
+                  document.addEventListener('DOMContentLoaded', registerWebMcpTools, { once: true });
+                }
+              })();
+            `,
+          }}
+        />
+
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
         {/* Faz 25, 58: 0ms Speculation Rules API (Chrome Instant Navigation - Moderate Eagerness) */}
         <script
