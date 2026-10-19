@@ -197,13 +197,78 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/tr/kurumsal',
+        destination: '/hakkimizda',
+        permanent: true,
+      },
+      {
+        source: '/:lang(en|ru|ar)/kurumsal',
+        destination: '/:lang/hakkimizda',
+        permanent: true,
+      },
+      {
         source: '/kurumsal/hakkimizda',
         destination: '/hakkimizda',
         permanent: true,
       },
       {
+        source: '/tr/kurumsal/hakkimizda',
+        destination: '/hakkimizda',
+        permanent: true,
+      },
+      {
+        source: '/:lang(en|ru|ar)/kurumsal/hakkimizda',
+        destination: '/:lang/hakkimizda',
+        permanent: true,
+      },
+      {
+        source: '/kurumsal/sertifikalar',
+        destination: '/kurumsal/kalite-belgelerimiz',
+        permanent: true,
+      },
+      {
+        source: '/tr/kurumsal/sertifikalar',
+        destination: '/kurumsal/kalite-belgelerimiz',
+        permanent: true,
+      },
+      {
+        source: '/:lang(en|ru|ar)/kurumsal/sertifikalar',
+        destination: '/:lang/kurumsal/kalite-belgelerimiz',
+        permanent: true,
+      },
+      {
         source: '/hizmetler/hasere-kontrol',
         destination: '/hizmetler/hasere-ve-dezenfeksiyon',
+        permanent: true,
+      },
+      {
+        source: '/hizmetler/aidat-ve-butce-yonetimi',
+        destination: '/hizmetler/aidat-takibi',
+        permanent: true,
+      },
+      {
+        source: '/hizmetler/havuz-bakim',
+        destination: '/hizmetler/havuz-bakimi-ve-hijyen',
+        permanent: true,
+      },
+      {
+        source: '/hizmetler/ozel-guvenlik',
+        destination: '/hizmetler/guvenlik-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/arama',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/tr/arama',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/:lang(en|ru|ar)/arama',
+        destination: '/:lang/blog',
         permanent: true,
       },
       {
@@ -213,10 +278,13 @@ const nextConfig: NextConfig = {
       },
       // Referans detay sayfaları ve başarı hikâyeleri kaldırıldı (içerikleri gerçek referans listesiyle değişti)
       { source: '/referanslar/:slug', destination: '/referanslar', permanent: true },
+      { source: '/tr/referanslar/:slug', destination: '/referanslar', permanent: true },
       { source: '/:lang(en|ru|ar)/referanslar/:slug', destination: '/:lang/referanslar', permanent: true },
       { source: '/hizmetler/tesis-yonetimi/acik-veri', destination: '/hizmetler/tesis-yonetimi', permanent: true },
+      { source: '/tr/hizmetler/tesis-yonetimi/acik-veri', destination: '/hizmetler/tesis-yonetimi', permanent: true },
       { source: '/:lang(en|ru|ar)/hizmetler/tesis-yonetimi/acik-veri', destination: '/:lang/hizmetler/tesis-yonetimi', permanent: true },
       { source: '/basari-hikayeleri', destination: '/referanslar', permanent: true },
+      { source: '/tr/basari-hikayeleri', destination: '/referanslar', permanent: true },
       { source: '/:lang(en|ru|ar)/basari-hikayeleri', destination: '/:lang/referanslar', permanent: true },
       { source: '/:lang(en)/success-stories', destination: '/:lang/referanslar', permanent: true },
       { source: '/:lang(ru)/istorii-uspekha', destination: '/:lang/referanslar', permanent: true },
@@ -335,11 +403,35 @@ const nextConfig: NextConfig = {
         destination: '/:lang/blog/yazar/alo-yonetim',
         permanent: true,
       },
-      // Eski sektörel çözüm slug'ları -> zengin tesis yönetimi alt sayfaları (DB seed slug'larına dokunulmaz:
-      // avm/sanayi/rezidans/toplukonut seed edildiğinde sitemap'e girer, yönlendirilmemeli)
+      // Eski sektörel çözüm slug'ları -> zengin tesis yönetimi alt sayfaları
       {
         source: '/sektorel-cozumler/site-ve-toplu-konut-yonetimi',
         destination: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/:lang(en|ru|ar)/sektorel-cozumler/site-ve-toplu-konut-yonetimi',
+        destination: '/:lang/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/sektorel-cozumler/toplukonut',
+        destination: '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/sektorel-cozumler/avm',
+        destination: '/hizmetler/tesis-yonetimi/plaza-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/sektorel-cozumler/sanayi',
+        destination: '/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi',
+        permanent: true,
+      },
+      {
+        source: '/sektorel-cozumler/rezidans',
+        destination: '/hizmetler/tesis-yonetimi/rezidans-site-yonetimi',
         permanent: true,
       },
       {
@@ -376,16 +468,24 @@ const nextConfig: NextConfig = {
     ];
   },
   async rewrites() {
-    return [
-      {
-        source: '/og',
-        destination: '/api/og',
-      },
-      {
-        source: '/:lang(en|ru|ar)/og',
-        destination: '/api/og',
-      },
-    ];
+    return {
+      beforeFiles: [
+        {
+          source: '/_next/static/media/:font*.woff2',
+          destination: '/fonts/inter-latin-wght-normal.woff2',
+        },
+      ],
+      afterFiles: [
+        {
+          source: '/og',
+          destination: '/api/og',
+        },
+        {
+          source: '/:lang(en|ru|ar)/og',
+          destination: '/api/og',
+        },
+      ],
+    };
   },
   async headers() {
     return [
@@ -432,10 +532,6 @@ const nextConfig: NextConfig = {
         ],
       },
       // Teknik dosyalar ve dahili API'lar — Google tarafından HTML sayfa gibi indexlenmesin.
-      {
-        source: '/(feed|rss)\\.xml',
-        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
-      },
       {
         source: '/manifest.webmanifest',
         headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
