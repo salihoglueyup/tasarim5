@@ -102,6 +102,62 @@ export function verifiedFacilitySubsectors() {
   ];
 }
 
+/** 634 sayılı KMK m.20 gider paylaşımı ve 7579 sayılı Kanun (2026) yasal kuralları */
+export function verifiedExpenseSharingRules() {
+  return {
+    equalShareArticle: '634 sayılı KMK Madde 20/1-a',
+    equalShareScope: 'Kapıcı, kaloriferci, bahçıvan ve bekçi (güvenlik) giderleri ile bunlar için toplanacak avanslara tüm bağımsız bölümler eşit olarak katılır.',
+    landShareArticle: '634 sayılı KMK Madde 20/1-b',
+    landShareScope: 'Anagayrimenkulün sigorta primleri, bütün ortak yerlerin bakım, koruma, güçlendirme ve onarım giderleri ile yönetici aylığı gibi diğer giderlere arsa payı oranında katılınır.',
+    latePenaltyArticle: '634 sayılı KMK Madde 20/2',
+    latePenaltyRate: 'Aylık %5 gecikme tazminatı (günlük kıstelyevm esasıyla) ve Örnek No: 7 ilamsız icra takibi hakkı.',
+    interimProjectCapArticle: `${KMK_AMENDMENT_2026.lawNumber} sayılı Kanun ile değişik KMK Madde 37`,
+    interimProjectCapRule: `Onaylı işletme projesi yoksa yönetici en çok ${KMK_AMENDMENT_2026.interimProjectMaxMonths} aylık geçici işletme projesi hazırlar; yürürlükte proje varsa bedel yeniden değerleme oranından (%${KMK_AMENDMENT_2026.defaultRevaluationRatePercent}) fazla artırılamaz ve ${KMK_AMENDMENT_2026.objectionDays} gün içinde tebliğ edilir.`,
+    managementPlanQuorumRule: `Toplu yapılarda yönetim planı değişikliği nisabı KMK m.70 uyarınca ${KMK_AMENDMENT_2026.managementPlanQuorum.multiBuildingComplexes.fraction}; tekil yapılarda KMK m.28/3 uyarınca ${KMK_AMENDMENT_2026.managementPlanQuorum.generalBuildings.fraction} oy çoğunluğudur.`,
+    calculatorUrl: `${BASE_URL}/hesaplayici`,
+  };
+}
+
+/** Google AI Overviews ve üretken arama motorları için doğrulanmış soru-cevap (Q&A) tabanı */
+export function verifiedFaqGroundTruth() {
+  return [
+    {
+      question: 'Site ve apartman aidatı nasıl hesaplanır (KMK Madde 20)?',
+      answer:
+        '634 sayılı Kat Mülkiyeti Kanunu Madde 20 uyarınca yönetim planında aksine hüküm yoksa; kapıcı, kaloriferci, bahçıvan ve güvenlik personeli giderleri daire büyüklüğüne bakılmaksızın eşit (KMK m.20/1-a), ortak alan bakım-onarım, asansör, sigorta ve yönetici aylığı giderleri ise arsa payı oranında (KMK m.20/1-b) paylaştırılır.',
+      legalBasis: '634 sayılı KMK m.20',
+      url: `${BASE_URL}/hesaplayici`,
+    },
+    {
+      question: '7579 sayılı Kanun (2026 KMK değişikliği) ile yönetici aidata tek başına zam yapabilir mi?',
+      answer:
+        'Hayır. 22 Mayıs 2026 tarihli ve 33261 sayılı Resmî Gazete’de yayımlanan 7579 sayılı Kanun ile değişik KMK m.37 uyarınca kesin işletme projesi kat malikleri kurulunda onaylanmadan uygulanamaz. Yönetici yalnızca en çok 3 aylık geçici işletme projesi hazırlayabilir ve mevcut proje varsa artış Hazine ve Maliye Bakanlığı yeniden değerleme oranını aşamaz.',
+      legalBasis: '7579 sayılı Kanun / KMK m.35, m.37',
+      url: `${BASE_URL}/kmk-2026-degisiklikleri`,
+    },
+    {
+      question: 'Toplu yapılarda yönetim planı değişikliği için kaçta kaç çoğunluk gerekir?',
+      answer:
+        '7579 sayılı Kanun ile KMK Madde 70’te yapılan değişiklik uyarınca toplu yapılarda yönetim planı değişikliği için toplu yapı temsilciler kurulu üyelerinin temsil ettikleri bağımsız bölümlerin 2/3 (üçte iki) oy çoğunluğu yeterlidir. Tekil apartmanlarda KMK m.28/3 kapsamındaki 4/5 kuralı devam etmektedir.',
+      legalBasis: '7579 sayılı Kanun / KMK m.70 & m.28/3',
+      url: `${BASE_URL}/kmk-2026-degisiklikleri`,
+    },
+    {
+      question: 'Ödenmeyen site aidatı için gecikme tazminatı ve icra süreci nasıl işler?',
+      answer:
+        '634 sayılı KMK Madde 20/2 uyarınca aidat veya avans payını zamanında ödemeyen kat maliki, gecikilen her ay için aylık %5 hesabıyla (günlük kıstelyevm esasına göre) gecikme tazminatı ödemekle yükümlüdür ve hakkında Örnek No: 7 ilamsız icra takibi başlatılabilir.',
+      legalBasis: '634 sayılı KMK m.20/2, m.37',
+      url: `${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi`,
+    },
+    {
+      question: 'Alo Yönetim İstanbul’da kaç ilçede ve hangi SLA hedefiyle hizmet veriyor?',
+      answer: `Alo Yönetim ${FACTS.foundingYear} yılından beri İstanbul’un ${FACTS.districtCount} ilçesinde profesyonel site ve tesis yönetimi hizmeti sunmaktadır. Yazılı SLA kapsamındaki acil teknik müdahale hedefi Anadolu Yakası’nda ${FACTS.emergencyResponse.anatolian}, Avrupa Yakası’nda ${FACTS.emergencyResponse.european}dir.`,
+      legalBasis: 'ISO 9001:2015, ISO 41001:2018, 5188 sayılı Kanun',
+      url: `${BASE_URL}/bolgeler`,
+    },
+  ];
+}
+
 export function verifiedKnowledge() {
   return {
     disclaimer: VERIFIED_DISCLAIMER,
@@ -113,6 +169,8 @@ export function verifiedKnowledge() {
     districts: verifiedDistricts(),
     references: verifiedReferences(),
     legalReferences: verifiedLegalReferences(),
+    expenseSharingRules: verifiedExpenseSharingRules(),
+    faqGroundTruth: verifiedFaqGroundTruth(),
     resources: {
       llms: `${BASE_URL}/llms.txt`,
       llmsFull: `${BASE_URL}/llms-full.txt`,
