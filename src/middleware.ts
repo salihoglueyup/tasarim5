@@ -295,7 +295,8 @@ export async function middleware(request: NextRequest) {
   );
 
   // Faz 159 & Faz 160: NEXT_LOCALE çerezi varsa hatırla, yoksa Accept-Language ile yönlendir (Botlar hariç)
-  const isCrawler = /Googlebot|bingbot|YandexBot|DuckDuckBot|Baiduspider|GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot|Amazonbot|DeepSeek|SEOptimer|Lighthouse|HeadlessChrome|bot|crawl|spider/i.test(userAgent);
+  const isSocialPreviewBot = /WhatsApp|facebookexternalhit|Facebot|meta-externalagent|Twitterbot|TelegramBot|LinkedInBot|Slackbot|Discordbot|Pinterest|vkShare|Viber/i.test(userAgent);
+  const isCrawler = isSocialPreviewBot || /Googlebot|bingbot|YandexBot|DuckDuckBot|Baiduspider|GPTBot|PerplexityBot|Claude-Web|Applebot|Google-Extended|CCBot|Amazonbot|DeepSeek|SEOptimer|Lighthouse|HeadlessChrome|bot|crawl|spider/i.test(userAgent);
 
   if (pathname === '/') {
     const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
@@ -418,7 +419,7 @@ export async function middleware(request: NextRequest) {
       'https://aloyonetim.com.tr/api/geo/facility-coverage.geojson'
     );
 
-    // RFC 8288 standardında Link Header Enjeksiyonu
+    // RFC 8288 standardında Link Header Enjeksiyonu (WhatsApp/Telegram vb. hafif sosyal önizleme botlarında 5KB header şişmesini önlemek için atlanır)
     const httpLinkHeader = buildHttpLinkHeader(pathname, currentLocale || defaultLocale);
     const extraLinks = [
       `<https://aloyonetim.com.tr/sitemap-index.xml>; rel="sitemap"`,
@@ -442,7 +443,9 @@ export async function middleware(request: NextRequest) {
       `<https://aloyonetim.com.tr/api/markdown/site-yonetimi>; rel="alternate"; type="text/markdown"`,
       `<https://aloyonetim.com.tr/api/markdown/tesis-yonetimi>; rel="alternate"; type="text/markdown"`
     ];
-    response.headers.set('Link', `${httpLinkHeader}, ${extraLinks.join(', ')}`);
+    if (!isSocialPreviewBot) {
+      response.headers.set('Link', `${httpLinkHeader}, ${extraLinks.join(', ')}`);
+    }
 
     // AI Arama Motoru Tespiti & Bilgi Yönlendirmesi
     if (isAiBot) {
