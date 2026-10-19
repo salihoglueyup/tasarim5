@@ -52,10 +52,22 @@ export default function robots(): MetadataRoute.Robots {
     '/feed.xml',
     '/llms.txt',
     '/llms-full.txt',
+    '/auth.md',
     '/opensearch.xml',
+    '/.well-known/',
     '/.well-known/security.txt',
     '/.well-known/traffic-advice',
     '/.well-known/ai-plugin.json',
+    '/.well-known/api-catalog',
+    '/.well-known/agent-card.json',
+    '/.well-known/ai-catalog.json',
+    '/.well-known/agent-skills/index.json',
+    '/.well-known/mcp/server-card.json',
+    '/.well-known/oauth-protected-resource',
+    '/.well-known/oauth-authorization-server',
+    '/.well-known/openid-configuration',
+    '/.well-known/http-message-signatures-directory',
+    '/.well-known/poppy.json',
     '/_next/static/',
   ];
 
@@ -86,12 +98,18 @@ export default function robots(): MetadataRoute.Robots {
     '/*.conf$'
   ];
 
+  const contentSignalsOther = {
+    'Content-Signal': 'ai-train=yes, search=yes, ai-input=yes',
+    Agentmap: `${BASE_URL}/.well-known/ai-catalog.json`,
+  };
+
   return {
     rules: [
       {
         userAgent: '*',
         allow,
         disallow,
+        ...({ other: contentSignalsOther } as Record<string, unknown>),
       },
       {
         // Faz 143: AI yanıt/tarama botları için optimize edilmiş crawl-delay ve izinler
@@ -99,6 +117,7 @@ export default function robots(): MetadataRoute.Robots {
         allow,
         disallow,
         crawlDelay: 1,
+        ...({ other: contentSignalsOther } as Record<string, unknown>),
       },
     ],
     // Master Sitemap Index tek link ve standart alt sitemap listesi
