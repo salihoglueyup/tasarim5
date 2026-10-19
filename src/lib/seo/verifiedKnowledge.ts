@@ -93,6 +93,15 @@ export function verifiedLegalReferences() {
   ];
 }
 
+export function verifiedFacilitySubsectors() {
+  return [
+    { name: 'Rezidans ve Site Yönetimi', slug: 'rezidans-site-yonetimi', url: `${BASE_URL}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi` },
+    { name: 'Plaza ve İş Merkezi Yönetimi', slug: 'plaza-yonetimi', url: `${BASE_URL}/hizmetler/tesis-yonetimi/plaza-yonetimi` },
+    { name: 'Toplu Konut ve Karma Proje Yönetimi', slug: 'toplu-konut-yonetimi', url: `${BASE_URL}/hizmetler/tesis-yonetimi/toplu-konut-yonetimi` },
+    { name: 'Sanayi Tesisi ve OSB Yönetimi', slug: 'sanayi-tesisi-yonetimi', url: `${BASE_URL}/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi` },
+  ];
+}
+
 export function verifiedKnowledge() {
   return {
     disclaimer: VERIFIED_DISCLAIMER,
@@ -100,6 +109,7 @@ export function verifiedKnowledge() {
     coverage: verifiedCoverage(),
     certifications: verifiedCertifications(),
     services: verifiedServices(),
+    facilitySubsectors: verifiedFacilitySubsectors(),
     districts: verifiedDistricts(),
     references: verifiedReferences(),
     legalReferences: verifiedLegalReferences(),
@@ -107,9 +117,13 @@ export function verifiedKnowledge() {
       llms: `${BASE_URL}/llms.txt`,
       llmsFull: `${BASE_URL}/llms-full.txt`,
       references: `${BASE_URL}/referanslar`,
+      kmk2026: `${BASE_URL}/kmk-2026-degisiklikleri`,
+      facilityGuide: `${BASE_URL}/hizmetler/tesis-yonetimi/rehber`,
+      mobileApp: `${BASE_URL}/app`,
       blog: `${BASE_URL}/blog`,
       glossary: `${BASE_URL}/sozluk`,
       calculator: `${BASE_URL}/hesaplayici`,
+      quote: `${BASE_URL}/teklif-al`,
       contact: `${BASE_URL}/iletisim`,
     },
   };

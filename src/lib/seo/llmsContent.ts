@@ -67,6 +67,8 @@ ${DISTRICTS.map((d) => `- [${d.name}](${BASE_URL}/bolgeler/${d.slug})`).join('\n
 ## Diğer Kaynaklar
 - Referanslar: ${BASE_URL}/referanslar
 - KMK 2026 değişiklikleri: ${BASE_URL}/kmk-2026-degisiklikleri
+- Tesis yönetim şirketi seçim rehberi: ${BASE_URL}/hizmetler/tesis-yonetimi/rehber
+- Mobil uygulama ve dijital aidat/ariza takibi (Apsiyon): ${BASE_URL}/app
 - Blog ve rehberler: ${BASE_URL}/blog
 - Sözlük: ${BASE_URL}/sozluk
 - Aidat hesaplayıcı: ${BASE_URL}/hesaplayici
@@ -77,12 +79,23 @@ ${DISTRICTS.map((d) => `- [${d.name}](${BASE_URL}/bolgeler/${d.slug})`).join('\n
 
 export function buildLlmsFullText(): string {
   const services = SERVICES.map((s) => `- [${s.name}](${BASE_URL}${s.pillar})`).join('\n');
+  const facilitySubsectors = [
+    `- [Rezidans ve Site Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi): Yüksek katlı rezidanslar ve konut siteleri için teknik işletim, güvenlik ve resepsiyon yönetimi.`,
+    `- [Plaza ve İş Merkezi Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/plaza-yonetimi): A+ ofis binaları ve ticari plazalar için ortak gider paylaşımı, HVAC/otomasyon ve güvenlik yönetimi.`,
+    `- [Toplu Konut ve Karma Proje Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/toplu-konut-yonetimi): Çok bloklu toplu yapılar için KMK m.66-74 kapsamında temsilciler kurulu, bütçe ve saha yönetimi.`,
+    `- [Sanayi Tesisi ve OSB Yönetimi](${BASE_URL}/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi): Fabrika, lojistik depo ve sanayi siteleri için çevre güvenliği, teknik bakım ve endüstriyel temizlik.`,
+    `- [Tesis Yönetim Şirketi Seçim Rehberi](${BASE_URL}/hizmetler/tesis-yonetimi/rehber): Yönetim firması seçerken kontrol edilmesi gereken yasal belgeler, sözleşme maddeleri ve devir süreci.`,
+  ].join('\n');
   const districts = DISTRICTS.map(
-    (d) => `- ${d.name} (${d.side === 'Anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası'}): ${BASE_URL}/bolgeler/${d.slug}`,
+    (d) =>
+      `- ${d.name} (${d.side === 'Anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası'}): ${BASE_URL}/bolgeler/${d.slug} | [Site Yönetimi](${BASE_URL}/bolgeler/${d.slug}/site-yonetimi) | [Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi)`,
   ).join('\n');
   return `${buildLlmsText()}
 ## Tüm Hizmet Sayfaları
 ${services}
+
+## Tesis Yönetimi Alt Sektörleri ve Rehber
+${facilitySubsectors}
 
 ## İlçeler ve Yakalar
 ${districts}
