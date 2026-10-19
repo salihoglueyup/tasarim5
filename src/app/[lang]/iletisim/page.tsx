@@ -36,7 +36,7 @@ export async function generateMetadata({
     description = 'تواصل مع المقر الرئيسي لشركة Alo Management وخط الاستجابة للطوارئ وفرق العمل الميدانية في إسطنبول: 48 48 550 0216.';
   }
 
-  return buildMetadata({
+  const base = buildMetadata({
     title,
     description,
     path: '/iletisim',
@@ -51,6 +51,16 @@ export async function generateMetadata({
       'alo yönetim adres'
     ],
   });
+
+  return {
+    ...base,
+    openGraph: {
+      ...base.openGraph,
+      emails: ['info@aloyonetim.com.tr'],
+      phoneNumbers: ['+90 216 550 48 48'],
+      countryName: 'Turkey',
+    },
+  };
 }
 
 export default async function IletisimPage({

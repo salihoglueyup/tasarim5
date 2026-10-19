@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import { Suspense } from 'react';
 import PageHeader from '@/components/layout/page/PageHeader';
-import JsonLd from '@/components/seo/schema/JsonLd';;
+import JsonLd from '@/components/seo/schema/JsonLd';
+import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 import { generateBreadcrumbs } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import BlogListClient from '@/components/blog/BlogListClient';
@@ -220,6 +221,23 @@ export default async function Blog({ params }: { params: Promise<{ lang: string 
 
   return (
     <>
+      {lang === 'tr' && (
+        <KeywordAnalysisSeo
+          title="Alo Yönetim Blog & Bilgi Merkezi"
+          description="Profesyonel tesis ve site yönetimi, KMK mevzuatı, 5188 güvenlik ve apartman bütçe yönetimi rehberleri."
+          path="/blog"
+          targetKeyword="tesis yönetimi"
+          keywords={[
+            'tesis yönetimi',
+            'site yönetimi',
+            'apartman yönetimi',
+            'kat mülkiyeti kanunu',
+            'aidat yönetimi',
+            'bina güvenliği',
+            'önleyici bakım',
+          ]}
+        />
+      )}
       <JsonLd data={[breadcrumbLd, blogLd]} />
       <ItemListSeo items={carouselItems} />
       <PageHeader title={t('blgx_hdr_title')} description={t('blgx_hdr_desc')} />
