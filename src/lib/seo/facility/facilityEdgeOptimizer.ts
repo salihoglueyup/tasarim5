@@ -1,4 +1,5 @@
 import { BASE_URL, LOCALES } from '@/lib/seo';
+import { isLocaleIndexable } from '@/lib/seo/indexPolicy';
 import { DISTRICTS } from '@/data/districts';
 
 export interface FacilityEdgeHeaders {
@@ -40,17 +41,19 @@ export function buildFacilityEdgeHeaders(
   lang: string = 'tr',
   isBot: boolean = false
 ): FacilityEdgeHeaders {
-  const cleanPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
-  const canonicalUrl = lang === 'tr'
+  const rawCleanPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  const cleanPath = rawCleanPath.replace(/^\/(tr|en|ru|ar)(?=\/|$)/, '') || '/';
+  const effectiveLang = isLocaleIndexable(cleanPath, lang) ? lang : 'tr';
+  const canonicalUrl = effectiveLang === 'tr'
     ? `${BASE_URL}${cleanPath}`
-    : `${BASE_URL}/${lang}${cleanPath}`;
+    : `${BASE_URL}/${effectiveLang}${cleanPath}`;
 
-  // RFC 8288 standardında Link başlıkları
+  // RFC 8288 standardında Link başlıkları (yalnızca çevrilmiş ve indekslenebilir diller)
   const linkParts: string[] = [
     `<${canonicalUrl}>; rel="canonical"`,
   ];
 
-  LOCALES.forEach((l) => {
+  LOCALES.filter((l) => isLocaleIndexable(cleanPath, l)).forEach((l) => {
     const altUrl = l === 'tr'
       ? `${BASE_URL}${cleanPath}`
       : `${BASE_URL}/${l}${cleanPath}`;
