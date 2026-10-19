@@ -24,6 +24,7 @@ export async function GET() {
   const regionalHubs = [
     { path: '/bolgeler', priority: '0.9', changefreq: 'daily' },
     { path: '/hizmetler/tesis-yonetimi', priority: '1.0', changefreq: 'daily' },
+    { path: '/hizmetler/site-yonetimi', priority: '1.0', changefreq: 'daily' },
   ];
 
   for (const hub of regionalHubs) {
@@ -35,13 +36,14 @@ export async function GET() {
     xml += `  </url>\n`;
   }
 
-  // 39 İlçe Ana İniş Sayfaları ve Tesis Yönetimi Rotaları (Anadolu & Avrupa)
+  // 39 İlçe Ana İniş Sayfaları, Tesis Yönetimi ve Site Yönetimi Rotaları (Anadolu & Avrupa)
   const allRegionDistricts = [...anadoluDistricts, ...avrupaDistricts];
 
   for (const district of allRegionDistricts) {
     const districtRoutes = [
       { path: `/bolgeler/${district.slug}`, priority: '0.90', changefreq: 'daily' },
       { path: `/bolgeler/${district.slug}/tesis-yonetimi`, priority: '0.85', changefreq: 'daily' },
+      { path: `/bolgeler/${district.slug}/site-yonetimi`, priority: '0.85', changefreq: 'daily' },
     ];
 
     if (district.neighborhoodData && district.neighborhoodData.length > 0) {

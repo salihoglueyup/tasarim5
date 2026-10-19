@@ -156,7 +156,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const districtServiceRoutes: MetadataRoute.Sitemap = DISTRICTS.flatMap((d) =>
     SERVICES.flatMap((s) => {
-      const isFacilityManagement = s.slug === 'tesis-yonetimi';
+      const isFacilityManagement = s.slug === 'tesis-yonetimi' || s.slug === 'site-yonetimi';
       const isHighPriorityService =
         isFacilityManagement ||
         s.slug === 'guvenlik-yonetimi' ||
