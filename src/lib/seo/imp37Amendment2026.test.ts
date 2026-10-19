@@ -6,6 +6,11 @@ const files = [
   'src/data/dictionary.ts',
   'src/data/kmkGlossaryEncyclopediaData.ts',
   'src/data/kmkLawData.ts',
+  'src/components/seo/ai-overviews/AiOverviewStepSolverSeo.tsx',
+  'src/components/seo/ai-overviews/FaqAiOverviewHubSeo.tsx',
+  'src/components/seo/ai-overviews/GlossaryAiOverviewSeo.tsx',
+  'src/app/api/tesis-yonetimi/legal-templates/route.ts',
+  'src/app/api/facility/legal-templates/route.ts',
 ];
 
 describe('İşletme projesi (KMK m.37) anlatımı 7579 sayılı Kanun ile uyumlu', () => {

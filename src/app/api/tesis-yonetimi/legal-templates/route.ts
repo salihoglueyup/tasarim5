@@ -36,10 +36,10 @@ export async function GET(req: Request) {
       fileType: 'JSON / PDF Şablon Metni',
       schemaType: 'DigitalDocument',
       howToSteps: [
-        'Geçmiş yılın fiili harcama kalemleri ve enflasyon projeksiyonu çıkarılır.',
+        'Geçmiş yılın fiili harcama kalemleri çıkarılır; mevcut işletme projesi varsa geçici projede yeniden değerleme oranı tavanı gözetilir (7579 s. Kanun).',
         'Ortak giderler kanuna uygun olarak arsa payı veya bağımsız bölüm sayısına göre paylaştırılır.',
-        'Hazırlanan işletme projesi kat maliklerine taahhütlü mektupla veya imza karşılığı tebliğ edilir.',
-        '7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve icra takip gücü kazanır.',
+        'İşletme projesi kat malikleri kurulunda onaylanır (onaylı proje yoksa geçici proje en geç 3 ay içinde kurula onaylatılır) ve kat maliklerine taahhütlü mektupla veya imza karşılığı tebliğ edilir.',
+        'Tebliğden itibaren 7 gün içinde itiraz edilmezse işletme projesi kesinleşir ve İİK m.68/1 kapsamında icra takip dayanağı olur.',
       ],
       downloadUrl: `${BASE_URL}/hizmetler/aidat-takibi`,
     },

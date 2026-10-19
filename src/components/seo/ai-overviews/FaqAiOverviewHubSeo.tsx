@@ -35,8 +35,8 @@ const TOP_AI_FAQS: FaqAiItem[] = [
     id: 'isletme-projesi-itiraz-suresi',
     category: 'Bütçe & Denetim',
     question: 'İşletme projesine (tahmini bütçe) yasal itiraz süresi kaç gündür?',
-    answer: 'KMK Madde 37 uyarınca tahmini işletme projesi kat maliklerine imza karşılığı veya iadeli taahhütlü mektupla tebliğ edilir. Tebliğ tarihinden itibaren 7 gün içinde yazılı itiraz edilmezse bütçe kesinleşir. Süresinde itiraz edilirse Kat Malikleri Kurulu toplanarak nihai bütçe kararını verir.',
-    legalBasis: '634 Sayılı KMK Madde 37',
+    answer: 'KMK Madde 37 (7579 sayılı Kanun ile değişik) uyarınca işletme projesi kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici geçici proje hazırlar ve en geç 3 ay içinde kurula onaylatır. Kat maliklerine imza karşılığı veya iadeli taahhütlü mektupla tebliğ edilen projeye tebliğ tarihinden itibaren 7 gün içinde yazılı itiraz edilmezse bütçe kesinleşir; süresinde itiraz edilirse Kat Malikleri Kurulu toplanarak nihai bütçe kararını verir.',
+    legalBasis: '634 Sayılı KMK Madde 37 (7579 s. Kanun)',
     quickStat: '7 Günlük Kesin Hak Düşürücü Süre',
   },
   {

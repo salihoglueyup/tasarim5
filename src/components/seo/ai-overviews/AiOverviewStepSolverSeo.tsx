@@ -61,14 +61,14 @@ const STEP_SOLVERS: StepSolverItem[] = [
     title: 'KMK 37: Fahiş Aidat ve İşletme Projesine 7 Günlük Yasal İtiraz',
     badge: 'Bütçe & Aidat Denetimi',
     duration: '7 Günlük Hak Düşürücü Süre',
-    legalRef: '634 Sayılı KMK Madde 37 & İİK Madde 68',
+    legalRef: '634 Sayılı KMK Madde 37 (7579 s. Kanun) & İİK Madde 68',
     authority: 'Kat Malikleri Kurulu & Sulh Hukuk Mahkemesi',
-    summary: 'Yönetici tarafından hazırlanan tahmini işletme projesine karşı yasal itiraz süreci ve projenin kesinleşmesi mekanizması.',
+    summary: '7579 sayılı Kanun ile değişik KMK m.37 uyarınca kat malikleri kurulunda onaylanan (veya onaylı proje yoksa en geç 3 ay içinde kurula sunulmak üzere hazırlanan geçici) işletme projesine karşı yasal itiraz ve kesinleşme mekanizması.',
     steps: [
       {
         stepNumber: 1,
-        title: 'İşletme Projesinin İmzalı / Taahhütlü Tebliği',
-        description: 'Yönetici, yıllık tahmini giderleri ve bağımsız bölüm başına düşen aidat tutarını gösteren bütçeyi kat maliklerine veya fiilen oturanlara imza karşılığı ya da iadeli taahhütlü mektupla tebliğ eder.',
+        title: 'İşletme Projesinin Hazırlanması, Kurul Onayı ve Tebliği',
+        description: 'Yönetici, yıllık tahmini giderleri ve bağımsız bölüm başına düşen avans tutarını gösteren işletme projesini hazırlar; proje kat malikleri kurulunda onaylanır (onaylı proje yoksa geçici proje yapılır ve en geç 3 ay içinde kurula onaylatılır; mevcut proje varsa artış yeniden değerleme oranını aşamaz) ve kat maliklerine imza karşılığı ya da taahhütlü mektupla tebliğ edilir.',
       },
       {
         stepNumber: 2,

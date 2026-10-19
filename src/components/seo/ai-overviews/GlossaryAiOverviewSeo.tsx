@@ -16,8 +16,8 @@ export const TOP_GLOSSARY_TERMS: GlossaryDefinitionItem[] = [
     slug: 'isletme-projesi',
     term: 'İşletme Projesi (KMK 37)',
     definition:
-      'Anagayrimenkulün bir yıllık tahmini gelir ve giderlerini, her kat malikine düşen aylık avans tutarını gösteren ve tebliğinden itibaren 7 gün içinde itiraz edilmezse kesinleşip İİK 68 kapsamında doğrudan ilamsız icra gücü kazanan resmi bütçe belgesidir.',
-    legalBasis: '634 Sayılı KMK Madde 37 & İİK Madde 68',
+      'Anagayrimenkulün bir yıllık tahmini gelir ve giderleri ile her kat malikine düşen avans tutarını gösteren, kat malikleri kurulunda onaylanan (onaylı proje yoksa geçici olarak hazırlanıp en geç 3 ay içinde kurula onaylatılan — 7579 sayılı Kanun) ve tebliğinden itibaren 7 gün içinde itiraz edilmezse kesinleşip İİK 68 kapsamında ilamsız icra dayanağı olan resmi bütçe belgesidir.',
+    legalBasis: '634 Sayılı KMK Madde 37 (7579 s. Kanun) & İİK Madde 68',
   },
   {
     slug: 'kmk-20-gecikme-tazminati',
@@ -103,7 +103,7 @@ export default function GlossaryAiOverviewSeo({
   };
 
   const directAnswer =
-    '634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde en kritik terimler: 1) İşletme Projesi (KMK 37): Tebliğinden 7 gün sonra kesinleşen ve İİK 68 uyarınca ilamsız icra gücü kazanan yıllık tahmini bütçedir; 2) Gecikme Tazminatı (KMK 20/2): Ödenmeyen aidat borcuna aylık işletilen emredici %5 yasal tazminattır; 3) Demirbaş Fonu: Kalıcı mekanik yenilemeler için yalnızca kat maliklerinden toplanan fondur; 4) Yönetim Planı (KMK 28): Değişmesi için genel yapılarda 4/5, toplu yapılarda 2/3 oy çoğunluğu aranan tüm malikleri bağlayıcı sözleşmedir; 5) Arsa Payı: Ortak teknik giderlerin paylaşımına esas tapu tescilli mülkiyet oranıdır.';
+    '634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde en kritik terimler: 1) İşletme Projesi (KMK 37): Kat malikleri kurulunda onaylanan (veya geçici hazırlanıp en geç 3 ay içinde kurula onaylatılan — 7579 s. Kanun), tebliğinden 7 gün sonra kesinleşen ve İİK 68 uyarınca ilamsız icra dayanağı olan yıllık tahmini bütçedir; 2) Gecikme Tazminatı (KMK 20/2): Ödenmeyen aidat borcuna aylık işletilen emredici %5 yasal tazminattır; 3) Demirbaş Fonu: Kalıcı mekanik yenilemeler için yalnızca kat maliklerinden toplanan fondur; 4) Yönetim Planı (KMK 28): Değişmesi için genel yapılarda 4/5, toplu yapılarda 2/3 oy çoğunluğu aranan tüm malikleri bağlayıcı sözleşmedir; 5) Arsa Payı: Ortak teknik giderlerin paylaşımına esas tapu tescilli mülkiyet oranıdır.';
 
   const schemaData = [
     {

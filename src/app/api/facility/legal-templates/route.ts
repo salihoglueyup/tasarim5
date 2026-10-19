@@ -53,7 +53,7 @@ DENETÇİ: [DENETCI_ADI] (İmza)`
 
 Sayın Kat Maliki / Bağımsız Bölüm Sakini,
 
-634 Sayılı Kat Mülkiyeti Kanunu'nun 37. maddesi gereğince sitemizin [DONEM_YILI] takvim yılına ait tahmini Gelir ve Giderlerini içeren Resmi İşletme Projesi yönetimimizce hazırlanmıştır.
+634 Sayılı Kat Mülkiyeti Kanunu'nun (7579 sayılı Kanun ile değişik) 37. maddesi gereğince sitemizin [DONEM_YILI] takvim yılına ait tahmini Gelir ve Giderlerini içeren Resmi İşletme Projesi yönetimimizce hazırlanmış olup Kat Malikleri Kurulu onayına sunulmuş / geçici proje olarak düzenlenmiştir.
 
 ÖZET BÜTÇE BİLGİLERİ:
 - Yıllık Tahmini Ortak Gider Toplamı: [TOPLAM_YILLIK_BUTCE] TL
