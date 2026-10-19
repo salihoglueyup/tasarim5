@@ -18,25 +18,30 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ru: { title: 'Услуги по управлению зданиями и объектами', description: 'Корпоративные решения по управлению объектами по всему Стамбулу: лицензированная охрана, уборка, техобслуживание, взыскание взносов и ландшафт.' },
     ar: { title: 'خدمات إدارة المباني والمرافق', description: 'حلول مؤسسية لإدارة المرافق في جميع أنحاء إسطنبول تشمل الأمن الخاص المرخّص والنظافة والصيانة الفنية وتحصيل الاشتراكات وتنسيق الحدائق.' },
   },
+  '/hizmetler/tesis-yonetimi': {
+    en: { title: 'Integrated Facility Management in Istanbul — Plazas, Complexes & Industrial Sites', description: 'Professional facility and property management across 39 districts of Istanbul: licensed 5188 security, technical maintenance, cleaning and transparent dues tracking.' },
+    ru: { title: 'Комплексное управление объектами в Стамбуле — бизнес-центры и комплексы', description: 'Профессиональное управление объектами и недвижимостью в 39 районах Стамбула: лицензированная охрана 5188, техническое обслуживание, уборка и прозрачный учёт взносов.' },
+    ar: { title: 'إدارة المرافق المتكاملة في إسطنبول — الأبراج والمجمعات والمنشآت الصناعية', description: 'إدارة احترافية للمرافق والعقارات في 39 منطقة بإسطنبول: أمن خاص مرخّص 5188 وصيانة فنية ونظافة ومتابعة شفافة للاشتراكات.' },
+  },
   '/hizmetler/site-yonetimi': {
-    en: { title: 'Complex Management Companies in Istanbul — Condominium Law No. 634 &', description: 'Professional management of housing complexes, apartment buildings and residences across Istanbul\'s 39 districts in line with Condominium Law No. 634: transparent dues collection and licensed security. Get a free survey.' },
-    ru: { title: 'Управляющие компании комплексов в Стамбуле — Закон № 634 и', description: 'Профессиональное управление жилыми комплексами, многоквартирными домами и резиденциями в 39 районах Стамбула в соответствии с Законом № 634: прозрачный сбор взносов и лицензированная охрана. Запросите бесплатный осмотр.' },
+    en: { title: 'Complex Management Companies in Istanbul — Condominium Law No. 634', description: 'Professional management of housing complexes, apartment buildings and residences across Istanbul\'s 39 districts in line with Condominium Law No. 634: transparent dues collection and licensed security. Get a free survey.' },
+    ru: { title: 'Управляющие компании комплексов в Стамбуле — Закон № 634', description: 'Профессиональное управление жилыми комплексами, многоквартирными домами и резиденциями в 39 районах Стамбула в соответствии с Законом № 634: прозрачный сбор взносов и лицензированная охрана. Запросите бесплатный осмотр.' },
     ar: { title: 'شركات إدارة المجمعات في إسطنبول — القانون رقم 634', description: 'إدارة احترافية للمجمعات السكنية والعمارات والإقامات في مناطق إسطنبول التسع والثلاثين وفق قانون ملكية الطوابق رقم 634: تحصيل شفاف للاشتراكات وأمن مرخّص. احصلوا على معاينة مجانية.' },
   },
   '/hizmetler/guvenlik-yonetimi': {
-    en: { title: 'Licensed Private Security Companies — Complex & Facility Security', description: 'A private security company licensed by the Governorate commission under Law No. 5188: RFID patrols, CCTV monitoring, severance-pay protection and professional protection.' },
-    ru: { title: 'Лицензированные охранные компании — охрана комплексов и объектов', description: 'Частная охранная компания с разрешением губернаторской комиссии по Закону № 5188: RFID-патрули, видеонаблюдение, защита по выходным пособиям и профессиональная охрана.' },
-    ar: { title: 'شركات الأمن الخاص المرخّصة — أمن المجمعات والمنشآت', description: 'شركة أمن خاص مرخّصة من لجنة الولاية بموجب القانون رقم 5188: دوريات RFID ومراقبة بالكاميرات وحماية من مخاطر تعويضات نهاية الخدمة وحراسة احترافية.' },
+    en: { title: 'Licensed Private Security Companies — Complex & Facility Security', description: 'A private security company licensed by the Governorate commission under Law No. 5188: RFID patrols, CCTV monitoring, payroll security personnel and professional protection.' },
+    ru: { title: 'Лицензированные охранные компании — охрана комплексов и объектов', description: 'Частная охранная компания с разрешением губернаторской комиссии по Закону № 5188: RFID-патрули, видеонаблюдение, штатный персонал охраны и профессиональная защита.' },
+    ar: { title: 'شركات الأمن الخاص المرخّصة — أمن المجمعات والمنشآت', description: 'شركة أمن خاص مرخّصة من لجنة الولاية بموجب القانون رقم 5188: دوريات RFID ومراقبة بالكاميرات وطاقم أمن ضمن الملاك وحراسة احترافية.' },
   },
   '/hizmetler/temizlik-ve-hijyen': {
     en: { title: 'Apartment & Complex Common-Area Cleaning Company', description: 'Block, floor-lobby and parking cleaning with industrial floor machines and payroll staff. Request a transparent quote.' },
-    ru: { title: 'Клининговая компания для общих зон домов и комплексов', description: 'Уборка подъездов, холлов и парковок промышленными поломоечными машинами силами штатного персонала. Получите прозрачное предложение в течение 48 часов.' },
-    ar: { title: 'شركة تنظيف المناطق المشتركة للعمارات والمجمعات', description: 'تنظيف المباني وردهات الطوابق والمواقف بآلات أرضيات صناعية وعاملين ضمن الملاك الوظيفي. احصلوا على عرض شفاف خلال 48 ساعة.' },
+    ru: { title: 'Клининговая компания для общих зон домов и комплексов', description: 'Уборка подъездов, холлов и парковок промышленными поломоечными машинами силами штатного персонала. Запросите прозрачное предложение.' },
+    ar: { title: 'شركة تنظيف المناطق المشتركة للعمارات والمجمعات', description: 'تنظيف المباني وردهات الطوابق والمواقف بآلات أرضيات صناعية وعاملين ضمن الملاك الوظيفي. احصلوا على عرض شفاف.' },
   },
   '/hizmetler/teknik-bakim': {
-    en: { title: 'Building & Complex Technical Maintenance — Elevator & Generator SLA', description: 'Type A elevator green-label inspection, generator synchronisation, power-factor compensation to avoid reactive-power penalties and emergency technical service with a 45-minute SLA.' },
-    ru: { title: 'Техническое обслуживание зданий и комплексов — SLA по лифтам и генераторам', description: 'Проверка лифтов типа A для получения зелёной этикетки, синхронизация генераторов, компенсация реактивной мощности для отсутствия штрафов и аварийная техническая служба с SLA 45 минут.' },
-    ar: { title: 'الصيانة الفنية للمباني والمجمعات — اتفاقية خدمة المصاعد والمولدات', description: 'فحص المصاعد من النوع A للحصول على الملصق الأخضر ومزامنة المولدات وتعويض القدرة لتفادي غرامات الطاقة الردية وخدمة فنية طارئة باتفاقية مستوى خدمة 45 دقيقة.' },
+    en: { title: 'Building & Complex Technical Maintenance — Elevator, Generator & Hydrophore', description: 'Type A elevator green-label inspection preparation, periodic generator and hydrophore maintenance, power-factor compensation follow-up and mobile technical support across Istanbul.' },
+    ru: { title: 'Техническое обслуживание зданий и комплексов — лифты, генераторы и гидрофоры', description: 'Подготовка лифтов к инспекции типа A (зелёная этикетка), периодическое обслуживание генераторов и гидрофоров, контроль компенсации реактивной мощности и мобильная техническая поддержка.' },
+    ar: { title: 'الصيانة الفنية للمباني والمجمعات — المصاعد والمولدات والهيدروفور', description: 'تجهيز المصاعد لفحص النوع A للحصول على الملصق الأخضر والصيانة الدورية للمولدات والهيدروفور ومتابعة تعويض القدرة والدعم الفني الميداني في إسطنبول.' },
   },
   '/hizmetler/aidat-takibi': {
     en: { title: 'Professional Dues Tracking & Collection Management', description: 'A digital dues tracking system for complexes and apartment buildings with online card payment, automatic bank integration and legal enforcement follow-up.' },
@@ -79,14 +84,19 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ar: { title: 'إدارة المنشآت الصناعية — المصانع والمستودعات والمناطق الصناعية المنظمة', description: 'إدارة متكاملة للمرافق في المناطق الصناعية المنظمة والمصانع ومستودعات اللوجستيات مع السلامة والصحة المهنية ISO 45001 وصيانة المحولات والأمن الصناعي.' },
   },
   '/hizmetler/tesis-yonetimi/toplu-konut-yonetimi': {
-    en: { title: 'Mass Housing Facility Management — Mega Complexes', description: 'Integrated facility management and a centralised operating budget for large complexes and mass housing projects. Request a quote for a free survey.' },
-    ru: { title: 'Управление жилыми массивами — мегакомплексы', description: 'Комплексное управление объектами и централизованная смета для комплексов от 500 жилых единиц и массовой застройки. Получите предложение в течение 48 часов.' },
-    ar: { title: 'إدارة مرافق الإسكان الجماعي — المجمعات الضخمة', description: 'إدارة متكاملة للمرافق وميزانية تشغيل مركزية للمجمعات التي تضم أكثر من 500 وحدة سكنية ومشاريع الإسكان الجماعي. احصلوا على عرض خلال 48 ساعة.' },
+    en: { title: 'Mass Housing Facility Management — Multi-Block Estates', description: 'Integrated facility management and a centralised operating budget for multi-block complexes and mass housing projects. Request a quote for a free survey.' },
+    ru: { title: 'Управление жилыми массивами — многоблочные комплексы', description: 'Комплексное управление объектами и централизованная смета для многоблочных жилых комплексов и массовой застройки. Запросите предложение и бесплатный осмотр.' },
+    ar: { title: 'إدارة مرافق الإسكان الجماعي — المجمعات متعددة الأبنية', description: 'إدارة متكاملة للمرافق وميزانية تشغيل مركزية للمجمعات متعددة الأبنية ومشاريع الإسكان الجماعي. اطلبوا عرضًا لمعاينة مجانية.' },
   },
   '/hizmetler/tesis-yonetimi/rehber': {
     en: { title: 'How to Choose a Facility Management Company? 2026 Selection & Specification Guide', description: 'What to consider when choosing a complex or facility management company: B2B technical specification (RFP) preparation, Law No. 5188 licence, Condominium Law Art. 34 handover protocol, budget audit and a 10-point company scorecard.' },
     ru: { title: 'Как выбрать управляющую компанию? Руководство по выбору и ТЗ на 2026 год', description: 'На что обратить внимание при выборе управляющей компании комплекса или объекта: подготовка B2B-технического задания (RFP), лицензия по Закону № 5188, протокол передачи по ст. 34 Закона о кондоминиумах, аудит бюджета и оценочная карта из 10 пунктов.' },
     ar: { title: 'كيف تختارون شركة إدارة المرافق؟ دليل الاختيار ودفتر الشروط 2026', description: 'ما يجب مراعاته عند اختيار شركة إدارة مجمع أو منشأة: إعداد دفتر الشروط الفنية B2B (RFP) وترخيص القانون رقم 5188 وبروتوكول التسليم وفق المادة 34 من قانون ملكية الطوابق وتدقيق الميزانية وبطاقة تقييم من 10 بنود.' },
+  },
+  '/kmk-2026-degisiklikleri': {
+    en: { title: '2026 Condominium Law Amendments (Law No. 7579): Dues Cap, Provisional Budget & 2/3 Majority', description: 'Law No. 7579 published on 22 May 2026 amended Articles 35, 37 and 70 of Condominium Law No. 634: revaluation rate cap on provisional budgets, 3-month approval window and 2/3 majority for mass-housing management plans.' },
+    ru: { title: 'Изменения в Законе о кондоминиумах 2026 (Закон № 7579): лимит взносов и большинство 2/3', description: 'Закон № 7579 от 22 мая 2026 года изменил статьи 35, 37 и 70 Закона № 634: временная смета с ограничением по ставке переоценки, утверждение за 3 месяца и большинство 2/3 для планов управления.' },
+    ar: { title: 'تعديلات قانون ملكية الطوابق 2026 (القانون 7579): سقف العائدات وأغلبية الثلثين', description: 'عدّل القانون رقم 7579 المنشور في 22 مايو 2026 المواد 35 و37 و70 من قانون ملكية الطوابق رقم 634: سقف معدل إعادة التقييم لمشروع التشغيل المؤقت وأغلبية الثلثين لتعديل خطة الإدارة.' },
   },
   '/hesaplayici': {
     en: { title: 'Online Dues & Operating Budget Calculator | Alo Yönetim', description: 'Enter your own monthly expense budget and calculate each unit\'s share, split equally or by land share. Results are for information only.' },
@@ -144,9 +154,9 @@ export const PAGE_META: Record<string, Partial<Record<MetaLocale, LocalizedMeta>
     ar: { title: 'أكاديمية الأمن — تدريب الأمن الخاص (القانون رقم 5188)', description: 'التدريب الأساسي للأمن الخاص المسلح/غير المسلح وفق القانون رقم 5188 وبرامج التجديد ومراقبة الكاميرات وشهادات أمن المنشآت.' },
   },
   '/kurumsal/vizyon-misyon': {
-    en: { title: 'Our Vision & Mission — Transparent Facility Management | Alo Yönetim', description: 'Open-book transparency, a monthly independent financial audit report, severance provisions held in a blocked account in the complex\'s name and technology-assisted facility management: Alo Yönetim\'s management vision.' },
-    ru: { title: 'Наши видение и миссия — прозрачное управление объектами | Alo Yönetim', description: 'Прозрачная открытая касса, ежемесячный независимый финансовый отчёт, резерв выходных пособий на блокированном счёте на имя комплекса и технологичное управление объектами: управленческое видение Alo Yönetim.' },
-    ar: { title: 'رؤيتنا ورسالتنا — إدارة مرافق شفافة | Alo Yönetim', description: 'شفافية الصندوق المفتوح وتقرير تدقيق مالي مستقل شهري واحتجاز مخصصات نهاية الخدمة في حساب مجمّد باسم المجمع وإدارة مرافق مدعومة بالتكنولوجيا: رؤية Alo Yönetim الإدارية.' },
+    en: { title: 'Our Vision & Mission — Transparent Facility Management | Alo Yönetim', description: 'Transparent accounting, regular financial reporting to the audit board, compliance with Condominium Law No. 634 and technology-assisted facility management: Alo Yönetim\'s corporate vision and mission.' },
+    ru: { title: 'Наши видение и миссия — прозрачное управление объектами | Alo Yönetim', description: 'Прозрачный учёт, регулярная финансовая отчётность перед ревизионным советом, соблюдение Закона № 634 и технологичное управление объектами: корпоративное видение и миссия Alo Yönetim.' },
+    ar: { title: 'رؤيتنا ورسالتنا — إدارة مرافق شفافة | Alo Yönetim', description: 'المحاسبة الشفافة والتقارير المالية الدورية لمجلس المراجعة والامتثال لقانون ملكية الطوابق رقم 634 وإدارة المرافق المدعومة بالتكنولوجيا: رؤية Alo Yönetim ورسالتها المؤسسية.' },
   },
   '/site-haritasi': {
     en: { title: 'Sitemap — All Services and Regional Pages', description: 'A quick-access map to all Alo Yönetim services, corporate information pages, calculators and the facility management pages of Istanbul\'s 39 districts.' },
