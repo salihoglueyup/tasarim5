@@ -8,7 +8,6 @@ export { default as Input } from './Input';
 export { default as Modal } from './Modal';
 export { default as Pagination } from './Pagination';
 export { default as Skeleton } from './Skeleton';
-export { default as StatCard } from './StatCard';
 export { default as Tabs } from './Tabs';
 export { default as TldrBlock } from './TldrBlock';
 export { ToastProvider, useToast } from './Toast';
