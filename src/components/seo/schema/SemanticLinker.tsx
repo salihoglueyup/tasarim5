@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React, { useMemo, useContext } from 'react';
 import { LanguageContext } from '@/context/LanguageContext';
+import { localePath } from '@/lib/i18n/localePath';
 
 export interface SemanticLinkerProps {
   text: string;
@@ -140,7 +141,7 @@ export default function SemanticLinker({ text, maxLinks = 4, className }: Semant
   const language = langContext?.language || 'tr';
 
   const getLocalizedPath = (path: string) => {
-    return language === 'tr' ? path : `/${language}${path}`;
+    return localePath(path, language);
   };
 
   const renderedContent = useMemo(() => {

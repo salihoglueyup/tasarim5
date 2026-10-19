@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 
 import Icon from '@/components/ui/branding/Icon';
+import { localePath } from '@/lib/i18n/localePath';
 interface LanguageSuggestionBannerProps {
   currentLang: string;
 }
@@ -79,7 +80,8 @@ export default function LanguageSuggestionBanner({ currentLang }: LanguageSugges
       }
     }
 
-    const targetUrl = suggestedLang === 'tr' ? cleanPath : `/${suggestedLang}${cleanPath === '/' ? '' : cleanPath}`;
+    const candidateUrl = localePath(cleanPath, suggestedLang);
+    const targetUrl = suggestedLang !== 'tr' && candidateUrl === cleanPath ? `/${suggestedLang}` : candidateUrl;
     router.push(targetUrl);
     router.refresh();
   };

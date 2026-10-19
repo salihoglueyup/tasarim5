@@ -1,8 +1,9 @@
-﻿'use client';
+'use client';
 
 import { usePathname } from 'next/navigation';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs } from '@/lib/schemas';
+import { localePath } from '@/lib/i18n/localePath';
 
 const PATH_NAMES: Record<string, string> = {
   // Ana Menü
@@ -117,14 +118,16 @@ export default function DynamicBreadcrumb() {
   // Kendi sayfası olmayan/yönlendirilen ara segmentler doğrudan hedef URL'ye eşlenir.
   const URL_REMAP: Record<string, string> = {
     '/kurumsal': '/hakkimizda',
+    '/kurumsal/hakkimizda': '/hakkimizda',
     '/kurumsal/sertifikalar': '/kurumsal/kalite-belgelerimiz',
+    '/surdurulebilirlik': '/kurumsal/surdurulebilirlik',
   };
   let barePath = '';
   breadcrumbSegments.forEach((segment) => {
     barePath += `/${segment}`;
     items.push({
       name: formatName(segment),
-      url: `${langPrefix}${URL_REMAP[barePath] ?? barePath}`,
+      url: localePath(URL_REMAP[barePath] ?? barePath, currentLang),
     });
   });
 

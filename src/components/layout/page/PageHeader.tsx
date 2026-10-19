@@ -5,6 +5,7 @@ import { useState, useRef, MouseEvent } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
+import { localePath } from '@/lib/i18n/localePath';
 
 interface PageHeaderProps {
   title: string;
@@ -54,11 +55,15 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
     
     const paths = pathname.split('/').filter(p => p);
     // Dil öneki bir "sayfa" değildir: crumb olarak gösterilmez, yalnızca varsayılan dil dışında URL'lere eklenir.
-    const lang = ['tr', 'en', 'ru', 'ar'].includes(paths[0]) ? paths.shift() : undefined;
-    const urlPrefix = lang && lang !== 'tr' ? `/${lang}` : '';
+    const lang = ['tr', 'en', 'ru', 'ar'].includes(paths[0]) ? paths.shift() : 'tr';
     // Kendi sayfası olmayan ara segmentler link olmaz; yönlendirmeli olanlar doğrudan hedefe gider.
     const NON_NAVIGABLE = new Set(['/blog/etiket', '/blog/kategori', '/blog/yazar']);
-    const URL_REMAP: Record<string, string> = { '/kurumsal': '/hakkimizda', '/kurumsal/sertifikalar': '/kurumsal/kalite-belgelerimiz' };
+    const URL_REMAP: Record<string, string> = {
+      '/kurumsal': '/hakkimizda',
+      '/kurumsal/hakkimizda': '/hakkimizda',
+      '/kurumsal/sertifikalar': '/kurumsal/kalite-belgelerimiz',
+      '/surdurulebilirlik': '/kurumsal/surdurulebilirlik',
+    };
     const autoBreadcrumbs = [];
 
     let currentUrl = '';
@@ -73,7 +78,7 @@ export default function PageHeader({ title, description, breadcrumbs }: PageHead
         autoBreadcrumbs.push(
           NON_NAVIGABLE.has(currentUrl)
             ? { name }
-            : { name, url: `${urlPrefix}${URL_REMAP[currentUrl] ?? currentUrl}` }
+            : { name, url: localePath(URL_REMAP[currentUrl] ?? currentUrl, lang) }
         );
       }
     }
