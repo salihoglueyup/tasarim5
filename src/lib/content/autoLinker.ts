@@ -183,6 +183,10 @@ const CUSTOM_LINKS: { term: string; href: string }[] = [
   { term: 'istihdam köprüsü', href: '/istihdam-koprusu' },
   { term: 'özel güvenlik iş ilanları', href: '/istihdam-koprusu' },
   { term: 'başarı hikayeleri', href: '/referanslar' },
+  { term: '7579 sayılı kanun', href: '/kmk-2026-degisiklikleri' },
+  { term: 'kmk 2026 değişikliği', href: '/kmk-2026-degisiklikleri' },
+  { term: 'geçici işletme projesi', href: '/kmk-2026-degisiklikleri' },
+  { term: 'yeniden değerleme oranı', href: '/kmk-2026-degisiklikleri' },
 ];
 
 // 5. Sözlük Terimleri

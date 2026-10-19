@@ -19,6 +19,15 @@ export const OFFICIAL_LEGAL_CITATIONS: ExternalCitation[] = [
     category: 'law',
   },
   {
+    id: 'kmk-7579',
+    name: '7579 Sayılı Kanun — 2026 Kat Mülkiyeti Kanunu Değişiklikleri (m.35, m.37, m.70)',
+    officialNumber: 'Kanun No. 7579 (RG: 33261)',
+    url: 'https://www.resmigazete.gov.tr/eskiler/2026/05/20260522-1.htm',
+    sourceAuthority: 'T.C. Resmî Gazete & TBMM Mevzuat Bilgi Sistemi',
+    description: '2026 yılı 7579 sayılı Kanun ile KMK m.37 geçici işletme projesi %25,49 yeniden değerleme tavanı ve m.70 devir-teslim ibra esasları.',
+    category: 'law',
+  },
+  {
     id: 'guvenlik-5188',
     name: '5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun',
     officialNumber: 'Kanun No. 5188',

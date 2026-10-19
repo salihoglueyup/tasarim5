@@ -170,7 +170,7 @@ export function extractKeyFactsAndKpis(content: string): ExtractedFact[] {
     addFact('percentage', match[0].trim(), match.index);
   }
 
-  const legalRegex = /(?:634|5188|6331|2004)\s*sayılı\s*(?:kanun|yasa)?|kmk\s*(?:m\.|madde\s*)\d+|iik\s*(?:m\.|madde\s*)\d+/gi;
+  const legalRegex = /(?:634|7579|5188|6331|2004)\s*sayılı\s*(?:kanun|yasa)?|kmk\s*(?:m\.|madde\s*)\d+|iik\s*(?:m\.|madde\s*)\d+/gi;
   while ((match = legalRegex.exec(plainText)) !== null) {
     addFact('legal_code', match[0].trim(), match.index);
   }

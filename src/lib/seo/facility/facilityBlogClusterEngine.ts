@@ -55,6 +55,7 @@ export function resolveBlogArticleCluster(
   const getCitation = (id: string) => OFFICIAL_LEGAL_CITATIONS.find((c) => c.id === id);
 
   const kmk = getCitation('kmk-634');
+  const kmk7579 = getCitation('kmk-7579');
   const guvenlik = getCitation('guvenlik-5188');
   const isg = getCitation('isg-6331');
   const yangin = getCitation('yangin-yonetmeligi');
@@ -100,11 +101,14 @@ export function resolveBlogArticleCluster(
   } else if (text.includes('yargıtay') || text.includes('içtihat') || text.includes('emsal') || text.includes('dava') || text.includes('mahkeme') || text.includes('itiraz')) {
     if (yargitay) relevantLegislation.push(yargitay);
     if (kmk) relevantLegislation.push(kmk);
-  } else if (text.includes('kmk') || text.includes('kat mülkiyeti') || text.includes('aidat') || text.includes('işletme projesi') || text.includes('genel kurul') || text.includes('yönetim planı')) {
+    if (kmk7579) relevantLegislation.push(kmk7579);
+  } else if (text.includes('7579') || text.includes('kmk') || text.includes('kat mülkiyeti') || text.includes('aidat') || text.includes('işletme projesi') || text.includes('genel kurul') || text.includes('yönetim planı')) {
     if (kmk) relevantLegislation.push(kmk);
+    if (kmk7579) relevantLegislation.push(kmk7579);
     if (iso41001) relevantLegislation.push(iso41001);
   } else {
     if (kmk) relevantLegislation.push(kmk);
+    if (kmk7579) relevantLegislation.push(kmk7579);
     if (iso41001) relevantLegislation.push(iso41001);
   }
 
@@ -118,7 +122,7 @@ export function resolveBlogArticleCluster(
   }
 
   // Topikal Etiketleri Dinamik Zenginleştirme
-  const dynamicTopicalTags = [matchedSubSector.name, 'Tesis ve Mülk Hizmetleri', '634 KMK', 'KMK 634'];
+  const dynamicTopicalTags = [matchedSubSector.name, 'Tesis ve Mülk Hizmetleri', '634 KMK', '7579 Sayılı Kanun (2026)'];
   if (relevantLegislation.some((l) => l.id === 'iso-27001')) dynamicTopicalTags.push('ISO 27001 Bilgi Güvenliği');
   if (relevantLegislation.some((l) => l.id === 'iso-14001')) dynamicTopicalTags.push('ISO 14001 Çevre');
   if (relevantLegislation.some((l) => l.id === 'iso-45001' || l.id === 'isg-6331')) dynamicTopicalTags.push('ISO 45001 İSG');

@@ -218,7 +218,7 @@ export function renderPostBlocksToHtml(rawContent: string | PostBlock[] | any, l
         const thHtml = headers
           .map(
             (h) =>
-              `<th class="px-4 py-3 bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white font-bold text-left text-sm border-b border-slate-200 dark:border-white/10">${parseMarkdownLinks(h)}</th>`
+              `<th scope="col" class="px-4 py-3 bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white font-bold text-left text-sm border-b border-slate-200 dark:border-white/10">${parseMarkdownLinks(h)}</th>`
           )
           .join('');
         const theadHtml = headers.length > 0 ? `<thead><tr>${thHtml}</tr></thead>` : '';
