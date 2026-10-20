@@ -248,6 +248,17 @@ export function buildA2aAgentCard() {
       streaming: false,
       pushNotifications: false,
       stateTransitionHistory: false,
+      extensions: [
+        {
+          uri: 'https://github.com/google-agentic-commerce/AP2/tree/v0.1.0',
+          description:
+            'Agent Payments Protocol (AP2) v0.1.0 — B2B Tesis ve Site Yönetimi Teklif ve Şartname Yetkilendirmesi',
+          required: true,
+          params: {
+            roles: ['merchant'],
+          },
+        },
+      ],
     },
     skills: [
       {
@@ -455,3 +466,149 @@ export function buildWebBotAuthJwks() {
     ],
   };
 }
+
+/** Agentic Commerce Protocol (ACP) Discovery — /.well-known/acp.json */
+export function buildAcpDiscovery() {
+  return {
+    protocol: {
+      name: 'acp',
+      version: '2026-01-30',
+    },
+    api_base_url: `${BASE_URL}/api`,
+    transports: ['https', 'rest'],
+    capabilities: {
+      services: [
+        'rfp_generation',
+        'dues_estimation',
+        'quote_request',
+        'catalog',
+        'checkout',
+      ],
+      currencies: ['TRY'],
+      payment_methods: ['card', 'bank_transfer'],
+    },
+    merchant: {
+      name: CANONICAL_NAP.legal.legalName,
+      url: BASE_URL,
+      country: 'TR',
+    },
+    endpoints: {
+      catalog: `${BASE_URL}/api/ai-knowledge`,
+      rfp_generator: `${BASE_URL}/api/tesis-yonetimi/rfp-generator`,
+      openapi: `${BASE_URL}/openapi.json`,
+    },
+  };
+}
+
+/** Universal Commerce Protocol (UCP) Discovery — /.well-known/ucp */
+export function buildUcpDiscovery() {
+  const servicesMap = {
+    'dev.ucp.shopping': [
+      {
+        version: '2026-08-25',
+        spec: 'https://ucp.dev/2026-08-25/specification/overview/',
+        transport: 'rest',
+        endpoint: `${BASE_URL}/api`,
+        schema: 'https://ucp.dev/2026-08-25/services/shopping/rest.openapi.json',
+      },
+      {
+        version: '2026-08-25',
+        spec: 'https://ucp.dev/2026-08-25/specification/overview/',
+        transport: 'a2a',
+        endpoint: `${BASE_URL}/.well-known/agent-card.json`,
+      },
+    ],
+    'tr.com.aloyonetim.facility': [
+      {
+        version: '2026-08-25',
+        spec: `${BASE_URL}/llms-full.txt`,
+        transport: 'rest',
+        endpoint: `${BASE_URL}/api`,
+        schema: `${BASE_URL}/openapi.json`,
+      },
+    ],
+  };
+
+  const capabilitiesMap = {
+    'dev.ucp.shopping.checkout': [
+      {
+        version: '2026-08-25',
+        spec: 'https://ucp.dev/2026-08-25/specification/shopping/checkout/',
+        schema: 'https://ucp.dev/2026-08-25/schemas/shopping/checkout.json',
+      },
+    ],
+    'tr.com.aloyonetim.facility.rfp_checkout': [
+      {
+        version: '2026-08-25',
+        spec: `${BASE_URL}/llms-full.txt`,
+        schema: `${BASE_URL}/openapi.json`,
+      },
+    ],
+  };
+
+  const paymentHandlersMap = {
+    'tr.com.aloyonetim.pay': [
+      {
+        id: 'b2b_free_rfp_mandate',
+        version: '2026-08-25',
+        spec: `${BASE_URL}/llms-full.txt`,
+        schema: `${BASE_URL}/openapi.json`,
+        available_instruments: [
+          {
+            type: 'card',
+          },
+        ],
+      },
+    ],
+  };
+
+  return {
+    protocol_version: '2026-08-25',
+    ucp: {
+      version: '2026-08-25',
+      services: servicesMap,
+      capabilities: capabilitiesMap,
+      payment_handlers: paymentHandlersMap,
+    },
+    services: servicesMap,
+    capabilities: capabilitiesMap,
+    payment_handlers: paymentHandlersMap,
+    endpoints: {
+      api_base_url: `${BASE_URL}/api`,
+      rfp_generator: `${BASE_URL}/api/tesis-yonetimi/rfp-generator`,
+      knowledge_catalog: `${BASE_URL}/api/ai-knowledge`,
+      openapi: `${BASE_URL}/openapi.json`,
+      agent_card: `${BASE_URL}/.well-known/agent-card.json`,
+    },
+    keys: buildWebBotAuthJwks().keys,
+  };
+}
+
+/** x402 Payment Protocol Challenge — /api/v1 (HTTP 402 Payment Required) */
+export function buildX402PaymentPayload() {
+  return {
+    x402Version: 1,
+    error:
+      'Payment Required — Use x402 protocol header (X-PAYMENT or Payment) for automated B2B premium API session, or query free public endpoints listed in /openapi.json.',
+    accepts: [
+      {
+        scheme: 'exact',
+        network: 'base',
+        maxAmountRequired: '0',
+        resource: `${BASE_URL}/api/v1`,
+        description:
+          'Alo Yönetim Kurumsal Tesis ve Site Yönetimi B2B Ajan API Ağ Geçidi (Ücretsiz Keşif ve Teknik Şartname Taslağı)',
+        mimeType: 'application/json',
+        payTo: '0x000000000000000000000000000000000000dEaD',
+        maxTimeoutSeconds: 300,
+        asset: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
+        extra: {
+          name: 'USD Coin',
+          version: '2',
+          freePublicAlternative: `${BASE_URL}/api/ai-knowledge`,
+        },
+      },
+    ],
+  };
+}
+

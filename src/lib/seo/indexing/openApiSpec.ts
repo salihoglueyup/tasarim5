@@ -9,6 +9,13 @@ import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 export function generateOpenApiSpec() {
   return {
     openapi: '3.1.0',
+    'x-service-info': {
+      categories: ['facility-management', 'property-management', 'legal-compliance'],
+      docs: {
+        homepage: `${BASE_URL}/llms-full.txt`,
+        apiReference: `${BASE_URL}/openapi.json`,
+      },
+    },
     info: {
       title: 'Alo Yönetim Tesis Yönetimi & KMK Hukuku Açık Veri API\'si',
       version: '1.0.0',
@@ -61,6 +68,13 @@ export function generateOpenApiSpec() {
           summary: 'B2B Tesis Yönetim Şartnamesi (RFP) Oluşturma (GET)',
           description: 'Sitenin bağımsız bölüm sayısı, blok adedi ve ilçesine göre otomatik şartname taslağı üretir.',
           operationId: 'generateRfpGet',
+          'x-payment-info': {
+            intent: 'charge',
+            method: 'card',
+            amount: '0.00',
+            currency: 'TRY',
+            description: 'Ücretsiz B2B Tesis Yönetim Teknik Şartnamesi (RFP) ve İşletme Bütçesi Ön Değerlendirme Servisi',
+          },
           parameters: [
             {
               name: 'facilityName',
@@ -114,6 +128,13 @@ export function generateOpenApiSpec() {
           summary: 'B2B Tesis Yönetim Şartnamesi (RFP) Özel Üretim (POST)',
           description: 'Seçilen hizmetler ve tesis özelliklerine göre özelleştirilmiş B2B şartname üretir.',
           operationId: 'generateRfpPost',
+          'x-payment-info': {
+            intent: 'charge',
+            method: 'card',
+            amount: '0.00',
+            currency: 'TRY',
+            description: 'Ücretsiz Özelleştirilmiş B2B Tesis Yönetim Teknik Şartname (RFP) Üretim Servisi',
+          },
           requestBody: {
             required: true,
             content: {

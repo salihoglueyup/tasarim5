@@ -15,7 +15,11 @@ import { GET as getAgentSkillMd } from '@/app/.well-known/agent-skills/alo-yonet
 import { GET as getArdCatalog } from '@/app/.well-known/ai-catalog.json/route';
 import { GET as getPoppyManifest } from '@/app/.well-known/poppy.json/route';
 import { GET as getWebBotAuthJwks } from '@/app/.well-known/http-message-signatures-directory/route';
+import { GET as getAcpDiscovery } from '@/app/.well-known/acp.json/route';
+import { GET as getUcpDiscovery } from '@/app/.well-known/ucp/route';
+import { GET as getX402Gateway } from '@/app/api/v1/route';
 import { GET as getUniversalMarkdown } from '@/app/api/markdown/route';
+import { generateOpenApiSpec } from '@/lib/seo/indexing/openApiSpec';
 
 describe('Cloudflare Agent Readiness & AI Discovery Suite', () => {
   it('robots.ts Content-Signal ve Agentmap direktiflerini ve .well-known izinlerini içerir', () => {
@@ -142,5 +146,54 @@ describe('Cloudflare Agent Readiness & AI Discovery Suite', () => {
 
     expect(idx.$schema).toBe('https://schemas.agentskills.io/discovery/0.2.0/schema.json');
     expect(idx.skills[0].digest).toBe(expectedDigest);
+  });
+
+  it('Agentic Commerce protokolleri (ACP, AP2, MPP, UCP ve x402) B2B şartname ve keşif için eksiksiz şema döner', async () => {
+    // 1. AP2 extension in A2A Agent Card
+    const a2a = await (await getA2aAgentCard()).json();
+    const ap2Ext = a2a.capabilities.extensions?.find(
+      (ext: { uri: string }) => ext.uri === 'https://github.com/google-agentic-commerce/AP2/tree/v0.1.0',
+    );
+    expect(ap2Ext).toBeDefined();
+    expect(ap2Ext.required).toBe(true);
+    expect(ap2Ext.params.roles).toContain('merchant');
+
+    // 2. ACP Discovery (/.well-known/acp.json)
+    const acpRes = await getAcpDiscovery();
+    expect(acpRes.status).toBe(200);
+    const acp = await acpRes.json();
+    expect(acp.protocol.name).toBe('acp');
+    expect(acp.protocol.version).toBeTruthy();
+    expect(acp.api_base_url).toMatch(/^https:\/\/aloyonetim\.com\.tr/);
+    expect(acp.transports.length).toBeGreaterThan(0);
+    expect(acp.capabilities.services.length).toBeGreaterThan(0);
+
+    // 3. MPP Payment Discovery (/openapi.json)
+    const openApi = generateOpenApiSpec();
+    expect(openApi['x-service-info'].categories).toContain('facility-management');
+    const rfpGetPayment = openApi.paths['/api/tesis-yonetimi/rfp-generator'].get['x-payment-info'];
+    expect(rfpGetPayment.intent).toBe('charge');
+    expect(rfpGetPayment.method).toBe('card');
+    expect(rfpGetPayment.amount).toBe('0.00');
+    expect(rfpGetPayment.currency).toBe('TRY');
+
+    // 4. Universal Commerce Protocol (/.well-known/ucp)
+    const ucpRes = await getUcpDiscovery();
+    expect(ucpRes.status).toBe(200);
+    const ucp = await ucpRes.json();
+    expect(ucp.protocol_version).toBe('2026-08-25');
+    expect(ucp.ucp.version).toBe('2026-08-25');
+    expect(Object.keys(ucp.services).length).toBeGreaterThan(0);
+    expect(Object.keys(ucp.capabilities).length).toBeGreaterThan(0);
+    expect(ucp.endpoints.openapi).toBe('https://aloyonetim.com.tr/openapi.json');
+
+    // 5. x402 Payment Protocol (/api/v1)
+    const x402Res = await getX402Gateway();
+    expect(x402Res.status).toBe(402);
+    expect(x402Res.headers.get('payment-required')).toBeTruthy();
+    const x402Body = await x402Res.json();
+    expect(x402Body.x402Version).toBe(1);
+    expect(Array.isArray(x402Body.accepts)).toBe(true);
+    expect(x402Body.accepts[0].scheme).toBe('exact');
   });
 });
