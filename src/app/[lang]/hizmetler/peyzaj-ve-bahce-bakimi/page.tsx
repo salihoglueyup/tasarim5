@@ -27,8 +27,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Site ve Tesis Peyzaj & Bahçe Bakımı | Alo Yönetim';
-  const description = 'Siteler için 4 mevsim periyodik çim biçme, ağaç budama, gübreleme ve akıllı otomatik sulama bakımı. Ziraat mühendisi denetimli profesyonel peyzaj hizmeti.';
+  const title =
+    lang === 'tr'
+      ? 'Site ve Tesis Peyzaj & Bahçe Bakımı | Alo Yönetim'
+      : t.peyz_page_name || 'Site ve Tesis Peyzaj & Bahçe Bakımı | Alo Yönetim';
+  const description =
+    lang === 'tr'
+      ? 'Siteler için 4 mevsim periyodik çim biçme, ağaç budama, gübreleme ve akıllı otomatik sulama bakımı. Ziraat mühendisi denetimli profesyonel peyzaj hizmeti.'
+      : t.peyz_svc_desc || t.peyz_page_desc;
 
   return buildMetadata({
     title,
@@ -82,7 +88,7 @@ export default async function PeyzajVeBahceBakimiPage({
     name: t.peyz_page_name,
     description: t.peyz_page_desc,
     path: '/hizmetler/peyzaj-ve-bahce-bakimi',
-    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
+    speakableSelectors: ['h1', '#service-instant-answer-text'],
   });
 
   return (

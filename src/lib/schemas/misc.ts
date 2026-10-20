@@ -1,5 +1,6 @@
 import type { JsonLdObject, ReviewInput, WebPageType } from './constants';
 import { ORG_CREDENTIALS } from './organization';
+import { termToSlug } from '@/lib/content/termSlug';
 import {
   ORG_ID,
   WEBSITE_ID,
@@ -208,7 +209,7 @@ export function definedTermSetSchema(opts: {
     description: opts.description,
     url,
     hasDefinedTerm: opts.terms.map((t) => {
-      const termSlug = encodeURIComponent(t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''));
+      const termSlug = termToSlug(t.term);
       const termUrl = t.url ? abs(t.url) : `${url}#${termSlug}`;
       return {
         '@type': 'DefinedTerm',

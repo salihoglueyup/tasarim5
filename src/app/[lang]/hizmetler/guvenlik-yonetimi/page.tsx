@@ -27,8 +27,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = '5188 Özel Güvenlik Şirketleri — Site ve Tesis Güvenliği | Alo Yönetim';
-  const description = '5188 sayılı Kanun kapsamında Valilik komisyon izinli özel güvenlik şirketi, RFID devriye, CCTV izleme, kıdem tazminatı kalkanı ve profesyonel koruma.';
+  const title =
+    lang === 'tr'
+      ? '5188 Özel Güvenlik Şirketleri — Site ve Tesis Güvenliği | Alo Yönetim'
+      : t.sec_page_name || '5188 Özel Güvenlik Şirketleri — Site ve Tesis Güvenliği | Alo Yönetim';
+  const description =
+    lang === 'tr'
+      ? '5188 sayılı Kanun kapsamında Valilik komisyon izinli özel güvenlik şirketi, RFID devriye, CCTV izleme, kıdem tazminatı kalkanı ve profesyonel koruma.'
+      : t.sec_svc_desc || t.sec_page_desc;
 
   return buildMetadata({
     title,
@@ -85,7 +91,7 @@ export default async function GuvenlikYonetimiPage({
     name: t.sec_page_name,
     description: t.sec_page_desc,
     path: '/hizmetler/guvenlik-yonetimi',
-    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
+    speakableSelectors: ['h1', '#service-instant-answer-text'],
   });
 
   return (

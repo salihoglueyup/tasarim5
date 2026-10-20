@@ -52,7 +52,7 @@ export default async function CertificatesPage({
     name: t.certificates_title,
     description: t.certificates_desc,
     path: '/kurumsal/kalite-belgelerimiz',
-    speakableSelectors: ['h1', 'p', '#accreditation-instant-answer-text'],
+    speakableSelectors: ['h1', '#accreditation-instant-answer-text'],
   });
 
   const orgLd = organizationSchema();

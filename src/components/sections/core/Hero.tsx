@@ -160,7 +160,7 @@ export default function Hero() {
           </div>
 
           {/* Supercharged Minimalist Headline */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.08] mb-4 text-balance drop-shadow-md transition-all duration-700 ease-out transform-gpu">
+          <h1 id="home-hero-h1" className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.08] mb-4 text-balance drop-shadow-md transition-all duration-700 ease-out transform-gpu">
             {t('hero_title')}
           </h1>
 

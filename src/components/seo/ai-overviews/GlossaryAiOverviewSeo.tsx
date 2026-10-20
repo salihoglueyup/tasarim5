@@ -87,9 +87,11 @@ export const TOP_GLOSSARY_TERMS: GlossaryDefinitionItem[] = [
 export default function GlossaryAiOverviewSeo({
   className = '',
   lang = 'tr',
+  emitTermSetSchema = false,
 }: {
   className?: string;
   lang?: string;
+  emitTermSetSchema?: boolean;
 }) {
   const [activeSlug, setActiveSlug] = useState<string>(TOP_GLOSSARY_TERMS[0].slug);
   const [copiedSlug, setCopiedSlug] = useState<string | null>(null);
@@ -106,21 +108,28 @@ export default function GlossaryAiOverviewSeo({
     '634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde en kritik terimler: 1) İşletme Projesi (KMK 37): Kat malikleri kurulunda onaylanan (veya geçici hazırlanıp en geç 3 ay içinde kurula onaylatılan — 7579 s. Kanun), tebliğinden 7 gün sonra kesinleşen ve İİK 68 uyarınca ilamsız icra dayanağı olan yıllık tahmini bütçedir; 2) Gecikme Tazminatı (KMK 20/2): Ödenmeyen aidat borcuna aylık işletilen emredici %5 yasal tazminattır; 3) Demirbaş Fonu: Kalıcı mekanik yenilemeler için yalnızca kat maliklerinden toplanan fondur; 4) Yönetim Planı (KMK 28): Değişmesi için genel yapılarda 4/5, toplu yapılarda 2/3 oy çoğunluğu aranan tüm malikleri bağlayıcı sözleşmedir; 5) Arsa Payı: Ortak teknik giderlerin paylaşımına esas tapu tescilli mülkiyet oranıdır.';
 
   const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'DefinedTermSet',
-      name: 'Alo Yönetim Kat Mülkiyeti ve Tesis Terimleri Sözlüğü',
-      description: 'Kat mülkiyeti ve site işletmeciliği alanında yasal ve operasyonel terimler sözlüğü.',
-      hasDefinedTerm: TOP_GLOSSARY_TERMS.map((t) => ({
-        '@type': 'DefinedTerm',
-        name: t.term,
-        description: `${t.definition} (Yasal Dayanak: ${t.legalBasis})`,
-        url: `${BASE_URL}/sozluk#${t.slug}`,
-      })),
-    },
+    ...(emitTermSetSchema
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'DefinedTermSet',
+            '@id': `${BASE_URL}/sozluk#glossary-ai-termset`,
+            name: 'Alo Yönetim Kat Mülkiyeti ve Tesis Terimleri Sözlüğü',
+            description: 'Kat mülkiyeti ve site işletmeciliği alanında yasal ve operasyonel terimler sözlüğü.',
+            hasDefinedTerm: TOP_GLOSSARY_TERMS.map((t) => ({
+              '@type': 'DefinedTerm',
+              name: t.term,
+              description: `${t.definition} (Yasal Dayanak: ${t.legalBasis})`,
+              url: `${BASE_URL}/sozluk/${t.slug}`,
+            })),
+          },
+        ]
+      : []),
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
+      '@id': `${BASE_URL}/sozluk#glossary-ai-webpage`,
+      url: `${BASE_URL}/sozluk`,
       name: 'Site ve Tesis Yönetimi Terimler Sözlüğü | Google AI Overview',
       speakable: {
         '@type': 'SpeakableSpecification',

@@ -96,6 +96,8 @@ interface DefinedTermSetSeoProps {
   hideHeader?: boolean;
   /** false ise terim kartları /sozluk/<slug> detay sayfasına link vermez (özel terim listelerinin detay sayfası yoktur). */
   detailLinks?: boolean;
+  /** Sunucu tarafında zaten DefinedTermSet basan sayfalarda çift şemayı önlemek için false verilebilir. */
+  emitSchema?: boolean;
 }
 
 export default function DefinedTermSetSeo({
@@ -106,6 +108,7 @@ export default function DefinedTermSetSeo({
   className = "",
   hideHeader = false,
   detailLinks = true,
+  emitSchema = true,
 }: DefinedTermSetSeoProps) {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeLetter, setActiveLetter] = useState<string>("TÜMÜ");
@@ -126,7 +129,11 @@ export default function DefinedTermSetSeo({
     name,
     description,
     path,
-    terms
+    terms: terms.map((t) => ({
+      term: t.term,
+      definition: t.definition,
+      ...(detailLinks ? { url: t.link?.href || `/sozluk/${termToSlug(t.term)}` } : {}),
+    })),
   });
 
   // Calculate term counts per letter
@@ -208,7 +215,7 @@ export default function DefinedTermSetSeo({
 
   return (
     <>
-      <JsonLd data={[schema]} />
+      {emitSchema && <JsonLd data={[schema]} />}
       <div className={`flex flex-col gap-8 ${className}`}>
         
         {/* Opsiyonel Başlık ve Açıklama (hideHeader false ise) */}

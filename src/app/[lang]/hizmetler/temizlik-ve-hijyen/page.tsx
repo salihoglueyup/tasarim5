@@ -27,8 +27,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Apartman ve Site Ortak Alan Temizlik Şirketi | Alo Yönetim';
-  const description = 'TSE 13811 standartlarında endüstriyel zemin makineleri ve kadrolu personellerle blok, kat holü ve otopark temizliği. Şeffaf teklif alın!';
+  const title =
+    lang === 'tr'
+      ? 'Apartman ve Site Ortak Alan Temizlik Şirketi | Alo Yönetim'
+      : t.clean_page_name || 'Apartman ve Site Ortak Alan Temizlik Şirketi | Alo Yönetim';
+  const description =
+    lang === 'tr'
+      ? 'TSE 13811 standartlarında endüstriyel zemin makineleri ve kadrolu personellerle blok, kat holü ve otopark temizliği. Şeffaf teklif alın!'
+      : t.clean_svc_desc || t.clean_page_desc;
 
   return buildMetadata({
     title,
@@ -82,7 +88,7 @@ export default async function TemizlikVeHijyenPage({
     name: t.clean_page_name,
     description: t.clean_page_desc,
     path: '/hizmetler/temizlik-ve-hijyen',
-    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
+    speakableSelectors: ['h1', '#service-instant-answer-text'],
   });
 
   return (

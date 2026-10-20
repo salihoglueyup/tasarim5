@@ -39,7 +39,13 @@ export const FACILITY_COMPLETE_GRAPH_CREDENTIALS = ORG_CREDENTIALS;
 export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraphOptions): JsonLdObject {
   const lang = options?.lang || 'tr';
   const langPrefix = lang === 'tr' ? '' : `/${lang}`;
-  const canonicalUrl = `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi`;
+  const rawCanonicalPath = options?.canonicalPath || '/hizmetler/tesis-yonetimi';
+  const normalizedPath = rawCanonicalPath.startsWith('/') ? rawCanonicalPath : `/${rawCanonicalPath}`;
+  const isSitePillar = normalizedPath === '/hizmetler/site-yonetimi';
+  const districtServiceSlug = isSitePillar ? 'site-yonetimi' : 'tesis-yonetimi';
+  const pillarLabel = isSitePillar ? 'Site Yönetimi' : 'Tesis Yönetimi';
+
+  const canonicalUrl = `${BASE_URL}${langPrefix}${normalizedPath}`;
   const pageId = `${canonicalUrl}#webpage`;
   const serviceId = `${canonicalUrl}#service`;
   const breadcrumbId = `${canonicalUrl}#breadcrumb`;
@@ -48,10 +54,16 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
   const termsetId = `${canonicalUrl}#termset`;
   const districtListId = `${canonicalUrl}#district-list`;
 
-  const pageTitle = options?.pageTitle || 'Profesyonel Tesis Yönetimi İstanbul | Alo Yönetim';
+  const pageTitle =
+    options?.pageTitle ||
+    (isSitePillar
+      ? 'Profesyonel Site Yönetimi İstanbul | Alo Yönetim'
+      : 'Profesyonel Tesis Yönetimi İstanbul | Alo Yönetim');
   const pageDescription =
     options?.pageDescription ||
-    'İstanbul genelinde 39 ilçede entegre tesis yönetimi, 5188 özel güvenlik, temizlik, teknik bakım ve şeffaf aidat yönetimi.';
+    (isSitePillar
+      ? 'İstanbul genelinde 39 ilçede 634 sayılı KMK uyumlu profesyonel site yönetimi, şeffaf aidat takibi, 5188 özel güvenlik, temizlik ve teknik bakım.'
+      : 'İstanbul genelinde 39 ilçede entegre tesis yönetimi, 5188 özel güvenlik, temizlik, teknik bakım ve şeffaf aidat yönetimi.');
 
   // 1. Organization Node
   const organizationNode = {
@@ -115,27 +127,36 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
       {
         '@type': 'ListItem',
         position: 3,
-        name: 'Tesis Yönetimi',
+        name: pillarLabel,
         item: canonicalUrl,
       },
     ],
   };
 
-  // 4. Primary Service Node ("Tesis Yönetimi")
+  // 4. Primary Service Node ("Tesis Yönetimi" veya "Site Yönetimi")
   const serviceNode = {
     '@type': 'Service',
     '@id': serviceId,
-    name: 'Alo Yönetim Profesyonel Entegre Tesis Yönetimi',
-    serviceType: 'Entegre Tesis Yönetimi ve Gayrimenkul İşletmesi',
+    name: isSitePillar
+      ? 'Alo Yönetim 634 Sayılı KMK Uyumlu Profesyonel Site Yönetimi'
+      : 'Alo Yönetim Profesyonel Entegre Tesis Yönetimi',
+    serviceType: isSitePillar
+      ? 'Profesyonel Site ve Apartman Yönetimi'
+      : 'Entegre Tesis Yönetimi ve Gayrimenkul İşletmesi',
     description: pageDescription,
     url: canonicalUrl,
     mainEntityOfPage: { '@id': pageId },
     provider: { '@id': ORG_ID },
     category: 'Facility Management & Property Operations',
-    sameAs: [
-      'https://www.wikidata.org/wiki/Q1391515',
-      'https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi',
-    ],
+    sameAs: isSitePillar
+      ? [
+          'https://www.wikidata.org/wiki/Q1391515',
+          'https://tr.wikipedia.org/wiki/Site_y%C3%B6netimi',
+        ]
+      : [
+          'https://www.wikidata.org/wiki/Q1391515',
+          'https://tr.wikipedia.org/wiki/Tesis_y%C3%B6netimi',
+        ],
     priceRange: '₺₺',
     hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
     hasOfferCatalog: {
@@ -172,7 +193,7 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
     areaServed: DISTRICTS.map((d) => ({
       '@type': 'AdministrativeArea',
       name: `${d.name}, İstanbul`,
-      url: `${BASE_URL}${langPrefix}/bolgeler/${d.slug}/tesis-yonetimi`,
+      url: `${BASE_URL}${langPrefix}/bolgeler/${d.slug}/${districtServiceSlug}`,
       geo: {
         '@type': 'GeoCoordinates',
         latitude: d.geo?.lat || 41.0,
@@ -193,7 +214,21 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
     about: { '@id': serviceId },
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', 'h2', '.tldr', '.summary-badge'],
+      cssSelector: isSitePillar
+        ? [
+            '#site-management-hero-h1',
+            '#site-instant-answer-text',
+            '#site-management-instant-answer',
+            '#site-management-kmk-summary',
+            '#service-instant-answer-text',
+          ]
+        : [
+            '#facility-hero-h1',
+            '#facility-instant-answer-text',
+            '#service-instant-answer-text',
+            '.tldr',
+            '.summary-badge',
+          ],
     },
     inLanguage: lang,
   };
@@ -202,14 +237,14 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
   const districtListNode = {
     '@type': 'ItemList',
     '@id': districtListId,
-    name: 'İstanbul 39 İlçe Entegre Tesis Yönetimi Hizmet Ağı',
+    name: `İstanbul 39 İlçe ${pillarLabel} Hizmet Ağı`,
     description: 'Alo Yönetim tarafından yazılı SLA hedefiyle hizmet verilen 39 İstanbul ilçesi.',
     numberOfItems: DISTRICTS.length,
     itemListElement: DISTRICTS.map((d, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
-      name: `${d.name} Tesis Yönetimi`,
-      url: `${BASE_URL}${langPrefix}/bolgeler/${d.slug}/tesis-yonetimi`,
+      name: `${d.name} ${pillarLabel}`,
+      url: `${BASE_URL}${langPrefix}/bolgeler/${d.slug}/${districtServiceSlug}`,
     })),
   };
 

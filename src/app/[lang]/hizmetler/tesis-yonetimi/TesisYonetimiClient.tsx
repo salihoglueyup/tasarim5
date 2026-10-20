@@ -73,9 +73,11 @@ export default function TesisYonetimiClient() {
       />
 
       <VoiceSearchSpeakableSeo
+        pageUrl="/hizmetler/tesis-yonetimi"
         cssSelectors={[
           '#facility-instant-answer-text',
           '#facility-hero-h1',
+          '#service-instant-answer-text',
         ]}
       />
       

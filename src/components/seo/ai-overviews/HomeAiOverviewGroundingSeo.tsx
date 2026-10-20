@@ -124,11 +124,12 @@ export default function HomeAiOverviewGroundingSeo({
           '@context': 'https://schema.org',
           '@type': 'WebPage',
           '@id': `${pageUrl}#home-ai-overview`,
+          url: pageUrl,
           name: copy.question,
           description: copy.answer,
           speakable: {
             '@type': 'SpeakableSpecification',
-            cssSelector: ['#speakable-content'],
+            cssSelector: ['#home-hero-h1', '#home-ai-overview-answer', '#speakable-content'],
           },
         },
       ];
@@ -159,7 +160,10 @@ export default function HomeAiOverviewGroundingSeo({
           {copy.question}
         </h2>
 
-        <div className="text-sm sm:text-base leading-relaxed text-[var(--color-secondary)] bg-[var(--color-background)] p-4 sm:p-5 rounded-2xl border border-[var(--color-outline)]/60 mb-6 space-y-3">
+        <div
+          id="home-ai-overview-answer"
+          className="text-sm sm:text-base leading-relaxed text-[var(--color-secondary)] bg-[var(--color-background)] p-4 sm:p-5 rounded-2xl border border-[var(--color-outline)]/60 mb-6 space-y-3"
+        >
           <p>{copy.answer}</p>
           <p className="text-xs sm:text-sm text-[var(--color-tertiary)] border-t border-[var(--color-outline)]/40 pt-3">
             <strong className="text-[var(--color-primary)]">{copy.q2}</strong> {copy.a2}

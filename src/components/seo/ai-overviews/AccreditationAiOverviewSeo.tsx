@@ -5,7 +5,15 @@ import { BASE_URL } from '@/lib/seo';
 import { CERTIFICATES } from '@/data/certificates';
 
 import Icon from '@/components/ui/branding/Icon';
-export default function AccreditationAiOverviewSeo({ className = '', lang = 'tr' }: { className?: string; lang?: string }) {
+export default function AccreditationAiOverviewSeo({
+  className = '',
+  lang = 'tr',
+  emitFaqSchema = false,
+}: {
+  className?: string;
+  lang?: string;
+  emitFaqSchema?: boolean;
+}) {
   const [copied, setCopied] = useState(false);
 
   const question = 'Alo Yönetim’in Sahip Olduğu ISO Kalite Belgeleri ve Yasal Lisanslar Nelerdir?';
@@ -19,23 +27,30 @@ export default function AccreditationAiOverviewSeo({ className = '', lang = 'tr'
   };
 
   const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
+    ...(emitFaqSchema
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            '@id': `${BASE_URL}/kurumsal/kalite-belgelerimiz#accreditation-faq`,
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: directAnswer,
+                },
+              },
+            ],
           },
-        },
-      ],
-    },
+        ]
+      : []),
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',
+      '@id': `${BASE_URL}/kurumsal/kalite-belgelerimiz#accreditation-ai-webpage`,
+      url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
       name: 'Alo Yönetim ISO Akreditasyonları & Kalite Belgeleri | Google AI Overview',
       speakable: {
         '@type': 'SpeakableSpecification',

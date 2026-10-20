@@ -47,7 +47,7 @@ export default async function IstihdamKoprusuPage({
     name: t.ist_hero_crumb,
     description: t.ist_page_ld_desc,
     path: '/istihdam-koprusu',
-    speakableSelectors: ['h1', 'p', '#career-instant-answer-text'],
+    speakableSelectors: ['h1', '#career-instant-answer-text'],
   });
 
   return (

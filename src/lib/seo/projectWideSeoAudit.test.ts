@@ -294,4 +294,95 @@ describe('Project-Wide SEO & Google AI Overviews Architecture Guard (Faz 1-5)', 
       expect(certPage).toContain('id="cert-instant-answer-text"');
     });
   });
+
+  describe('Faz 16: buildFacilityCompleteGraphSchema Honors canonicalPath for /hizmetler/site-yonetimi', () => {
+    it('generates distinct canonical @id, Service, BreadcrumbList, and district ItemList URLs for /hizmetler/site-yonetimi vs /hizmetler/tesis-yonetimi', async () => {
+      const { buildFacilityCompleteGraphSchema } = await import(
+        '@/lib/seo/facility/facilityCompleteGraphBuilder'
+      );
+
+      const siteGraph = buildFacilityCompleteGraphSchema({
+        lang: 'tr',
+        canonicalPath: '/hizmetler/site-yonetimi',
+      }) as any;
+      const siteNodes = siteGraph['@graph'] as any[];
+      const siteService = siteNodes.find((n) => n['@type'] === 'Service');
+      const siteWebPage = siteNodes.find((n) => n['@type'] === 'WebPage');
+      const siteBreadcrumb = siteNodes.find((n) => n['@type'] === 'BreadcrumbList');
+      const siteItemList = siteNodes.find((n) => n['@type'] === 'ItemList');
+
+      expect(siteService.url).toBe('https://aloyonetim.com.tr/hizmetler/site-yonetimi');
+      expect(siteWebPage.url).toBe('https://aloyonetim.com.tr/hizmetler/site-yonetimi');
+      expect(siteWebPage.speakable.cssSelector).toContain('#site-instant-answer-text');
+      expect(siteBreadcrumb.itemListElement[2].name).toBe('Site Yönetimi');
+      expect(siteItemList.itemListElement[0].url).toContain('/bolgeler/');
+      expect(siteItemList.itemListElement[0].url).toContain('/site-yonetimi');
+    });
+  });
+
+  describe('Faz 17: Deduplicated Client ServiceSeo & Explicit pageUrl on VoiceSearchSpeakableSeo and /sozluk', () => {
+    it('defaults ServiceSeo emitSchema to false and wires explicit pageUrl into VoiceSearchSpeakableSeo on tesis-yonetimi, site-yonetimi, and sozluk', () => {
+      const serviceSeoSrc = readRel('src/components/seo/schema/ServiceSeo.tsx');
+      expect(serviceSeoSrc).toContain('emitSchema = false');
+      expect(serviceSeoSrc).toContain('if (!emitSchema) return null;');
+
+      const tesisClient = readRel('src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx');
+      expect(tesisClient).toContain('pageUrl="/hizmetler/tesis-yonetimi"');
+
+      const siteClient = readRel('src/app/[lang]/hizmetler/site-yonetimi/SiteYonetimiClient.tsx');
+      expect(siteClient).toContain('pageUrl="/hizmetler/site-yonetimi"');
+
+      const sozlukClient = readRel('src/app/[lang]/sozluk/SozlukClient.tsx');
+      expect(sozlukClient).toContain('pageUrl="/sozluk"');
+      expect(sozlukClient).toContain('emitSchema={false}');
+
+      const glossaryAi = readRel('src/components/seo/ai-overviews/GlossaryAiOverviewSeo.tsx');
+      expect(glossaryAi).toContain('url: `${BASE_URL}/sozluk/${t.slug}`');
+      expect(glossaryAi).not.toContain('url: `${BASE_URL}/sozluk#${t.slug}`');
+    });
+  });
+
+  describe('Faz 18: Multilingual generateMetadata Localization on 8 Core Service Pages', () => {
+    it('uses localized dictionary title and description when lang !== "tr" across all 8 core service routes', () => {
+      const servicePages = [
+        'src/app/[lang]/hizmetler/guvenlik-yonetimi/page.tsx',
+        'src/app/[lang]/hizmetler/temizlik-ve-hijyen/page.tsx',
+        'src/app/[lang]/hizmetler/teknik-bakim/page.tsx',
+        'src/app/[lang]/hizmetler/aidat-takibi/page.tsx',
+        'src/app/[lang]/hizmetler/hukuk-ve-icra-danismanligi/page.tsx',
+        'src/app/[lang]/hizmetler/peyzaj-ve-bahce-bakimi/page.tsx',
+        'src/app/[lang]/hizmetler/havuz-bakimi-ve-hijyen/page.tsx',
+        'src/app/[lang]/hizmetler/hasere-ve-dezenfeksiyon/page.tsx',
+      ];
+
+      for (const rel of servicePages) {
+        const src = readRel(rel);
+        expect(src, `${rel} must branch generateMetadata on lang === 'tr'`).toContain("lang === 'tr'");
+        expect(src, `${rel} must use precision speakableSelectors without generic 'p'`).toContain(
+          "speakableSelectors: ['h1', '#service-instant-answer-text']"
+        );
+      }
+    });
+  });
+
+  describe('Faz 19: Homepage, /hesaplayici, /kurumsal/kalite-belgelerimiz & /istihdam-koprusu Speakable Grounding', () => {
+    it('aligns homepage Hero #home-hero-h1 and #home-ai-overview-answer with speakableSelectors', () => {
+      const homePage = readRel('src/app/[lang]/page.tsx');
+      const heroSrc = readRel('src/components/sections/core/Hero.tsx');
+      const homeAiSrc = readRel('src/components/seo/ai-overviews/HomeAiOverviewGroundingSeo.tsx');
+
+      expect(homePage).toContain("speakableSelectors: ['#home-hero-h1', '#home-ai-overview-answer', '#speakable-content']");
+      expect(heroSrc).toContain('id="home-hero-h1"');
+      expect(homeAiSrc).toContain('id="home-ai-overview-answer"');
+
+      const calcPage = readRel('src/app/[lang]/hesaplayici/page.tsx');
+      expect(calcPage).toContain("speakableSelectors: ['h1', '#calculator-instant-answer-text']");
+
+      const certPage = readRel('src/app/[lang]/kurumsal/kalite-belgelerimiz/page.tsx');
+      expect(certPage).toContain("speakableSelectors: ['h1', '#accreditation-instant-answer-text']");
+
+      const careerPage = readRel('src/app/[lang]/istihdam-koprusu/page.tsx');
+      expect(careerPage).toContain("speakableSelectors: ['h1', '#career-instant-answer-text']");
+    });
+  });
 });

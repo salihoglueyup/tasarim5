@@ -27,8 +27,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Apartman ve Site Haşere İlaçlama Hizmeti | Alo Yönetim';
-  const description = 'Site, apartman ve tesisler için Sağlık Bakanlığı ruhsatlı biyosidal ürünlerle kokusuz böcek, fare ve kemirgen ilaçlama hizmeti. Randevu: 0216 550 48 48.';
+  const title =
+    lang === 'tr'
+      ? 'Apartman ve Site Haşere İlaçlama Hizmeti | Alo Yönetim'
+      : t.hase_page_name || 'Apartman ve Site Haşere İlaçlama Hizmeti | Alo Yönetim';
+  const description =
+    lang === 'tr'
+      ? 'Site, apartman ve tesisler için Sağlık Bakanlığı ruhsatlı biyosidal ürünlerle kokusuz böcek, fare ve kemirgen ilaçlama hizmeti. Randevu: 0216 550 48 48.'
+      : t.hase_svc_desc;
 
   return buildMetadata({
     title,
@@ -84,7 +90,7 @@ export default async function HasereVeDezenfeksiyonPage({
     name: t.hase_page_name,
     description: t.hase_svc_desc,
     path: '/hizmetler/hasere-ve-dezenfeksiyon',
-    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
+    speakableSelectors: ['h1', '#service-instant-answer-text'],
   });
 
   return (

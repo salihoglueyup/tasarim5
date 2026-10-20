@@ -5,7 +5,6 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, definedTermSetSchema } from '@/lib/schemas';
 import { TERMS, termToSlug } from '@/data/dictionary';
 import { KMK_LAW_INDEX } from '@/data/kmkLawData';
-import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
 import SozlukClient from './SozlukClient';
 import SozlukTranslatedClient from './SozlukTranslatedClient';
 import { TRANSLATED_TERMS } from '@/data/dictionaryTranslated';

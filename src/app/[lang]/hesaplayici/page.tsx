@@ -74,7 +74,7 @@ export default async function HesaplayiciServer({
     name: t.calx_page_ld_name,
     description: t.calx_page_ld_desc,
     path: '/hesaplayici',
-    speakableSelectors: ['h1', 'h2', 'p', '#calculator-instant-answer-text'],
+    speakableSelectors: ['h1', '#calculator-instant-answer-text'],
   });
 
   return (

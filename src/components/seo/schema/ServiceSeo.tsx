@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { BASE_URL } from '@/lib/constants';
@@ -11,12 +11,14 @@ interface ServiceSeoProps {
   areaServed?: string | string[]; // "İstanbul", "Kadıköy", etc.
   priceRange?: string; // e.g., "₺₺", "1000 TRY - 5000 TRY"
   sameAs?: string | string[]; // Wikipedia Entity links
+  emitSchema?: boolean;
 }
 
 /**
  * Hizmet Sayfaları İçin Service JSON-LD Şeması
- * Temizlik, Güvenlik, Aidat Takibi gibi hizmetlerin Google'da 
- * sağlayıcı, bölge ve fiyat bilgisiyle tam teşekküllü listelenmesini sağlar.
+ * Not: Tüm /hizmetler/* sunucu page.tsx rotaları zaten @id ve ORG_CREDENTIALS bağlantılı
+ * kanonik Service JSON-LD düğümünü bastığı için istemci bileşenlerinde çift Service şemasını
+ * önlemek adına emitSchema varsayılan olarak false tutulur.
  */
 export default function ServiceSeo({
   serviceType,
@@ -25,8 +27,10 @@ export default function ServiceSeo({
   providerUrl = BASE_URL,
   areaServed = "İstanbul",
   priceRange = "₺₺",
-  sameAs
+  sameAs,
+  emitSchema = false,
 }: ServiceSeoProps) {
+  if (!emitSchema) return null;
   
   const schema: any = {
     '@context': 'https://schema.org',

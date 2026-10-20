@@ -105,6 +105,8 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
       <section className="pt-10 pb-4">
         <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)]">
           <VoiceSearchSpeakableSeo
+            pageUrl="/sozluk"
+            cssSelectors={['h1', '#glossary-instant-answer-text']}
           />
 
           <GlossaryAiOverviewSeo lang={lang} />
@@ -116,6 +118,7 @@ export default function SozlukClient({ lang = "tr" }: { lang?: string }) {
         <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)]">
           <DefinedTermSetSeo 
             hideHeader={true}
+            emitSchema={false}
             name="Site ve Tesis Yönetimi Sözlüğü"
             description="Kat malikleri ve site yöneticileri için yasal ve operasyonel terimler sözlüğü."
             path="/sozluk"

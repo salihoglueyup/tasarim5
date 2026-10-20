@@ -27,8 +27,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Bina ve Site Teknik Bakım Şirketleri — Asansör & Jeneratör SLA | Alo Yönetim';
-  const description = 'MMO ve TSE A Tipi asansör yeşil etiket muayenesi, jeneratör senkronizasyon, kompanzasyon takibiyle reaktif ceza riskini azaltma ve yazılı SLA kapsamında acil teknik servis.';
+  const title =
+    lang === 'tr'
+      ? 'Bina ve Site Teknik Bakım Şirketleri — Asansör & Jeneratör SLA | Alo Yönetim'
+      : t.tech_page_name || 'Bina ve Site Teknik Bakım Şirketleri — Asansör & Jeneratör SLA | Alo Yönetim';
+  const description =
+    lang === 'tr'
+      ? 'MMO ve TSE A Tipi asansör yeşil etiket muayenesi, jeneratör senkronizasyon, kompanzasyon takibiyle reaktif ceza riskini azaltma ve yazılı SLA kapsamında acil teknik servis.'
+      : t.tech_svc_desc || t.tech_page_desc;
 
   return buildMetadata({
     title,
@@ -85,7 +91,7 @@ export default async function TeknikBakimPage({
     name: t.tech_page_name,
     description: t.tech_page_desc,
     path: '/hizmetler/teknik-bakim',
-    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
+    speakableSelectors: ['h1', '#service-instant-answer-text'],
   });
 
   return (

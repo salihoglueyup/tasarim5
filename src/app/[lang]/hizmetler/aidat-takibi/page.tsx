@@ -27,8 +27,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Profesyonel Aidat Takibi ve Tahsilat Yönetimi | Alo Yönetim';
-  const description = 'Site ve apartmanlar için şeffaf dijital aidat takip sistemi. Kredi kartıyla online ödeme, otomatik banka entegrasyonu ve yasal icra takibi.';
+  const title =
+    lang === 'tr'
+      ? 'Profesyonel Aidat Takibi ve Tahsilat Yönetimi | Alo Yönetim'
+      : t.dues_page_name || 'Profesyonel Aidat Takibi ve Tahsilat Yönetimi | Alo Yönetim';
+  const description =
+    lang === 'tr'
+      ? 'Site ve apartmanlar için şeffaf dijital aidat takip sistemi. Kredi kartıyla online ödeme, otomatik banka entegrasyonu ve yasal icra takibi.'
+      : t.dues_svc_desc || t.dues_page_desc;
 
   return buildMetadata({
     title,
@@ -84,7 +90,7 @@ export default async function AidatTakibiPage({
     name: t.dues_page_name,
     description: t.dues_page_desc,
     path: '/hizmetler/aidat-takibi',
-    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
+    speakableSelectors: ['h1', '#service-instant-answer-text'],
   });
 
   return (

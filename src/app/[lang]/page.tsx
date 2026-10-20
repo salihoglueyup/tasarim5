@@ -90,7 +90,7 @@ export default async function Home({ params }: Props) {
     name: t.page_ld_name || 'Alo Yönetim | Kurumsal Tesis ve Bina Yönetim Çözümleri',
     description: t.page_ld_desc || 'İstanbul Kadıköy merkezli profesyonel apartman, site, plaza ve tesis yönetimi.',
     path: '/',
-    speakableSelectors: ['#speakable-content'],
+    speakableSelectors: ['#home-hero-h1', '#home-ai-overview-answer', '#speakable-content'],
   });
 
   const facilityGraphLd = generateFacilityManagementGraph(lang);

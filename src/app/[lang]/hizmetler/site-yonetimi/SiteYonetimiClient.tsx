@@ -50,10 +50,13 @@ export default function SiteYonetimiClient() {
       />
 
       <VoiceSearchSpeakableSeo
+        pageUrl="/hizmetler/site-yonetimi"
         cssSelectors={[
+          '#site-instant-answer-text',
           '#site-management-instant-answer',
           '#site-management-hero-h1',
-          '#site-management-kmk-summary'
+          '#site-management-kmk-summary',
+          '#service-instant-answer-text',
         ]}
       />
       

@@ -28,8 +28,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'KMK 634 Hukuk & Aidat İcra Danışmanlığı — İlamsız Takip & %5 Faiz | Alo Yönetim';
-  const description = 'KMK 634 kapsamında ödenmeyen aidatlar için noter ihtarnamesi, Örnek No: 7 ilamsız icra takibi, aylık %5 gecikme tazminatı ve kesinleşmiş işletme projesi danışmanlığı.';
+  const title =
+    lang === 'tr'
+      ? 'KMK 634 Hukuk & Aidat İcra Danışmanlığı — İlamsız Takip & %5 Faiz | Alo Yönetim'
+      : t.legal_page_name || 'KMK 634 Hukuk & Aidat İcra Danışmanlığı — İlamsız Takip & %5 Faiz | Alo Yönetim';
+  const description =
+    lang === 'tr'
+      ? 'KMK 634 kapsamında ödenmeyen aidatlar için noter ihtarnamesi, Örnek No: 7 ilamsız icra takibi, aylık %5 gecikme tazminatı ve kesinleşmiş işletme projesi danışmanlığı.'
+      : t.legal_svc_desc || t.legal_page_desc;
 
   return buildMetadata({
     title,
@@ -89,7 +95,7 @@ export default async function HukukVeIcraDanismanligiPage({
     name: t.legal_page_name,
     description: t.legal_page_desc,
     path: '/hizmetler/hukuk-ve-icra-danismanligi',
-    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
+    speakableSelectors: ['h1', '#service-instant-answer-text'],
   });
 
   return (

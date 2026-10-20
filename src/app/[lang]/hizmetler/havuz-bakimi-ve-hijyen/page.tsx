@@ -27,8 +27,14 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  const title = 'Site ve Rezidans Havuz Bakım Hizmeti | Alo Yönetim';
-  const description = 'Site ve rezidanslar için günlük klor-pH ölçümü, filtre ters yıkama ve sertifikalı operatörlü havuz bakımı. Sağlık Bakanlığı standartlarında periyodik analiz.';
+  const title =
+    lang === 'tr'
+      ? 'Site ve Rezidans Havuz Bakım Hizmeti | Alo Yönetim'
+      : t.pool_page_name || 'Site ve Rezidans Havuz Bakım Hizmeti | Alo Yönetim';
+  const description =
+    lang === 'tr'
+      ? 'Site ve rezidanslar için günlük klor-pH ölçümü, filtre ters yıkama ve sertifikalı operatörlü havuz bakımı. Sağlık Bakanlığı standartlarında periyodik analiz.'
+      : t.pool_svc_desc || t.pool_page_desc;
 
   return buildMetadata({
     title,
@@ -82,7 +88,7 @@ export default async function HavuzBakimiVeHijyenPage({
     name: t.pool_page_name,
     description: t.pool_page_desc,
     path: '/hizmetler/havuz-bakimi-ve-hijyen',
-    speakableSelectors: ['h1', 'p', '#service-instant-answer-text'],
+    speakableSelectors: ['h1', '#service-instant-answer-text'],
   });
 
   return (
