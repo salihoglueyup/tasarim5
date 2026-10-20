@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
-import { buildMetadata, LOCALES } from '@/lib/seo';
+import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, digitalDocumentSchema } from '@/lib/schemas';
 import { CERTIFICATES, getCertificate } from '@/data/certificates';
 import PreFooterCta from '@/components/sections/core/PreFooterCta';
@@ -68,7 +68,7 @@ export default async function CertificatePage({
     name: `${cert.name} — ${cert.subtitle}`,
     description: cert.description,
     path: `/kurumsal/sertifikalar/${cert.slug}`,
-    speakableSelectors: ['h1', '.cert-description'],
+    speakableSelectors: ['h1', '#cert-instant-answer-text', '.cert-description'],
   });
 
   const docLd = digitalDocumentSchema({
@@ -81,11 +81,27 @@ export default async function CertificatePage({
     about: cert.about,
   });
 
+  const credentialLd = {
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOccupationalCredential',
+    '@id': `${BASE_URL}/kurumsal/sertifikalar/${cert.slug}#credential`,
+    name: `${cert.name} — ${cert.subtitle}`,
+    description: cert.description,
+    credentialCategory: 'Organizational Certification',
+    identifier: cert.certificateNumber,
+    url: `${BASE_URL}/kurumsal/sertifikalar/${cert.slug}`,
+    recognizedBy: {
+      '@type': 'Organization',
+      name: `${cert.issuer} (${cert.accreditation})`,
+      url: cert.issuerUrl,
+    },
+  };
+
   const others = CERTIFICATES.filter((c) => c.slug !== cert.slug).slice(0, 3);
 
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd, docLd]} />
+      <JsonLd data={[pageLd, breadcrumbLd, docLd, credentialLd]} />
 
       <PageHeader title={cert.name} description={cert.subtitle} />
 
@@ -111,6 +127,15 @@ export default async function CertificatePage({
               </div>
 
               {/* Uzun Açıklama */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase tracking-wider mb-3">
+                  <Icon name="verified" className="text-sm text-emerald-500" />
+                  <span>Google AI Overviews · Resmi Akreditasyon Özeti</span>
+                </div>
+                <p id="cert-instant-answer-text" className="text-sm sm:text-base text-[var(--color-secondary)] leading-relaxed">
+                  <strong className="text-[var(--color-primary)]">{cert.name} ({cert.subtitle})</strong> belgesi, <strong className="text-[var(--color-primary)]">{cert.holderName}</strong> adına <strong className="text-[var(--color-primary)]">{cert.issuer}</strong> tarafından <strong className="text-[var(--color-primary)]">{cert.accreditation}</strong> akreditasyonu ile <span className="font-mono font-semibold">{cert.certificateNumber}</span> belge numarasıyla tescil edilmiştir. Kapsam: {cert.officialScopeTr}
+                </p>
+              </div>
               <p className="cert-description text-base md:text-lg text-[var(--color-secondary)] font-light leading-relaxed">
                 {cert.longDescription}
               </p>

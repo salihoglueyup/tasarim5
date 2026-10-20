@@ -57,6 +57,7 @@ export default async function PlazaYonetimiPage({
     priceRange: '₺₺₺',
     lang,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q102163',
+    speakableSelectors: ['h1', '#plaza-instant-answer-text'],
   });
 
   return (
@@ -70,6 +71,8 @@ export default async function PlazaYonetimiPage({
         keywords={['plaza yönetimi', 'iş merkezi yönetimi', 'hvac bakımı', 'enerji optimizasyonu']}
       />
       <VoiceSearchSpeakableSeo
+        pageUrl="/hizmetler/tesis-yonetimi/plaza-yonetimi"
+        cssSelectors={['h1', '#plaza-instant-answer-text']}
       />
       <PlazaYonetimiClient />
     </>

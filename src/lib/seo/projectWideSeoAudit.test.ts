@@ -219,4 +219,79 @@ describe('Project-Wide SEO & Google AI Overviews Architecture Guard (Faz 1-5)', 
       expect(vizyonAi).toContain('id="vision-instant-answer-text"');
     });
   });
+
+  describe('Faz 11: robots.ts Unblocks /api/seo/ & agentReadiness Registers RAG Endpoint', () => {
+    it('explicitly allows /api/seo/ in robots.ts and lists /api/seo/ai-overviews-rag.json in agentReadiness', () => {
+      const robotsSrc = readRel('src/app/robots.ts');
+      expect(robotsSrc).toContain("'/api/seo/'");
+
+      const agentReadinessSrc = readRel('src/lib/seo/agentReadiness.ts');
+      expect(agentReadinessSrc).toContain('/api/seo/ai-overviews-rag.json');
+      expect(agentReadinessSrc).not.toContain('ISO/TSE belgeleri');
+    });
+  });
+
+  describe('Faz 12: verifiedKnowledge.ts Uses Only Held BELCERT/ILAS ISO Certifications', () => {
+    it('does not cite unheld ISO 9001 or ISO 41001 in verifiedFaqGroundTruth legalBasis', () => {
+      const vkSrc = readRel('src/lib/seo/verifiedKnowledge.ts');
+      expect(vkSrc).toContain('ISO 45001:2018, ISO 14001:2015, ISO 10002:2018, ISO 22301:2019 (BELCERT/ILAS)');
+      expect(vkSrc).not.toContain('ISO 9001:2015');
+    });
+  });
+
+  describe('Faz 13: 4 Facility Management Sub-Sector Pages Precision SpeakableSpecification', () => {
+    it('wires exact PositionZeroAnswerBox IDs into subSectorGraphLd and VoiceSearchSpeakableSeo', () => {
+      const subSectors: Array<{ rel: string; selector: string }> = [
+        {
+          rel: 'src/app/[lang]/hizmetler/tesis-yonetimi/rezidans-site-yonetimi/page.tsx',
+          selector: '#residence-instant-answer-text',
+        },
+        {
+          rel: 'src/app/[lang]/hizmetler/tesis-yonetimi/plaza-yonetimi/page.tsx',
+          selector: '#plaza-instant-answer-text',
+        },
+        {
+          rel: 'src/app/[lang]/hizmetler/tesis-yonetimi/toplu-konut-yonetimi/page.tsx',
+          selector: '#toplukonut-instant-answer-text',
+        },
+        {
+          rel: 'src/app/[lang]/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi/page.tsx',
+          selector: '#industrial-instant-answer-text',
+        },
+      ];
+
+      for (const { rel, selector } of subSectors) {
+        const src = readRel(rel);
+        expect(src, `${rel} must pass ${selector} to speakableSelectors`).toContain(
+          `speakableSelectors: ['h1', '${selector}']`
+        );
+        expect(src, `${rel} must pass ${selector} to VoiceSearchSpeakableSeo`).toContain(
+          `cssSelectors={['h1', '${selector}']}`
+        );
+      }
+    });
+  });
+
+  describe('Faz 14: /guvenlik-akademisi Canonical NAP & Unified FAQPage Grounding', () => {
+    it('merges ACADEMY_FAQ_ITEMS into AcademyAiOverviewSeo and removes conflicting 0850 numbers', () => {
+      const academyClient = readRel('src/app/[lang]/guvenlik-akademisi/GuvenlikAkademisiClient.tsx');
+      expect(academyClient).toContain('<AcademyAiOverviewSeo extraFaqs={ACADEMY_FAQ_ITEMS} />');
+
+      const faqAccordion = readRel('src/components/academy/AcademyFaqAccordion.tsx');
+      const costBreakdown = readRel('src/components/seo/academy/AcademyCostBreakdownSeo.tsx');
+      expect(faqAccordion).not.toContain('0850');
+      expect(costBreakdown).not.toContain('0850');
+      expect(faqAccordion).toContain('0216 550 48 48');
+      expect(costBreakdown).toContain('0216 550 48 48');
+    });
+  });
+
+  describe('Faz 15: 7 Certificate Detail Pages EducationalOccupationalCredential & AI Overview Grounding', () => {
+    it('emits EducationalOccupationalCredential JSON-LD and #cert-instant-answer-text on /kurumsal/sertifikalar/[slug]', () => {
+      const certPage = readRel('src/app/[lang]/kurumsal/sertifikalar/[slug]/page.tsx');
+      expect(certPage).toContain("'@type': 'EducationalOccupationalCredential'");
+      expect(certPage).toContain("'#cert-instant-answer-text'");
+      expect(certPage).toContain('id="cert-instant-answer-text"');
+    });
+  });
 });

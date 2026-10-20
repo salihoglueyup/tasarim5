@@ -138,7 +138,7 @@ export default function AcademyCostBreakdownSeo() {
             </div>
 
             <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 text-xs text-[var(--color-secondary)]">
-              📞 Güncel dönem eğitim ücretleri ve taksit seçenekleri için: <strong>0850 309 67 34</strong>
+              📞 Güncel dönem eğitim ücretleri ve taksit seçenekleri için: <strong>0216 550 48 48</strong>
             </div>
           </div>
         </div>

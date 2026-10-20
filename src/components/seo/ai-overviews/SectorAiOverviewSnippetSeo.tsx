@@ -7,12 +7,16 @@ import Icon from '@/components/ui/branding/Icon';
 export interface SectorAiOverviewProps {
   sectorName?: string;
   sectorSlug?: string;
+  extraFaqs?: { question: string; answer: string }[];
+  emitFaqSchema?: boolean;
   className?: string;
 }
 
 export default function SectorAiOverviewSnippetSeo({
   sectorName,
   sectorSlug,
+  extraFaqs = [],
+  emitFaqSchema = true,
   className = '',
 }: SectorAiOverviewProps) {
   const [copied, setCopied] = useState(false);
@@ -31,21 +35,37 @@ export default function SectorAiOverviewSnippetSeo({
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const schemaData = [
+  const mergedMainEntity = [
     {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
-          },
-        },
-      ],
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: directAnswer,
+      },
     },
+    ...extraFaqs
+      .filter((f) => f.question && f.answer && f.question !== question)
+      .map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.answer,
+        },
+      })),
+  ];
+
+  const schemaData = [
+    ...(emitFaqSchema
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: mergedMainEntity,
+          },
+        ]
+      : []),
     {
       '@context': 'https://schema.org',
       '@type': 'Service',

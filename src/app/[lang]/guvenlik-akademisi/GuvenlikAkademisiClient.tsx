@@ -12,7 +12,7 @@ import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHu
 import SecurityScenarioQuiz from '@/components/academy/SecurityScenarioQuiz';
 import AcademyEnrollmentModal from '@/components/academy/AcademyEnrollmentModal';
 import SecurityEquipmentShowcase from '@/components/academy/SecurityEquipmentShowcase';
-import AcademyFaqAccordion from '@/components/academy/AcademyFaqAccordion';
+import AcademyFaqAccordion, { ACADEMY_FAQ_ITEMS } from '@/components/academy/AcademyFaqAccordion';
 import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 
 interface GuvenlikAkademisiClientProps {
@@ -37,7 +37,7 @@ export default function GuvenlikAkademisiClient({ lang = 'tr' }: GuvenlikAkademi
 
       {/* 2. Google AI Overviews & 5188 Legal Grounding Snippet */}
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] -mt-6 sm:-mt-8 mb-6 relative z-20 w-full">
-        <AcademyAiOverviewSeo />
+        <AcademyAiOverviewSeo extraFaqs={ACADEMY_FAQ_ITEMS} />
       </div>
 
       {/* 3. 5 Core 5188 Course Packages Matrix */}

@@ -58,6 +58,7 @@ export default async function TopluKonutYonetimiPage({
     priceRange: '₺₺',
     lang,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q1391515',
+    speakableSelectors: ['h1', '#toplukonut-instant-answer-text'],
   });
 
   return (
@@ -71,6 +72,8 @@ export default async function TopluKonutYonetimiPage({
         keywords={['toplu konut yönetimi', 'site yönetimi', 'toki site yönetimi', 'aidat optimizasyonu']}
       />
       <VoiceSearchSpeakableSeo
+        pageUrl="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi"
+        cssSelectors={['h1', '#toplukonut-instant-answer-text']}
       />
       <TopluKonutYonetimiClient />
     </>

@@ -4,7 +4,17 @@ import React, { useState } from 'react';
 import { BASE_URL } from '@/lib/seo';
 
 import Icon from '@/components/ui/branding/Icon';
-export default function AcademyAiOverviewSeo({ className = '' }: { className?: string }) {
+export interface AcademyAiOverviewSeoProps {
+  className?: string;
+  extraFaqs?: { question: string; answer: string }[];
+  emitFaqSchema?: boolean;
+}
+
+export default function AcademyAiOverviewSeo({
+  className = '',
+  extraFaqs = [],
+  emitFaqSchema = true,
+}: AcademyAiOverviewSeoProps) {
   const [copied, setCopied] = useState(false);
 
   const question = 'Sitelerde Özel Güvenlik Görevlilerinin Yasal Yetkileri ve Arama Sınırları Nelerdir?';
@@ -17,21 +27,37 @@ export default function AcademyAiOverviewSeo({ className = '' }: { className?: s
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const schemaData = [
+  const mergedMainEntity = [
     {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
-          },
-        },
-      ],
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: directAnswer,
+      },
     },
+    ...extraFaqs
+      .filter((f) => f.question && f.answer && f.question !== question)
+      .map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.answer,
+        },
+      })),
+  ];
+
+  const schemaData = [
+    ...(emitFaqSchema
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: mergedMainEntity,
+          },
+        ]
+      : []),
     {
       '@context': 'https://schema.org',
       '@type': 'EducationalOccupationalProgram',

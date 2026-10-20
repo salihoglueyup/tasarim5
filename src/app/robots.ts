@@ -36,6 +36,7 @@ export default function robots(): MetadataRoute.Robots {
     '/api/ai/',
     '/api/ai-knowledge',
     '/api/knowledge-graph',
+    '/api/seo/',
     '/api/markdown/',
     '/api/geo/',
     '/api/tesis-yonetimi/',

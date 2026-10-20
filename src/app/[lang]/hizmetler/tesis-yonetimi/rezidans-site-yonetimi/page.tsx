@@ -57,6 +57,7 @@ export default async function RezidansYonetimiPage({
     priceRange: '₺₺₺',
     lang,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q108846399',
+    speakableSelectors: ['h1', '#residence-instant-answer-text'],
   });
 
   return (
@@ -70,6 +71,8 @@ export default async function RezidansYonetimiPage({
         keywords={['rezidans yönetimi', 'lüks site yönetimi', 'concierge', 'vip güvenlik']}
       />
       <VoiceSearchSpeakableSeo
+        pageUrl="/hizmetler/tesis-yonetimi/rezidans-site-yonetimi"
+        cssSelectors={['h1', '#residence-instant-answer-text']}
       />
       <RezidansYonetimiClient />
     </>

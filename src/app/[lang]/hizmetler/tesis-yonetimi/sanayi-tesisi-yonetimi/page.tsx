@@ -57,6 +57,7 @@ export default async function SanayiTesisiYonetimiPage({
     priceRange: '₺₺₺',
     lang,
     sameAsWikidata: 'https://www.wikidata.org/wiki/Q83405',
+    speakableSelectors: ['h1', '#industrial-instant-answer-text'],
   });
 
   return (
@@ -70,6 +71,8 @@ export default async function SanayiTesisiYonetimiPage({
         keywords={['sanayi tesis yönetimi', 'fabrika yönetimi', 'endüstriyel bakım', 'perimetre güvenliği']}
       />
       <VoiceSearchSpeakableSeo
+        pageUrl="/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi"
+        cssSelectors={['h1', '#industrial-instant-answer-text']}
       />
       <SanayiTesisiYonetimiClient />
     </>

@@ -82,6 +82,27 @@ export function buildApiCatalog() {
         ],
       },
       {
+        anchor: `${BASE_URL}/api/seo/ai-overviews-rag.json`,
+        'service-desc': [
+          {
+            href: `${BASE_URL}/openapi.json`,
+            type: 'application/json',
+          },
+        ],
+        'service-doc': [
+          {
+            href: `${BASE_URL}/llms-full.txt`,
+            type: 'text/plain',
+          },
+        ],
+        status: [
+          {
+            href: `${BASE_URL}/api/health`,
+            type: 'application/json',
+          },
+        ],
+      },
+      {
         anchor: `${BASE_URL}/api/geo/facility-coverage.geojson`,
         'service-desc': [
           {
@@ -179,6 +200,7 @@ All read-only knowledge and discovery endpoints are publicly accessible via \`GE
 - \`GET ${BASE_URL}/llms.txt\` — Concise verified company & KMK overview
 - \`GET ${BASE_URL}/llms-full.txt\` — Complete service, subsector & 39-district corpus
 - \`GET ${BASE_URL}/api/ai-knowledge\` — Structured JSON knowledge payload
+- \`GET ${BASE_URL}/api/seo/ai-overviews-rag.json\` — Google AI Overviews & RAG verified ground-truth Q&A corpus
 - \`GET ${BASE_URL}/api/knowledge-graph\` — JSON-LD Organization & Service knowledge graph
 - \`GET ${BASE_URL}/api/tesis-yonetimi/kmk-law-index.json\` — KMK 634 & Law No. 7579 article index
 - \`GET ${BASE_URL}/api/geo/facility-coverage.geojson\` — 39 Istanbul districts GeoJSON coverage
@@ -231,7 +253,7 @@ export function buildA2aAgentCard() {
       {
         id: 'verified-company-knowledge',
         name: 'Kurumsal Bilgi, Belgeler ve Referans Sorgulama',
-        description: `${FACTS.foundingYear}'dan beri faaliyet gösteren Alo Yönetim'in MERSİS, ISO/TSE belgeleri, 5188 özel güvenlik izni ve ${FACTS.referenceCount} kurumsal referans bilgisini döner.`,
+        description: `${FACTS.foundingYear}'dan beri faaliyet gösteren Alo Yönetim'in MERSİS, BELCERT/ILAS akreditasyonlu ISO belgeleri, 5188 özel güvenlik izni ve ${FACTS.referenceCount} kurumsal referans bilgisini döner.`,
         tags: ['site-yonetimi', 'tesis-yonetimi', 'iso', 'referanslar', 'istanbul'],
         examples: [
           'Alo Yönetim hangi ISO belgelerine ve yasal izinlere sahiptir?',
@@ -320,6 +342,7 @@ Use this skill when a user asks about professional apartment/site management (\`
 
 2. **Structured Verified Knowledge (JSON)**
    - \`GET ${BASE_URL}/api/ai-knowledge\`
+   - \`GET ${BASE_URL}/api/seo/ai-overviews-rag.json\`
    - Returns company legal identity (${CANONICAL_NAP.legal.legalName}), held BELCERT ISO certifications, ${FACTS.referenceCount} verified institutional references, all 10 core services, 4 facility subsectors, and 39 Istanbul districts.
 
 3. **KMK 634 & Law No. 7579 Legal Index (JSON)**

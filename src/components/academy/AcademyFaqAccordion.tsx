@@ -14,7 +14,7 @@ interface FaqItem {
   importantNote?: string;
 }
 
-const FAQ_ITEMS: FaqItem[] = [
+export const ACADEMY_FAQ_ITEMS: FaqItem[] = [
   {
     id: 'silahsiz-silahli-gecis',
     category: 'ruhsat',
@@ -82,8 +82,8 @@ export default function AcademyFaqAccordion() {
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
   const filteredItems = activeFilter === 'all' 
-    ? FAQ_ITEMS 
-    : FAQ_ITEMS.filter((item) => item.category === activeFilter);
+    ? ACADEMY_FAQ_ITEMS 
+    : ACADEMY_FAQ_ITEMS.filter((item) => item.category === activeFilter);
 
   const toggleAccordion = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -215,7 +215,7 @@ export default function AcademyFaqAccordion() {
             Aklınıza takılan başka bir yasal mevzuat veya kurs kayıt detayı mı var?
           </p>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-            0850 308 34 88 numaralı hattımızdan Alo Güvenlik eğitim koordinatörlerimize anında ulaşabilirsiniz.
+            0216 550 48 48 numaralı hattımızdan Alo Güvenlik eğitim koordinatörlerimize anında ulaşabilirsiniz.
           </p>
         </div>
       </div>

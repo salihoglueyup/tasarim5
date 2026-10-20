@@ -272,7 +272,7 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
       {
         '@type': 'DefinedTerm',
         name: 'İşletme Projesi (KMK Madde 37)',
-        description: '634 sayılı KMK 37. maddesi uyarınca anagayrimenkulün bir yıllık tahmini gelir ve giderlerini gösteren kesinleşmiş yasal bütçe belgesidir.',
+        description: '634 sayılı KMK 37. maddesi ve 7579 sayılı Kanun uyarınca anagayrimenkulün bir yıllık tahmini gelir ve giderlerini gösteren, kat malikleri kurulunda onaylanan yasal bütçe belgesidir.',
       },
       {
         '@type': 'DefinedTerm',
@@ -307,6 +307,7 @@ export interface FacilitySubSectorGraphOptions {
   faqs?: Array<{ question: string; answer: string }>;
   isoStandards?: string[];
   sameAsWikidata?: string;
+  speakableSelectors?: string[];
 }
 
 /**
@@ -415,7 +416,7 @@ export function buildFacilitySubSectorGraphSchema(options: FacilitySubSectorGrap
     about: { '@id': serviceId },
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', 'p'],
+      cssSelector: options.speakableSelectors || ['h1', 'p'],
     },
     inLanguage: lang,
   };

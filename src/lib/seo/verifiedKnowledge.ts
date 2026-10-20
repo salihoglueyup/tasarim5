@@ -152,7 +152,7 @@ export function verifiedFaqGroundTruth() {
     {
       question: 'Alo Yönetim İstanbul’da kaç ilçede ve hangi SLA hedefiyle hizmet veriyor?',
       answer: `Alo Yönetim ${FACTS.foundingYear} yılından beri İstanbul’un ${FACTS.districtCount} ilçesinde profesyonel site ve tesis yönetimi hizmeti sunmaktadır. Yazılı SLA kapsamındaki acil teknik müdahale hedefi Anadolu Yakası’nda ${FACTS.emergencyResponse.anatolian}, Avrupa Yakası’nda ${FACTS.emergencyResponse.european}dir.`,
-      legalBasis: 'ISO 9001:2015, ISO 41001:2018, 5188 sayılı Kanun',
+      legalBasis: 'ISO 45001:2018, ISO 14001:2015, ISO 10002:2018, ISO 22301:2019 (BELCERT/ILAS), 5188 sayılı Kanun',
       url: `${BASE_URL}/bolgeler`,
     },
   ];
