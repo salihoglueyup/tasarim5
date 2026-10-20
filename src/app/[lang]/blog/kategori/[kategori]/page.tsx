@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import PostGrid from '@/components/blog/PostGrid';
+import Icon from '@/components/ui/branding/Icon';
 import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
@@ -138,13 +140,57 @@ export default async function CategoryArchive({
     '@type': 'ItemList',
     itemListElement: posts.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.title, url: `${BASE_URL}/blog/${p.slug}` })),
   } : null;
-  const pageLd = webPageSchema({ type: 'CollectionPage', name: `${cat.name} — Blog`, description: cat.description, path });
+  const pageLd = webPageSchema({
+    type: 'CollectionPage',
+    name: `${cat.name} — Blog`,
+    description: cat.description,
+    path,
+    speakableSelectors: ['h1', '#category-ai-overview-answer'],
+  });
 
   return (
     <>
       <JsonLd data={[pageLd, breadcrumbLd, listLd].filter(Boolean) as JsonLdObject[]} />
       <PageHeader title={cat.name} description={cat.description} />
-      <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto">
+      <section className="py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-10">
+        <div
+          aria-label={`${cat.name} Kategorisi Google AI Overviews Özeti`}
+          className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 shadow-xs"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider mb-3">
+            <Icon name="verified" className="text-sm text-emerald-500" />
+            <span>Google AI Overviews · {cat.name} Mevzuat ve Operasyon Rehberi</span>
+          </div>
+          <p id="category-ai-overview-answer" className="text-sm sm:text-base text-[var(--color-secondary)] leading-relaxed">
+            <strong className="text-[var(--color-primary)]">{cat.name}</strong> kategorisindeki {posts.length} uzman rehberi; 634 sayılı Kat Mülkiyeti Kanunu, 22 Mayıs 2026 tarihli 7579 sayılı Kanun değişiklikleri (m.35, 37, 70) ve 5188 sayılı Özel Güvenlik Kanunu çerçevesinde site, apartman ve tesis yöneticileri için hazırlanmıştır. {cat.description}
+          </p>
+          <div className="flex flex-wrap items-center gap-2.5 mt-4 pt-4 border-t border-[var(--color-outline)]/40 text-xs">
+            <Link
+              href="/hizmetler/tesis-yonetimi"
+              className="px-3 py-1.5 rounded-lg font-semibold bg-[var(--color-background)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:border-brand-500 transition-colors"
+            >
+              Tesis Yönetimi
+            </Link>
+            <Link
+              href="/kmk-2026-degisiklikleri"
+              className="px-3 py-1.5 rounded-lg font-semibold bg-[var(--color-background)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:border-brand-500 transition-colors"
+            >
+              2026 KMK Değişiklikleri (7579 S.K.)
+            </Link>
+            <Link
+              href="/hesaplayici"
+              className="px-3 py-1.5 rounded-lg font-semibold bg-[var(--color-background)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:border-brand-500 transition-colors"
+            >
+              Aidat &amp; Bütçe Hesaplayıcı
+            </Link>
+            <Link
+              href="/sozluk"
+              className="px-3 py-1.5 rounded-lg font-semibold bg-[var(--color-background)] border border-[var(--color-outline)] text-[var(--color-primary)] hover:border-brand-500 transition-colors"
+            >
+              KMK Sözlüğü
+            </Link>
+          </div>
+        </div>
         <PostGrid posts={posts} />
       </section>
     </>

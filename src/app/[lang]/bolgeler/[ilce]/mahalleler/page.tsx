@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { buildMetadata } from '@/lib/seo';
+import { buildMetadata, BASE_URL } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import PageHeader from '@/components/layout/page/PageHeader';
-import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import DistrictAiOverviewSeo from '@/components/seo/ai-overviews/DistrictAiOverviewSeo';
+import { generateBreadcrumbs, webPageSchema, type JsonLdObject } from '@/lib/schemas';
 import { DISTRICTS, getDistrict } from '@/data/districts';
+import { FACTS } from '@/lib/facts';
 import trDict from '@/i18n/locales/tr/common.json';
 import enDict from '@/i18n/locales/en/common.json';
 import ruDict from '@/i18n/locales/ru/common.json';
@@ -14,6 +16,15 @@ import arDict from '@/i18n/locales/ar/common.json';
 
 import Icon from '@/components/ui/branding/Icon';
 const dictionaries: Record<string, Record<string, string>> = { tr: trDict, en: enDict, ru: ruDict, ar: arDict };
+
+const DISTRICT_CORE_SERVICES = [
+  { slug: 'site-yonetimi', label: 'Site Yönetimi', icon: 'apartment' },
+  { slug: 'tesis-yonetimi', label: 'Tesis Yönetimi', icon: 'domain' },
+  { slug: 'guvenlik-yonetimi', label: '5188 Özel Güvenlik', icon: 'shield' },
+  { slug: 'teknik-bakim', label: 'Teknik Bakım & Onarım', icon: 'engineering' },
+  { slug: 'temizlik-ve-hijyen', label: 'Temizlik ve Hijyen', icon: 'cleaning_services' },
+  { slug: 'aidat-takibi', label: 'Aidat ve Bütçe Takibi', icon: 'account_balance_wallet' },
+];
 
 export const revalidate = 86400;
 export const dynamicParams = true;
@@ -61,14 +72,30 @@ export default async function NeighborhoodsHubPage({
   ];
 
   const pageLd = webPageSchema({
+    type: 'CollectionPage',
     name: `${district.name} Site Yönetimi ve Hizmet Mahalleleri`,
     description: `${district.name}'deki tüm mahallelerde 634 sayılı KMK uyumlu profesyonel site ve tesis yönetimi hizmetleri.`,
     path: `/bolgeler/${ilce}/mahalleler`,
+    speakableSelectors: ['h1', '#district-ai-overview-answer'],
   });
+
+  const neighborhoodListLd: JsonLdObject = {
+    '@type': 'ItemList',
+    name: `${district.name} Site Yönetimi Hizmeti Verilen Mahalleler`,
+    itemListElement: district.neighborhoodData.map((n, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: `${n.name} Site ve Apartman Yönetimi`,
+      url: `${BASE_URL}/bolgeler/${ilce}/mahalleler/${n.slug}`,
+    })),
+  };
+
+  const slaTarget =
+    district.side === 'Anadolu' ? FACTS.emergencyResponse.anatolian : FACTS.emergencyResponse.european;
 
   return (
     <>
-      <JsonLd data={[pageLd, generateBreadcrumbs(breadcrumbs)]} />
+      <JsonLd data={[pageLd, generateBreadcrumbs(breadcrumbs), neighborhoodListLd]} />
       <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-4">
         <Breadcrumbs items={breadcrumbs} />
       </div>
@@ -78,6 +105,15 @@ export default async function NeighborhoodsHubPage({
       />
 
       <div className="py-16 px-[var(--spacing-gutter)] max-w-5xl mx-auto flex flex-col gap-12">
+        <DistrictAiOverviewSeo
+          districtName={district.name}
+          districtSlug={district.slug}
+          side={district.side}
+          slaTarget={slaTarget}
+          neighborhoods={district.neighborhoods}
+          localNeeds={district.localNeeds}
+        />
+
         <p className="text-[var(--color-secondary)] text-lg leading-relaxed max-w-2xl">
           {district.intro}
         </p>
@@ -111,6 +147,29 @@ export default async function NeighborhoodsHubPage({
             ))}
           </div>
         </div>
+
+        <section
+          aria-label={`${district.name} ilçesi temel yönetim hizmetleri`}
+          className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60"
+        >
+          <h2 className="text-xl font-bold text-[var(--color-primary)] mb-4">
+            {district.name} İlçesinde Sunduğumuz Temel Hizmetler
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {DISTRICT_CORE_SERVICES.map((srv) => (
+              <Link
+                key={srv.slug}
+                href={`/bolgeler/${ilce}/${srv.slug}`}
+                className="flex items-center gap-3 p-4 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]/50 hover:border-brand-500/60 transition-colors"
+              >
+                <Icon name={srv.icon} className="text-xl text-brand-600 dark:text-brand-400 shrink-0" />
+                <span className="text-sm font-semibold text-[var(--color-primary)]">
+                  {district.name} {srv.label}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
 
         <div className="text-center">
           <Link

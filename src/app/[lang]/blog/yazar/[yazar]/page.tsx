@@ -165,6 +165,7 @@ export default async function AuthorArchive({
     description: author.bio || 'Yazar Profili',
     path,
     mainEntity: authorLd,
+    speakableSelectors: ['h1', '#author-bio-summary'],
   });
 
   const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
@@ -198,14 +199,14 @@ export default async function AuthorArchive({
               Kıdemli Tesis Yönetimi Uzmanı · Alo Yönetim
             </div>
             <div className="flex flex-wrap gap-2 mt-1">
-              {['Tesis Yönetimi', 'KMK 634', 'KMK 634', 'Site Güvenliği'].map((tag) => (
+              {['Tesis Yönetimi', 'KMK 634', '7579 S.K. (2026)', 'Site Güvenliği'].map((tag) => (
                 <span key={tag} className="text-xs bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 px-3 py-1 rounded-full font-semibold">
                   {tag}
                 </span>
               ))}
             </div>
             {author.bio && (
-              <p className="text-base text-[var(--color-secondary)] leading-relaxed max-w-2xl mt-1">
+              <p id="author-bio-summary" className="text-base text-[var(--color-secondary)] leading-relaxed max-w-2xl mt-1">
                 {author.bio}
               </p>
             )}
@@ -220,7 +221,7 @@ export default async function AuthorArchive({
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {[
             { icon: 'gavel', label: 'KMK 634 Hukuku', desc: 'Aidat icra takibi, işletme projesi ve ortak alan yönetimi.' },
-            { icon: 'verified_user', label: 'KMK 634', desc: 'Entegre tesis yönetimi standartları ve uygulamaları.' },
+            { icon: 'verified_user', label: 'Entegre Tesis Yönetimi', desc: 'Entegre tesis yönetimi standartları ve uygulamaları.' },
             { icon: 'security', label: '5188 Güvenlik', desc: 'Site güvenlik mevzuatı ve risk analizi.' },
             { icon: 'engineering', label: 'Teknik Bakım', desc: 'Asansör, jeneratör, yangın sistemi periyodik bakımı.' },
             { icon: 'payments', label: 'Bütçe Yönetimi', desc: 'Şeffaf aidat ve ihale süreçleri.' },

@@ -99,7 +99,7 @@ export default async function SozlukPage({
     name: 'Site ve Tesis Yönetimi Sözlüğü | Alo Yönetim',
     description: 'Kat malikleri ve site yöneticileri için aidat, demirbaş, KMK ve 5188 gibi sektör terimlerinin tanımları.',
     path: '/sozluk',
-    speakableSelectors: ['h1', 'p', '#glossary-instant-answer-text'],
+    speakableSelectors: ['h1', '#glossary-instant-answer-text'],
   });
 
   const kmkTerms = KMK_LAW_INDEX.map((item) => ({
@@ -112,7 +112,7 @@ export default async function SozlukPage({
     ...TERMS.map((t) => ({
       term: t.term,
       definition: t.definition,
-      url: `/sozluk#${t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+      url: `/sozluk/${termToSlug(t.term)}`,
       sameAs: t.sameAs,
     })),
     ...kmkTerms,

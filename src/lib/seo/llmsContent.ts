@@ -3,6 +3,7 @@ import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import { DISTRICTS } from '@/data/districts';
 import { CERTIFICATES } from '@/data/certificates';
 import { SERVICES } from '@/data/services';
+import { TERMS, termToSlug } from '@/data/dictionary';
 import { FACTS, RESPONSE_TARGET_TEXT } from '@/lib/facts';
 
 /**
@@ -88,14 +89,42 @@ export function buildLlmsFullText(): string {
   ].join('\n');
   const districts = DISTRICTS.map(
     (d) =>
-      `- ${d.name} (${d.side === 'Anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası'}): ${BASE_URL}/bolgeler/${d.slug} | [Site Yönetimi](${BASE_URL}/bolgeler/${d.slug}/site-yonetimi) | [Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi)`,
+      `- ${d.name} (${d.side === 'Anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası'}): ${BASE_URL}/bolgeler/${d.slug} | [Mahalleler](${BASE_URL}/bolgeler/${d.slug}/mahalleler) | [Site Yönetimi](${BASE_URL}/bolgeler/${d.slug}/site-yonetimi) | [Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi)`,
   ).join('\n');
+  const glossaryEntries = TERMS.filter((t) => !/12850|41001/.test(t.term))
+    .map((t) => `- [${t.term}](${BASE_URL}/sozluk/${termToSlug(t.term)}): ${t.definition}`)
+    .join('\n');
+  const ragEndpoints = [
+    `- [AI Overviews & RAG Bilgi Grafiği](${BASE_URL}/api/seo/ai-overviews-rag.json): KMK mevzuatı, hizmet kapsamları ve doğrulanmış kurumsal soru-cevap veri seti.`,
+    `- [Resmî Kalite Belgeleri ve İzinler](${BASE_URL}/api/seo/credentials.json): BELCERT/ILAS akreditasyonlu ISO belgeleri ve 5188 sayılı Kanun özel güvenlik faaliyet izni.`,
+    `- [İstanbul 39 İlçe Yerel Operasyon Çapaları](${BASE_URL}/api/seo/local-anchors.json): İlçe bazlı SLA hedefleri, yaka dağılımı ve mahalle ağları.`,
+    `- [Kurumsal DNA ve NAP Verisi](${BASE_URL}/api/seo/corporate-dna.json): Resmi ticari unvan, MERSİS, Ticaret Sicil ve iletişim bilgileri.`,
+    `- [GEO & Yerel Varlık Manifestosu](${BASE_URL}/api/seo/geo-manifest.json): Coğrafi hizmet alanı ve yerel otorite sinyalleri.`,
+  ].join('\n');
+
   return `${buildLlmsText()}
 ## Tüm Hizmet Sayfaları
 ${services}
 
 ## Tesis Yönetimi Alt Sektörleri ve Rehber
 ${facilitySubsectors}
+
+## KMK Madde 20 Gider Paylaşım Esasları (Eşit Paylaşım vs. Arsa Payı)
+- **Eşit Paylaşım (KMK m.20/1-a)**: Yönetim planında başka türlü hüküm olmadıkça; kapıcı, kaloriferci, bahçıvan ve bekçi giderlerine ve bunlar için toplanacak avansa tüm kat malikleri eşit olarak katılır.
+- **Arsa Payı Oranında Paylaşım (KMK m.20/1-b)**: Anagayrimenkulün sigorta primlerine ve bütün ortak yerlerin bakım, koruma, güçlendirme ve onarım giderleri ile yönetici aylığı gibi diğer giderlere ve ortak tesislerin işletme giderlerine ve giderler için toplanacak avansa kat malikleri kendi arsa payları oranında katılır.
+- **Kullanmama İtirazı Yasağı (KMK m.20/1-c)**: Kat malikleri ortak yer veya tesisler üzerindeki kullanma hakkından vazgeçmek ya da kendi bağımsız bölümünün durumu dolayısıyla bunlardan faydalanmaya lüzum ve ihtiyaç bulunmadığını ileri sürmek suretiyle bu gider ve avans payını ödemekten kaçınamaz.
+- **Gecikme Tazminatı (KMK m.20/2)**: Gider ve avans payının tamamını ödemeyen kat maliki, ödemede geciktiği günler için aylık yüzde beş hesabıyla gecikme tazminatı ödemekle yükümlüdür. Hesaplama aracı: ${BASE_URL}/hesaplayici
+
+## 7579 Sayılı Kanun (22 Mayıs 2026) KMK Değişiklik Özeti (m.35, m.37, m.70)
+- **KMK Madde 35 (Yöneticinin Görevleri)**: Yöneticinin işletme projesi hazırlama, kat malikleri kurulunun onayına sunma ve kurul kararlarını uygulama sorumlulukları netleştirilmiştir.
+- **KMK Madde 37 (İşletme Projesi ve Aidat Artış Sınırı)**: İşletme projesi kat malikleri kurulunda onaylanır. Onaylı proje bulunmadığında yönetici gecikmeksizin geçici işletme projesi hazırlar ve en geç 3 ay içinde kat malikleri kurulunun onayına sunar. Mevcut işletme projesi olan sitelerde geçici projedeki bedel, bir önceki yıla ilişkin yeniden değerleme oranını (VUK mükerrer m.298) aşamaz.
+- **KMK Madde 70 (Toplu Yapılarda Yönetim Planı Değişikliği)**: Birden fazla yapıdan oluşan toplu yapılarda yönetim planının değiştirilmesi için gereken çoğunluk beşte dörtten (4/5) üçte ikiye (2/3) indirilmiştir. Detaylı rehber: ${BASE_URL}/kmk-2026-degisiklikleri
+
+## Temel Kat Mülkiyeti ve Tesis Yönetimi Sözlüğü (/sozluk)
+${glossaryEntries}
+
+## Yapay Zeka (RAG & LLM) Yapılandırılmış Veri Uç Noktaları
+${ragEndpoints}
 
 ## İlçeler ve Yakalar
 ${districts}

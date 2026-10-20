@@ -44,7 +44,7 @@ export default function GesProjeleriClient(_props: GesProjeleriClientProps) {
             <Icon name="info" className="text-xl text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
             <div>
               <div className="font-bold mb-1">{tk('ges_g_notice_title')}</div>
-              <p className="text-[var(--color-secondary)] leading-relaxed">{tk('ges_g_notice')}</p>
+              <p id="ges-instant-answer-text" className="text-[var(--color-secondary)] leading-relaxed">{tk('ges_g_notice')}</p>
             </div>
           </div>
         </div>

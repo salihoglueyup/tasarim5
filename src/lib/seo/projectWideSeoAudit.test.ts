@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { buildLlmsFullText } from './llmsContent';
 
 const ROOT = process.cwd();
 
@@ -156,6 +157,66 @@ describe('Project-Wide SEO & Google AI Overviews Architecture Guard (Faz 1-5)', 
           `${rel} must not claim the budget finalizes automatically if not objected to within 7 days`
         ).not.toMatch(/7 gün içinde itiraz edilmezse kesinleş/i);
       }
+    });
+  });
+
+  describe('Faz 6: /llms-full.txt Deep Knowledge Graph & RAG Endpoint Index', () => {
+    it('includes KMK m.20 expense rules, Law No. 7579 summary, canonical /sozluk/[terim] URLs, and /api/seo/*.json endpoints', () => {
+      const fullText = buildLlmsFullText();
+      expect(fullText).toContain('KMK Madde 20 Gider Paylaşım Esasları');
+      expect(fullText).toContain('KMK m.20/1-a');
+      expect(fullText).toContain('KMK m.20/1-b');
+      expect(fullText).toContain('7579 Sayılı Kanun (22 Mayıs 2026) KMK Değişiklik Özeti');
+      expect(fullText).toContain('/sozluk/aidat');
+      expect(fullText).toContain('/api/seo/ai-overviews-rag.json');
+      expect(fullText).toContain('/api/seo/credentials.json');
+      expect(fullText).toContain('/api/seo/local-anchors.json');
+      expect(fullText).toContain('/api/seo/corporate-dna.json');
+      expect(fullText).toContain('/api/seo/geo-manifest.json');
+    });
+  });
+
+  describe('Faz 7: Canonical DefinedTermSet URLs on /sozluk', () => {
+    it('points DefinedTermSet entries on /sozluk to canonical /sozluk/[slug] pages instead of broken #hash anchors', () => {
+      const sozlukHub = readRel('src/app/[lang]/sozluk/page.tsx');
+      expect(sozlukHub).toContain('url: `/sozluk/${termToSlug(t.term)}`');
+      expect(sozlukHub).not.toContain('/sozluk#');
+    });
+  });
+
+  describe('Faz 8: 39 District Neighborhood Hub Pages (/bolgeler/[ilce]/mahalleler) AI Overviews & ItemList Schema', () => {
+    it('emits ItemList JSON-LD, speakableSelectors, DistrictAiOverviewSeo, and district service cross-links', () => {
+      const mahallelerHub = readRel('src/app/[lang]/bolgeler/[ilce]/mahalleler/page.tsx');
+      expect(mahallelerHub).toContain("'@type': 'ItemList'");
+      expect(mahallelerHub).toContain("'#district-ai-overview-answer'");
+      expect(mahallelerHub).toContain('<DistrictAiOverviewSeo');
+      expect(mahallelerHub).toContain('DISTRICT_CORE_SERVICES');
+    });
+  });
+
+  describe('Faz 9: Blog Category & Author E-E-A-T and Speakable Grounding', () => {
+    it('wires #category-ai-overview-answer and #author-bio-summary into speakableSelectors and DOM', () => {
+      const catPage = readRel('src/app/[lang]/blog/kategori/[kategori]/page.tsx');
+      expect(catPage).toContain("'#category-ai-overview-answer'");
+      expect(catPage).toContain('id="category-ai-overview-answer"');
+
+      const authorPage = readRel('src/app/[lang]/blog/yazar/[yazar]/page.tsx');
+      expect(authorPage).toContain("'#author-bio-summary'");
+      expect(authorPage).toContain('id="author-bio-summary"');
+    });
+  });
+
+  describe('Faz 10: Precision SpeakableSpecification on /surdurulebilirlik/ges-projeleri and /kurumsal/vizyon-misyon', () => {
+    it('replaces generic ["h1", "h2", "p"] speakableSelectors with targeted instant-answer IDs', () => {
+      const gesPage = readRel('src/app/[lang]/surdurulebilirlik/ges-projeleri/page.tsx');
+      const gesClient = readRel('src/app/[lang]/surdurulebilirlik/ges-projeleri/GesProjeleriClient.tsx');
+      expect(gesPage).toContain("'#ges-instant-answer-text'");
+      expect(gesClient).toContain('id="ges-instant-answer-text"');
+
+      const vizyonPage = readRel('src/app/[lang]/kurumsal/vizyon-misyon/page.tsx');
+      const vizyonAi = readRel('src/components/seo/vision/VisionAiOverviewSeo.tsx');
+      expect(vizyonPage).toContain("'#vision-instant-answer-text'");
+      expect(vizyonAi).toContain('id="vision-instant-answer-text"');
     });
   });
 });

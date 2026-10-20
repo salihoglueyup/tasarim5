@@ -50,7 +50,7 @@ export default async function VizyonMisyonPage({
     name: t.viz_meta_title,
     description: t.viz_meta_desc,
     path: '/kurumsal/vizyon-misyon',
-    speakableSelectors: ['h1', 'h2', 'p'],
+    speakableSelectors: ['h1', '#vision-instant-answer-text'],
   });
 
   const organizationLd = {

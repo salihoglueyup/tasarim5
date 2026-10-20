@@ -52,7 +52,7 @@ export default async function GesProjeleriPage({
     name: t.ges_g_meta_title,
     description: t.ges_g_meta_desc,
     path: '/surdurulebilirlik/ges-projeleri',
-    speakableSelectors: ['h1', 'h2', 'p'],
+    speakableSelectors: ['h1', '#ges-instant-answer-text'],
   });
 
   const faqLd = faqPageSchema(

@@ -55,7 +55,7 @@ export default function VisionAiOverviewSeo() {
         <span>{tk('viz_ai_q')}</span>
       </h2>
 
-      <div className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed mb-6 relative z-10">
+      <div id="vision-instant-answer-text" className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed mb-6 relative z-10">
         <p>{overviewText}</p>
       </div>
 
