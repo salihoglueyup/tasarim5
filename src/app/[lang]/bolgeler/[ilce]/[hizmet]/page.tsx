@@ -32,6 +32,7 @@ import {
 
 import { DISTRICTS, getDistrict } from '@/data/districts';
 import { SERVICES, getService, isServiceAlias } from '@/data/services';
+import { REAL_REFERENCES } from '@/data/realReferences';
 import { ORG_CREDENTIALS } from '@/lib/schemas';
 import { FACTS } from '@/lib/facts';
 import DistrictAiOverviewSeo from '@/components/seo/ai-overviews/DistrictAiOverviewSeo';
@@ -431,9 +432,13 @@ export default async function ServiceDistrictPage({
       : {
           isSubServiceOf: {
             '@type': 'Service',
+            '@id': `${BASE_URL}/bolgeler/${district.slug}/tesis-yonetimi#service`,
             name: `${district.name} Tesis Yönetimi`,
             url: `${BASE_URL}/bolgeler/${district.slug}/tesis-yonetimi`,
             category: 'Entegre Tesis Yönetimi',
+          },
+          isPartOf: {
+            '@id': `${BASE_URL}${service.pillar}#service`,
           },
         }),
   };
@@ -450,7 +455,9 @@ export default async function ServiceDistrictPage({
     speakableSelectors: ['h1', '.tldr', '#district-service-instant-answer-text'],
   });
 
-  const districtFacilityGraphLd = isFacility
+  const isSiteManagement = service.slug === 'site-yonetimi';
+  const districtReferences = REAL_REFERENCES.filter((r) => r.district === district.name);
+  const districtFacilityGraphLd = isFacility || isSiteManagement
     ? buildDistrictFacilityGraphSchema({
         districtSlug: district.slug,
         districtName: district.name,
@@ -459,6 +466,7 @@ export default async function ServiceDistrictPage({
         pageDescription: pageHeaderDesc,
         geo: district.geo,
         neighborhoods: district.neighborhoods,
+        serviceSlug: isSiteManagement ? 'site-yonetimi' : 'tesis-yonetimi',
       })
     : null;
 
@@ -538,6 +546,7 @@ export default async function ServiceDistrictPage({
           slaTarget={district.side === 'Anadolu' ? FACTS.emergencyResponse.anatolian : FACTS.emergencyResponse.european}
           neighborhoods={district.neighborhoods}
           localNeeds={district.localNeeds}
+          referenceCount={districtReferences.length}
           serviceName={service.name}
           serviceSlug={service.slug}
           extraFaqs={faqs}

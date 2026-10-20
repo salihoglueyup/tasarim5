@@ -28,6 +28,7 @@ export function serviceSchema(opts: {
 }): JsonLdObject {
   return {
     '@type': 'Service',
+    '@id': `${abs(opts.path)}#service`,
     serviceType: opts.serviceType,
     name: opts.serviceType,
     url: abs(opts.path),
@@ -104,6 +105,7 @@ export function localBusinessAreaSchema(opts: {
 }): JsonLdObject {
   return {
     '@type': ['LocalBusiness', 'ProfessionalService'],
+    '@id': `${abs(opts.url)}#localbusiness`,
     name: `${ORG_NAME} — ${opts.areaName}`,
     image: ORG_LOGO,
     url: abs(opts.url),
@@ -132,6 +134,7 @@ export function localServiceSchema(opts: {
 }): JsonLdObject {
   return {
     '@type': 'Service',
+    '@id': `${abs(opts.path)}#service`,
     serviceType: opts.serviceType,
     name: `${opts.serviceType} — ${opts.areaName}`,
     url: abs(opts.path),

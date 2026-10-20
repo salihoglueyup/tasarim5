@@ -44,8 +44,27 @@ export function blogPostingSchema(opts: {
   articleBody?: string;
   about?: { name: string; sameAs?: string }[];
   mentions?: { name: string; sameAs?: string }[];
+  lang?: string;
 }): JsonLdObject {
   const url = abs(opts.path);
+  const detectedLang =
+    opts.lang ||
+    (opts.path.startsWith('/en')
+      ? 'en-US'
+      : opts.path.startsWith('/ru')
+        ? 'ru-RU'
+        : opts.path.startsWith('/ar')
+          ? 'ar-SA'
+          : 'tr-TR');
+  const inLanguage = detectedLang.includes('-')
+    ? detectedLang
+    : detectedLang === 'en'
+      ? 'en-US'
+      : detectedLang === 'ru'
+        ? 'ru-RU'
+        : detectedLang === 'ar'
+          ? 'ar-SA'
+          : 'tr-TR';
   const author = opts.author
     ? {
         '@type': 'Person',
@@ -75,6 +94,8 @@ export function blogPostingSchema(opts: {
 
   return {
     '@type': ['Article', 'BlogPosting'],
+    '@id': `${url}#article`,
+    inLanguage,
     headline: opts.headline,
     description: opts.description,
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },

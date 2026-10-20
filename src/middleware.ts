@@ -674,14 +674,14 @@ export async function middleware(request: NextRequest) {
     // AI Bot Content Negotiation (Saf Markdown talebi kontrolü — Markdown for Agents)
     const acceptHeader = request.headers.get('accept') || '';
     if (acceptHeader.includes('text/markdown') && request.method === 'GET') {
-      if (pathname.endsWith('/hizmetler/site-yonetimi')) {
+      if (pathname === '/hizmetler/site-yonetimi') {
         return NextResponse.rewrite(new URL('/api/markdown/site-yonetimi', request.url));
       }
-      if (pathname.endsWith('/hizmetler/tesis-yonetimi')) {
+      if (pathname === '/hizmetler/tesis-yonetimi') {
         return NextResponse.rewrite(new URL('/api/markdown/tesis-yonetimi', request.url));
       }
       return NextResponse.rewrite(
-        new URL(`/api/markdown?path=${encodeURIComponent(pathname)}`, request.url)
+        new URL(`/api/markdown?path=${encodeURIComponent(rewrittenPath || pathname)}`, request.url)
       );
     }
   }

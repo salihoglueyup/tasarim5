@@ -22,6 +22,9 @@ import { GET as getUniversalMarkdown } from '@/app/api/markdown/route';
 import { generateOpenApiSpec } from '@/lib/seo/indexing/openApiSpec';
 import { buildLlmsText, buildLlmsFullText } from '@/lib/seo/llmsContent';
 import { verifiedKnowledge } from '@/lib/seo/verifiedKnowledge';
+import { buildDistrictFacilityGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
+import { blogPostingSchema, localBusinessAreaSchema, localServiceSchema } from '@/lib/schemas';
+import { POSTS } from '@/data/posts';
 
 describe('Cloudflare Agent Readiness & AI Discovery Suite', () => {
   it('robots.ts Content-Signal ve Agentmap direktiflerini ve .well-known izinlerini içerir', () => {
@@ -244,5 +247,80 @@ describe('Cloudflare Agent Readiness & AI Discovery Suite', () => {
     expect(vk.agentDiscovery.openApi).toBe('https://aloyonetim.com.tr/openapi.json');
     expect(vk.agentDiscovery.acpDiscovery).toBe('https://aloyonetim.com.tr/.well-known/acp.json');
     expect(vk.agentDiscovery.ucpDiscovery).toBe('https://aloyonetim.com.tr/.well-known/ucp');
+  });
+
+  it('İlçe × Hizmet şema grafiği (tesis-yonetimi ve site-yonetimi), Blog/Rehber Markdown ve çok dilli (en/ru/ar) GEO keşfi eksiksiz çalışır', async () => {
+    // 1. District × Service graph for both tesis-yonetimi and site-yonetimi
+    const kadikoySiteGraph = buildDistrictFacilityGraphSchema({
+      districtSlug: 'kadikoy',
+      districtName: 'Kadıköy',
+      serviceSlug: 'site-yonetimi',
+      geo: { lat: 40.9922, lng: 29.0287 },
+    }) as { '@graph': Array<Record<string, unknown>> };
+    const siteServiceNode = kadikoySiteGraph['@graph'].find((n) => n['@type'] === 'Service');
+    const siteWebPageNode = kadikoySiteGraph['@graph'].find((n) => n['@type'] === 'WebPage') as Record<string, any>;
+    expect(siteServiceNode?.['@id']).toBe('https://aloyonetim.com.tr/bolgeler/kadikoy/site-yonetimi#service');
+    expect((siteServiceNode?.isPartOf as Record<string, string>)?.['@id']).toBe(
+      'https://aloyonetim.com.tr/hizmetler/site-yonetimi#service',
+    );
+    expect(siteWebPageNode?.speakable?.cssSelector).toContain('#district-service-instant-answer-text');
+
+    const lbNode = localBusinessAreaSchema({
+      areaName: 'Kadıköy',
+      geo: { lat: 40.9922, lng: 29.0287 },
+      url: '/bolgeler/kadikoy',
+    });
+    const lsNode = localServiceSchema({
+      serviceType: 'Özel Güvenlik',
+      areaName: 'Kadıköy',
+      path: '/bolgeler/kadikoy/guvenlik-yonetimi',
+    });
+    expect(lbNode['@id']).toBe('https://aloyonetim.com.tr/bolgeler/kadikoy#localbusiness');
+    expect(lsNode['@id']).toBe('https://aloyonetim.com.tr/bolgeler/kadikoy/guvenlik-yonetimi#service');
+
+    // 2. Blog, Rehber ve Hesaplayıcı Markdown
+    const sampleSlug = POSTS[0].slug;
+    const blogMdRes = await getUniversalMarkdown(
+      new NextRequest(`https://aloyonetim.com.tr/api/markdown?path=${encodeURIComponent(`/blog/${sampleSlug}`)}`),
+    );
+    expect(blogMdRes.status).toBe(200);
+    const blogMd = await blogMdRes.text();
+    expect(blogMd).toContain(`https://aloyonetim.com.tr/blog/${sampleSlug}`);
+    expect(blogMd).toContain(POSTS[0].title);
+
+    const rehberMdRes = await getUniversalMarkdown(
+      new NextRequest('https://aloyonetim.com.tr/api/markdown?path=%2Fhizmetler%2Ftesis-yonetimi%2Frehber'),
+    );
+    expect(await rehberMdRes.text()).toContain('Seçim Rehberi');
+
+    const calcMdRes = await getUniversalMarkdown(
+      new NextRequest('https://aloyonetim.com.tr/api/markdown?path=%2Fhesaplayici'),
+    );
+    expect(await calcMdRes.text()).toContain('KMK Madde 20');
+
+    // 3. Multilingual (en/ru/ar) Markdown & blogPostingSchema inLanguage
+    const enMdRes = await getUniversalMarkdown(
+      new NextRequest('https://aloyonetim.com.tr/api/markdown?path=%2Fen%2Fhizmetler%2Ftesis-yonetimi'),
+    );
+    expect(enMdRes.headers.get('content-language')).toBe('en-US');
+    expect(await enMdRes.text()).toContain('Istanbul Facility & Residential Property Management');
+
+    const mwEnReq = new NextRequest('https://aloyonetim.com.tr/en/services/facility-management', {
+      headers: { accept: 'text/markdown' },
+    });
+    const mwEnRes = await middleware(mwEnReq);
+    expect(mwEnRes.headers.get('x-middleware-rewrite')).toBe(
+      'https://aloyonetim.com.tr/api/markdown?path=%2Fen%2Fhizmetler%2Ftesis-yonetimi',
+    );
+
+    const enArticleLd = blogPostingSchema({
+      headline: 'Test Article',
+      description: 'Test Description',
+      path: '/en/blog/test-article',
+      lang: 'en',
+      datePublished: '2026-05-22',
+    });
+    expect(enArticleLd['@id']).toBe('https://aloyonetim.com.tr/en/blog/test-article#article');
+    expect(enArticleLd.inLanguage).toBe('en-US');
   });
 });

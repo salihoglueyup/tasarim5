@@ -367,7 +367,8 @@ export default async function BlogDetail({
     ...blogPostingSchema({
       headline: post.title,
       description: post.description,
-      path,
+      path: localePath(path, lang),
+      lang,
       image: post.image || undefined,
       datePublished: new Date(post.datePublished).toISOString(),
       dateModified: new Date(post.dateModified || post.datePublished).toISOString(),
@@ -397,7 +398,8 @@ export default async function BlogDetail({
   const pageLd = webPageSchema({
     name: post.title,
     description: post.description,
-    path,
+    path: localePath(path, lang),
+    lang,
     speakableSelectors: ['#article-instant-answer-text', '.tldr', 'h1'],
   });
 

@@ -327,7 +327,7 @@ export default async function DistrictPage({
 
         {/* Yerel SSS */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 md:p-12">
-          <DynamicFAQ faqs={faqs} title={`${district.name} — Sıkça Sorulan Sorular`} />
+          <DynamicFAQ faqs={faqs} title={`${district.name} — Sıkça Sorulan Sorular`} injectSchema={false} />
         </div>
 
         {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}

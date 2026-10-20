@@ -340,6 +340,7 @@ export interface FacilitySubSectorGraphOptions {
   priceRange?: string;
   lang?: string;
   faqs?: Array<{ question: string; answer: string }>;
+  serviceSlug?: 'tesis-yonetimi' | 'site-yonetimi';
   isoStandards?: string[];
   sameAsWikidata?: string;
   speakableSelectors?: string[];
@@ -354,7 +355,9 @@ export interface FacilitySubSectorGraphOptions {
 export function buildFacilitySubSectorGraphSchema(options: FacilitySubSectorGraphOptions): JsonLdObject {
   const lang = options.lang || 'tr';
   const langPrefix = lang === 'tr' ? '' : `/${lang}`;
-  const parentUrl = `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi`;
+  const serviceSlug = options.serviceSlug === 'site-yonetimi' ? 'site-yonetimi' : 'tesis-yonetimi';
+  const serviceLabel = serviceSlug === 'site-yonetimi' ? 'Site Yönetimi' : 'Tesis Yönetimi';
+  const parentUrl = `${BASE_URL}${langPrefix}/hizmetler/${serviceSlug}`;
   const canonicalUrl = `${parentUrl}/${options.subSectorSlug}`;
   const pageId = `${canonicalUrl}#webpage`;
   const serviceId = `${canonicalUrl}#service`;
@@ -495,6 +498,7 @@ export interface DistrictFacilityGraphOptions {
   geo?: { lat: number; lng: number };
   neighborhoods?: string[];
   faqs?: Array<{ question: string; answer: string }>;
+  serviceSlug?: 'tesis-yonetimi' | 'site-yonetimi';
 }
 
 /**
@@ -506,8 +510,10 @@ export interface DistrictFacilityGraphOptions {
 export function buildDistrictFacilityGraphSchema(options: DistrictFacilityGraphOptions): JsonLdObject {
   const lang = options.lang || 'tr';
   const langPrefix = lang === 'tr' ? '' : `/${lang}`;
-  const parentUrl = `${BASE_URL}${langPrefix}/hizmetler/tesis-yonetimi`;
-  const canonicalUrl = `${BASE_URL}${langPrefix}/bolgeler/${options.districtSlug}/tesis-yonetimi`;
+  const serviceSlug = options.serviceSlug === 'site-yonetimi' ? 'site-yonetimi' : 'tesis-yonetimi';
+  const serviceLabel = serviceSlug === 'site-yonetimi' ? 'Site Yönetimi' : 'Tesis Yönetimi';
+  const parentUrl = `${BASE_URL}${langPrefix}/hizmetler/${serviceSlug}`;
+  const canonicalUrl = `${BASE_URL}${langPrefix}/bolgeler/${options.districtSlug}/${serviceSlug}`;
   const districtHubUrl = `${BASE_URL}${langPrefix}/bolgeler/${options.districtSlug}`;
   const pageId = `${canonicalUrl}#webpage`;
   const serviceId = `${canonicalUrl}#service`;
@@ -592,7 +598,7 @@ export function buildDistrictFacilityGraphSchema(options: DistrictFacilityGraphO
       {
         '@type': 'ListItem',
         position: 4,
-        name: `${options.districtName} Tesis Yönetimi`,
+        name: `${options.districtName} ${serviceLabel}`,
         item: canonicalUrl,
       },
     ],
@@ -641,7 +647,7 @@ export function buildDistrictFacilityGraphSchema(options: DistrictFacilityGraphO
     about: { '@id': serviceId },
     speakable: {
       '@type': 'SpeakableSpecification',
-      cssSelector: ['h1', '.tldr', 'p'],
+      cssSelector: ['h1', '.tldr', '#district-service-instant-answer-text'],
     },
     inLanguage: lang,
   };

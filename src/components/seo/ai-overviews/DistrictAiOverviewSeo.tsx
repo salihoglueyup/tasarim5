@@ -111,29 +111,16 @@ export default function DistrictAiOverviewSeo(props: DistrictAiOverviewSeoProps)
       })),
   ];
 
-  const schemaData = [
-    ...(emitFaqSchema
-      ? [
-          {
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            '@id': `${BASE_URL}${pagePath}#district-ai-overview-faq`,
-            mainEntity: mergedMainEntity,
-          },
-        ]
-      : []),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      '@id': `${BASE_URL}${pagePath}#district-ai-overview-webpage`,
-      name: `${districtName} ${serviceName || 'Site ve Tesis Yönetimi'} — Google AI Overviews Özeti`,
-      url: `${BASE_URL}${pagePath}`,
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: [`#${answerId}`],
-      },
-    },
-  ];
+  const schemaData = emitFaqSchema
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          '@id': `${BASE_URL}${pagePath}#district-ai-overview-faq`,
+          mainEntity: mergedMainEntity,
+        },
+      ]
+    : [];
 
   return (
     <section
@@ -141,10 +128,12 @@ export default function DistrictAiOverviewSeo(props: DistrictAiOverviewSeoProps)
       aria-label={`${districtName} Google AI Overviews ve Mevzuat Özeti`}
       className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/70 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden ${className}`}
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      {schemaData.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      )}
 
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider">
