@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import PostGrid from '@/components/blog/PostGrid';
-import { buildMetadata, BASE_URL, LOCALES } from '@/lib/seo';
+import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject, authorPersonSchema } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
@@ -22,16 +22,12 @@ export async function generateStaticParams() {
   try {
     const authors = await prisma.author.findMany({ select: { slug: true } });
     if (authors.length > 0) {
-      return LOCALES.flatMap((lang) =>
-        authors.map((author) => ({ lang, yazar: author.slug }))
-      );
+      return authors.map((author) => ({ lang: 'tr', yazar: author.slug }));
     }
   } catch {
     // Fallback below
   }
-  return LOCALES.flatMap((lang) =>
-    ['eyup-salihoglu', 'alo-yonetim'].map((yazar) => ({ lang, yazar }))
-  );
+  return ['eyup-salihoglu', 'alo-yonetim'].map((yazar) => ({ lang: 'tr', yazar }));
 }
 
 export async function generateMetadata({

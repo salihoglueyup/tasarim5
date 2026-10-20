@@ -178,7 +178,7 @@ export default function SanayiTesisiYonetimiClient() {
 
         {/* FAQ */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-10 md:p-14 rounded-[3rem] shadow-sm">
-          <DynamicFAQ faqs={faqs} title={tk('san_faq_title')} />
+          <DynamicFAQ faqs={faqs} title={tk('san_faq_title')} emitSchema={true} />
         </div>
 
 <TrOnly>

@@ -138,43 +138,43 @@ export const EXPENSE_ALLOCATION_RULES: BudgetExpenseDistributionRule[] = [
 export const BUDGET_NOTIFICATION_TIMELINE: OperatingBudgetNotificationStep[] = [
   {
     stepNo: 1,
-    phaseName: 'İşletme Projesinin Tanzimi ve İmzalanması',
-    timeframe: 'Genel kurul toplantısından itibaren 15 gün içinde',
-    legalProcedure: 'Yönetici, genel kurulda onaylanmış bir bütçe yoksa, 1 yıllık tahmini gelir-giderleri ve daire başı aidatları gösteren işletme projesini hazırlar ve imzalar.',
-    validNotificationMethods: ['Yönetim Kurulu Islak İmzalı Matbu Metin'],
-    legalConsequence: 'Proje hazırlanmadan kat maliklerinden yasal icra yoluyla aidat tahsili talep edilemez.',
+    phaseName: 'İşletme Projesinin Tanzimi ve Kat Malikleri Kurulu Onayı',
+    timeframe: 'Olağan veya olağanüstü genel kurul toplantısında',
+    legalProcedure: '7579 sayılı Kanun ile değişik KMK m.37 uyarınca yönetici, 1 yıllık tahmini gelir-giderleri ve bağımsız bölüm başı avansları gösteren işletme projesini hazırlar ve Kat Malikleri Kurulunun onayına sunar.',
+    validNotificationMethods: ['Kat Malikleri Kurulu Gündemli Çağrısı ve Karar Tutanağı'],
+    legalConsequence: 'Kurulda onaylanan işletme projesi doğrudan kesinleşir; onaylı proje yoksa yönetici geçici işletme projesi hazırlamak zorundadır.',
     aloYonetimStandard: 'Alo Yönetim finans ekibi geçmiş 3 yılın enflasyonist maliyet endekslerini analiz ederek sapmasız bütçe taslağı sunar.'
   },
   {
     stepNo: 2,
-    phaseName: 'Kat Maliklerine ve Bağımsız Bölüm Sakinlerine Tebligat',
-    timeframe: 'Hazırlandığı tarihten itibaren derhal',
-    legalProcedure: 'İşletme projesi tüm kat maliklerine veya bağımsız bölümlerden fiilen yararlananlara (kiracılara) tebliğ edilir.',
+    phaseName: 'Geçici İşletme Projesi ve Yeniden Değerleme Oranı Tavanı (%25,49)',
+    timeframe: 'Onaylı proje bulunmadığında gecikmeksizin',
+    legalProcedure: 'Genel kurulda onaylanmış bir işletme projesi yoksa yönetici gecikmeksizin geçici bir proje yapar; mevcut proje varsa artış oranı yeniden değerleme oranını (2026 yılı için %25,49) aşamaz ve tüm kat maliklerine tebliğ edilir.',
     validNotificationMethods: [
       'İmzalı Teslim Tutanağı (Elden teslim)',
       'Noter Vasıtasıyla İhbar',
       'PTT İadeli Taahhütlü Mektup'
     ],
-    legalConsequence: 'WhatsApp, bina panosuna asma veya normal posta ile yapılan bildirimler tebligat sayılmaz ve projeyi kesinleştirmez.',
+    legalConsequence: 'Yeniden değerleme oranını aşan tek taraflı yönetici zamları 7579 sayılı Kanun uyarınca geçersizdir; WhatsApp veya pano ilanı resmi tebligat yerine geçmez.',
     aloYonetimStandard: 'Alo Yönetim barkodlu PTT tebligat entegrasyonu ve dijital ıslak imzalı tutanak arşivleme sistemi kullanır.'
   },
   {
     stepNo: 3,
-    phaseName: '7 Günlük Yasal İtiraz Süresi ve Kesinleşme',
-    timeframe: 'Tebliğ tarihinden itibaren 7 GÜN',
-    legalProcedure: 'Malikler tebliğden itibaren 7 gün içinde projeye itiraz edebilirler. İtiraz edilmezse işletme projesi KESİNLEŞİR.',
-    validNotificationMethods: ['Yazılı İtiraz Dilekçesi (İadeli Taahhütlü / Elden Teslim)'],
-    legalConsequence: '7 gün içinde itiraz edilmeyen proje İİK m.68 uyarınca İLAM NİTELİĞİNDE BELGE gücü kazanır; açılacak icraya itiraz durdurulamaz.',
-    aloYonetimStandard: 'Sistem 7 günlük yasal süre bitiminde otomatik "Kesinleşme Barkodu" oluşturarak hukuki dosyaya ekler.'
+    phaseName: 'En Geç 3 Ay İçinde Kat Malikleri Kuruluna Onaylatma & 7 Gün Tebliğ',
+    timeframe: 'Tebliğden itibaren 7 GÜN / Geçici projede en geç 3 AY içinde kurul onayı',
+    legalProcedure: '7579 sayılı Kanun uyarınca geçici işletme projesi hazırlandıktan sonra kat maliklerine tebliğ edilir ve en geç 3 ay içinde Kat Malikleri Kurulu toplantıya çağrılarak nihai işletme projesi kurul onayına sunulur.',
+    validNotificationMethods: ['KMK m.29 Çağrı Usulü ile Genel Kurul Onayı'],
+    legalConsequence: 'Kat Malikleri Kurulunca onaylanarak kesinleşen işletme projesi ve kurul kararları İİK m.68/1 uyarınca İLAM NİTELİĞİNDE BELGE gücü kazanır.',
+    aloYonetimStandard: 'Sistem 3 aylık yasal takvimi otomatik izler ve genel kurul onay tutanağını hukuki dosyaya ekler.'
   },
   {
     stepNo: 4,
-    phaseName: 'İtiraz Halinde Kat Malikleri Kurulu Olağanüstü Toplantısı',
-    timeframe: 'İtiraz dilekçesinin yönetime ulaşmasından sonra',
-    legalProcedure: 'Süresi içinde itiraz edilirse, proje Kat Malikleri Kurulu tarafından incelenir ve karara bağlanır; kurul kararı nihai projedir.',
-    validNotificationMethods: ['KMK m.29 Çağrı Usulü ile Olağanüstü Genel Kurul'],
-    legalConsequence: 'Kat Malikleri Kurulu\'nun onayladığı revize bütçe kesinleşir; artık bu karara karşı ancak Sulh Hukuk Mahkemesi\'nde dava açılabilir.',
-    aloYonetimStandard: 'İtiraz eden malikle masada şeffaf mali mutabakat yapılır; gerekirse olağanüstü kurul çağrısı yasal mevzuata tam uyumlu düzenlenir.'
+    phaseName: 'Sulh Hukuk Mahkemesinde Hakimin Müdahalesi (KMK m.33)',
+    timeframe: 'Kurul kararından itibaren 1 ay (her halde 6 ay) içinde',
+    legalProcedure: 'Genel kurulda onaylanan işletme projesine muhalefet şerhi koyan kat maliki, bütçe kararının kanuna veya yönetim planına aykırı olduğu iddiasıyla Sulh Hukuk Mahkemesinde iptal davası açabilir.',
+    validNotificationMethods: ['Sulh Hukuk Mahkemesi Dava Dilekçesi'],
+    legalConsequence: 'Mahkemece tedbir kararı verilmedikçe kesinleşmiş işletme projesinin ve aidat tahsilatının yürütmesi durmaz.',
+    aloYonetimStandard: 'İtiraz eden malikle masada şeffaf mali mutabakat yapılır; tüm genel kurul kararları Yargıtay içtihatlarına tam uyumlu düzenlenir.'
   }
 ];
 

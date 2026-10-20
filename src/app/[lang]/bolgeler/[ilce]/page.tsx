@@ -14,12 +14,11 @@ import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHu
 import DistrictAiOverviewSeo from '@/components/seo/ai-overviews/DistrictAiOverviewSeo';
 import ReferenceCard from '@/components/sections/references/ReferenceCard';
 
-import { buildMetadata, LOCALES } from '@/lib/seo';
+import { buildMetadata } from '@/lib/seo';
 import {
   generateBreadcrumbs,
   webPageSchema,
   localBusinessAreaSchema,
-  faqPageSchema,
   ORG_PHONE,
 } from '@/lib/schemas';
 import { DISTRICTS, getDistrict, type NeighborhoodInfo } from '@/data/districts';
@@ -35,11 +34,9 @@ import Icon from '@/components/ui/branding/Icon';
 export const revalidate = 86400;
 export const dynamicParams = true;
 
-// Tüm ilçeleri her locale için ön-üret (Faz 104).
+// İlçe sayfaları yalnızca Türkçe indekslenir (bkz. src/lib/seo/indexPolicy.ts).
 export function generateStaticParams() {
-  return LOCALES.flatMap((lang) =>
-    DISTRICTS.map((d) => ({ lang, ilce: d.slug })),
-  );
+  return DISTRICTS.map((d) => ({ lang: 'tr', ilce: d.slug }));
 }
 
 /** Yakaya göre yazılı SLA kapsamındaki acil teknik müdahale hedefi (doğrulanmış bilgi: src/lib/facts.ts). */
@@ -135,7 +132,6 @@ export default async function DistrictPage({
     url: path,
   });
 
-  const faqLd = faqPageSchema(faqs);
   const pageLd = webPageSchema({
     name: `${district.name} Tesis ve Site Yönetimi`,
     description: district.intro,
@@ -149,7 +145,7 @@ export default async function DistrictPage({
 
   return (
     <>
-      <JsonLd data={[pageLd, breadcrumbLd, businessLd, faqLd]} />
+      <JsonLd data={[pageLd, breadcrumbLd, businessLd]} />
       <PageHeader
         title={`${district.name} Site ve Tesis Yönetimi`}
         description={`${district.name} genelinde site, apartman ve rezidanslar için 5188 lisanslı güvenlik, teknik bakım, temizlik ve aidat takibi dahil profesyonel yönetim hizmetleri.`}
@@ -171,6 +167,7 @@ export default async function DistrictPage({
           neighborhoods={district.neighborhoods}
           localNeeds={district.localNeeds}
           referenceCount={districtReferences.length}
+          extraFaqs={faqs}
         />
 
         {/* Giriş + yerel bilgiler */}

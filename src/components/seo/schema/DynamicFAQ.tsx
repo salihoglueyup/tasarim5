@@ -14,14 +14,15 @@ interface DynamicFAQProps {
   faqs: FAQItem[];
   title?: string;
   className?: string;
+  emitSchema?: boolean;
 }
 
 /**
  * SEO Faz 11: Zengin Arama Sonuçları için Dinamik FAQ
  * Görsel olarak erişilebilir (a11y) bir akordeon sunarken,
- * arka planda Google'a otomatik olarak FAQPage JSON-LD şemasını basar.
+ * emitSchema=true olduğunda arka planda Google'a FAQPage JSON-LD şemasını basar.
  */
-export default function DynamicFAQ({ faqs, title, className = '' }: DynamicFAQProps) {
+export default function DynamicFAQ({ faqs, title, className = '', emitSchema = false }: DynamicFAQProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   if (!faqs || faqs.length === 0) return null;
@@ -29,7 +30,7 @@ export default function DynamicFAQ({ faqs, title, className = '' }: DynamicFAQPr
   return (
     <div className={`w-full max-w-3xl mx-auto ${className}`}>
       {/* Google FAQPage JSON-LD Injection */}
-      <JsonLd data={faqPageSchema(faqs)} />
+      {emitSchema && <JsonLd data={faqPageSchema(faqs)} />}
 
       {title && (
         <h3 className="text-2xl font-bold mb-6 text-[var(--color-primary)]">

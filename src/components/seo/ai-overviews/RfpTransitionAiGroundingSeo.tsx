@@ -47,11 +47,11 @@ export const RFP_TRANSITION_STEPS: TransitionStep[] = [
   },
   {
     step: 5,
-    title: 'Tahmini İşletme Projesinin Tebliği ve Bütçe Optimizasyonu',
+    title: 'İşletme Projesinin Kurul Onayı ve Bütçe Optimizasyonu',
     summary:
-      'KMK Madde 37 gereğince yeni işletme projesi hazırlanır ve tüm maliklere iadeli taahhütlü tebliğ edilir. 7579 sayılı Kanun sonrası işletme projesi kat malikleri kurulunda onaylanır; onaylanan proje İİK 68 kapsamında icra takibinde dayanak olabilir. Güncel usul için hukuk danışmanına başvurun.',
-    legalBasis: '634 Sayılı KMK Madde 37 & İİK Madde 68',
-    badge: '7 Günlük Kesinleşme',
+      '7579 sayılı Kanun ile değişik KMK Madde 37 gereğince işletme projesi kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici 3 ay içinde geçici proje hazırlar (mevcut projeli sitelerde artış %25,49 yeniden değerleme oranını aşamaz) ve kesinleşen proje İİK 68 kapsamında icra dayanağı olur.',
+    legalBasis: '634 Sayılı KMK Madde 37 (7579 S.K.) & İİK Madde 68',
+    badge: 'Kurul Onayı & İİK 68',
   },
 ];
 
@@ -65,7 +65,7 @@ export default function RfpTransitionAiGroundingSeo({
   const [copied, setCopied] = useState(false);
 
   const directAnswer =
-    'Bireysel yönetimden profesyonel site yönetimine geçiş 5 yasal adımda tamamlanır: 1) KMK 29 gereği maliklerin en az 1/3 imzasıyla olağanüstü genel kurul çağrısı yapılır; 2) KMK 34 uyarınca kat maliklerinin hem sayı hem arsa payı salt çoğunluğu (%50 + 1) ile profesyonel yönetim şirketi seçilir ve karar defterine tescil edilir; 3) Yönetim firmasının 5188 Sayılı Valilik güvenlik izin belgesi ve ISO belgelerinin geçerliliği belgelendirme kuruluşu üzerinden doğrulanır; 4) Islak imzalı devir-teslim tutanağı ile karar defteri, banka hesapları ve personel dosyaları teslim alınır; 5) KMK 37 gereğince işletme projesi hazırlanıp kat maliklerine tebliğ edilerek 7 günde kesinleştirilir ve İİK 68 kapsamında icra gücü kazanır. Alo Yönetim ücretsiz yerinde teknik keşif ve tasarruf denetimi sağlar.';
+    'Bireysel yönetimden profesyonel site yönetimine geçiş 5 yasal adımda tamamlanır: 1) KMK 29 gereği maliklerin en az 1/3 imzasıyla olağanüstü genel kurul çağrısı yapılır; 2) KMK 34 uyarınca kat maliklerinin hem sayı hem arsa payı salt çoğunluğu (%50 + 1) ile profesyonel yönetim şirketi seçilir ve karar defterine tescil edilir; 3) Yönetim firmasının 5188 Sayılı Valilik güvenlik izin belgesi ve ISO belgelerinin geçerliliği belgelendirme kuruluşu üzerinden doğrulanır; 4) Islak imzalı devir-teslim tutanağı ile karar defteri, banka hesapları ve personel dosyaları teslim alınır (KMK m.70); 5) 7579 sayılı Kanun ile değişik KMK 37 gereğince işletme projesi kat malikleri kurulunda onaylanır (veya 3 ay içinde geçici proje sunulur) ve İİK 68 kapsamında icra gücü kazanır. Alo Yönetim ücretsiz yerinde teknik keşif ve tasarruf denetimi sağlar.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);

@@ -3,6 +3,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
+import HubAiOverviewGroundingSeo from '@/components/seo/ai-overviews/HubAiOverviewGroundingSeo';
 import SurdurulebilirlikClient from './SurdurulebilirlikClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -54,6 +55,7 @@ export default async function SurdurulebilirlikPage({
     <>
       <JsonLd data={[pageLd, breadcrumbLd]} />
       <SurdurulebilirlikClient />
+      <HubAiOverviewGroundingSeo hubKey="surdurulebilirlik" lang={lang} />
     </>
   );
 }

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useMemo } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
@@ -94,13 +94,13 @@ const KMK_LAW_DATABASE: KMKLawItem[] = [
     id: 'kmk-isletme-projesi-itiraz',
     category: 'aidat-icra',
     categoryTitle: 'İşletme Projesi & İtiraz',
-    question: 'Apartman ve site işletme projesine itiraz süresi kaç gündür ve icra takibi dayanağı nedir?',
-    article: 'KMK Madde 37 ve İİK Madde 68/1',
+    question: '7579 sayılı Kanun (2026) sonrası apartman ve site işletme projesi nasıl kesinleşir ve icra takibi dayanağı nedir?',
+    article: 'KMK Madde 37 (7579 S.K. Değişikliği) ve İİK Madde 68/1',
     lawName: '634 Sayılı Kat Mülkiyeti Kanunu & 2004 İİK',
-    summary: 'Kat maliklerine tebliğ edilen işletme projesine kesin itiraz süresi 7 gündür. 7 gün içinde itiraz edilmeyen proje kesinleşir ve İİK 68 kapsamında borç ikrarı içeren resmi belge hükmü kazanır.',
-    fullRule: 'Kat maliklerine tebliğ edilen işletme projesine veya ek bütçeye 7 gün içinde itiraz edilmezse proje kesinleşir. Kesinleşen işletme projeleri veya kat malikleri kurulunun işletme giderleri ile ilgili kararları, İcra ve İflas Kanununun 68 inci maddesinin 1 inci fıkrasında belirtilen belgelerden sayılır.',
-    precedent: 'Yargıtay 18. Hukuk Dairesi: "Tebliğ edilip 7 gün içinde itiraz edilmeyen işletme projesi İİK 68 anlamında borç ikrarını havi belge niteliğinde olup doğrudan ilamsız icraya konulabilir."',
-    solution: 'Alo Yönetim, yıllık işletme projelerini ve ek bütçeleri noter/iadeli taahhütlü usulüne göre tebliğ ederek alacakların 7 günde kesinleşmesini ve tahsilatın düzenli takibini sağlar.'
+    summary: '7579 sayılı Kanun ile değişik KMK m.37 uyarınca işletme projesi Kat Malikleri Kurulunda onaylanarak kesinleşir; onaylı proje yoksa yönetici en geç 3 ay içinde bir önceki yılın yeniden değerleme oranını (%25,49) aşmayan geçici işletme projesi hazırlar. Kesinleşen proje İİK 68/1 kapsamında resmi belge hükmündedir.',
+    fullRule: 'Kat Malikleri Kurulunca kabul edilmiş işletme projesi yoksa yönetici en geç 3 ay içinde geçici bir işletme projesi hazırlar; mevcut işletme projesi varsa geçici projedeki artış bir önceki yılın yeniden değerleme oranından fazla olamaz. Kesinleşen işletme projeleri veya kat malikleri kurulunun işletme giderleri ile ilgili kararları, İcra ve İflas Kanununun 68 inci maddesinin 1 inci fıkrasında belirtilen belgelerden sayılır.',
+    precedent: '7579 Sayılı Kanun Madde 7 (KMK m.37 Değişikliği): "Kesinleşen işletme projeleri ve kat malikleri kurulunun işletme giderlerine ilişkin kararları İİK 68/1 anlamında resmi belge niteliğinde olup doğrudan ilamsız icraya konulabilir."',
+    solution: 'Alo Yönetim, yıllık işletme projelerini 7579 sayılı Kanun ve KMK m.37 usulüne uygun şekilde Kat Malikleri Kurulu onayına sunar ve İİK m.68 kapsamında yasal tahsilat takibini düzenli yürütür.'
   },
   {
     id: 'kmk-5188-guvenlik-izni',
@@ -140,7 +140,7 @@ const KMK_LAW_DATABASE: KMKLawItem[] = [
   }
 ];
 
-export default function KMKLawAssistantSeo() {
+export default function KMKLawAssistantSeo({ emitFaqSchema = false }: { emitFaqSchema?: boolean } = {}) {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [expandedId, setExpandedId] = useState<string | null>('kmk-asansor');
@@ -189,7 +189,7 @@ export default function KMKLawAssistantSeo() {
 
   return (
     <section className="relative py-16 bg-[var(--color-surface)] text-[var(--color-primary)] rounded-[2.5rem] border border-[var(--color-outline)]/60 shadow-sm overflow-hidden my-12">
-      <JsonLd data={faqSchema} />
+      {emitFaqSchema && <JsonLd data={faqSchema} />}
 
       {/* Arka Plan Efektleri */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-slate-400/5 dark:bg-white/[0.02] rounded-full blur-3xl pointer-events-none" />

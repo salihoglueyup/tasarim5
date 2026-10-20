@@ -125,7 +125,7 @@ export default function HukukVeIcraDanismanligiClient() {
           id="hukuk-danismanligi-nedir"
           answerId="legal-instant-answer-text"
           question="Kat Mülkiyeti Hukuku ve Aidat İcra Danışmanlığı Nedir?"
-          answer="KMK hukuk ve icra danışmanlığı; 634 sayılı Kat Mülkiyeti Kanunu ve İcra İflas Kanunu çerçevesinde aidat alacaklarının tahsili, 7 günlük itiraz süresi sonrası ilamsız icra takibi (Örnek No: 7), genel kurul divan yönetimi ve yönetim planı tadilatını yürüten kurumsal hukuk disiplinidir."
+          answer="KMK hukuk ve icra danışmanlığı; 634 sayılı Kat Mülkiyeti Kanunu (7579 s. Kanun değişiklikleri dahil) ve İcra İflas Kanunu çerçevesinde aidat alacaklarının tahsili, kesinleşmiş işletme projesine dayalı ilamsız icra takibi (Örnek No: 7), genel kurul divan yönetimi ve yönetim planı tadilatını yürüten kurumsal hukuk disiplinidir."
           standardBadge="634 KMK & İcra İflas Kanunu"
           subText="Alo Yönetim, dahili hukuk birimiyle Sulh Hukuk Mahkemesi süreçlerini, hâkimin müdahalesi taleplerini ve yasal tahsilat adımlarını yönetir."
           accentColor="indigo"

@@ -58,11 +58,11 @@ export const VOICE_CONVERSATIONAL_QUERIES: VoiceQueryItem[] = [
     id: 'butce-takvimi',
     userVoiceQuery: 'Apartman ve sitelerde aidat bütçesi ve zammı ne zaman belirlenir?',
     conversationalAnswer:
-      'Yıllık olağan kat malikleri kurulu toplantısı çoğunlukla her takvim yılının ilk ayı olan Ocak ayında yapılır. Yönetim KMK Madde 37 uyarınca tahmini bir yıllık işletme projesini hazırlar, divana sunar ve onaylanan bütçe tüm maliklere tebliğ edilerek 7 gün sonra kesinleşir.',
+      'Yıllık olağan kat malikleri kurulu toplantısı çoğunlukla her takvim yılının ilk ayı olan Ocak ayında yapılır. 7579 sayılı Kanun ile değişik KMK Madde 37 uyarınca tahmini bir yıllık işletme projesi kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç 3 ay içinde geçici proje hazırlar ve mevcut projeli sitelerde geçici artış yeniden değerleme oranını (%25,49) aşamaz.',
     shortTtsVoice:
-      'Site bütçesi ve aidatlar genellikle her yıl Ocak ayında toplanan kat malikleri kurulunda işletme projesiyle belirlenir.',
+      'Site bütçesi ve aidatlar genellikle her yıl Ocak ayında toplanan kat malikleri kurulunda işletme projesi onayıyla belirlenir.',
     persona: 'Mali Müşavir & Bütçe Masası',
-    category: 'KMK 37 İşletme Projesi',
+    category: 'KMK 37 İşletme Projesi (7579 S.K.)',
   },
   {
     id: 'acil-mudahale-sla',
@@ -79,9 +79,11 @@ export const VOICE_CONVERSATIONAL_QUERIES: VoiceQueryItem[] = [
 export default function VoiceConversationalAiSnippetSeo({
   className = '',
   lang = 'tr',
+  emitFaqSchema = false,
 }: {
   className?: string;
   lang?: string;
+  emitFaqSchema?: boolean;
 }) {
   const [activeQueryId, setActiveQueryId] = useState<string>(VOICE_CONVERSATIONAL_QUERIES[0].id);
   const [copied, setCopied] = useState(false);
@@ -121,18 +123,22 @@ export default function VoiceConversationalAiSnippetSeo({
   };
 
   const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: VOICE_CONVERSATIONAL_QUERIES.map((q) => ({
-        '@type': 'Question',
-        name: q.userVoiceQuery,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: q.conversationalAnswer,
-        },
-      })),
-    },
+    ...(emitFaqSchema
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: VOICE_CONVERSATIONAL_QUERIES.map((q) => ({
+              '@type': 'Question',
+              name: q.userVoiceQuery,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: q.conversationalAnswer,
+              },
+            })),
+          },
+        ]
+      : []),
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',

@@ -83,35 +83,55 @@ const HOME_AI_COPY: Record<string, HomeAiCopy> = {
   },
 };
 
-export default function HomeAiOverviewGroundingSeo({ lang = 'tr' }: { lang?: string }) {
+export default function HomeAiOverviewGroundingSeo({
+  lang = 'tr',
+  emitFaqSchema = false,
+}: {
+  lang?: string;
+  emitFaqSchema?: boolean;
+}) {
   const copy = HOME_AI_COPY[lang] || HOME_AI_COPY.tr;
   const pageUrl = lang === 'tr' ? BASE_URL : `${BASE_URL}/${lang}`;
 
-  const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      '@id': `${pageUrl}#home-ai-overview-faq`,
-      mainEntity: [
+  const schemaData = emitFaqSchema
+    ? [
         {
-          '@type': 'Question',
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          '@id': `${pageUrl}#home-ai-overview-faq`,
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: copy.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: copy.answer,
+              },
+            },
+            {
+              '@type': 'Question',
+              name: copy.q2,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: copy.a2,
+              },
+            },
+          ],
+        },
+      ]
+    : [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          '@id': `${pageUrl}#home-ai-overview`,
           name: copy.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: copy.answer,
+          description: copy.answer,
+          speakable: {
+            '@type': 'SpeakableSpecification',
+            cssSelector: ['#speakable-content'],
           },
         },
-        {
-          '@type': 'Question',
-          name: copy.q2,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: copy.a2,
-          },
-        },
-      ],
-    },
-  ];
+      ];
 
   return (
     <section

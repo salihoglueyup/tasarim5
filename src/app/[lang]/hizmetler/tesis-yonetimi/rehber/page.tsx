@@ -3,6 +3,7 @@ import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
+import HubAiOverviewGroundingSeo from '@/components/seo/ai-overviews/HubAiOverviewGroundingSeo';
 import TesisYonetimiRehberClient from './TesisYonetimiRehberClient';
 
 export const revalidate = 86400;
@@ -61,6 +62,7 @@ export default async function TesisYonetimiRehberPage({
     <>
       <JsonLd data={subSectorGraphLd} />
       <TesisYonetimiRehberClient />
+      <HubAiOverviewGroundingSeo hubKey="rehber" lang={lang} emitFaqSchema={false} />
     </>
   );
 }

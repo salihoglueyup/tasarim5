@@ -72,7 +72,6 @@ export default async function TeklifAl({
     speakableSelectors: [
       '#quote-instant-answer-text',
       '#rfp-transition-instant-answer-text',
-      '#pricing-product-instant-answer-text',
       'h1',
       'p',
     ],

@@ -34,10 +34,10 @@ const TOP_AI_FAQS: FaqAiItem[] = [
   {
     id: 'isletme-projesi-itiraz-suresi',
     category: 'Bütçe & Denetim',
-    question: 'İşletme projesine (tahmini bütçe) yasal itiraz süresi kaç gündür?',
-    answer: 'KMK Madde 37 (7579 sayılı Kanun ile değişik) uyarınca işletme projesi kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici geçici proje hazırlar ve en geç 3 ay içinde kurula onaylatır. Kat maliklerine imza karşılığı veya iadeli taahhütlü mektupla tebliğ edilen projeye tebliğ tarihinden itibaren 7 gün içinde yazılı itiraz edilmezse bütçe kesinleşir; süresinde itiraz edilirse Kat Malikleri Kurulu toplanarak nihai bütçe kararını verir.',
+    question: '2026 yılında işletme projesi nasıl onaylanır ve geçici proje artış sınırı nedir?',
+    answer: 'KMK Madde 37 (7579 sayılı Kanun ile değişik) uyarınca işletme projesi doğrudan kat malikleri kurulunda onaylanır. Onaylı işletme projesi bulunmayan sitelerde yönetici en geç 3 ay içinde kurula sunulmak üzere geçici işletme projesi hazırlar; mevcut işletme projesi olan yapılarda ise geçici projedeki aidat artışı bir önceki yılın yeniden değerleme oranını (%25,49) aşamaz.',
     legalBasis: '634 Sayılı KMK Madde 37 (7579 s. Kanun)',
-    quickStat: '7 Günlük Kesin Hak Düşürücü Süre',
+    quickStat: 'Kurul Onayı & %25,49 Tavan',
   },
   {
     id: 'cam-balkon-tente-rizasi',
@@ -65,7 +65,13 @@ const TOP_AI_FAQS: FaqAiItem[] = [
   },
 ];
 
-export default function FaqAiOverviewHubSeo({ className = '' }: { className?: string }) {
+export default function FaqAiOverviewHubSeo({
+  className = '',
+  emitFaqSchema = false,
+}: {
+  className?: string;
+  emitFaqSchema?: boolean;
+}) {
   const [activeId, setActiveId] = useState<string>(TOP_AI_FAQS[0].id);
   const [copied, setCopied] = useState(false);
 
@@ -77,18 +83,28 @@ export default function FaqAiOverviewHubSeo({ className = '' }: { className?: st
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const schemaData = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: TOP_AI_FAQS.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
-  };
+  const schemaData = emitFaqSchema
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: TOP_AI_FAQS.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Google AI Overviews SSS Karar Masası | Alo Yönetim',
+        speakable: {
+          '@type': 'SpeakableSpecification',
+          cssSelector: ['#faq-instant-answer-text'],
+        },
+      };
 
   return (
     <section

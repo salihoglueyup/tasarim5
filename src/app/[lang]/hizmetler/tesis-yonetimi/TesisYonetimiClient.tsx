@@ -537,15 +537,15 @@ export default function TesisYonetimiClient() {
               category="Tesis Bütçesi & Aidat Tasarrufu"
             />
             <InstantAnswerCardSeo
-              question="Site Yönetiminde İşletme Projesi (Bütçe) Nasıl Hazırlanır ve İtiraz Süresi Kaç Gündür?"
-              shortAnswer="KMK Madde 37 uyarınca yönetici, bir yıllık tahmini gelir ve giderleri ile her kat malikine düşecek avans tutarını gösteren işletme projesini hazırlar; proje kat malikleri kurulunda onaylanır, onaylı proje yoksa yönetici gecikmeksizin geçici bir proje yapar ve en geç üç ay içinde kurula onaylatır (7579 sayılı Kanun, 22.05.2026). Proje tüm kat maliklerine veya bağımsız bölümden fiilen yararlananlara imza karşılığı ya da taahhütlü mektupla tebliğ edilir. Tebliğden itibaren 7 gün içinde itiraz edilmezse kesinleşir ve doğrudan icra takibine dayanak teşkil eder."
+              question="Site Yönetiminde İşletme Projesi (Bütçe) Nasıl Hazırlanır ve Nasıl Kesinleşir?"
+              shortAnswer="7579 sayılı Kanun (22.05.2026) ile değişik KMK Madde 37 uyarınca yönetici, bir yıllık tahmini gelir ve giderleri ile her kat malikine düşecek avans tutarını gösteren işletme projesini hazırlar ve Kat Malikleri Kurulunun onayına sunar. Onaylı proje yoksa yönetici gecikmeksizin geçici bir işletme projesi yapar (mevcut proje varsa artış yeniden değerleme oranını aşamaz), kat maliklerine tebliğ eder ve en geç 3 ay içinde kurula onaylatır. Kesinleşen işletme projesi doğrudan icra takibine dayanak teşkil eder."
               bulletPoints={[
                 'Yıllık tahmini elektrik, su, güvenlik, temizlik ve bakım giderleri kalem kalem hesaplanır.',
                 'Giderler KMK m.20 gereği arsa payı veya eşit olarak bağımsız bölümlere paylaştırılır.',
-                '7 günlük itiraz süresi içinde itiraz edilirse Kat Malikleri Kurulu toplanarak nihai kararı verir.',
+                '7579 sayılı Kanun gereği geçici projede artış yeniden değerleme oranını (%25,49) aşamaz ve 3 ay içinde Kat Malikleri Kuruluna onaylatılır.',
                 'Kesinleşen işletme projesi İcra ve İflas Kanunu 68/1 maddesindeki resmi belge hükmündedir.'
               ]}
-              lawArticle="634 Sayılı Kat Mülkiyeti Kanunu Madde 37"
+              lawArticle="634 Sayılı Kat Mülkiyeti Kanunu Madde 37 (7579 s. Kanun)"
               verifiedBy="Alo Yönetim Hukuk & Mevzuat Masası"
               category="KMK Mevzuatı & Bütçe Yönetimi"
             />
@@ -718,7 +718,7 @@ export default function TesisYonetimiClient() {
 
         {/* Sıkça Sorulan Sorular */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 p-8 sm:p-14 rounded-[3rem] shadow-sm">
-          <DynamicFAQ faqs={faqs} title={t('fac_faq_title') || 'Tesis Yönetimi Hakkında Sıkça Sorulan Sorular'} />
+          <DynamicFAQ faqs={faqs} title={t('fac_faq_title') || 'Tesis Yönetimi Hakkında Sıkça Sorulan Sorular'} emitSchema={true} />
         </div>
 
         {/* Google AI Overviews, SGE & Gemini Grounding Otorite Merkezi */}

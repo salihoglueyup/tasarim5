@@ -1,8 +1,6 @@
 export { default as GoogleAiOverviewGroundingSeo } from './GoogleAiOverviewGroundingSeo';
 export { default as PeopleAlsoAskDeepTreeSeo } from './PeopleAlsoAskDeepTreeSeo';
-export { default as AccreditedCertificationsTrustSeo } from './AccreditedCertificationsTrustSeo';
 export { default as AiOverviewStepSolverSeo } from './AiOverviewStepSolverSeo';
-export { default as VideoGroundingAiOverviewSeo } from './VideoGroundingAiOverviewSeo';
 export { default as VoiceConversationalAiSnippetSeo } from './VoiceConversationalAiSnippetSeo';
 export { default as CorporateEntityAiOverviewSeo } from './CorporateEntityAiOverviewSeo';
 export { default as ContactAiOverviewCardSeo } from './ContactAiOverviewCardSeo';
@@ -27,3 +25,6 @@ export { default as CalculatorAiOverviewSeo } from './CalculatorAiOverviewSeo';
 export { default as HomeAiOverviewGroundingSeo } from './HomeAiOverviewGroundingSeo';
 export { default as BlogStructuredKnowledgeSeo } from './BlogStructuredKnowledgeSeo';
 export { default as BlogHubAiOverviewSeo } from './BlogHubAiOverviewSeo';
+export { default as HubAiOverviewGroundingSeo } from './HubAiOverviewGroundingSeo';
+export { default as AccreditedCertificationsTrustSeo } from './AccreditedCertificationsTrustSeo';
+export { default as VideoGroundingAiOverviewSeo } from './VideoGroundingAiOverviewSeo';

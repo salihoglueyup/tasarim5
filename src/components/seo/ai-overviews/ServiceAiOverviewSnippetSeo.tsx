@@ -7,6 +7,7 @@ import Icon from '@/components/ui/branding/Icon';
 export interface ServiceAiOverviewProps {
   serviceSlug: string;
   serviceName?: string;
+  emitFaqSchema?: boolean;
   className?: string;
 }
 
@@ -154,6 +155,7 @@ export const SERVICE_GROUND_TRUTH: Record<string, ServiceTruthSpec> = {
 export default function ServiceAiOverviewSnippetSeo({
   serviceSlug,
   serviceName,
+  emitFaqSchema = false,
   className = '',
 }: ServiceAiOverviewProps) {
   const [copied, setCopied] = useState(false);
@@ -180,20 +182,24 @@ export default function ServiceAiOverviewSnippetSeo({
   };
 
   const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: truth.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: truth.answer,
+    ...(emitFaqSchema
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: truth.question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: truth.answer,
+                },
+              },
+            ],
           },
-        },
-      ],
-    },
+        ]
+      : []),
     {
       '@context': 'https://schema.org',
       '@type': 'Service',

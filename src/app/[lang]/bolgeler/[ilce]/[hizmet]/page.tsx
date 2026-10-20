@@ -23,7 +23,6 @@ import {
   webPageSchema,
   localServiceSchema,
   localBusinessAreaSchema,
-  faqPageSchema,
   districtFacilityServiceSchema,
   districtSecurityServiceSchema,
   districtTechnicalServiceSchema,
@@ -33,7 +32,6 @@ import {
 
 import { DISTRICTS, getDistrict } from '@/data/districts';
 import { SERVICES, getService, isServiceAlias } from '@/data/services';
-import { LOCALES } from '@/lib/seo';
 import { ORG_CREDENTIALS } from '@/lib/schemas';
 import { FACTS } from '@/lib/facts';
 import DistrictAiOverviewSeo from '@/components/seo/ai-overviews/DistrictAiOverviewSeo';
@@ -46,12 +44,10 @@ const LOCAL_BRIEF_SERVICES = new Set(['site-yonetimi', 'apartman-yonetimi', 'bin
 export const revalidate = 86400;
 export const dynamicParams = true;
 
-// Hizmet × ilçe matrisini her locale için ön-üret (Faz 105).
+// Hizmet × ilçe matrisi yalnızca Türkçe indekslenir (bkz. src/lib/seo/indexPolicy.ts).
 export function generateStaticParams() {
-  return LOCALES.flatMap((lang) =>
-    DISTRICTS.flatMap((d) =>
-      SERVICES.map((s) => ({ lang, ilce: d.slug, hizmet: s.slug })),
-    ),
+  return DISTRICTS.flatMap((d) =>
+    SERVICES.map((s) => ({ lang: 'tr', ilce: d.slug, hizmet: s.slug })),
   );
 }
 
@@ -447,7 +443,6 @@ export default async function ServiceDistrictPage({
     geo: district.geo,
     url: path,
   });
-  const faqLd = faqPageSchema(faqs);
   const pageLd = webPageSchema({
     name: pageHeaderTitle,
     description: isAlias ? pageHeaderDesc : service.summary,
@@ -464,7 +459,6 @@ export default async function ServiceDistrictPage({
         pageDescription: pageHeaderDesc,
         geo: district.geo,
         neighborhoods: district.neighborhoods,
-        faqs,
       })
     : null;
 
@@ -504,7 +498,6 @@ export default async function ServiceDistrictPage({
         breadcrumbLd,
         enhancedServiceLd,
         businessLd,
-        faqLd,
         ...(authorityLd ? [authorityLd] : []),
         ...(securityServiceLd ? [securityServiceLd] : []),
         ...(technicalServiceLd ? [technicalServiceLd] : []),
@@ -547,6 +540,7 @@ export default async function ServiceDistrictPage({
           localNeeds={district.localNeeds}
           serviceName={service.name}
           serviceSlug={service.slug}
+          extraFaqs={faqs}
         />
 
         {/* Giriş — hizmet + ilçe bağlamı (özgün) */}

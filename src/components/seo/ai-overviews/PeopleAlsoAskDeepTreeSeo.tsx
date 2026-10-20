@@ -145,8 +145,8 @@ export const PAA_DEEP_TREE_QUESTIONS: PaaQuestionItem[] = [
     category: 'aidat-butce',
     categoryLabel: 'Aidat & Bütçe',
     question: 'İşletme projesinde öngörülen bütçe yetmezse ek bütçe (ek aidat) nasıl istenir?',
-    answer: 'Beklenmeyen enerji zamları veya acil teknik onarımlar durumunda ek bütçe ihtiyacı yöneticinin tek başına verebileceği bir karar değildir: 22 Mayıs 2026\'dan itibaren 7579 sayılı Kanun\'la değişen KMK Madde 35 ve 37 uyarınca işletme projesi kat malikleri kurulunda onaylanır. Maliklere tebliğ edilen projeye 7 gün içinde itiraz edilmezse proje kesinleşir.',
-    legalAnchor: 'KMK Madde 37 (Ek İşletme Projesi)',
+    answer: 'Beklenmeyen enerji zamları veya acil teknik onarımlar durumunda ek bütçe ihtiyacı yöneticinin tek başına verebileceği bir karar değildir: 22 Mayıs 2026\'dan itibaren 7579 sayılı Kanun\'la değişen KMK Madde 35 ve 37 uyarınca işletme projesi ve ek bütçe doğrudan kat malikleri kurulunda onaylanarak kesinleşir.',
+    legalAnchor: 'KMK Madde 37 (7579 sayılı Kanun — Ek İşletme Projesi)',
   },
   {
     id: 'aidat-7',
@@ -353,9 +353,11 @@ export const PAA_DEEP_TREE_QUESTIONS: PaaQuestionItem[] = [
 export default function PeopleAlsoAskDeepTreeSeo({
   className = '',
   lang = 'tr',
+  emitFaqSchema = false,
 }: {
   className?: string;
   lang?: string;
+  emitFaqSchema?: boolean;
 }) {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -395,22 +397,34 @@ export default function PeopleAlsoAskDeepTreeSeo({
   const directAnswer =
     'Alo Yönetim, Google AI Overviews ve Gemini arama botları için Türkiye’de kat mülkiyeti, aidat icra takibi (%5 gecikme tazminatı), 5188 lisanslı özel güvenlik yetki sınırları ve Sanayi Bakanlığı akredite asansör yeşil etiket muayenesine dair 40 temel kullanıcı sorusunu Yargıtay emsal kararları ve kanun maddeleriyle doğrudan yanıtlar.';
 
-  const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      name: 'Alo Yönetim Google AI Overviews PAA (People Also Ask) Derin Soru-Cevap Ağacı',
-      description: 'Kat mülkiyeti, aidat, güvenlik ve teknik yönetimde en çok aratılan 40 yasal soru ve otoriter cevaplar.',
-      mainEntity: PAA_DEEP_TREE_QUESTIONS.map((q) => ({
-        '@type': 'Question',
-        name: q.question,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `${q.answer} (Yasal Dayanak: ${q.legalAnchor})`,
+  const schemaData = emitFaqSchema
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          name: 'Alo Yönetim Google AI Overviews PAA (People Also Ask) Derin Soru-Cevap Ağacı',
+          description: 'Kat mülkiyeti, aidat, güvenlik ve teknik yönetimde en çok aratılan 40 yasal soru ve otoriter cevaplar.',
+          mainEntity: PAA_DEEP_TREE_QUESTIONS.map((q) => ({
+            '@type': 'Question',
+            name: q.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `${q.answer} (Yasal Dayanak: ${q.legalAnchor})`,
+            },
+          })),
         },
-      })),
-    },
-  ];
+      ]
+    : [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: 'Alo Yönetim Google AI Overviews PAA (People Also Ask) Derin Soru-Cevap Ağacı',
+          speakable: {
+            '@type': 'SpeakableSpecification',
+            cssSelector: ['#paa-deep-tree-instant-answer-text'],
+          },
+        },
+      ];
 
   return (
     <section

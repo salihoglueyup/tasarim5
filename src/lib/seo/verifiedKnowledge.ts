@@ -112,7 +112,7 @@ export function verifiedExpenseSharingRules() {
     latePenaltyArticle: '634 sayılı KMK Madde 20/2',
     latePenaltyRate: 'Aylık %5 gecikme tazminatı (günlük kıstelyevm esasıyla) ve Örnek No: 7 ilamsız icra takibi hakkı.',
     interimProjectCapArticle: `${KMK_AMENDMENT_2026.lawNumber} sayılı Kanun ile değişik KMK Madde 37`,
-    interimProjectCapRule: `Onaylı işletme projesi yoksa yönetici en çok ${KMK_AMENDMENT_2026.interimProjectMaxMonths} aylık geçici işletme projesi hazırlar; yürürlükte proje varsa bedel yeniden değerleme oranından (%${KMK_AMENDMENT_2026.defaultRevaluationRatePercent}) fazla artırılamaz ve ${KMK_AMENDMENT_2026.objectionDays} gün içinde tebliğ edilir.`,
+    interimProjectCapRule: `Onaylı işletme projesi yoksa yönetici en çok ${KMK_AMENDMENT_2026.interimProjectMaxMonths} aylık geçici işletme projesi hazırlar; yürürlükte proje varsa bedel Hazine ve Maliye Bakanlığı yeniden değerleme oranından fazla artırılamaz ve ${KMK_AMENDMENT_2026.objectionDays} gün içinde tebliğ edilir.`,
     managementPlanQuorumRule: `Toplu yapılarda yönetim planı değişikliği nisabı KMK m.70 uyarınca ${KMK_AMENDMENT_2026.managementPlanQuorum.multiBuildingComplexes.fraction}; tekil yapılarda KMK m.28/3 uyarınca ${KMK_AMENDMENT_2026.managementPlanQuorum.generalBuildings.fraction} oy çoğunluğudur.`,
     calculatorUrl: `${BASE_URL}/hesaplayici`,
   };

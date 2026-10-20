@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { buildMetadata, LOCALES } from '@/lib/seo';
+import { buildMetadata } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import PageHeader from '@/components/layout/page/PageHeader';
@@ -19,9 +19,7 @@ export const revalidate = 86400;
 export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return LOCALES.flatMap((lang) =>
-    DISTRICTS.filter((d) => d.neighborhoodData?.length).map((d) => ({ lang, ilce: d.slug })),
-  );
+  return DISTRICTS.filter((d) => d.neighborhoodData?.length).map((d) => ({ lang: 'tr', ilce: d.slug }));
 }
 
 export async function generateMetadata({

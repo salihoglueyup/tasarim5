@@ -4,7 +4,8 @@ import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import IstanbulInteractiveDistrictMapSeo from '@/components/seo/district/IstanbulInteractiveDistrictMapSeo';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
-import { buildMetadata, LOCALES } from '@/lib/seo';
+import HubAiOverviewGroundingSeo from '@/components/seo/ai-overviews/HubAiOverviewGroundingSeo';
+import { buildMetadata } from '@/lib/seo';
 
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { BASE_URL } from '@/lib/seo';
@@ -14,7 +15,7 @@ import { FACTS, RESPONSE_TARGET_TEXT } from '@/lib/facts';
 import Icon from '@/components/ui/branding/Icon';
 export const revalidate = 86400;
 export function generateStaticParams() {
-  return LOCALES.map((lang) => ({ lang }));
+  return [{ lang: 'tr' }];
 }
 
 export async function generateMetadata({
@@ -75,6 +76,8 @@ export default async function Bolgeler({
         title="İstanbul Bölgeleri"
         description="Hizmet verdiğimiz ilçeyi seçin; mahallenize kadar uzanan yerel tesis yönetimi ekibimizle tanışın."
       />
+
+      <HubAiOverviewGroundingSeo hubKey="bolgeler" lang={lang} />
 
       <section className="py-12 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto flex flex-col gap-16">
         

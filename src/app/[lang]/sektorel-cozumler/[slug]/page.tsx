@@ -6,7 +6,7 @@ import Link from 'next/link';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import PageHeader from '@/components/layout/page/PageHeader';
 import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
-import { buildMetadata, LOCALES } from '@/lib/seo';
+import { buildMetadata } from '@/lib/seo';
 import { autoLinkHtml } from '@/lib/autoLinker';
 import { generateVerifiedAuthorityGraph } from '@/lib/seo/audits/eeatAuditor';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
@@ -44,11 +44,9 @@ export async function generateStaticParams() {
       where: { published: true },
       select: { slug: true },
     });
-    return LOCALES.flatMap((lang) =>
-      solutions
-        .filter((s) => !(s.slug in LEGACY_SECTORAL_REDIRECTS))
-        .map((s) => ({ lang, slug: s.slug }))
-    );
+    return solutions
+      .filter((s) => !(s.slug in LEGACY_SECTORAL_REDIRECTS))
+      .map((s) => ({ lang: 'tr', slug: s.slug }));
   } catch {
     return [];
   }

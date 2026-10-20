@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { buildMetadata, LOCALES } from '@/lib/seo';
+import { buildMetadata } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, courseSchema, webPageSchema } from '@/lib/schemas';
@@ -9,7 +9,7 @@ export const revalidate = 86400; // 24 saat ISR
 export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return LOCALES.map((lang) => ({ lang }));
+  return [{ lang: 'tr' }];
 }
 
 export async function generateMetadata({

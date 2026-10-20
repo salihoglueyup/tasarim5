@@ -12,6 +12,7 @@ export interface InstantAnswerCardProps {
   verifiedBy?: string;
   lastUpdated?: string;
   category?: string;
+  emitFaqSchema?: boolean;
 }
 
 /**
@@ -22,17 +23,18 @@ export interface InstantAnswerCardProps {
  */
 export default function InstantAnswerCardSeo({
   question = 'Site ve Apartman Yönetiminde Aidat Nasıl Belirlenir?',
-  shortAnswer = 'Site aidatları, Kat Mülkiyeti Kanunu (KMK) Madde 37 uyarınca yöneticinin hazırladığı ve kat malikleri genel kurulunca onaylanan yıllık "İşletme Projesi" bütçesine göre belirlenir. Toplam yıllık tahmini masraflar, bağımsız bölümlerin arsa payı veya eşit paylaşım kuralına göre bölünerek aylık aidat miktarı kesinleşir.',
+  shortAnswer = 'Site aidatları, Kat Mülkiyeti Kanunu (KMK) Madde 37 (7579 sayılı Kanun ile değişik) uyarınca yöneticinin hazırladığı ve kat malikleri genel kurulunca onaylanan yıllık "İşletme Projesi" bütçesine göre belirlenir. Toplam yıllık tahmini masraflar, bağımsız bölümlerin arsa payı veya eşit paylaşım kuralına göre bölünerek aylık aidat miktarı kesinleşir.',
   bulletPoints = [
     'KMK Madde 20 uyarınca kapıcı, güvenlik ve temizlik giderleri kural olarak eşit dağıtılır.',
     'Ortak tesislerin (havuz, asansör, jeneratör) bakım ve yenileme masrafları arsa payı oranında paylaştırılır.',
-    'Genel kurulda kabul edilen işletme projesi tüm kat maliklerine taahhütlü mektupla tebliğ edilir.',
-    'Tebliğe 7 gün içinde itiraz gelmezse bütçe kendiliğinden kesinleşir ve borçlu maliklere doğrudan icra yoluyla başvurulabilir.'
+    '7579 sayılı Kanun uyarınca işletme projesi kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici 3 ay içinde geçici proje hazırlar.',
+    'Mevcut işletme projesi olan sitelerde geçici projedeki artış bir önceki yılın yeniden değerleme oranını (%25,49) aşamaz ve kesinleşen bütçe İİK m.68 kapsamında icra dayanağıdır.'
   ],
-  lawArticle = '634 Sayılı KMK Madde 20 & Madde 37',
+  lawArticle = '634 Sayılı KMK Madde 20 & Madde 37 (7579 S.K.)',
   verifiedBy = 'Alo Yönetim Hukuk & Operasyon Denetim Kurulu',
   lastUpdated = '2026',
-  category = 'KMK & Aidat Mevzuatı'
+  category = 'KMK & Aidat Mevzuatı',
+  emitFaqSchema = false,
 }: InstantAnswerCardProps) {
   const [copied, setCopied] = useState(false);
 
@@ -75,7 +77,7 @@ export default function InstantAnswerCardSeo({
 
   return (
     <div className="my-10 bg-[var(--color-surface)] text-[var(--color-primary)] p-8 md:p-10 rounded-[2.5rem] border border-[var(--color-outline)]/80 shadow-sm relative overflow-hidden">
-      <JsonLd data={schemaData} />
+      {emitFaqSchema && <JsonLd data={schemaData} />}
       <JsonLd data={speakableData} />
 
       {/* Decorative Glow */}

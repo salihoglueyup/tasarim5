@@ -16,7 +16,7 @@ export const TOP_GLOSSARY_TERMS: GlossaryDefinitionItem[] = [
     slug: 'isletme-projesi',
     term: 'İşletme Projesi (KMK 37)',
     definition:
-      'Anagayrimenkulün bir yıllık tahmini gelir ve giderleri ile her kat malikine düşen avans tutarını gösteren, kat malikleri kurulunda onaylanan (onaylı proje yoksa geçici olarak hazırlanıp en geç 3 ay içinde kurula onaylatılan — 7579 sayılı Kanun) ve tebliğinden itibaren 7 gün içinde itiraz edilmezse kesinleşip İİK 68 kapsamında ilamsız icra dayanağı olan resmi bütçe belgesidir.',
+      'Anagayrimenkulün bir yıllık tahmini gelir ve giderleri ile her kat malikine düşen avans tutarını gösteren, 7579 sayılı Kanun ile değişik KMK m.37 uyarınca kat malikleri kurulunda onaylanarak kesinleşen (onaylı proje yoksa yeniden değerleme oranı tavanını aşmamak kaydıyla geçici olarak hazırlanıp en geç 3 ay içinde kurula onaylatılan) ve İİK 68 kapsamında ilamsız icra dayanağı olan resmi bütçe belgesidir.',
     legalBasis: '634 Sayılı KMK Madde 37 (7579 s. Kanun) & İİK Madde 68',
   },
   {

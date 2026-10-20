@@ -18,6 +18,7 @@ interface PositionZeroAnswerBoxProps {
   className?: string;
   id?: string;
   answerId?: string;
+  emitFaqSchema?: boolean;
 }
 
 export default function PositionZeroAnswerBox({
@@ -29,6 +30,7 @@ export default function PositionZeroAnswerBox({
   className = '',
   id,
   answerId,
+  emitFaqSchema = false,
 }: PositionZeroAnswerBoxProps) {
   const [copied, setCopied] = useState(false);
 
@@ -120,7 +122,7 @@ export default function PositionZeroAnswerBox({
       aria-label={question}
       className={`bg-[var(--color-surface)] border ${borderClass} rounded-[2rem] p-6 sm:p-8 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
-      <JsonLd data={schemaData} />
+      {emitFaqSchema && <JsonLd data={schemaData} />}
       <JsonLd data={speakableData} />
 
       {/* Header: Rozetler & Kopyalama */}

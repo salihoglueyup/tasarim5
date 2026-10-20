@@ -9,6 +9,8 @@ export interface NeighborhoodAiOverviewSnippetSeoProps {
   districtSlug: string;
   side: 'Anadolu' | 'Avrupa';
   characteristics?: string[];
+  extraFaqs?: { question: string; answer: string }[];
+  emitFaqSchema?: boolean;
   className?: string;
 }
 
@@ -18,6 +20,8 @@ export default function NeighborhoodAiOverviewSnippetSeo({
   districtSlug,
   side,
   characteristics = [],
+  extraFaqs = [],
+  emitFaqSchema = true,
   className = '',
 }: NeighborhoodAiOverviewSnippetSeoProps) {
   const [copied, setCopied] = useState(false);
@@ -46,21 +50,30 @@ export default function NeighborhoodAiOverviewSnippetSeo({
     setTimeout(() => setCopied(false), 2500);
   };
 
+  const mergedQuestions = [
+    { question, answer: directAnswer },
+    ...extraFaqs.filter(
+      (f) => f.question?.trim() && f.answer?.trim() && f.question.trim() !== question.trim()
+    ),
+  ];
+
   const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
+    ...(emitFaqSchema
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: mergedQuestions.map((f) => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: f.answer,
+              },
+            })),
           },
-        },
-      ],
-    },
+        ]
+      : []),
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',

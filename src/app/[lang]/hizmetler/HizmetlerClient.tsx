@@ -128,6 +128,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
               ]}
               lawArticle="634 Sayılı Kat Mülkiyeti Kanunu & 5188 Sayılı Özel Güvenlik Kanunu"
               category="Entegre Tesis Yönetimi"
+              emitFaqSchema={true}
             />
           </div>
 

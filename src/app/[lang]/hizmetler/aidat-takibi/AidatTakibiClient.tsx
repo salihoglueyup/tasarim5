@@ -326,9 +326,9 @@ export default function AidatTakibiClient() {
               <div className="w-8 h-8 rounded-lg bg-slate-500/10 text-slate-600 dark:text-slate-400 flex items-center justify-center font-bold text-xs">
                 1
               </div>
-              <h3 className="font-bold text-sm text-[var(--color-primary)]">Şeffaf Bütçe Tebliği</h3>
+              <h3 className="font-bold text-sm text-[var(--color-primary)]">Şeffaf Bütçe & Kurul Onayı</h3>
               <p className="text-xs text-[var(--color-secondary)] leading-relaxed">
-                KMK m.37 uyarınca yıllık işletme projesi hazırlanır ve taahhütlü/imza karşılığı tebliğ edilerek 7 günde kesinleştirilir.
+                7579 sayılı Kanun ile değişik KMK m.37 uyarınca yıllık işletme projesi Kat Malikleri Kurulunda onaylanarak (veya en geç 3 ay içinde kurula sunulmak üzere geçici projeyle) kesinleştirilir.
               </p>
             </div>
 

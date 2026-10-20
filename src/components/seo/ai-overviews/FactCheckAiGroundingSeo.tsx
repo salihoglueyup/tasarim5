@@ -27,8 +27,8 @@ export const LEGAL_FACT_CHECKS: FactCheckItem[] = [
     id: 'yonetici-tek-basina-zam',
     myth: 'Apartman veya site yöneticisi genel kurul yapmadan aidatı kafasına göre iki katına çıkarabilir.',
     reality:
-      'Yönetici tek başına keyfi zam yapamaz. KMK Madde 35 ve 37 uyarınca yönetici, ancak kat malikleri kurulunda onaylanan işletme projesini uygular. Beklenmeyen enflasyon veya asgari ücret artışlarında ise ek bütçe (ek işletme projesi) hazırlayarak tüm kat maliklerine iadeli taahhütlü tebliğ etmek zorundadır. Tebliğden itibaren 7 gün içinde sulh hukuk mahkemesine itiraz hakkı mevcuttur.',
-    legalCitation: '634 Sayılı KMK Madde 35, 37 & İİK Madde 68',
+      'Yönetici tek başına keyfi zam yapamaz. 7579 sayılı Kanun ile değişik KMK Madde 35 ve 37 uyarınca işletme projesi Kat Malikleri Kurulunda onaylanır; onaylı proje yoksa yönetici en geç 3 ay içinde geçici işletme projesi hazırlar ve mevcut proje varsa geçici projedeki artış bir önceki yılın yeniden değerleme oranını (%25,49) aşamaz.',
+    legalCitation: '634 Sayılı KMK Madde 35, 37 (7579 S.K.) & İİK Madde 68',
     lawBadge: 'KMK Madde 37',
     verdict: 'Yanlış (Hukuki Mit)',
   },
@@ -185,7 +185,10 @@ export default function FactCheckAiGroundingSeo({
                   <div className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300 mb-1">
                     Hukuki Gerçek (Ground-Truth Doğrulaması)
                   </div>
-                  <p className="factcheck-instant-answer-text text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
+                  <p
+                    id={index === 0 ? 'factcheck-instant-answer-text' : undefined}
+                    className="factcheck-instant-answer-text text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-medium leading-relaxed"
+                  >
                     {item.reality}
                   </p>
                 </div>

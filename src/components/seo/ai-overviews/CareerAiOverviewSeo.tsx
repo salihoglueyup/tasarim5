@@ -8,7 +8,14 @@ import Icon from '@/components/ui/branding/Icon';
 
 const PILLAR_ICONS = ['shield', 'receipt_long', 'health_and_safety', 'school'];
 
-export default function CareerAiOverviewSeo({ className = '' }: { className?: string; lang?: string }) {
+export default function CareerAiOverviewSeo({
+  className = '',
+  emitFaqSchema = false,
+}: {
+  className?: string;
+  lang?: string;
+  emitFaqSchema?: boolean;
+}) {
   const { t } = useLanguage();
   const tk = (key: string) => t(key as Parameters<typeof t>[0]);
   const [copied, setCopied] = useState(false);
@@ -23,21 +30,25 @@ export default function CareerAiOverviewSeo({ className = '' }: { className?: st
   };
 
   const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: directAnswer,
-            author: { '@type': 'Organization', name: 'Alo Yönetim' },
+    ...(emitFaqSchema
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: question,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: directAnswer,
+                  author: { '@type': 'Organization', name: 'Alo Yönetim' },
+                },
+              },
+            ],
           },
-        },
-      ],
-    },
+        ]
+      : []),
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',

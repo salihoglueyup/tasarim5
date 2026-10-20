@@ -179,11 +179,13 @@ export default function GoogleAiOverviewGroundingSeo({
   filterIds,
   title,
   subtitle,
+  emitFaqSchema = false,
 }: {
   className?: string;
   filterIds?: string[];
   title?: string;
   subtitle?: string;
+  emitFaqSchema?: boolean;
 }) {
   const displayedPrompts = filterIds && filterIds.length > 0
     ? GEO_PROMPTS.filter((p) => filterIds.includes(p.id))
@@ -200,19 +202,23 @@ export default function GoogleAiOverviewGroundingSeo({
   // FAQPage: Tüm sorular DOM'da (accordion kapalı olsa da) — JS çalıştırmayan
   // AI botları (GPTBot, ClaudeBot, PerplexityBot vb.) da tam korpusu görür.
   const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: displayedPrompts.map((p) => ({
-        '@type': 'Question',
-        name: p.prompt,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: p.groundTruthAnswer,
-          author: { '@type': 'Organization', name: 'Alo Yönetim' },
-        },
-      })),
-    },
+    ...(emitFaqSchema
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: displayedPrompts.map((p) => ({
+              '@type': 'Question',
+              name: p.prompt,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: p.groundTruthAnswer,
+                author: { '@type': 'Organization', name: 'Alo Yönetim' },
+              },
+            })),
+          },
+        ]
+      : []),
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',

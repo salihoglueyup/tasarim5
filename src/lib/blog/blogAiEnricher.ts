@@ -319,7 +319,7 @@ export function getCategoryComparisonMatrix(
       return {
         badge: 'Google AI Overviews • Entegre Tesis Yönetimi Karşılaştırma Matrisi',
         heading: 'Profesyonel Tesis Yönetimi vs. Geleneksel Apartman Yöneticiliği',
-        lead: `İstanbul genelinde ${FACTS.districtCount} ilçede uygulanan ISO 41001 entegre tesis yönetimi modeli ile geleneksel yönetim arasındaki temel farklar:`,
+        lead: `İstanbul genelinde ${FACTS.districtCount} ilçede uygulanan kurumsal entegre tesis yönetimi modeli ile geleneksel yönetim arasındaki temel farklar:`,
         headers: ['Kriter', 'Geleneksel Bireysel Yöneticilik', 'Alo Yönetim Kurumsal Tesis Modeli'],
         rows: [
           ['Bütçe ve İşletme Projesi', 'Tahmini veya tek kalem aidat; geciken raporlama', 'KMK m.20 & 7579 S.K. uyumlu kalem kalem şeffaf işletme projesi'],

@@ -68,7 +68,7 @@ export default async function HizmetlerPage({
     name: t.services_title || 'Hizmetlerimiz',
     description: t.services_desc || 'Tüm profesyonel tesis ve site yönetim hizmetlerimiz.',
     path: '/hizmetler',
-    speakableSelectors: ['h1', 'p', '#video-grounding-instant-answer-text'],
+    speakableSelectors: ['h1', 'p', '#instant-answer-text'],
   });
 
   return (

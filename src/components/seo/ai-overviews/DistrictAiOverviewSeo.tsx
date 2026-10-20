@@ -12,6 +12,8 @@ export interface DistrictAiOverviewSeoProps {
   referenceCount?: number;
   serviceName?: string;
   serviceSlug?: string;
+  extraFaqs?: { question: string; answer: string }[];
+  emitFaqSchema?: boolean;
   className?: string;
 }
 
@@ -71,6 +73,8 @@ export default function DistrictAiOverviewSeo(props: DistrictAiOverviewSeoProps)
     referenceCount = 0,
     serviceName,
     serviceSlug,
+    extraFaqs = [],
+    emitFaqSchema = true,
     className = '',
   } = props;
   const { pagePath, question, answer, secondaryQuestion, secondaryAnswer } =
@@ -78,30 +82,46 @@ export default function DistrictAiOverviewSeo(props: DistrictAiOverviewSeoProps)
 
   const answerId = serviceSlug ? 'district-service-instant-answer-text' : 'district-ai-overview-answer';
 
-  const schemaData = [
+  const mergedMainEntity = [
     {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      '@id': `${BASE_URL}${pagePath}#district-ai-overview-faq`,
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: answer,
-          },
-        },
-        {
-          '@type': 'Question',
-          name: secondaryQuestion,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: secondaryAnswer,
-          },
-        },
-      ],
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: answer,
+      },
     },
+    {
+      '@type': 'Question',
+      name: secondaryQuestion,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: secondaryAnswer,
+      },
+    },
+    ...extraFaqs
+      .filter((f) => f.question && f.answer && f.question !== question && f.question !== secondaryQuestion)
+      .map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.answer,
+        },
+      })),
+  ];
+
+  const schemaData = [
+    ...(emitFaqSchema
+      ? [
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            '@id': `${BASE_URL}${pagePath}#district-ai-overview-faq`,
+            mainEntity: mergedMainEntity,
+          },
+        ]
+      : []),
     {
       '@context': 'https://schema.org',
       '@type': 'WebPage',

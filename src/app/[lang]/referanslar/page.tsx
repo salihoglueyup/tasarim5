@@ -4,6 +4,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
+import HubAiOverviewGroundingSeo from '@/components/seo/ai-overviews/HubAiOverviewGroundingSeo';
 import ReferencesShowcase from './ReferencesShowcase';
 
 export function generateStaticParams() {
@@ -40,10 +41,16 @@ export default async function ReferanslarPage({ params }: { params: Promise<{ la
       <JsonLd
         data={[
           generateBreadcrumbs(breadcrumbs),
-          webPageSchema({ name: t('refx_title'), description: t('refx_meta_desc'), path: '/referanslar' }),
+          webPageSchema({
+            name: t('refx_title'),
+            description: t('refx_meta_desc'),
+            path: '/referanslar',
+            speakableSelectors: ['h1', '#references-hub-instant-answer-text'],
+          }),
         ]}
       />
       <PageHeader title={t('refx_title')} description={t('refx_intro')} breadcrumbs={breadcrumbs} />
+      <HubAiOverviewGroundingSeo hubKey="referanslar" lang={lang} />
       <ReferencesShowcase />
     </>
   );

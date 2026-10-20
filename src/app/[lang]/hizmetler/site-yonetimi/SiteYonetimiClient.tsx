@@ -332,7 +332,7 @@ export default function SiteYonetimiClient() {
               {t('sy_faq_desc')}
             </p>
           </div>
-          <DynamicFAQ faqs={faqs} />
+          <DynamicFAQ faqs={faqs} emitSchema={true} />
         </div>
       </div>
 

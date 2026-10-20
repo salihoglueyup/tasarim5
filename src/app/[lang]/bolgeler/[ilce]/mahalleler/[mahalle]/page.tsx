@@ -1,16 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
+import { buildMetadata, BASE_URL } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import PageHeader from '@/components/layout/page/PageHeader';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import NeighborhoodAiOverviewSnippetSeo from '@/components/seo/district/NeighborhoodAiOverviewSnippetSeo';
-import { generateBreadcrumbs, webPageSchema, faqPageSchema, ORG_PHONE, ORG_EMAIL, ORG_LOGO, ORG_ADDRESS, ORG_PRICE_RANGE } from '@/lib/schemas';
+import { generateBreadcrumbs, webPageSchema, ORG_PHONE, ORG_EMAIL, ORG_LOGO, ORG_ADDRESS, ORG_PRICE_RANGE } from '@/lib/schemas';
 import { DISTRICTS, getDistrict } from '@/data/districts';
 import { SERVICES } from '@/data/services';
-import type { Metadata as NextMetadata } from 'next';
 import trDict from '@/i18n/locales/tr/common.json';
 import enDict from '@/i18n/locales/en/common.json';
 import ruDict from '@/i18n/locales/ru/common.json';
@@ -23,10 +22,8 @@ export const revalidate = 86400;
 export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return LOCALES.flatMap((lang) =>
-    DISTRICTS.filter((d) => d.neighborhoodData?.length).flatMap((d) =>
-      (d.neighborhoodData ?? []).map((n) => ({ lang, ilce: d.slug, mahalle: n.slug })),
-    ),
+  return DISTRICTS.filter((d) => d.neighborhoodData?.length).flatMap((d) =>
+    (d.neighborhoodData ?? []).map((n) => ({ lang: 'tr', ilce: d.slug, mahalle: n.slug })),
   );
 }
 
@@ -178,7 +175,6 @@ export default async function NeighborhoodPage({
     speakableSelectors: ['#neighborhood-instant-answer-text', '.neighborhood-intro', 'h1'],
   });
 
-  const faqLd = faqPageSchema(faqs);
   const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
 
   const MAIN_SERVICES = SERVICES.filter((s) =>
@@ -187,7 +183,7 @@ export default async function NeighborhoodPage({
 
   return (
     <>
-      <JsonLd data={[localBusinessLd, pageLd, faqLd, breadcrumbLd]} />
+      <JsonLd data={[localBusinessLd, pageLd, breadcrumbLd]} />
       <div className="max-w-7xl mx-auto px-[var(--spacing-gutter)] pt-4">
         <Breadcrumbs items={breadcrumbs} />
       </div>
@@ -204,6 +200,7 @@ export default async function NeighborhoodPage({
           districtSlug={district.slug}
           side={district.side}
           characteristics={neighborhood.characteristics}
+          extraFaqs={faqs}
         />
 
         {/* Neighborhood Intro */}

@@ -4,16 +4,16 @@ import { resolveLegacyDistrictSlug, resolveLegacyTermSlug, RETIRED_TERM_REDIRECT
 import { localePath } from '@/lib/i18n/localePath';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { buildMetadata, LOCALES, BASE_URL } from '@/lib/seo';
+import { buildMetadata, BASE_URL } from '@/lib/seo';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import PageHeader from '@/components/layout/page/PageHeader';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import TermAiOverviewCard from '@/components/seo/ai-overviews/TermAiOverviewCard';
-import { TERMS, termToSlug, slugToTerm, TERM_SLUG_ALIASES } from '@/data/dictionary';
+import { TERMS, termToSlug, slugToTerm } from '@/data/dictionary';
 import { TERM_DETAILS } from '@/data/dictionaryDetails';
 import { ENGLISH_TERMS } from '@/data/dictionaryEn';
 import { getDictionary } from '@/lib/i18n';
-import { getTranslatedTerm } from '@/data/dictionaryTranslated';
+import { getTranslatedTerm, TRANSLATED_TERM_SLUGS } from '@/data/dictionaryTranslated';
 import TranslatedTermView from './TranslatedTermView';
 
 import Icon from '@/components/ui/branding/Icon';
@@ -22,11 +22,12 @@ export const dynamicParams = true;
 
 export function generateStaticParams() {
   const termSlugs = TERMS.map((t) => termToSlug(t.term));
-  const aliasSlugs = Object.keys(TERM_SLUG_ALIASES);
-  const allSlugs = Array.from(new Set([...termSlugs, ...aliasSlugs]));
-  return LOCALES.flatMap((lang) =>
-    allSlugs.map((terim) => ({ lang, terim })),
-  );
+  return [
+    ...termSlugs.map((terim) => ({ lang: 'tr', terim })),
+    ...(['en', 'ru', 'ar'] as const).flatMap((lang) =>
+      TRANSLATED_TERM_SLUGS.map((terim) => ({ lang, terim }))
+    ),
+  ];
 }
 
 export async function generateMetadata({
@@ -169,13 +170,9 @@ export default async function TermPage({
 
   const breadcrumbLd = generateBreadcrumbs(breadcrumbs);
   const detail = TERM_DETAILS[terim];
-  const faqLd = detail?.faq?.length
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: detail.faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
-      }
-    : null;
+  const extraFaqs = detail?.faq?.length
+    ? detail.faq.map(([question, answer]) => ({ question, answer }))
+    : [];
 
   const relatedTerms = TERMS.filter(
     (rt) => rt.term !== term.term && (
@@ -186,7 +183,7 @@ export default async function TermPage({
 
   return (
     <>
-      <JsonLd data={[termLd, pageLd, breadcrumbLd, ...(faqLd ? [faqLd] : [])]} />
+      <JsonLd data={[termLd, pageLd, breadcrumbLd]} />
       <PageHeader 
         title={`${term.term} Nedir?`}
         description={term.definition.slice(0, 160)}
@@ -258,6 +255,7 @@ export default async function TermPage({
         <TermAiOverviewCard
           term={term.term}
           definition={term.definition}
+          extraFaqs={extraFaqs}
         />
 
         {/* Related Terms */}

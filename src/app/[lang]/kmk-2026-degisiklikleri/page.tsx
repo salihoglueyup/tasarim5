@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { buildMetadata, LOCALES } from '@/lib/seo';
+import { buildMetadata } from '@/lib/seo';
 import { localePath } from '@/lib/i18n/localePath';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import PageHeader from '@/components/layout/page/PageHeader';
@@ -13,7 +13,7 @@ export const revalidate = 86400;
 export const dynamicParams = true;
 
 export function generateStaticParams() {
-  return LOCALES.map((lang) => ({ lang }));
+  return [{ lang: 'tr' }];
 }
 
 const PATH = '/kmk-2026-degisiklikleri';

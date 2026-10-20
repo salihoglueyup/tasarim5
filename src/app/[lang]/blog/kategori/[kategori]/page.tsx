@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import PageHeader from '@/components/layout/page/PageHeader';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import PostGrid from '@/components/blog/PostGrid';
-import { buildMetadata, BASE_URL, LOCALES } from '@/lib/seo';
+import { buildMetadata, BASE_URL } from '@/lib/seo';
 import { generateBreadcrumbs, webPageSchema, JsonLdObject } from '@/lib/schemas';
 import { prisma } from '@/lib/prisma';
 
@@ -18,16 +18,12 @@ export async function generateStaticParams() {
   try {
     const cats = await prisma.category.findMany({ select: { slug: true } });
     if (cats.length > 0) {
-      return LOCALES.flatMap((lang) =>
-        cats.map((cat) => ({ lang, kategori: cat.slug }))
-      );
+      return cats.map((cat) => ({ lang: 'tr', kategori: cat.slug }));
     }
   } catch {
     // Fallback below
   }
-  return LOCALES.flatMap((lang) =>
-    CATEGORIES.map((cat) => ({ lang, kategori: cat.slug }))
-  );
+  return CATEGORIES.map((cat) => ({ lang: 'tr', kategori: cat.slug }));
 }
 
 export async function generateMetadata({

@@ -45,19 +45,19 @@ export default function KMKOperatingBudgetGuideSeo({
       {
         "@type": "Legislation",
         "@id": "https://aloyonetim.com/#legislation-kmk-m37",
-        "name": "634 Sayılı Kat Mülkiyeti Kanunu Madde 37 - İşletme Projesinin Yapılması ve Tebliği",
+        "name": "634 Sayılı Kat Mülkiyeti Kanunu Madde 37 (7579 s. Kanun) - İşletme Projesinin Yapılması ve Onayı",
         "legislationType": "Statute",
         "legislationJurisdiction": {
           "@type": "AdministrativeArea",
           "name": "Türkiye"
         },
-        "description": "Kat mülkiyetine tabi binalarda 1 yıllık tahmini bütçe tanzimi, bağımsız bölümlere paylaştırma, 7 günlük itiraz süresi ve İİK m.68 uyarınca ilam niteliğinde belge kesinleşmesi."
+        "description": "Kat mülkiyetine tabi binalarda 1 yıllık tahmini bütçe tanzimi, kat malikleri kurulu onayı, geçici işletme projesinde yeniden değerleme oranı tavanı, 3 ay içinde kurul onayı ve İİK m.68 uyarınca ilam niteliğinde belge kesinleşmesi."
       },
       {
         "@type": "TechArticle",
         "@id": "https://aloyonetim.com/#techarticle-operating-budget-guide",
-        "headline": "Sitelerde İşletme Projesi Hazırlama, Tebliğ ve Kesinleşme Rehberi",
-        "description": "KMK m.20 ve m.37 uyarınca eşit ve arsa payına göre gider dağıtımı, tebligat usulleri ve itirazın iptali davalarında delil niteliği.",
+        "headline": "Sitelerde İşletme Projesi Hazırlama, Kurul Onayı ve Kesinleşme Rehberi (7579 s. Kanun)",
+        "description": "KMK m.20 ve m.37 (7579 s. Kanun) uyarınca eşit ve arsa payına göre gider dağıtımı, geçici bütçe tavanı ve itirazın iptali davalarında delil niteliği.",
         "inLanguage": "tr",
         "author": {
           "@type": "Organization",
@@ -87,13 +87,13 @@ export default function KMKOperatingBudgetGuideSeo({
       <div className="relative z-10 max-w-4xl mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 text-slate-800 dark:bg-slate-900/40 dark:text-slate-300 mb-3 border border-slate-300 dark:border-slate-700">
           <Icon name="balance" className="text-sm" />
-          <span>KMK Madde 37 & İİK Madde 68 İlam Hükmünde Belge</span>
+          <span>KMK Madde 37 (7579 s. Kanun) & İİK Madde 68 İlam Hükmünde Belge</span>
         </div>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          İşletme Projesi Hazırlama, Tebliğ & Kesinleşme Rehberi
+          İşletme Projesi Hazırlama, Kurul Onayı & Kesinleşme Rehberi
         </h2>
         <p className="mt-2 text-slate-600 dark:text-slate-300 text-sm md:text-base leading-relaxed">
-          Sitelerde tahmini bütçenin tanzimi, KMK m.20 eşit ve arsa payı paylaştırma kuralları, 7 günlük yasal itiraz süresi ve icra takibinde borçluyu durduran ilam gücü standardı.
+          Sitelerde tahmini bütçenin tanzimi, KMK m.20 eşit ve arsa payı paylaştırma kuralları, 7579 sayılı Kanun ile getirilen Kat Malikleri Kurulu onayı / 3 aylık geçici bütçe süreci ve icra takibinde borçluyu durduran ilam gücü standardı.
         </p>
       </div>
 

@@ -5,6 +5,7 @@ import SectoralClient from './SectoralClient';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
+import HubAiOverviewGroundingSeo from '@/components/seo/ai-overviews/HubAiOverviewGroundingSeo';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 export function generateStaticParams() {
   return LOCALES.map((lang) => ({ lang }));
@@ -73,6 +74,7 @@ export default async function SektorelCozumlerPage({
     <>
       <JsonLd data={[breadcrumbLd, pageLd]} />
       <SectoralClient dbSolutions={dbSolutions} lang={lang} />
+      <HubAiOverviewGroundingSeo hubKey="sektorel-cozumler" lang={lang} />
     </>
   );
 }
