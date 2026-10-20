@@ -123,6 +123,27 @@ export function buildApiCatalog() {
           },
         ],
       },
+      {
+        anchor: `${BASE_URL}/api/tesis-yonetimi/rfp-generator`,
+        'service-desc': [
+          {
+            href: `${BASE_URL}/openapi.json`,
+            type: 'application/json',
+          },
+        ],
+        'service-doc': [
+          {
+            href: `${BASE_URL}/teklif-al`,
+            type: 'text/html',
+          },
+        ],
+        status: [
+          {
+            href: `${BASE_URL}/api/health`,
+            type: 'application/json',
+          },
+        ],
+      },
     ],
   };
 }
@@ -433,6 +454,26 @@ export function buildArdCatalog() {
         representativeQueries: [
           'Alo Yönetim açık veri ve JSON-LD bilgi grafiği API uçları',
           'İstanbul 39 ilçe tesis yönetimi GeoJSON harita verisi',
+        ],
+      },
+      {
+        identifier: 'urn:air:aloyonetim.com.tr:commerce:acp',
+        displayName: 'Alo Yönetim B2B RFP & Quote Agentic Commerce Protocol (ACP)',
+        type: 'application/json',
+        url: `${BASE_URL}/.well-known/acp.json`,
+        representativeQueries: [
+          'Site ve tesis yönetimi için otomatik teknik şartname (RFP) oluştur',
+          'İstanbul site yönetimi ücretsiz keşif ve aidat bütçe teklifi al',
+        ],
+      },
+      {
+        identifier: 'urn:air:aloyonetim.com.tr:commerce:ucp',
+        displayName: 'Alo Yönetim Universal Commerce Protocol (UCP) Profile',
+        type: 'application/json',
+        url: `${BASE_URL}/.well-known/ucp`,
+        representativeQueries: [
+          'Alo Yönetim B2B tesis yönetimi hizmet kataloğu ve şartname servisleri',
+          'KMK uyumlu site yönetimi işletme projesi taslağı ve teklif kanalları',
         ],
       },
     ],

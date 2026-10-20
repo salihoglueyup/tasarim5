@@ -313,6 +313,79 @@ export function generateOpenApiSpec() {
           },
         },
       },
+      '/api/ai/facility-agent-context.json': {
+        get: {
+          tags: ['Yapay Zeka & Semantik Grounding (GEO)'],
+          summary: 'Entegre Tesis Yönetimi Tam LLM Ground-Truth Bilgi Korpusu',
+          description: 'Plaza, iş merkezi, rezidans, toplu konut ve sanayi tesisi yönetimi için doğrulanmış kurumsal bağlam verisi.',
+          operationId: 'getFacilityAgentContext',
+          responses: {
+            '200': {
+              description: 'Yapılandırılmış tesis yönetimi semantik RAG korpusu.',
+            },
+          },
+        },
+      },
+      '/api/ai-knowledge': {
+        get: {
+          tags: ['Yapay Zeka & Semantik Grounding (GEO)'],
+          summary: 'Doğrulanmış Kurumsal Bilgi, KMK 634/7579 ve 39 İlçe Merkezi API',
+          description: 'Alo Yönetim ticari unvanı, BELCERT ISO belgeleri, 5188 özel güvenlik izni, 50 kurumsal referansı, 39 ilçe kapsamı ve KMK m.20/m.37/m.70 kurallarını döner.',
+          operationId: 'getVerifiedAiKnowledge',
+          responses: {
+            '200': {
+              description: 'Doğrulanmış merkezi bilgi JSON nesnesi.',
+            },
+          },
+        },
+      },
+      '/api/knowledge-graph': {
+        get: {
+          tags: ['Kurumsal Akreditasyon & Bilgi Korpusu'],
+          summary: 'Birleşik Kurumsal Schema.org Bilgi Grafiği (JSON-LD @graph)',
+          description: 'Corporation, WebSite, 10 Service, 39 LocalBusiness (ilçe) ve 50 referans Organization düğümünü içeren birleşik JSON-LD grafiği.',
+          operationId: 'getUnifiedKnowledgeGraph',
+          responses: {
+            '200': {
+              description: 'application/ld+json formatında birleşik varlık grafiği.',
+            },
+          },
+        },
+      },
+      '/api/seo/ai-overviews-rag.json': {
+        get: {
+          tags: ['Yapay Zeka & Semantik Grounding (GEO)'],
+          summary: 'Google AI Overviews & Üretken Arama (RAG) Soru-Cevap Korpusu',
+          description: 'Kat Mülkiyeti Kanunu, site/tesis yönetimi ve aidat süreçleri için doğrulanmış soru-cevap ve varlık veri kümesi.',
+          operationId: 'getAiOverviewsRagCorpus',
+          responses: {
+            '200': {
+              description: 'Yapılandırılmış RAG soru-cevap JSON verisi.',
+            },
+          },
+        },
+      },
+      '/api/markdown': {
+        get: {
+          tags: ['Yapay Zeka & Semantik Grounding (GEO)'],
+          summary: 'Rota-Duyarlı Evrensel Markdown İçerik Müzakeresi (Markdown for Agents)',
+          description: 'Verilen sayfa yolu (path) için ilçe, hizmet, sözlük, KMK 2026 veya kurumsal referanslara özgü saf Markdown (text/markdown) ve x-markdown-tokens başlığı döner.',
+          operationId: 'getRouteAwareMarkdown',
+          parameters: [
+            {
+              name: 'path',
+              in: 'query',
+              required: false,
+              schema: { type: 'string', default: '/' },
+            },
+          ],
+          responses: {
+            '200': {
+              description: 'text/markdown formatında sayfa içeriği.',
+            },
+          },
+        },
+      },
       '/api/ai/site-agent-context.json': {
         get: {
           tags: ['Yapay Zeka & Semantik Grounding (GEO)'],

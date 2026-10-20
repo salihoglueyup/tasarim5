@@ -20,6 +20,8 @@ import { GET as getUcpDiscovery } from '@/app/.well-known/ucp/route';
 import { GET as getX402Gateway } from '@/app/api/v1/route';
 import { GET as getUniversalMarkdown } from '@/app/api/markdown/route';
 import { generateOpenApiSpec } from '@/lib/seo/indexing/openApiSpec';
+import { buildLlmsText, buildLlmsFullText } from '@/lib/seo/llmsContent';
+import { verifiedKnowledge } from '@/lib/seo/verifiedKnowledge';
 
 describe('Cloudflare Agent Readiness & AI Discovery Suite', () => {
   it('robots.ts Content-Signal ve Agentmap direktiflerini ve .well-known izinlerini içerir', () => {
@@ -195,5 +197,52 @@ describe('Cloudflare Agent Readiness & AI Discovery Suite', () => {
     expect(x402Body.x402Version).toBe(1);
     expect(Array.isArray(x402Body.accepts)).toBe(true);
     expect(x402Body.accepts[0].scheme).toBe('exact');
+  });
+
+  it('Rota-duyarlı /api/markdown ilçe, hizmet, sözlük, KMK 2026 ve referans rotaları için sayfaya özgü Markdown ve Content-Signal döner', async () => {
+    const cases = [
+      { path: '/bolgeler/kadikoy', expectedText: 'Kadıköy Site ve Tesis Yönetimi' },
+      { path: '/bolgeler/atasehir/site-yonetimi', expectedText: 'Ataşehir Profesyonel Site ve Apartman Yönetimi' },
+      { path: '/hizmetler/guvenlik-yonetimi', expectedText: 'Güvenlik Yönetimi' },
+      { path: '/sozluk/isletme-projesi', expectedText: 'Kat Mülkiyeti ve Tesis Yönetimi Sözlüğü' },
+      { path: '/kmk-2026-degisiklikleri', expectedText: '7579 Sayılı Kanun' },
+      { path: '/referanslar', expectedText: 'Kurumsal Referanslar' },
+      { path: '/kurumsal/kalite-belgelerimiz', expectedText: 'Kalite Belgeleri ve Yasal Yetki İzinleri' },
+    ];
+
+    for (const c of cases) {
+      const req = new NextRequest(
+        `https://aloyonetim.com.tr/api/markdown?path=${encodeURIComponent(c.path)}`,
+      );
+      const res = await getUniversalMarkdown(req);
+      expect(res.status, c.path).toBe(200);
+      expect(res.headers.get('content-signal'), c.path).toBe('ai-train=yes, search=yes, ai-input=yes');
+      const md = await res.text();
+      expect(md, c.path).toContain(c.expectedText);
+      expect(md, c.path).not.toMatch(/garanti|kanıtlanmış|7\/24|24\/7/i);
+    }
+  });
+
+  it('RFC 9727 api-catalog içindeki tüm uç noktalar /openapi.json paths altında tanımlıdır ve llms.txt + verifiedKnowledge ile birbirine bağlıdır', async () => {
+    const catalog = await (await getApiCatalog()).json();
+    const openApi = generateOpenApiSpec();
+    const openApiPaths = Object.keys(openApi.paths);
+
+    for (const item of catalog.linkset) {
+      const pathname = new URL(item.anchor).pathname;
+      expect(openApiPaths, `Missing ${pathname} in /openapi.json`).toContain(pathname);
+    }
+
+    const llms = buildLlmsText();
+    const llmsFull = buildLlmsFullText();
+    const vk = verifiedKnowledge();
+
+    expect(llms).toContain('/.well-known/ai-catalog.json');
+    expect(llms).toContain('/.well-known/agent-card.json');
+    expect(llmsFull).toContain('/.well-known/acp.json');
+    expect(llmsFull).toContain('/.well-known/ucp');
+    expect(vk.agentDiscovery.openApi).toBe('https://aloyonetim.com.tr/openapi.json');
+    expect(vk.agentDiscovery.acpDiscovery).toBe('https://aloyonetim.com.tr/.well-known/acp.json');
+    expect(vk.agentDiscovery.ucpDiscovery).toBe('https://aloyonetim.com.tr/.well-known/ucp');
   });
 });

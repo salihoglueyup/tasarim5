@@ -75,6 +75,11 @@ ${DISTRICTS.map((d) => `- [${d.name}](${BASE_URL}/bolgeler/${d.slug})`).join('\n
 - Aidat hesaplayıcı: ${BASE_URL}/hesaplayici
 - Teklif talebi: ${BASE_URL}/teklif-al
 - Tam metin: ${BASE_URL}/llms-full.txt
+- Yapılandırılmış AI bilgi servisi (JSON): ${BASE_URL}/api/ai-knowledge
+- OpenAPI 3.1.0 spesifikasyonu: ${BASE_URL}/openapi.json
+- ARD AI kataloğu: ${BASE_URL}/.well-known/ai-catalog.json
+- A2A ajan kartı: ${BASE_URL}/.well-known/agent-card.json
+- MCP sunucu kartı: ${BASE_URL}/.well-known/mcp/server-card.json
 `;
 }
 
@@ -100,6 +105,18 @@ export function buildLlmsFullText(): string {
     `- [İstanbul 39 İlçe Yerel Operasyon Çapaları](${BASE_URL}/api/seo/local-anchors.json): İlçe bazlı SLA hedefleri, yaka dağılımı ve mahalle ağları.`,
     `- [Kurumsal DNA ve NAP Verisi](${BASE_URL}/api/seo/corporate-dna.json): Resmi ticari unvan, MERSİS, Ticaret Sicil ve iletişim bilgileri.`,
     `- [GEO & Yerel Varlık Manifestosu](${BASE_URL}/api/seo/geo-manifest.json): Coğrafi hizmet alanı ve yerel otorite sinyalleri.`,
+    `- [Doğrulanmış Kurumsal Bilgi API](${BASE_URL}/api/ai-knowledge): Organizasyon, 39 ilçe, referanslar, KMK m.20 ve 7579 sayılı Kanun kuralları.`,
+    `- [Birleşik Schema.org Bilgi Grafiği (JSON-LD)](${BASE_URL}/api/knowledge-graph): Kurum, hizmetler, 39 ilçe ve 50 referans düğümü.`,
+    `- [KMK 634 & 7579 Sayılı Kanun Maddeler Dizini](${BASE_URL}/api/tesis-yonetimi/kmk-law-index.json): Kat Mülkiyeti Kanunu maddeleri ve yasal özetleri.`,
+    `- [B2B Teknik Şartname (RFP) Üretici API](${BASE_URL}/api/tesis-yonetimi/rfp-generator): Bağımsız bölüm ve ilçeye göre otomatik yönetim şartnamesi taslağı.`,
+    `- [Rota-Duyarlı Markdown Servisi](${BASE_URL}/api/markdown): Herhangi bir sayfa yolu (?path=/bolgeler/kadikoy vb.) için saf Markdown çıktısı.`,
+    `- [ARD (Agentic Resource Discovery) Kataloğu](${BASE_URL}/.well-known/ai-catalog.json): MCP, A2A, Skill ve OpenAPI kaynak keşfi.`,
+    `- [RFC 9727 API Kataloğu](${BASE_URL}/.well-known/api-catalog): IETF linkset+json formatında servis kataloğu.`,
+    `- [A2A Agent Card & AP2](${BASE_URL}/.well-known/agent-card.json): Agent-to-Agent protokol kartı ve yetenek tanımları.`,
+    `- [MCP Server Card (SEP-1649)](${BASE_URL}/.well-known/mcp/server-card.json): Model Context Protocol sunucu kartı.`,
+    `- [Agent Skills Discovery v0.2.0](${BASE_URL}/.well-known/agent-skills/index.json): SHA-256 doğrulamalı SKILL.md indeks dosyası.`,
+    `- [Agentic Commerce (ACP & UCP)](${BASE_URL}/.well-known/acp.json): B2B şartname ve teklif keşif protokolleri (${BASE_URL}/.well-known/ucp).`,
+    `- [Agent Auth Discovery](${BASE_URL}/auth.md): OAuth 2.0 / OIDC ve otonom ajan kimlik doğrulama rehberi.`,
   ].join('\n');
 
   return `${buildLlmsText()}

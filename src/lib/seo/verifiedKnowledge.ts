@@ -184,6 +184,20 @@ export function verifiedKnowledge() {
       quote: `${BASE_URL}/teklif-al`,
       contact: `${BASE_URL}/iletisim`,
     },
+    agentDiscovery: {
+      openApi: `${BASE_URL}/openapi.json`,
+      apiCatalog: `${BASE_URL}/.well-known/api-catalog`,
+      aiCatalogArd: `${BASE_URL}/.well-known/ai-catalog.json`,
+      a2aAgentCard: `${BASE_URL}/.well-known/agent-card.json`,
+      mcpServerCard: `${BASE_URL}/.well-known/mcp/server-card.json`,
+      agentSkillsIndex: `${BASE_URL}/.well-known/agent-skills/index.json`,
+      acpDiscovery: `${BASE_URL}/.well-known/acp.json`,
+      ucpDiscovery: `${BASE_URL}/.well-known/ucp`,
+      authMd: `${BASE_URL}/auth.md`,
+      markdownEndpoint: `${BASE_URL}/api/markdown`,
+      rfpGenerator: `${BASE_URL}/api/tesis-yonetimi/rfp-generator`,
+      geoJsonCoverage: `${BASE_URL}/api/geo/facility-coverage.geojson`,
+    },
   };
 }
 

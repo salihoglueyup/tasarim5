@@ -220,6 +220,10 @@ export default async function RootLayout({
         {/* ARD (Agentic Resource Discovery) & RFC 9727 API Catalog */}
         <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" title="Alo Yönetim ARD Capability Manifest" />
         <link rel="api-catalog" type="application/linkset+json" href="/.well-known/api-catalog" title="Alo Yönetim RFC 9727 API Catalog" />
+        <link rel="alternate" type="application/json" href="/.well-known/agent-card.json" title="Alo Yönetim A2A & AP2 Agent Card" />
+        <link rel="alternate" type="application/json" href="/.well-known/mcp/server-card.json" title="Alo Yönetim MCP Server Card" />
+        <link rel="alternate" type="application/json" href="/.well-known/acp.json" title="Alo Yönetim Agentic Commerce Protocol (ACP)" />
+        <link rel="alternate" type="application/json" href="/.well-known/ucp" title="Alo Yönetim Universal Commerce Protocol (UCP)" />
 
         {/* WebMCP Imperative API Registration (W3C Web Machine Learning / Chrome WebMCP) */}
         <script
@@ -290,6 +294,29 @@ export default async function RootLayout({
                         var d = (args && args.district) ? String(args.district) : 'kadikoy';
                         var res = await fetch('/api/tesis-yonetimi/rfp-generator?units=' + encodeURIComponent(u) + '&district=' + encodeURIComponent(d));
                         return await res.json();
+                      }
+                    },
+                    {
+                      name: 'get_istanbul_district_coverage',
+                      description: 'Query Istanbul 39-district facility and site management coverage, GPS coordinates, and emergency SLA targets.',
+                      inputSchema: {
+                        type: 'object',
+                        properties: {
+                          district: {
+                            type: 'string',
+                            description: 'Optional Istanbul district slug (e.g. kadikoy, atasehir, besiktas, uskudar)'
+                          }
+                        }
+                      },
+                      execute: async function(args) {
+                        var res = await fetch('/api/ai-knowledge');
+                        var data = await res.json();
+                        if (args && args.district && Array.isArray(data.districts)) {
+                          var slug = String(args.district).toLowerCase();
+                          var match = data.districts.find(function(item) { return item.slug === slug; });
+                          if (match) return match;
+                        }
+                        return { coverage: data.coverage, districts: data.districts };
                       }
                     }
                   ];

@@ -628,6 +628,10 @@ export async function middleware(request: NextRequest) {
       `<https://aloyonetim.com.tr/.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"`,
       `<https://aloyonetim.com.tr/.well-known/ai-catalog.json>; rel="ai-catalog"; type="application/json"`,
       `<https://aloyonetim.com.tr/.well-known/agent-card.json>; rel="describedby"; type="application/json"`,
+      `<https://aloyonetim.com.tr/.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"`,
+      `<https://aloyonetim.com.tr/.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"`,
+      `<https://aloyonetim.com.tr/.well-known/acp.json>; rel="describedby"; type="application/json"`,
+      `<https://aloyonetim.com.tr/.well-known/ucp>; rel="describedby"; type="application/json"`,
       `<https://aloyonetim.com.tr/api/markdown/site-yonetimi>; rel="alternate"; type="text/markdown"`,
       `<https://aloyonetim.com.tr/api/markdown/tesis-yonetimi>; rel="alternate"; type="text/markdown"`
     ];
@@ -649,13 +653,21 @@ export async function middleware(request: NextRequest) {
       response.headers.set('X-AI-Geo-Coverage', 'https://aloyonetim.com.tr/api/geo/facility-coverage.geojson');
       response.headers.set('X-AI-KML-Map', 'https://aloyonetim.com.tr/api/geo/istanbul.kml');
       response.headers.set('X-AI-Sitemap-Regions', 'https://aloyonetim.com.tr/sitemap-regions.xml');
+      response.headers.set('X-AI-Agent-Card', 'https://aloyonetim.com.tr/.well-known/agent-card.json');
+      response.headers.set('X-AI-MCP-Server-Card', 'https://aloyonetim.com.tr/.well-known/mcp/server-card.json');
+      response.headers.set('X-AI-Catalog-ARD', 'https://aloyonetim.com.tr/.well-known/ai-catalog.json');
+      response.headers.set('X-AI-ACP-Discovery', 'https://aloyonetim.com.tr/.well-known/acp.json');
+      response.headers.set('X-AI-UCP-Discovery', 'https://aloyonetim.com.tr/.well-known/ucp');
 
       if (pathname.includes('site-yonetimi')) {
         response.headers.set('X-AI-Markdown-Alternative', 'https://aloyonetim.com.tr/api/markdown/site-yonetimi');
       } else if (pathname.includes('tesis-yonetimi')) {
         response.headers.set('X-AI-Markdown-Alternative', 'https://aloyonetim.com.tr/api/markdown/tesis-yonetimi');
       } else {
-        response.headers.set('X-AI-Markdown-Alternative', 'https://aloyonetim.com.tr/api/markdown');
+        response.headers.set(
+          'X-AI-Markdown-Alternative',
+          `https://aloyonetim.com.tr/api/markdown?path=${encodeURIComponent(pathname)}`,
+        );
       }
     }
 
