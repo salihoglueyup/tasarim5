@@ -29,36 +29,25 @@ export default function CareerAiOverviewSeo({
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const schemaData = [
-    ...(emitFaqSchema
-      ? [
-          {
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: [
-              {
-                '@type': 'Question',
-                name: question,
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: directAnswer,
-                  author: { '@type': 'Organization', name: 'Alo Yönetim' },
-                },
+  const schemaData = emitFaqSchema
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: directAnswer,
+                author: { '@type': 'Organization', name: 'Alo Yönetim' },
               },
-            ],
-          },
-        ]
-      : []),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: question,
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#career-instant-answer-text'],
-      },
-    },
-  ];
+            },
+          ],
+        },
+      ]
+    : null;
 
   const claudeUrl = `https://claude.ai/new?q=${encodeURIComponent(question)}`;
 
@@ -68,7 +57,7 @@ export default function CareerAiOverviewSeo({
       aria-label={tk('ist_ai_label')}
       className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
-      <JsonLd data={schemaData} />
+      {schemaData && <JsonLd data={schemaData} />}
 
       <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-400/5 via-slate-300/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 

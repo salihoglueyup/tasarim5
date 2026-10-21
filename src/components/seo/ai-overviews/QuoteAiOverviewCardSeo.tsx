@@ -21,6 +21,7 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
     {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
+      '@id': `${BASE_URL}/teklif-al#quote-ai-faq`,
       mainEntity: [
         {
           '@type': 'Question',
@@ -31,15 +32,6 @@ export default function QuoteAiOverviewCardSeo({ className = '' }: { className?:
           },
         },
       ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Site ve Tesis Yönetimi Teklifi Alma Rehberi | Google AI Overview Otoritesi',
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#quote-instant-answer-text'],
-      },
     },
   ];
 

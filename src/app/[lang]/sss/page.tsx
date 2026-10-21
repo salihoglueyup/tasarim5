@@ -6,6 +6,7 @@ import { CURATED_FAQS } from '@/data/faqCurated';
 import FaqClient from './FaqClient';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
+import { localePath } from '@/lib/i18n/localePath';
 import FaqAiOverviewHubSeo from '@/components/seo/ai-overviews/FaqAiOverviewHubSeo';
 import FactCheckAiGroundingSeo from '@/components/seo/ai-overviews/FactCheckAiGroundingSeo';
 import PeopleAlsoAskDeepTreeSeo from '@/components/seo/ai-overviews/PeopleAlsoAskDeepTreeSeo';
@@ -25,19 +26,29 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  const dict = await getDictionary(lang);
   return buildMetadata({
-    title: 'Sıkça Sorulan Sorular & KMK 634 Rehberi | Alo Yönetim',
-    description: 'Site yönetimi, aidat icra takibi, 5188 özel güvenlik ve KMK 634 hakkında en çok merak edilen soruların yanıtları. Hukuki rehberi inceleyin!',
+    title:
+      lang === 'tr'
+        ? 'Sıkça Sorulan Sorular & KMK 634 Rehberi | Alo Yönetim'
+        : `${dict.sss_title || 'FAQ'} | Alo Yönetim`,
+    description:
+      lang === 'tr'
+        ? 'Site yönetimi, aidat icra takibi, 5188 özel güvenlik ve KMK 634 hakkında en çok merak edilen soruların yanıtları. Hukuki rehberi inceleyin!'
+        : dict.sss_desc || 'Frequently asked questions about Turkish Condominium Law No. 634, security, and facility management.',
     path: '/sss',
     lang,
-    targetKeyword: 'site yönetimi sıkça sorulan sorular',
-    keywords: [
-      'site yönetimi sss',
-      'apartman yönetimi soruları',
-      'kmk 634 soruları',
-      'aidat ödenmezse ne olur',
-      'yönetici nasıl seçilir',
-    ],
+    targetKeyword: lang === 'tr' ? 'site yönetimi sıkça sorulan sorular' : undefined,
+    keywords:
+      lang === 'tr'
+        ? [
+            'site yönetimi sss',
+            'apartman yönetimi soruları',
+            'kmk 634 soruları',
+            'aidat ödenmezse ne olur',
+            'yönetici nasıl seçilir',
+          ]
+        : undefined,
   });
 }
 
@@ -79,7 +90,8 @@ export default async function SSSPage({ params }: { params: Promise<{ lang: stri
 
   const pageLd = webPageSchema({
     name: dict.sss_title + ' — Alo Yönetim',
-    path: '/sss',
+    path: localePath('/sss', lang),
+    lang,
     speakableSelectors: ['#faq-instant-answer-text', '#factcheck-instant-answer-text', '#paa-deep-tree-instant-answer-text', 'h1', '.faq-question', '.faq-answer'],
   });
 

@@ -96,15 +96,7 @@ export default function FaqAiOverviewHubSeo({
           },
         })),
       }
-    : {
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        name: 'Google AI Overviews SSS Karar Masası | Alo Yönetim',
-        speakable: {
-          '@type': 'SpeakableSpecification',
-          cssSelector: ['#faq-instant-answer-text'],
-        },
-      };
+    : null;
 
   return (
     <section
@@ -113,10 +105,12 @@ export default function FaqAiOverviewHubSeo({
       className={`bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-3xl p-6 sm:p-10 md:p-12 shadow-xs relative overflow-hidden mb-12 ${className}`}
     >
       {/* Schema.org FAQPage */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      {schemaData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      )}
 
       {/* Decorative Glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />

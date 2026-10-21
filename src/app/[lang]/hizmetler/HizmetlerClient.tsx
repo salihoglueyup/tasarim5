@@ -11,6 +11,7 @@ import ServiceComparisonMatrixSeo from '@/components/seo/facility/ServiceCompari
 import MevzuatReferenceSeo from '@/components/seo/kmk/MevzuatReferenceSeo';
 import InstantAnswerCardSeo from '@/components/seo/ai-overviews/InstantAnswerCardSeo';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
+import { BASE_URL } from '@/lib/seo';
 import { useLanguage } from '@/context/LanguageContext';
 
 import Icon from '@/components/ui/branding/Icon';
@@ -44,7 +45,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
   // Structured schema carousel items covering all 10 services
   const carouselItems = ALL_SERVICES_CATALOG.map((s) => ({
     name: s.title,
-    url: `https://aloyonetim.com${s.slug}`,
+    url: `${BASE_URL}${lp(s.slug)}`,
     description: s.desc,
   }));
 
@@ -108,10 +109,10 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
           <div className="mb-12">
             <MevzuatReferenceSeo
               kanunAdi="634 Sayılı Kat Mülkiyeti Kanunu"
-              maddeNo="Madde 20 & 37"
-              maddeBasligi="Ortak Gider Paylaşımı ve İşletme Projesi Zorunluluğu"
-              orijinalMetin="Kat maliklerinden her biri aralarında başka türlü anlaşma olmadıkça: Kapıcı, kaloriferci, bahçıvan ve bekçi giderlerine ve bunlar için toplanacak avansa eşit olarak katılmakla yükümlüdür. Yönetici veya yönetim kurulu, kat malikleri kurulunca kabul edilmiş bir işletme projesi yoksa gecikmeksizin bir işletme projesi yapar."
-              uzmanYorumu="Alo Yönetim, yönettiği tüm bağımsız bölümlerde KMK standartlarında dijital işletme projesi hazırlayarak tebliğ eder ve aidat takibini düzenli yürütür."
+              maddeNo="Madde 20 & 37 (7579 S.K.)"
+              maddeBasligi="Ortak Gider Paylaşımı ve İşletme Projesi Onayı"
+              orijinalMetin="Kat maliklerinden her biri aralarında başka türlü anlaşma olmadıkça: Kapıcı, kaloriferci, bahçıvan ve bekçi giderlerine ve bunlar için toplanacak avansa eşit olarak katılmakla yükümlüdür. İşletme projesi kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç 3 ay içinde kurula sunulmak üzere geçici işletme projesi hazırlar (mevcut projeli yapılarda artış yeniden değerleme oranını aşamaz)."
+              uzmanYorumu="Alo Yönetim, yönettiği tüm bağımsız bölümlerde 7579 sayılı Kanun ile değişik KMK m.37 standartlarında dijital işletme projesi hazırlayarak kurul onayına sunar ve aidat takibini düzenli yürütür."
             />
           </div>
 
@@ -128,7 +129,7 @@ export default function HizmetlerClient({ lang = 'tr' }: HizmetlerClientProps) {
               ]}
               lawArticle="634 Sayılı Kat Mülkiyeti Kanunu & 5188 Sayılı Özel Güvenlik Kanunu"
               category="Entegre Tesis Yönetimi"
-              emitFaqSchema={true}
+              emitFaqSchema={false}
             />
           </div>
 

@@ -22,6 +22,7 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
     {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
+      '@id': `${BASE_URL}/iletisim#contact-ai-faq`,
       mainEntity: [
         {
           '@type': 'Question',
@@ -32,41 +33,6 @@ export default function ContactAiOverviewCardSeo({ className = '' }: { className
           },
         },
       ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'ContactPage',
-      name: 'Alo Yönetim Acil Teknik İletişim ve Destek Merkezi',
-      url: `${BASE_URL}/iletisim`,
-      mainEntity: {
-        '@type': 'Organization',
-        name: 'Alo Yönetim ve Organizasyon A.Ş.',
-        telephone: '+90 216 550 48 48',
-        contactPoint: [
-          {
-            '@type': 'ContactPoint',
-            telephone: '+90 216 550 48 48',
-            contactType: 'customer service',
-            areaServed: 'TR',
-            availableLanguage: ['Turkish', 'English', 'Russian', 'Arabic'],
-            hoursAvailable: {
-              '@type': 'OpeningHoursSpecification',
-              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-              opens: '00:00',
-              closes: '23:59',
-            },
-          },
-        ],
-      },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Alo Yönetim İletişim & Acil İntikal SLA Otoritesi',
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#contact-instant-answer-text'],
-      },
     },
   ];
 

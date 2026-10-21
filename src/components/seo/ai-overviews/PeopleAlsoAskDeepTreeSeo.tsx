@@ -414,17 +414,7 @@ export default function PeopleAlsoAskDeepTreeSeo({
           })),
         },
       ]
-    : [
-        {
-          '@context': 'https://schema.org',
-          '@type': 'WebPage',
-          name: 'Alo Yönetim Google AI Overviews PAA (People Also Ask) Derin Soru-Cevap Ağacı',
-          speakable: {
-            '@type': 'SpeakableSpecification',
-            cssSelector: ['#paa-deep-tree-instant-answer-text'],
-          },
-        },
-      ];
+    : null;
 
   return (
     <section
@@ -432,10 +422,12 @@ export default function PeopleAlsoAskDeepTreeSeo({
       className={`relative w-full rounded-3xl border border-[var(--color-outline)]/80 dark:border-white/10 bg-[var(--color-surface)] dark:bg-[var(--color-surface)] p-6 sm:p-10 md:p-12 shadow-xs text-slate-900 dark:text-slate-100 overflow-hidden mb-12 ${className}`}
       aria-label="Google AI Overviews ve PAA Derin Soru-Cevap Ağacı"
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      {schemaData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      )}
 
       {/* Ambient Glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-slate-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />

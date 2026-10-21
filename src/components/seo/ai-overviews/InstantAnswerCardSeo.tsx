@@ -66,19 +66,9 @@ export default function InstantAnswerCardSeo({
     ],
   };
 
-  const speakableData = {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    speakable: {
-      '@type': 'SpeakableSpecification',
-      cssSelector: ['.featured-snippet-question', '.featured-snippet-answer'],
-    },
-  };
-
   return (
     <div className="my-10 bg-[var(--color-surface)] text-[var(--color-primary)] p-8 md:p-10 rounded-[2.5rem] border border-[var(--color-outline)]/80 shadow-sm relative overflow-hidden">
       {emitFaqSchema && <JsonLd data={schemaData} />}
-      <JsonLd data={speakableData} />
 
       {/* Decorative Glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-slate-500/5 blur-[100px] pointer-events-none rounded-full" />

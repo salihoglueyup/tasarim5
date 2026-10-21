@@ -4,6 +4,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
+import { localePath } from '@/lib/i18n/localePath';
 import HubAiOverviewGroundingSeo from '@/components/seo/ai-overviews/HubAiOverviewGroundingSeo';
 import ReferencesShowcase from './ReferencesShowcase';
 
@@ -44,7 +45,8 @@ export default async function ReferanslarPage({ params }: { params: Promise<{ la
           webPageSchema({
             name: t('refx_title'),
             description: t('refx_meta_desc'),
-            path: '/referanslar',
+            path: localePath('/referanslar', lang),
+            lang,
             speakableSelectors: ['h1', '#references-hub-instant-answer-text'],
           }),
         ]}

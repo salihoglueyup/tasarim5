@@ -322,5 +322,21 @@ describe('Cloudflare Agent Readiness & AI Discovery Suite', () => {
     });
     expect(enArticleLd['@id']).toBe('https://aloyonetim.com.tr/en/blog/test-article#article');
     expect(enArticleLd.inLanguage).toBe('en-US');
+
+    // 4. Mahalle (/bolgeler/[ilce]/mahalleler/[mahalle]) ve İlçe×Hizmet (/bolgeler/[ilce]/guvenlik-yonetimi) Markdown
+    const mahalleMdRes = await getUniversalMarkdown(
+      new NextRequest('https://aloyonetim.com.tr/api/markdown?path=%2Fbolgeler%2Fkadikoy%2Fmahalleler%2Ffenerbahce'),
+    );
+    expect(mahalleMdRes.status).toBe(200);
+    const mahalleMd = await mahalleMdRes.text();
+    expect(mahalleMd).toContain('Fenerbahçe, Kadıköy Site ve Tesis Yönetimi');
+    expect(mahalleMd).toContain('https://aloyonetim.com.tr/bolgeler/kadikoy/mahalleler/fenerbahce');
+    expect(mahalleMd).toContain('30 dakika');
+
+    const distSvcMdRes = await getUniversalMarkdown(
+      new NextRequest('https://aloyonetim.com.tr/api/markdown?path=%2Fbolgeler%2Fkadikoy%2Fguvenlik-yonetimi'),
+    );
+    expect(distSvcMdRes.status).toBe(200);
+    expect(await distSvcMdRes.text()).toContain('Kadıköy Güvenlik Yönetimi');
   });
 });

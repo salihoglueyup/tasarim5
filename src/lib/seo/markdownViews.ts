@@ -222,13 +222,61 @@ ${CONTACT}`);
     }
   }
 
-  // 1. İlçe ve İlçe Alt Rotaları (/bolgeler/[ilce], /bolgeler/[ilce]/site-yonetimi, /bolgeler/[ilce]/tesis-yonetimi, /bolgeler/[ilce]/mahalleler)
-  const districtMatch = cleanPath.match(/^\/bolgeler\/([^/]+)(?:\/(site-yonetimi|tesis-yonetimi|mahalleler))?$/);
+  // 1A. Mahalle Detay Rotaları (/bolgeler/[ilce]/mahalleler/[mahalle])
+  const neighborhoodMatch = cleanPath.match(/^\/bolgeler\/([^/]+)\/mahalleler\/([^/]+)$/);
+  if (neighborhoodMatch) {
+    const [, districtSlug, mahalleSlug] = neighborhoodMatch;
+    const district = getDistrict(districtSlug);
+    const neighborhood = district?.neighborhoodData?.find((n) => n.slug === mahalleSlug);
+    if (district && neighborhood) {
+      const sideLabel = district.side === 'Anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası';
+      const slaTarget =
+        district.side === 'Anadolu'
+          ? FACTS.emergencyResponse.anatolian
+          : FACTS.emergencyResponse.european;
+      const geo = neighborhood.geo || district.geo;
+      const chars = neighborhood.characteristics?.length
+        ? neighborhood.characteristics.join(', ')
+        : 'Konut sitesi ve apartman yerleşimi';
+
+      return withLocaleBanner(`# Alo Yönetim — ${neighborhood.name}, ${district.name} Site ve Tesis Yönetimi
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}/bolgeler/${district.slug}/mahalleler/${neighborhood.slug}
+> **Mahalle / İlçe**: ${neighborhood.name}, ${district.name}, İstanbul (${sideLabel})
+> **Koordinatlar**: ${geo.lat}, ${geo.lng}
+> **Acil Teknik Müdahale Hedefi (Yazılı SLA)**: ${slaTarget}
+> **Yasal Çerçeve**: 634 sayılı Kat Mülkiyeti Kanunu, ${KMK_AMENDMENT_2026.lawNumber} sayılı Kanun (2026) ve 5188 sayılı Özel Güvenlik Kanunu
+
+---
+
+## ${neighborhood.name} Mahallesi Operasyon Özeti
+${neighborhood.intro}
+
+- **Bölgesel Yapı Karakteristiği**: ${chars}
+- **Acil Müdahale Hedefi**: ${slaTarget} (${RESPONSE_TARGET_TEXT.tr})
+- **Bağlı Olduğu İlçe Merkezi**: [${district.name} Tesis Yönetimi](${BASE_URL}/bolgeler/${district.slug})
+- **Tüm ${district.name} Mahalleleri**: [Mahalle Listesi](${BASE_URL}/bolgeler/${district.slug}/mahalleler)
+
+## ${neighborhood.name} Bölgesinde Sunulan Başlıca Hizmetler
+- **Site ve Apartman Yönetimi**: KMK m.20 ve m.37 uyumlu işletme projesi hazırlığı, genel kurul organizasyonu ve şeffaf aidat takibi (${BASE_URL}/bolgeler/${district.slug}/site-yonetimi)
+- **Entegre Tesis Yönetimi**: Teknik bakım, enerji izleme, temizlik ve idari yönetim (${BASE_URL}/bolgeler/${district.slug}/tesis-yonetimi)
+- **5188 Sayılı Kanun Özel Güvenlik**: Valilik izinli site ve rezidans güvenliği (${BASE_URL}/bolgeler/${district.slug}/guvenlik-yonetimi)
+- **Teknik Bakım ve Onarım**: Asansör, hidrofor, kazan ve jeneratör periyodik kontrolleri (${BASE_URL}/bolgeler/${district.slug}/teknik-bakim)
+
+---
+
+${CONTACT}`);
+    }
+  }
+
+  // 1B. İlçe ve İlçe×Hizmet Alt Rotaları (/bolgeler/[ilce], /bolgeler/[ilce]/[hizmet], /bolgeler/[ilce]/mahalleler)
+  const districtMatch = cleanPath.match(/^\/bolgeler\/([^/]+)(?:\/([^/]+))?$/);
   if (districtMatch) {
     const districtSlug = districtMatch[1];
     const subRoute = districtMatch[2];
     const district = getDistrict(districtSlug);
-    if (district) {
+    const matchedService = subRoute ? SERVICES.find((s) => s.slug === subRoute) : undefined;
+    if (district && (!subRoute || subRoute === 'mahalleler' || subRoute === 'site-yonetimi' || matchedService)) {
       const sideLabel = district.side === 'Anadolu' ? 'Anadolu Yakası' : 'Avrupa Yakası';
       const slaTarget =
         district.side === 'Anadolu'
@@ -245,11 +293,13 @@ ${CONTACT}`);
             ? `${district.name} Entegre Tesis ve Plaza Yönetimi`
             : subRoute === 'mahalleler'
               ? `${district.name} Mahalle Bazlı Site ve Tesis Yönetimi Kapsamı`
-              : `${district.name} Site ve Tesis Yönetimi`;
+              : matchedService
+                ? `${district.name} ${matchedService.name}`
+                : `${district.name} Site ve Tesis Yönetimi`;
 
-      return `# Alo Yönetim — ${focusHeading}
+      return withLocaleBanner(`# Alo Yönetim — ${focusHeading}
 
-> **Kanonik URL**: ${BASE_URL}${cleanPath}
+> **Kanonik URL**: ${BASE_URL}${langPrefix}${cleanPath}
 > **Bölge**: ${district.name}, İstanbul (${sideLabel})
 > **Merkez Koordinatları**: ${district.geo.lat}, ${district.geo.lng}
 > **Acil Teknik Müdahale Hedefi (Yazılı SLA)**: ${slaTarget}
@@ -258,7 +308,7 @@ ${CONTACT}`);
 ---
 
 ## Bölgesel Operasyon Özeti
-Alo Yönetim, ${FACTS.foundingYear}'dan beri İstanbul ${district.name} (${sideLabel}) bölgesindeki apartman, konut sitesi, rezidans, iş merkezi ve ticari tesislere profesyonel yönetim hizmeti sunmaktadır.
+Alo Yönetim, ${FACTS.foundingYear}'dan beri İstanbul ${district.name} (${sideLabel}) bölgesindeki apartman, konut sitesi, rezidans, iş merkezi ve ticari tesislere profesyonel ${matchedService ? matchedService.name.toLowerCase() : 'yönetim'} hizmeti sunmaktadır.
 
 - **İlçe**: ${district.name} (${sideLabel})
 - **Acil Müdahale Hedefi**: ${slaTarget} (${RESPONSE_TARGET_TEXT.tr})
@@ -277,7 +327,7 @@ Alo Yönetim, ${FACTS.foundingYear}'dan beri İstanbul ${district.name} (${sideL
 
 ---
 
-${CONTACT}`;
+${CONTACT}`);
     }
   }
 

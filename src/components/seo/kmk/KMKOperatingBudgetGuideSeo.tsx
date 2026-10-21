@@ -44,7 +44,7 @@ export default function KMKOperatingBudgetGuideSeo({
     "@graph": [
       {
         "@type": "Legislation",
-        "@id": "https://aloyonetim.com/#legislation-kmk-m37",
+        "@id": "https://aloyonetim.com.tr/#legislation-kmk-m37",
         "name": "634 Sayılı Kat Mülkiyeti Kanunu Madde 37 (7579 s. Kanun) - İşletme Projesinin Yapılması ve Onayı",
         "legislationType": "Statute",
         "legislationJurisdiction": {
@@ -55,14 +55,14 @@ export default function KMKOperatingBudgetGuideSeo({
       },
       {
         "@type": "TechArticle",
-        "@id": "https://aloyonetim.com/#techarticle-operating-budget-guide",
+        "@id": "https://aloyonetim.com.tr/#techarticle-operating-budget-guide",
         "headline": "Sitelerde İşletme Projesi Hazırlama, Kurul Onayı ve Kesinleşme Rehberi (7579 s. Kanun)",
         "description": "KMK m.20 ve m.37 (7579 s. Kanun) uyarınca eşit ve arsa payına göre gider dağıtımı, geçici bütçe tavanı ve itirazın iptali davalarında delil niteliği.",
         "inLanguage": "tr",
         "author": {
           "@type": "Organization",
           "name": "Alo Yönetim Mali ve Hukuki İşler Direktörlüğü",
-          "url": "https://aloyonetim.com"
+          "url": "https://aloyonetim.com.tr"
         }
       }
     ]

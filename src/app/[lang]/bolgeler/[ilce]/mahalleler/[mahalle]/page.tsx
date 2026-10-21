@@ -8,6 +8,7 @@ import PageHeader from '@/components/layout/page/PageHeader';
 import DynamicFAQ from '@/components/seo/schema/DynamicFAQ';
 import NeighborhoodAiOverviewSnippetSeo from '@/components/seo/district/NeighborhoodAiOverviewSnippetSeo';
 import { generateBreadcrumbs, webPageSchema, ORG_PHONE, ORG_EMAIL, ORG_LOGO, ORG_ADDRESS, ORG_PRICE_RANGE } from '@/lib/schemas';
+import { localePath } from '@/lib/i18n/localePath';
 import { DISTRICTS, getDistrict } from '@/data/districts';
 import { SERVICES } from '@/data/services';
 import trDict from '@/i18n/locales/tr/common.json';
@@ -171,7 +172,8 @@ export default async function NeighborhoodPage({
   const pageLd = webPageSchema({
     name: `${neighborhood.name}, ${district.name} Tesis Yönetimi`,
     description: neighborhood.intro,
-    path,
+    path: localePath(path, lang),
+    lang,
     speakableSelectors: ['#neighborhood-instant-answer-text', '.neighborhood-intro', 'h1'],
   });
 
@@ -275,6 +277,7 @@ export default async function NeighborhoodPage({
           <DynamicFAQ
             faqs={faqs}
             title={`${neighborhood.name} Tesis Yönetimi — Sık Sorulan Sorular`}
+            injectSchema={false}
           />
         </div>
 

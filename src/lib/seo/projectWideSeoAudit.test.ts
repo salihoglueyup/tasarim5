@@ -385,4 +385,37 @@ describe('Project-Wide SEO & Google AI Overviews Architecture Guard (Faz 1-5)', 
       expect(careerPage).toContain("speakableSelectors: ['h1', '#career-instant-answer-text']");
     });
   });
+
+  describe('Faz 20: Neighborhood SLA Honesty, AI Overview WebPage Deduplication & Domain (.com.tr) Hygiene', () => {
+    it('aligns NeighborhoodAiOverviewSnippetSeo with FACTS.emergencyResponse and deduplicates FAQPage on neighborhood pages', () => {
+      const neighAi = readRel('src/components/seo/district/NeighborhoodAiOverviewSnippetSeo.tsx');
+      expect(neighAi).toContain('FACTS.emergencyResponse.anatolian');
+      expect(neighAi).not.toContain('15-20');
+      expect(neighAi).not.toContain('20-25');
+      expect(neighAi).not.toContain("'@type': 'WebPage'");
+
+      const neighPage = readRel('src/app/[lang]/bolgeler/[ilce]/mahalleler/[mahalle]/page.tsx');
+      expect(neighPage).toContain('injectSchema={false}');
+    });
+
+    it('cleans unverified court docket numbers, wrong aloyonetim.com domain, and duplicate WebPage nodes in AI overview components', () => {
+      const factCheck = readRel('src/components/seo/ai-overviews/FactCheckAiGroundingSeo.tsx');
+      expect(factCheck).toContain('url: BASE_URL');
+      expect(factCheck).not.toContain('aloyonetim.com\'');
+      expect(factCheck).not.toContain('Esas 2017/1248');
+      expect(factCheck).not.toContain('Esas 2014/8920');
+      expect(factCheck).not.toContain("'@type': 'WebPage'");
+
+      const hizmetlerClient = readRel('src/app/[lang]/hizmetler/HizmetlerClient.tsx');
+      expect(hizmetlerClient).toContain('url: `${BASE_URL}${lp(s.slug)}`');
+      expect(hizmetlerClient).not.toContain('https://aloyonetim.com$');
+
+      const hubAi = readRel('src/components/seo/ai-overviews/HubAiOverviewGroundingSeo.tsx');
+      expect(hubAi).not.toContain('2 hours on the Anatolian Side');
+      expect(hubAi).toContain('30 minutes on the Anatolian Side');
+
+      const blogHubAi = readRel('src/components/seo/ai-overviews/BlogHubAiOverviewSeo.tsx');
+      expect(blogHubAi).not.toContain('ISO 41001');
+    });
+  });
 });

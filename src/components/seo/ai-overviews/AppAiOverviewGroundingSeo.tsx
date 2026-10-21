@@ -87,15 +87,6 @@ export default function AppAiOverviewGroundingSeo({
         url: BASE_URL,
       },
     },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Alo Yönetim Mobil Sakin ve Yönetici Portalı | Google AI Overview',
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#app-instant-answer-text'],
-      },
-    },
   ];
 
   return (

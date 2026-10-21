@@ -70,15 +70,6 @@ export default function CorporateEntityAiOverviewSeo({ className = '' }: { class
       telephone: '+90 216 550 48 48',
       email: 'info@aloyonetim.com.tr',
     },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Alo Yönetim Kurumsal Kimlik & Güvenilirlik E-E-A-T Otoritesi',
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#corporate-instant-answer-text'],
-      },
-    },
   ];
 
   return (

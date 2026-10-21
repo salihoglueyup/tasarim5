@@ -107,36 +107,23 @@ export default function GlossaryAiOverviewSeo({
   const directAnswer =
     '634 Sayılı Kat Mülkiyeti Kanunu (KMK) çerçevesinde en kritik terimler: 1) İşletme Projesi (KMK 37): Kat malikleri kurulunda onaylanan (veya geçici hazırlanıp en geç 3 ay içinde kurula onaylatılan — 7579 s. Kanun), tebliğinden 7 gün sonra kesinleşen ve İİK 68 uyarınca ilamsız icra dayanağı olan yıllık tahmini bütçedir; 2) Gecikme Tazminatı (KMK 20/2): Ödenmeyen aidat borcuna aylık işletilen emredici %5 yasal tazminattır; 3) Demirbaş Fonu: Kalıcı mekanik yenilemeler için yalnızca kat maliklerinden toplanan fondur; 4) Yönetim Planı (KMK 28): Değişmesi için genel yapılarda 4/5, toplu yapılarda 2/3 oy çoğunluğu aranan tüm malikleri bağlayıcı sözleşmedir; 5) Arsa Payı: Ortak teknik giderlerin paylaşımına esas tapu tescilli mülkiyet oranıdır.';
 
-  const schemaData = [
-    ...(emitTermSetSchema
-      ? [
-          {
-            '@context': 'https://schema.org',
-            '@type': 'DefinedTermSet',
-            '@id': `${BASE_URL}/sozluk#glossary-ai-termset`,
-            name: 'Alo Yönetim Kat Mülkiyeti ve Tesis Terimleri Sözlüğü',
-            description: 'Kat mülkiyeti ve site işletmeciliği alanında yasal ve operasyonel terimler sözlüğü.',
-            hasDefinedTerm: TOP_GLOSSARY_TERMS.map((t) => ({
-              '@type': 'DefinedTerm',
-              name: t.term,
-              description: `${t.definition} (Yasal Dayanak: ${t.legalBasis})`,
-              url: `${BASE_URL}/sozluk/${t.slug}`,
-            })),
-          },
-        ]
-      : []),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      '@id': `${BASE_URL}/sozluk#glossary-ai-webpage`,
-      url: `${BASE_URL}/sozluk`,
-      name: 'Site ve Tesis Yönetimi Terimler Sözlüğü | Google AI Overview',
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#glossary-instant-answer-text'],
-      },
-    },
-  ];
+  const schemaData = emitTermSetSchema
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'DefinedTermSet',
+          '@id': `${BASE_URL}/sozluk#glossary-ai-termset`,
+          name: 'Alo Yönetim Kat Mülkiyeti ve Tesis Terimleri Sözlüğü',
+          description: 'Kat mülkiyeti ve site işletmeciliği alanında yasal ve operasyonel terimler sözlüğü.',
+          hasDefinedTerm: TOP_GLOSSARY_TERMS.map((t) => ({
+            '@type': 'DefinedTerm',
+            name: t.term,
+            description: `${t.definition} (Yasal Dayanak: ${t.legalBasis})`,
+            url: `${BASE_URL}/sozluk/${t.slug}`,
+          })),
+        },
+      ]
+    : null;
 
   return (
     <section
@@ -145,10 +132,12 @@ export default function GlossaryAiOverviewSeo({
       className={`bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      {schemaData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      )}
 
       {/* Decorative Glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-slate-500/5 via-slate-400/5 to-transparent rounded-full blur-3xl pointer-events-none" />

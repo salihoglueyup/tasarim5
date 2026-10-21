@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
+import { BASE_URL } from '@/lib/seo';
 
 import Icon from '@/components/ui/branding/Icon';
 export interface FactCheckItem {
@@ -19,7 +20,7 @@ export const LEGAL_FACT_CHECKS: FactCheckItem[] = [
     myth: 'Zemin ve bodrum kattaki daireler asansör ve çatı bakım masraflarından muaftır.',
     reality:
       'Yargıtay 20. Hukuk Dairesi bu itirazı sürekli aynı gerekçeyle reddeder: KMK m.20/1-c\'deki katılım yükümlülüğü "fiilen kullanma"ya değil arsa payına bağlıdır — asansörü hiç kullanmayan bir malik dahi taşınmazın değerinden ve ortak mülkiyetten pay aldığı için bakım, revizyon ve yeşil etiket masrafına ortaktır. Bu zincirin tek kırılma noktası, yönetim planına önceden yazılmış açık bir muafiyet maddesidir.',
-    legalCitation: '634 Sayılı KMK Madde 20/1-c & Yargıtay 20. HD Esas 2017/1248',
+    legalCitation: '634 Sayılı KMK Madde 20/1-c & Yargıtay 20. Hukuk Dairesi İçtihadı',
     lawBadge: 'KMK Madde 20',
     verdict: 'Yanlış (Hukuki Mit)',
   },
@@ -46,7 +47,7 @@ export const LEGAL_FACT_CHECKS: FactCheckItem[] = [
     myth: 'Aidat borcunu geciktiren komşuya yönetim istediği oranda yüksek faiz ve ceza uygulayabilir.',
     reality:
       'KMK Madde 20/2 uyarınca gününde ödenmeyen aidat ve ortak avans borcuna yasal olarak aylık yüzde 5 (%5) oranında gecikme tazminatı işletilir. Bu oran emredici kanun hükmüdür; genel kurul kararıyla dahi fahiş oranda artırılamaz veya ticari faizle birleştirilemez (Yargıtay 18. Hukuk Dairesi).',
-    legalCitation: '634 Sayılı KMK Madde 20/2 & Yargıtay 18. HD Esas 2014/8920',
+    legalCitation: '634 Sayılı KMK Madde 20/2 & Yargıtay 18. Hukuk Dairesi İçtihadı',
     lawBadge: 'KMK Madde 20/2',
     verdict: 'Yanlış (Hukuki Mit)',
   },
@@ -78,38 +79,27 @@ export default function FactCheckAiGroundingSeo({
 
   // Her mit/gerçek çifti bir ClaimReview node'u — Google'ın Fact Check zengin
   // sonuçları ve AI Overviews bu tipi doğrudan tanır (myth = reddedilen iddia).
-  const schemaData = [
-    ...LEGAL_FACT_CHECKS.map((item) => ({
-      '@context': 'https://schema.org',
-      '@type': 'ClaimReview',
-      claimReviewed: item.myth,
-      author: {
-        '@type': 'Organization',
-        name: 'Alo Yönetim',
-        url: 'https://aloyonetim.com',
-      },
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: item.verdict === 'Yanlış (Hukuki Mit)' ? 1 : 5,
-        bestRating: 5,
-        worstRating: 1,
-        alternateName: item.verdict,
-      },
-      itemReviewed: {
-        '@type': 'Claim',
-        author: { '@type': 'Organization', name: 'Yaygın Kanı' },
-      },
-    })),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Site Yönetimi ve Kat Mülkiyeti Hukuki Mitler ve Doğrular | Google AI Fact Check',
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['.factcheck-instant-answer-text'],
-      },
+  const schemaData = LEGAL_FACT_CHECKS.map((item) => ({
+    '@context': 'https://schema.org',
+    '@type': 'ClaimReview',
+    claimReviewed: item.myth,
+    author: {
+      '@type': 'Organization',
+      name: 'Alo Yönetim',
+      url: BASE_URL,
     },
-  ];
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: item.verdict === 'Yanlış (Hukuki Mit)' ? 1 : 5,
+      bestRating: 5,
+      worstRating: 1,
+      alternateName: item.verdict,
+    },
+    itemReviewed: {
+      '@type': 'Claim',
+      author: { '@type': 'Organization', name: 'Yaygın Kanı' },
+    },
+  }));
 
   return (
     <section

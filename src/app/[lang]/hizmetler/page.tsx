@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
+import { localePath } from '@/lib/i18n/localePath';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, serviceSchema, webPageSchema } from '@/lib/schemas';
 import HizmetlerClient from './HizmetlerClient';
@@ -58,7 +59,7 @@ export default async function HizmetlerPage({
 
   const serviceLd = serviceSchema({
     serviceType: 'Entegre Tesis Yönetimi',
-    path: '/hizmetler',
+    path: localePath('/hizmetler', lang),
     description: t.services_desc || 'İstanbul genelinde profesyonel tesis, site, plaza ve toplu konut yönetim hizmetleri.',
     offerCatalogName: 'Alo Yönetim Tesis Yönetim Hizmetleri Kataloğu',
   });
@@ -67,8 +68,9 @@ export default async function HizmetlerPage({
     type: 'CollectionPage',
     name: t.services_title || 'Hizmetlerimiz',
     description: t.services_desc || 'Tüm profesyonel tesis ve site yönetim hizmetlerimiz.',
-    path: '/hizmetler',
-    speakableSelectors: ['h1', 'p', '#instant-answer-text'],
+    path: localePath('/hizmetler', lang),
+    lang,
+    speakableSelectors: ['h1', '#instant-answer-text', '.featured-snippet-answer'],
   });
 
   return (

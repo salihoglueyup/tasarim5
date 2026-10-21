@@ -26,38 +26,25 @@ export default function AccreditationAiOverviewSeo({
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const schemaData = [
-    ...(emitFaqSchema
-      ? [
-          {
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            '@id': `${BASE_URL}/kurumsal/kalite-belgelerimiz#accreditation-faq`,
-            mainEntity: [
-              {
-                '@type': 'Question',
-                name: question,
-                acceptedAnswer: {
-                  '@type': 'Answer',
-                  text: directAnswer,
-                },
+  const schemaData = emitFaqSchema
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          '@id': `${BASE_URL}/kurumsal/kalite-belgelerimiz#accreditation-faq`,
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: directAnswer,
               },
-            ],
-          },
-        ]
-      : []),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      '@id': `${BASE_URL}/kurumsal/kalite-belgelerimiz#accreditation-ai-webpage`,
-      url: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
-      name: 'Alo Yönetim ISO Akreditasyonları & Kalite Belgeleri | Google AI Overview',
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#accreditation-instant-answer-text'],
-      },
-    },
-  ];
+            },
+          ],
+        },
+      ]
+    : null;
 
   return (
     <section
@@ -66,10 +53,12 @@ export default function AccreditationAiOverviewSeo({
       className={`bg-[var(--color-surface)] border border-primary/25 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden my-8 ${className}`}
     >
       {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      {schemaData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      )}
 
       {/* Decorative Glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-primary/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />

@@ -122,43 +122,34 @@ export default function VoiceConversationalAiSnippetSeo({
     }
   };
 
-  const schemaData = [
-    ...(emitFaqSchema
-      ? [
-          {
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: VOICE_CONVERSATIONAL_QUERIES.map((q) => ({
-              '@type': 'Question',
-              name: q.userVoiceQuery,
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: q.conversationalAnswer,
-              },
-            })),
-          },
-        ]
-      : []),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Doğal Konuşma Dili ve Sesli Arama AI Asistanı | Alo Yönetim',
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#voice-conversational-answer-text', '.voice-user-query'],
-      },
-    },
-  ];
+  const schemaData = emitFaqSchema
+    ? [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: VOICE_CONVERSATIONAL_QUERIES.map((q) => ({
+            '@type': 'Question',
+            name: q.userVoiceQuery,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: q.conversationalAnswer,
+            },
+          })),
+        },
+      ]
+    : null;
 
   return (
     <section
       className={`relative w-full rounded-2xl border border-slate-500/20 bg-gradient-to-br from-slate-900/90 via-slate-950/40 to-slate-900/90 p-6 sm:p-8 backdrop-blur-md shadow-xl text-slate-100 ${className}`}
       aria-label="Doğal Konuşma Dili ve Sesli Arama AI Asistanı"
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      {schemaData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      )}
 
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-500/20 pb-4">

@@ -31,14 +31,14 @@ export default function FacilityEnforcementDisputeSeo({
     "@graph": [
       {
         "@type": "LegalService",
-        "@id": "https://aloyonetim.com/#service-enforcement-disputes",
+        "@id": "https://aloyonetim.com.tr/#service-enforcement-disputes",
         "name": "Sitelerde Aidat İcra Takibi ve İtirazın İptali Hukuk Danışmanlığı",
         "serviceType": "Kat Mülkiyeti İcra Hukuku",
         "description": "2004 Sayılı İİK m.68 itirazın kaldırılması, İİK m.67 itirazın iptali davaları, %20 icra inkar tazminatı ve aylık %5 gecikme faizi tahsilat yönetimi.",
         "provider": {
           "@type": "Organization",
           "name": "Alo Yönetim İcra ve Hukuk Müşavirliği",
-          "url": "https://aloyonetim.com"
+          "url": "https://aloyonetim.com.tr"
         },
         "areaServed": {
           "@type": "AdministrativeArea",
@@ -47,14 +47,14 @@ export default function FacilityEnforcementDisputeSeo({
       },
       {
         "@type": "TechArticle",
-        "@id": "https://aloyonetim.com/#techarticle-enforcement-guide",
+        "@id": "https://aloyonetim.com.tr/#techarticle-enforcement-guide",
         "headline": "İcra İtirazının İptali ve %20 İcra İnkar Tazminatı Rehberi",
         "description": "Ödenmeyen site aidatlarında İcra Hukuk Mahkemesi ile Sulh Hukuk Mahkemesi arasındaki farklar, 6 aylık ve 1 yıllık hak düşürücü süreler ve kiracının KMK m.22 sorumluluk sınırları.",
         "inLanguage": "tr",
         "author": {
           "@type": "Organization",
           "name": "Alo Yönetim Hukuk Direktörlüğü",
-          "url": "https://aloyonetim.com"
+          "url": "https://aloyonetim.com.tr"
         }
       }
     ]

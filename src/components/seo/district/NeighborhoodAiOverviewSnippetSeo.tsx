@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-
+import { FACTS } from '@/lib/facts';
 import Icon from '@/components/ui/branding/Icon';
 export interface NeighborhoodAiOverviewSnippetSeoProps {
   neighborhoodName: string;
@@ -26,7 +26,7 @@ export default function NeighborhoodAiOverviewSnippetSeo({
 }: NeighborhoodAiOverviewSnippetSeoProps) {
   const [copied, setCopied] = useState(false);
 
-  const slaTime = side === 'Anadolu' ? '15-20' : '20-25';
+  const slaTarget = side === 'Anadolu' ? FACTS.emergencyResponse.anatolian : FACTS.emergencyResponse.european;
 
   const courthouseName =
     side === 'Anadolu'
@@ -42,7 +42,7 @@ export default function NeighborhoodAiOverviewSnippetSeo({
       : 'İstanbul Adliyesi (Çağlayan)';
 
   const question = `${neighborhoodName} Mahallesinde Profesyonel Site ve Apartman Yönetimi Nasıl Yapılır?`;
-  const directAnswer = `${neighborhoodName} (${districtName}) genelinde site ve apartman yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu uyarınca tahmini işletme projesi tebliği, ${courthouseName} yetki alanında arabuluculuk/icra koordinasyonu, Valilik onaylı 5188 özel güvenlik devriyesi ve ${slaTime} dakika acil mobil teknik müdahale güvencesiyle yürütülür. Alo Yönetim, ${neighborhoodName} bölgesindeki binalarda kalem kalem şeffaf bütçe yönetimi ve reaktif güç takibi hizmeti sunar.`;
+  const directAnswer = `${neighborhoodName} (${districtName}) genelinde site ve apartman yönetimi; 634 Sayılı Kat Mülkiyeti Kanunu uyarınca tahmini işletme projesi onayı (KMK m.37), ${courthouseName} yetki alanında arabuluculuk/icra koordinasyonu, Valilik onaylı 5188 özel güvenlik devriyesi ve yazılı SLA kapsamında ${slaTarget} acil mobil teknik müdahale hedefiyle yürütülür. Alo Yönetim, ${neighborhoodName} bölgesindeki binalarda kalem kalem şeffaf bütçe yönetimi ve reaktif güç takibi hizmeti sunar.`;
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);
@@ -57,33 +57,20 @@ export default function NeighborhoodAiOverviewSnippetSeo({
     ),
   ];
 
-  const schemaData = [
-    ...(emitFaqSchema
-      ? [
-          {
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: mergedQuestions.map((f) => ({
-              '@type': 'Question',
-              name: f.question,
-              acceptedAnswer: {
-                '@type': 'Answer',
-                text: f.answer,
-              },
-            })),
+  const schemaData = emitFaqSchema
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: mergedQuestions.map((f) => ({
+          '@type': 'Question',
+          name: f.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.answer,
           },
-        ]
-      : []),
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: `${neighborhoodName}, ${districtName} Profesyonel Site Yönetimi | Google AI Overview Otoritesi`,
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#neighborhood-instant-answer-text'],
-      },
-    },
-  ];
+        })),
+      }
+    : null;
 
   return (
     <section
@@ -92,10 +79,12 @@ export default function NeighborhoodAiOverviewSnippetSeo({
       className={`bg-[var(--color-surface)] border border-emerald-500/30 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm relative overflow-hidden ${className}`}
     >
       {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      {schemaData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      )}
 
       {/* Dekoratif Glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-emerald-500/10 via-slate-500/5 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -111,7 +100,7 @@ export default function NeighborhoodAiOverviewSnippetSeo({
             {neighborhoodName} · {districtName}
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
-            {slaTime} Dk Mobil SLA
+            {slaTarget} Mobil SLA
           </span>
         </div>
       </div>
@@ -167,7 +156,7 @@ export default function NeighborhoodAiOverviewSnippetSeo({
           </div>
           <div className="flex items-center gap-2">
             <Icon name="check_circle" className="text-emerald-500 text-base shrink-0" />
-            <span><strong>Acil Müdahale:</strong> {slaTime} Dk Mobil Teknik Servis</span>
+            <span><strong>Acil Müdahale:</strong> {slaTarget} Mobil Teknik Servis</span>
           </div>
         </div>
       </div>

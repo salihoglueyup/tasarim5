@@ -72,7 +72,7 @@ const HUB_COPY: Record<HubKey, Record<string, HubLocaleCopy>> = {
       question: 'What Does Alo Yönetim’s Verified Facility Management Portfolio in Istanbul Include?',
       answer: `Founded in ${FACTS.foundingYear}, Alo Yönetim manages a verified portfolio of ${FACTS.referenceCount} corporate, public, academic, residential, and industrial properties across all ${FACTS.districtCount} districts of Istanbul under ISO 45001:2018, ISO 10002:2018, Turkish Condominium Law No. 634, and Private Security Law No. 5188.`,
       q2: 'How Are Service Quality and Financial Transparency Audited Across Reference Properties?',
-      a2: 'Every managed property operates under written SLA targets (2 hours on the Anatolian Side, 3 hours on the European Side), digital accounting transparency via Apsiyon, and periodic technical & occupational safety audits.',
+      a2: 'Every managed property operates under written SLA targets (30 minutes on the Anatolian Side, 1 hour on the European Side), digital accounting transparency via Apsiyon, and periodic technical & occupational safety audits.',
       metrics: [
         { label: 'Verified References', value: `${FACTS.referenceCount} Institutions & Complexes` },
         { label: 'Track Record', value: `Since ${FACTS.foundingYear}` },
@@ -87,7 +87,7 @@ const HUB_COPY: Record<HubKey, Record<string, HubLocaleCopy>> = {
       question: 'Какие объекты входят в портфель корпоративных рекомендаций Alo Yönetim в Стамбуле?',
       answer: `Компания Alo Yönetim (основана в ${FACTS.foundingYear} г.) обслуживает ${FACTS.referenceCount} подтверждённых государственных, образовательных, коммерческих, жилых и промышленных объектов во всех ${FACTS.districtCount} районах Стамбула по стандартам ISO 45001:2018, ISO 10002:2018 и законам № 634 и № 5188.`,
       q2: 'Как контролируется качество обслуживания и финансовая прозрачность на объектах?',
-      a2: 'На каждом объекте действуют письменные нормативы SLA (2 часа в Азиатской части, 3 часа в Европейской части), прозрачный цифровой учёт через портал Apsiyon и регулярные инженерные проверки.',
+      a2: 'На каждом объекте действуют письменные нормативы SLA (30 минут в Азиатской части, 1 час в Европейской части), прозрачный цифровой учёт через портал Apsiyon и регулярные инженерные проверки.',
       metrics: [
         { label: 'Подтверждённые объекты', value: `${FACTS.referenceCount} организаций и ЖК` },
         { label: 'Опыт работы', value: `С ${FACTS.foundingYear} года` },
@@ -102,7 +102,7 @@ const HUB_COPY: Record<HubKey, Record<string, HubLocaleCopy>> = {
       question: 'ماذا تشمل محفظة مشاريع ومراجع شركة Alo Yönetim في إسطنبول؟',
       answer: `تأسست شركة Alo Yönetim عام ${FACTS.foundingYear} وتدير محفظة موثقة تضم ${FACTS.referenceCount} منشأة ومؤسسة عامة وجامعية وسكنية وتجارية وصناعية في جميع مناطق إسطنبول الـ ${FACTS.districtCount} وفق معايير ISO 45001 وISO 10002 وقانون ملكية الطوابق رقم 634 وقانون الأمن الخاص رقم 5188.`,
       q2: 'كيف يتم تدقيق جودة الخدمة والشفافية المالية في المشاريع المرجعية؟',
-      a2: 'يخضع كل مشروع لاتفاقية مستوى خدمة مكتوبة (SLA: ساعتان في الجانب الآسيوي و3 ساعات في الأوروبي) ومحاسبة رقمية شفافة عبر منصة Apsiyon وتدقيق فني دوري.',
+      a2: 'يخضع كل مشروع لاتفاقية مستوى خدمة مكتوبة (SLA: 30 دقيقة في الجانب الآسيوي وساعة واحدة في الأوروبي) ومحاسبة رقمية شفافة عبر منصة Apsiyon وتدقيق فني دوري.',
       metrics: [
         { label: 'المراجع الموثقة', value: `${FACTS.referenceCount} مؤسسةومجمع` },
         { label: 'الخبرة التشغيلية', value: `منذ عام ${FACTS.foundingYear}` },
@@ -138,7 +138,7 @@ const HUB_COPY: Record<HubKey, Record<string, HubLocaleCopy>> = {
       metrics: [
         { label: 'Core Sectors', value: 'Residential · Residence · Plaza · Industrial' },
         { label: 'Compliance', value: 'Law 634 · Law 7579 · Law 5188 · ISO 45001' },
-        { label: 'Emergency SLA', value: 'Anatolian 2h · European 3h' },
+        { label: 'Emergency SLA', value: 'Anatolian 30m · European 1h' },
         { label: 'Portfolio', value: `${FACTS.referenceCount} Managed Properties` },
       ],
       ctaPrimary: 'Request Sectoral Proposal',
@@ -153,7 +153,7 @@ const HUB_COPY: Record<HubKey, Record<string, HubLocaleCopy>> = {
       metrics: [
         { label: 'Отрасли', value: 'ЖК · Резиденции · Бизнес-центры · Заводы' },
         { label: 'Законодательство', value: 'Закон 634 · 7579 · 5188 · ISO 45001' },
-        { label: 'Аварийный SLA', value: 'Азия: 2 ч · Европа: 3 ч' },
+        { label: 'Аварийный SLA', value: 'Азия: 30 мин · Европа: 1 ч' },
         { label: 'Опыт', value: `${FACTS.referenceCount} объектов с ${FACTS.foundingYear} г.` },
       ],
       ctaPrimary: 'Запросить отраслевой расчёт',
@@ -168,7 +168,7 @@ const HUB_COPY: Record<HubKey, Record<string, HubLocaleCopy>> = {
       metrics: [
         { label: 'القطاعات المخدومة', value: 'مجمعات · أبراج سكنية · بلازا · مصانع' },
         { label: 'الامتثال القانوني', value: 'قانون 634 · 7579 · 5188 · ISO 45001' },
-        { label: 'الاستجابة الطارئة SLA', value: 'آسيا: ساعتان · أوروبا: 3 ساعات' },
+        { label: 'الاستجابة الطارئة SLA', value: 'آسيا: 30 دقيقة · أوروبا: ساعة' },
         { label: 'المحفظة', value: `${FACTS.referenceCount} مشروعاً معتمداً` },
       ],
       ctaPrimary: 'اطلب عرضاً لقطاعك',
@@ -256,13 +256,13 @@ const HUB_COPY: Record<HubKey, Record<string, HubLocaleCopy>> = {
     en: {
       badge: 'Google AI Overviews · Facility Management Selection Guide',
       question: 'What Are the 5 Essential Legal and Technical Criteria When Choosing a Facility Management Company in Istanbul?',
-      answer: `Property boards should verify: 1) Law No. 5188 private security licensing, 2) Accredited ISO 45001 & ISO 10002 certifications, 3) Dedicated bank account in the complex’s name with Apsiyon digital accounting, 4) Written emergency SLA response targets (2h Anatolian / 3h European Side), and 5) Full compliance with Condominium Law No. 634 and Law No. 7579 (Articles 34, 37, and 70).`,
+      answer: `Property boards should verify: 1) Law No. 5188 private security licensing, 2) Accredited ISO 45001 & ISO 10002 certifications, 3) Dedicated bank account in the complex’s name with Apsiyon digital accounting, 4) Written emergency SLA response targets (30m Anatolian / 1h European Side), and 5) Full compliance with Condominium Law No. 634 and Law No. 7579 (Articles 34, 37, and 70).`,
       q2: 'How Does the Handover Process to a Professional Management Company Work?',
       a2: 'Following a free technical survey and RFP specification, the General Assembly appoints the management company by simple dual majority (50%+1 by headcount and land share under Article 34) and approves the annual operating budget under Article 37.',
       metrics: [
         { label: 'Appointment Quorum', value: '50%+1 Dual Majority (Art. 34)' },
         { label: 'Budget Rule (Art. 37)', value: 'Assembly Approval · Law No. 7579' },
-        { label: 'Written SLA Target', value: 'Anatolian 2h · European 3h' },
+        { label: 'Written SLA Target', value: 'Anatolian 30m · European 1h' },
         { label: 'Track Record', value: `Since ${FACTS.foundingYear} · ${FACTS.referenceCount} References` },
       ],
       ctaPrimary: 'Request Free Survey & RFP',
@@ -271,13 +271,13 @@ const HUB_COPY: Record<HubKey, Record<string, HubLocaleCopy>> = {
     ru: {
       badge: 'Google AI Overviews · Руководство по выбору УК',
       question: 'По каким 5 критериям выбирать профессиональную управляющую компанию в Стамбуле?',
-      answer: `Совету дома следует проверить: 1) лицензию на частную охрану по Закону № 5188, 2) аккредитованные сертификаты ISO 45001 и ISO 10002, 3) отдельный банковский счёт ЖК и прозрачный учёт в Apsiyon, 4) письменный SLA аварийного выезда (2 ч в Азии / 3 ч в Европе) и 5) соблюдение Закона о кондоминиумах № 634 (с поправками Закона № 7579).`,
+      answer: `Совету дома следует проверить: 1) лицензию на частную охрану по Закону № 5188, 2) аккредитованные сертификаты ISO 45001 и ISO 10002, 3) отдельный банковский счёт ЖК и прозрачный учёт в Apsiyon, 4) письменный SLA аварийного выезда (30 мин в Азии / 1 ч в Европе) и 5) соблюдение Закона о кондоминиумах № 634 (с поправками Закона № 7579).`,
       q2: 'Как проходит передача управления профессиональной компании?',
       a2: 'После бесплатного технического аудита общее собрание собственников назначает УК двойным большинством (50%+1 по числу собственников и доле земли согласно ст. 34) и утверждает годовой проект бюджета (ст. 37).',
       metrics: [
         { label: 'Кворум выбора УК', value: '50%+1 двойное большинство (ст. 34)' },
         { label: 'Утверждение бюджета', value: 'Общее собрание (ст. 37, Закон 7579)' },
-        { label: 'Аварийный SLA', value: 'Азия: 2 ч · Европа: 3 ч' },
+        { label: 'Аварийный SLA', value: 'Азия: 30 мин · Европа: 1 ч' },
         { label: 'Опыт и портфель', value: `С ${FACTS.foundingYear} г. · ${FACTS.referenceCount} объектов` },
       ],
       ctaPrimary: 'Запросить аудит и ТЗ',
@@ -286,13 +286,13 @@ const HUB_COPY: Record<HubKey, Record<string, HubLocaleCopy>> = {
     ar: {
       badge: 'Google AI Overviews · دليل اختيار شركة إدارة المرافق',
       question: 'ما هي المعايير الخمسة الأساسية لاختيار شركة إدارة مجمعات ومرافق محترفة في إسطنبول؟',
-      answer: `يجب التحقق من: 1) ترخيص الأمن الخاص وفق القانون رقم 5188، 2) شهادات الجودة والسلامة المعتمدة ISO 45001 وISO 10002، 3) حساب بنكي مستقل باسم المجمع مع شفافية محاسبية عبر منصة Apsiyon، 4) اتفاقية مستوى خدمة مكتوبة للطوارئ (ساعتان في الجانب الآسيوي و3 ساعات في الأوروبي)، و5) الامتثال الكامل لقانون ملكية الطوابق رقم 634 وتعديلات القانون رقم 7579.`,
+      answer: `يجب التحقق من: 1) ترخيص الأمن الخاص وفق القانون رقم 5188، 2) شهادات الجودة والسلامة المعتمدة ISO 45001 وISO 10002، 3) حساب بنكي مستقل باسم المجمع مع شفافية محاسبية عبر منصة Apsiyon، 4) اتفاقية مستوى خدمة مكتوبة للطوارئ (30 دقيقة في الجانب الآسيوي وساعة واحدة في الأوروبي)، و5) الامتثال الكامل لقانون ملكية الطوابق رقم 634 وتعديلات القانون رقم 7579.`,
       q2: 'كيف تتم عملية استلام وتسليم الإدارة لشركة محترفة؟',
       a2: 'بعد المعاينة الفنية المجانية وإعداد كراسة الشروط، تعين جمعية الملاك شركة الإدارة بالأغلبية المزدوجة (50%+1 عدداً وحصة أرض وفق المادة 34) وتعتمد مشروع ميزانية التشغيل السنوية وفق المادة 37.',
       metrics: [
         { label: 'نصاب تعيين الإدارة', value: '50%+1 أغلبية مزدوجة (المادة 34)' },
         { label: 'اعتماد الميزانية', value: 'موافقة الجمعية (المادة 37 · قانون 7579)' },
-        { label: 'الاستجابة الطارئة SLA', value: 'آسيا: ساعتان · أوروبا: 3 ساعات' },
+        { label: 'الاستجابة الطارئة SLA', value: 'آسيا: 30 دقيقة · أوروبا: ساعة' },
         { label: 'الخبرة والمراجع', value: `منذ ${FACTS.foundingYear} · ${FACTS.referenceCount} مرجعاً` },
       ],
       ctaPrimary: 'اطلب معاينة وكراسة شروط',
@@ -355,29 +355,19 @@ export default function HubAiOverviewGroundingSeo({
           ],
         },
       ]
-    : [
-        {
-          '@context': 'https://schema.org',
-          '@type': 'WebPage',
-          '@id': `${pageUrl}#hub-ai-overview`,
-          name: copy.question,
-          description: copy.answer,
-          speakable: {
-            '@type': 'SpeakableSpecification',
-            cssSelector: [`#${answerId}`],
-          },
-        },
-      ];
+    : null;
 
   return (
     <section
       aria-label={copy.badge}
       className={`max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] my-8 ${className}`}
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      {schemaData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+        />
+      )}
 
       <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/70 rounded-[2.5rem] p-6 sm:p-8 md:p-10 shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-3 mb-4">

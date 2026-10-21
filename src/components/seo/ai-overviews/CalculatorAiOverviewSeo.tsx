@@ -41,17 +41,6 @@ export default function CalculatorAiOverviewSeo({ className = '' }: { className?
         },
       })),
     },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      '@id': `${BASE_URL}/hesaplayici#calculator-ai-overview-webpage`,
-      name: 'Aidat, Arsa Payı ve Gecikme Tazminatı Hesaplama Formülleri | Google AI Overviews',
-      url: `${BASE_URL}/hesaplayici`,
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#calculator-instant-answer-text'],
-      },
-    },
   ];
 
   return (

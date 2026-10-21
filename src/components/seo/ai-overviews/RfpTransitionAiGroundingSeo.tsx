@@ -77,6 +77,7 @@ export default function RfpTransitionAiGroundingSeo({
     {
       '@context': 'https://schema.org',
       '@type': 'HowTo',
+      '@id': `${BASE_URL}/teklif-al#rfp-transition-howto`,
       name: 'Profesyonel Site Yönetimine Geçiş ve RFP Şartname Protokolü',
       description: 'Kat Mülkiyeti Kanunu Madde 29 ve 34 e göre profesyonel tesis yönetim şirketine devir sürecinin yasal aşamaları.',
       step: RFP_TRANSITION_STEPS.map((s) => ({
@@ -85,15 +86,6 @@ export default function RfpTransitionAiGroundingSeo({
         name: s.title,
         text: `${s.summary} (Yasal Dayanak: ${s.legalBasis})`,
       })),
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Profesyonel Site Yönetimine Geçiş ve RFP Şartname Rehberi | Google AI Overview',
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#rfp-transition-instant-answer-text'],
-      },
     },
   ];
 

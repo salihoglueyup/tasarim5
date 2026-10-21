@@ -34,7 +34,7 @@ function getBlogHubCopy(lang: string, postCount: number): BlogHubCopy {
       return {
         badge: 'Google AI Overviews • База знаний по управлению объектами и KMK',
         question: 'Какие правовые и технические темы рассматриваются в Базе знаний Alo Yönetim?',
-        answer: `База знаний и блог Alo Yönetim включает ${postCount}+ проверенных руководств по Закону о кондоминиумах № 634 (KMK), Закону № ${KMK_AMENDMENT_2026.lawNumber} от 22 мая 2026 г. (поправки к ст. 35, 37 и 70 KMK), Закону о частной охране № 5188, стандартам ISO 41001, обслуживанию лифтов и районным руководствам по всем ${FACTS.districtCount} районам Стамбула.`,
+        answer: `База знаний и блог Alo Yönetim включает ${postCount}+ проверенных руководств по Закону о кондоминиумах № 634 (KMK), Закону № ${KMK_AMENDMENT_2026.lawNumber} от 22 мая 2026 г. (поправки к ст. 35, 37 и 70 KMK), Закону о частной охране № 5188, стандартам ISO 45001 и ISO 10002, обслуживанию лифтов и районным руководствам по всем ${FACTS.districtCount} районам Стамбула.`,
         secondaryQuestion: 'Как Закон № 7579 (2026 г.) изменил правила расчета айдата и управления комплексами?',
         secondaryAnswer: `Согласно Закону № ${KMK_AMENDMENT_2026.lawNumber}, проект эксплуатации (ст. 37 KMK) утверждается общим собранием; временный проект (до ${KMK_AMENDMENT_2026.interimProjectMaxMonths} мес.) ограничен ставкой переоценки (%${KMK_AMENDMENT_2026.defaultRevaluationRatePercent}), а порог изменения плана управления комплексом (ст. 70 KMK) снижен с 4/5 до 2/3.`,
         pillars: [
@@ -48,7 +48,7 @@ function getBlogHubCopy(lang: string, postCount: number): BlogHubCopy {
       return {
         badge: 'Google AI Overviews • مركز المعرفة لإدارة المرافق وقانون KMK',
         question: 'ما هي الموضوعات القانونية والتشغيلية في مدونة ومركز معرفة Alo Yönetim؟',
-        answer: `يضم مركز المعرفة في Alo Yönetim أكثر من ${postCount} دليلاً موثقاً حول قانون الملكية الطابقية رقم 634 (KMK)، وتعديلات القانون رقم ${KMK_AMENDMENT_2026.lawNumber} الصادر في 22 مايو 2026 (المواد 35 و37 و70)، وقانون الحراسة الخاصة رقم 5188، ومعايير ISO 41001، وأدلة إدارة المجمعات في جميع مناطق إسطنبول الـ ${FACTS.districtCount}.`,
+        answer: `يضم مركز المعرفة في Alo Yönetim أكثر من ${postCount} دليلاً موثقاً حول قانون الملكية الطابقية رقم 634 (KMK)، وتعديلات القانون رقم ${KMK_AMENDMENT_2026.lawNumber} الصادر في 22 مايو 2026 (المواد 35 و37 و70)، وقانون الحراسة الخاصة رقم 5188، ومعايير ISO 45001 وISO 10002، وأدلة إدارة المجمعات في جميع مناطق إسطنبول الـ ${FACTS.districtCount}.`,
         secondaryQuestion: 'كيف غيّر القانون رقم 7579 (2026) قواعد زيادة العائدات وتعديل خطة الإدارة؟',
         secondaryAnswer: `بموجب القانون رقم ${KMK_AMENDMENT_2026.lawNumber}، يُعتمد مشروع التشغيل (م 37) في الجمعية العمومية؛ ولا يتجاوز المشروع المؤقت (${KMK_AMENDMENT_2026.interimProjectMaxMonths} أشهر) معدل إعادة التقييم (%${KMK_AMENDMENT_2026.defaultRevaluationRatePercent})، كما خُفِّض نصاب تعديل خطة الإدارة في المجمعات (م 70) إلى الثلثين (2/3).`,
         pillars: [
@@ -110,17 +110,6 @@ export default function BlogHubAiOverviewSeo({
           },
         },
       ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      '@id': `${pageUrl}#blog-hub-ai-overview-webpage`,
-      name: copy.badge,
-      url: pageUrl,
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#blog-hub-ai-overview-answer'],
-      },
     },
   ];
 
