@@ -70,7 +70,7 @@ export default function ReferenceBand({
                 : 'border-[var(--color-outline)]/60 bg-[var(--color-background)] text-[var(--color-secondary)] hover:border-slate-900 hover:text-[var(--color-primary)] dark:hover:border-white'
             }`}
           >
-            <span>{t('refx_s_all')}</span>
+            <span>{t('refx_tab_all')}</span>
             <span className="rounded-full bg-white/20 px-2 py-0.5 font-bold">
               {REAL_REFERENCES.length}
             </span>
