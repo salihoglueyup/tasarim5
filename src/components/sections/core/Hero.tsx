@@ -113,13 +113,14 @@ export default function Hero() {
         <Image
           src="/images/hero-poster-v5.webp"
           alt={t('hero_alt')}
-          fill
+          width={1920}
+          height={1080}
           loading="eager"
           fetchPriority="high"
           decoding="async"
           sizes="100vw"
           quality={75}
-          className="object-cover object-[35%_center] md:object-center scale-105 pointer-events-none z-0 transform-gpu"
+          className="absolute inset-0 w-full h-full object-cover object-[35%_center] md:object-center scale-105 pointer-events-none z-0 transform-gpu"
         />
 
         {/* Video: Yalnızca masaüstünde ve sayfa boşta kalınca (idle) yüklenir */}

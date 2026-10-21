@@ -44,7 +44,7 @@ const DEFAULT_ROWS = [
   },
   {
     title: "SLA & Memnuniyet Taahhüdü",
-    alo: "Yazılı Hizmet Seviyesi Sözleşmesi (SLA) ve çağrı merkezi desteği.",
+    alo: "Yazılı Hizmet Seviyesi Sözleşmesi (SLA), Anadolu Yakası 2 saat / Avrupa Yakası 3 saat acil müdahale hedefi, ISO 10002 standardı ve 0216 550 48 48 çağrı merkezi desteği.",
     trad: "Telefonlara çıkmayan, sorunlara haftalarca dönüş yapmayan amatör yönetim."
   }
 ];
@@ -133,7 +133,7 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
                 <div key={i} className="flex items-start gap-3 bg-rose-50/40 dark:bg-rose-950/20 p-4 rounded-2xl border border-rose-200/50 dark:border-rose-900/30">
                   <Icon name="cancel" className="text-rose-500 shrink-0 mt-0.5 text-lg" />
                   <div>
-                    <h4 className="font-bold text-[var(--color-primary)] text-sm mb-1">{t(`cmp_r${i + 1}_title`, row.title)}</h4>
+                    <div className="font-bold text-[var(--color-primary)] text-sm mb-1">{t(`cmp_r${i + 1}_title`, row.title)}</div>
                     <p className="text-xs text-[var(--color-secondary)] font-light leading-relaxed">{t(`cmp_r${i + 1}_trad`, row.trad)}</p>
                   </div>
                 </div>
@@ -143,6 +143,7 @@ export default function ComparisonTable({ dict, lang = 'tr' }: ComparisonTablePr
 
           <a 
             href="tel:+902165504848" 
+            title={t('cmpx_9', 'Danışma Hattı: 0216 550 48 48')}
             className="w-full bg-[var(--color-surface-variant)] hover:bg-[var(--color-outline)]/40 text-[var(--color-primary)] font-bold py-4 rounded-xl text-center transition-colors border border-[var(--color-outline)] text-sm mt-4 inline-block"
           >
             {t('cmpx_9', 'Danışma Hattı: 0216 550 48 48')}

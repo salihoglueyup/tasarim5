@@ -25,7 +25,7 @@ describe('Alo Yönetim x Apsiyon Mobil Entegrasyonu ve /app Sayfası Güvence Te
     expect(badgesContent).toContain('https://play.google.com/store/apps/details?id=com.apsiyon.mobile');
     expect(badgesContent).toContain('https://appgallery.huawei.com/app/C100486001');
     expect(badgesContent).toContain('target="_blank"');
-    expect(badgesContent).toContain('rel="noopener noreferrer"');
+    expect(badgesContent).toContain('noopener noreferrer');
     // Faz 72 uyumu: SVG width/height/aria-hidden
     expect(badgesContent).toContain('width="28"');
     expect(badgesContent).toContain('height="28"');

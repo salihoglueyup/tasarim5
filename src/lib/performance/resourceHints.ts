@@ -1,10 +1,8 @@
 /**
  * v9 Hyper-Speed Resource Hints Configuration
- * Bu modül, tarayıcının sayfa ilk yüklenirken (Cold Start) harici CDN sunucularıyla
- * SSL/TLS el sıkışmasını (handshake) önceden başlatması için merkezi ağ ipuçlarını barındırır.
- * 
- * Amaç: TTFB (Time to First Byte) ve FCP (First Contentful Paint) sürelerinde
- * 100-200 milisaniyelik ağ el sıkışma kazancı sağlamak (Zero-Latency Handshake).
+ * Fontlar ve ikonlar kendi alan adımızdan (public/fonts, public/icons) sunulur.
+ * Analitik betikleri (GTM/GA4/Clarity) ilk kullanıcı etkileşimine kadar ertelendiği için
+ * ilk SSR HTML'de kullanılmayan dış origin ipucu (dns-prefetch) basılmaz.
  */
 
 export interface ResourceHint {
@@ -14,18 +12,7 @@ export interface ResourceHint {
   as?: string;
 }
 
-export const EXTERNAL_CDN_HINTS: ResourceHint[] = [
-  // Fontlar ve ikonlar kendi alan adımızdan (public/fonts, public/icons) sunulur; Google Fonts hint'i gerekmez.
-
-  // Google Analytics & Tag Manager (DNS Prefetch — DNS çözümlemesini arka planda bitirir)
-  { rel: 'dns-prefetch', href: 'https://www.googletagmanager.com' },
-  { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' },
-
-  // Microsoft Clarity & Facebook Analitik CDN (DNS Prefetch)
-  { rel: 'dns-prefetch', href: 'https://www.clarity.ms' },
-  { rel: 'dns-prefetch', href: 'https://c.bing.com' },
-  { rel: 'dns-prefetch', href: 'https://connect.facebook.net' },
-];
+export const EXTERNAL_CDN_HINTS: ResourceHint[] = [];
 
 /**
  * Next.js HTTP Response Headers için formatlayıcı yardımcı (next.config.ts veya ara katman kullanımına uygun)

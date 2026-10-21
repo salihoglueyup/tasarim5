@@ -3,9 +3,10 @@ import Image from 'next/image';
 interface LogoProps {
   className?: string;
   variant?: 'auto' | 'white' | 'dark';
+  loading?: 'eager' | 'lazy';
 }
 
-export default function Logo({ className = "", variant = 'auto' }: LogoProps) {
+export default function Logo({ className = "", variant = 'auto', loading = 'eager' }: LogoProps) {
   const isWhite = variant === 'white';
 
   return (
@@ -19,7 +20,7 @@ export default function Logo({ className = "", variant = 'auto' }: LogoProps) {
           alt="Alo Yönetim Logo"
           width={48}
           height={48}
-          loading="eager"
+          loading={loading}
           quality={75}
           className={`object-contain transition-all duration-300 w-12 h-12 ${
             isWhite 

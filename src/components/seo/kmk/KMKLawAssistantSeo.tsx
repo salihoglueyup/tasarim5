@@ -94,13 +94,13 @@ const KMK_LAW_DATABASE: KMKLawItem[] = [
     id: 'kmk-isletme-projesi-itiraz',
     category: 'aidat-icra',
     categoryTitle: 'İşletme Projesi & İtiraz',
-    question: '7579 sayılı Kanun (2026) sonrası apartman ve site işletme projesi nasıl kesinleşir ve icra takibi dayanağı nedir?',
+    question: '7579 Sayılı Kanun Sonrası İşletme Projesi Nasıl Kesinleşir?',
     article: 'KMK Madde 37 (7579 S.K. Değişikliği) ve İİK Madde 68/1',
     lawName: '634 Sayılı Kat Mülkiyeti Kanunu & 2004 İİK',
-    summary: '7579 sayılı Kanun ile değişik KMK m.37 uyarınca işletme projesi Kat Malikleri Kurulunda onaylanarak kesinleşir; onaylı proje yoksa yönetici en geç 3 ay içinde bir önceki yılın yeniden değerleme oranını (%25,49) aşmayan geçici işletme projesi hazırlar. Kesinleşen proje İİK 68/1 kapsamında resmi belge hükmündedir.',
+    summary: '7579 sayılı Kanun (2026) ile değişik KMK m.37 uyarınca apartman ve site işletme projesi Kat Malikleri Kurulunda onaylanarak kesinleşir; onaylı proje yoksa yönetici en geç 3 ay içinde yeniden değerleme oranını (%25,49) aşmayan geçici işletme projesi hazırlar. Kesinleşen proje İİK 68/1 kapsamında doğrudan icra takibi dayanağı resmi belgedir.',
     fullRule: 'Kat Malikleri Kurulunca kabul edilmiş işletme projesi yoksa yönetici en geç 3 ay içinde geçici bir işletme projesi hazırlar; mevcut işletme projesi varsa geçici projedeki artış bir önceki yılın yeniden değerleme oranından fazla olamaz. Kesinleşen işletme projeleri veya kat malikleri kurulunun işletme giderleri ile ilgili kararları, İcra ve İflas Kanununun 68 inci maddesinin 1 inci fıkrasında belirtilen belgelerden sayılır.',
     precedent: '7579 Sayılı Kanun Madde 7 (KMK m.37 Değişikliği): "Kesinleşen işletme projeleri ve kat malikleri kurulunun işletme giderlerine ilişkin kararları İİK 68/1 anlamında resmi belge niteliğinde olup doğrudan ilamsız icraya konulabilir."',
-    solution: 'Alo Yönetim, yıllık işletme projelerini 7579 sayılı Kanun ve KMK m.37 usulüne uygun şekilde Kat Malikleri Kurulu onayına sunar ve İİK m.68 kapsamında yasal tahsilat takibini düzenli yürütür.'
+    solution: 'Alo Yönetim, yıllık işletme projelerini 7579 sayılı Kanun ve KMK m.37 usulüne uygun şekilde Kat Malikleri Kurulu onayına sunar, dijital muhasebe sistemiyle her bağımsız bölüme tebliğ eder ve İİK m.68 kapsamında yasal tahsilat takibini düzenli yürütür.'
   },
   {
     id: 'kmk-5188-guvenlik-izni',
@@ -304,6 +304,13 @@ export default function KMKLawAssistantSeo({ emitFaqSchema = false }: { emitFaqS
                       <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)] leading-snug">
                         {item.question}
                       </h3>
+                      {!isExpanded && (
+                        <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed mt-1">
+                          {item.summary}{' '}
+                          <strong className="font-semibold text-[var(--color-primary)]">Alo Yönetim Çözümü:</strong>{' '}
+                          {item.solution}
+                        </p>
+                      )}
                     </div>
                     <span className="p-2 rounded-xl bg-[var(--color-surface-variant)] text-[var(--color-primary)] mt-1 flex-shrink-0">
                       <Icon name="expand_more" className={`transition-transform duration-300 text-sm ${

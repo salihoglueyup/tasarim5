@@ -185,18 +185,21 @@ export default function HomeAiOverviewGroundingSeo({
         <div className="flex flex-wrap items-center justify-end gap-2 pt-3 border-t border-[var(--color-outline)]/40 text-xs">
           <Link
             href={localePath(lang === 'tr' ? '/kmk-2026-degisiklikleri' : '/hizmetler', lang)}
+            title={copy.ctaKmk}
             className="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl font-semibold bg-[var(--color-background)] border border-[var(--color-outline)] hover:border-slate-500 text-[var(--color-primary)] transition-colors"
           >
             <span>{copy.ctaKmk}</span>
           </Link>
           <Link
             href={localePath('/hesaplayici', lang)}
+            title={copy.ctaCalc}
             className="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl font-semibold bg-[var(--color-background)] border border-[var(--color-outline)] hover:border-slate-500 text-[var(--color-primary)] transition-colors"
           >
             <span>{copy.ctaCalc}</span>
           </Link>
           <Link
             href={localePath('/teklif-al', lang)}
+            title={copy.ctaQuote}
             className="inline-flex items-center gap-1 px-4 py-2 rounded-xl font-semibold bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:opacity-90 transition-opacity"
           >
             <span>{copy.ctaQuote}</span>

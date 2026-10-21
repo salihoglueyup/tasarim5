@@ -55,18 +55,22 @@ export default function ReferenceBand({
 
       {showSectorSummary && (
         <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
-          {SECTORS.map((sec) => (
-            <Link
-              key={sec}
-              href="/referanslar"
-              className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-outline)]/60 bg-[var(--color-background)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-secondary)] transition-colors hover:border-slate-900 hover:text-[var(--color-primary)] dark:hover:border-white"
-            >
-              <span>{t(SECTOR_LABEL_KEYS[sec])}</span>
-              <span className="rounded-full bg-slate-900/10 px-2 py-0.5 font-bold text-[var(--color-primary)] dark:bg-white/10">
-                {counts[sec]}
-              </span>
-            </Link>
-          ))}
+          {SECTORS.map((sec) => {
+            const label = t(SECTOR_LABEL_KEYS[sec]);
+            return (
+              <Link
+                key={sec}
+                href="/referanslar"
+                title={`${label} (${counts[sec]}) — Alo Yönetim Kurumsal Referanslar`}
+                className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-outline)]/60 bg-[var(--color-background)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-secondary)] transition-colors hover:border-slate-900 hover:text-[var(--color-primary)] dark:hover:border-white"
+              >
+                <span>{label}</span>
+                <span className="rounded-full bg-slate-900/10 px-2 py-0.5 font-bold text-[var(--color-primary)] dark:bg-white/10">
+                  {counts[sec]}
+                </span>
+              </Link>
+            );
+          })}
         </div>
       )}
 
@@ -76,7 +80,11 @@ export default function ReferenceBand({
         ))}
       </ul>
       <div className="mt-8 text-center">
-        <Link href="/referanslar" className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:underline dark:text-white">
+        <Link
+          href="/referanslar"
+          title={`${t('refx_band_all')} (${REAL_REFERENCES.length})`}
+          className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:underline dark:text-white"
+        >
           <span>
             {t('refx_band_all')} ({REAL_REFERENCES.length})
           </span>

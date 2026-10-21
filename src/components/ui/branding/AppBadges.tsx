@@ -17,7 +17,7 @@ export default function AppBadges() {
       <a
         href="https://apps.apple.com/app/apsiyon/id1115852575"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         title={t('ab_ios')}
         aria-label={t('ab_ios')}
         className={badgeClasses}
@@ -42,7 +42,7 @@ export default function AppBadges() {
       <a
         href="https://play.google.com/store/apps/details?id=com.apsiyon.mobile"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         title={t('ab_android')}
         aria-label={t('ab_android')}
         className={badgeClasses}
@@ -69,7 +69,7 @@ export default function AppBadges() {
       <a
         href="https://appgallery.huawei.com/app/C100486001"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener noreferrer nofollow"
         title={t('ab_huawei')}
         aria-label={t('ab_huawei')}
         className={badgeClasses}
