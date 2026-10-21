@@ -1,14 +1,13 @@
 /**
- * Gerçek referans listesi (tek kaynak).
- * Kaynak: "Alo Yönetim & Alo Güvenlik Kurumsal Portföy 2026" (proje kökü: Alo_Grup_Kurumsal_Portfoy_TASLAK_v1.pdf, s.18).
- * Listede olmayan kurumlar eklenmez; kapanan/devredilen firmalar ve diplomatik misyonlar dahil EDİLMEZ.
- * İlçe bilgisi yalnızca kesin bilinen kayıtlarda doldurulur; bilinmeyenler boş bırakılır (uydurma konum yok).
+ * Gerçek referans listesi (tek kaynak — 52 kurumsal referans, 6 kategori).
+ * Kaynak: "Alo Yönetim & Alo Güvenlik Kurumsal Portföy 2026" (Alo_Grup_Kurumsal_Portfoy_TASLAK_v1.pdf, s.18).
+ * İlçe bilgisi yalnızca kesin bilinen kayıtlarda doldurulur; çok bölgeli veya ilçesi belirtilmeyenler boş bırakılır.
  * Yorum, puan, daire sayısı veya çalışan sayısı gibi doğrulanamayan alanlar bilerek yoktur.
  * Yeni referans eklemek için bu diziye satır ekleyin; logo için public/images/referanslar/<slug>.(svg|png|webp|jpg)
  * dosyasını koyup `node scripts/reference-logos.mjs` çalıştırın.
  */
 
-export type ReferenceSector = 'site' | 'kamu' | 'saglik' | 'ticari';
+export type ReferenceSector = 'site' | 'saglik' | 'ticari' | 'is_merkezi' | 'kamu' | 'turizm';
 
 export interface RealReference {
   slug: string;
@@ -20,17 +19,17 @@ export interface RealReference {
   featured?: boolean;
 }
 
-export const SECTORS: readonly ReferenceSector[] = ['site', 'kamu', 'saglik', 'ticari'];
+export const SECTORS: readonly ReferenceSector[] = ['site', 'saglik', 'ticari', 'is_merkezi', 'kamu', 'turizm'];
 
 export const REAL_REFERENCES: readonly RealReference[] = [
-  // Site ve konut (Portföy s.18 — "Site ve Konut")
+  // 1. SİTE VE KONUT (24)
   { slug: 'feriha-ozyuva-sitesi', name: 'Feriha Özyuva Sitesi', district: 'Kartal', sector: 'site' },
   { slug: 'meklim-mimoza-sitesi', name: 'Meklim Mimoza Sitesi', district: 'Ataşehir', sector: 'site' },
   { slug: 'meseli-gold-park-sitesi', name: 'Meşeli Gold Park Sitesi', district: 'Kadıköy', sector: 'site' },
   { slug: 'mim-konaklari-sitesi', name: 'Mim Konakları Sitesi', district: 'Beşiktaş', sector: 'site' },
   { slug: 'palandoken-sitesi', name: 'Palandöken Sitesi', district: 'Ataşehir', sector: 'site' },
   { slug: 'dome-residence', name: 'Dome Residence', district: 'Çekmeköy', sector: 'site', featured: true },
-  { slug: 'innovia-3', name: 'Innovia 3', district: 'Esenyurt', sector: 'site' },
+  { slug: 'innovia-3', name: 'Innovia 3', district: 'Esenyurt', sector: 'site', featured: true },
   { slug: 'kosuyolu-konaklari', name: 'Koşuyolu Konakları', district: 'Kadıköy', sector: 'site' },
   { slug: 'bizimtepe-villalari', name: 'Bizimtepe Villaları', district: 'Sarıyer', sector: 'site' },
   { slug: 'iskent-sanayi-sitesi', name: 'İşkent Sanayi Sitesi', district: 'Bayrampaşa', sector: 'site' },
@@ -40,7 +39,7 @@ export const REAL_REFERENCES: readonly RealReference[] = [
   { slug: 'goztepe-soyak-residence', name: 'Göztepe Soyak Residence', district: 'Üsküdar', sector: 'site', featured: true },
   { slug: 'hoby-life-sitesi', name: 'Hoby Life Sitesi', district: 'Pendik', sector: 'site' },
   { slug: 'bagkur-sitesi', name: 'Bağkur Sitesi', sector: 'site' },
-  { slug: 'nef-cekmekoy-camlitepe-sitesi', name: 'Nef Çekmeköy Çamlıtepe Sitesi', district: 'Çekmeköy', sector: 'site' },
+  { slug: 'nef-cekmekoy-camlitepe-sitesi', name: 'Nef Çekmeköy Çamlıtepe Sitesi', district: 'Çekmeköy', sector: 'site', featured: true },
   { slug: 'greenland-sitesi', name: 'Greenland Sitesi', district: 'Çekmeköy', sector: 'site' },
   { slug: 'camlica-konaklari', name: 'Çamlıca Konakları', district: 'Üsküdar', sector: 'site' },
   { slug: 'koru-sitesi', name: 'Koru Sitesi', district: 'Çekmeköy', sector: 'site' },
@@ -49,23 +48,17 @@ export const REAL_REFERENCES: readonly RealReference[] = [
   { slug: 'ada-city', name: 'Ada City', sector: 'site' },
   { slug: 'guner-sitesi', name: 'Güner Sitesi', sector: 'site' },
 
-  // Kamu ve sosyal hizmet
-  { slug: 'atasehir-belediyesi', name: 'Ataşehir Belediyesi', district: 'Ataşehir', sector: 'kamu', featured: true },
-  { slug: 'kadikoy-belediyesi', name: 'Kadıköy Belediyesi', district: 'Kadıköy', sector: 'kamu', featured: true },
-  { slug: 'aile-ve-sosyal-politikalar-merkezleri', name: 'Aile ve Sosyal Politikalar Bakanlığı Merkezleri', sector: 'kamu' },
-  { slug: 'vakifbank-umut-cocuklari', name: 'Vakıfbank Umut Çocukları Sosyal Rehabilitasyon Merkezi', district: 'Kartal', sector: 'kamu' },
-
-  // Sağlık
-  { slug: 'vm-medical-park-maltepe', name: 'VM Medical Park Maltepe Hastanesi', district: 'Maltepe', sector: 'saglik', featured: true },
+  // 2. SAĞLIK (3)
+  { slug: 'vm-medical-park-maltepe', name: 'VM Medical Park Maltepe', district: 'Maltepe', sector: 'saglik', featured: true },
   { slug: 'yunus-emre-hastanesi', name: 'Yunus Emre Hastanesi', district: 'Üsküdar', sector: 'saglik' },
   { slug: 'durmusoglu-saglik', name: 'Durmuşoğlu Sağlık Hizmetleri', district: 'Kartal', sector: 'saglik' },
 
-  // Kurumsal, sanayi ve medya
-  { slug: 'exim-bank', name: 'Türk Eximbank (Türkiye İhracat Kredi Bankası A.Ş.)', district: 'Ümraniye', sector: 'ticari', featured: true },
+  // 3. KURUMSAL, SANAYİ VE MEDYA (13)
+  { slug: 'hursan-geri-donusum', name: 'Hürsan Geri Dönüşüm', district: 'Bayrampaşa', sector: 'ticari' },
+  { slug: 'exim-bank', name: 'Türk Eximbank', district: 'Ümraniye', sector: 'ticari', featured: true },
+  { slug: 'koza-gida', name: 'Koza Gıda Dağıtım Sanayi ve Ticaret A.Ş.', district: 'Arnavutköy', sector: 'ticari' },
   { slug: 'sozcu-gazetesi', name: 'Sözcü Gazetesi ve Matbaaları', district: 'Arnavutköy', sector: 'ticari', featured: true },
   { slug: 'korkusuz-gazetesi', name: 'Korkusuz Gazetesi', sector: 'ticari' },
-  { slug: 'hursan-geri-donusum', name: 'Hürsan Geri Dönüşüm', district: 'Bayrampaşa', sector: 'ticari' },
-  { slug: 'koza-gida', name: 'Koza Gıda Dağıtım Sanayi ve Ticaret A.Ş.', district: 'Arnavutköy', sector: 'ticari' },
   { slug: 'reimco', name: 'Reimco', district: 'Üsküdar', sector: 'ticari' },
   { slug: 'cagdas-yayincilik', name: 'Çağdaş Yayıncılık ve Tic. A.Ş.', district: 'Bağcılar', sector: 'ticari' },
   { slug: 'genc-danismanlik', name: 'Genç Danışmanlık', sector: 'ticari' },
@@ -75,19 +68,27 @@ export const REAL_REFERENCES: readonly RealReference[] = [
   { slug: 'yavuz-metal', name: 'Yavuz Metal', sector: 'ticari' },
   { slug: 'lotus-organizasyon', name: 'Lotus Organizasyon', sector: 'ticari' },
 
-  // İş merkezi ve etkinlik
-  { slug: 'atlas-is-merkezi', name: 'Atlas İş Merkezi', district: 'Küçükçekmece', sector: 'ticari' },
-  { slug: 'adalet-is-merkezi', name: 'Adalet İş Merkezi', district: 'Kartal', sector: 'ticari' },
-  { slug: 'gecem-dinlence', name: 'Gecem Dinlence Gereçleri San. ve Tic. A.Ş.', district: 'Fatih', sector: 'ticari' },
-  { slug: 'atlantis-ticaret-merkezi', name: 'Atlantis Ticaret Merkezi', sector: 'ticari' },
+  // 4. İŞ MERKEZİ VE ETKİNLİK (5)
+  { slug: 'atlas-is-merkezi', name: 'Atlas İş Merkezi', district: 'Küçükçekmece', sector: 'is_merkezi', featured: true },
+  { slug: 'fuar-ve-etkinlik-organizasyonlari', name: 'Fuar ve Etkinlik Organizasyonları', sector: 'is_merkezi' },
+  { slug: 'adalet-is-merkezi', name: 'Adalet İş Merkezi', district: 'Kartal', sector: 'is_merkezi' },
+  { slug: 'gecem-dinlence', name: 'Gecem Dinlence Gereçleri San. ve Tic. A.Ş.', district: 'Fatih', sector: 'is_merkezi' },
+  { slug: 'atlantis-ticaret-merkezi', name: 'Atlantis Ticaret Merkezi', sector: 'is_merkezi' },
 
-  // Turizm ve spor
-  { slug: 'sariyer-spor-kulubu', name: 'Sarıyer Spor Kulübü', district: 'Sarıyer', sector: 'ticari' },
-  { slug: 'kumresort-hotel', name: 'Kumresort Hotel', district: 'Büyükçekmece', sector: 'ticari' },
+  // 5. KAMU VE SOSYAL HİZMET (5)
+  { slug: 'aile-ve-sosyal-politikalar-merkezleri', name: 'Aile ve Sosyal Politikalar Bakanlığı Merkezleri', sector: 'kamu' },
+  { slug: 'vakifbank-umut-cocuklari', name: 'Vakıfbank Umut Çocukları Sosyal Rehabilitasyon Merkezi', district: 'Kartal', sector: 'kamu' },
+  { slug: 'atasehir-belediyesi', name: 'Ataşehir Belediyesi', district: 'Ataşehir', sector: 'kamu', featured: true },
+  { slug: 'kadikoy-belediyesi', name: 'Kadıköy Belediyesi', district: 'Kadıköy', sector: 'kamu', featured: true },
+  { slug: 'irak-konsoloslugu', name: 'Irak Konsolosluğu', district: 'Şişli', sector: 'kamu' },
+
+  // 6. TURİZM VE SPOR (2)
+  { slug: 'sariyer-spor-kulubu', name: 'Sarıyer Spor Kulübü', district: 'Sarıyer', sector: 'turizm' },
+  { slug: 'kumresort-hotel', name: 'Kumresort Hotel', district: 'Büyükçekmece', sector: 'turizm' },
 ];
 
 export function countBySector(): Record<ReferenceSector, number> {
-  const out = { site: 0, kamu: 0, saglik: 0, ticari: 0 } as Record<ReferenceSector, number>;
+  const out = { site: 0, saglik: 0, ticari: 0, is_merkezi: 0, kamu: 0, turizm: 0 } as Record<ReferenceSector, number>;
   for (const r of REAL_REFERENCES) out[r.sector]++;
   return out;
 }

@@ -554,13 +554,15 @@ describe('Project-Wide SEO & Google AI Overviews Architecture Guard (Faz 1-5)', 
       expect(termPage).toContain('id="sablon"');
     });
 
-    it('aligns REAL_REFERENCES with Alo_Grup_Kurumsal_Portfoy_TASLAK_v1.pdf (50 references across 4 sectors) and enriches district security & elevator networks', async () => {
+    it('aligns REAL_REFERENCES with Alo_Grup_Kurumsal_Portfoy_TASLAK_v1.pdf (52 references across 6 sectors) and enriches district security & elevator networks', async () => {
       const { REAL_REFERENCES, SECTORS } = await import('@/data/realReferences');
-      expect(SECTORS).toEqual(['site', 'kamu', 'saglik', 'ticari']);
-      expect(REAL_REFERENCES.length).toBe(50);
+      expect(SECTORS).toEqual(['site', 'saglik', 'ticari', 'is_merkezi', 'kamu', 'turizm']);
+      expect(REAL_REFERENCES.length).toBe(52);
       expect(REAL_REFERENCES.some((r) => r.name === 'Nef Çekmeköy Çamlıtepe Sitesi')).toBe(true);
       expect(REAL_REFERENCES.some((r) => r.name === 'Aile ve Sosyal Politikalar Bakanlığı Merkezleri')).toBe(true);
       expect(REAL_REFERENCES.some((r) => r.name === 'Atlantis Ticaret Merkezi')).toBe(true);
+      expect(REAL_REFERENCES.some((r) => r.name === 'Fuar ve Etkinlik Organizasyonları')).toBe(true);
+      expect(REAL_REFERENCES.some((r) => r.name === 'Irak Konsolosluğu')).toBe(true);
 
       const districtServicePage = readRel('src/app/[lang]/bolgeler/[ilce]/[hizmet]/page.tsx');
       expect(districtServicePage).toContain('id="ilce-guvenlik-agi"');

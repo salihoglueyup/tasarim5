@@ -18,9 +18,9 @@ describe('gerçek referans listesi', () => {
     }
   });
 
-  it('kapanan/devredilen firmalar ve diplomatik misyonlar listede yok', () => {
+  it('kapanan/devredilen veya portföy dışı firmalar listede yok', () => {
     const all = REAL_REFERENCES.map((r) => r.name).join('\n');
-    for (const banned of [/Amk Gazetesi/, /Remedy/, /Hyve/, /Mehmet Toprak/, /Konsolosluk/i, /Rönesans/, /Acıbadem Sağlık/, /Ağaoğlu/]) {
+    for (const banned of [/Amk Gazetesi/, /Remedy/, /Hyve/, /Mehmet Toprak/, /Rönesans/, /Acıbadem Sağlık/, /Ağaoğlu/]) {
       expect(all).not.toMatch(banned);
     }
   });
