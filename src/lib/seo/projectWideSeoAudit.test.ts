@@ -505,4 +505,66 @@ describe('Project-Wide SEO & Google AI Overviews Architecture Guard (Faz 1-5)', 
       expect(tesisClient).not.toContain('toplu-yapi-yonetimi-kmk-ek-madde-69');
     });
   });
+
+  describe('Faz 23: 39 İlçe Resmi Mahalle Tam Listeleri, KMK Kanun Kutusu & Canonical Birleştirme, Şablonlar ve Portföy Referansları', () => {
+    it('provides official neighborhood lists for all 39 districts and renders #mahalle-listesi on /bolgeler/[ilce]/mahalleler', async () => {
+      const { OFFICIAL_NEIGHBORHOODS, getOfficialNeighborhoods } = await import(
+        '@/data/districtOfficialNeighborhoods'
+      );
+      expect(Object.keys(OFFICIAL_NEIGHBORHOODS).length).toBe(39);
+      expect(getOfficialNeighborhoods('gaziosmanpasa')?.count).toBe(16);
+      expect(getOfficialNeighborhoods('kartal')?.count).toBe(20);
+      expect(getOfficialNeighborhoods('buyukcekmece')?.count).toBe(24);
+      expect(getOfficialNeighborhoods('beylikduzu')?.count).toBe(11);
+
+      const mahallelerPage = readRel('src/app/[lang]/bolgeler/[ilce]/mahalleler/page.tsx');
+      expect(mahallelerPage).toContain('id="mahalle-listesi"');
+      expect(mahallelerPage).toContain('Mahalle Tam Liste) ve Site Yönetimi | Alo Yönetim');
+    });
+
+    it('canonicalizes duplicate glossary slugs, builds KMK Legislation schema & statute boxes, and provides copyable templates', async () => {
+      const { getCanonicalTermSlug, isNonCanonicalTermSlug } = await import(
+        '@/lib/seo/glossaryCanonical'
+      );
+      const { getKmkStatuteForTerm } = await import('@/lib/seo/kmkStatuteForTerm');
+      const { GLOSSARY_TEMPLATES } = await import('@/data/glossaryTemplates');
+
+      expect(getCanonicalTermSlug('kmk-ne-demek-634-sayili-kat-mulkiyeti-kanunu')).toBe(
+        'kat-mulkiyeti-kanunu-kmk'
+      );
+      expect(getCanonicalTermSlug('kat-mulkiyeti-kanunu-madde-20-aidat-borcu')).toBe(
+        'kmk-madde-20-genel-giderlere-katilma-aidat-borcu'
+      );
+      expect(isNonCanonicalTermSlug('yesil-etiket-asansor')).toBe(true);
+
+      const m20 = getKmkStatuteForTerm('KMK Madde 20 (Gider Paylaşımı)');
+      expect(m20).not.toBeNull();
+      expect(m20?.articleNo).toBe(20);
+      expect(m20?.legislationLd['@type']).toBe('Legislation');
+
+      const m37 = getKmkStatuteForTerm('KMK Madde 37 (İşletme Projesi)');
+      expect(m37?.articleNo).toBe(37);
+      expect(m37?.statuteText).toBeUndefined(); // pre-7579 text suppressed
+
+      expect(GLOSSARY_TEMPLATES['hazirun-cetveli']?.table?.columns).toContain('Arsa Payı');
+      expect(GLOSSARY_TEMPLATES['isletme-projesi']?.table?.columns).toContain('Gider Kalemi');
+
+      const termPage = readRel('src/app/[lang]/sozluk/[terim]/page.tsx');
+      expect(termPage).toContain('id="kmk-kanun-metni"');
+      expect(termPage).toContain('id="sablon"');
+    });
+
+    it('aligns REAL_REFERENCES with Alo_Grup_Kurumsal_Portfoy_TASLAK_v1.pdf (50 references across 4 sectors) and enriches district security & elevator networks', async () => {
+      const { REAL_REFERENCES, SECTORS } = await import('@/data/realReferences');
+      expect(SECTORS).toEqual(['site', 'kamu', 'saglik', 'ticari']);
+      expect(REAL_REFERENCES.length).toBe(50);
+      expect(REAL_REFERENCES.some((r) => r.name === 'Nef Çekmeköy Çamlıtepe Sitesi')).toBe(true);
+      expect(REAL_REFERENCES.some((r) => r.name === 'Aile ve Sosyal Politikalar Bakanlığı Merkezleri')).toBe(true);
+      expect(REAL_REFERENCES.some((r) => r.name === 'Atlantis Ticaret Merkezi')).toBe(true);
+
+      const districtServicePage = readRel('src/app/[lang]/bolgeler/[ilce]/[hizmet]/page.tsx');
+      expect(districtServicePage).toContain('id="ilce-guvenlik-agi"');
+      expect(districtServicePage).toContain('id="mahalle-asansor-agi"');
+    });
+  });
 });

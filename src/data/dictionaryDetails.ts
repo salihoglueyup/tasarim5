@@ -240,6 +240,7 @@ const BASE_DETAILS: Record<string, TermDetail> = {
       'Hedef aşıldığında uygulanacak yaptırımı belirleyin.',
     ],
     faq: [
+      ['SLA nedir, SLA süresi ne demek?', 'SLA (Service Level Agreement / Hizmet Seviyesi Taahhüdü), hizmet sağlayıcının bir talebe ne kadar sürede yanıt vereceğini ve işi ne kadar sürede çözeceğini yazılı olarak tanımlar. "SLA süresi", bu taahhüt edilen yanıt veya çözüm süresidir; örneğin acil arızada sahaya ulaşma süresi.'],
       ['SLA ile garanti aynı şey midir?', 'Hayır. SLA bir hedef ve ölçüm çerçevesidir; sonuçlar sözleşmedeki koşullara bağlıdır.'],
     ],
   },

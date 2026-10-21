@@ -9,6 +9,7 @@ import { POSTS_META, CATEGORIES } from '@/data/posts';
 import { AUTHOR_SLUGS, resolveAuthorSlug } from '@/data/authors';
 import { parseTags } from '@/lib/jsonSafe';
 import { TERMS, termToSlug } from '@/data/dictionary';
+import { isNonCanonicalTermSlug } from '@/lib/seo/glossaryCanonical';
 import { CERTIFICATES } from '@/data/certificates';
 
 export const dynamic = 'force-dynamic';
@@ -221,7 +222,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter(([, count]) => count >= MIN_POSTS_FOR_TAG_INDEX)
     .flatMap(([slug]) => makeItems(`/blog/etiket/${encodeURIComponent(slug)}`, 0.4, 'monthly'));
 
-  const dictionaryRoutes: MetadataRoute.Sitemap = TERMS.flatMap((t) =>
+  // Yinelenen (kanonik olmayan) sözlük terimleri sitemap'e girmez (Faz 23: src/lib/seo/glossaryCanonical.ts).
+  const dictionaryRoutes: MetadataRoute.Sitemap = TERMS.filter((t) => !isNonCanonicalTermSlug(termToSlug(t.term))).flatMap((t) =>
     makeItems(`/sozluk/${termToSlug(t.term)}`, 0.65, 'monthly')
   );
 

@@ -43,14 +43,27 @@ describe('Google Search Console (GSC) High-Impact SEO Opportunities & Zero-Error
     });
   });
 
-  describe('3. "beşiktaş mahalleleri" Başlık ve Arama Niyeti Düzeltmesi', () => {
-    it('Beşiktaş mahalleler hub sayfası ticari "Beşiktaş Site Yönetimi" başlığı üretir', async () => {
+  describe('3. "beşiktaş mahalleleri" Başlık ve Arama Niyeti Düzeltmesi (Faz 23: bilgi + ticari karma niyet)', () => {
+    it('Beşiktaş mahalleler sayfası resmi mahalle sayısını ve tam listeyi başlıkta öne çıkarır', async () => {
       const meta = await generateMahallelerMetadata({
         params: Promise.resolve({ lang: 'tr', ilce: 'besiktas' }),
       });
 
-      expect(meta.title).toBe('Beşiktaş Site Yönetimi — Hizmet Verilen Tüm Mahalleler | Alo Yönetim');
-      expect(meta.description).toContain('Beşiktaş genelinde ve tüm mahallelerinde 634 sayılı KMK uyumlu profesyonel site yönetimi');
+      expect(meta.title).toBe('Beşiktaş Mahalleleri (23 Mahalle Tam Liste) ve Site Yönetimi | Alo Yönetim');
+      expect(meta.description).toContain('Beşiktaş ilçesinde kaç mahalle var? Beşiktaş ilçesinde 23 mahalle bulunur');
+    });
+
+    it('39 ilçenin tamamı için resmi mahalle listesi mevcut ve sayılar liste uzunluğuyla birebir', async () => {
+      const { OFFICIAL_NEIGHBORHOODS } = await import('@/data/districtOfficialNeighborhoods');
+      const { DISTRICTS } = await import('@/data/districts');
+      for (const d of DISTRICTS) {
+        const o = OFFICIAL_NEIGHBORHOODS[d.slug];
+        expect(o, d.slug).toBeDefined();
+        expect(o.count, d.slug).toBe(o.neighborhoods.length);
+        expect(new Set(o.neighborhoods).size, d.slug).toBe(o.neighborhoods.length);
+      }
+      expect(OFFICIAL_NEIGHBORHOODS.gaziosmanpasa.count).toBe(16);
+      expect(OFFICIAL_NEIGHBORHOODS.kartal.count).toBe(20);
     });
   });
 

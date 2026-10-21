@@ -1,25 +1,7 @@
 import ServiceTestimonialsShared, { ServiceTestimonialItem } from './ServiceTestimonialsShared';
 
-const TESTIMONIALS: ServiceTestimonialItem[] = [
-  {
-    quote: "testi_landscape_q1",
-    author: "Murat Çelik",
-    role: "testi_landscape_r1",
-    project: "Yeşilvadi Konakları"
-  },
-  {
-    quote: "testi_landscape_q2",
-    author: "Sevim Aras",
-    role: "testi_landscape_r2",
-    project: "Botanica Evleri"
-  },
-  {
-    quote: "testi_landscape_q3",
-    author: "Oğuzhan Kaya",
-    role: "testi_landscape_r3",
-    project: "Gölpark Evleri"
-  }
-];
+// Uydurma yorumlar kaldırıldı; gerçek referanslar ReferenceBand ile gösterilir (src/data/realReferences.ts).
+const TESTIMONIALS: ServiceTestimonialItem[] = [];
 
 Object.freeze(TESTIMONIALS);
 

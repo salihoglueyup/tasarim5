@@ -309,7 +309,7 @@ ${CONTACT}`);
           : FACTS.emergencyResponse.european;
       const localRefs = REAL_REFERENCES.filter((r) => r.district === district.name);
       const neighborhoodsList = (district.neighborhoods || [])
-        .map((n) => (typeof n === 'string' ? n : n.name))
+        .map((n) => String(n))
         .join(', ');
       const focusHeading =
         subRoute === 'site-yonetimi'
@@ -364,7 +364,7 @@ ${CONTACT}`);
       return `# ${termObj.term} — Kat Mülkiyeti ve Tesis Yönetimi Sözlüğü
 
 > **Kanonik URL**: ${BASE_URL}${cleanPath}
-> **Kategori**: ${termObj.category}
+> **Kategori**: ${termObj.link?.label ?? 'Kat mülkiyeti ve tesis yönetimi sözlüğü'}
 > **Kaynak**: Alo Yönetim KMK 634 & Tesis Yönetimi Bilgi Korpusu (${BASE_URL}/sozluk)
 
 ---

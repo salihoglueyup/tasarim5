@@ -124,10 +124,10 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     // claims-guard-ignore: sözlük maddesi (bilgilendirici, sahiplik iddiası değil)
     name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
     category: 'Kalite & Yönetim',
-    description: 'Türk Standardları Enstitüsü tarafından bina ve tesis yönetim şirketlerinin teknik altyapı, personel yetkinliği ve hizmet kalitesini belgeleyen ulusal standarttır.',
-    legalBasis: 'Türk Standardları Enstitüsü Hizmet Yeri Yeterlilik Standardı',
+    description: 'TS 12850, havalandırma ve klima sistemleri yetkili servislerinin yapısal, teknik donanım ve personel şartlarını belirleyen Türk Standardıdır; TSE uygun servislere Hizmet Yeterlilik Belgesi (HYB) verir. Site yönetimi belgesi değildir; klima/havalandırma bakım taşeronundan istenir.',
+    legalBasis: 'TS 12850 — Yetkili Servisler: Havalandırma ve Klima Sistemleri — Kurallar (TSE)',
     wikidataUri: 'https://www.wikidata.org/wiki/Q12812282',
-    canonicalUrl: `${BASE_URL}/kurumsal/kalite-belgelerimiz`,
+    canonicalUrl: `${BASE_URL}/hizmetler/teknik-bakim`,
   },
   {
     termCode: 'sla-garantisi',

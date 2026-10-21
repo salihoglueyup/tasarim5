@@ -2,17 +2,10 @@
 
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
+import { featuredReferences } from '@/data/realReferences';
 
-const fallbackBrands = [
-  { name: "Emaar Square", logo: null },
-  { name: "Zorlu Center", logo: null },
-  { name: "Ağaoğlu 1453", logo: null },
-  { name: "Sinpaş Altınoran", logo: null },
-  { name: "Dap Yapı Vazo Kule", logo: null },
-  { name: "Tahincioğlu Palladium", logo: null },
-  { name: "Nef Ataköy", logo: null },
-  { name: "Rönesans Tower", logo: null },
-];
+/** Veritabanı boşsa yalnızca gerçek referans listesindeki (Kurumsal Portföy 2026) öne çıkan kurumlar gösterilir. */
+const fallbackBrands = featuredReferences(12).map((r) => ({ name: r.name, logo: null as string | null }));
 
 export default function LogoTicker({ dbPartners }: { dbPartners?: { name: string; logo: string | null }[] }) {
   const { t } = useLanguage();

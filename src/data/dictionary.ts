@@ -173,8 +173,8 @@ export const TERMS: Term[] = [
     term: 'TSE HYB 12850 Belgesi',
     definition:
       // claims-guard-ignore: sözlük tanımı (bilgilendirici, sahiplik iddiası değil)
-      'Türk Standardları Enstitüsü tarafından verilen, tesis ve bina yönetim firmalarının idari, teknik ve personel yeterliliğe sahip olduğunu kanıtlayan resmi Hizmet Yeterlilik Belgesi\'dir.',
-    link: { href: '/kurumsal/kalite-belgelerimiz', label: 'TSE kalite belgelerimiz' },
+      'TS 12850; havalandırma ve klima sistemleri (klima santralleri, split/VRF klimalar, soğutucu gruplar, fan-coiller, aspiratör ve vantilatörler, hava perdeleri) için yetkili servislerin yapısal, işletmecilik, teknik donanım ve personel şartlarını belirleyen Türk Standardıdır. TSE bu şartları karşılayan servislere Hizmet Yeterlilik Belgesi (HYB) verir. Site ve tesis yönetimi şirketleri için bir yönetim belgesi değildir; sitelerde klima, havalandırma ve otopark/sığınak fanlarının bakımını yapan servis firmasından istenmesi önerilir.',
+    link: { href: '/hizmetler/teknik-bakim', label: 'Teknik bakım ve servis koordinasyonu' },
   },
   {
     term: 'Merkezi Isı Pay Ölçer',

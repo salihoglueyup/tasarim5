@@ -15,6 +15,7 @@ interface DynamicFAQProps {
   title?: string;
   className?: string;
   emitSchema?: boolean;
+  injectSchema?: boolean;
 }
 
 /**

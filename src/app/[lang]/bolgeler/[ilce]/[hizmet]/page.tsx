@@ -39,6 +39,7 @@ import DistrictAiOverviewSeo from '@/components/seo/ai-overviews/DistrictAiOverv
 
 import Icon from '@/components/ui/branding/Icon';
 import { getDistrictLocalBrief } from '@/data/districtGuides';
+import { getOfficialNeighborhoods } from '@/data/districtOfficialNeighborhoods';
 
 const LOCAL_BRIEF_SERVICES = new Set(['site-yonetimi', 'apartman-yonetimi', 'bina-yonetimi', 'site-yonetim-sirketleri', 'profesyonel-site-yonetimi', 'tesis-yonetimi']);
 // ISR (Faz 120): 96 kombinasyon sayfası günlük yeniden doğrulanır.
@@ -358,9 +359,36 @@ export default async function ServiceDistrictPage({
   const baseFaqs = (isFacility && synthesizedDistrictFaq)
     ? synthesizedDistrictFaq.faqs.map(f => ({ question: f.question, answer: f.answer }))
     : serviceDistrictFaqs(service.name, district.name, service.benefits[0], service.slug);
+  const officialHood = getOfficialNeighborhoods(district.slug);
+  const sameSideDistricts = DISTRICTS.filter((d) => d.side === district.side && d.slug !== district.slug);
+  const slaForSide = district.side === 'Anadolu' ? FACTS.emergencyResponse.anatolian : FACTS.emergencyResponse.european;
+  // Faz 23: GSC'deki ilçe bazlı güvenlik ve mahalle bazlı asansör sorguları için ek SSS (DistrictAiOverviewSeo şemasına da akar).
+  const intentFaqs = isSecurity
+    ? [
+        {
+          question: `${district.name} güvenlik şirketi seçerken nelere dikkat edilmeli?`,
+          answer: `${district.name} için özel güvenlik şirketi seçerken 5188 sayılı Kanun kapsamındaki faaliyet izni, sahadaki her görevlinin geçerli ÖGG kimlik kartı, sitenin Valilik özel güvenlik izni (ÖGİ), SGK ve kıdem tazminatı sorumluluğunun sözleşmede şirkete ait olması ile vardiya ve devriye kayıtlarının düzenli raporlanması kontrol edilmelidir.`,
+        },
+        {
+          question: `${district.name} sitelerinde özel güvenlik için Valilik izni gerekir mi?`,
+          answer: `Evet. 5188 sayılı Kanun uyarınca bir sitenin özel güvenlik şirketinden hizmet alabilmesi için İl Özel Güvenlik Komisyonu kararıyla Valilik izni alınması gerekir. Başvuru dosyası genellikle site yönetimi ve hizmet verecek şirket birlikte hazırlar.`,
+        },
+      ]
+    : isTechnical
+      ? [
+          {
+            question: `${district.name} genelinde asansör arızasında ne yapılmalı?`,
+            answer: `Kabinde mahsur kalan varsa önce asansör içindeki acil çağrı butonu ve 112 kullanılmalı; ardından bakım firmasının arıza hattına kayıt açılmalıdır. Yazılı SLA kapsamındaki acil müdahale hedefimiz (${district.side} Yakası) ${slaForSide}. Arıza ve onarım kayıtları yönetime raporlanır.`,
+          },
+          {
+            question: `${district.name} asansör yeşil etiket (periyodik kontrol) ne zaman yapılır?`,
+            answer: `Asansörler yılda bir kez A tipi muayene kuruluşunca periyodik kontrolden geçirilir. Yeşil etiket uygunluğu; mavi ve sarı etiket giderilmesi gereken kusurları; kırmızı etiket ise asansörün kullanıma kapatılması gerektiğini gösterir.`,
+          },
+        ]
+      : [];
   const faqs = localBrief
-    ? [...baseFaqs, ...localBrief.faq.map(([question, answer]) => ({ question, answer }))]
-    : baseFaqs;
+    ? [...baseFaqs, ...intentFaqs, ...localBrief.faq.map(([question, answer]) => ({ question, answer }))]
+    : [...baseFaqs, ...intentFaqs];
 
   let pageHeaderTitle = `${service.name} — ${district.name}`;
   let pageHeaderDesc = `${district.name} ve mahallelerinde profesyonel ${service.name.toLowerCase()} hizmeti.`;
@@ -684,10 +712,76 @@ export default async function ServiceDistrictPage({
           </div>
         )}
 
+        {/* Faz 23: İlçe bazlı güvenlik şirketi aramaları (Esenyurt, Büyükçekmece, Arnavutköy, Silivri, Çatalca...) */}
+        {isSecurity && (
+          <section
+            aria-labelledby="ilce-guvenlik-agi"
+            className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 flex flex-col gap-5"
+          >
+            <h2 id="ilce-guvenlik-agi" className="text-xl font-bold text-[var(--color-primary)]">
+              {district.name} Güvenlik Şirketi Seçerken Kontrol Listesi
+            </h2>
+            <ul className="list-disc pl-6 flex flex-col gap-2 text-sm text-[var(--color-secondary)] leading-relaxed">
+              <li>Şirketin İçişleri Bakanlığı&apos;ndan alınmış güncel <strong>5188 sayılı Kanun faaliyet izni</strong> bulunmalı.</li>
+              <li>Sitenizin özel güvenlik hizmeti alabilmesi için <Link href="/sozluk/ozel-guvenlik-izni-ogi" className="underline font-semibold">Valilik özel güvenlik izni (ÖGİ)</Link> alınmalı.</li>
+              <li>Sahadaki her görevlinin geçerli <Link href="/sozluk/ogg-karti-ozel-guvenlik-gorevlisi-kimlik-karti" className="underline font-semibold">ÖGG kimlik kartı</Link> olmalı; personel değişiminde yeni kart kontrol edilmeli.</li>
+              <li>SGK, kıdem ve ihbar tazminatı sorumluluğunun şirkette olduğu sözleşmede açıkça yazılmalı.</li>
+              <li>Vardiya devir tutanakları, devriye kayıtları ve <Link href="/sozluk/nizamiye-guvenlik-protokolu" className="underline font-semibold">nizamiye takip sistemi</Link> raporları yönetime düzenli sunulmalı.</li>
+            </ul>
+            <p className="text-sm text-[var(--color-secondary)] leading-relaxed">
+              Kurumsal güvenlik, ekip hazırlığı ve yakın koruma hizmetleri grup markamız <strong>Alo Güvenlik</strong> tarafından,
+              site ve tesis yönetimiyle aynı plan üzerinde yürütülür.
+            </p>
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[var(--color-tertiary)] mb-3">
+                {district.side} Yakası Özel Güvenlik Şirketleri — İlçe Bazlı Hizmet Ağı
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {sameSideDistricts.map((d) => (
+                  <Link
+                    key={d.slug}
+                    href={`/bolgeler/${d.slug}/guvenlik-yonetimi`}
+                    className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]/50 text-[var(--color-primary)] hover:border-slate-500/60 transition-colors"
+                  >
+                    {d.name} Güvenlik Şirketleri
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Teknik Bakım Hizmeti için Özel Denetim Matrisi & Radar */}
         {isTechnical && (
           <div className="flex flex-col gap-12">
           </div>
+        )}
+
+        {/* Faz 23: Mahalle bazlı asansör bakım/arıza aramaları (Bakırköy Şenlikköy, Basınköy, Florya; Küçükçekmece; Avcılar...) */}
+        {isTechnical && officialHood && (
+          <section
+            aria-labelledby="mahalle-asansor-agi"
+            className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 flex flex-col gap-4"
+          >
+            <h2 id="mahalle-asansor-agi" className="text-xl font-bold text-[var(--color-primary)]">
+              {district.name} Mahallelerinde Asansör Bakım ve Arıza Servisi
+            </h2>
+            <p className="text-sm text-[var(--color-secondary)] leading-relaxed">
+              {district.name} ilçesinin {officialHood.count} mahallesinin tamamında aylık periyodik asansör bakımı, arıza müdahalesi ve
+              yıllık periyodik kontrol (<Link href="/sozluk/asansor-kirmizi-sari-mavi-yesil-etiket" className="underline font-semibold">yeşil, mavi, sarı, kırmızı etiket</Link>)
+              hazırlığı koordine edilir. Yazılı SLA kapsamındaki acil müdahale hedefi ({district.side} Yakası): {slaForSide}.
+            </p>
+            <ul className="flex flex-wrap gap-2">
+              {[...officialHood.neighborhoods, ...officialHood.popularSemts].map((n) => (
+                <li
+                  key={n}
+                  className="text-xs px-3 py-1.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]/50 text-[var(--color-secondary)]"
+                >
+                  {n} asansör bakım ve arıza
+                </li>
+              ))}
+            </ul>
+          </section>
         )}
 
         {/* Temizlik ve Hijyen Hizmeti için Çizelge Oluşturucu & Denetim Matrisi */}

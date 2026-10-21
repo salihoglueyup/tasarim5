@@ -28,6 +28,7 @@ import { FACTS } from '@/lib/facts';
 import { DISTRICT_GUIDES } from '@/data/districtGuides';
 import { getNeighborDistrictLinks, getCrossSideDistrictLinks, getNeighborDistrictsWithSemts } from '@/lib/seo/facility/districtCrossLinker';
 import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
+import { getOfficialNeighborhoods } from '@/data/districtOfficialNeighborhoods';
 
 import Icon from '@/components/ui/branding/Icon';
 // ISR: yüzlerce yerel sayfa için günlük yeniden doğrulama (Faz 120/126).
@@ -134,13 +135,22 @@ export default async function DistrictPage({
   const path = `/bolgeler/${district.slug}`;
   const side = district.side;
   const neighborWithSemts = getNeighborDistrictsWithSemts(district.slug);
-  const faqs = districtFaqs(
-    district.name,
-    side,
-    district.localNeeds,
-    district.neighborhoods,
-    neighborWithSemts.map((n) => n.name),
-  );
+  const official = getOfficialNeighborhoods(district.slug);
+  const faqs = [
+    ...districtFaqs(
+      district.name,
+      side,
+      district.localNeeds,
+      district.neighborhoods,
+      neighborWithSemts.map((n) => n.name),
+    ),
+    ...(official
+      ? [{
+          question: `${district.name} ilçesinde kaç mahalle var?`,
+          answer: `${district.name} ilçesinde ${official.count} mahalle bulunur. Alfabetik tam liste ve mahalle bazlı site yönetimi bilgileri ${district.name} Mahalleleri sayfasındadır.`,
+        }]
+      : []),
+  ];
   const districtReferences = REAL_REFERENCES.filter((r) => r.district === district.name);
 
   const breadcrumbLd = generateBreadcrumbs([
@@ -216,7 +226,7 @@ export default async function DistrictPage({
             <div className="text-2xl font-black text-slate-800 dark:text-slate-200">{district.name}</div>
             <div className="font-semibold">{district.side} Yakası</div>
             <ul className="text-sm text-[var(--color-secondary)] flex flex-col gap-1.5 border-t border-[var(--color-outline)]/40 pt-4">
-              <li>{district.neighborhoods.length} öne çıkan mahalle</li>
+              <li>{official ? `${official.count} resmi mahalle` : `${district.neighborhoods.length} öne çıkan mahalle`}</li>
               <li>Acil teknik müdahale hedefi: {responseTarget(side)}</li>
               {districtReferences.length > 0 && <li>{districtReferences.length} referans tesis</li>}
             </ul>
@@ -351,7 +361,7 @@ export default async function DistrictPage({
 
         {/* Yerel SSS */}
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2.5rem] p-8 md:p-12">
-          <DynamicFAQ faqs={faqs} title={`${district.name} — Sıkça Sorulan Sorular`} injectSchema={false} />
+          <DynamicFAQ faqs={faqs} title={`${district.name} — Sıkça Sorulan Sorular`} />
         </div>
 
         {/* E-E-A-T Mevzuat Otorite ve İç/Dış Bağlantı Hub'ı */}

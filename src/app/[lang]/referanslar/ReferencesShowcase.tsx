@@ -11,7 +11,6 @@ const SECTOR_KEY = {
   kamu: 'refx_s_kamu',
   saglik: 'refx_s_saglik',
   ticari: 'refx_s_ticari',
-  insaat: 'refx_s_insaat',
 } as const;
 
 export default function ReferencesShowcase() {
@@ -23,7 +22,7 @@ export default function ReferencesShowcase() {
   return (
     <section className="mx-auto max-w-[var(--spacing-container-max)] px-[var(--spacing-gutter)] py-14">
       {/* Rakam şeridi: yalnızca listeden sayılan gerçek değerler */}
-      <dl className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+      <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         {SECTORS.map((s) => (
           <div key={s} className="rounded-2xl border border-[var(--color-outline)]/70 bg-[var(--color-surface)] p-5 text-center dark:border-white/10">
             <dt className="order-2 text-xs font-medium text-slate-500 dark:text-slate-400">{t(SECTOR_KEY[s])}</dt>

@@ -9,6 +9,7 @@ import DistrictAiOverviewSeo from '@/components/seo/ai-overviews/DistrictAiOverv
 import { generateBreadcrumbs, webPageSchema, type JsonLdObject } from '@/lib/schemas';
 import { DISTRICTS, getDistrict } from '@/data/districts';
 import { getNeighborDistrictsWithSemts } from '@/lib/seo/facility/districtCrossLinker';
+import { getOfficialNeighborhoods } from '@/data/districtOfficialNeighborhoods';
 import { FACTS } from '@/lib/facts';
 import trDict from '@/i18n/locales/tr/common.json';
 import enDict from '@/i18n/locales/en/common.json';
@@ -44,22 +45,28 @@ export async function generateMetadata({
   if (!district) {
     return buildMetadata({ title: 'İlçe Bulunamadı', description: '', path: '/bolgeler', lang, noindex: true });
   }
+  const official = getOfficialNeighborhoods(district.slug);
+  const count = official?.count ?? district.neighborhoods.length;
+  const sample = (official?.neighborhoods ?? district.neighborhoods).slice(0, 5).join(', ');
+  // Faz 23: GSC'de "[ilçe] mahalleleri" sorguları bilgi amaçlı (~750 gösterim, poz. ~10, ~0 tıklama).
+  // Başlık önce bilgi niyetini (tam liste + sayı), sonra ticari hizmeti karşılar.
   return buildMetadata({
-    title: `${district.name} Site Yönetimi — Hizmet Verilen Tüm Mahalleler | Alo Yönetim`,
-    description: `${district.name} genelinde ve tüm mahallelerinde 634 sayılı KMK uyumlu profesyonel site yönetimi, aidat takibi ve 5188 lisanslı güvenlik hizmetleri. ${district.neighborhoods.slice(0, 4).join(', ')} başta olmak üzere entegre tesis yönetimi ve asansör bakım.`,
+    title: `${district.name} Mahalleleri (${count} Mahalle Tam Liste) ve Site Yönetimi | Alo Yönetim`,
+    description: `${district.name} ilçesinde kaç mahalle var? ${district.name} ilçesinde ${count} mahalle bulunur: ${sample} ve diğerleri. Alfabetik tam liste, yakın semtler ve tüm mahallelerde KMK uyumlu site yönetimi.`,
     path: `/bolgeler/${ilce}/mahalleler`,
     lang,
-    targetKeyword: `${district.name} site yönetimi`,
+    targetKeyword: `${district.name} mahalleleri`,
     keywords: [
+      `${district.name} mahalleleri`,
+      `${district.name} kaç mahalle var`,
+      `${district.name} mahalle listesi`,
+      `${district.name} semtleri`,
+      `${district.name} yakın semtler`,
+      `${district.name} mahalle haritası`,
       `${district.name} site yönetimi`,
       `${district.name} site yönetim şirketleri`,
       `${district.name} apartman yönetimi`,
       `${district.name} tesis yönetimi`,
-      `${district.name} entegre tesis yönetimi`,
-      `${district.name} mahalleleri`,
-      `${district.name} semtleri`,
-      `${district.name} yakın semtler`,
-      `${district.name} mahalle haritası`,
       `${district.name} asansör bakım`,
       `${district.name} toki site yönetimi`,
     ],
@@ -86,21 +93,34 @@ export default async function NeighborhoodsHubPage({
 
   const pageLd = webPageSchema({
     type: 'CollectionPage',
-    name: `${district.name} Site Yönetimi ve Hizmet Mahalleleri`,
-    description: `${district.name}'deki tüm mahallelerde 634 sayılı KMK uyumlu profesyonel site ve tesis yönetimi hizmetleri.`,
+    name: `${district.name} Mahalleleri ve Site Yönetimi`,
+    description: `${district.name} ilçesindeki ${getOfficialNeighborhoods(district.slug)?.count ?? district.neighborhoods.length} mahallenin alfabetik listesi ve tüm mahallelerde 634 sayılı KMK uyumlu profesyonel site ve tesis yönetimi hizmetleri.`,
     path: `/bolgeler/${ilce}/mahalleler`,
-    speakableSelectors: ['h1', '#district-ai-overview-answer'],
+    speakableSelectors: ['h1', '#district-ai-overview-answer', '#mahalle-sayisi-yanit'],
   });
+
+  const official = getOfficialNeighborhoods(district.slug);
+  const officialNames: readonly string[] = official?.neighborhoods ?? district.neighborhoods;
+  const officialCount = official?.count ?? officialNames.length;
+  const popularSemts = official?.popularSemts ?? [];
+  const spokeByName = new Map(
+    (district.neighborhoodData ?? []).map((n) => [n.name.toLocaleLowerCase('tr-TR'), n.slug] as const),
+  );
 
   const neighborhoodListLd: JsonLdObject = {
     '@type': 'ItemList',
-    name: `${district.name} Site Yönetimi Hizmeti Verilen Mahalleler`,
-    itemListElement: district.neighborhoodData.map((n, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: `${n.name} Site ve Apartman Yönetimi`,
-      url: `${BASE_URL}/bolgeler/${ilce}/mahalleler/${n.slug}`,
-    })),
+    name: `${district.name} Mahalleleri (${officialCount} Mahalle)`,
+    numberOfItems: officialNames.length,
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    itemListElement: officialNames.map((name, index) => {
+      const spoke = spokeByName.get(name.toLocaleLowerCase('tr-TR'));
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        name: `${name} Mahallesi`,
+        ...(spoke ? { url: `${BASE_URL}/bolgeler/${ilce}/mahalleler/${spoke}` } : {}),
+      };
+    }),
   };
 
   const slaTarget =
@@ -109,6 +129,26 @@ export default async function NeighborhoodsHubPage({
   const spokeNamesLower = new Set((district.neighborhoodData ?? []).map((n) => n.name.toLowerCase()));
   const extraSemtNames = district.neighborhoods.filter((n) => !spokeNamesLower.has(n.toLowerCase()));
 
+  // Bilgi amaçlı aramalar için mahalle SSS'leri (DistrictAiOverviewSeo tek FAQPage şemasında birleştirir).
+  const mahalleFaqs = [
+    {
+      question: `${district.name} ilçesinde kaç mahalle var?`,
+      answer: `${district.name} ilçesinde ${officialCount} mahalle bulunur: ${officialNames.join(', ')}.`,
+    },
+    ...(popularSemts.length > 0
+      ? [{
+          question: `${district.name} ilçesinin bilinen semtleri hangileri?`,
+          answer: `Resmi mahalle adlarının yanı sıra ${district.name} ilçesinde halk arasında ${popularSemts.join(', ')} gibi semt adları da kullanılır.`,
+        }]
+      : []),
+    ...(neighborDistricts.length > 0
+      ? [{
+          question: `${district.name} ilçesine yakın semtler ve komşu ilçeler hangileri?`,
+          answer: `${district.name} ilçesinin komşuları ${neighborDistricts.map((n) => n.name).join(', ')} ilçeleridir. Yakın semtlere örnek: ${neighborDistricts.flatMap((n) => n.semtler.slice(0, 2)).join(', ')}.`,
+        }]
+      : []),
+  ];
+
   return (
     <>
       <JsonLd data={[pageLd, generateBreadcrumbs(breadcrumbs), neighborhoodListLd]} />
@@ -116,11 +156,49 @@ export default async function NeighborhoodsHubPage({
         <Breadcrumbs items={breadcrumbs} />
       </div>
       <PageHeader
-        title={`${district.name} Site Yönetimi — Mahalle Hizmet Ağı`}
-        description={`${district.name} genelinde ve tüm mahallelerinde 634 sayılı KMK uyumlu profesyonel site yönetimi, aidat takibi ve 5188 lisanslı güvenlik`}
+        title={`${district.name} Mahalleleri (${officialCount} Mahalle) ve Site Yönetimi`}
+        description={`${district.name} ilçesindeki ${officialCount} mahallenin alfabetik tam listesi, yakın semtler ve tüm mahallelerde 634 sayılı KMK uyumlu profesyonel site yönetimi, aidat takibi ve 5188 lisanslı güvenlik`}
       />
 
       <div className="py-16 px-[var(--spacing-gutter)] max-w-5xl mx-auto flex flex-col gap-12">
+        {/* Resmi mahalle listesi (bilgi niyeti: "[ilçe] mahalleleri", "[ilçe] kaç mahalle var") */}
+        <section
+          id="mahalle-listesi"
+          aria-labelledby="mahalle-listesi-baslik"
+          className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60"
+        >
+          <h2 id="mahalle-listesi-baslik" className="text-2xl font-bold text-[var(--color-primary)] mb-2">
+            {district.name} Mahalleleri: {officialCount} Mahallenin Alfabetik Listesi
+          </h2>
+          <p id="mahalle-sayisi-yanit" className="text-sm text-[var(--color-secondary)] leading-relaxed mb-5">
+            {district.name} ilçesinde <strong>{officialCount} mahalle</strong> bulunur ({district.side} Yakası).
+            Aşağıdaki liste resmi mahalle adlarını alfabetik sırayla gösterir; bağlantılı mahallelerde yerel site ve tesis yönetimi
+            rehberine ulaşabilirsiniz.
+          </p>
+          <ol className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-2 list-decimal pl-5 text-sm text-[var(--color-primary)]">
+            {officialNames.map((name) => {
+              const spoke = spokeByName.get(name.toLocaleLowerCase('tr-TR'));
+              return (
+                <li key={name}>
+                  {spoke ? (
+                    <Link href={`/bolgeler/${ilce}/mahalleler/${spoke}`} className="font-semibold underline decoration-slate-300 hover:text-brand-600">
+                      {name}
+                    </Link>
+                  ) : (
+                    <span>{name}</span>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+          {popularSemts.length > 0 && (
+            <p className="mt-5 text-xs text-[var(--color-secondary)] leading-relaxed">
+              <strong>Bilinen semt adları:</strong> {popularSemts.join(', ')}. Bu adlar halk arasında kullanılır; resmi adres kayıtlarında
+              yukarıdaki mahalle adları geçer.
+            </p>
+          )}
+        </section>
+
         <DistrictAiOverviewSeo
           districtName={district.name}
           districtSlug={district.slug}
@@ -128,6 +206,7 @@ export default async function NeighborhoodsHubPage({
           slaTarget={slaTarget}
           neighborhoods={district.neighborhoods}
           localNeeds={district.localNeeds}
+          extraFaqs={mahalleFaqs}
         />
 
         <p className="text-[var(--color-secondary)] text-lg leading-relaxed max-w-2xl">

@@ -76,7 +76,24 @@ export const TERM_DETAILS_2: Record<string, TermDetail> = {
       "Paylaşım ölçüsü yönetim planı ve ilgili mevzuata göre belirlenir. Okuma tarihleri, cihaz arızaları ve itiraz süreçleri için yazılı bir prosedür bulunması uyuşmazlıkları azaltır.",
     ],
     tips: ['Okuma raporlarını sakinlere açıklamalı biçimde sunun.', 'Cihaz bakım ve pil değişim takvimini tutun.'],
-    faq: [['Isıtma giderleri nasıl paylaşılır?', 'Mevzuat ve yönetim planı çerçevesinde bir kısmı sabit, bir kısmı tüketime göre dağıtılır; ayrıntılar için planınıza bakın.']],
+    faq: [
+      ['Merkezi pay ölçer ne demek?', 'Merkezi pay ölçer (ısı pay ölçer), merkezi ısıtmalı binalarda her dairenin radyatörlerine takılan ve o dairenin ısı kullanımını göreli birim olarak kaydeden cihazdır. Okunan değerler, ortak doğalgaz faturasının tüketime göre paylaştırılmasında kullanılır.'],
+      ['Isıtma giderleri nasıl paylaşılır?', 'Mevzuat ve yönetim planı çerçevesinde bir kısmı sabit, bir kısmı tüketime göre dağıtılır; ayrıntılar için planınıza bakın.'],
+    ],
+  },
+  'tse-hyb-12850-belgesi': {
+    explain: [
+      "TS 12850, havalandırma ve klima sistemleri için yetkili servislerin uyması gereken kuralları belirleyen Türk Standardıdır. Kapsamında klima santralleri, split ve VRF klimalar, soğutucu gruplar (chiller), fan-coil üniteleri, aspiratör ve vantilatörler, hava temizleyiciler ve hava perdeleri yer alır.",
+      "Standart; servis yerinin yapısal özelliklerini, işletmecilik kurallarını (kayıt, fatura, servis formu), teknik donanımı ve personelin yeterliliğini tanımlar. TSE, bu şartları karşılayan servislere Hizmet Yeterlilik Belgesi (HYB) verir. Bu belge site veya tesis yönetimi şirketleri için bir yönetim belgesi değildir.",
+    ],
+    tips: [
+      'Sitenizin klima, havalandırma ve otopark/sığınak fanlarının bakımını yapan servis firmasından TS 12850 HYB belgesini ve geçerlilik tarihini isteyin.',
+      'Belge numarasını TSE kayıtlarından doğrulayın.',
+    ],
+    faq: [
+      ['TS 12850 nedir?', 'Havalandırma ve klima sistemleri yetkili servislerinin yapısal, teknik donanım ve personel şartlarını belirleyen Türk Standardıdır; TSE uygun servislere Hizmet Yeterlilik Belgesi verir.'],
+      ['Site yönetim şirketinin TS 12850 belgesi olması gerekir mi?', 'Hayır. TS 12850 bir yönetim belgesi değil, klima ve havalandırma servis belgesidir. Site yönetiminde bu belge, iklimlendirme bakımını yapan taşeron servisten istenir.'],
+    ],
   },
   'site-isletme-butcesi': {
     explain: [
@@ -100,7 +117,12 @@ export const TERM_DETAILS_2: Record<string, TermDetail> = {
       "Belgeyi düzenlemeye yetkili kuruluşlar ve belge koşulları mevzuatla belirlenir. Site yönetimi, ortak alan verimliliğini artırmak için EKB sonuçlarını iyileştirme planına temel yapabilir.",
     ],
     tips: ['Belgenin geçerlilik ve yenileme şartlarını mevzuattan doğrulayın.', 'Yetkili olmayan kişilerden belge düzenlettirmeyin.'],
-    faq: [['EKB her bina için zorunlu mu?', 'Kapsam ve geçiş süreleri mevzuata bağlıdır; güncel yönetmeliğe bakın.']],
+    faq: [
+      ['EKB her bina için zorunlu mu?', 'Kapsam ve geçiş süreleri mevzuata bağlıdır; güncel yönetmeliğe bakın.'],
+      ['Enerji sınıfları (A, B, C ... G) ne demek?', 'EKB, binanın yıllık enerji tüketimini aynı özellikteki bir referans binayla karşılaştırarak A (en verimli) ile G (en verimsiz) arasında bir sınıf verir. A ve B sınıfı binalar referansa göre belirgin biçimde daha az enerji tüketir; E, F ve G sınıfları ise iyileştirme ihtiyacına işaret eder.'],
+      ['C sınıfı enerji ne demek? Yeni binalar hangi sınıfta olmalı?', 'C sınıfı, binanın enerji tüketiminin referans binaya yakın, yani ortalama düzeyde olduğunu gösterir. Mevzuat yeni binalarda asgari C sınıfını hedefler; mevcut binalarda yalıtım, pencere, ısıtma sistemi ve aydınlatma iyileştirmeleriyle sınıf yükseltilebilir.'],
+      ['TOKİ evlerinin enerji sınıfı nasıl öğrenilir?', 'Her bağımsız bölümün veya binanın enerji sınıfı, düzenlenmiş Enerji Kimlik Belgesi üzerinde yazar. Belge yoksa yetkili EKB uzmanına hesaplatılır; site yönetimi ortak alan iyileştirmelerini bu sonuca göre planlayabilir.'],
+    ],
   },
   'yangin-sondurme-ve-duman-tahliye-sistemi': {
     explain: [
@@ -148,7 +170,11 @@ export const TERM_DETAILS_2: Record<string, TermDetail> = {
       "Uygulama öncesinde sakinler bilgilendirilmeli, çocuk ve evcil hayvanlar için bekleme süreleri gözetilmeli, kullanılan ürün bilgileri ve uygulama formları saklanmalıdır.",
     ],
     tips: ['Periyodik programı sezon ve risk durumuna göre belirleyin.', 'Çöp odası ve bodrum gibi riskli alanları öncelikleyin.'],
-    faq: [['İlaçlama sonrası ortak alan ne zaman kullanılır?', 'Ürünün etiketindeki bekleme süresine göre; uygulayıcının yönlendirmesine uyun.']],
+    faq: [
+      ['Vektör ilaçlama nedir?', 'Vektör ilaçlama; sivrisinek, karasinek, hamamböceği, kene ve kemirgen gibi hastalık taşıyabilen canlılara (vektörlere) karşı ruhsatlı biyosidal ürünlerle yapılan kontrol uygulamasıdır. Sitelerde çöp odası, bodrum, sığınak, rögar ve peyzaj alanları öncelikli uygulama noktalarıdır.'],
+      ['Biyosidal ilaçlama nedir, tarım ilacından farkı ne?', 'Biyosidal ürünler, insan ve hayvan sağlığını korumak amacıyla zararlı organizmaları kontrol eden ve Sağlık Bakanlığı tarafından ruhsatlandırılan ürünlerdir. Yaşam alanlarında tarım ilacı (pestisit) değil, ruhsatlı biyosidal ürün ve yetkili uygulayıcı kullanılmalıdır.'],
+      ['İlaçlama sonrası ortak alan ne zaman kullanılır?', 'Ürünün etiketindeki bekleme süresine göre; uygulayıcının yönlendirmesine uyun.'],
+    ],
   },
   'jenerator-periyodik-bakimi-ve-yuk-testi': {
     explain: [
@@ -180,7 +206,11 @@ export const TERM_DETAILS_2: Record<string, TermDetail> = {
       "Ziyaretçi teyidi için sakinle iletişim yöntemi, kargo kabul düzeni ve olağandışı durumlarda yapılacaklar protokolde yer almalıdır. Kayıtlar kişisel verilerin korunmasına uygun tutulmalıdır.",
     ],
     tips: ['Protokolü sakinlere duyurun.', 'Yılda en az bir kez gözden geçirin.'],
-    faq: [['Kuryeler sitenin içine girebilir mi?', 'Protokolde belirlenen kurallara bağlıdır; birçok sitede teslim nizamiye veya lobide yapılır.']],
+    faq: [
+      ['Nizamiye takip sistemi nedir?', 'Nizamiye takip sistemi; site veya tesis girişinde ziyaretçi, kurye, teknik servis ve araç giriş-çıkışlarının dijital ya da yazılı olarak kaydedildiği, sakin onayının alındığı ve gerektiğinde geriye dönük raporlanabildiği kontrol düzenidir. Plaka tanıma, QR davetiye ve ziyaretçi kayıt yazılımlarıyla desteklenebilir.'],
+      ['Nizamiye kayıtları ne kadar süre saklanır?', 'Kayıtlar kişisel veri içerdiğinden saklama süresi ve erişim yetkisi KVKK ilkelerine göre yazılı belirlenmeli, amaç dışında kullanılmamalıdır.'],
+      ['Kuryeler sitenin içine girebilir mi?', 'Protokolde belirlenen kurallara bağlıdır; birçok sitede teslim nizamiye veya lobide yapılır.'],
+    ],
   },
   'kat-irtifakindan-kat-mulkiyetine-gecis': {
     explain: [
@@ -212,7 +242,12 @@ export const TERM_DETAILS_2: Record<string, TermDetail> = {
       "Kusur giderme süreleri yönetmelikte belirlidir. Kırmızı etiketli asansör çalıştırılırsa hukuki sorumluluk doğabileceğinden bakım firmasıyla revizyon derhal planlanmalıdır.",
     ],
     tips: ['Muayene raporlarını tarih sırasıyla saklayın.', 'Etiket süresi dolmadan yeniden muayene planlayın.'],
-    faq: [['Etiket kimin sorumluluğunda yenilenir?', 'Muayene yaptırma sorumluluğu bina yönetimine aittir; bakım sözleşmesinde nasıl işleneceği yazılmalıdır.']],
+    faq: [
+      ['Asansör yeşil etiket nedir?', 'Yeşil etiket, A tipi muayene kuruluşunun yıllık periyodik kontrolünde asansörün güvenli ve kullanıma uygun bulunduğunu gösteren etikettir. Bir sonraki periyodik kontrole kadar geçerlidir.'],
+      ['Mavi, sarı ve kırmızı etiket ne demek?', 'Mavi etiket hafif kusurları, sarı etiket giderilmesi gereken kusurları gösterir; bu kusurlar yönetmelikte belirtilen süre içinde giderilip yeniden kontrol yaptırılmalıdır. Kırmızı etiket güvensiz anlamına gelir ve asansör kullanıma kapatılır.'],
+      ['Asansör yeşil etiket maliyeti ne kadar?', 'Periyodik kontrol ücreti, muayene kuruluşunun tarifesine ve asansörün tipine/durak sayısına göre değişir. Kusur giderme (revizyon) maliyeti ise tespit edilen eksiklere bağlıdır; bakım firmasından kalem kalem teklif alınmalıdır.'],
+      ['Etiket kimin sorumluluğunda yenilenir?', 'Muayene yaptırma sorumluluğu bina yönetimine aittir; bakım sözleşmesinde nasıl işleneceği yazılmalıdır.'],
+    ],
   },
   'termal-kamera-ile-enerji-kacagi-tespiti': {
     explain: [
