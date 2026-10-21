@@ -98,7 +98,9 @@ export async function generateMetadata({
     title = 'Merkezi Pay Ölçer Ne Demek? Isı Pay Ölçer Nasıl Çalışır? | Alo Yönetim';
     description = 'Merkezi pay ölçer ne demek? Merkezi ısıtmalı binalarda radyatör ısı pay ölçerlerin çalışma mantığı ve doğalgaz faturasının daireler arasında tüketime göre paylaşımı.';
   } else if (termLower.includes('12850')) {
+    // claims-guard-ignore: sözlük tanımı: standart bilgilendirmesi, belge sahipliği iddiası yok
     title = 'TS 12850 Nedir? TSE HYB 12850 Klima ve Havalandırma Servis Belgesi | Alo Yönetim';
+    // claims-guard-ignore: sözlük tanımı: standart bilgilendirmesi, belge sahipliği iddiası yok
     description = 'TSE 12850 nedir? Havalandırma ve klima sistemleri yetkili servisleri için Hizmet Yeterlilik Belgesi (HYB) şartları ve sitelerde bakım firmasından neden istenmesi gerektiği.';
   } else if (termLower.includes('hazirun')) {
     title = 'Hazirun Cetveli Nedir, Nasıl Hazırlanır? Örnek Şablon | Alo Yönetim';

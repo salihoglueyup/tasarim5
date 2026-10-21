@@ -78,7 +78,7 @@ export default function ServiceAuthorityHubSeo({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 [&>*]:min-w-0">
           
           {/* Sol Kolon: Resmi Dış Otorite Mevzuat Linkleri (7 Kolon) */}
           <div className="lg:col-span-7 flex flex-col gap-4">

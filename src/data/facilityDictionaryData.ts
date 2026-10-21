@@ -124,6 +124,7 @@ export const FACILITY_TERMS: FacilityDictionaryTerm[] = [
     // claims-guard-ignore: sözlük maddesi (bilgilendirici, sahiplik iddiası değil)
     name: 'TSE HYB 12850 Hizmet Yeterlilik Belgesi',
     category: 'Kalite & Yönetim',
+    // claims-guard-ignore: sözlük tanımı: standart bilgilendirmesi, belge sahipliği iddiası yok
     description: 'TS 12850, havalandırma ve klima sistemleri yetkili servislerinin yapısal, teknik donanım ve personel şartlarını belirleyen Türk Standardıdır; TSE uygun servislere Hizmet Yeterlilik Belgesi (HYB) verir. Site yönetimi belgesi değildir; klima/havalandırma bakım taşeronundan istenir.',
     legalBasis: 'TS 12850 — Yetkili Servisler: Havalandırma ve Klima Sistemleri — Kurallar (TSE)',
     wikidataUri: 'https://www.wikidata.org/wiki/Q12812282',

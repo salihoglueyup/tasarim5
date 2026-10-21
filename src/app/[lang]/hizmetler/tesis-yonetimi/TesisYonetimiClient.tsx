@@ -66,7 +66,7 @@ export default function TesisYonetimiClient() {
     },
     {
       question: 'Dijital tesis yönetimi ve tesis yönetim yazılımı sitelere ne kazandırır?',
-      answer: 'Dijital tesis yönetimi; bulut tabanlı tesis yönetim yazılımı, BMS (Bina Otomasyon Sistemi), RFID/QR saha devriye takibi, online kredi kartı/banka API entegrasyonlu aidat tahsilatı ve iOS/Android sakin mobil uygulamasının entegre kullanımıdır. Kat malikleri tüm gelir-gider faturalarını, KMK m.37 işletme projesi bütçesini, asansör bakım kayıtlarını ve 7/24 teknik arıza SLA sürelerini cep telefonlarından anlık ve şeffaf biçimde denetleyebilir.'
+      answer: 'Dijital tesis yönetimi; kayıtların ve bakım takibinin dijital ortamda tutulması ile sakinlerin Apsiyon uygulaması üzerinden borç ve ödeme geçmişini görmesi, aidatı kredi kartıyla online ödeyebilmesi ve duyuruları takip edebilmesidir. Sitenin gelir-gider bilgilerinin büyük bölümü sakinlere gösterilir; hangi bilgilerin görüneceği site ayarlarına göre değişir.'
     },
     {
       question: 'Endüstriyel tesis nedir ve TOKİ / toplu konut site yönetimi (KMK m.66-74) nasıl yapılır?',
@@ -362,7 +362,7 @@ export default function TesisYonetimiClient() {
                 <span>Dijital Tesis Yönetimi ve Tesis Yönetim Yazılımı</span>
               </h3>
               <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed">
-                <strong>Dijital tesis yönetimi</strong> altyapımız; bulut tabanlı <strong>tesis yönetim yazılımı</strong>, online banka entegrasyonu, sanal POS ile aidat tahsilatı, QR/RFID saha devriye doğrulaması ve mobil sakin uygulamasını birleştirir. Kat malikleri ve denetim kurulu üyeleri; faturaları, <Link href="/sozluk/hazirun-cetveli" className="underline font-semibold text-[var(--color-primary)]">hazirun cetveli</Link> ve genel kurul kararlarını, asansör periyodik bakım raporlarını ve SLA müdahale sürelerini 7/24 dijital ortamda şeffaflıkla takip eder.
+                <strong>Dijital tesis yönetimi</strong> altyapımız Apsiyon ile çalışır: sakinler uygulamada borç ve ödeme geçmişini görür, aidatı kredi kartıyla online öder ve duyuruları takip eder. Kat malikleri ve denetim kurulu üyeleri; faturaları, <Link href="/sozluk/hazirun-cetveli" className="underline font-semibold text-[var(--color-primary)]">hazirun cetveli</Link> ve genel kurul kararlarını, bakım kayıtlarını sitenin ayarlarına göre dijital ortamda takip edebilir.
               </p>
             </div>
 

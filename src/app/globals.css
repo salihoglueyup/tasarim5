@@ -143,9 +143,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip; /* mobilde yatay taşma güvenlik ağı (sticky etkilenmez) */
   }
 
   body {
+    overflow-x: clip;
     font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', 'Inter', sans-serif;
     background-color: var(--color-background);
     color: var(--color-body-text);

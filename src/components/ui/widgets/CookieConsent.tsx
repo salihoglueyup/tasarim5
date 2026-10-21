@@ -105,7 +105,7 @@ export default function CookieConsent() {
 
   return (
     <div
-      className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-[420px] bg-white dark:bg-[#112338] border border-slate-200 dark:border-white/10 rounded-2xl p-5 shadow-2xl z-50 flex flex-col gap-4 transition-all duration-300 ease-out transform-gpu animate-in fade-in slide-in-from-bottom-5"
+      className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-[420px] bg-white dark:bg-[#112338] border border-slate-200 dark:border-white/10 rounded-2xl p-5 shadow-2xl z-[100] flex flex-col gap-4 transition-all duration-300 ease-out transform-gpu animate-in fade-in slide-in-from-bottom-5"
       role="dialog"
       aria-modal="false"
       aria-label={content.ariaLabel}

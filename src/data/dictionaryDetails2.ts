@@ -84,6 +84,7 @@ export const TERM_DETAILS_2: Record<string, TermDetail> = {
   'tse-hyb-12850-belgesi': {
     explain: [
       "TS 12850, havalandırma ve klima sistemleri için yetkili servislerin uyması gereken kuralları belirleyen Türk Standardıdır. Kapsamında klima santralleri, split ve VRF klimalar, soğutucu gruplar (chiller), fan-coil üniteleri, aspiratör ve vantilatörler, hava temizleyiciler ve hava perdeleri yer alır.",
+      // claims-guard-ignore: sözlük tanımı: standart bilgilendirmesi, belge sahipliği iddiası yok
       "Standart; servis yerinin yapısal özelliklerini, işletmecilik kurallarını (kayıt, fatura, servis formu), teknik donanımı ve personelin yeterliliğini tanımlar. TSE, bu şartları karşılayan servislere Hizmet Yeterlilik Belgesi (HYB) verir. Bu belge site veya tesis yönetimi şirketleri için bir yönetim belgesi değildir.",
     ],
     tips: [
@@ -91,6 +92,7 @@ export const TERM_DETAILS_2: Record<string, TermDetail> = {
       'Belge numarasını TSE kayıtlarından doğrulayın.',
     ],
     faq: [
+      // claims-guard-ignore: sözlük tanımı: standart bilgilendirmesi, belge sahipliği iddiası yok
       ['TS 12850 nedir?', 'Havalandırma ve klima sistemleri yetkili servislerinin yapısal, teknik donanım ve personel şartlarını belirleyen Türk Standardıdır; TSE uygun servislere Hizmet Yeterlilik Belgesi verir.'],
       ['Site yönetim şirketinin TS 12850 belgesi olması gerekir mi?', 'Hayır. TS 12850 bir yönetim belgesi değil, klima ve havalandırma servis belgesidir. Site yönetiminde bu belge, iklimlendirme bakımını yapan taşeron servisten istenir.'],
     ],

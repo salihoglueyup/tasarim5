@@ -49,6 +49,7 @@ export const OFFICIAL_NEIGHBORHOODS: Record<string, OfficialNeighborhoodList> = 
       'Merdivenköy',
       'Osmanağa',
       'Rasimpaşa',
+      // claims-guard-ignore: Kadıköy mahalle adı, eski NAP verisi değil
       'Sahrayıcedit',
       'Suadiye',
       'Zühtüpaşa',

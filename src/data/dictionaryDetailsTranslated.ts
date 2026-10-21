@@ -65,6 +65,7 @@ export const TERM_DETAILS_TRANSLATED: Record<string, Record<DetailLang, TermDeta
         'For the current text of the law articles, the Official Gazette or mevzuat.gov.tr should be used.',
       ],
       faq: [
+        ['What does KMK stand for, what is KMK?', "KMK stands for Condominium Ownership Law No. 634. It sets out owners' rights, the sharing of dues and management rules in apartment buildings, residential complexes, residences and commercial plazas."],
         ['To which buildings does the KMK apply?', 'To buildings with more than one independent unit where floor easement or condominium ownership has been established, and to collective structures.'],
         ['What did Law No. 7579 change?', 'KMK Articles 35, 37 and 70 changed: the approval procedure of the operating budget, the provisional budget and the majority for collective structures were regulated.'],
       ],
@@ -79,6 +80,7 @@ export const TERM_DETAILS_TRANSLATED: Record<string, Record<DetailLang, TermDeta
         'Актуальный текст статей закона следует брать из Официальной газеты или mevzuat.gov.tr.',
       ],
       faq: [
+        ['Что означает KMK?', 'KMK — это Закон о праве собственности на этажи № 634. Он определяет права собственников, распределение взносов и правила управления в многоквартирных домах, жилых комплексах, резиденциях и торговых центрах.'],
         ['К каким зданиям применяется KMK?', 'К зданиям с несколькими отдельными помещениями, где установлен этажный сервитут или этажная собственность, а также к комплексам из нескольких зданий.'],
         ['Что изменил Закон № 7579?', 'Изменены ст. 35, 37 и 70 KMK: урегулированы порядок утверждения бюджета эксплуатации, временный бюджет и большинство для комплексов из нескольких зданий.'],
       ],
@@ -93,6 +95,7 @@ export const TERM_DETAILS_TRANSLATED: Record<string, Record<DetailLang, TermDeta
         'للاطلاع على النص الحالي لمواد القانون يُعتمد على الجريدة الرسمية أو mevzuat.gov.tr.',
       ],
       faq: [
+        ['ما معنى KMK؟', 'KMK هو قانون ملكية الطوابق رقم 634. وهو يحدد حقوق الملاك وتوزيع المساهمات وقواعد الإدارة في العمارات والمجمعات السكنية والإقامات والبلازا التجارية.'],
         ['على أي مبانٍ يسري KMK؟', 'على المباني ذات الوحدات المستقلة المتعددة التي أُنشئ فيها ارتفاق الطوابق أو ملكية الطوابق، وعلى المباني الجماعية.'],
         ['ماذا غيّر القانون رقم 7579؟', 'تغيرت المواد 35 و37 و70 من KMK: نُظِّم إجراء اعتماد مشروع التشغيل والمشروع المؤقت وأغلبية المباني الجماعية.'],
       ],
@@ -109,6 +112,7 @@ export const TERM_DETAILS_TRANSLATED: Record<string, Record<DetailLang, TermDeta
         'Before enforcement, the operating budget, decision book and debt statement should be ready.',
       ],
       faq: [
+        ['Is interest charged on top of the late-payment compensation?', 'The five percent monthly compensation under KMK Article 20/2 is a statutory delay sanction by nature; as a rule, interest on interest (compound interest) is not applied. For the receivable items in enforcement proceedings, get advice from a legal advisor.'],
         ['Can late-payment compensation be removed by general assembly decision?', 'Late-payment compensation is regulated by law; it is recommended to get advice from a legal advisor on the consequences of waiver or reduction decisions.'],
         ['In what proportion are dues shared?', 'Equally for staff costs and in proportion to land share for other common expenses, unless the management plan says otherwise.'],
       ],
@@ -123,6 +127,7 @@ export const TERM_DETAILS_TRANSLATED: Record<string, Record<DetailLang, TermDeta
         'Перед взысканием должны быть готовы бюджет эксплуатации, книга решений и расчёт долга.',
       ],
       faq: [
+        ['Начисляются ли проценты сверх компенсации за просрочку?', 'Ежемесячная компенсация в размере пяти процентов по ст. 20/2 KMK по своей природе является законной санкцией за просрочку; как правило, проценты на проценты (сложный процент) не начисляются. По статьям требований в исполнительном производстве получите заключение юридического консультанта.'],
         ['Можно ли отменить компенсацию за просрочку решением общего собрания?', 'Компенсация за просрочку установлена законом; о последствиях решений об отказе от неё или её уменьшении рекомендуется получить консультацию юриста.'],
         ['В какой пропорции распределяются взносы?', 'Поровну — расходы на персонал, и пропорционально доле земельного участка — прочие общие расходы, если план управления не предусматривает иное.'],
       ],
@@ -137,6 +142,7 @@ export const TERM_DETAILS_TRANSLATED: Record<string, Record<DetailLang, TermDeta
         'قبل المتابعة التنفيذية ينبغي أن يكون مشروع التشغيل ودفتر القرارات وكشف المديونية جاهزة.',
       ],
       faq: [
+        ['هل تُحتسب فوائد إضافة إلى تعويض التأخير؟', 'إن تعويض التأخير الشهري بنسبة خمسة بالمئة وفق المادة 20/2 من KMK جزاء قانوني للتأخير بطبيعته؛ والأصل ألا تُحتسب فائدة على الفائدة (الفائدة المركبة). وبالنسبة لبنود المطالبة في المتابعة التنفيذية استشيروا مستشاراً قانونياً.'],
         ['هل يمكن إلغاء تعويض التأخير بقرار من الجمعية العمومية؟', 'تعويض التأخير منصوص عليه في القانون؛ ويُنصح بأخذ مشورة مستشار قانوني بشأن نتائج قرارات التنازل أو التخفيض.'],
         ['بأي نسبة تُوزَّع المستحقات؟', 'بالتساوي لتكاليف الموظفين وبنسبة حصة الأرض لسائر المصروفات المشتركة، ما لم تنص خطة الإدارة على خلاف ذلك.'],
       ],
@@ -736,6 +742,7 @@ export const TERM_DETAILS_TRANSLATED: Record<string, Record<DetailLang, TermDeta
         'Set the sanction that applies if the target is exceeded.',
       ],
       faq: [
+        ['What is an SLA, what does SLA time mean?', 'An SLA (Service Level Agreement) defines in writing how quickly a service provider will respond to a request and how quickly it will resolve the work. "SLA time" is this committed response or resolution time; for example, the time to reach the site in an emergency fault.'],
         ['Is an SLA the same as a guarantee?', 'No. An SLA is a target and measurement framework; results depend on the terms in the contract.'],
       ],
     },
@@ -749,6 +756,7 @@ export const TERM_DETAILS_TRANSLATED: Record<string, Record<DetailLang, TermDeta
         'Определите санкцию, применяемую при превышении срока.',
       ],
       faq: [
+        ['Что такое SLA, что означает срок SLA?', 'SLA (Service Level Agreement / соглашение об уровне обслуживания) письменно определяет, как быстро поставщик услуг отреагирует на обращение и как быстро выполнит работу. «Срок SLA» — это обещанный срок реагирования или решения; например, время прибытия на объект при аварийной неисправности.'],
         ['SLA — это то же самое, что гарантия?', 'Нет. SLA — это целевой показатель и рамка измерения; результаты зависят от условий договора.'],
       ],
     },
@@ -762,6 +770,7 @@ export const TERM_DETAILS_TRANSLATED: Record<string, Record<DetailLang, TermDeta
         'حدّدوا الجزاء الذي يسري عند تجاوز الهدف.',
       ],
       faq: [
+        ['ما هو SLA وماذا تعني مدة SLA؟', 'يحدد SLA (اتفاقية مستوى الخدمة) كتابياً المدة التي سيستجيب خلالها مقدم الخدمة للطلب والمدة التي سينجز خلالها العمل. و«مدة SLA» هي مدة الاستجابة أو الحل المتعهد بها؛ مثل زمن الوصول إلى الموقع عند عطل طارئ.'],
         ['هل SLA هو نفسه الضمان؟', 'لا. SLA هدف وإطار قياس؛ وتعتمد النتائج على الشروط الواردة في العقد.'],
       ],
     },

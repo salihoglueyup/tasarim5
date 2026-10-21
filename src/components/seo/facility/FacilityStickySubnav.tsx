@@ -79,7 +79,7 @@ export default function FacilityStickySubnav() {
     >
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-4">
         {/* Navigation Anchor Pills */}
-        <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1 text-xs">
+        <div className="flex min-w-0 items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-1 text-xs">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
             return (

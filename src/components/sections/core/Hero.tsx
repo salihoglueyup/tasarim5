@@ -37,7 +37,7 @@ export default function Hero() {
     const isSaveData = Boolean(conn?.saveData);
     const effectiveType = conn?.effectiveType as string | undefined;
     const isSlowConnection = effectiveType === '2g' || effectiveType === 'slow-2g' || effectiveType === '3g';
-    const isMobileWithoutFastConnection = isMobile && effectiveType !== '4g';
+    const isMobileWithoutFastConnection = isMobile && effectiveType !== undefined && effectiveType !== '4g';
 
     // Faz 106: Veri Tasarrufu (Data Saver / saveData) ve yavaş bağlantılarda (2G/3G) video iptal edilir.
     // Faz 240: Mobilde artık tamamen kapalı değil — bağlantı kesin olarak 4G ise mobilde de açılır.
@@ -98,7 +98,7 @@ export default function Hero() {
   };
 
   return (
-    <section ref={sectionRef} className="relative w-full h-[100vh] min-h-[500px] md:min-h-[680px] flex flex-col justify-end overflow-hidden bg-slate-950 font-sans pb-4 sm:pb-6">
+    <section ref={sectionRef} className="relative w-full h-svh min-h-[500px] md:min-h-[680px] flex flex-col justify-end overflow-hidden bg-slate-950 font-sans pb-4 sm:pb-6">
       
       {/* Subliminal SEO / Ekran Okuyucu Metni */}
       <div className="sr-only">
@@ -119,7 +119,7 @@ export default function Hero() {
           decoding="async"
           sizes="100vw"
           quality={75}
-          className="object-cover object-center scale-105 pointer-events-none z-0 transform-gpu"
+          className="object-cover object-[35%_center] md:object-center scale-105 pointer-events-none z-0 transform-gpu"
         />
 
         {/* Video: Yalnızca masaüstünde ve sayfa boşta kalınca (idle) yüklenir */}
@@ -134,7 +134,7 @@ export default function Hero() {
             poster="/images/hero-poster-v5.webp"
             aria-hidden="true"
             tabIndex={-1}
-            className="w-full h-full object-cover object-center scale-105 pointer-events-none relative z-1 transition-opacity duration-1000 opacity-90 transform-gpu"
+            className="w-full h-full object-cover object-[35%_center] md:object-center scale-105 pointer-events-none relative z-1 transition-opacity duration-1000 opacity-90 transform-gpu"
           >
             <source src="/video/brand-film.webm" type="video/webm" />
             <source src="/video/brand-film.mp4" type="video/mp4" />
@@ -206,9 +206,6 @@ export default function Hero() {
 
         </div>
       </div>
-
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[var(--color-background)] to-transparent pointer-events-none z-10" />
     </section>
   );
 }
