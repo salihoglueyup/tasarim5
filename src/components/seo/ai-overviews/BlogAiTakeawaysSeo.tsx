@@ -76,29 +76,18 @@ export default function BlogAiTakeawaysSeo({
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'ItemList',
-      name: `${title} — ${copy.badge}`,
-      description: copy.heading,
-      itemListElement: items.map((item, idx) => ({
-        '@type': 'ListItem',
-        position: idx + 1,
-        name: `${copy.itemPrefix} ${idx + 1}`,
-        description: item,
-      })),
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: `${title} | Key Takeaways`,
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#blog-ai-takeaway-text'],
-      },
-    },
-  ];
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${title} — ${copy.badge}`,
+    description: copy.heading,
+    itemListElement: items.map((item, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: `${copy.itemPrefix} ${idx + 1}`,
+      description: item,
+    })),
+  };
 
   return (
     <aside

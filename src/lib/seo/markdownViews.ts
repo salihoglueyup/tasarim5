@@ -1,9 +1,9 @@
 import { BASE_URL } from '@/lib/seo';
 import { CANONICAL_NAP } from '@/lib/seo/audits/napGuardEngine';
 import { CERTIFICATES } from '@/data/certificates';
-import { getDistrict } from '@/data/districts';
+import { DISTRICTS, getDistrict } from '@/data/districts';
 import { SERVICES } from '@/data/services';
-import { slugToTerm } from '@/data/dictionary';
+import { TERMS, termToSlug, slugToTerm } from '@/data/dictionary';
 import { REAL_REFERENCES } from '@/data/realReferences';
 import { POSTS, CATEGORIES, type PostBlock } from '@/data/posts';
 import { FACTS, RESPONSE_TARGET_TEXT } from '@/lib/facts';
@@ -222,7 +222,32 @@ ${CONTACT}`);
     }
   }
 
-  // 1A. Mahalle Detay Rotaları (/bolgeler/[ilce]/mahalleler/[mahalle])
+  // 0B. Blog Kategori Rotaları (/blog/kategori/[kategori])
+  const blogCatMatch = cleanPath.match(/^\/blog\/kategori\/([^/]+)$/);
+  if (blogCatMatch) {
+    const catSlug = blogCatMatch[1];
+    const cat = CATEGORIES.find((c) => c.slug === catSlug);
+    if (cat) {
+      const catPosts = POSTS.filter((p) => p.category === cat.slug);
+      const postLines = catPosts
+        .map((p) => `- **[${p.title}](${BASE_URL}${langPrefix}/blog/${p.slug})** (${p.datePublished}): ${p.tldr}`)
+        .join('\n');
+      return withLocaleBanner(`# ${cat.name} — Alo Yönetim Bilgi Merkezi
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}/blog/kategori/${cat.slug}
+> **Kategori Açıklaması**: ${cat.description}
+> **Makale Sayısı**: ${catPosts.length}
+
+---
+
+## Bu Kategorideki Rehber ve Makaleler
+${postLines}
+
+---
+
+${CONTACT}`);
+    }
+  }
   const neighborhoodMatch = cleanPath.match(/^\/bolgeler\/([^/]+)\/mahalleler\/([^/]+)$/);
   if (neighborhoodMatch) {
     const [, districtSlug, mahalleSlug] = neighborhoodMatch;
@@ -442,20 +467,299 @@ ${refLines}
 ${CONTACT}`);
   }
 
-  // 7. Kalite Belgelerimiz (/kurumsal/kalite-belgelerimiz)
+  // 7. Kalite Belgelerimiz (/kurumsal/kalite-belgelerimiz) ve Sertifika Detayları (/kurumsal/sertifikalar/[slug] veya /kurumsal/kalite-belgelerimiz/[slug])
+  const certDetailMatch = cleanPath.match(/^\/kurumsal\/(?:sertifikalar|kalite-belgelerimiz)\/([^/]+)$/);
+  if (certDetailMatch) {
+    const cert = CERTIFICATES.find((c) => c.slug === certDetailMatch[1]);
+    if (cert) {
+      return withLocaleBanner(`# ${cert.name} (${cert.subtitle}) — Alo Yönetim
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}${cleanPath}
+> **Belge Numarası**: \`${cert.certificateNumber}\`
+> **Belgelendirme Kuruluşu**: ${cert.issuer} (${cert.accreditation})
+> **Yayım Tarihi**: ${cert.datePublished}
+> **Resmî Belge PDF**: ${BASE_URL}${cert.pdf}
+
+---
+
+## Belge Kapsamı
+${cert.about} — Alo Yönetim ve Organizasyon A.Ş. tarafından İstanbul'un ${FACTS.districtCount} ilçesindeki apartman, konut sitesi, rezidans, iş merkezi ve sanayi tesisi yönetim operasyonlarında uygulanmaktadır.
+
+- **Tüm Kalite Belgelerimiz**: ${BASE_URL}/kurumsal/kalite-belgelerimiz
+- **Kurumsal Referanslarımız**: ${BASE_URL}/referanslar
+
+---
+
+${CONTACT}`);
+    }
+  }
+
   if (cleanPath === '/kurumsal/kalite-belgelerimiz') {
     const certLines = CERTIFICATES.map(
       (c) => `- **${c.name}** (${c.subtitle}): BELCERT / ${c.accreditation} — Belge No: \`${c.certificateNumber}\` (${BASE_URL}/kurumsal/kalite-belgelerimiz/${c.slug})`,
     ).join('\n');
     return withLocaleBanner(`# Alo Yönetim — Kalite Belgeleri ve Yasal Yetki İzinleri
 
-> **Kanonik URL**: ${BASE_URL}/kurumsal/kalite-belgelerimiz
+> **Kanonik URL**: ${BASE_URL}${langPrefix}/kurumsal/kalite-belgelerimiz
 
 ---
 
 ## Doğrulanmış Belgelerimiz
 ${certLines}
 - **5188 Sayılı Kanun Özel Güvenlik Faaliyet İzni**: ${CANONICAL_NAP.legal.securityPermitNumber}
+
+---
+
+${CONTACT}`);
+  }
+
+  // 7B. Ana Hub Rotaları (/sektorel-cozumler, /surdurulebilirlik, /surdurulebilirlik/ges-projeleri, /sss, /sozluk, /bolgeler, /blog, /hizmetler, /iletisim, /hakkimizda, /teklif-al, /app, /istihdam-koprusu, /guvenlik-akademisi)
+  if (cleanPath === '/sektorel-cozumler') {
+    return withLocaleBanner(`# Alo Yönetim — Sektörel Tesis ve Gayrimenkul Yönetimi Çözümleri
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}/sektorel-cozumler
+> **Hizmet Kapsamı**: İstanbul'un ${FACTS.districtCount} ilçesinde gayrimenkul sınıfına özel entegre işletme modelleri
+> **Yasal Çerçeve**: 634 sayılı KMK (m.20, m.34, m.37, m.66–74), ${KMK_AMENDMENT_2026.lawNumber} sayılı Kanun (2026) ve 5188 sayılı Özel Güvenlik Kanunu
+
+---
+
+## Sektörel Uzmanlık Dikeylerimiz
+1. **Toplu Konut ve Çok Bloklu Siteler**: [Detaylar](${BASE_URL}/hizmetler/tesis-yonetimi/toplu-konut-yonetimi) — KMK m.66–74 toplu yapı yönetimi, ${KMK_AMENDMENT_2026.lawNumber} sayılı Kanun kapsamında 2/3 yönetim planı değişiklik nisabı, merkezi bütçe ve Apsiyon dijital aidat takibi.
+2. **Lüks Rezidans ve Karma Yaşam Projeleri**: [Detaylar](${BASE_URL}/hizmetler/tesis-yonetimi/rezidans-site-yonetimi) — 5188 sayılı Kanun uyumlu güvenlik, resepsiyon/concierge, HVAC otomasyonu ve sosyal tesis işletmesi.
+3. **A+ Ticari Plazalar ve İş Merkezleri**: [Detaylar](${BASE_URL}/hizmetler/tesis-yonetimi/plaza-yonetimi) — BMS bina otomasyonu, EPDK reaktif güç/kompanzasyon takibi, yangın/asansör periyodik denetimleri ve kurumsal temizlik.
+4. **Sanayi Tesisleri, OSB ve Fabrikalar**: [Detaylar](${BASE_URL}/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi) — ISO 45001:2018 İSG protokolleri, OG trafo/jeneratör sürekliliği (ISO 22301:2019) ve çevre yönetimi (ISO 14001:2026).
+
+${RESPONSE_TARGET_TEXT.tr}
+
+---
+
+${CONTACT}`);
+  }
+
+  if (cleanPath === '/surdurulebilirlik' || cleanPath === '/surdurulebilirlik/ges-projeleri' || cleanPath === '/kurumsal/surdurulebilirlik') {
+    const isGes = cleanPath === '/surdurulebilirlik/ges-projeleri';
+    return withLocaleBanner(`# Alo Yönetim — ${isGes ? 'Ortak Alan Çatı GES (Güneş Enerjisi) ve Enerji Verimliliği Projeleri' : 'Sürdürülebilir Tesis Yönetimi, Yeşil Bina ve Enerji Optimizasyonu'}
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}${cleanPath}
+> **Yasal Dayanak**: 634 sayılı KMK Madde 42, EPDK Lisanssız Elektrik Üretim Yönetmeliği ve Sıfır Atık Yönetmeliği
+> **Çevre Belgeleri**: ISO 14001:2026 Çevre Yönetim Sistemi (Belge No: A1808962) ve Doğaya Saygı Sertifikası (Belge No: A1808967)
+
+---
+
+## Sürdürülebilirlik ve Enerji Tasarrufu Uygulamalarımız
+- **Ortak Alan Çatı GES (Güneş Enerjisi Santrali)**: Sitelerin ortak elektrik giderlerini (asansör, hidrofor, otopark ve bahçe aydınlatması) düşürmek üzere çatı GES fizibilite, çağrı mektubu ve mahsuplaşma yönetimi (${BASE_URL}/surdurulebilirlik/ges-projeleri).
+- **Elektrikli Araç (EV) Şarj İstasyonu Altyapısı**: KMK m.42 kapsamında kat maliklerinin sayı ve arsa payı salt çoğunluğu (%50+1) kararıyla ortak otoparklarda güvenli EV şarj ünitesi kurulumu ve süzme sayaç/yazılım entegrasyonu.
+- **Reaktif Güç ve Kompanzasyon Takibi**: Ticari plazalarda ve büyük sitelerde elektrik faturalarında reaktif ceza oluşmasını önlemeye yönelik periyodik kompanzasyon panosu kontrolü.
+- **Akıllı Peyzaj Sulama ve Sıfır Atık**: Nem sensörlü damlama sulama sistemleri, yağmur suyu hasadı ve Sıfır Atık Yönetmeliği uyumlu atık ayrıştırma istasyonları.
+
+---
+
+${CONTACT}`);
+  }
+
+  if (cleanPath === '/sss') {
+    return withLocaleBanner(`# Alo Yönetim — Sıkça Sorulan Sorular (KMK 634, 7579 Sayılı Kanun & 5188 Özel Güvenlik Rehberi)
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}/sss
+> **Yasal Dayanak**: 634 sayılı Kat Mülkiyeti Kanunu, ${KMK_AMENDMENT_2026.lawNumber} sayılı Kanun (2026), 2004 sayılı İcra ve İflas Kanunu (İİK m.68) ve 5188 sayılı Özel Güvenlik Kanunu
+
+---
+
+## En Çok Sorulan Hukuki ve Operasyonel Sorular
+1. **Aidatını ödemeyen kat malikine hangi yasal yaptırımlar uygulanır?**
+   634 sayılı KMK m.20/2 uyarınca gecikilen günler için aylık yüzde 5 (%5) kanuni gecikme tazminatı işler. Kesinleşen işletme projesi ve genel kurul kararları İİK m.68/1 kapsamında ilamsız icra takibine dayanak oluşturur.
+2. **Apartman veya site yöneticisi hangi oy çoğunluğuyla seçilir?**
+   KMK m.34/4 uyarınca yönetici, kat maliklerinin hem sayı hem arsa payı bakımından salt çoğunluğu (%50+1) tarafından atanır.
+3. **2026 yılında işletme projesi nasıl onaylanır ve geçici proje artış sınırı nedir?**
+   ${KMK_AMENDMENT_2026.lawNumber} sayılı Kanun ile değişik KMK m.37 uyarınca işletme projesi kat malikleri kurulunda onaylanır. Onaylı proje yoksa yönetici en geç ${KMK_AMENDMENT_2026.interimProjectMaxMonths} ay içinde kurula sunulacak geçici proje hazırlar; mevcut projesi olan yapılarda geçici projedeki artış yeniden değerleme oranını (%${String(KMK_AMENDMENT_2026.defaultRevaluationRatePercent).replace('.', ',')}) aşamaz.
+4. **Toplu yapılarda yönetim planı değişikliği için kaç oy gerekir?**
+   ${KMK_AMENDMENT_2026.lawNumber} sayılı Kanun ile değişik KMK m.70 uyarınca toplu yapılarda yönetim planı değişikliği için toplu yapı temsilciler kurulu üyelerinin temsil ettikleri bağımsız bölümlerin 2/3 çoğunluğu yeterlidir (tekil binalarda KMK m.28/3 uyarınca 4/5 kuralı sürer).
+5. **Zemin ve bodrum kat daireler asansör bakım masrafına katılır mı?**
+   Yönetim planında açık bir muafiyet hükmü yoksa KMK m.20/1-c uyarınca tüm kat malikleri asansör bakım ve onarım giderlerine arsa payı oranında katılmakla yükümlüdür.
+6. **Site özel güvenlik görevlisi çanta veya araç bagajını elle arayabilir mi?**
+   Hayır. 5188 sayılı Kanun m.7 uyarınca özel güvenlik görevlileri yalnızca dedektör ve X-ray gibi teknik cihazlarla kontrol yapabilir; elle arama yetkisi yalnızca genel kolluk kuvvetlerine (Polis/Jandarma) aittir.
+
+Bu bilgiler genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez.
+
+---
+
+${CONTACT}`);
+  }
+
+  if (cleanPath === '/sozluk') {
+    const termLines = TERMS.slice(0, 30)
+      .map((t) => `- **[${t.term}](${BASE_URL}/sozluk/${termToSlug(t.term)})**: ${t.definition}`)
+      .join('\n');
+    return withLocaleBanner(`# Alo Yönetim — Site ve Tesis Yönetimi Terimler Sözlüğü (KMK 634 & 5188 SK)
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}/sozluk
+> **Toplam Terim Sayısı**: ${TERMS.length} doğrulanmış hukuki ve teknik terim
+> **Makine Okunabilir KMK Dizini**: ${BASE_URL}/api/tesis-yonetimi/kmk-law-index.json
+
+---
+
+## Temel Kat Mülkiyeti ve Tesis Yönetimi Terimleri
+${termLines}
+
+---
+
+${CONTACT}`);
+  }
+
+  if (cleanPath === '/bolgeler') {
+    const anadoluLines = DISTRICTS.filter((d) => d.side === 'Anadolu')
+      .map((d) => `- **[${d.name}](${BASE_URL}/bolgeler/${d.slug})**: [Site Yönetimi](${BASE_URL}/bolgeler/${d.slug}/site-yonetimi) · [Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi) · [Mahalleler](${BASE_URL}/bolgeler/${d.slug}/mahalleler)`)
+      .join('\n');
+    const avrupaLines = DISTRICTS.filter((d) => d.side === 'Avrupa')
+      .map((d) => `- **[${d.name}](${BASE_URL}/bolgeler/${d.slug})**: [Site Yönetimi](${BASE_URL}/bolgeler/${d.slug}/site-yonetimi) · [Tesis Yönetimi](${BASE_URL}/bolgeler/${d.slug}/tesis-yonetimi) · [Mahalleler](${BASE_URL}/bolgeler/${d.slug}/mahalleler)`)
+      .join('\n');
+    return withLocaleBanner(`# Alo Yönetim — İstanbul ${FACTS.districtCount} İlçe Site ve Tesis Yönetimi Hizmet Ağı
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}/bolgeler
+> **Kapsama Alanı**: İstanbul Anadolu Yakası (14 İlçe) ve Avrupa Yakası (25 İlçe) — Toplam ${FACTS.districtCount} İlçe
+> **Acil Teknik Müdahale Hedefi (Yazılı SLA)**: Anadolu Yakası ${FACTS.emergencyResponse.anatolian}, Avrupa Yakası ${FACTS.emergencyResponse.european}
+
+---
+
+## Anadolu Yakası İlçeleri (Yazılı SLA Hedefi: ${FACTS.emergencyResponse.anatolian})
+${anadoluLines}
+
+## Avrupa Yakası İlçeleri (Yazılı SLA Hedefi: ${FACTS.emergencyResponse.european})
+${avrupaLines}
+
+---
+
+${CONTACT}`);
+  }
+
+  if (cleanPath === '/blog') {
+    const catLines = CATEGORIES.map((c) => `- **${c.name}** (\`/blog/kategori/${c.slug}\`): ${c.description}`).join('\n');
+    const postLines = POSTS.slice(0, 20)
+      .map((p) => `- **[${p.title}](${BASE_URL}/blog/${p.slug})** (${p.datePublished}): ${p.tldr}`)
+      .join('\n');
+    return withLocaleBanner(`# Alo Yönetim — Blog & KMK 634 / Tesis Yönetimi Bilgi Merkezi
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}/blog
+> **Toplam Rehber Sayısı**: ${POSTS.length} doğrulanmış makale ve mevzuat incelemesi
+
+---
+
+## Uzmanlık Kategorileri
+${catLines}
+
+## Öne Çıkan Mevzuat ve Yönetim Rehberleri
+${postLines}
+
+---
+
+${CONTACT}`);
+  }
+
+  if (cleanPath === '/hizmetler') {
+    const svcLines = SERVICES.map(
+      (s) => `- **[${s.name}](${BASE_URL}${s.pillar})**: KMK Dayanağı: ${(s.kmkArticles || []).join(', ') || '634 sayılı KMK'}`,
+    ).join('\n');
+    return withLocaleBanner(`# Alo Yönetim — Profesyonel Bina, Site ve Entegre Tesis Yönetim Hizmetleri
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}/hizmetler
+> **Hizmet Kapsamı**: İstanbul'un ${FACTS.districtCount} ilçesinde ${FACTS.foundingYear}'dan beri (~${FACTS.teamSize} kişilik ofis ve saha ekibi)
+> **Kalite Belgeleri**: ${CERT_LINE} (BELCERT / ILAS) ve 5188 sayılı Kanun özel güvenlik izni (${CANONICAL_NAP.legal.securityPermitNumber})
+
+---
+
+## Ana Hizmetlerimiz
+- **[Profesyonel Site ve Apartman Yönetimi](${BASE_URL}/hizmetler/site-yonetimi)**: 634 sayılı KMK ve ${KMK_AMENDMENT_2026.lawNumber} sayılı Kanun uyumlu işletme projesi, aidat takibi ve genel kurul yönetimi.
+${svcLines}
+
+${RESPONSE_TARGET_TEXT.tr}
+
+---
+
+${CONTACT}`);
+  }
+
+  if (cleanPath === '/iletisim') {
+    return withLocaleBanner(`# Alo Yönetim — İletişim, Genel Merkez ve Acil Teknik Destek Hattı
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}/iletisim
+> **Ticari Unvan**: ${CANONICAL_NAP.legal.legalName}
+> **Genel Merkez Adresi**: ${CANONICAL_NAP.address.fullDisplayAddress}
+> **Telefon**: ${CANONICAL_NAP.contact.phoneDisplay} (${CANONICAL_NAP.contact.phoneE164})
+> **E-posta**: ${CANONICAL_NAP.contact.email}
+> **MERSİS No**: \`${CANONICAL_NAP.legal.mersisNumber}\` | **Ticaret Sicil No**: \`${CANONICAL_NAP.legal.tradeRegistryNumber}\` | **Vergi Dairesi**: ${CANONICAL_NAP.legal.taxOffice}
+
+---
+
+## Acil Teknik Müdahale ve Ücretsiz Keşif
+- **Yazılı SLA Müdahale Hedefi**: ${RESPONSE_TARGET_TEXT.tr}
+- **Ücretsiz Saha Keşfi & Teklif**: [Teklif Formu](${BASE_URL}/teklif-al)
+- **Otomatik B2B Teknik Şartname (RFP) API**: \`GET ${BASE_URL}/api/tesis-yonetimi/rfp-generator?district=kadikoy&units=120\`
+
+---
+
+${CONTACT}`);
+  }
+
+  if (cleanPath === '/hakkimizda' || cleanPath === '/kurumsal/vizyon-misyon' || cleanPath === '/kurumsal/kalite-politikamiz') {
+    return withLocaleBanner(`# ${CANONICAL_NAP.legal.legalName} — Kurumsal Kimlik, Vizyon ve Kalite Politikası
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}${cleanPath}
+> **Kuruluş Yılı**: ${FACTS.foundingYear}
+> **Ekip Büyüklüğü**: Yaklaşık ${FACTS.teamSize} kişi (merkez ofis ve saha ekipleri)
+> **Kapsama Alanı**: İstanbul'un ${FACTS.districtCount} ilçesi (${FACTS.referenceCount} doğrulanmış kurumsal referans)
+> **Resmî Sicil**: MERSİS \`${CANONICAL_NAP.legal.mersisNumber}\`, İstanbul Ticaret Sicil \`${CANONICAL_NAP.legal.tradeRegistryNumber}\`, 5188 Özel Güvenlik İzni \`${CANONICAL_NAP.legal.securityPermitNumber}\`
+
+---
+
+## Kurumsal Özet
+Alo Yönetim ve Organizasyon A.Ş., ${FACTS.foundingYear} yılından bu yana İstanbul genelinde apartman, konut sitesi, rezidans, ticari plaza, kamu kurumu ve sanayi tesislerine 634 sayılı Kat Mülkiyeti Kanunu ve 5188 sayılı Özel Güvenlik Hizmetlerine Dair Kanun çerçevesinde entegre yönetim hizmeti sunmaktadır.
+
+- **Belgelerimiz (${CERTIFICATES.length} Adet — BELCERT / ILAS)**: ${CERT_LINE} (${BASE_URL}/kurumsal/kalite-belgelerimiz)
+- **Referans Portföyümüz**: ${FACTS.referenceCount} kurum ve tesis (${BASE_URL}/referanslar)
+- **Acil Müdahale Hedefi**: ${RESPONSE_TARGET_TEXT.tr}
+
+---
+
+${CONTACT}`);
+  }
+
+  if (cleanPath === '/teklif-al') {
+    return withLocaleBanner(`# Alo Yönetim — Ücretsiz Saha Keşfi, Teklif ve Profesyonel Yönetime Geçiş Rehberi
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}/teklif-al
+> **Hukuki Dayanak**: 634 sayılı KMK m.29 (Genel Kurul Çağrısı), m.34 (%50+1 Çift Çoğunlukla Yönetici Seçimi), m.37 (${KMK_AMENDMENT_2026.lawNumber} sayılı Kanun İşletme Projesi Onayı)
+
+---
+
+## Profesyonel Site ve Tesis Yönetimine Geçişin 5 Yasal Adımı
+1. **Ücretsiz Teknik ve Mali Saha Keşfi**: Uzman ekibimiz binanızın mekanik, güvenlik, temizlik ve bütçe ihtiyaçlarını yerinde analiz ederek teknik şartname (RFP) oluşturur.
+2. **Genel Kurul Çağrısı (KMK m.29)**: Olağan veya en az 1/3 kat malikinin talebiyle en az 15 gün önceden bildirilerek olağanüstü genel kurul çağrısı yapılır.
+3. **Sayı ve Arsa Payı Salt Çoğunluğuyla Atama (KMK m.34)**: Tüm bağımsız bölüm maliklerinin sayı ve arsa payı salt çoğunluğu (%50+1) ile profesyonel yönetim şirketi seçilir ve karar defterine işlenir.
+4. **İşletme Projesinin Kurul Onayı (KMK m.37 — 7579 S.K.)**: Yıllık işletme projesi kat malikleri kurulunda onaylanır; geçici proje hazırlanmışsa en geç ${KMK_AMENDMENT_2026.interimProjectMaxMonths} ay içinde kurula sunulur.
+5. **Resmî Devir-Teslim Tutanağı**: Karar defteri, banka hesapları, sözleşmeler ve teknik demirbaş envanteri tutanakla teslim alınarak Apsiyon dijital şeffaflık altyapısıyla operasyon başlatılır.
+
+---
+
+${CONTACT}`);
+  }
+
+  if (cleanPath === '/app' || cleanPath === '/istihdam-koprusu' || cleanPath === '/guvenlik-akademisi') {
+    const titleMap: Record<string, string> = {
+      '/app': 'Alo Yönetim & Apsiyon Dijital Sakin ve Yönetici Mobil Portalı',
+      '/istihdam-koprusu': 'Alo Yönetim İstihdam Köprüsü & Tesis Yönetimi Kariyer Merkezi',
+      '/guvenlik-akademisi': 'Alo Yönetim 5188 Sayılı Kanun Özel Güvenlik Akademisi ve Saha Eğitimleri',
+    };
+    return withLocaleBanner(`# ${titleMap[cleanPath]}
+
+> **Kanonik URL**: ${BASE_URL}${langPrefix}${cleanPath}
+> **Şirket**: ${CANONICAL_NAP.legal.legalName} (${FACTS.foundingYear}'dan beri İstanbul ${FACTS.districtCount} ilçede)
+
+---
+
+## Özet
+- **Dijital Şeffaflık (\`/app\`)**: Apsiyon bulut entegrasyonu ile online aidat ödeme, canlı banka/kasa mizanı, fotoğraflı arıza takibi ve QR/RFID güvenlik devriye raporlaması.
+- **İstihdam & Kariyer (\`/istihdam-koprusu\`)**: İstanbul'un ${FACTS.districtCount} ilçesinde 5188 kimlikli özel güvenlik görevlisi, teknik bakım uzmanı, temizlik personeli ve bina/site müdürü istihdam süreçleri.
+- **5188 Güvenlik Akademisi (\`/guvenlik-akademisi\`)**: T.C. İçişleri Bakanlığı ve Valilik onaylı (${CANONICAL_NAP.legal.securityPermitNumber}) özel güvenlik mevzuatı, geçiş kontrol, CCTV ve acil durum saha prosedürleri.
 
 ---
 

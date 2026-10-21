@@ -400,7 +400,7 @@ export default async function BlogDetail({
     description: post.description,
     path: localePath(path, lang),
     lang,
-    speakableSelectors: ['#article-instant-answer-text', '.tldr', 'h1'],
+    speakableSelectors: ['#article-instant-answer-text', '#blog-ai-takeaway-text', '.tldr', 'h1'],
   });
 
   const resolvedTldr = post.tldr || post.summary || post.description || '';

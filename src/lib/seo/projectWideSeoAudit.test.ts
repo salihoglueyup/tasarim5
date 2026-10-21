@@ -418,4 +418,49 @@ describe('Project-Wide SEO & Google AI Overviews Architecture Guard (Faz 1-5)', 
       expect(blogHubAi).not.toContain('ISO 41001');
     });
   });
+
+  describe('Faz 21: Blog Pillar-Cluster Internal Linking, WebPage Deduplication & IndexNow Manifest (Seçenek 2 & 3)', () => {
+    it('deduplicates WebPage JSON-LD on blog articles and enriches autoLinker + BlogArticleEcosystemSeo internal links', async () => {
+      const articleAiCard = readRel('src/components/seo/ai-overviews/ArticleAiOverviewCard.tsx');
+      expect(articleAiCard).not.toContain("'@type': 'WebPage'");
+
+      const takeawaysCard = readRel('src/components/seo/ai-overviews/BlogAiTakeawaysSeo.tsx');
+      expect(takeawaysCard).not.toContain("'@type': 'WebPage'");
+
+      const blogPage = readRel('src/app/[lang]/blog/[slug]/page.tsx');
+      expect(blogPage).toContain("'#blog-ai-takeaway-text'");
+
+      const blogEco = readRel('src/components/seo/district/BlogArticleEcosystemSeo.tsx');
+      expect(blogEco).toContain('/kmk-2026-degisiklikleri');
+      expect(blogEco).toContain('/hizmetler/site-yonetimi');
+      expect(blogEco).toContain('/bolgeler');
+      expect(blogEco).toContain('/sozluk');
+
+      const { autoLinkHtml } = await import('@/lib/autoLinker');
+      const sampleHtml =
+        '<p>Kadıköy bölgesinde 2026 kmk değişiklikleri kapsamında gecikme tazminatı hesaplama ve devir teslim tutanağı süreçleri yürütülür.</p>';
+      const linked = autoLinkHtml(sampleHtml, '/blog/ornek-rehber', 6);
+      expect(linked).toContain('href="/bolgeler/kadikoy"');
+      expect(linked).toContain('href="/kmk-2026-degisiklikleri"');
+      expect(linked).toContain('href="/hesaplayici"');
+    });
+
+    it('includes all canonical hubs, 57 blog posts, 169 neighborhoods, and .well-known AI endpoints in IndexNow payloads without redirected URLs', async () => {
+      const { buildFacilityIndexNowPayload } = await import('@/lib/seo/indexing/facilityIndexNowPinger');
+      const { pushFacilityUrlsBulkToIndexNow } = await import('@/lib/seo/indexing/indexNowQueue');
+
+      const payload = buildFacilityIndexNowPayload();
+      expect(payload.urlList).toContain('https://aloyonetim.com.tr/kmk-2026-degisiklikleri');
+      expect(payload.urlList).toContain('https://aloyonetim.com.tr/hesaplayici');
+      expect(payload.urlList).toContain('https://aloyonetim.com.tr/hizmetler/site-yonetimi');
+      expect(payload.urlList).toContain('https://aloyonetim.com.tr/.well-known/llms.txt');
+      expect(payload.urlList).toContain('https://aloyonetim.com.tr/.well-known/agent-card.json');
+      expect(payload.urlList.length).toBeGreaterThanOrEqual(300);
+
+      const bulkRes = await pushFacilityUrlsBulkToIndexNow();
+      expect(bulkRes.success).toBe(true);
+      expect(bulkRes.totalUrlsCollected).toBeGreaterThanOrEqual(450);
+      expect(bulkRes.urlSamples).not.toContain('https://aloyonetim.com.tr/sektorel-cozumler/rezidans-yonetimi');
+    });
+  });
 });

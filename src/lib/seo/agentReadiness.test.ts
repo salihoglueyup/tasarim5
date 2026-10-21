@@ -338,5 +338,33 @@ describe('Cloudflare Agent Readiness & AI Discovery Suite', () => {
     );
     expect(distSvcMdRes.status).toBe(200);
     expect(await distSvcMdRes.text()).toContain('Kadıköy Güvenlik Yönetimi');
+
+    // 5. Kurumsal ve İçerik Hub Rotaları İçin Özel Markdown Görünümleri (Seçenek 1)
+    const hubPathsToCheck: Array<{ path: string; expectedText: string }> = [
+      { path: '/sektorel-cozumler', expectedText: 'Sektörel Tesis ve Gayrimenkul Yönetimi Çözümleri' },
+      { path: '/surdurulebilirlik', expectedText: 'Sürdürülebilir Tesis Yönetimi, Yeşil Bina ve Enerji Optimizasyonu' },
+      { path: '/surdurulebilirlik/ges-projeleri', expectedText: 'Ortak Alan Çatı GES (Güneş Enerjisi) ve Enerji Verimliliği Projeleri' },
+      { path: '/sss', expectedText: 'Sıkça Sorulan Sorular (KMK 634, 7579 Sayılı Kanun & 5188 Özel Güvenlik Rehberi)' },
+      { path: '/sozluk', expectedText: 'Site ve Tesis Yönetimi Terimler Sözlüğü (KMK 634 & 5188 SK)' },
+      { path: '/bolgeler', expectedText: 'İstanbul 39 İlçe Site ve Tesis Yönetimi Hizmet Ağı' },
+      { path: '/blog', expectedText: 'Blog & KMK 634 / Tesis Yönetimi Bilgi Merkezi' },
+      { path: '/hizmetler', expectedText: 'Profesyonel Bina, Site ve Entegre Tesis Yönetim Hizmetleri' },
+      { path: '/iletisim', expectedText: 'İletişim, Genel Merkez ve Acil Teknik Destek Hattı' },
+      { path: '/hakkimizda', expectedText: 'Kurumsal Kimlik, Vizyon ve Kalite Politikası' },
+      { path: '/teklif-al', expectedText: 'Ücretsiz Saha Keşfi, Teklif ve Profesyonel Yönetime Geçiş Rehberi' },
+      { path: '/app', expectedText: 'Alo Yönetim & Apsiyon Dijital Sakin ve Yönetici Mobil Portalı' },
+      { path: '/istihdam-koprusu', expectedText: 'Alo Yönetim İstihdam Köprüsü & Tesis Yönetimi Kariyer Merkezi' },
+      { path: '/guvenlik-akademisi', expectedText: 'Alo Yönetim 5188 Sayılı Kanun Özel Güvenlik Akademisi ve Saha Eğitimleri' },
+      { path: '/kurumsal/sertifikalar/iso-45001', expectedText: 'ISO 45001:2018 (İş Sağlığı ve Güvenliği) — Alo Yönetim' },
+    ];
+
+    for (const item of hubPathsToCheck) {
+      const res = await getUniversalMarkdown(
+        new NextRequest(`https://aloyonetim.com.tr/api/markdown?path=${encodeURIComponent(item.path)}`),
+      );
+      expect(res.status).toBe(200);
+      const md = await res.text();
+      expect(md).toContain(item.expectedText);
+    }
   });
 });

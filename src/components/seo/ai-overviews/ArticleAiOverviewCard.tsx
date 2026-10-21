@@ -133,22 +133,11 @@ export default function ArticleAiOverviewCard({
       })),
   ];
 
-  const schemaData = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: mergedEntities,
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: `${title} | Google AI Overview`,
-      speakable: {
-        '@type': 'SpeakableSpecification',
-        cssSelector: ['#article-instant-answer-text', '.tldr'],
-      },
-    },
-  ];
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: mergedEntities,
+  };
 
   return (
     <section

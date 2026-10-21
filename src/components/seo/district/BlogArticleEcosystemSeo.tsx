@@ -152,8 +152,48 @@ export default function BlogArticleEcosystemSeo({
         </div>
       </div>
 
+      {/* Pillar-Cluster Hub İç Bağlantı Şeridi */}
+      <div className="mt-6 pt-5 border-t border-[var(--color-outline)]/60 dark:border-white/10 relative z-10">
+        <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3 flex items-center gap-1.5">
+          <Icon name="hub" className="text-[14px] text-emerald-600 dark:text-emerald-400" />
+          <span>İlgili Kurumsal Rehber & Hizmet Merkezleri (Pillar Hubs)</span>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <Link
+            href={lang === 'tr' ? '/kmk-2026-degisiklikleri' : `/${lang}/kmk-2026-degisiklikleri`}
+            className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.04] dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10 text-slate-800 dark:text-slate-200 transition-colors"
+          >
+            2026 KMK (7579 S.K.) Rehberi
+          </Link>
+          <Link
+            href={lang === 'tr' ? '/hizmetler/site-yonetimi' : `/${lang}/hizmetler/site-yonetimi`}
+            className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.04] dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10 text-slate-800 dark:text-slate-200 transition-colors"
+          >
+            Site & Apartman Yönetimi Hub
+          </Link>
+          <Link
+            href={lang === 'tr' ? '/hizmetler/tesis-yonetimi' : `/${lang}/hizmetler/tesis-yonetimi`}
+            className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.04] dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10 text-slate-800 dark:text-slate-200 transition-colors"
+          >
+            Entegre Tesis Yönetimi Hub
+          </Link>
+          <Link
+            href={lang === 'tr' ? '/bolgeler' : `/${lang}/bolgeler`}
+            className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.04] dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10 text-slate-800 dark:text-slate-200 transition-colors"
+          >
+            İstanbul 39 İlçe Bölgeleri
+          </Link>
+          <Link
+            href={lang === 'tr' ? '/sozluk' : `/${lang}/sozluk`}
+            className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-white/[0.04] dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/10 text-slate-800 dark:text-slate-200 transition-colors"
+          >
+            KMK & Tesis Yönetimi Sözlüğü
+          </Link>
+        </div>
+      </div>
+
       {/* Faz 188: Blog Makalelerinden Doğrudan /teklif-al ve /hesaplayici CTA Köprüsü */}
-      <div className="mt-6 pt-5 border-t border-[var(--color-outline)]/60 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
+      <div className="mt-5 pt-5 border-t border-[var(--color-outline)]/60 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
         <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
           <Icon name="calculate" className="text-slate-500 text-base" />
           <span>Binanız veya tesisiniz için özel maliyet projeksiyonu çıkarın:</span>

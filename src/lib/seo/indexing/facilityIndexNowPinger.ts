@@ -1,6 +1,8 @@
 import { BASE_URL, LOCALES } from '@/lib/seo';
 import { DISTRICTS } from '@/data/districts';
 import { SERVICES } from '@/data/services';
+import { POSTS_META } from '@/data/posts';
+import { CERTIFICATES } from '@/data/certificates';
 
 export interface IndexNowPayload {
   host: string;
@@ -69,11 +71,58 @@ export function buildFacilityIndexNowPayload(apiKey: string = 'b42e617d3a2e4e10b
     }
   });
 
+  // 5. KMK 2026, Hesaplayıcı, Kurumsal Hub'lar ve Sertifikalar
+  const coreHubPaths = [
+    '/',
+    '/kmk-2026-degisiklikleri',
+    '/hesaplayici',
+    '/sss',
+    '/sozluk',
+    '/blog',
+    '/bolgeler',
+    '/hizmetler',
+    '/sektorel-cozumler',
+    '/referanslar',
+    '/kurumsal/kalite-belgelerimiz',
+    '/teklif-al',
+    '/iletisim',
+    '/hakkimizda',
+    '/guvenlik-akademisi',
+    '/istihdam-koprusu',
+    '/surdurulebilirlik/ges-projeleri',
+  ];
+  coreHubPaths.forEach((p) => urlList.push(`${BASE_URL}${p}`));
+
+  CERTIFICATES.forEach((cert) => {
+    urlList.push(`${BASE_URL}/kurumsal/sertifikalar/${cert.slug}`);
+  });
+
+  // 6. Aktif Blog Makaleleri (57 Rehber)
+  POSTS_META.forEach((post) => {
+    urlList.push(`${BASE_URL}/blog/${post.slug}`);
+  });
+
+  // 7. AI & Agent Discovery Uç Noktaları
+  const aiDiscoveryPaths = [
+    '/.well-known/llms.txt',
+    '/llms-full.txt',
+    '/.well-known/agent-card.json',
+    '/.well-known/acp.json',
+    '/.well-known/ucp',
+    '/.well-known/api-catalog',
+    '/openapi.json',
+    '/api/ai/facility-agent-context.json',
+    '/api/tesis-yonetimi/kmk-law-index.json',
+  ];
+  aiDiscoveryPaths.forEach((p) => urlList.push(`${BASE_URL}${p}`));
+
+  const uniqueUrls = Array.from(new Set(urlList));
+
   return {
     host,
     key: apiKey,
     keyLocation: `https://${host}/${apiKey}.txt`,
-    urlList,
+    urlList: uniqueUrls,
   };
 }
 

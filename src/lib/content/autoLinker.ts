@@ -27,7 +27,23 @@ const DISTRICT_SERVICE_LINKS: { term: string; href: string }[] = [];
 for (const district of DISTRICTS) {
   const dName = district.name.toLowerCase();
 
-  // İlçe ana sayfası
+  // İlçe ana sayfası ve bölgesel varyasyonlar
+  DISTRICT_SERVICE_LINKS.push({
+    term: `${dName} bölgesinde`,
+    href: `/bolgeler/${district.slug}`,
+  });
+  DISTRICT_SERVICE_LINKS.push({
+    term: `${dName} ilçesinde`,
+    href: `/bolgeler/${district.slug}`,
+  });
+  DISTRICT_SERVICE_LINKS.push({
+    term: `${dName} bina yönetimi`,
+    href: `/bolgeler/${district.slug}`,
+  });
+  DISTRICT_SERVICE_LINKS.push({
+    term: `${dName} profesyonel yönetim`,
+    href: `/bolgeler/${district.slug}`,
+  });
   DISTRICT_SERVICE_LINKS.push({
     term: `${dName} tesis yönetimi`,
     href: `/bolgeler/${district.slug}/tesis-yonetimi`,
@@ -133,7 +149,11 @@ const CUSTOM_LINKS: { term: string; href: string }[] = [
   { term: 'tesis teknik işletme', href: '/hizmetler/tesis-yonetimi' },
   { term: 'güvenlik akademisi', href: '/guvenlik-akademisi' },
   { term: 'aidat hesaplama', href: '/hesaplayici' },
+  { term: 'aidat hesaplayıcı', href: '/hesaplayici' },
   { term: 'kmk hesaplayıcı', href: '/hesaplayici' },
+  { term: 'gecikme tazminatı hesaplama', href: '/hesaplayici' },
+  { term: 'işletme projesi hesaplama', href: '/hesaplayici' },
+  { term: 'arsa payı hesaplama', href: '/hesaplayici' },
   { term: 'işletme projesi rehberi', href: '/hizmetler/hukuk-ve-icra-danismanligi' },
   { term: 'asansör yeşil etiket', href: '/hizmetler/teknik-bakim' },
   { term: 'asansör arıza', href: '/hizmetler/teknik-bakim' },
@@ -184,9 +204,14 @@ const CUSTOM_LINKS: { term: string; href: string }[] = [
   { term: 'özel güvenlik iş ilanları', href: '/istihdam-koprusu' },
   { term: 'başarı hikayeleri', href: '/referanslar' },
   { term: '7579 sayılı kanun', href: '/kmk-2026-degisiklikleri' },
+  { term: '2026 kmk değişiklikleri', href: '/kmk-2026-degisiklikleri' },
+  { term: 'kmk 2026 değişiklikleri', href: '/kmk-2026-degisiklikleri' },
   { term: 'kmk 2026 değişikliği', href: '/kmk-2026-degisiklikleri' },
+  { term: 'kat mülkiyeti kanunu 2026', href: '/kmk-2026-degisiklikleri' },
   { term: 'geçici işletme projesi', href: '/kmk-2026-degisiklikleri' },
   { term: 'yeniden değerleme oranı', href: '/kmk-2026-degisiklikleri' },
+  { term: 'devir teslim tutanağı', href: '/kmk-2026-degisiklikleri' },
+  { term: 'yönetici ibra', href: '/kmk-2026-degisiklikleri' },
 ];
 
 // 5. Sözlük Terimleri
