@@ -54,7 +54,7 @@ button.act.ghost{background:transparent;color:var(--accent)}
 <div class="wrap">
   <header>
     <h1>Yapay zekâ takip tablosu</h1>
-    <p class="lead">30 hedef sorguyu ayda bir elle arayın (gizli sekme, Google). Sonucu işaretleyin: yapay zekâ özeti çıktı mı, Alo Yönetim kaynak olarak geçti mi? Kayıtlar yalnızca bu tarayıcıda saklanır.</p>
+    <p class="lead">33 hedef sorguyu ayda bir elle arayın (gizli sekme, Google). Sonucu işaretleyin: yapay zekâ özeti çıktı mı, Alo Yönetim kaynak olarak geçti mi? Kayıtlar yalnızca bu tarayıcıda saklanır.</p>
   </header>
 
   <div class="bar">
@@ -111,7 +111,10 @@ const QUERIES = [
   ['Yerel','Ataşehir site yönetimi','/bolgeler/atasehir/site-yonetimi'],
   ['Yerel','Beşiktaş apartman yönetimi','/bolgeler/besiktas/site-yonetimi'],
   ['Yerel','Başakşehir site yönetimi','/bolgeler/basaksehir/site-yonetimi'],
-  ['Yerel','Beylikdüzü site yönetimi','/bolgeler/beylikduzu/site-yonetimi']
+  ['Yerel','Beylikdüzü site yönetimi','/bolgeler/beylikduzu/site-yonetimi'],
+  ['Sakin rehberi','apsiyon aidat nasıl ödenir','/blog/apsiyondan-aidat-odeme-ve-borc-goruntuleme-sakin-rehberi'],
+  ['Sakin rehberi','apsiyon borç sorgulama','/blog/apsiyondan-aidat-odeme-ve-borc-goruntuleme-sakin-rehberi'],
+  ['Sakin rehberi','apsiyon ile kredi kartıyla aidat ödeme','/blog/apsiyondan-aidat-odeme-ve-borc-goruntuleme-sakin-rehberi']
 ];
 const CLUSTERS = ['Tümü', ...new Set(QUERIES.map(q => q[0]))];
 const YN = [['', '—'], ['evet','Evet'], ['hayir','Hayır']];
@@ -165,7 +168,7 @@ function summarize(){
   const m = monthSel.value; let ov = 0, src = 0, done = 0;
   QUERIES.forEach((q, i) => { const r = get(m, i); if (r.ov) done++; if (r.ov === 'evet') ov++; if (r.src === 'evet') src++; });
   document.getElementById('summary').innerHTML =
-    '<div class="stat"><b>' + done + '/30</b><span>ölçülen sorgu</span></div>' +
+    '<div class="stat"><b>' + done + '/' + QUERIES.length + '</b><span>ölçülen sorgu</span></div>' +
     '<div class="stat"><b>' + ov + '</b><span>yapay zekâ özeti çıkan</span></div>' +
     '<div class="stat"><b>' + src + '</b><span>Alo Yönetim kaynak gösterilen</span></div>';
 }
