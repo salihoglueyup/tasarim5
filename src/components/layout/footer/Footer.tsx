@@ -91,7 +91,7 @@ export default function Footer() {
                   key={item.nameKey} 
                   href={getLocalizedPath(item.path)} 
                   prefetch={true}
-                  className="text-sm font-medium text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors flex items-center gap-1.5 group"
+                  className="text-sm font-medium text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors flex items-center gap-1.5 py-1.5 group"
                 >
                   <Icon name="arrow_forward" className="text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[var(--color-primary)]" />
                   {t(item.nameKey as Parameters<typeof t>[0])}
@@ -123,7 +123,7 @@ export default function Footer() {
                   key={item.nameKey} 
                   href={getLocalizedPath(item.path)} 
                   prefetch={true}
-                  className="text-sm font-medium text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors flex items-center gap-1.5 group"
+                  className="text-sm font-medium text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors flex items-center gap-1.5 py-1.5 group"
                 >
                   <Icon name="arrow_forward" className="text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all text-[var(--color-primary)]" />
                   {t(item.nameKey as Parameters<typeof t>[0])}
@@ -161,7 +161,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-[var(--color-primary)] text-xs">{t('footer_customer_service')}</span>
-                <a href="tel:+902165504848" className="text-xs font-bold text-[var(--color-primary)] hover:underline">0216 550 48 48</a>
+                <a href="tel:+902165504848" className="text-xs font-bold text-[var(--color-primary)] hover:underline inline-block py-2">0216 550 48 48</a>
               </div>
             </div>
 
@@ -266,7 +266,7 @@ export default function Footer() {
               </p>
               <Link
                 href={getLocalizedPath('/bolgeler')}
-                className="text-xs font-bold text-[var(--color-primary)] hover:underline"
+                className="text-xs font-bold text-[var(--color-primary)] hover:underline inline-block py-2"
               >
                 {t('footer_all_regions')} {t('ft_39_districts')} →
               </Link>
@@ -297,7 +297,7 @@ export default function Footer() {
                   <Link
                     key={d.slug}
                     href={getLocalizedPath(`/bolgeler/${d.slug}`)}
-                    className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors py-0.5 px-1 rounded hover:bg-[var(--color-surface-variant)]"
+                    className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                   >
                     {d.name}
                   </Link>
@@ -341,7 +341,7 @@ export default function Footer() {
                   <Link
                     key={d.slug}
                     href={getLocalizedPath(`/bolgeler/${d.slug}`)}
-                    className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors py-0.5 px-1 rounded hover:bg-[var(--color-surface-variant)]"
+                    className="text-[var(--color-secondary)] hover:text-[var(--color-primary)] transition-colors py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                   >
                     {d.name}
                   </Link>
@@ -355,19 +355,19 @@ export default function Footer() {
               {t('ft_facility_solutions')}
             </p>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-[var(--color-secondary)]">
-              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi')} className="font-semibold text-[var(--color-primary)] hover:underline inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_facility')}</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi')} className="font-semibold text-[var(--color-primary)] hover:underline inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_facility')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_residence')}</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/rezidans-site-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_residence')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/plaza-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_plaza')}</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/plaza-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_plaza')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_mass_housing')}</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/toplu-konut-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_mass_housing')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_industrial')}</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/sanayi-tesisi-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_industrial')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/rehber')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_guide')}</Link>
+              <Link href={getLocalizedPath('/hizmetler/tesis-yonetimi/rehber')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_l_guide')}</Link>
               <span>•</span>
-              <a href="/openapi.json" target="_blank" rel="noopener noreferrer" className="font-mono text-emerald-600 dark:text-emerald-400 hover:underline inline-block py-1 px-1.5 rounded" title={t('ft_openapi_title')}>OpenAPI 3.1 JSON</a>
+              <a href="/openapi.json" target="_blank" rel="noopener noreferrer" className="font-mono text-emerald-600 dark:text-emerald-400 hover:underline inline-block py-2 px-1.5 rounded" title={t('ft_openapi_title')}>OpenAPI 3.1 JSON</a>
             </div>
           </div>
 
@@ -376,29 +376,29 @@ export default function Footer() {
               {t('ft_popular_regional')}
             </p>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-[var(--color-secondary)]">
-              <Link href={getLocalizedPath('/bolgeler/kadikoy/aidat-takibi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_kadikoy')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/kadikoy/aidat-takibi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_kadikoy')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/bolgeler/atasehir/guvenlik-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_atasehir')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/atasehir/guvenlik-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_atasehir')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/bolgeler/uskudar/tesis-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_uskudar')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/uskudar/tesis-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_uskudar')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/bolgeler/besiktas/hukuk-ve-icra-danismanligi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_besiktas')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/besiktas/hukuk-ve-icra-danismanligi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_besiktas')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/bolgeler/sisli/temizlik-ve-hijyen')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_sisli')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/sisli/temizlik-ve-hijyen')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_sisli')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/bolgeler/bakirkoy/teknik-bakim')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_bakirkoy')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/bakirkoy/teknik-bakim')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_bakirkoy')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/bolgeler/basaksehir/havuz-bakimi-ve-hijyen')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_basaksehir')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/basaksehir/havuz-bakimi-ve-hijyen')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_basaksehir')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/bolgeler/maltepe/peyzaj-ve-bahce-bakimi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_maltepe')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/maltepe/peyzaj-ve-bahce-bakimi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_maltepe')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/bolgeler/umraniye/hasere-ve-dezenfeksiyon')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_umraniye')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/umraniye/hasere-ve-dezenfeksiyon')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_umraniye')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/bolgeler/sariyer/guvenlik-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_sariyer')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/sariyer/guvenlik-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_sariyer')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/bolgeler/beylikduzu/aidat-takibi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_beylikduzu')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/beylikduzu/aidat-takibi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_beylikduzu')}</Link>
               <span>•</span>
-              <Link href={getLocalizedPath('/bolgeler/kartal/tesis-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_kartal')}</Link>
+              <Link href={getLocalizedPath('/bolgeler/kartal/tesis-yonetimi')} className="hover:text-[var(--color-primary)] inline-block py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]">{t('ft_r_kartal')}</Link>
             </div>
           </div>
 
@@ -411,7 +411,7 @@ export default function Footer() {
                 href="https://www.guvenlikkursu.com/"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="font-semibold text-[var(--color-primary)] hover:underline inline-flex items-center gap-1 group py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
+                className="font-semibold text-[var(--color-primary)] hover:underline inline-flex items-center gap-1 group py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                 title={t('ft_group_alo_title')}
               >
                 <span>{t('ft_group_alo')}</span>
@@ -422,7 +422,7 @@ export default function Footer() {
                 href="https://3gguvenlik.com/"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="font-semibold text-[var(--color-primary)] hover:underline inline-flex items-center gap-1 group py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
+                className="font-semibold text-[var(--color-primary)] hover:underline inline-flex items-center gap-1 group py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                 title={t('ft_group_3g_title')}
               >
                 <span>{t('ft_group_3g')}</span>
@@ -444,7 +444,7 @@ export default function Footer() {
                 href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
+                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                 title={t('ft_a_kmk_title')}
               >
                 <span>{t('ft_a_kmk')}</span>
@@ -455,7 +455,7 @@ export default function Footer() {
                 href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
+                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                 title={t('ft_a_5188_title')}
               >
                 <span>{t('ft_a_5188')}</span>
@@ -466,7 +466,7 @@ export default function Footer() {
                 href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=5"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
+                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                 title={t('ft_a_iik_title')}
               >
                 <span>{t('ft_a_iik')}</span>
@@ -477,7 +477,7 @@ export default function Footer() {
                 href="https://www.egm.gov.tr/ozelguvenlik"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
+                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                 title={t('ft_a_egm_title')}
               >
                 <span>{t('ft_a_egm')}</span>
@@ -488,7 +488,7 @@ export default function Footer() {
                 href="https://www.tse.org.tr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
+                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                 title={t('ft_a_tse_title')}
               >
                 <span>{t('ft_a_tse')}</span>
@@ -499,7 +499,7 @@ export default function Footer() {
                 href="https://www.tuik.gov.tr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
+                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                 title={t('ft_a_tuik_title')}
               >
                 <span>{t('ft_a_tuik')}</span>
@@ -510,7 +510,7 @@ export default function Footer() {
                 href="https://sifiratik.gov.tr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
+                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                 title={t('ft_a_zw_title')}
               >
                 <span>{t('ft_a_zw')}</span>
@@ -521,7 +521,7 @@ export default function Footer() {
                 href="https://www.kvkk.gov.tr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
+                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                 title={t('ft_a_kvkk_title')}
               >
                 <span>{t('ft_a_kvkk')}</span>
@@ -532,7 +532,7 @@ export default function Footer() {
                 href="https://www.iskur.gov.tr"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
-                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-1 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
+                className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
                 title={t('ft_a_iskur_title')}
               >
                 <span>{t('ft_a_iskur')}</span>
@@ -572,7 +572,7 @@ export default function Footer() {
           </div>
 
           <div className="text-center md:text-left text-[11px] font-light">
-            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={getLocalizedPath('/kullanim-sartlari')} className="hover:underline">{t('footer_terms')}</Link> | <Link href={getLocalizedPath('/gizlilik-politikasi')} className="hover:underline">{t('footer_privacy')}</Link> | <Link href={getLocalizedPath('/cerez-politikasi')} className="hover:underline">{t('footer_cookie_policy')}</Link> | <Link href={getLocalizedPath('/kvkk-ve-aydinlatma-metni')} className="hover:underline">{t('footer_kvkk')}</Link> | <Link href={getLocalizedPath('/sozluk')} className="hover:underline">{t('ft_glossary')}</Link> | <Link href="/feed/tesis-yonetimi.xml" className="hover:underline text-slate-600 dark:text-slate-400 font-medium">{t('ft_rss')}</Link> | <Link href={getLocalizedPath('/site-haritasi')} className="hover:underline font-bold text-[var(--color-primary)]">{t('footer_sitemap')}</Link>
+            © 2026 Alo Yönetim. {t('footer_rights')} | <Link href={getLocalizedPath('/kullanim-sartlari')} className="hover:underline inline-block py-2">{t('footer_terms')}</Link> | <Link href={getLocalizedPath('/gizlilik-politikasi')} className="hover:underline inline-block py-2">{t('footer_privacy')}</Link> | <Link href={getLocalizedPath('/cerez-politikasi')} className="hover:underline inline-block py-2">{t('footer_cookie_policy')}</Link> | <Link href={getLocalizedPath('/kvkk-ve-aydinlatma-metni')} className="hover:underline inline-block py-2">{t('footer_kvkk')}</Link> | <Link href={getLocalizedPath('/sozluk')} className="hover:underline inline-block py-2">{t('ft_glossary')}</Link> | <Link href="/feed/tesis-yonetimi.xml" className="hover:underline text-slate-600 dark:text-slate-400 font-medium">{t('ft_rss')}</Link> | <Link href={getLocalizedPath('/site-haritasi')} className="hover:underline font-bold text-[var(--color-primary)]">{t('footer_sitemap')}</Link>
           </div>
 
           <div className="flex items-center gap-1.5 text-[11px] font-medium text-[var(--color-secondary)]">

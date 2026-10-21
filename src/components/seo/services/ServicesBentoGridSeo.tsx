@@ -513,7 +513,7 @@ export default function ServicesBentoGridSeo({
                     </span>
                     <Link
                       href={lp(service.slug)}
-                      className="text-xs font-bold text-[var(--color-primary)] hover:text-slate-500 flex items-center gap-1 transition-colors"
+                      className="text-xs font-bold text-[var(--color-primary)] hover:text-slate-500 flex items-center py-2 gap-1 transition-colors"
                     >
                       {tx('İncele')}
                       <Icon name="arrow_forward" className="text-sm" />

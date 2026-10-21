@@ -543,3 +543,8 @@ textarea:focus-visible {
 .page-enter {
   animation: page-enter 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+/* mobil okunabilirlik: 10px etiket/rozet metinleri 11px altına inmez */
+@media (max-width: 767px) {
+  .text-\[10px\] { font-size: 11px; line-height: 1.35; }
+}
