@@ -69,8 +69,8 @@ export default async function Home({ params }: Props) {
   const { lang } = await params;
   const t = await getDictionary(lang);
 
-  // Anasayfa SSS'si özenle yazılmış statik kaynaktan gelir (aidat, işletme projesi, gecikme tazminatı, yönetici seçimi, hizmetler).
-  const HOME_FAQ_IDS = ['faq-01', 'faq-02', 'faq-05', 'faq-11', 'faq-45'];
+  // Anasayfa SSS'si özenle yazılmış statik kaynaktan gelir (aidat, işletme projesi, gecikme tazminatı, yönetici seçimi, hukuk, güvenlik, teknik ve hizmetler).
+  const HOME_FAQ_IDS = ['faq-01', 'faq-02', 'faq-03', 'faq-05', 'faq-11', 'faq-19', 'faq-24', 'faq-28', 'faq-33', 'faq-45'];
   const dbFaqs: any[] = CURATED_FAQS.filter((f) => HOME_FAQ_IDS.includes(f.id));
 
   const businessLd = professionalServiceSchema({

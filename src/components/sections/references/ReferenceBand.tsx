@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import {
@@ -40,8 +41,12 @@ export default function ReferenceBand({
   showSectorSummary = true,
 }: ReferenceBandProps) {
   const { t, language } = useLanguage();
+  const [activeSector, setActiveSector] = useState<ReferenceSector | 'all'>('all');
+
   const items =
-    slugs?.length || sectors?.length
+    activeSector !== 'all'
+      ? selectReferences({ sectors: [activeSector], limit })
+      : slugs?.length || sectors?.length
       ? selectReferences({ slugs, sectors, limit })
       : featuredReferences(limit);
   const counts = countBySector();
@@ -54,21 +59,42 @@ export default function ReferenceBand({
       </div>
 
       {showSectorSummary && (
-        <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
+        <div className="mb-8 flex flex-wrap items-center justify-center gap-2" role="group" aria-label="Referans Kategori Filtresi">
+          <button
+            type="button"
+            onClick={() => setActiveSector('all')}
+            aria-pressed={activeSector === 'all'}
+            className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors cursor-pointer ${
+              activeSector === 'all'
+                ? 'border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-slate-950'
+                : 'border-[var(--color-outline)]/60 bg-[var(--color-background)] text-[var(--color-secondary)] hover:border-slate-900 hover:text-[var(--color-primary)] dark:hover:border-white'
+            }`}
+          >
+            <span>{t('refx_s_all')}</span>
+            <span className="rounded-full bg-white/20 px-2 py-0.5 font-bold">
+              {REAL_REFERENCES.length}
+            </span>
+          </button>
           {SECTORS.map((sec) => {
             const label = t(SECTOR_LABEL_KEYS[sec]);
+            const isSelected = activeSector === sec;
             return (
-              <Link
+              <button
                 key={sec}
-                href="/referanslar"
-                title={`${label} (${counts[sec]}) — Alo Yönetim Kurumsal Referanslar`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-outline)]/60 bg-[var(--color-background)] px-3.5 py-1.5 text-xs font-semibold text-[var(--color-secondary)] transition-colors hover:border-slate-900 hover:text-[var(--color-primary)] dark:hover:border-white"
+                type="button"
+                onClick={() => setActiveSector(isSelected ? 'all' : sec)}
+                aria-pressed={isSelected}
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors cursor-pointer ${
+                  isSelected
+                    ? 'border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-slate-950'
+                    : 'border-[var(--color-outline)]/60 bg-[var(--color-background)] text-[var(--color-secondary)] hover:border-slate-900 hover:text-[var(--color-primary)] dark:hover:border-white'
+                }`}
               >
                 <span>{label}</span>
                 <span className="rounded-full bg-slate-900/10 px-2 py-0.5 font-bold text-[var(--color-primary)] dark:bg-white/10">
                   {counts[sec]}
                 </span>
-              </Link>
+              </button>
             );
           })}
         </div>
@@ -79,6 +105,36 @@ export default function ReferenceBand({
           <ReferenceCard key={r.slug} reference={r} lang={language} istanbulWideLabel={t('refx_istanbul_wide')} />
         ))}
       </ul>
+
+      {language === 'tr' && (
+        <div className="mt-8 grid grid-cols-1 gap-4 border-t border-[var(--color-outline)]/40 pt-6 md:grid-cols-3">
+          <div className="rounded-2xl border border-[var(--color-outline)]/50 bg-[var(--color-background)] p-4">
+            <div className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+              Vaka Özeti · Toplu Konut & Rezidans
+            </div>
+            <p className="mt-1.5 text-xs leading-relaxed text-[var(--color-secondary)]">
+              <strong className="text-[var(--color-primary)]">Innovia 3, Dome Residence ve Kiptaş Sahilpark Evleri</strong> ölçeğindeki toplu yapılarda akıllı bina sistemleri, enerji verimliliği ve KMK m.20/37 uyumlu dijital aidat muhasebesiyle şeffaf bütçe yönetimi sağlıyoruz.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-outline)]/50 bg-[var(--color-background)] p-4">
+            <div className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+              Vaka Özeti · Sağlık & Kamu Tesisleri
+            </div>
+            <p className="mt-1.5 text-xs leading-relaxed text-[var(--color-secondary)]">
+              <strong className="text-[var(--color-primary)]">VM Medical Park Maltepe, Yunus Emre Hastanesi ve Belediyeler</strong> dahil kritik tesislerde ISO 14001 sürdürülebilirlik standartlarında steril hijyen ve kesintisiz mekanik-elektrik sürekliliği yürütüyoruz.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-[var(--color-outline)]/50 bg-[var(--color-background)] p-4">
+            <div className="text-xs font-extrabold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+              Vaka Özeti · Kurumsal, Sanayi & Medya
+            </div>
+            <p className="mt-1.5 text-xs leading-relaxed text-[var(--color-secondary)]">
+              <strong className="text-[var(--color-primary)]">Türk Eximbank, Sözcü Gazetesi ve Matbaaları ile İşkent Sanayi Sitesi</strong> operasyonlarında 5188 sayılı Kanun kapsamında Valilik izinli özel güvenlik, PTS/CCTV ve yazılı SLA teknik bakım desteği sunuyoruz.
+            </p>
+          </div>
+        </div>
+      )}
+
       <div className="mt-8 text-center">
         <Link
           href="/referanslar"

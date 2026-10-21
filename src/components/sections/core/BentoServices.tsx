@@ -79,11 +79,11 @@ export default function BentoServices() {
             </Link>
 
             <Link
-              href={getLocalizedPath('/hesaplayici')}
-              title={`${t('home_bento_card1_title')} — Maliyet Hesapla`}
+              href={getLocalizedPath('/guvenlik-akademisi')}
+              title="5188 Özel Güvenlik Akademisi"
               className="text-xs font-bold text-[var(--color-primary)] bg-slate-100 dark:bg-white/10 px-3 py-1.5 rounded-xl hover:bg-slate-200 dark:hover:bg-white/20 transition-colors"
             >
-              Maliyet Hesapla →
+              5188 Akademi →
             </Link>
           </div>
         </div>
@@ -111,11 +111,11 @@ export default function BentoServices() {
           </div>
           <div className="mt-6 pt-4 border-t border-[var(--color-outline)]/40 flex items-center justify-between">
             <Link
-              href={getLocalizedPath('/hesaplayici')}
-              title={`${t('home_bento_card2_title')} — Maliyet Hesapla`}
+              href={getLocalizedPath('/kurumsal/surdurulebilirlik')}
+              title="ISO 14001 Yeşil Temizlik ve Sürdürülebilirlik"
               className="text-xs font-bold text-[var(--color-secondary)] hover:text-[var(--color-primary)]"
             >
-              Temizlik Maliyeti →
+              ISO 14001 & Sıfır Atık →
             </Link>
             <Link
               href={getLocalizedPath('/hizmetler/temizlik-ve-hijyen')}

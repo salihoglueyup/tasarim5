@@ -21,6 +21,7 @@ export default function Logo({ className = "", variant = 'auto', loading = 'eage
           width={48}
           height={48}
           loading={loading}
+          unoptimized
           quality={75}
           className={`object-contain transition-all duration-300 w-12 h-12 ${
             isWhite 

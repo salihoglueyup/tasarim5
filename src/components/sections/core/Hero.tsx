@@ -118,7 +118,7 @@ export default function Hero() {
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          sizes="100vw"
+          unoptimized
           quality={75}
           className="absolute inset-0 w-full h-full object-cover object-[35%_center] md:object-center scale-105 pointer-events-none z-0 transform-gpu"
         />

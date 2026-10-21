@@ -441,7 +441,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-[11px] text-[var(--color-secondary)]">
               <a
-                href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=634&MevzuatTur=1&MevzuatTertip=5"
+                href="https://www.mevzuat.gov.tr/MevzuatMetin/1.5.634.pdf"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
@@ -452,7 +452,7 @@ export default function Footer() {
               </a>
               <span>•</span>
               <a
-                href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=5188&MevzuatTur=1&MevzuatTertip=5"
+                href="https://www.mevzuat.gov.tr/MevzuatMetin/1.5.5188.pdf"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
@@ -463,7 +463,7 @@ export default function Footer() {
               </a>
               <span>•</span>
               <a
-                href="https://www.mevzuat.gov.tr/mevzuat?MevzuatNo=2004&MevzuatTur=1&MevzuatTertip=5"
+                href="https://www.mevzuat.gov.tr/MevzuatMetin/1.3.2004.pdf"
                 target="_blank"
                 rel="noopener noreferrer nofollow"
                 className="hover:text-[var(--color-primary)] hover:underline inline-flex items-center gap-0.5 py-2 px-1.5 rounded hover:bg-[var(--color-surface-variant)]"
