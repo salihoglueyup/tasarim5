@@ -13,14 +13,14 @@ import {
 import ReferenceCard from './ReferenceCard';
 import Icon from '@/components/ui/branding/Icon';
 
-const SECTOR_LABEL_KEYS: Record<ReferenceSector, string> = {
+const SECTOR_LABEL_KEYS = {
   site: 'refx_s_site',
   saglik: 'refx_s_saglik',
   ticari: 'refx_s_ticari',
   is_merkezi: 'refx_s_is_merkezi',
   kamu: 'refx_s_kamu',
   turizm: 'refx_s_turizm',
-};
+} as const;
 
 export interface ReferenceBandProps {
   limit?: number;

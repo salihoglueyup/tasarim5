@@ -468,7 +468,7 @@ ${refGroups}
 
 ---
 
-${CONTACT}`, lang);
+${CONTACT}`);
   }
 
   // 7. Kalite Belgelerimiz (/kurumsal/kalite-belgelerimiz) ve Sertifika Detayları (/kurumsal/sertifikalar/[slug] veya /kurumsal/kalite-belgelerimiz/[slug])
