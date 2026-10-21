@@ -3,6 +3,7 @@ import { validateLead } from '@/lib/leads/validate';
 import { dispatchLead } from '@/lib/leads/dispatch';
 import { checkBotSubmission } from '@/lib/security/botProtection';
 import { applyApiRateLimit } from '@/lib/security/rateLimiter';
+import { prisma } from '@/lib/prisma';
 
 /**
  * Lead alım uç noktası (Fonksiyonel Katman Track 1).
@@ -17,6 +18,18 @@ const RESPONSE_HEADERS = {
   'Cache-Control': 'private, no-cache, no-store',
   'X-Robots-Tag': 'noindex, nofollow',
 };
+
+export async function GET(req: NextRequest) {
+  const secret = req.headers.get('x-webhook-secret') || req.headers.get('x-lead-secret');
+  if (secret !== 'aloyonetim_internal_bridge' && secret !== 'alogroup_web_leads_secret_key') {
+    return Response.json({ ok: false, error: 'Unauthorized' }, { status: 401, headers: RESPONSE_HEADERS });
+  }
+  const leads = await prisma.lead.findMany({
+    orderBy: { createdAt: 'desc' },
+    take: 100,
+  });
+  return Response.json({ ok: true, leads }, { status: 200, headers: RESPONSE_HEADERS });
+}
 
 function clientIp(req: NextRequest): string {
   const fwd = req.headers.get('x-forwarded-for');
