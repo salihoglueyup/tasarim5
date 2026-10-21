@@ -5,6 +5,8 @@ import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { buildMetadata, LOCALES } from '@/lib/seo';
 import { getDictionary } from '@/lib/i18n';
 import { localePath } from '@/lib/i18n/localePath';
+import { BASE_URL } from '@/lib/seo';
+import { REAL_REFERENCES, SECTOR_LABELS_TR } from '@/data/realReferences';
 import HubAiOverviewGroundingSeo from '@/components/seo/ai-overviews/HubAiOverviewGroundingSeo';
 import ReferencesShowcase from './ReferencesShowcase';
 
@@ -37,6 +39,23 @@ export default async function ReferanslarPage({ params }: { params: Promise<{ la
     { name: t('refx_title'), url: '/referanslar' },
   ];
 
+  const itemListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${t('refx_title')} — Alo Yönetim (${REAL_REFERENCES.length})`,
+    numberOfItems: REAL_REFERENCES.length,
+    itemListElement: REAL_REFERENCES.map((ref, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      item: {
+        '@type': 'Organization',
+        '@id': `${BASE_URL}/referanslar#${ref.slug}`,
+        name: ref.name,
+        description: `${SECTOR_LABELS_TR[ref.sector]}${ref.district ? ` — ${ref.district}, İstanbul` : ' — İstanbul'}`,
+      },
+    })),
+  };
+
   return (
     <>
       <JsonLd
@@ -49,6 +68,7 @@ export default async function ReferanslarPage({ params }: { params: Promise<{ la
             lang,
             speakableSelectors: ['h1', '#references-hub-instant-answer-text'],
           }),
+          itemListLd,
         ]}
       />
       <PageHeader title={t('refx_title')} description={t('refx_intro')} breadcrumbs={breadcrumbs} />

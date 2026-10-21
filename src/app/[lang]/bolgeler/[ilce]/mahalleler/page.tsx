@@ -10,6 +10,8 @@ import { generateBreadcrumbs, webPageSchema, type JsonLdObject } from '@/lib/sch
 import { DISTRICTS, getDistrict } from '@/data/districts';
 import { getNeighborDistrictsWithSemts } from '@/lib/seo/facility/districtCrossLinker';
 import { getOfficialNeighborhoods } from '@/data/districtOfficialNeighborhoods';
+import { getDistrictPortfolioReferences } from '@/data/realReferences';
+import ReferenceCard from '@/components/sections/references/ReferenceCard';
 import { FACTS } from '@/lib/facts';
 import trDict from '@/i18n/locales/tr/common.json';
 import enDict from '@/i18n/locales/en/common.json';
@@ -402,6 +404,39 @@ export default async function NeighborhoodsHubPage({
             </div>
           </section>
         )}
+
+        {/* İlçe ve İstanbul Geneli Kurumsal Referanslarımız */}
+        {(() => {
+          const { local, regionalAndCityWide } = getDistrictPortfolioReferences(
+            district.name,
+            neighborDistricts.map((n) => n.name),
+            6,
+          );
+          const refs = local.length >= 6 ? local : [...local, ...regionalAndCityWide].slice(0, 6);
+          return (
+            <section
+              id="ilce-referanslar"
+              aria-label={`${district.name} ve İstanbul geneli kurumsal referanslarımız`}
+              className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 space-y-5"
+            >
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h2 className="text-xl font-bold text-[var(--color-primary)]">
+                  {local.length > 0
+                    ? `${district.name} ve ${district.side} Yakası Kurumsal Referanslarımız`
+                    : `${district.name} Bölgesi & İstanbul Geneli Kurumsal Referanslarımız`}
+                </h2>
+                <Link href="/referanslar" className="text-xs font-bold text-[var(--color-primary)] hover:underline">
+                  Tüm referanslar ({FACTS.referenceCount}) →
+                </Link>
+              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {refs.map((r) => (
+                  <ReferenceCard key={r.slug} reference={r} lang={lang} istanbulWideLabel="İstanbul geneli" />
+                ))}
+              </ul>
+            </section>
+          );
+        })()}
 
         <div className="text-center">
           <Link

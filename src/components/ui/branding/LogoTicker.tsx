@@ -2,10 +2,38 @@
 
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
-import { featuredReferences } from '@/data/realReferences';
+import { selectReferences } from '@/data/realReferences';
 
-/** Veritabanı boşsa yalnızca gerçek referans listesindeki (Kurumsal Portföy 2026) öne çıkan kurumlar gösterilir. */
-const fallbackBrands = featuredReferences(12).map((r) => ({ name: r.name, logo: null as string | null }));
+/** Veritabanı boşsa 52 kurumsal referansımızdan 6 kategoriyi temsil eden 24 kurum döner. */
+const fallbackBrands = selectReferences({
+  limit: 24,
+  slugs: [
+    'dome-residence',
+    'innovia-3',
+    'kiptas-sahilpark-evleri',
+    'ciragan-residence',
+    'goztepe-soyak-residence',
+    'nef-cekmekoy-camlitepe-sitesi',
+    'vm-medical-park-maltepe',
+    'yunus-emre-hastanesi',
+    'exim-bank',
+    'sozcu-gazetesi',
+    'korkusuz-gazetesi',
+    'hursan-geri-donusum',
+    'koza-gida',
+    'atlas-is-merkezi',
+    'adalet-is-merkezi',
+    'atlantis-ticaret-merkezi',
+    'atasehir-belediyesi',
+    'kadikoy-belediyesi',
+    'aile-ve-sosyal-politikalar-merkezleri',
+    'vakifbank-umut-cocuklari',
+    'irak-konsoloslugu',
+    'sariyer-spor-kulubu',
+    'kumresort-hotel',
+    'bizimtepe-villalari',
+  ],
+}).map((r) => ({ name: r.name, logo: null as string | null }));
 
 export default function LogoTicker({ dbPartners }: { dbPartners?: { name: string; logo: string | null }[] }) {
   const { t } = useLanguage();

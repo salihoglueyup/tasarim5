@@ -4,6 +4,7 @@ import { DISTRICTS } from '@/data/districts';
 import { CERTIFICATES } from '@/data/certificates';
 import { SERVICES } from '@/data/services';
 import { TERMS, termToSlug } from '@/data/dictionary';
+import { REAL_REFERENCES, SECTORS, SECTOR_LABELS_TR } from '@/data/realReferences';
 import { FACTS, RESPONSE_TARGET_TEXT } from '@/lib/facts';
 
 /**
@@ -106,7 +107,7 @@ export function buildLlmsFullText(): string {
     `- [Kurumsal DNA ve NAP Verisi](${BASE_URL}/api/seo/corporate-dna.json): Resmi ticari unvan, MERSİS, Ticaret Sicil ve iletişim bilgileri.`,
     `- [GEO & Yerel Varlık Manifestosu](${BASE_URL}/api/seo/geo-manifest.json): Coğrafi hizmet alanı ve yerel otorite sinyalleri.`,
     `- [Doğrulanmış Kurumsal Bilgi API](${BASE_URL}/api/ai-knowledge): Organizasyon, 39 ilçe, referanslar, KMK m.20 ve 7579 sayılı Kanun kuralları.`,
-    `- [Birleşik Schema.org Bilgi Grafiği (JSON-LD)](${BASE_URL}/api/knowledge-graph): Kurum, hizmetler, 39 ilçe ve 50 referans düğümü.`,
+    `- [Birleşik Schema.org Bilgi Grafiği (JSON-LD)](${BASE_URL}/api/knowledge-graph): Kurum, hizmetler, 39 ilçe ve ${FACTS.referenceCount} referans düğümü.`,
     `- [KMK 634 & 7579 Sayılı Kanun Maddeler Dizini](${BASE_URL}/api/tesis-yonetimi/kmk-law-index.json): Kat Mülkiyeti Kanunu maddeleri ve yasal özetleri.`,
     `- [B2B Teknik Şartname (RFP) Üretici API](${BASE_URL}/api/tesis-yonetimi/rfp-generator): Bağımsız bölüm ve ilçeye göre otomatik yönetim şartnamesi taslağı.`,
     `- [Rota-Duyarlı Markdown Servisi](${BASE_URL}/api/markdown): Herhangi bir sayfa yolu (?path=/bolgeler/kadikoy vb.) için saf Markdown çıktısı.`,
@@ -119,7 +120,17 @@ export function buildLlmsFullText(): string {
     `- [Agent Auth Discovery](${BASE_URL}/auth.md): OAuth 2.0 / OIDC ve otonom ajan kimlik doğrulama rehberi.`,
   ].join('\n');
 
+  const referencesBySector = SECTORS.map((sec) => {
+    const items = REAL_REFERENCES.filter((r) => r.sector === sec)
+      .map((r) => (r.district ? `${r.name} (${r.district})` : r.name))
+      .join(', ');
+    return `- **${SECTOR_LABELS_TR[sec]}**: ${items}`;
+  }).join('\n');
+
   return `${buildLlmsText()}
+## Kurumsal Referans Portföyü (${FACTS.referenceCount} Kurum ve Tesis — 6 Kategori)
+${referencesBySector}
+
 ## Tüm Hizmet Sayfaları
 ${services}
 

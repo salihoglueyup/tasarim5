@@ -5,6 +5,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
 import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
+import ReferenceBand from '@/components/sections/references/ReferenceBand';
 import PlazaYonetimiClient from './PlazaYonetimiClient';
 
 export const revalidate = 86400;
@@ -75,6 +76,22 @@ export default async function PlazaYonetimiPage({
         cssSelectors={['h1', '#plaza-instant-answer-text']}
       />
       <PlazaYonetimiClient />
+      <div className="mx-auto max-w-[var(--spacing-container-max)] px-[var(--spacing-gutter)] pb-16">
+        <ReferenceBand
+          limit={8}
+          sectors={['is_merkezi', 'ticari']}
+          slugs={[
+            'atlas-is-merkezi',
+            'adalet-is-merkezi',
+            'atlantis-ticaret-merkezi',
+            'exim-bank',
+            'sozcu-gazetesi',
+            'reimco',
+            'cagdas-yayincilik',
+            'genc-danismanlik',
+          ]}
+        />
+      </div>
     </>
   );
 }

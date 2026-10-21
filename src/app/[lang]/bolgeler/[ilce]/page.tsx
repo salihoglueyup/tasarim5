@@ -23,7 +23,7 @@ import {
 } from '@/lib/schemas';
 import { DISTRICTS, getDistrict, type NeighborhoodInfo } from '@/data/districts';
 import { SERVICES } from '@/data/services';
-import { REAL_REFERENCES } from '@/data/realReferences';
+import { REAL_REFERENCES, getDistrictPortfolioReferences } from '@/data/realReferences';
 import { FACTS } from '@/lib/facts';
 import { DISTRICT_GUIDES } from '@/data/districtGuides';
 import { getNeighborDistrictLinks, getCrossSideDistrictLinks, getNeighborDistrictsWithSemts } from '@/lib/seo/facility/districtCrossLinker';
@@ -152,6 +152,15 @@ export default async function DistrictPage({
       : []),
   ];
   const districtReferences = REAL_REFERENCES.filter((r) => r.district === district.name);
+  const { regionalAndCityWide } = getDistrictPortfolioReferences(
+    district.name,
+    neighborWithSemts.map((n) => n.name),
+    6,
+  );
+  const displayedReferences =
+    districtReferences.length >= 6
+      ? districtReferences
+      : [...districtReferences, ...regionalAndCityWide].slice(0, 6);
 
   const breadcrumbLd = generateBreadcrumbs([
     { name: 'Anasayfa', url: '/' },
@@ -236,22 +245,22 @@ export default async function DistrictPage({
           </div>
         </div>
 
-        {/* Bu ilçedeki gerçek referanslar */}
-        {districtReferences.length > 0 && (
-          <div className="flex flex-col gap-6">
-            <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">
-              {district.name}&apos;deki Referanslarımız
-            </h2>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {districtReferences.map((r) => (
-                <ReferenceCard key={r.slug} reference={r} lang={lang} istanbulWideLabel="İstanbul geneli" />
-              ))}
-            </ul>
-            <Link href="/referanslar" className="text-sm font-semibold text-[var(--color-primary)] hover:underline w-fit">
-              Tüm referansları gör ({FACTS.referenceCount} kurum)
-            </Link>
-          </div>
-        )}
+        {/* Bu ilçedeki ve İstanbul genelindeki gerçek referanslarımız */}
+        <div className="flex flex-col gap-6">
+          <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">
+            {districtReferences.length > 0
+              ? `${district.name} ve ${district.side} Yakası Kurumsal Referanslarımız`
+              : `${district.name} Bölgesi & İstanbul Geneli Kurumsal Referanslarımız`}
+          </h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {displayedReferences.map((r) => (
+              <ReferenceCard key={r.slug} reference={r} lang={lang} istanbulWideLabel="İstanbul geneli" />
+            ))}
+          </ul>
+          <Link href="/referanslar" className="text-sm font-semibold text-[var(--color-primary)] hover:underline w-fit">
+            Tüm referansları gör ({FACTS.referenceCount} kurum ve site)
+          </Link>
+        </div>
 
         {/* Hizmetler → hizmet×ilçe sayfaları */}
         <div className="flex flex-col gap-6">

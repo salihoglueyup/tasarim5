@@ -4,7 +4,7 @@ import { CERTIFICATES } from '@/data/certificates';
 import { DISTRICTS, getDistrict } from '@/data/districts';
 import { SERVICES } from '@/data/services';
 import { TERMS, termToSlug, slugToTerm } from '@/data/dictionary';
-import { REAL_REFERENCES } from '@/data/realReferences';
+import { REAL_REFERENCES, SECTORS, SECTOR_LABELS_TR } from '@/data/realReferences';
 import { POSTS, CATEGORIES, type PostBlock } from '@/data/posts';
 import { FACTS, RESPONSE_TARGET_TEXT } from '@/lib/facts';
 import { KMK_AMENDMENT_2026 } from '@/lib/legal/kmkAmendment2026';
@@ -449,22 +449,26 @@ ${CONTACT}`);
 
   // 6. Kurumsal Referanslar (/referanslar)
   if (cleanPath === '/referanslar') {
-    const refLines = REAL_REFERENCES.map(
-      (r) => `- **${r.name}** (${r.sector}${r.district ? ` — ${r.district}` : ''})`,
-    ).join('\n');
+    const refGroups = SECTORS.map((sec) => {
+      const list = REAL_REFERENCES.filter((r) => r.sector === sec);
+      const lines = list
+        .map((r) => `- **${r.name}** (${SECTOR_LABELS_TR[r.sector]}${r.district ? ` — ${r.district}` : ' — İstanbul geneli'})`)
+        .join('\n');
+      return `### ${SECTOR_LABELS_TR[sec]} (${list.length})\n${lines}`;
+    }).join('\n\n');
     return withLocaleBanner(`# Alo Yönetim — Kurumsal Referanslar (${FACTS.referenceCount} Kurum ve Tesis)
 
 > **Kanonik URL**: ${BASE_URL}/referanslar
-> **Doğrulanmış Referans Sayısı**: ${FACTS.referenceCount}
+> **Doğrulanmış Referans Sayısı**: ${FACTS.referenceCount} (6 Kategori)
 
 ---
 
 ## Referans Listesi
-${refLines}
+${refGroups}
 
 ---
 
-${CONTACT}`);
+${CONTACT}`, lang);
   }
 
   // 7. Kalite Belgelerimiz (/kurumsal/kalite-belgelerimiz) ve Sertifika Detayları (/kurumsal/sertifikalar/[slug] veya /kurumsal/kalite-belgelerimiz/[slug])

@@ -21,6 +21,15 @@ export interface RealReference {
 
 export const SECTORS: readonly ReferenceSector[] = ['site', 'saglik', 'ticari', 'is_merkezi', 'kamu', 'turizm'];
 
+export const SECTOR_LABELS_TR: Readonly<Record<ReferenceSector, string>> = {
+  site: 'Site ve Konut',
+  saglik: 'Sağlık',
+  ticari: 'Kurumsal, Sanayi ve Medya',
+  is_merkezi: 'İş Merkezi ve Etkinlik',
+  kamu: 'Kamu ve Sosyal Hizmet',
+  turizm: 'Turizm ve Spor',
+};
+
 export const REAL_REFERENCES: readonly RealReference[] = [
   // 1. SİTE VE KONUT (24)
   { slug: 'feriha-ozyuva-sitesi', name: 'Feriha Özyuva Sitesi', district: 'Kartal', sector: 'site' },
@@ -95,6 +104,85 @@ export function countBySector(): Record<ReferenceSector, number> {
 
 export function featuredReferences(limit = 12): RealReference[] {
   return REAL_REFERENCES.filter((r) => r.featured).slice(0, limit);
+}
+
+/**
+ * Hizmet veya alt sektör sayfaları için öncelikli slug'lara ve/veya sektörlere göre referans seçer.
+ */
+export function selectReferences(options?: {
+  slugs?: readonly string[];
+  sectors?: readonly ReferenceSector[];
+  limit?: number;
+}): RealReference[] {
+  const limit = options?.limit ?? 8;
+  const picked: RealReference[] = [];
+  const seen = new Set<string>();
+  const bySlug = new Map(REAL_REFERENCES.map((r) => [r.slug, r]));
+
+  const push = (r: RealReference | undefined) => {
+    if (!r || seen.has(r.slug) || picked.length >= limit) return;
+    seen.add(r.slug);
+    picked.push(r);
+  };
+
+  if (options?.slugs?.length) {
+    for (const s of options.slugs) push(bySlug.get(s));
+  }
+
+  if (options?.sectors?.length && picked.length < limit) {
+    const sectorSet = new Set(options.sectors);
+    for (const r of REAL_REFERENCES) {
+      if (r.featured && sectorSet.has(r.sector)) push(r);
+    }
+    for (const r of REAL_REFERENCES) {
+      if (sectorSet.has(r.sector)) push(r);
+    }
+  }
+
+  if (picked.length < limit) {
+    for (const r of REAL_REFERENCES) {
+      if (r.featured) push(r);
+    }
+    for (const r of REAL_REFERENCES) push(r);
+  }
+
+  return picked;
+}
+
+/**
+ * 39 ilçe ve mahalle sayfaları için:
+ * - local: doğrudan o ilçedeki referanslar
+ * - regionalAndCityWide: aynı yakadaki komşu ilçeler + İstanbul geneli (ilçesi belirtilmeyen) referanslar
+ */
+export function getDistrictPortfolioReferences(
+  districtName: string,
+  sameSideDistrictNames: readonly string[] = [],
+  limit = 6,
+): { local: RealReference[]; regionalAndCityWide: RealReference[] } {
+  const local = REAL_REFERENCES.filter((r) => r.district === districtName);
+  const sideSet = new Set(sameSideDistrictNames);
+  const seen = new Set(local.map((r) => r.slug));
+  const regionalAndCityWide: RealReference[] = [];
+
+  const push = (r: RealReference) => {
+    if (seen.has(r.slug) || regionalAndCityWide.length >= limit) return;
+    seen.add(r.slug);
+    regionalAndCityWide.push(r);
+  };
+
+  // Önce İstanbul geneli / çok bölgeli kurumsal referanslar
+  for (const r of REAL_REFERENCES) {
+    if (!r.district) push(r);
+  }
+  // Ardından aynı yakadaki öne çıkan referanslar
+  for (const r of REAL_REFERENCES) {
+    if (r.district && sideSet.has(r.district) && r.featured) push(r);
+  }
+  for (const r of REAL_REFERENCES) {
+    if (r.district && sideSet.has(r.district)) push(r);
+  }
+
+  return { local, regionalAndCityWide };
 }
 
 /** İsimlerden baş harfler (logo yokken kullanılan monogram). */

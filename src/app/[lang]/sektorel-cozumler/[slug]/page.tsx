@@ -11,6 +11,7 @@ import { autoLinkHtml } from '@/lib/autoLinker';
 import { generateVerifiedAuthorityGraph } from '@/lib/seo/audits/eeatAuditor';
 import Breadcrumbs from '@/components/ui/primitives/Breadcrumbs';
 import SectorAiOverviewSnippetSeo from '@/components/seo/ai-overviews/SectorAiOverviewSnippetSeo';
+import ReferenceBand from '@/components/sections/references/ReferenceBand';
 import { ORG_CREDENTIALS } from '@/lib/schemas';
 
 import Icon from '@/components/ui/branding/Icon';
@@ -293,6 +294,9 @@ export default async function SectoralSolutionDetailPage({
 
         {/* AI Overviews & B2B Sektörel Mevzuat Otoritesi */}
         <SectorAiOverviewSnippetSeo sectorName={solution.title} sectorSlug={solution.slug} />
+
+        {/* Bu Sektördeki Kurumsal Referanslarımız */}
+        <ReferenceBand limit={8} />
 
         {/* İlgili Hizmetler ve Çapraz Silo Bağlantıları */}
         <div className="pt-8 border-t border-[var(--color-outline)]/40">

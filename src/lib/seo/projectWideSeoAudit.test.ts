@@ -567,6 +567,16 @@ describe('Project-Wide SEO & Google AI Overviews Architecture Guard (Faz 1-5)', 
       const districtServicePage = readRel('src/app/[lang]/bolgeler/[ilce]/[hizmet]/page.tsx');
       expect(districtServicePage).toContain('id="ilce-guvenlik-agi"');
       expect(districtServicePage).toContain('id="mahalle-asansor-agi"');
+      expect(districtServicePage).toContain('id="ilce-hizmet-referanslar"');
+
+      const mahallelerPage = readRel('src/app/[lang]/bolgeler/[ilce]/mahalleler/page.tsx');
+      expect(mahallelerPage).toContain('id="ilce-referanslar"');
+
+      const fullLlms = buildLlmsFullText();
+      expect(fullLlms).toContain('Kurumsal Referans Portföyü (52 Kurum ve Tesis — 6 Kategori)');
+      expect(fullLlms).toContain('Nef Çekmeköy Çamlıtepe Sitesi');
+      expect(fullLlms).toContain('Irak Konsolosluğu');
+      expect(fullLlms).toContain('Fuar ve Etkinlik Organizasyonları');
     });
   });
 });

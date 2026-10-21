@@ -4,6 +4,7 @@ import { getDictionary } from '@/lib/i18n';
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema, organizationSchema } from '@/lib/schemas';
 import CorporateEntityAiOverviewSeo from '@/components/seo/ai-overviews/CorporateEntityAiOverviewSeo';
+import ReferenceBand from '@/components/sections/references/ReferenceBand';
 import HakkimizdaClient from './HakkimizdaClient';
 
 export const revalidate = 86400; // 24 saat ISR
@@ -80,6 +81,9 @@ export default async function HakkimizdaPage({
     <>
       <JsonLd data={[pageLd, breadcrumbLd, orgLd]} />
       <HakkimizdaClient />
+      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-12">
+        <ReferenceBand limit={12} />
+      </div>
       {lang === 'tr' && (
         <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] pb-16">
           <CorporateEntityAiOverviewSeo />

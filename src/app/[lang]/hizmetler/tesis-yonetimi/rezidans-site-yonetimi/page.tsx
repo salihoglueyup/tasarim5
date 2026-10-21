@@ -5,6 +5,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
 import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
+import ReferenceBand from '@/components/sections/references/ReferenceBand';
 import RezidansYonetimiClient from './RezidansYonetimiClient';
 
 export const revalidate = 86400;
@@ -75,6 +76,22 @@ export default async function RezidansYonetimiPage({
         cssSelectors={['h1', '#residence-instant-answer-text']}
       />
       <RezidansYonetimiClient />
+      <div className="mx-auto max-w-[var(--spacing-container-max)] px-[var(--spacing-gutter)] pb-16">
+        <ReferenceBand
+          limit={8}
+          sectors={['site']}
+          slugs={[
+            'dome-residence',
+            'ciragan-residence',
+            'goztepe-soyak-residence',
+            'innovia-3',
+            'nef-cekmekoy-camlitepe-sitesi',
+            'mim-konaklari-sitesi',
+            'kosuyolu-konaklari',
+            'camlica-konaklari',
+          ]}
+        />
+      </div>
     </>
   );
 }

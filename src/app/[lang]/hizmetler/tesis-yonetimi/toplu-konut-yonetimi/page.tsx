@@ -5,6 +5,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
 import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
+import ReferenceBand from '@/components/sections/references/ReferenceBand';
 import TopluKonutYonetimiClient from './TopluKonutYonetimiClient';
 
 export const revalidate = 86400;
@@ -76,6 +77,22 @@ export default async function TopluKonutYonetimiPage({
         cssSelectors={['h1', '#toplukonut-instant-answer-text']}
       />
       <TopluKonutYonetimiClient />
+      <div className="mx-auto max-w-[var(--spacing-container-max)] px-[var(--spacing-gutter)] pb-16">
+        <ReferenceBand
+          limit={8}
+          sectors={['site']}
+          slugs={[
+            'kiptas-sahilpark-evleri',
+            'innovia-3',
+            'feriha-ozyuva-sitesi',
+            'meklim-mimoza-sitesi',
+            'meseli-gold-park-sitesi',
+            'palandoken-sitesi',
+            'hoby-life-sitesi',
+            'bagkur-sitesi',
+          ]}
+        />
+      </div>
     </>
   );
 }

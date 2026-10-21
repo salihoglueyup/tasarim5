@@ -6,6 +6,7 @@ import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import QuoteAiOverviewCardSeo from '@/components/seo/ai-overviews/QuoteAiOverviewCardSeo';
 import RfpTransitionAiGroundingSeo from '@/components/seo/ai-overviews/RfpTransitionAiGroundingSeo';
+import ReferenceBand from '@/components/sections/references/ReferenceBand';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 
 import { buildMetadata, LOCALES } from '@/lib/seo';
@@ -150,6 +151,9 @@ export default async function TeklifAl({
 
         {/* Gömülü Teklif & Keşif Formu ve Fiyatlandırma Rehberi */}
         <TeklifAlClient />
+
+        {/* 6 Kategori / 52 Kurumsal Referans Güven Şeridi */}
+        <ReferenceBand limit={8} />
 
         {/* İç linkler */}
         <div className="text-center flex flex-col gap-5">

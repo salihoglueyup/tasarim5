@@ -32,7 +32,8 @@ import {
 
 import { DISTRICTS, getDistrict } from '@/data/districts';
 import { SERVICES, getService, isServiceAlias } from '@/data/services';
-import { REAL_REFERENCES } from '@/data/realReferences';
+import { REAL_REFERENCES, getDistrictPortfolioReferences } from '@/data/realReferences';
+import ReferenceCard from '@/components/sections/references/ReferenceCard';
 import { ORG_CREDENTIALS } from '@/lib/schemas';
 import { FACTS } from '@/lib/facts';
 import DistrictAiOverviewSeo from '@/components/seo/ai-overviews/DistrictAiOverviewSeo';
@@ -803,6 +804,39 @@ export default async function ServiceDistrictPage({
             </div>
           ))}
         </div>
+
+        {/* İlçe ve İstanbul Geneli Kurumsal Referanslarımız */}
+        {(() => {
+          const { local, regionalAndCityWide } = getDistrictPortfolioReferences(
+            district.name,
+            sameSideDistricts.map((d) => d.name),
+            6,
+          );
+          const refs = local.length >= 6 ? local : [...local, ...regionalAndCityWide].slice(0, 6);
+          return (
+            <section
+              id="ilce-hizmet-referanslar"
+              aria-label={`${district.name} ve İstanbul geneli kurumsal referanslarımız`}
+              className="flex flex-col gap-5"
+            >
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h2 className="text-2xl font-extrabold text-[var(--color-primary)]">
+                  {local.length > 0
+                    ? `${district.name} ve ${district.side} Yakası Kurumsal Referanslarımız`
+                    : `${district.name} Bölgesi & İstanbul Geneli Kurumsal Referanslarımız`}
+                </h2>
+                <Link href="/referanslar" className="text-xs font-bold text-[var(--color-primary)] hover:underline">
+                  Tüm referansları gör ({FACTS.referenceCount} kurum ve site) →
+                </Link>
+              </div>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {refs.map((r) => (
+                  <ReferenceCard key={r.slug} reference={r} lang={lang} istanbulWideLabel="İstanbul geneli" />
+                ))}
+              </ul>
+            </section>
+          );
+        })()}
 
         {/* Yerel SSS */}
         <div className="flex flex-col gap-6">

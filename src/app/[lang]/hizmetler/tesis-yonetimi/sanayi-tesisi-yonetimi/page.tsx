@@ -5,6 +5,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import KeywordAnalysisSeo from '@/components/seo/district/KeywordAnalysisSeo';
 import { VoiceSearchSpeakableSeo } from '@/components/seo/schema/VoiceSearchSpeakableSeo';
 import { buildFacilitySubSectorGraphSchema } from '@/lib/seo/facility/facilityCompleteGraphBuilder';
+import ReferenceBand from '@/components/sections/references/ReferenceBand';
 import SanayiTesisiYonetimiClient from './SanayiTesisiYonetimiClient';
 
 export const revalidate = 86400;
@@ -75,6 +76,22 @@ export default async function SanayiTesisiYonetimiPage({
         cssSelectors={['h1', '#industrial-instant-answer-text']}
       />
       <SanayiTesisiYonetimiClient />
+      <div className="mx-auto max-w-[var(--spacing-container-max)] px-[var(--spacing-gutter)] pb-16">
+        <ReferenceBand
+          limit={8}
+          sectors={['ticari', 'is_merkezi']}
+          slugs={[
+            'iskent-sanayi-sitesi',
+            'hursan-geri-donusum',
+            'koza-gida',
+            'miles-makine',
+            'yavuz-metal',
+            'gecem-dinlence',
+            'sozcu-gazetesi',
+            'kriter-a',
+          ]}
+        />
+      </div>
     </>
   );
 }
