@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import JsonLd from '@/components/seo/schema/JsonLd';
 import { reviewsWithRating } from '@/lib/schemas';

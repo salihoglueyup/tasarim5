@@ -1,4 +1,4 @@
-﻿import JsonLd from '@/components/seo/schema/JsonLd';
+import JsonLd from '@/components/seo/schema/JsonLd';
 
 type ItemListElement = {
   name: string;
