@@ -4964,6 +4964,182 @@ export const POSTS: Post[] = [
       }
     ],
     "dateModified": "2026-02-24T20:00:00.000Z"
+  },
+  {
+    "slug": "apsiyondan-aidat-odeme-ve-borc-goruntuleme-sakin-rehberi",
+    "title": "Apsiyon'dan Aidatımı Nasıl Öderim, Borcumu Nasıl Görürüm? (Sakin Rehberi 2026)",
+    "description": "Alo Yönetim'in yönettiği sitelerde Apsiyon üzerinden aidat borcunu görme, kredi kartıyla online ödeme, bildirimler ve sık karşılaşılan sorunların çözümü: sakinler için adım adım rehber.",
+    "category": "yonetim",
+    "tags": [
+      "apsiyon",
+      "aidat ödeme",
+      "aidat borcu sorgulama",
+      "online aidat",
+      "site sakinleri"
+    ],
+    "author": "alo-yonetim",
+    "datePublished": "2026-10-21T09:00:00.000Z",
+    "dateModified": "2026-10-21T09:00:00.000Z",
+    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+    "pillar": "/hizmetler/aidat-takibi",
+    "tldr": "Alo Yönetim'in yönettiği sitelerde aidat süreci Apsiyon üzerinden yürür: sakinler uygulamada borçlarını ve geçmiş ödemelerini görür, aidatı kredi kartıyla online öder, duyuruları ve bildirimleri takip eder. Ekranlar Apsiyon'un sürümüne ve site ayarlarına göre değişebilir; takıldığınız yerde site yönetimine başvurun.",
+    "content": [
+      {
+        "type": "h2",
+        "text": "Bu rehber kimin için?"
+      },
+      {
+        "type": "p",
+        "text": "Bu rehber, Alo Yönetim tarafından yönetilen bir sitede veya apartmanda oturan kat malikleri ve kiracılar içindir. Alo Yönetim, Apsiyon ile anlaşmalı çalışır; yönetimini devraldığımız site veya tesisin uygulamasını doğrudan Apsiyon'a bağlarız. Aşağıdaki özellikler Apsiyon'un sunduğu özelliklerdir. Menü adları ve ekranlar Apsiyon'un güncel sürümüne ve sitenizin ayarlarına göre farklı görünebilir."
+      },
+      {
+        "type": "h2",
+        "text": "1. Apsiyon'a erişim: nereden giriş yapılır?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Giriş bilgileriniz site yönetimi tarafından sizin için tanımlanır ve size iletilir. Bilgi almadıysanız önce site yönetimine başvurun.",
+          "Uygulamayı mobil mağazalardan (iOS, Android, Huawei AppGallery) indirebilir veya web sakin portalını kullanabilirsiniz; güncel bağlantılar Mobil Uygulama sayfamızdadır.",
+          "Telefon numaranızın ve e-posta adresinizin yönetimdeki kayıtta güncel olması, bildirimleri alabilmeniz için önemlidir."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "2. Borcumu nasıl görürüm?"
+      },
+      {
+        "type": "p",
+        "text": "Uygulamada kendi bağımsız bölümünüze ait borç durumunuzu ve geçmiş ödemelerinizi görüntüleyebilirsiniz. Borcun hangi dönemlerden oluştuğuna dikkat edin; tutarı anlamadığınızda yönetimden dönem dökümünü ve ilgili işletme projesini isteyebilirsiniz."
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Uygulamaya giriş yapın ve bağımsız bölümünüzü seçin.",
+          "Borç ve ödeme bölümünden güncel bakiyenizi ve geçmiş ödemelerinizi kontrol edin.",
+          "Tutar veya dönem konusunda şüpheniz varsa ekran görüntüsünü alın ve yönetime yazılı olarak iletin."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "3. Aidatı kredi kartıyla online nasıl öderim?"
+      },
+      {
+        "type": "p",
+        "text": "Aidat ödemesi Apsiyon üzerinden kredi kartıyla online yapılır; ödeme işlemi Apsiyon altyapısında gerçekleşir. Ödemeden sonra işlemin ödeme geçmişinizde göründüğünü kontrol edin ve ödeme onayını saklayın."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ödeme yapmadan önce ödenecek tutarın borç ekranındaki tutarla aynı olduğundan emin olun.",
+          "Ödeme sonrası onay ekranını veya bildirimini saklayın.",
+          "Ödediğiniz hâlde borç görünmeye devam ediyorsa hemen yönetime bildirin ve ödeme onayınızı ekleyin."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "4. Duyurular, bildirimler ve talepler"
+      },
+      {
+        "type": "p",
+        "text": "Apsiyon üzerinden site duyurularını takip edebilir, talep ve arıza bildirimi iletebilirsiniz. Hatırlatma bildirimleri de Apsiyon üzerinden gönderilir; bildirimleri kaçırmamak için telefonunuzdaki uygulama bildirim izinlerini açık tutun."
+      },
+      {
+        "type": "h2",
+        "text": "5. Sitenin gelir ve giderlerini görebilir miyim?"
+      },
+      {
+        "type": "p",
+        "text": "Sitenin gelir-gider bilgilerinin büyük bölümü sakinlere gösterilir; hangi bilgilerin görüneceği sitenin ayarlarına göre değişir. Görmediğiniz bir bilgiyi merak ediyorsanız yönetime veya denetçiye yazılı olarak sorabilir, genel kurulda da hesap verilmesini isteyebilirsiniz."
+      },
+      {
+        "type": "h2",
+        "text": "Kiracıysanız: aidattan kim sorumlu?"
+      },
+      {
+        "type": "p",
+        "text": "Kat Mülkiyeti Kanunu'nda ortak gider yükümlülüğü kat malikine yöneliktir; kiracının aidatı ödemesi ise çoğunlukla kira sözleşmesine bağlıdır. Sözleşmenizde aidat sorumluluğunun kime ait olduğunu kontrol edin ve ödemeyi kendi adınıza mı yoksa malik adına mı yaptığınızı yönetime bildirin."
+      },
+      {
+        "type": "h2",
+        "text": "Ödeme gecikirse ne olur?"
+      },
+      {
+        "type": "p",
+        "text": "KMK m.20 uyarınca ortak gider ve avans payını zamanında ödemeyen kat malikine aylık yüzde beş gecikme tazminatı işler. Uygulamada önce yazılı hatırlatma ve ihtar yapılır; ödeme yapılmazsa icra takibi veya dava yoluna gidilebilir. Ödeme güçlüğü yaşıyorsanız gecikmeden yönetimle yazılı olarak görüşmek çoğu zaman en iyi yoldur."
+      },
+      {
+        "type": "h2",
+        "text": "Sık karşılaşılan sorunlar ve çözümleri"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Sorun",
+          "Ne yapmalı?"
+        ],
+        "rows": [
+          [
+            "Giriş bilgilerim yok veya çalışmıyor",
+            "Site yönetiminden bilgilerinizin yeniden iletilmesini isteyin; telefon ve e-posta kaydınızı güncelleyin."
+          ],
+          [
+            "Ödedim ama borç görünüyor",
+            "Ödeme geçmişinizi kontrol edin; sorun sürerse ödeme onayınızla birlikte yönetime yazılı bildirin."
+          ],
+          [
+            "Bildirim gelmiyor",
+            "Telefonunuzda uygulama bildirim izinlerini açın ve kayıtlı iletişim bilgilerinizi kontrol edin."
+          ],
+          [
+            "Borç tutarını anlamıyorum",
+            "Dönem dökümünü ve işletme projesini yönetimden yazılı olarak isteyin."
+          ],
+          [
+            "Gelir-gider bilgisini göremiyorum",
+            "Bu bilgilerin görünürlüğü site ayarlarına bağlıdır; yönetime veya denetçiye yazılı olarak sorun."
+          ]
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Aidat takibi ve Apsiyon ile çalışma biçimimiz hakkında daha fazla bilgi alabilirsiniz.",
+        "href": "/hizmetler/aidat-takibi",
+        "label": "Aidat takibi hizmeti"
+      },
+      {
+        "type": "h2",
+        "text": "Sık sorulan sorular"
+      },
+      {
+        "type": "h3",
+        "text": "Apsiyon'da hangi bilgileri görebilirim?"
+      },
+      {
+        "type": "p",
+        "text": "Borç durumunuzu, geçmiş ödemelerinizi, duyuruları ve sitenin gelir-gider bilgilerinin büyük bölümünü görebilirsiniz. Görünen bilgiler sitenin ayarlarına göre değişir."
+      },
+      {
+        "type": "h3",
+        "text": "Aidatı sadece kredi kartıyla mı ödeyebilirim?"
+      },
+      {
+        "type": "p",
+        "text": "Apsiyon üzerinden kredi kartıyla online ödeme yapılabilir. Diğer ödeme yöntemleri sitenin yönetim kararına ve banka düzenine göre değişebileceğinden bu konuda site yönetimine danışın."
+      },
+      {
+        "type": "h3",
+        "text": "Ödemem hesaba geç yansırsa gecikme tazminatı işler mi?"
+      },
+      {
+        "type": "p",
+        "text": "Ödemeyi zamanında yaptığınızı gösteren onayınız varsa yönetime yazılı olarak iletin ve kaydın düzeltilmesini isteyin. Tazminat konusundaki somut durumunuz için yönetim planınıza ve gerekirse hukuk danışmanına başvurun."
+      },
+      {
+        "type": "quote",
+        "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+      }
+    ]
   }
 ];
 

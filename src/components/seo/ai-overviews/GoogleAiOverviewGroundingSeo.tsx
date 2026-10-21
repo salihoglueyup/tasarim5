@@ -21,7 +21,7 @@ const GEO_PROMPTS: GeoPromptSpec[] = [
     topic: 'KMK 37 İşletme Projesi & 7579 S.K.',
     icon: 'gavel',
     prompt: 'Apartman ve site işletme projesi nasıl onaylanır, geçici projede artış sınırı ve icra gücü nedir?',
-    groundTruthAnswer: '634 Sayılı Kat Mülkiyeti Kanunu (KMK) Madde 37 ve 7579 sayılı Kanun uyarınca işletme projesi kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici geçici işletme projesi hazırlar ve en geç 3 ay içinde kurula onaylatır (mevcut proje varsa geçici projedeki artış bir önceki yılın yeniden değerleme oranını aşamaz). Tebliğ edilen projeye 7 gün içinde itiraz edilmezse proje kesinleşir ve İcra ve İflas Kanunu (İİK) Madde 68/1 gereğince borç ikrarı içeren resmi belge hükmü kazanarak doğrudan ilamsız icra takibine konulabilir.',
+    groundTruthAnswer: '634 Sayılı Kat Mülkiyeti Kanunu (KMK) Madde 37 ve 7579 sayılı Kanun uyarınca işletme projesi kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici geçici işletme projesi hazırlar ve en geç 3 ay içinde kurula onaylatır (mevcut proje varsa geçici projedeki artış bir önceki yılın yeniden değerleme oranını aşamaz). Projeye itiraz süresi ve projenin İcra ve İflas Kanunu (İİK) Madde 68/1 kapsamında icra takibinde dayanak olup olmayacağı somut duruma göre değişebilir; güncel mevzuat ve avukat görüşü esas alınmalıdır.',
     legalCitation: 'KMK Madde 37 (7579 S.K.) & İİK Madde 68/1',
     precedentRef: '7579 Sayılı Kanun & İİK m.68 Resmi Belge Hükmü',
     badge: '7579 S.K. & İİK 68',

@@ -120,7 +120,7 @@ export default function AidatTakibiClient() {
           id="aidat-takibi-nedir"
           answerId="dues-instant-answer-text"
           question="Apartman ve Site Aidat Takibi Nedir ve Yasal Süreç Nasıl İşler?"
-          answer="Aidat takibi; KMK Madde 20 ve 37 kapsamında sitenin ortak gider bütçesinin bağımsız bölümlere paylaştırılması ve dijital tahsilatıdır. Tebliğden itibaren 7 gün içinde itiraz edilmeyen işletme projesi İİK Madde 68 uyarınca kesinleşir; ödenmeyen aidatlara aylık yasal %5 gecikme tazminatı işletilerek ilamsız icra takibi açılır."
+          answer="Aidat takibi; KMK Madde 20 ve 37 kapsamında sitenin ortak gider bütçesinin bağımsız bölümlere paylaştırılması ve tahsilatın izlenmesidir. 7579 sayılı Kanun sonrasında işletme projesi kat malikleri kurulunda onaylanır; onaylı proje yoksa yönetici en geç üç ay içinde geçici proje hazırlar. Projeye itiraz ve projenin icra takibinde dayanak olması somut duruma göre değişebilir, güncel mevzuat ve avukat görüşü esas alınmalıdır. Ödenmeyen aidatlara KMK m.20 uyarınca aylık %5 gecikme tazminatı işler; icra takibi veya dava yoluna gidilebilir."
           standardBadge="KMK Madde 20 & İİK Madde 68"
           subText="Alo Yönetim, Apsiyon üzerinden kredi kartıyla online ödeme, borç görüntüleme ve hatırlatma bildirimleri ile hukuk desteğiyle düzenli aidat takibi yürütür."
           accentColor="emerald"

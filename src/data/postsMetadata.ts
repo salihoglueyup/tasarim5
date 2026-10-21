@@ -787,6 +787,25 @@ export const POSTS_META: PostMeta[] = [
     "pillar": "/hizmetler/tesis-yonetimi",
     "tldr": "Tesis yönetim şirketi seçerken sermaye yeterliliği, ERP yazılım şeffaflığı, 5188 güvenlik lisansı (3G Güvenlik), kadrolu teknik mühendislik ve denetlenebilir banka entegrasyonu aranmalıdır.",
     "dateModified": "2026-02-24T20:00:00.000Z"
+  },
+  {
+    "slug": "apsiyondan-aidat-odeme-ve-borc-goruntuleme-sakin-rehberi",
+    "title": "Apsiyon'dan Aidatımı Nasıl Öderim, Borcumu Nasıl Görürüm? (Sakin Rehberi 2026)",
+    "description": "Alo Yönetim'in yönettiği sitelerde Apsiyon üzerinden aidat borcunu görme, kredi kartıyla online ödeme, bildirimler ve sık karşılaşılan sorunların çözümü: sakinler için adım adım rehber.",
+    "category": "yonetim",
+    "tags": [
+      "apsiyon",
+      "aidat ödeme",
+      "aidat borcu sorgulama",
+      "online aidat",
+      "site sakinleri"
+    ],
+    "author": "alo-yonetim",
+    "datePublished": "2026-10-21T09:00:00.000Z",
+    "dateModified": "2026-10-21T09:00:00.000Z",
+    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+    "pillar": "/hizmetler/aidat-takibi",
+    "tldr": "Alo Yönetim'in yönettiği sitelerde aidat süreci Apsiyon üzerinden yürür: sakinler uygulamada borçlarını ve geçmiş ödemelerini görür, aidatı kredi kartıyla online öder, duyuruları ve bildirimleri takip eder. Ekranlar Apsiyon'un sürümüne ve site ayarlarına göre değişebilir; takıldığınız yerde site yönetimine başvurun."
   }
 ];
 
