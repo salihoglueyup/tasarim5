@@ -48,15 +48,23 @@ export async function generateMetadata({
   }
 
   let title = `${neighborhood.name}, ${district.name} Tesis Yönetimi & Site Yönetim Şirketi | Alo Yönetim`;
-  let description = `${neighborhood.name} (${district.name}) genelinde 634 sayılı KMK uyumlu profesyonel tesis yönetimi, 5188 lisanslı güvenlik, aidat takibi ve periyodik teknik bakım. Ücretsiz keşif!`;
+  let description = `${neighborhood.name} (${district.name}) genelinde 634 sayılı KMK uyumlu profesyonel tesis yönetimi, site ve apartman yönetimi, asansör bakım, 5188 lisanslı güvenlik ve aidat takibi. Ücretsiz keşif!`;
   let targetKeyword = `${neighborhood.name} tesis yönetimi`;
   let keywords = [
     `${neighborhood.name} tesis yönetimi`,
     `${neighborhood.name} site yönetimi`,
+    `${neighborhood.name} site yönetimleri`,
+    `${neighborhood.name} site yönetim şirketleri`,
     `${neighborhood.name} apartman yönetimi`,
+    `${neighborhood.name} apartman yönetim şirketi`,
+    `${neighborhood.name} bina yönetim şirketi`,
+    `${neighborhood.name} asansör bakım`,
+    `${neighborhood.name} asansör arıza`,
+    `${neighborhood.name} asansör firması`,
     `${neighborhood.name} güvenlik şirketi`,
     `${neighborhood.name} aidat takibi`,
     `${district.name} tesis yönetimi`,
+    `${district.name} mahalleleri`,
   ];
 
   if (lang === 'en') {
@@ -131,6 +139,14 @@ export default async function NeighborhoodPage({
     {
       question: `${neighborhood.name} mahallesi için tesis yönetimi fiyatı nedir?`,
       answer: `${neighborhood.name}'deki sitenizin aidat fiyatı; daire sayısı, ortak alan büyüklüğü ve talep edilen hizmet kapsamına göre belirlenir. Ücretsiz keşif sonrası şeffaf fiyat teklifi alabilirsiniz.`,
+    },
+    {
+      question: `${neighborhood.name} (${district.name}) bölgesinde asansör bakım, arıza ve yeşil etiket servisiniz var mı?`,
+      answer: `Evet. ${neighborhood.name} mahallesindeki apartman, site ve iş merkezlerinde aylık periyodik asansör bakımı, arıza müdahalesi, yıllık A tipi muayene kuruluşu yeşil etiket hazırlığı ile hidrofor, jeneratör ve kompanzasyon panosu takibini yazılı SLA hedeflerimiz doğrultusunda yürütüyoruz.`,
+    },
+    {
+      question: `${neighborhood.name} apartman, bina ve site yönetim şirketleri arasında seçim yaparken nelere dikkat edilmeli?`,
+      answer: `${neighborhood.name} bölgesinde yönetim şirketi seçerken 634 sayılı KMK m.34 (%50+1 çift çoğunluk), 7579 sayılı Kanun (2026) m.37 işletme projesi onayı, 5188 sayılı Kanun özel güvenlik faaliyet izni ve BELCERT/ILAS akrediteli ISO yönetim belgeleri kontrol edilmelidir.`,
     },
   ];
 

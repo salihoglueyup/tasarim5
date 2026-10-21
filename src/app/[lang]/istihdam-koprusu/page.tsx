@@ -26,7 +26,14 @@ export async function generateMetadata({
     path: '/istihdam-koprusu',
     lang,
     ogImageType: 'default',
-    keywords: t.ist_meta_keywords.split('|'),
+    keywords: [
+      ...t.ist_meta_keywords.split('|'),
+      'alo ik',
+      'alo insan kaynakları',
+      'özel güvenlik iş ilanları',
+      'site yönetimi iş başvurusu',
+      'tesis yönetimi kariyer',
+    ],
   });
 }
 

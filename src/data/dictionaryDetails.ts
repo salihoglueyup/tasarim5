@@ -36,8 +36,9 @@ const BASE_DETAILS: Record<string, TermDetail> = {
       'Kanun maddelerinin güncel metni için Resmî Gazete veya mevzuat.gov.tr esas alınmalıdır.',
     ],
     faq: [
+      ['KMK açılımı nedir, KMK ne demek?', 'KMK açılımı 634 sayılı Kat Mülkiyeti Kanunu\'dur. Apartman, site, rezidans ve ticari plazalarda maliklerin haklarını, aidat paylaşımını ve yönetim kurallarını belirler.'],
       ['KMK hangi yapılara uygulanır?', 'Kat irtifakı veya kat mülkiyeti kurulmuş, birden fazla bağımsız bölümü olan yapılara ve toplu yapılara uygulanır.'],
-      ['7579 sayılı Kanun neyi değiştirdi?', 'KMK m.35, 37 ve 70 değişti: işletme projesinin onay usulü, geçici proje ve toplu yapılarda yönetim planı çoğunluğu düzenlendi.'],
+      ['7579 sayılı Kanun (2026) neyi değiştirdi?', 'KMK m.35, 37 ve 70 değişti: işletme projesinin kat malikleri kurulunda onay usulü, en çok 3 aylık geçici proje ile yeniden değerleme oranı sınırı ve toplu yapılarda yönetim planı değişikliği için 2/3 çoğunluk düzenlendi.'],
     ],
   },
   'kmk-madde-20-genel-giderlere-katilma-aidat-borcu': {
@@ -50,8 +51,9 @@ const BASE_DETAILS: Record<string, TermDetail> = {
       'Takip öncesi işletme projesi, karar defteri ve borç dökümü hazır olmalıdır.',
     ],
     faq: [
+      ['Aidat hangi oranda paylaşılır (KMK m.20)?', 'Yönetim planında aksi yazmıyorsa kapıcı, kaloriferci, bahçıvan ve bekçi giderlerinde eşit; sigorta, bakım-onarım ve yönetici aylığı gibi diğer ortak giderlerde arsa payı oranında paylaşılır.'],
+      ['Gecikme tazminatına ayrıca faiz işler mi?', 'KMK m.20/2 kapsamındaki aylık %5 gecikme tazminatı niteliği itibarıyla kanuni gecikme yaptırımıdır; faize faiz (bileşik faiz) yürütülmemesi esastır, icra takibindeki alacak kalemleri için hukuk danışmanından görüş alınmalıdır.'],
       ['Gecikme tazminatı genel kurul kararıyla kaldırılabilir mi?', 'Gecikme tazminatı kanunda düzenlenmiştir; vazgeçme veya indirim kararlarının sonuçları için hukuk danışmanından görüş alınması önerilir.'],
-      ['Aidat hangi oranda paylaşılır?', 'Yönetim planında aksi yazmıyorsa hizmetli giderlerinde eşit, diğer ortak giderlerde arsa payı oranında.'],
     ],
   },
   'gecici-isletme-projesi-kmk-m37': {
@@ -197,7 +199,8 @@ const BASE_DETAILS: Record<string, TermDetail> = {
       'Pano bakımını yetkili elektrik mühendisliği ile yaptırın.',
     ],
     faq: [
-      ['Reaktif ceza her sitede olur mu?', 'Hayır; abonelik türüne ve tüketim profiline bağlıdır. Fatura ve sayaç verilerinizi inceleyin.'],
+      ['Reaktif enerji ve kompanzasyon cezası nedir?', 'Şebekeden çekilen reaktif enerjinin mevzuatta belirlenen endüktif veya kapasitif oran sınırlarını aşması durumunda elektrik faturasına yansıtılan bedeldir; kompanzasyon panosunun düzenli bakımıyla önlenir.'],
+      ['Reaktif ceza her sitede olur mu?', 'Hayır; abonelik türüne, kurulu güce ve tüketim profiline bağlıdır. Fatura ve sayaç verilerinizi inceleyin.'],
     ],
   },
   denetci: {
@@ -223,6 +226,7 @@ const BASE_DETAILS: Record<string, TermDetail> = {
       'Personel sayısı ve vardiya değişikliklerinde izin kapsamını güncelleyin.',
     ],
     faq: [
+      ['ÖGİ ne demek, özel güvenlik izni nereden alınır?', 'ÖGİ, Özel Güvenlik İzni ifadesinin kısaltmasıdır. 5188 sayılı Kanun uyarınca site veya tesiste güvenlik personeli çalıştırabilmek ya da güvenlik şirketiyle hizmet alabilmek için İl Valiliği Özel Güvenlik Komisyonu\'ndan alınır.'],
       ['İzin başvurusunu kim yapar?', 'Genellikle yönetici veya görevli yönetim şirketi; karar kat malikleri kuruluna aittir.'],
     ],
   },
@@ -314,7 +318,9 @@ const BASE_DETAILS: Record<string, TermDetail> = {
       'Hem kişi sayısı hem arsa payı oranını ayrı sütunlarda gösterin.',
     ],
     faq: [
-      ['Hazirun cetveli neden önemlidir?', 'Toplantının geçerli olup olmadığını ve kararların hangi çoğunlukla alındığını gösteren delildir.'],
+      ['Hazirun cetveli ne demek ve nasıl hazırlanır?', 'Genel kurul toplantısına katılan maliklerin ve vekillerin adını, bağımsız bölüm numarasını, arsa payını ve ıslak imzasını içeren resmi katılım listesidir; toplantı öncesinde tapu/malik listesine göre hazırlanır.'],
+      ['Hazirun cetveli neden önemlidir?', 'Toplantının geçerli olup olmadığını (KMK m.30 toplantı yeter sayısı) ve kararların hangi çoğunlukla alındığını gösteren temel yasal delildir.'],
+      ['Bir kişi hazirun cetvelinde kaç maliki vekâleten temsil edebilir?', 'KMK m.31 uyarınca kırktan fazla bağımsız bölümü olan taşınmazlarda bir kişi toplam oy sayısının yüzde beşinden (%5) fazlasını kullanmak üzere vekil tayin edilemez.'],
     ],
   },
   'ilamsiz-icra-takibi-aidat-borcu': {

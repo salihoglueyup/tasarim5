@@ -31,7 +31,7 @@ export async function generateMetadata({
     : t.serv_fac_meta_title || serpMeta.title;
 
   const description = lang === 'tr'
-    ? "İstanbul genelinde rezidans, plaza ve siteler için entegre tesis yönetimi, 5188 güvenlik ve teknik bakım. Profesyonel tesis yönetim firmaları arasında lider çözüm."
+    ? "İstanbul genelinde rezidans, plaza ve siteler için entegre tesis yönetimi, dijital tesis yönetimi, bina tesis yönetimi, TOKİ site yönetimi, 5188 güvenlik ve teknik bakım. Profesyonel tesis yönetim firmaları arasında lider çözüm."
     : t.serv_fac_meta_desc || serpMeta.description;
 
   return buildMetadata({
@@ -44,13 +44,21 @@ export async function generateMetadata({
     keywords: [
       'tesis yönetimi',
       'tesis yönetim şirketleri',
+      'tesis yönetimi firmaları',
+      'tesis yönetim hizmetleri',
       'entegre tesis yönetimi',
+      'entegre tesis',
+      'entegre tesis ne demek',
+      'dijital tesis yönetimi',
+      'bina tesis yönetimi',
+      'endüstriyel tesis nedir',
+      'toki site yönetimi',
+      'tesis yönetim yazılımı',
       'istanbul tesis yönetimi',
       'tesis işletmeciliği',
       'plaza tesis yönetimi',
       'rezidans tesis yönetimi',
       'bina ve tesis yönetimi',
-      'tesis yönetim firmaları',
       ...serpMeta.keywords,
     ],
   });
@@ -85,7 +93,12 @@ export default async function TesisYonetimiPage({
         targetKeyword="tesis yönetimi"
         keywords={[
           'tesis yönetimi',
+          'tesis yönetimi firmaları',
+          'tesis yönetim hizmetleri',
           'entegre tesis yönetimi',
+          'dijital tesis yönetimi',
+          'bina tesis yönetimi',
+          'toki site yönetimi',
           'istanbul tesis yönetimi',
           'bina yönetimi',
           'site yönetimi',

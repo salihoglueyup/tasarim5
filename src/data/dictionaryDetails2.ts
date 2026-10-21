@@ -4,11 +4,15 @@ import type { TermDetail } from './dictionaryDetails';
 export const TERM_DETAILS_2: Record<string, TermDetail> = {
   'ozel-guvenlik-kimlik-karti': {
     explain: [
-      "Özel güvenlik görevlisi kimlik kartı, 5188 sayılı Kanun kapsamında görev yapacak personelin eğitimini tamamladığını ve görevlendirilebileceğini gösteren belgedir. Güvenlik görevlisi görev sırasında kimlik kartını yanında bulundurmak zorundadır.",
-      "Kartların geçerlilik süresi ve yenileme koşulları mevzuatla belirlenir. Site yönetimi, güvenlik şirketinden personelin kimlik kartlarının güncel olduğuna dair bilgi isteyebilir ve sözleşmeye bu yükümlülüğü yazabilir.",
+      "Özel güvenlik görevlisi kimlik kartı (ÖGG kartı / özel kimlik kartı), 5188 sayılı Kanun kapsamında görev yapacak personelin temel güvenlik eğitimini, sınavını ve güvenlik soruşturmasını tamamladığını gösteren resmi çalışma belgesidir. Güvenlik görevlisi nöbet ve görev sırasında kimlik kartını yakasında görünür biçimde bulundurmak zorundadır.",
+      "Kartların geçerlilik süresi 5 yıldır ve süre sonunda yenileme eğitimi ile güncellenir. Site yönetimi, güvenlik şirketinden personelin kimlik kartlarının güncel olduğuna dair resmi doğrulama isteyebilir.",
     ],
     tips: ['Personel değişikliklerinde yeni görevlinin kartını kontrol edin.', 'Kart bilgilerini kişisel verilerin korunması ilkelerine uygun saklayın.'],
-    faq: [['Kartı olmayan kişi güvenlik görevlisi olarak çalışabilir mi?', 'Hayır. Özel güvenlik hizmeti kimlik kartı olan personelle yürütülmelidir; aksi hâl idari yaptırıma yol açabilir.']],
+    faq: [
+      ['Özel kimlik kartı (ÖGG kartı) nedir ve nasıl alınır?', '5188 sayılı Kanun kapsamında yetkili eğitim kurumlarından temel eğitimi tamamlayıp Emniyet Genel Müdürlüğü sınavında başarılı olan ve Valilik güvenlik soruşturmasından geçen kişilere verilen resmi özel güvenlik çalışma kimliğidir.'],
+      ['ÖGG geçici kimlik kartı kimlere verilir?', 'Özel güvenlik sınavını kazanıp kimlik başvurusu ve harç işlemlerini tamamlayan adaylara, asıl kartları basılana kadar görev yapabilmeleri için mevzuattaki şartlar dahilinde Valilik/EGM sistemi üzerinden düzenlenen geçici belgedir.'],
+      ['Kartı olmayan kişi güvenlik görevlisi olarak çalışabilir mi?', 'Hayır. Özel güvenlik hizmeti 5188 sayılı Kanun uyarınca yalnızca geçerli kimlik kartı olan personelle yürütülebilir; aksi hâl idari ve adli yaptırıma yol açar.'],
+    ],
   },
   'plaka-tanima-sistemi-pts': {
     explain: [
@@ -268,11 +272,29 @@ export const TERM_DETAILS_2: Record<string, TermDetail> = {
   },
   'ogg-karti-ozel-guvenlik-gorevlisi-kimlik-karti': {
     explain: [
-      "ÖGG kartı, 5188 sayılı Kanun kapsamında özel güvenlik görevlisi olarak çalışacak kişiye verilen kimlik kartıdır. Kart, kişinin gerekli eğitimi ve şartları tamamladığını gösterir ve görev sırasında yanında bulundurulması gerekir.",
-      "Kartın verilmesi, geçerlilik süresi ve yenileme koşulları mevzuatla belirlenir; güncel şartlar için ilgili idarenin duyurularına bakılmalıdır. Site yönetimi, güvenlik şirketinden personelin kartlarının geçerli olduğuna dair bilgi isteyebilir.",
+      "ÖGG kartı (Özel Güvenlik Görevlisi Kimlik Kartı / Özel Kimlik), 5188 sayılı Kanun kapsamında özel güvenlik görevlisi olarak çalışacak kişiye Valilik tarafından verilen resmi kimlik kartıdır. Silahsız (18 yaş, en az ortaokul) ve silahlı (21 yaş, en az lise) olmak üzere iki türü vardır.",
+      "Kartın geçerlilik süresi 5 yıldır; süre bitiminde yenileme eğitimi alınarak yenilenir. Site, rezidans ve ticari tesis yönetimleri, güvenlik personelinin ÖGG kimlik kartı geçerliliğini göreve başlamadan önce kontrol etmelidir.",
     ],
     tips: ['Yeni görevlinin kartını göreve başlamadan önce kontrol edin.', 'Kart bilgilerini kişisel verilerin korunması ilkelerine uygun saklayın.'],
-    faq: [['Kartı olmayan kişi güvenlik görevlisi olarak çalışabilir mi?', 'Hayır. Özel güvenlik hizmeti kimlik kartı olan personelle yürütülmelidir.']],
+    faq: [
+      ['ÖGG kartı (özel kimlik kartı) nasıl alınır?', 'Yetkili özel güvenlik eğitim kurumunda temel eğitimi tamamlayıp EGM özel güvenlik sınavında başarılı olduktan sonra sağlık raporu ve güvenlik soruşturması ile Valiliğe başvurularak alınır.'],
+      ['ÖGG geçici kimlik kartı kimlere verilir?', 'Sınavı kazanıp Valilik başvuru ve güvenlik soruşturması süreçleri olumlu sonuçlanan adaylara, fiziki kimlik kartı teslim edilene kadar geçici süreyle çalışma imkânı tanıyan resmi belgedir.'],
+      ['Kartı olmayan kişi güvenlik görevlisi olarak çalışabilir mi?', 'Hayır. Özel güvenlik hizmeti kimlik kartı olan personelle yürütülmelidir.'],
+    ],
+  },
+  'kmk-45-onemli-isler-oybirligi-kararlari': {
+    explain: [
+      "634 sayılı Kat Mülkiyeti Kanunu Madde 45; ana taşınmazın bir hakla kayıtlanması, arsanın bölünmesi ve bölünen kısmın mülkiyetinin başkasına devrolunması gibi önemli işler veya ortak yerlerin (çatı, dış cephe, bahçe, kapıcı dairesi) kiraya verilmesi gibi tasarruflar için bütün kat maliklerinin oybirliğini şart koşar.",
+      "Oybirliği sağlanmadan ortak alanların üçüncü kişilere (baz istasyonu, reklam panosu, ticari işletme vb.) kiralanması hukuken geçersiz sayılabilir ve her kat maliki Sulh Hukuk Mahkemesi'nde müdahalenin önlenmesi veya iptal davası açabilir.",
+    ],
+    tips: [
+      'Ortak alan kiralama sözleşmelerinden önce tüm maliklerin yazılı oybirliğini karar defterine işleyin.',
+      'Dış cephe reklamı veya çatı baz istasyonu kararlarında KMK m.45 oybirliği kuralını dikkate alın.',
+    ],
+    faq: [
+      ['KMK Madde 45 hangi kararlarda oybirliği arar?', 'Ana taşınmazın bir hakla kayıtlanması, arsanın bölünmesi ve ortak yerlerin (dış cephe, çatı, kapıcı dairesi vb.) üçüncü kişilere kiraya verilmesi gibi önemli işlerde tüm kat maliklerinin oybirliği şarttır.'],
+      ['Oybirliği olmadan ortak alan kiraya verilirse ne olur?', 'Rızası olmayan herhangi bir kat maliki Sulh Hukuk Mahkemesi\'ne başvurarak kararın iptalini ve ortak alana el atmanın önlenmesini talep edebilir.'],
+    ],
   },
   'kmk-37-isletme-projesi-butce-itiraz-suresi': {
     explain: [

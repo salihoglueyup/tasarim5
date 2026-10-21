@@ -8,6 +8,7 @@ import PageHeader from '@/components/layout/page/PageHeader';
 import DistrictAiOverviewSeo from '@/components/seo/ai-overviews/DistrictAiOverviewSeo';
 import { generateBreadcrumbs, webPageSchema, type JsonLdObject } from '@/lib/schemas';
 import { DISTRICTS, getDistrict } from '@/data/districts';
+import { getNeighborDistrictsWithSemts } from '@/lib/seo/facility/districtCrossLinker';
 import { FACTS } from '@/lib/facts';
 import trDict from '@/i18n/locales/tr/common.json';
 import enDict from '@/i18n/locales/en/common.json';
@@ -45,11 +46,23 @@ export async function generateMetadata({
   }
   return buildMetadata({
     title: `${district.name} Site Yönetimi — Hizmet Verilen Tüm Mahalleler | Alo Yönetim`,
-    description: `${district.name} genelinde ve tüm mahallelerinde 634 sayılı KMK uyumlu profesyonel site yönetimi, aidat takibi ve 5188 lisanslı güvenlik hizmetleri. ${district.intro.split('.')[0]}.`,
+    description: `${district.name} genelinde ve tüm mahallelerinde 634 sayılı KMK uyumlu profesyonel site yönetimi, aidat takibi ve 5188 lisanslı güvenlik hizmetleri. ${district.neighborhoods.slice(0, 4).join(', ')} başta olmak üzere entegre tesis yönetimi ve asansör bakım.`,
     path: `/bolgeler/${ilce}/mahalleler`,
     lang,
     targetKeyword: `${district.name} site yönetimi`,
-    keywords: [`${district.name} site yönetimi`, `${district.name} site yönetim şirketleri`, `${district.name} apartman yönetimi`, `${district.name} tesis yönetimi`],
+    keywords: [
+      `${district.name} site yönetimi`,
+      `${district.name} site yönetim şirketleri`,
+      `${district.name} apartman yönetimi`,
+      `${district.name} tesis yönetimi`,
+      `${district.name} entegre tesis yönetimi`,
+      `${district.name} mahalleleri`,
+      `${district.name} semtleri`,
+      `${district.name} yakın semtler`,
+      `${district.name} mahalle haritası`,
+      `${district.name} asansör bakım`,
+      `${district.name} toki site yönetimi`,
+    ],
   });
 }
 
@@ -92,6 +105,9 @@ export default async function NeighborhoodsHubPage({
 
   const slaTarget =
     district.side === 'Anadolu' ? FACTS.emergencyResponse.anatolian : FACTS.emergencyResponse.european;
+  const neighborDistricts = getNeighborDistrictsWithSemts(district.slug);
+  const spokeNamesLower = new Set((district.neighborhoodData ?? []).map((n) => n.name.toLowerCase()));
+  const extraSemtNames = district.neighborhoods.filter((n) => !spokeNamesLower.has(n.toLowerCase()));
 
   return (
     <>
@@ -170,6 +186,143 @@ export default async function NeighborhoodsHubPage({
             ))}
           </div>
         </section>
+
+        {/* Tüm Mahalleler, Semtler ve Entegre Tesis / TOKİ / Asansör Bakım Kapsamı */}
+        <section
+          aria-label={`${district.name} tüm mahalleleri, semtleri ve entegre tesis yönetimi kapsamı`}
+          className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60 space-y-6"
+        >
+          <div>
+            <h2 className="text-xl font-bold text-[var(--color-primary)] mb-2">
+              {district.name} Mahalleleri, Semtleri ve Entegre Tesis Yönetimi Ağı
+            </h2>
+            <p className="text-sm text-[var(--color-secondary)] leading-relaxed">
+              {district.name} ({district.side} Yakası) genelinde{' '}
+              <strong>{district.neighborhoods.join(', ')}</strong> başta olmak üzere tüm mahalle ve semtlerde
+              apartman, konut sitesi, TOKİ ve toplu konut yerleşimleri, rezidanslar ve ticari plazalar için
+              634 sayılı KMK ve 7579 sayılı Kanun (2026) uyumlu yönetim hizmeti sunuyoruz. Yazılı SLA kapsamında acil
+              teknik ve asansör arıza müdahale hedefimiz <strong>{slaTarget}</strong> olarak uygulanmaktadır.
+            </p>
+          </div>
+
+          {extraSemtNames.length > 0 && (
+            <div>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[var(--color-tertiary)] mb-3">
+                {district.name} Ek Semt ve Hizmet Noktaları
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {extraSemtNames.map((semt) => (
+                  <Link
+                    key={semt}
+                    href={`/bolgeler/${ilce}/site-yonetimi`}
+                    className="text-xs font-semibold px-3 py-1.5 rounded-xl bg-[var(--color-background)] border border-[var(--color-outline)]/50 text-[var(--color-primary)] hover:border-brand-500/60 transition-colors"
+                  >
+                    {semt} Site & Tesis Yönetimi
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+            <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-outline)]/50">
+              <h3 className="text-sm font-bold text-[var(--color-primary)] mb-1.5">
+                {district.name} Entegre Tesis & Bina Yönetimi
+              </h3>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed mb-3">
+                Ticari bina, iş merkezi ve karma projelerde BMS otomasyon, EKB (Enerji Kimlik Belgesi) verimliliği,
+                reaktif güç / kompanzasyon takibi ve kurumsal temizlik.
+              </p>
+              <Link
+                href={`/bolgeler/${ilce}/tesis-yonetimi`}
+                className="text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline"
+              >
+                {district.name} Tesis Yönetimi →
+              </Link>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-outline)]/50">
+              <h3 className="text-sm font-bold text-[var(--color-primary)] mb-1.5">
+                {district.name} TOKİ & Toplu Konut Site Yönetimi
+              </h3>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed mb-3">
+                Çok bloklu sitelerde KMK m.66–74 toplu yapı yönetimi, 7579 sayılı Kanun 2/3 yönetim planı nisabı,
+                hazirun cetveli ve dijital aidat/icra takibi.
+              </p>
+              <Link
+                href="/hizmetler/tesis-yonetimi/toplu-konut-yonetimi"
+                className="text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline"
+              >
+                Toplu Konut & TOKİ Yönetimi →
+              </Link>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-outline)]/50">
+              <h3 className="text-sm font-bold text-[var(--color-primary)] mb-1.5">
+                {district.name} Asansör Bakım, Arıza & Yeşil Etiket
+              </h3>
+              <p className="text-xs text-[var(--color-secondary)] leading-relaxed mb-3">
+                Tüm mahallelerde aylık periyodik asansör bakımı, A tipi muayene yeşil etiket hazırlığı, hidrofor ve
+                jeneratör teknik servis koordinasyonu.
+              </p>
+              <Link
+                href={`/bolgeler/${ilce}/teknik-bakim`}
+                className="text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline"
+              >
+                {district.name} Teknik & Asansör Bakım →
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Yakın Semtler ve Komşu İlçeler Ağı */}
+        {neighborDistricts.length > 0 && (
+          <section
+            aria-label={`${district.name} yakın semtler ve komşu ilçeler`}
+            className="p-6 sm:p-8 rounded-3xl bg-[var(--color-surface)] border border-[var(--color-outline)]/60"
+          >
+            <h2 className="text-xl font-bold text-[var(--color-primary)] mb-2">
+              {district.name} Yakın Semtler ve Komşu İlçeler Hizmet Ağı
+            </h2>
+            <p className="text-sm text-[var(--color-secondary)] mb-5">
+              {district.name} ilçesine komşu bölgelerde ve yakın semtlerde görev yapan saha ekiplerimizle sınır
+              mahallelerde de kesintisiz site, apartman ve tesis yönetimi sağlıyoruz:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {neighborDistricts.map((nb) => (
+                <div
+                  key={nb.slug}
+                  className="p-4 rounded-2xl bg-[var(--color-background)] border border-[var(--color-outline)]/50 flex flex-col justify-between gap-3"
+                >
+                  <div>
+                    <div className="flex items-center justify-between gap-2 mb-1">
+                      <Link
+                        href={`/bolgeler/${nb.slug}`}
+                        className="font-bold text-sm text-[var(--color-primary)] hover:text-brand-600 transition-colors"
+                      >
+                        {nb.name} Site ve Tesis Yönetimi
+                      </Link>
+                      <span className="text-[11px] px-2 py-0.5 rounded-full bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300">
+                        Komşu İlçe
+                      </span>
+                    </div>
+                    <p className="text-xs text-[var(--color-secondary)]">
+                      <strong>Yakın Semtler:</strong> {nb.semtler.join(', ')}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3 text-xs font-semibold">
+                    <Link href={`/bolgeler/${nb.slug}/mahalleler`} className="text-brand-600 dark:text-brand-400 hover:underline">
+                      {nb.name} Mahalleleri →
+                    </Link>
+                    <Link href={`/bolgeler/${nb.slug}/tesis-yonetimi`} className="text-slate-600 dark:text-slate-400 hover:underline">
+                      {nb.name} Tesis Yönetimi →
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         <div className="text-center">
           <Link

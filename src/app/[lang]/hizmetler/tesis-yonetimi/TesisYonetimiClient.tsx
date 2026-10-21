@@ -60,6 +60,18 @@ export default function TesisYonetimiClient() {
       question: t(`fy_faq_${n}_q` as Parameters<typeof t>[0]),
       answer: t(`fy_faq_${n}_a` as Parameters<typeof t>[0]),
     })),
+    {
+      question: 'Entegre tesis ne demek ve bina tesis yönetimi hangi hizmetleri kapsar?',
+      answer: 'Entegre tesis (Integrated Facility Management - IFM); bir konut sitesi, rezidans, kurumsal plaza veya sanayi tesisindeki teknik bakım (asansör yeşil etiket, jeneratör, hidrofor, kompanzasyon panosu), 5188 sayılı Kanun kapsamında özel güvenlik, TSE 13811 endüstriyel temizlik, 4 mevsim peyzaj ve KMK m.20/37 dijital muhasebe operasyonlarının tek bir kurumsal sözleşme ve SLA çatısı altında birleştirilmesidir. Bina tesis yönetimi sayesinde çoklu taşeron karmaşası biter, enerji ve satın alma maliyetleri optimize edilir.'
+    },
+    {
+      question: 'Dijital tesis yönetimi ve tesis yönetim yazılımı sitelere ne kazandırır?',
+      answer: 'Dijital tesis yönetimi; bulut tabanlı tesis yönetim yazılımı, BMS (Bina Otomasyon Sistemi), RFID/QR saha devriye takibi, online kredi kartı/banka API entegrasyonlu aidat tahsilatı ve iOS/Android sakin mobil uygulamasının entegre kullanımıdır. Kat malikleri tüm gelir-gider faturalarını, KMK m.37 işletme projesi bütçesini, asansör bakım kayıtlarını ve 7/24 teknik arıza SLA sürelerini cep telefonlarından anlık ve şeffaf biçimde denetleyebilir.'
+    },
+    {
+      question: 'Endüstriyel tesis nedir ve TOKİ / toplu konut site yönetimi (KMK m.66-74) nasıl yapılır?',
+      answer: 'Endüstriyel tesis; üretim fabrikaları, organize sanayi bölgeleri (OSB), lojistik depolar ve yüksek enerji/teknik altyapı gerektiren ticari komplekslerdir. Çok bloklu TOKİ, Emlak Konut ve Kiptaş projelerinde ise 634 sayılı KMK Madde 66-74 ve Madde 69 (Toplu Yapı) hükümleri uygulanır; blok temsilcileri, ada temsilciler kurulu, geçici yönetim ve merkezi ortak gider paylaşımı profesyonel tesis yönetim firmaları tarafından mevzuata tam uyumlu olarak yürütülür.'
+    },
   ];
 
   return (
@@ -318,8 +330,77 @@ export default function TesisYonetimiClient() {
         {/* Wave 57: Sektörel Operasyonel Derinlik & Saha Protokolleri Matrisi */}
         {null}
 
-        {/* Site Yönetimi ile Tesis Yönetimi Arasındaki Fark Nedir? (SERP Tablosu) */}
-        {null}
+        {/* Site Yönetimi ile Tesis Yönetimi Arasındaki Fark Nedir? & GSC Odaklı Tesis Yönetimi Rehberi */}
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/80 rounded-[2.5rem] p-8 md:p-12 shadow-sm space-y-8">
+          <div className="space-y-3">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider">
+              <Icon name="domain" className="text-[16px]" />
+              <span>Kurumsal Tesis Yönetim Hizmetleri & Dijital Altyapı</span>
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[var(--color-primary)] tracking-tight">
+              Entegre Tesis Yönetimi, Dijital Tesis Yönetimi ve Bina Tesis Yönetimi Rehberi
+            </h2>
+            <p className="text-sm md:text-base text-[var(--color-secondary)] leading-relaxed">
+              İstanbul genelinde <strong className="text-[var(--color-primary)]">tesis yönetimi firmaları</strong> ve <strong className="text-[var(--color-primary)]">tesis yönetim şirketleri</strong> arasında seçim yaparken; mülkün fiziksel ölçeği, elektromekanik karmaşıklığı ve 634 sayılı Kat Mülkiyeti Kanunu (KMK) kapsamındaki hukuki statüsü belirleyici rol oynar. Alo Yönetim, klasik apartman yöneticiliğinden çok bloklu <strong className="text-[var(--color-primary)]">TOKİ site yönetimi</strong> projelerine, A+ plazalardan endüstriyel tesislere kadar her ölçekte uçtan uca <strong className="text-[var(--color-primary)]">tesis yönetim hizmetleri</strong> sunar.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 space-y-3">
+              <h3 className="text-lg font-bold text-[var(--color-primary)] flex items-center gap-2">
+                <Icon name="hub" className="text-emerald-600 dark:text-emerald-400" />
+                <span>Entegre Tesis Ne Demek? Bina Tesis Yönetimi Kapsamı</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed">
+                <strong>Entegre tesis</strong> (Integrated Facility Management); bir yapının 5188 özel güvenlik, TSE standartlarında temizlik, kestirimci teknik bakım (asansör yeşil etiket, hidrofor, jeneratör, <Link href="/sozluk/kompanzasyon-reaktif-guc" className="underline font-semibold text-[var(--color-primary)]">reaktif güç ve kompanzasyon takibi</Link>), <Link href="/sozluk/enerji-kimlik-belgesi-ekb" className="underline font-semibold text-[var(--color-primary)]">Enerji Kimlik Belgesi (EKB)</Link> süreçleri ve KMK m.37 bütçe muhasebesinin tek merkezden yönetilmesidir. <strong>Bina tesis yönetimi</strong> modeliyle taşeron koordinasyon kayıpları önlenir, personel kıdem tazminatı ve İSG sorumluluğu kurumsal güvenceye alınır.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 space-y-3">
+              <h3 className="text-lg font-bold text-[var(--color-primary)] flex items-center gap-2">
+                <Icon name="devices" className="text-emerald-600 dark:text-emerald-400" />
+                <span>Dijital Tesis Yönetimi ve Tesis Yönetim Yazılımı</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed">
+                <strong>Dijital tesis yönetimi</strong> altyapımız; bulut tabanlı <strong>tesis yönetim yazılımı</strong>, online banka entegrasyonu, sanal POS ile aidat tahsilatı, QR/RFID saha devriye doğrulaması ve mobil sakin uygulamasını birleştirir. Kat malikleri ve denetim kurulu üyeleri; faturaları, <Link href="/sozluk/hazirun-cetveli" className="underline font-semibold text-[var(--color-primary)]">hazirun cetveli</Link> ve genel kurul kararlarını, asansör periyodik bakım raporlarını ve SLA müdahale sürelerini 7/24 dijital ortamda şeffaflıkla takip eder.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 space-y-3">
+              <h3 className="text-lg font-bold text-[var(--color-primary)] flex items-center gap-2">
+                <Icon name="factory" className="text-emerald-600 dark:text-emerald-400" />
+                <span>Endüstriyel Tesis Nedir? TOKİ & Toplu Konut Site Yönetimi</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed">
+                <strong>Endüstriyel tesis nedir?</strong> Üretim kampüsleri, lojistik merkezler, OSB yapıları ve yüksek güçlü trafo/HVAC altyapısına sahip ticari binalar endüstriyel tesis sınıfına girer. Konut tarafında ise çok parselli ve çok bloklu <strong>TOKİ site yönetimi</strong>, Emlak Konut ve Kiptaş projelerinde <Link href="/sozluk/toplu-yapi-kmk-m66-70" className="underline font-semibold text-[var(--color-primary)]">KMK Madde 66-74 ve Madde 69 (Toplu Yapı Yönetimi)</Link> hükümleri uygulanarak blok/ada temsilciler kurulu ve merkezi bütçe yönetimi eksiksiz yürütülür.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[var(--color-surface-variant)] border border-[var(--color-outline)]/60 space-y-3">
+              <h3 className="text-lg font-bold text-[var(--color-primary)] flex items-center gap-2">
+                <Icon name="location_city" className="text-emerald-600 dark:text-emerald-400" />
+                <span>İstanbul 39 İlçe Tesis Yönetimi Firmaları Saha Ağı</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-[var(--color-secondary)] leading-relaxed">
+                Anadolu ve Avrupa Yakası&apos;ndaki tüm ilçelerde mobil teknik, güvenlik ve idari denetim ekiplerimizle yerinde hizmet veriyoruz:{' '}
+                <Link href="/bolgeler/kadikoy/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Kadıköy Tesis Yönetimi</Link>,{' '}
+                <Link href="/bolgeler/basaksehir/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Başakşehir & TOKİ Tesis Yönetimi</Link>,{' '}
+                <Link href="/bolgeler/kartal/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Kartal Tesis Yönetimi</Link>,{' '}
+                <Link href="/bolgeler/sancaktepe/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Sancaktepe (Samandıra) Tesis Yönetimi</Link>,{' '}
+                <Link href="/bolgeler/bahcelievler/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Bahçelievler (Kocasinan) Tesis Yönetimi</Link>,{' '}
+                <Link href="/bolgeler/bakirkoy/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Bakırköy (Şenlikköy & Florya) Tesis Yönetimi</Link>,{' '}
+                <Link href="/bolgeler/besiktas/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Beşiktaş</Link>,{' '}
+                <Link href="/bolgeler/sisli/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Şişli</Link>,{' '}
+                <Link href="/bolgeler/atasehir/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Ataşehir</Link>,{' '}
+                <Link href="/bolgeler/umraniye/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Ümraniye</Link>,{' '}
+                <Link href="/bolgeler/beylikduzu/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Beylikdüzü</Link>,{' '}
+                <Link href="/bolgeler/buyukcekmece/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Büyükçekmece</Link>,{' '}
+                <Link href="/bolgeler/gaziosmanpasa/tesis-yonetimi" className="underline font-medium text-[var(--color-primary)]">Gaziosmanpaşa</Link> ve{' '}
+                <Link href="/bolgeler" className="underline font-semibold text-emerald-600 dark:text-emerald-400">39 ilçenin tamamı</Link>.
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* Mülk Tipinize Özel Çözümler (Sub-Sector Hub) */}
         <FacilitySubSectorCrossNav />
@@ -619,7 +700,7 @@ export default function TesisYonetimiClient() {
               summary: "Sitenin 1 yıllık tahmini gelir-gider bütçesi ve bağımsız bölümlere düşen avans payını gösteren belgedir."
             },
             {
-              slug: "toplu-yapi-yonetimi-kmk-ek-madde-69",
+              slug: "toplu-yapi-kmk-m66-70",
               term: "Toplu Yapı Yönetimi (KMK m.66-74)",
               summary: "Birden çok parsel ve bloktan oluşan büyük sitelerde ortak alanların merkezi temsilciler kuruluyla yönetilmesidir."
             },

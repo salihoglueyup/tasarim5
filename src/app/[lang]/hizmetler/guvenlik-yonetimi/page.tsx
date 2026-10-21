@@ -33,7 +33,7 @@ export async function generateMetadata({
       : t.sec_page_name || '5188 Özel Güvenlik Şirketleri — Site ve Tesis Güvenliği | Alo Yönetim';
   const description =
     lang === 'tr'
-      ? '5188 sayılı Kanun kapsamında Valilik komisyon izinli özel güvenlik şirketi, RFID devriye, CCTV izleme, kıdem tazminatı kalkanı ve profesyonel koruma.'
+      ? '5188 sayılı Kanun kapsamında Valilik komisyon izinli (ÖGİ) özel güvenlik şirketi, Alo Güvenlik & 3G Güvenlik grup güvencesi, ÖGG kimlik kartlı personel, nizamiye takip sistemi, RFID devriye ve CCTV izleme.'
       : t.sec_svc_desc || t.sec_page_desc;
 
   return buildMetadata({
@@ -46,7 +46,14 @@ export async function generateMetadata({
     keywords: [
       'özel güvenlik şirketi',
       'özel güvenlik şirketleri',
+      'alo güvenlik',
+      'alo güvenlik kadıköy',
+      '3g güvenlik',
       '5188 özel güvenlik',
+      '5188 güvenlik kimlik kartı',
+      'ögg kartı nedir',
+      'özel güvenlik izni ögi',
+      'nizamiye takip sistemi',
       'site güvenliği',
       'apartman güvenliği',
       'tesis güvenliği',

@@ -62,22 +62,37 @@ export async function generateMetadata({
   if (termLower.includes('hazirun')) {
     title = 'Hazirun Cetveli Nedir, Nasıl Hazırlanır? — Genel Kurul Rehberi | Alo Yönetim';
     description = 'Hazirun cetveli nedir, genel kurulda nasıl düzenlenir? 634 sayılı KMK m.29-30 katılım listesi, çift çoğunluk hesabı ve divan tutanağı rehberi.';
-  } else if (termLower.includes('ögg') || termLower.includes('ogg') || termLower.includes('özel güvenlik görevlisi')) {
-    title = 'ÖGG Kartı Nedir, Nasıl Alınır? — 5188 Güvenlik Kimlik Kartı Rehberi | Alo Yönetim';
-    description = 'ÖGG kartı nedir, kimlere verilir? 5188 sayılı Kanun kapsamında silahlı ve silahsız özel güvenlik görevlisi kimlik kartı alma şartları ve yenileme eğitimi rehberi.';
+  } else if (termLower.includes('ögg') || termLower.includes('ogg') || termLower.includes('özel güvenlik görevlisi') || termLower.includes('özel güvenlik kimlik')) {
+    title = 'ÖGG Kartı Nedir, Nasıl Alınır? — 5188 Özel Güvenlik Kimlik Kartı Rehberi | Alo Yönetim';
+    description = 'Özel kimlik kartı (ÖGG kartı) nedir, kimlere verilir? 5188 sayılı Kanun silahlı/silahsız güvenlik kimlik kartı alma şartları, geçici kimlik ve yenileme rehberi.';
+  } else if (termLower.includes('özel güvenlik izni') || termLower.includes('ögi')) {
+    title = 'ÖGİ Ne Demek? Özel Güvenlik İzni Nedir, Nasıl Alınır? (5188 S.K.) | Alo Yönetim';
+    description = 'ÖGİ (Özel Güvenlik İzni) ne demek ve nereden alınır? 5188 sayılı Kanun kapsamında site, rezidans ve tesisler için Valilik özel güvenlik komisyonu izin rehberi.';
   } else if (termLower.includes('kmk 37') || (termLower.includes('kmk') && termLower.includes('37'))) {
     title = 'KMK 37 Nedir? İşletme Projesi ve Kurul Onayı | Alo Yönetim';
     description = '634 sayılı KMK Madde 37 işletme projesi nedir? 1 yıllık tahmini site bütçesi, kat malikleri kurulunda onay, geçici proje ve 7579 sayılı Kanun değişikliği.';
   } else if (termLower.includes('kmk 45') || (termLower.includes('kmk') && termLower.includes('45'))) {
     title = 'KMK 45 Nedir? Oybirliği Gerektiren Önemli Kararlar | Alo Yönetim';
     description = '634 sayılı KMK Madde 45 önemli işler nedir? Kat mülkiyetinde ortak yerlerin kiralanması, devri ve oybirliği şartı aranan kararlar.';
+  } else if (termLower.includes('madde 20') || (termLower.includes('kmk') && termLower.includes('20'))) {
+    title = 'KMK Madde 20 Nedir? Aidat Gider Paylaşımı ve %5 Gecikme Tazminatı | Alo Yönetim';
+    description = '634 sayılı KMK Madde 20 genel giderlere katılma ve aidat borcu nedir? Eşit ve arsa payı gider paylaşımı, aylık %5 gecikme tazminatı ve icra takibi rehberi.';
+  } else if (termLower.includes('toplu yapı') || termLower.includes('m.66')) {
+    title = 'KMK 66-70 Toplu Yapı Yönetimi Nedir? Temsilciler Kurulu & 2/3 Nisap | Alo Yönetim';
+    description = '634 sayılı KMK Madde 66-70 toplu yapı yönetimi nedir? Blok ve temsilciler kurulu oluşumu (m.69) ile 7579 sayılı Kanun 2/3 yönetim planı değişikliği rehberi.';
+  } else if (termLower.includes('enerji kimlik') || termLower.includes('ekb')) {
+    title = 'Enerji Kimlik Belgesi (EKB) Nedir? Zorunluluk ve EKB Uzmanı Rehberi | Alo Yönetim';
+    description = 'Enerji Kimlik Belgesi (EKB) nedir, nasıl alınır? Binalarda enerji performans sınıfı, EKB uzmanı yetkisi ve site yönetiminde enerji verimliliği.';
+  } else if (termLower.includes('kompanzasyon') || termLower.includes('reaktif')) {
+    title = 'Reaktif Enerji ve Kompanzasyon Cezası Nedir? Elektrik Pano Bakımı | Alo Yönetim';
+    description = 'Reaktif nedir, kompanzasyon cezası neden gelir? Site ve plazalarda reaktif güç sınırı, kompanzasyon panosu periyodik bakımı ve elektrik tasarrufu.';
   } else if (termLower.includes('kat mülkiyeti kanunu') || term.term.includes('KMK')) {
     if (termLower.includes('madde')) {
       title = `${term.term} Nedir, Ne Anlama Gelir? — KMK Açıklaması | Alo Yönetim`;
       description = `${term.term} nedir ve ne anlama gelir? ${cleanDef.slice(0, 115)}... Kat Mülkiyeti Kanunu madde rehberi.`;
     } else {
-      title = `KMK Ne Demek? Kat Mülkiyeti Kanunu Nedir — Kısa Açıklama | Alo Yönetim`;
-      description = `KMK ne demek, ne anlama gelir? 634 sayılı Kat Mülkiyeti Kanunu (KMK) kapsamı, yöneticinin görevleri, aidat işletme projesi ve kat malikleri hakları.`;
+      title = `KMK Nedir, Ne Demek? 634 Sayılı Kat Mülkiyeti Kanunu (2026 Rehberi) | Alo Yönetim`;
+      description = `KMK nedir, açılımı ne demek? 634 sayılı Kat Mülkiyeti Kanunu (KMK) maddeleri, 2026 (7579 S.K.) değişiklikleri, aidat paylaşımı (m.20) ve işletme projesi (m.37).`;
     }
   }
 

@@ -463,4 +463,46 @@ describe('Project-Wide SEO & Google AI Overviews Architecture Guard (Faz 1-5)', 
       expect(bulkRes.urlSamples).not.toContain('https://aloyonetim.com.tr/sektorel-cozumler/rezidans-yonetimi');
     });
   });
+
+  describe('Faz 22: GSC Haftalık Veri Odaklı 39 İlçe, Mahalleler, Yakın Semtler, Asansör Bakım & Tesis Yönetimi Paketi', () => {
+    it('enriches all 39 districts with neighbor semt lists (including gungoren fix) and mahalleler/asansör/TOKİ/entegre tesis blocks', async () => {
+      const { getNeighborDistrictsWithSemts } = await import(
+        '@/lib/seo/facility/districtCrossLinker'
+      );
+
+      const zeytinburnuNeighbors = getNeighborDistrictsWithSemts('zeytinburnu');
+      expect(zeytinburnuNeighbors.length).toBeGreaterThanOrEqual(4);
+      expect(zeytinburnuNeighbors.map((n) => n.slug)).toContain('gungoren');
+      expect(zeytinburnuNeighbors[0].semtler.length).toBeGreaterThan(0);
+
+      const mahallelerPage = readRel('src/app/[lang]/bolgeler/[ilce]/mahalleler/page.tsx');
+      expect(mahallelerPage).toContain('getNeighborDistrictsWithSemts');
+      expect(mahallelerPage).toContain('Yakın Semtler ve Komşu İlçeler Hizmet Ağı');
+      expect(mahallelerPage).toContain('TOKİ & Toplu Konut Site Yönetimi');
+      expect(mahallelerPage).toContain('Asansör Bakım, Arıza & Yeşil Etiket');
+
+      const ilcePage = readRel('src/app/[lang]/bolgeler/[ilce]/page.tsx');
+      expect(ilcePage).toContain('slug: "toplu-yapi-kmk-m66-70"');
+      expect(ilcePage).not.toContain('toplu-yapi-yonetimi-kmk-ek-madde-69');
+      expect(ilcePage).toContain('entegre tesis yönetimi');
+
+      const mahalleDetailPage = readRel('src/app/[lang]/bolgeler/[ilce]/mahalleler/[mahalle]/page.tsx');
+      expect(mahalleDetailPage).toContain('asansör bakım, arıza ve yeşil etiket');
+      expect(mahalleDetailPage).toContain('apartman, bina ve site yönetim şirketleri');
+    });
+
+    it('enriches Tesis Yönetimi hub and Client with Entegre/Dijital/Bina Tesis Yönetimi, Endüstriyel Tesis & TOKİ content', () => {
+      const tesisPage = readRel('src/app/[lang]/hizmetler/tesis-yonetimi/page.tsx');
+      expect(tesisPage).toContain('dijital tesis yönetimi');
+      expect(tesisPage).toContain('bina tesis yönetimi');
+      expect(tesisPage).toContain('endüstriyel tesis nedir');
+      expect(tesisPage).toContain('toki site yönetimi');
+
+      const tesisClient = readRel('src/app/[lang]/hizmetler/tesis-yonetimi/TesisYonetimiClient.tsx');
+      expect(tesisClient).toContain('Entegre Tesis Yönetimi, Dijital Tesis Yönetimi ve Bina Tesis Yönetimi Rehberi');
+      expect(tesisClient).toContain('Entegre tesis ne demek ve bina tesis yönetimi hangi hizmetleri kapsar?');
+      expect(tesisClient).toContain('Endüstriyel tesis nedir ve TOKİ / toplu konut site yönetimi (KMK m.66-74) nasıl yapılır?');
+      expect(tesisClient).not.toContain('toplu-yapi-yonetimi-kmk-ek-madde-69');
+    });
+  });
 });

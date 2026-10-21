@@ -26,7 +26,7 @@ import { SERVICES } from '@/data/services';
 import { REAL_REFERENCES } from '@/data/realReferences';
 import { FACTS } from '@/lib/facts';
 import { DISTRICT_GUIDES } from '@/data/districtGuides';
-import { getNeighborDistrictLinks, getCrossSideDistrictLinks } from '@/lib/seo/facility/districtCrossLinker';
+import { getNeighborDistrictLinks, getCrossSideDistrictLinks, getNeighborDistrictsWithSemts } from '@/lib/seo/facility/districtCrossLinker';
 import { getFacilitySerpMeta } from '@/lib/seo/facility/facilitySerpOptimizer';
 
 import Icon from '@/components/ui/branding/Icon';
@@ -44,24 +44,41 @@ function responseTarget(side: 'Anadolu' | 'Avrupa') {
   return side === 'Anadolu' ? FACTS.emergencyResponse.anatolian : FACTS.emergencyResponse.european;
 }
 
-/** İlçeye özel SSS üretir (yalnızca doğrulanmış bilgiler). */
-function districtFaqs(name: string, side: 'Anadolu' | 'Avrupa', needs: string[]) {
+/** İlçeye özel SSS üretir (yalnızca doğrulanmış bilgiler — 39 ilçenin tamamına ölçeklenir). */
+function districtFaqs(
+  name: string,
+  side: 'Anadolu' | 'Avrupa',
+  needs: string[],
+  neighborhoods: string[] = [],
+  neighborNames: string[] = [],
+) {
+  const semtText = neighborhoods.length > 0 ? `${neighborhoods.slice(0, 6).join(', ')} başta olmak üzere ` : '';
+  const komsuText = neighborNames.length > 0 ? ` Ayrıca komşu ilçeler ve yakın semtler (${neighborNames.join(', ')}) ile entegre saha koordinasyonu sağlanır.` : '';
+
   return [
     {
       question: `${name}'de site yönetimi ücretleri nasıl belirlenir?`,
       answer: `${name}'de yönetim ücreti; daire sayısı, sunulan hizmetler (güvenlik, temizlik, teknik bakım) ve ortak alan büyüklüğüne göre belirlenir. Ücretsiz keşif sonrasında kalemleri ayrıştırılmış yazılı bir teklif sunulur.`,
     },
     {
-      question: `${name}'de hangi tesis yönetimi hizmetlerini sunuyorsunuz?`,
-      answer: `${name} genelinde güvenlik yönetimi, profesyonel temizlik, teknik bakım, peyzaj, havuz bakımı, haşere kontrolü, aidat takibi ve hukuk & icra danışmanlığı dahil hizmetleri tek çatı altında sunuyoruz.`,
+      question: `${name} mahalleleri ve yakın semtlerde hangi tesis ve site yönetimi hizmetlerini sunuyorsunuz?`,
+      answer: `${name} genelinde ${semtText}tüm mahallelerde güvenlik yönetimi, profesyonel temizlik, teknik bakım, peyzaj, havuz bakımı, haşere kontrolü, aidat takibi ve hukuk & icra danışmanlığı dahil entegre tesis ve site yönetimi hizmetlerini tek çatı altında sunuyoruz.${komsuText}`,
     },
     {
       question: `${name}'de yönetim değişikliği süreci nasıl işler?`,
-      answer: `Öncelikle ${name}'deki sitenizde ücretsiz keşif yapılır; ardından mevcut yönetim planı ve demirbaş devri tutanakla alınır ve yazılı teklif sunulur. En yoğun ihtiyacınız ${needs[0]?.toLowerCase() || 'güvenlik ve aidat yönetimi'} ise sürecin merkezine bu konu konur.`,
+      answer: `Öncelikle ${name}'deki sitenizde ücretsiz keşif yapılır; ardından mevcut yönetim planı, hazirun cetveli ve demirbaş devri tutanakla alınır ve yazılı teklif sunulur. En yoğun ihtiyacınız ${needs[0]?.toLowerCase() || 'güvenlik ve aidat yönetimi'} ise sürecin merkezine bu konu konur.`,
     },
     {
-      question: `${name}'de acil teknik arızalara ne kadar sürede müdahale edilir?`,
-      answer: `Yazılı SLA kapsamında acil teknik müdahale hedefimiz (${side} Yakası): ${responseTarget(side)}. Süre, sözleşmedeki SLA hükümlerine bağlıdır.`,
+      question: `${name}'de acil teknik arızalara ve asansör bakım taleplerine ne kadar sürede müdahale edilir?`,
+      answer: `Yazılı SLA kapsamında acil teknik müdahale ve asansör arıza hedefimiz (${side} Yakası): ${responseTarget(side)}. Aylık periyodik asansör bakımı, A tipi muayene yeşil etiket takibi, hidrofor ve jeneratör kontrolleri düzenli raporlanır.`,
+    },
+    {
+      question: `${name} bölgesinde TOKİ, toplu konut ve çok bloklu sitelerin yönetimi nasıl yapılır?`,
+      answer: `${name} bölgesindeki TOKİ, Emlak Konut ve çok bloklu toplu yapılarda 634 sayılı KMK m.66–74 hükümleri, KMK m.69 Temsilciler Kurulu yapısı ve 7579 sayılı Kanun (2026) kapsamındaki 2/3 yönetim planı değişiklik nisabı ile merkezi işletme projesi (m.37) uygulanır.`,
+    },
+    {
+      question: `${name} bölgesinde entegre tesis yönetimi, EKB ve reaktif güç (kompanzasyon) takibi yapıyor musunuz?`,
+      answer: `Evet. ${name}'deki ticari bina, plaza, iş merkezi ve büyük sitelerde dijital tesis yönetimi, BMS bina otomasyonu, Enerji Kimlik Belgesi (EKB) verimlilik süreçleri ve elektrik faturalarında reaktif ceza oluşmasını önleyen periyodik kompanzasyon panosu kontrolü yürütüyoruz.`,
     },
     {
       question: `${name} bölgesindeki sitelerde en sık karşılaşılan ihtiyaçlar nelerdir?`,
@@ -116,7 +133,14 @@ export default async function DistrictPage({
 
   const path = `/bolgeler/${district.slug}`;
   const side = district.side;
-  const faqs = districtFaqs(district.name, side, district.localNeeds);
+  const neighborWithSemts = getNeighborDistrictsWithSemts(district.slug);
+  const faqs = districtFaqs(
+    district.name,
+    side,
+    district.localNeeds,
+    district.neighborhoods,
+    neighborWithSemts.map((n) => n.name),
+  );
   const districtReferences = REAL_REFERENCES.filter((r) => r.district === district.name);
 
   const breadcrumbLd = generateBreadcrumbs([
@@ -352,9 +376,9 @@ export default async function DistrictPage({
           ]}
           glossaryTerms={[
             {
-              slug: "toplu-yapi-yonetimi-kmk-ek-madde-69",
-              term: `${district.name} Toplu Yapı Yönetimi`,
-              summary: `${district.name} ilçesindeki çok bloklu ve parselli karma konut projelerinde ortak alanların profesyonel yönetimidir.`
+              slug: "toplu-yapi-kmk-m66-70",
+              term: `${district.name} Toplu Yapı & TOKİ Yönetimi (KMK m.66-70)`,
+              summary: `${district.name} ilçesindeki çok bloklu konut, TOKİ ve karma projelerde KMK m.69 temsilciler kurulu ve 7579 S.K. 2/3 nisabıyla ortak alan yönetimidir.`
             },
             {
               slug: "aidat",
@@ -394,12 +418,15 @@ export default async function DistrictPage({
           </div>
         </div>
 
-        {/* Komşu ilçe bağlantı ağı */}
+        {/* Komşu ilçe ve yakın semtler bağlantı ağı */}
         {neighborLinks.length > 0 && (
           <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200/80 dark:border-white/10">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4 text-center sm:text-left">
-              {district.name} Çevresinde Hizmet Verdiğimiz Komşu İlçeler
+            <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-2 text-center sm:text-left">
+              {district.name} Yakın Semtler ve Çevresinde Hizmet Verdiğimiz Komşu İlçeler
             </h3>
+            <p className="text-xs text-slate-600 dark:text-slate-400 mb-4 text-center sm:text-left">
+              {district.name} sınırındaki yakın semtler ({neighborWithSemts.flatMap((n) => n.semtler.slice(0, 2)).join(', ')}) ve komşu ilçelerde kesintisiz saha operasyonları:
+            </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {neighborLinks.map((neighbor) => (
                 <Link

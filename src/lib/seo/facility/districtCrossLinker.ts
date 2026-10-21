@@ -31,18 +31,19 @@ const DISTRICT_ADJACENCY_MAP: Record<string, string[]> = {
   sariyer: ['besiktas', 'sisli', 'eyupsultan'],
   beyoglu: ['besiktas', 'sisli', 'fatih', 'kagithane'],
   fatih: ['zeytinburnu', 'eyupsultan', 'beyoglu'],
-  zeytinburnu: ['fatih', 'bakirkoy', 'güngoren', 'bayrampasa', 'eyupsultan'],
-  bakirkoy: ['bahcelievler', 'kucukcekmece', 'zeytinburnu', 'güngoren'],
-  bahcelievler: ['bakirkoy', 'bagcilar', 'güngoren', 'kucukcekmece'],
+  zeytinburnu: ['fatih', 'bakirkoy', 'gungoren', 'bayrampasa', 'eyupsultan'],
+  bakirkoy: ['bahcelievler', 'kucukcekmece', 'zeytinburnu', 'gungoren'],
+  bahcelievler: ['bakirkoy', 'bagcilar', 'gungoren', 'kucukcekmece'],
+  gungoren: ['zeytinburnu', 'bahcelievler', 'bagcilar', 'esenler'],
   güngoren: ['zeytinburnu', 'bahcelievler', 'bagcilar', 'esenler'],
-  bagcilar: ['bahcelievler', 'kucukcekmece', 'basaksehir', 'esenler', 'güngoren'],
+  bagcilar: ['bahcelievler', 'kucukcekmece', 'basaksehir', 'esenler', 'gungoren'],
   kucukcekmece: ['bakirkoy', 'bahcelievler', 'bagcilar', 'basaksehir', 'avcilar'],
   avcilar: ['kucukcekmece', 'esenyurt', 'beylikduzu', 'basaksehir'],
   beylikduzu: ['avcilar', 'esenyurt', 'buyukcekmece'],
   esenyurt: ['beylikduzu', 'avcilar', 'buyukcekmece', 'basaksehir', 'arnavutkoy'],
   buyukcekmece: ['beylikduzu', 'esenyurt', 'catalca', 'silivri', 'arnavutkoy'],
   basaksehir: ['kucukcekmece', 'bagcilar', 'esenler', 'sultangazi', 'arnavutkoy', 'esenyurt'],
-  esenler: ['bagcilar', 'güngoren', 'bayrampasa', 'sultangazi', 'basaksehir'],
+  esenler: ['bagcilar', 'gungoren', 'bayrampasa', 'sultangazi', 'basaksehir'],
   bayrampasa: ['zeytinburnu', 'fatih', 'eyupsultan', 'gaziosmanpasa', 'esenler'],
   eyupsultan: ['fatih', 'beyoglu', 'sisli', 'sariyer', 'kagithane', 'gaziosmanpasa', 'sultangazi', 'arnavutkoy'],
   gaziosmanpasa: ['eyupsultan', 'bayrampasa', 'sultangazi', 'esenler'],
@@ -80,6 +81,22 @@ export function getNeighborDistrictLinks(currentSlug: string, lang = 'tr'): Dist
     anchorText: `${d.name} Tesis Yönetimi`,
     side: d.side,
   }));
+}
+
+/**
+ * Belirli bir ilçe için komşu ilçeleri ve öne çıkan semt/mahallelerini döndürür ("yakın semtler" sorguları için).
+ */
+export function getNeighborDistrictsWithSemts(currentSlug: string) {
+  const neighborSlugs = DISTRICT_ADJACENCY_MAP[currentSlug] || [];
+  return neighborSlugs
+    .map((slug) => getDistrict(slug))
+    .filter(Boolean)
+    .map((d) => ({
+      slug: d!.slug,
+      name: d!.name,
+      side: d!.side,
+      semtler: d!.neighborhoods.slice(0, 5),
+    }));
 }
 
 /**

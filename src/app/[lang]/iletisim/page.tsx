@@ -45,6 +45,9 @@ export async function generateMetadata({
     ogImageType: 'default',
     keywords: [
       'alo yönetim iletişim',
+      'alo iletişim',
+      'alo resmi sitesi',
+      'alo istanbul',
       'site yönetimi telefon numarası',
       'tesis yönetimi genel merkez',
       'kadıköy site yönetimi',

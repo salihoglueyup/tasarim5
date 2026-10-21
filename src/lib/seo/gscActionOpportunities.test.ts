@@ -110,5 +110,38 @@ describe('Google Search Console (GSC) High-Impact SEO Opportunities & Zero-Error
       expect(enHazirun).toBeDefined();
       expect(enOgg).toBeDefined();
     });
+
+    it('Faz 22: KMK 20, KMK 69, ÖGİ, Özel Kimlik Kartı, EKB ve Reaktif alias ve yüksek CTR şablonları eksiksiz çalışır', async () => {
+      expect(TERM_SLUG_ALIASES['kmk-20']).toBe('kmk-madde-20-genel-giderlere-katilma-aidat-borcu');
+      expect(slugToTerm('kmk-20')).toBeDefined();
+      expect(TERM_SLUG_ALIASES['kmk-69']).toBe('toplu-yapi-kmk-m66-70');
+      expect(TERM_SLUG_ALIASES['toplu-yapi-yonetimi-kmk-ek-madde-69']).toBe('toplu-yapi-kmk-m66-70');
+      expect(TERM_SLUG_ALIASES['ogi']).toBe('ozel-guvenlik-izni-ogi');
+      expect(TERM_SLUG_ALIASES['ozel-kimlik-karti']).toBe('ogg-karti-ozel-guvenlik-gorevlisi-kimlik-karti');
+      expect(slugToTerm('ozel-kimlik-karti')).toBeDefined();
+      expect(TERM_SLUG_ALIASES['ekb']).toBe('enerji-kimlik-belgesi-ekb');
+      expect(TERM_SLUG_ALIASES['reaktif']).toBe('kompanzasyon-reaktif-guc');
+      expect(slugToTerm('reaktif')).toBeDefined();
+
+      const kmkMeta = await generateSozlukMetadata({
+        params: Promise.resolve({ lang: 'tr', terim: 'kat-mulkiyeti-kanunu-kmk' }),
+      });
+      expect(kmkMeta.title).toContain('KMK Nedir, Ne Demek? 634 Sayılı Kat Mülkiyeti Kanunu');
+
+      const ogiMeta = await generateSozlukMetadata({
+        params: Promise.resolve({ lang: 'tr', terim: 'ozel-guvenlik-izni-ogi' }),
+      });
+      expect(ogiMeta.title).toContain('ÖGİ Ne Demek?');
+
+      const ekbMeta = await generateSozlukMetadata({
+        params: Promise.resolve({ lang: 'tr', terim: 'enerji-kimlik-belgesi-ekb' }),
+      });
+      expect(ekbMeta.title).toContain('Enerji Kimlik Belgesi (EKB) Nedir');
+
+      const reaktifMeta = await generateSozlukMetadata({
+        params: Promise.resolve({ lang: 'tr', terim: 'kompanzasyon-reaktif-guc' }),
+      });
+      expect(reaktifMeta.title).toContain('Reaktif Enerji ve Kompanzasyon Cezası Nedir?');
+    });
   });
 });

@@ -457,6 +457,18 @@ export const TERM_SLUG_ALIASES: Record<string, string> = {
   'kmk-madde-45': 'kmk-45-onemli-isler-oybirligi-kararlari',
   'kmk-ne-demek': 'kmk-ne-demek-634-sayili-kat-mulkiyeti-kanunu',
   'kmk': 'kat-mulkiyeti-kanunu-kmk',
+  'kmk-20': 'kmk-madde-20-genel-giderlere-katilma-aidat-borcu',
+  'kmk-madde-20': 'kmk-madde-20-genel-giderlere-katilma-aidat-borcu',
+  'kmk-66': 'toplu-yapi-kmk-m66-70',
+  'kmk-madde-66': 'toplu-yapi-kmk-m66-70',
+  'kmk-69': 'toplu-yapi-kmk-m66-70',
+  'kmk-madde-69': 'toplu-yapi-kmk-m66-70',
+  'toplu-yapi-yonetimi-kmk-ek-madde-69': 'toplu-yapi-kmk-m66-70',
+  'ogi': 'ozel-guvenlik-izni-ogi',
+  'ozel-kimlik-karti': 'ogg-karti-ozel-guvenlik-gorevlisi-kimlik-karti',
+  '5188-kimlik-karti': 'ogg-karti-ozel-guvenlik-gorevlisi-kimlik-karti',
+  'ekb': 'enerji-kimlik-belgesi-ekb',
+  'reaktif': 'kompanzasyon-reaktif-guc',
 };
 
 // O(1) slug ve alfabetik harf indeks haritaları (Faz 7)

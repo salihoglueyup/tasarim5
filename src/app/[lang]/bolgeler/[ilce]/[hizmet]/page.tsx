@@ -145,17 +145,23 @@ export async function generateMetadata({
 
   if (hizmet === 'site-yonetimi') {
     metaTitle = `${district.name} Site Yönetimi Şirketleri — Profesyonel Apartman ve Site Yönetimi | Alo Yönetim`;
-    metaDesc = `${district.name}'de 634 sayılı KMK çerçevesinde profesyonel site yönetimi, aidat tahsilatı ve işletme projesi. Şeffaf muhasebe ve ücretsiz keşif.`;
+    metaDesc = `${district.name}'de (${neighborhoods}) 634 sayılı KMK ve 7579 sayılı Kanun çerçevesinde profesyonel site yönetimi, TOKİ ve toplu konut işletmesi, aidat tahsilatı ve işletme projesi. Şeffaf muhasebe ve ücretsiz keşif.`;
     serviceKeywords = [
       `${district.name} site yönetimi`,
+      `${district.name} site yönetim`,
+      `${district.name} site yönetimleri`,
       `${district.name} site yönetim şirketi`,
       `${district.name} site yönetim şirketleri`,
       `${district.name} site yönetim firmaları`,
       `${district.name} profesyonel site yönetimi`,
       `${district.name} apartman ve site yönetimi`,
+      `${district.name} apartman yönetim şirketi`,
+      `${district.name} bina yönetim şirketi`,
       `${district.name} site yöneticiliği`,
       `${district.name} kmk site yönetimi`,
       `${district.name} toplu konut yönetimi`,
+      `${district.name} toki site yönetimi`,
+      ...district.neighborhoods.slice(0, 4).map((n) => `${n} site yönetimi`),
     ];
   } else if (hizmet === 'apartman-yonetimi') {
     metaTitle = `${district.name} Apartman Yönetimi Şirketleri — Profesyonel Apartman Yöneticiliği | Alo Yönetim`;
@@ -224,23 +230,30 @@ export async function generateMetadata({
     ];
   } else if (isFacility) {
     metaTitle = `${district.name} Site Yönetimi Şirketleri — Ücretsiz Keşif | Alo Yönetim`;
-    metaDesc = `${district.name}'de profesyonel site yönetimi ve entegre tesis işletmesi. 5188 güvenlik, teknik bakım ve aidat takibinde şeffaf çözüm. Hemen keşif alın.`;
+    metaDesc = `${district.name}'de (${neighborhoods}) profesyonel site yönetimi, bina tesis yönetimi ve entegre tesis işletmesi. 5188 güvenlik, teknik bakım ve dijital aidat takibinde şeffaf çözüm. Hemen keşif alın.`;
     serviceKeywords = [
       `${district.name} tesis yönetimi`,
+      `${district.name} tesis yönetim`,
       `${district.name} tesis yönetim şirketi`,
       `${district.name} tesis yönetim şirketleri`,
       `${district.name} tesis yönetim firmaları`,
+      `${district.name} tesis yönetimi firmaları`,
+      `${district.name} tesis yönetim hizmetleri`,
       `${district.name} entegre tesis yönetimi`,
+      `${district.name} dijital tesis yönetimi`,
+      `${district.name} bina tesis yönetimi`,
       `${district.name} site yönetimi`,
       `${district.name} apartman yönetimi`,
       `${district.name} bina yönetimi`,
       `${district.name} site yönetim şirketi`,
       `${district.name} profesyonel site yönetimi`,
+      `${district.name} toki site yönetimi`,
       `${district.name} kmk site yönetimi`,
+      ...district.neighborhoods.slice(0, 4).map((n) => `${n} tesis yönetimi`),
     ];
   } else if (isTechnical) {
     metaTitle = `${district.name} Asansör Bakımı ve Arıza — Acil Servis & Yeşil Etiket | Alo Yönetim`;
-    metaDesc = `${district.name}'de asansör arıza ve periyodik bakımı, yeşil etiket (periyodik kontrol) takibi ve jeneratör teknik servisi. Acil müdahale desteği.`;
+    metaDesc = `${district.name}'de (${district.neighborhoods.slice(0, 4).join(', ')}) asansör arıza ve periyodik bakımı, yeşil etiket (periyodik kontrol) takibi, hidrofor, kompanzasyon ve jeneratör teknik servisi. Acil müdahale desteği.`;
     serviceKeywords = [
       `${district.name} asansör bakım`,
       `${district.name} asansör arıza`,
@@ -251,6 +264,8 @@ export async function generateMetadata({
       `${district.name} jeneratör periyodik bakım`,
       `${district.name} bina teknik servisi`,
       `${district.name} hidrofor arıza servisi`,
+      `${district.name} kompanzasyon panosu bakımı`,
+      ...district.neighborhoods.slice(0, 5).flatMap((n) => [`${n} asansör bakım`, `${n} asansör arıza`, `${n} asansör firması`]),
     ];
   } else if (isCleaning) {
     metaTitle = `${district.name} Site & Apartman Temizliği, Dış Cephe Cam Silimi — Alo Yönetim`;
