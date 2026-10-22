@@ -134,26 +134,22 @@ export default function ApsiyonMobileHub() {
     })),
   };
 
+  // Uygulama Apsiyon'undur ve bizim puan/yorum verimiz yok; uygulama şeması (puan zorunlu) yerine sayfa şeması kullanılır.
   const mobileAppSchema = {
     '@context': 'https://schema.org',
-    '@type': 'MobileApplication',
-    name: 'Apsiyon — Alo Yönetim Sakin & Yönetici Portalı',
-    operatingSystem: 'iOS, Android',
-    applicationCategory: 'BusinessApplication',
-    description: 'Alo Yönetim sakinleri ve yöneticileri için online aidat ödeme, arıza bildirimi ve oylama mobil uygulaması.',
-    downloadUrl: 'https://apps.apple.com/app/apsiyon/id1115852575',
-    installUrl: 'https://play.google.com/store/apps/details?id=com.apsiyon.mobile',
-    sameAs: [
-      'https://apps.apple.com/app/apsiyon/id1115852575',
-      'https://play.google.com/store/apps/details?id=com.apsiyon.mobile',
-      'https://appgallery.huawei.com/app/C100486001',
-      'https://online.apsiyon.com/'
-    ],
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'TRY'
-    }
+    '@type': 'WebPage',
+    name: 'Apsiyon — Alo Yönetim Sakin ve Yönetici Portalı',
+    description: 'Alo Yönetim tarafından yönetilen sitelerde sakinlerin Apsiyon uygulaması üzerinden aidat ödemesi, borç ve ödeme geçmişi görüntüleme, duyuru ve talep takibi.',
+    about: {
+      '@type': 'Thing',
+      name: 'Apsiyon mobil uygulaması',
+      sameAs: [
+        'https://apps.apple.com/app/apsiyon/id1115852575',
+        'https://play.google.com/store/apps/details?id=com.apsiyon.mobile',
+        'https://appgallery.huawei.com/app/C100486001',
+        'https://online.apsiyon.com/',
+      ],
+    },
   };
 
   return (

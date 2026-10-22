@@ -72,8 +72,9 @@ describe('Alo Yönetim x Apsiyon Mobil Entegrasyonu ve /app Sayfası Güvence Te
     expect(hubContent).toContain('KVKK Gizlilik Koruması');
     expect(hubContent).toContain('BDDK Lisanslı Sanal POS');
     expect(hubContent).toContain('FAQPage');
-    // Doğrudan Hub içinde MobileApplication Schema.org verisi ve simülatörsüz temiz akış
-    expect(hubContent).toContain('MobileApplication');
+    // Apsiyon uygulaması bizim değil ve puan verimiz yok: uygulama şeması yerine WebPage + about kullanılır
+    expect(hubContent).toContain("'@type': 'WebPage'");
+    expect(hubContent).not.toContain('MobileApplication');
     expect(hubContent).not.toContain('aggregateRating'); // gerçek yorumla desteklenmeyen puan yayınlanmaz
     expect(hubContent).not.toContain('<MobileAppLiveSimulatorSeo');
   });

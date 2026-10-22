@@ -27,14 +27,11 @@ import { blogPostingSchema, localBusinessAreaSchema, localServiceSchema } from '
 import { POSTS } from '@/data/posts';
 
 describe('Cloudflare Agent Readiness & AI Discovery Suite', () => {
-  it('robots.ts Content-Signal ve Agentmap direktiflerini ve .well-known izinlerini içerir', () => {
+  it('robots.ts standart dışı direktif (Content-Signal, Agentmap, Host) içermez ve .well-known izinlerini içerir', () => {
     const config = robots();
     const rules = Array.isArray(config.rules) ? config.rules : [config.rules];
     for (const rule of rules) {
-      const other = (rule as Record<string, unknown>).other as Record<string, string>;
-      expect(other).toBeDefined();
-      expect(other['Content-Signal']).toBe('ai-train=yes, search=yes, ai-input=yes');
-      expect(other.Agentmap).toBe('https://aloyonetim.com.tr/.well-known/ai-catalog.json');
+      expect((rule as Record<string, unknown>).other).toBeUndefined();
       expect(rule.allow).toContain('/.well-known/');
       expect(rule.allow).toContain('/auth.md');
     }

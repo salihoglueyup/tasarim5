@@ -101,18 +101,12 @@ export default function robots(): MetadataRoute.Robots {
     '/*.conf$'
   ];
 
-  const contentSignalsOther = {
-    'Content-Signal': 'ai-train=yes, search=yes, ai-input=yes',
-    Agentmap: `${BASE_URL}/.well-known/ai-catalog.json`,
-  };
-
   return {
     rules: [
       {
         userAgent: '*',
         allow,
         disallow,
-        ...({ other: contentSignalsOther } as Record<string, unknown>),
       },
       {
         // Faz 143: AI yanıt/tarama botları için optimize edilmiş crawl-delay ve izinler
@@ -120,7 +114,6 @@ export default function robots(): MetadataRoute.Robots {
         allow,
         disallow,
         crawlDelay: 1,
-        ...({ other: contentSignalsOther } as Record<string, unknown>),
       },
     ],
     // Master Sitemap Index tek link ve standart alt sitemap listesi
@@ -133,6 +126,5 @@ export default function robots(): MetadataRoute.Robots {
       `${BASE_URL}/document-sitemap.xml`,
       `${BASE_URL}/news-sitemap.xml`,
     ],
-    host: BASE_URL,
   };
 }

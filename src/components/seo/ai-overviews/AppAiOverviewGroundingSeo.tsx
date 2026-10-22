@@ -66,22 +66,11 @@ export default function AppAiOverviewGroundingSeo({
   const schemaData = [
     {
       '@context': 'https://schema.org',
-      '@type': 'MobileApplication',
+      '@type': 'WebPage',
       name: 'Alo Yönetim & Apsiyon Mobil Sakin Portalı',
-      operatingSystem: 'iOS, Android, Web',
-      applicationCategory: 'BusinessApplication',
-      offers: {
-        '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'TRY',
-      },
-      featureList: [
-        'Kredi kartı ile online aidat ve avans ödeme',
-        'Canlı kasa mizanı ve harcama şeffaflığı',
-        'Fotoğraflı teknik servis arıza takip masası',
-        'QR kodlu güvenlik devriye kontrol paneli',
-      ],
-      author: {
+      description: 'Apsiyon üzerinden online aidat ödemesi, borç ve ödeme geçmişi görüntüleme, duyuru ve talep takibi.',
+      about: { '@type': 'Thing', name: 'Apsiyon mobil uygulaması' },
+      publisher: {
         '@type': 'Organization',
         name: 'Alo Yönetim ve Organizasyon A.Ş.',
         url: BASE_URL,
