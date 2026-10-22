@@ -4,14 +4,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import AcademyHeroSeo from '@/components/seo/academy/AcademyHeroSeo';
 import AcademyAiOverviewSeo from '@/components/seo/ai-overviews/AcademyAiOverviewSeo';
-import AcademyCoursePackagesSeo from '@/components/seo/academy/AcademyCoursePackagesSeo';
-import AcademyEligibilityWizardSeo from '@/components/seo/academy/AcademyEligibilityWizardSeo';
-import AcademyExamScheduleSeo from '@/components/seo/academy/AcademyExamScheduleSeo';
-import AcademyCostBreakdownSeo from '@/components/seo/academy/AcademyCostBreakdownSeo';
 import ServiceAuthorityHubSeo from '@/components/seo/facility/ServiceAuthorityHubSeo';
 import SecurityScenarioQuiz from '@/components/academy/SecurityScenarioQuiz';
 import AcademyEnrollmentModal from '@/components/academy/AcademyEnrollmentModal';
-import SecurityEquipmentShowcase from '@/components/academy/SecurityEquipmentShowcase';
 import AcademyFaqAccordion, { ACADEMY_FAQ_ITEMS } from '@/components/academy/AcademyFaqAccordion';
 import QuoteCtaButton from '@/components/ui/widgets/QuoteCtaButton';
 
@@ -40,26 +35,30 @@ export default function GuvenlikAkademisiClient({ lang = 'tr' }: GuvenlikAkademi
         <AcademyAiOverviewSeo extraFaqs={ACADEMY_FAQ_ITEMS} />
       </div>
 
-      {/* 3. 5 Core 5188 Course Packages Matrix */}
-      <AcademyCoursePackagesSeo onSelectCourse={handleOpenEnrollment} />
-
-      {/* 4. Interactive "Which Security Card Can I Get?" Eligibility Wizard */}
-      <AcademyEligibilityWizardSeo onSelectCourse={handleOpenEnrollment} />
-
-      {/* 5. 2026 EGM Security Exam Schedule & Countdown */}
-      <AcademyExamScheduleSeo onRegisterClick={handleOpenEnrollment} />
-
-      {/* 6. Medical Report & Official Fees Transparency Guide */}
-      <AcademyCostBreakdownSeo />
+      {/* 3. Eğitim ve kimlik süreci: ayrıntılar (süre, ücret, sınav tarihi) kurs kurumu ve resmî duyurulara bırakılır */}
+      <section className="py-12 md:py-16 px-[var(--spacing-gutter)] max-w-[var(--spacing-container-max)] mx-auto w-full">
+        <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 rounded-[2rem] p-8 md:p-10 flex flex-col gap-4">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-[var(--color-primary)]">Eğitim ve kimlik süreci hakkında</h2>
+          <p className="text-sm md:text-base text-[var(--color-secondary)] font-light leading-relaxed max-w-3xl">
+            Özel güvenlik görevlisi olmak için 5188 sayılı Kanun kapsamında yetkili bir eğitim kurumunda temel eğitimin tamamlanması,
+            sınav ve Valilik başvuru süreçleri gerekir. Eğitim süresi, ücret, sınav tarihi, sağlık raporu ve harç gibi ayrıntılar
+            zamanla değişebilir; bu nedenle güncel bilgi için eğitim kurumunun ve Emniyet Genel Müdürlüğü ile ilgili Valilik birimlerinin
+            duyurularını esas alın.
+          </p>
+          <a
+            href="https://www.guvenlikkursu.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="self-start text-sm font-bold text-[var(--color-primary)] underline underline-offset-4 hover:opacity-80"
+          >
+            Eğitim kurumu: guvenlikkursu.com
+          </a>
+        </div>
+      </section>
 
       {/* 7. Interactive Real-Life Scenario Simulator */}
       <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] py-12 md:py-16 w-full">
         <SecurityScenarioQuiz onEnrollClick={handleOpenEnrollment} />
-      </div>
-
-      {/* 8. Modern Equipment & Field Hardware Showcase */}
-      <div className="max-w-[var(--spacing-container-max)] mx-auto px-[var(--spacing-gutter)] py-8 md:py-12 w-full">
-        <SecurityEquipmentShowcase />
       </div>
 
       {/* 9. Corporate Security Staffing Bridge (CRO Banner) */}
@@ -67,14 +66,13 @@ export default function GuvenlikAkademisiClient({ lang = 'tr' }: GuvenlikAkademi
         <div className="bg-[var(--color-surface)] border border-[var(--color-outline)]/60 text-[var(--color-primary)] rounded-[2.5rem] p-8 sm:p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 shadow-sm">
           <div className="flex flex-col gap-4 max-w-2xl text-center md:text-left">
             <span className="text-xs font-bold text-rose-600 dark:text-rose-400 uppercase tracking-widest bg-rose-500/10 px-4 py-1.5 rounded-full w-fit mx-auto md:mx-0 border border-rose-500/20">
-              5188 Lisanslı Güvenlik Kadrosu
+              Site ve Tesis Güvenliği
             </span>
             <h2 className="text-2xl md:text-3xl font-extrabold leading-tight text-[var(--color-primary)]">
-              Siteniz veya Tesisiniz İçin Lisanslı Özel Güvenlik mi Arıyorsunuz?
+              Siteniz veya Tesisiniz İçin Özel Güvenlik Hizmeti mi Arıyorsunuz?
             </h2>
             <p className="text-[var(--color-secondary)] text-sm md:text-base font-light leading-relaxed">
-              Alo Yönetim güvencesiyle 5188 sertifikalı özel güvenlik personeli, kamera ve devriye denetimi, 
-              kıdem tazminatı bloke fon güvencesi. Tesisinize özel fizibilite teklifi 24 saat içinde hazır.
+              Alo Yönetim, site ve tesisler için 5188 sayılı Kanun çerçevesinde özel güvenlik hizmetinin planlanması ve koordinasyonunda destek verir. Ücretsiz keşif için teklif isteyebilirsiniz.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0 w-full md:w-auto">
@@ -136,12 +134,12 @@ export default function GuvenlikAkademisiClient({ lang = 'tr' }: GuvenlikAkademi
             {
               slug: "cctv-kamera-guvenlik-sistemi",
               term: "CCTV & Kamera İzleme Protokolü",
-              summary: "Ortak alanların analitik kameralar ve hareket sensörleriyle kesintisiz izlenmesi standartlarıdır."
+              summary: "Ortak alanların kamera sistemleriyle izlenmesine ilişkin kayıt ve kişisel veri ilkeleridir."
             },
             {
               slug: "plaka-tanima-sistemi-pts",
               term: "Plaka Tanıma & Turnike Otomasyonu",
-              summary: "Site nizamiye kapılarında sakin ve misafir araç giriş-çıkışlarını yöneten akıllı bariyer sistemidir."
+              summary: "Site giriş kapılarında araç giriş-çıkışlarının plaka okuma ile kaydedildiği sistemdir."
             }
           ]}
         />

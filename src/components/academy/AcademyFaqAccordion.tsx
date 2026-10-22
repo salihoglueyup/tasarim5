@@ -16,65 +16,41 @@ interface FaqItem {
 
 export const ACADEMY_FAQ_ITEMS: FaqItem[] = [
   {
-    id: 'silahsiz-silahli-gecis',
+    id: 'ogg-nasil-alinir',
     category: 'ruhsat',
     categoryLabel: 'Ruhsat & Sertifika',
     icon: Award,
-    question: 'Silahsız özel güvenlik sertifikam var, silahlı eğitime nasıl geçiş yapabilirim?',
-    answer: 'Silahsız kimlik kartı sahibi olan personelin silahlıya geçiş yapabilmesi için 21 yaşını doldurmuş ve en az lise mezunu olması gerekmektedir. Kursumuzda verilecek 20 saatlik "Silah Bilgisi ve Taktik Atış" fark eğitimine katılarak EGM tarafından düzenlenen ilk sınavda atış ve yazılı testten geçerli not alması yeterlidir.',
-    lawRef: '5188 Sayılı Kanun Madde 10 & Yönetmelik Madde 31',
-    importantNote: 'Devlet hastanesinden alınacak yeni sağlık kurulu heyet raporunda "Silahlı Özel Güvenlik Görevlisi Olur" ibaresi bulunmalıdır.'
+    question: 'Özel güvenlik görevlisi kimlik kartı (ÖGG kartı) nasıl alınır?',
+    answer: 'Yetkili bir özel güvenlik eğitim kurumunda temel eğitimi tamamlayıp EGM özel güvenlik sınavında başarılı olduktan sonra, sağlık raporu ve güvenlik soruşturması ile Valiliğe başvurularak alınır. Güncel şartlar için EGM ve ilgili Valilik duyurularını esas alın.',
+    lawRef: '5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun',
   },
   {
-    id: 'yenileme-sinav-kalma',
-    category: 'sinav',
-    categoryLabel: 'Sınav & Süreç',
-    icon: FileText,
-    question: '5 yılda bir yapılan yenileme eğitiminde sınavda kalma veya baraj puanı riski var mı?',
-    answer: '5188 Sayılı Kanun uyarınca yenileme eğitimine katılan personelin yazılı sınavda 60 baraj puanını geçme zorunluluğu yoktur. Temel kural, belirlenen 50 saatlik derslere devamsızlık yapmadan katılmak ve EGM sınav salonunda sınava fiziki olarak iştirak etmektir.',
-    lawRef: '5188 Sayılı Kanun Yönetmeliği Madde 34',
-    importantNote: 'Silahlı yenileme kursiyerlerinin poligondaki 5 fişek atış puanı sınav belgesine işlenir ancak kart iptaline yol açmaz.'
-  },
-  {
-    id: 'kimlik-kart-valilik-sureci',
+    id: 'kart-gecerlilik',
     category: 'ruhsat',
     categoryLabel: 'Ruhsat & Sertifika',
-    icon: ShieldCheck,
-    question: 'Sınavı geçtikten sonra Özel Güvenlik Kimlik Kartı ve Valilik onayı kaç günde çıkar?',
-    answer: 'EGM sınav sonuçlarının açıklanmasını takiben kurs bitirme sertifikanız düzenlenir. Ardından e-Devlet üzerinden yapılan valilik güvenlik soruşturması ve arşiv araştırması süreci ortalama 20-30 iş günü sürer. Onay sonrası ruhsat harcı anlaşmalı bankaya yatırılarak kimlik kartı PTT Kargo ile doğrudan adresinize teslim edilir.',
-    lawRef: '7315 Sayılı Güvenlik Soruşturması ve Arşiv Araştırması Kanunu',
-    importantNote: 'Alo Güvenlik danışmanlarımız tüm e-Devlet ve valilik evrak yükleme aşamalarında kursiyerlerimize ücretsiz rehberlik sağlar.'
+    icon: Award,
+    question: 'Kimlik kartının geçerlilik süresi nedir?',
+    answer: 'Kartın geçerlilik süresi 5 yıldır; süre bitiminde yenileme eğitimi alınarak yenilenir. Güncel şartlar için ilgili Valilik birimini teyit edin.',
+    lawRef: '5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun',
   },
   {
-    id: 'saglik-raporu-kriterleri',
-    category: 'saglik',
-    categoryLabel: 'Sağlık & Şartlar',
-    icon: Stethoscope,
-    question: 'Özel güvenlik sağlık kurulu heyet raporu hangi hastanelerden ve branşlardan alınır?',
-    answer: 'Sağlık Bakanlığı tarafından yetkilendirilmiş tam teşekküllü devlet veya üniversite hastanelerinden alınmalıdır. Heyette Psikiyatri, Nöroloji, Göz Hastalıkları, KBB ve Ortopedi olmak üzere 5 ana branş uzman hekiminin onayı aranır.',
-    lawRef: 'İçişleri Bakanlığı Sağlık Şartları Yönetmeliği',
-    importantNote: 'Raporda silahsız adaylar için "Özel Güvenlik Görevlisi Olur", silahlı adaylar için "Silahlı Özel Güvenlik Görevlisi Olur" ibaresi açıkça yazılmalıdır.'
+    id: 'silahli-silahsiz',
+    category: 'ruhsat',
+    categoryLabel: 'Ruhsat & Sertifika',
+    icon: Award,
+    question: 'Silahsız ve silahlı görevli arasındaki fark nedir?',
+    answer: 'Silahsız görevli için en az 18 yaş ve ortaokul, silahlı görevli için en az 21 yaş ve lise mezuniyeti aranır. Silahlı çalışmak için ayrıca silahlı güvenlik eğitimi ve sağlık şartları gerekir; ayrıntılar için eğitim kurumuna ve mevzuata bakın.',
+    lawRef: '5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun',
   },
   {
-    id: 'arama-ve-mudahale-yetkisi',
+    id: 'kartsiz-calisma',
     category: 'hukuk',
-    categoryLabel: 'Hukuk & Yetki Sınırı',
-    icon: AlertTriangle,
-    question: 'Özel güvenlik görevlisi hangi durumlarda üst ve çanta araması yapabilir?',
-    answer: '5188 Sayılı Kanunun 7. maddesi uyarınca güvenlik görevlileri görev alanında metal detektörü, x-ray cihazı ve turnike sistemleri üzerinden tarama yapabilir. Elle fiziki üst araması kural olarak yapılamaz; sadece spor müsabakaları, hava meydanları gibi özel mevzuatı olan yerlerde veya suçüstü halinde genel kolluk gelene kadar önleyici tedbir kapsamında icra edilebilir.',
-    lawRef: '5188 Sayılı Kanun Madde 7/a, 7/b, 7/g',
-    importantNote: 'Elde edilen şüpheli suç aletleri derhal tutanakla genel kolluğa (Polis/Jandarma) teslim edilmek zorundadır.'
+    categoryLabel: 'Hukuk & Yetki',
+    icon: ShieldCheck,
+    question: 'Kimlik kartı olmayan kişi güvenlik görevlisi olarak çalışabilir mi?',
+    answer: 'Hayır. Özel güvenlik hizmeti kimlik kartı olan personelle yürütülmelidir. Sitenize hizmet veren şirketin izin belgesini ve personelin kimlik kartı geçerliliğini göreve başlamadan önce kontrol edin.',
+    lawRef: '5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun',
   },
-  {
-    id: 'sinav-hakki-ve-tekrar',
-    category: 'sinav',
-    categoryLabel: 'Sınav & Süreç',
-    icon: FileText,
-    question: 'EGM yazılı veya atış sınavından başarısız olursam ne olur, kaç sınav hakkım var?',
-    answer: 'Eğitimini başarıyla tamamlayan her adayın birbirini takip eden 4 sınava girme hakkı mevcuttur. İlk sınavda baraj puanını geçemeyen kursiyer, eğitimi sıfırdan yeniden almak zorunda kalmaz. Yalnızca EGM sınav giriş harcını yatırarak bir sonraki dönem sınavına doğrudan katılabilir.',
-    lawRef: 'Özel Güvenlik Denetleme Başkanlığı Sınav Talimatı',
-    importantNote: '4 sınav hakkında da başarılı olamayan adayların kurs eğitimini kanunen baştan tekrar etmesi gerekir.'
-  }
 ];
 
 export default function AcademyFaqAccordion() {

@@ -138,7 +138,7 @@ export default function AcademyEnrollmentModal({
                     Eğitime Ön Kayıt Yaptırın
                   </h2>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 font-normal">
-                    Formu doldurun; eğitim koordinatörümüz sınav takvimi, kontenjan ve ders programı için sizinle hemen iletişime geçsin.
+                    Formu doldurun; eğitim koordinatörümüz sınav, eğitim ve kayıt süreci hakkında bilgi için sizinle iletişime geçsin.
                   </p>
                 </div>
 

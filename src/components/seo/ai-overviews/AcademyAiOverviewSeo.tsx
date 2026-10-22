@@ -19,7 +19,7 @@ export default function AcademyAiOverviewSeo({
 
   const question = 'Sitelerde Özel Güvenlik Görevlilerinin Yasal Yetkileri ve Arama Sınırları Nelerdir?';
   const directAnswer =
-    '5188 Sayılı Özel Güvenlik Hizmetlerine Dair Kanun Madde 7 gereğince sitede görevli güvenlik personeli; kimlik sorma, ziyaretçileri kayıt altına alma, eşyaları X-ray veya el dedektöründen geçirme, site ortak alanlarında devriye gezme ve suçüstü halinde şüpheliyi yakalayarak genel kolluğa teslim etme yetkisine sahiptir. Ancak Türk Ceza Kanunu (TCK) Madde 109 ve 120 gereğince güvenlik personeli kişilerin üzerini, çantasını veya araç torpido/bagajını elle arayamaz; elle arama adli kolluk (Polis/Jandarma) yetkisindedir. Personelin EGM onaylı geçerli 5188 kimlik kartı taşıması kanunen zorunludur.';
+    'Sitede görevli özel güvenlik personelinin yetkileri 5188 sayılı Özel Güvenlik Hizmetlerine Dair Kanun ve ilgili yönetmelikle belirlenir; görev alanı dışında kolluk yetkisi yoktur. Kimlik sorma, ziyaretçi kaydı, devriye ve giriş kontrolü gibi uygulamaların kapsamı ve arama/üst yoklama sınırları somut duruma göre değişir; güncel mevzuat ve hukuk danışmanı görüşü esas alınmalıdır. Personelin geçerli bir özel güvenlik kimlik kartı taşıması gerekir.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);
@@ -153,7 +153,7 @@ export default function AcademyAiOverviewSeo({
             <span className="text-xs font-bold">5188 Kimlik Kartı</span>
           </div>
           <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
-            EGM onaylı ve 5 yılda bir yenilenen geçerli kimlik kartı olmadan üniformayla görev yapmak suçtur.
+            Özel güvenlik görevlisi olarak çalışacak personelin 5188 kapsamında geçerli bir kimlik kartı taşıması gerekir.
           </p>
         </div>
 
@@ -163,7 +163,7 @@ export default function AcademyAiOverviewSeo({
             <span className="text-xs font-bold">Valilik ÖGİ İzni</span>
           </div>
           <p className="text-[11px] text-[var(--color-secondary)] leading-relaxed">
-            Sitede özel güvenlik hizmeti başlatılabilmesi için İl Özel Güvenlik Komisyonu onaylı Valilik Kararı zorunludur.
+            Sitede özel güvenlik hizmeti için gereken izin ve bildirimler ilgili Valilik biriminden teyit edilmelidir.
           </p>
         </div>
       </div>
