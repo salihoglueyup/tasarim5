@@ -81,7 +81,6 @@ export function buildFacilityCompleteGraphSchema(options?: FacilityCompleteGraph
     telephone: ORG_PHONE,
     email: ORG_EMAIL,
     address: ORG_ADDRESS,
-    geo: ORG_GEO,
     sameAs: ORG_SAME_AS,
     knowsAbout: ORG_KNOWS_ABOUT,
     hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
@@ -381,7 +380,6 @@ export function buildFacilitySubSectorGraphSchema(options: FacilitySubSectorGrap
     telephone: ORG_PHONE,
     email: ORG_EMAIL,
     address: ORG_ADDRESS,
-    geo: ORG_GEO,
     sameAs: ORG_SAME_AS,
     hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
   };
@@ -543,7 +541,6 @@ export function buildDistrictFacilityGraphSchema(options: DistrictFacilityGraphO
     telephone: ORG_PHONE,
     email: ORG_EMAIL,
     address: ORG_ADDRESS,
-    geo: ORG_GEO,
     sameAs: ORG_SAME_AS,
     hasCredential: FACILITY_COMPLETE_GRAPH_CREDENTIALS,
   };
