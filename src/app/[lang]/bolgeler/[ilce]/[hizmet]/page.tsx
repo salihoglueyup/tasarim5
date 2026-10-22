@@ -42,6 +42,13 @@ import Icon from '@/components/ui/branding/Icon';
 import { getDistrictLocalBrief } from '@/data/districtGuides';
 import { getOfficialNeighborhoods } from '@/data/districtOfficialNeighborhoods';
 
+/** İlçe × hizmet sayfalarından ilgili yerel rehber yazısına bağlantı (GSC: yerel güvenlik ve asansör sorguları). */
+const LOCAL_GUIDE_LINKS: Record<string, { slug: string; label: string }> = {
+  'pendik/guvenlik-yonetimi': { slug: 'pendik-site-guvenligi-ve-5188-ozel-guvenlik-rehberi-2026', label: "Pendik'te site güvenliği rehberi" },
+  'beykoz/guvenlik-yonetimi': { slug: 'acarkent-beykoz-site-guvenligi-ve-yonetimi-rehberi-2026', label: "Acarkent ve Beykoz'da site güvenliği rehberi" },
+  'bakirkoy/teknik-bakim': { slug: 'bakirkoy-asansor-bakimi-ve-ariza-rehberi-florya-senlikkoy-basinkoy-2026', label: "Bakırköy'de asansör bakımı ve arıza rehberi" },
+};
+
 const LOCAL_BRIEF_SERVICES = new Set(['site-yonetimi', 'apartman-yonetimi', 'bina-yonetimi', 'site-yonetim-sirketleri', 'profesyonel-site-yonetimi', 'tesis-yonetimi']);
 // ISR (Faz 120): 96 kombinasyon sayfası günlük yeniden doğrulanır.
 export const revalidate = 86400;
@@ -790,6 +797,15 @@ export default async function ServiceDistrictPage({
           <div className="flex flex-col gap-12">
             <CleaningScheduleGeneratorSeo districtName={district.name} />
           </div>
+        )}
+
+        {LOCAL_GUIDE_LINKS[`${district.slug}/${service.slug}`] && (
+          <p className="text-sm text-[var(--color-secondary)] max-w-3xl">
+            Yerel rehber:{' '}
+            <Link href={`/blog/${LOCAL_GUIDE_LINKS[`${district.slug}/${service.slug}`].slug}`} className="font-semibold text-[var(--color-primary)] hover:underline">
+              {LOCAL_GUIDE_LINKS[`${district.slug}/${service.slug}`].label}
+            </Link>
+          </p>
         )}
 
         {/* Faydalar */}

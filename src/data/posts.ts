@@ -5140,6 +5140,556 @@ export const POSTS: Post[] = [
         "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
       }
     ]
+  },
+  {
+    "author": "alo-yonetim",
+    "datePublished": "2026-10-22T09:00:00.000Z",
+    "dateModified": "2026-10-22T09:00:00.000Z",
+    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+    "slug": "bakirkoy-asansor-bakimi-ve-ariza-rehberi-florya-senlikkoy-basinkoy-2026",
+    "title": "Bakırköy'de Asansör Bakımı ve Arıza Rehberi: Florya, Şenlikköy ve Basınköy (2026)",
+    "description": "Bakırköy'deki site ve apartmanlar için asansör bakım sözleşmesi, yeşil etiket (periyodik kontrol), arıza ve mahsur kalma durumunda yapılacaklar ve bakım firması seçerken sorulacak sorular.",
+    "category": "teknik",
+    "tags": [
+      "bakırköy asansör bakım",
+      "florya asansör bakım",
+      "şenlikköy asansör bakım",
+      "basınköy asansör bakım",
+      "asansör arıza",
+      "yeşil etiket"
+    ],
+    "pillar": "/bolgeler/bakirkoy/teknik-bakim",
+    "tldr": "Asansör bakımında üç belge belirleyicidir: yazılı bakım sözleşmesi, periyodik kontrol (etiket) raporu ve arıza kayıtları. Yeşil etiket asansörün muayenede uygun bulunduğunu, kırmızı etiket kullanılmaması gerektiğini gösterir. Sahile yakın bölgelerde nem ve tuz nedeniyle pano ve makine dairesi kontrolünü bakım planına ayrıca yazın.",
+    "content": [
+      {
+        "type": "h2",
+        "text": "Bakırköy'de asansör bakımı neden binaya göre değişir?"
+      },
+      {
+        "type": "p",
+        "text": "Bakırköy'de eski apartmanlardan etaplı sitelere ve sahile yakın binalara kadar çok farklı yapılar bulunur. Florya, Şenlikköy ve Basınköy gibi mahallelerde bina yaşı, kat sayısı ve kullanım yoğunluğu birbirinden farklıdır. Bakım planının temelini mahalle adı değil, asansörün yaşı, kat sayısı ve günlük kullanım yoğunluğu oluşturur."
+      },
+      {
+        "type": "h2",
+        "text": "Yeşil etiket ne anlatır?"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Etiket",
+          "Anlamı",
+          "Ne yapılmalı?"
+        ],
+        "rows": [
+          [
+            "Yeşil",
+            "Muayenede uygun bulunmuştur.",
+            "Muayene raporunu saklayın ve planlı bakıma devam edin."
+          ],
+          [
+            "Mavi veya sarı",
+            "Giderilmesi gereken kusurlar vardır.",
+            "Kusurları yönetmelikteki süre içinde giderin ve yeniden muayene isteyin."
+          ],
+          [
+            "Kırmızı",
+            "Asansör kullanılmamalıdır.",
+            "Asansörü çalıştırmayın; bakım firmasıyla onarım planı yapın."
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Etiket sonuçları ve kusur giderme süreleri yönetmelikte belirlenmiştir; muayene sıklığını ve güncel hükümleri muayene raporundaki tarihten ve ilgili mevzuattan teyit edin."
+      },
+      {
+        "type": "h2",
+        "text": "Bakım sözleşmesinde bulunması gerekenler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Bakım sıklığı ve her ziyaretin yazılı bakım formuyla belgelenmesi.",
+          "Arıza çağrısı için yazılı müdahale hedefi ve ulaşım süresi.",
+          "Yedek parçanın sözleşme kapsamında olup olmadığı; kapsam dışı parçalar için ön onay limiti.",
+          "Periyodik kontrol (etiket) sürecinde muayeneye hazırlık ve kusur gidermenin kimin sorumluluğunda olduğu.",
+          "Makine dairesi, pano ve kabin aydınlatmasının bakım kapsamına girip girmediği.",
+          "Sözleşme süresi, fesih ve fiyat güncelleme koşulları."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Sahile yakın binalarda nem ve tuz: Florya ve Yeşilköy"
+      },
+      {
+        "type": "p",
+        "text": "Denize yakın Florya ve Yeşilköy gibi bölgelerdeki binalarda nem ve tuzlu hava; pano, kapı mekanizması ve makine dairesi ekipmanında korozyonu hızlandırabilir. Makine dairesinin havalandırmasını, pano temizliğini ve paslanma belirtilerini bakım formunda ayrı satır olarak izleyin."
+      },
+      {
+        "type": "h2",
+        "text": "Arıza veya mahsur kalma durumunda ne yapılır?"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Kabinde mahsur kalındıysa paniğe kapılmayın; alarm ve acil çağrı butonunu kullanın, kapıyı zorlamayın.",
+          "Bina yönetimine ve bakım firmasının acil hattına haber verin; acil bir sağlık durumu varsa 112'yi arayın.",
+          "Asansörü kendiniz açmaya veya kabinden çıkmaya çalışmayın; müdahaleyi yetkili bakım personeli yapar.",
+          "Arıza saatini, bildirim saatini ve müdahale saatini kayda alın.",
+          "Aynı arıza tekrar ediyorsa bakım firmasından yazılı arıza analizi ve çözüm planı isteyin."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Bakım firması seçerken sorulacaklar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Bakımı yapan personelin ehliyet ve yetki belgelerini gösterebiliyor mu?",
+          "Arıza çağrılarına yazılı bir müdahale hedefi veriyor mu? (Alo Yönetim'in yazılı SLA kapsamındaki acil müdahale hedefi Avrupa Yakası'nda 1 saat olarak belirlenmiştir; süre sözleşmedeki hükümlere bağlıdır.)",
+          "Bakım raporlarını yönetime düzenli iletiyor mu?",
+          "Yedek parça ve revizyon tekliflerini kalem kalem yazıyor mu?"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kayıt düzeni ve yıllık takvim"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Her bakım ziyaretinin formunu tarih sırasıyla saklayın.",
+          "Periyodik kontrol (etiket) tarihini yönetimin takvimine işleyin ve süre dolmadan muayeneye hazırlanın.",
+          "Muayene sonrası kusur listesini, giderme tarihleriyle birlikte tek bir dosyada tutun.",
+          "Arıza kayıtlarını (saat, neden, müdahale süresi) bir arıza defterinde toplayın.",
+          "Makine dairesi anahtarının ve erişim yetkisinin kimde olduğunu yazılı belirleyin."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Bakım ve revizyon giderini kontrol altında tutmak"
+      },
+      {
+        "type": "p",
+        "text": "Aylık bakım ücretini, parça ve revizyon giderlerinden ayrı izleyin. Kumanda veya halat yenileme gibi büyük işlerde keşif ve birden fazla teklif alın. Yenileme işini yıllara yayan bir plan, aidatta ani artışı önler; karar için yönetim planındaki nisaba göre kurula yazılı gündem götürün."
+      },
+      {
+        "type": "h2",
+        "text": "Sakinler için kullanım kuralları"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Taşınma veya ağır yük taşıma öncesinde yönetime haber verin ve kabin koruması isteyin.",
+          "Kapıya engel koymayın ve kabin kapasitesini aşmayın.",
+          "Arızayı fark ettiğinizde hemen yönetime bildirin, asansörü kendiniz onarmaya çalışmayın."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Bakırköy'deki siteniz için teknik bakım hizmetimizi inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+        "href": "/bolgeler/bakirkoy/teknik-bakim",
+        "label": "Bakırköy teknik bakım"
+      },
+      {
+        "type": "h2",
+        "text": "Sık sorulan sorular"
+      },
+      {
+        "type": "h3",
+        "text": "Asansörün yeşil etiketi ne zaman yenilenir?"
+      },
+      {
+        "type": "p",
+        "text": "Muayene sıklığı mevzuatla belirlenir; güncel yönetmelik hükümlerine ve muayene raporundaki tarihe bakın."
+      },
+      {
+        "type": "h3",
+        "text": "Kırmızı etiketli asansör kullanılabilir mi?"
+      },
+      {
+        "type": "p",
+        "text": "Hayır. Kırmızı etiket asansörün kullanılmaması gerektiğini gösterir; kusurlar giderilip yeniden muayene yapılana kadar asansörü çalıştırmayın."
+      },
+      {
+        "type": "h3",
+        "text": "Bakım sözleşmesinde yedek parçayı kim öder?"
+      },
+      {
+        "type": "p",
+        "text": "Bu, sözleşmedeki kapsama bağlıdır. Parçaların dahil olup olmadığını ve kapsam dışı parçalar için ön onay limitini yazılı olarak netleştirin."
+      },
+      {
+        "type": "quote",
+        "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+      }
+    ]
+  },
+  {
+    "author": "alo-yonetim",
+    "datePublished": "2026-10-22T09:00:00.000Z",
+    "dateModified": "2026-10-22T09:00:00.000Z",
+    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+    "slug": "pendik-site-guvenligi-ve-5188-ozel-guvenlik-rehberi-2026",
+    "title": "Pendik'te Site Güvenliği: 5188 Çerçevesi, Güvenlik Şirketi Seçimi ve Sözleşme (2026)",
+    "description": "Pendik'teki site ve yerleşkeler için özel güvenlik hizmetinde 5188 sayılı Kanun çerçevesi, izin ve kimlik kartı kontrolü, devriye ve kamera düzeni, KVKK ve sözleşmede bulunması gerekenler.",
+    "category": "guvenlik",
+    "tags": [
+      "pendik güvenlik şirketi",
+      "pendik site güvenliği",
+      "5188 özel güvenlik",
+      "kurtköy güvenlik",
+      "yenişehir güvenlik"
+    ],
+    "pillar": "/bolgeler/pendik/guvenlik-yonetimi",
+    "tldr": "Site güvenliğinde belirleyici olanlar; güvenlik şirketinin 5188 kapsamındaki izin belgesi, personelin kimlik kartı geçerliliği, yazılı görev tanımı ve olay kayıtlarıdır. Pendik'te büyük yerleşkeler ve sahil siteleri farklı ihtiyaçlar doğurur; kamera ve giriş kayıtları kişisel verilerin korunması ilkelerine uygun tutulmalıdır.",
+    "content": [
+      {
+        "type": "h2",
+        "text": "Pendik'te güvenlik ihtiyacı neden farklılaşır?"
+      },
+      {
+        "type": "p",
+        "text": "Pendik'te Kurtköy ve Yenişehir'deki geniş yerleşkeler, Güzelyalı'daki sahil siteleri ve Kaynarca'daki yoğun apartman dokusu aynı güvenlik planıyla yönetilemez. Giriş sayısı, çevre uzunluğu, ziyaretçi ve kurye trafiği ve otopark düzeni; gerekli personel sayısını ve vardiya yapısını belirler."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Bölge",
+          "Tipik yapı",
+          "Güvenlikte öne çıkan konular"
+        ],
+        "rows": [
+          [
+            "Kurtköy",
+            "Havalimanı aksında yeni projeler ve siteler",
+            "Giriş kontrolü, çevre devriyesi, ziyaretçi düzeni"
+          ],
+          [
+            "Yenişehir",
+            "Orta ve büyük ölçekli kapalı siteler",
+            "Çok girişli yerleşkelerde vardiya planı ve kamera düzeni"
+          ],
+          [
+            "Kaynarca",
+            "Yoğun apartman dokusu",
+            "Bina girişi, otopark ve ortak alan denetimi"
+          ],
+          [
+            "Güzelyalı",
+            "Sahil hattında konutlar",
+            "Bahçe sınırı, giriş kapıları ve gece devriyesi"
+          ],
+          [
+            "Çamlık",
+            "Yamaç ve bahçeli yerleşim",
+            "Çevre aydınlatması ve sınır denetimi"
+          ]
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "5188 sayılı Kanun çerçevesinde nelere bakılır?"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Güvenlik şirketinin 5188 sayılı Kanun kapsamındaki izin belgesi ve geçerlilik tarihi.",
+          "Personelin özel güvenlik görevlisi kimlik kartı (ÖGG kartı), göreve başlamadan önce kontrol edilmelidir.",
+          "Sitenin güvenlik hizmeti için gerekli izin ve bildirimler; güncel şartlar ilgili Valilik biriminden teyit edilmelidir.",
+          "Görev tanımının yazılı olması: nöbet yerleri, çalışma saatleri ve yetkiler."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Güncel yükümlülükler için ilgili Valilik birimini ve hukuk danışmanını esas alın."
+      },
+      {
+        "type": "h2",
+        "text": "Giriş kontrolü ve ziyaretçi düzeni"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ziyaretçi için sakin onayı veya randevu usulü belirleyin.",
+          "Kurye ve servis araçları için ayrı teslim noktası veya giriş saati tanımlayın.",
+          "Araç giriş çıkışı için plaka kaydı veya kartlı geçiş düzeni kurun."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Kamera ve kişisel veriler"
+      },
+      {
+        "type": "p",
+        "text": "Kamera ve ziyaretçi kayıtları kişisel verilerin korunması ilkelerine uygun tutulmalıdır. Kayıtlarda yalnızca amaç için gerekli bilgi toplanmalı, kayıtlar yetkisiz kişilerce görülemeyecek biçimde saklanmalı ve belirlenen süre sonunda silinmelidir."
+      },
+      {
+        "type": "h2",
+        "text": "Olay raporunda bulunması gerekenler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Olayın tarihi, saati ve yeri.",
+          "Olayın kısa ve tarafsız tanımı.",
+          "İlgili kişiler ve görevliler.",
+          "Alınan önlemler ve bilgilendirilen kurumlar.",
+          "Varsa kamera kaydı ve fotoğraf gibi deliller."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Güvenlik sözleşmesinde bulunması gerekenler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Personel sayısı ve vardiya planı.",
+          "Devamsızlık halinde ikame personel yükümlülüğü.",
+          "Devriye ve raporlama sıklığı.",
+          "Olay halinde bildirim zinciri.",
+          "Telsiz, kamera ve diğer ekipmanın kime ait olduğu.",
+          "Fiyat artış koşulları ve sözleşmeden çıkış şartları."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Görevliye talimat ve eğitim"
+      },
+      {
+        "type": "p",
+        "text": "Yeni görevliye giriş kuralları, acil durum yönlendirmesi ve iletişim zinciri yazılı talimatla verilmelidir. Vardiya değişiminde talimatın güncel kalması ve her görevlinin bu talimatı imzayla teslim alması, uygulamada tutarlılığı sağlar."
+      },
+      {
+        "type": "h2",
+        "text": "Güvenlik giderini bütçede göstermek"
+      },
+      {
+        "type": "p",
+        "text": "Güvenlik hizmeti işletme projesinde ayrı bir gider kalemi olarak gösterilmeli, giderler yönetim planındaki paylaşım ölçüsüne göre dağıtılmalıdır. Aylık gerçekleşen gider tablosunun maliklere sunulması tartışmayı azaltır."
+      },
+      {
+        "type": "h2",
+        "text": "Aylık güvenlik toplantısı gündemi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Önceki ayın olay raporlarının değerlendirilmesi.",
+          "Devriye ve kamera arıza kayıtları.",
+          "Personel değişiklikleri ve eğitim ihtiyacı.",
+          "Bir sonraki ay için riskler ve alınacak önlemler."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Pendik'teki siteniz için güvenlik yönetimi hizmetimizi inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+        "href": "/bolgeler/pendik/guvenlik-yonetimi",
+        "label": "Pendik güvenlik yönetimi"
+      },
+      {
+        "type": "h2",
+        "text": "Sık sorulan sorular"
+      },
+      {
+        "type": "h3",
+        "text": "Güvenlik şirketinin izinli olduğunu nasıl anlarım?"
+      },
+      {
+        "type": "p",
+        "text": "Şirketten 5188 sayılı Kanun kapsamındaki izin belgesini ve geçerlilik tarihini isteyin; güncel durumu ilgili Valilik biriminden teyit edebilirsiniz."
+      },
+      {
+        "type": "h3",
+        "text": "Site güvenliği için kaç kişi gerekir?"
+      },
+      {
+        "type": "p",
+        "text": "Personel sayısı sitenin giriş sayısına, çevre uzunluğuna, vardiya yapısına ve risk değerlendirmesine göre belirlenir; sabit bir sayı yoktur. Keşif sonrası yazılı bir plan isteyin."
+      },
+      {
+        "type": "h3",
+        "text": "Kamera kayıtları ne kadar saklanır?"
+      },
+      {
+        "type": "p",
+        "text": "Saklama süresi amaca uygun ve kısa tutulmalı, süre sonunda kayıtlar silinmelidir; ayrıntı için hukuk danışmanına başvurun."
+      },
+      {
+        "type": "quote",
+        "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+      }
+    ]
+  },
+  {
+    "author": "alo-yonetim",
+    "datePublished": "2026-10-22T09:00:00.000Z",
+    "dateModified": "2026-10-22T09:00:00.000Z",
+    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+    "slug": "acarkent-beykoz-site-guvenligi-ve-yonetimi-rehberi-2026",
+    "title": "Acarkent ve Beykoz'da Site Güvenliği ve Yönetimi Rehberi (2026)",
+    "description": "Acarkent ve Beykoz'daki geniş site ve villa yerleşkeleri için çevre güvenliği, giriş kontrolü, devriye düzeni, kamera ve KVKK ile site yönetimi sözleşmesinde sorulacak sorular.",
+    "category": "guvenlik",
+    "tags": [
+      "acarkent güvenlik",
+      "acarkent site yönetimi",
+      "beykoz site güvenliği",
+      "kavacık",
+      "5188"
+    ],
+    "pillar": "/bolgeler/beykoz/guvenlik-yonetimi",
+    "tldr": "Acarkent gibi geniş yerleşkelerde güvenlik; çevre sınırının ve giriş noktalarının tanımlanması, devriye rotasının yazılı olması, kamera ve kayıtların kişisel verilerin korunmasına uygun tutulması ve olay raporlamasıyla yönetilir. Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle verilmelidir.",
+    "content": [
+      {
+        "type": "h2",
+        "text": "Geniş yerleşkelerde güvenlik nasıl planlanır?"
+      },
+      {
+        "type": "p",
+        "text": "Acarkent gibi çok sayıda villa ve sitenin bir arada bulunduğu geniş yerleşkelerde güvenlik, tek bir kapıdan ibaret değildir. Çevre sınırı, giriş noktaları, iç yollar ve ortak alanlar birlikte düşünülmelidir. Yerleşkenin ortak yönetimi ile her sitenin kendi yönetimi arasındaki görev paylaşımı yazılı olmazsa sorumluluk boşluğu doğar."
+      },
+      {
+        "type": "h2",
+        "text": "Giriş kontrolü ve ziyaretçi düzeni"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ziyaretçi için sakin onayı veya randevu usulü belirleyin.",
+          "Kurye ve servis araçları için ayrı teslim noktası veya giriş saati tanımlayın.",
+          "Araç giriş çıkışı için plaka kaydı veya kartlı geçiş düzeni kurun."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Kayıtlarda yalnızca amaç için gerekli bilgi toplanmalı, kayıtlar yetkisiz kişilerce görülemeyecek biçimde saklanmalı ve belirlenen süre sonunda silinmelidir."
+      },
+      {
+        "type": "h2",
+        "text": "Devriye rotası ve vardiya düzeni"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Devriye rotasını ve kontrol noktalarını yazılı olarak belirleyin.",
+          "Nöbet yerlerini ve saatlerini gösteren bir vardiya tablosu hazırlayın.",
+          "Vardiya devir teslimini tutanakla yapın.",
+          "Olağan dışı olaylar için standart bir olay formu kullanın."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Çevre aydınlatması ve kamera"
+      },
+      {
+        "type": "p",
+        "text": "Çevre aydınlatması, kör noktaların kamera ile izlenmesi ve arızaların kayıt altına alınması güvenlik planının parçasıdır. Kamera ve ziyaretçi kayıtları kişisel verilerin korunması ilkelerine uygun tutulmalıdır."
+      },
+      {
+        "type": "h2",
+        "text": "Olay anında yapılacaklar"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Güvenlik amirine ve site yönetimine hemen haber verin.",
+          "Acil bir durum varsa 112 Acil Çağrı Merkezi'ni arayın.",
+          "Olay raporunu tarih, saat ve yer bilgisiyle yazın.",
+          "Kamera kaydının yetkili kişilerce korunmasını sağlayın.",
+          "Olayı yönetim kurulu toplantısında değerlendirin ve önlem alın."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Güvenlik giderini bütçede nasıl göstermeli?"
+      },
+      {
+        "type": "p",
+        "text": "Güvenlik hizmeti işletme projesinde ayrı bir gider kalemi olarak gösterilmeli, giderler yönetim planındaki paylaşım ölçüsüne göre dağıtılmalıdır. Aylık gerçekleşen gider tablosunun maliklere sunulması tartışmayı azaltır."
+      },
+      {
+        "type": "h2",
+        "text": "Beykoz'daki diğer yerleşim tipleri"
+      },
+      {
+        "type": "p",
+        "text": "Beykoz'da Acarkent'in yanı sıra Kavacık'ta ofis ve plazalar, Paşabahçe ve Kanlıca'da sahil ve Boğaz yerleşimleri bulunur; güvenlik ihtiyacı yapı tipine göre değişir. Plazalarda ziyaretçi ve kurye trafiği, sahil yapılarda ise girişlerin ve bahçe sınırlarının denetimi öne çıkar."
+      },
+      {
+        "type": "h2",
+        "text": "Sakinler için pratik kurallar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Misafir bilgisini önceden yönetime veya güvenliğe iletin.",
+          "Kurye teslimini giriş noktasında veya belirlenen teslim noktasında yapın.",
+          "Şüpheli bir durumu hemen güvenlik amirine bildirin.",
+          "Yönetimdeki iletişim bilgilerinizi güncel tutun."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Yönetim değişiminde güvenlik belgelerinin devri"
+      },
+      {
+        "type": "p",
+        "text": "Güvenlik sözleşmesi, görev tanımı ve olay kayıtları yönetim değişiminde tutanakla devredilmelidir. Böylece geçmiş olaylar ve yükümlülükler kayıtlı kalır, yeni yönetim süreci kesintisiz sürdürür."
+      },
+      {
+        "type": "h2",
+        "text": "Aylık güvenlik toplantısı gündemi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Önceki ayın olay raporlarının değerlendirilmesi.",
+          "Devriye ve kamera arıza kayıtları.",
+          "Personel değişiklikleri ve eğitim ihtiyacı.",
+          "Bir sonraki ay için riskler ve alınacak önlemler."
+        ]
+      },
+      {
+        "type": "cta",
+        "text": "Beykoz'daki siteniz için site yönetimi hizmetimizi inceleyebilir, ücretsiz keşif teklifi isteyebilirsiniz.",
+        "href": "/bolgeler/beykoz/site-yonetimi",
+        "label": "Beykoz site yönetimi"
+      },
+      {
+        "type": "h2",
+        "text": "Sık sorulan sorular"
+      },
+      {
+        "type": "h3",
+        "text": "Geniş yerleşkede kaç noktadan giriş denetlenmelidir?"
+      },
+      {
+        "type": "p",
+        "text": "Sabit bir sayı yoktur; yerleşkenin giriş noktaları, yol ağı ve risk değerlendirmesine göre belirlenir. Keşif sonrası yazılı bir giriş planı isteyin."
+      },
+      {
+        "type": "h3",
+        "text": "Güvenlik hizmeti için hangi belgeler istenmeli?"
+      },
+      {
+        "type": "p",
+        "text": "Şirketin 5188 sayılı Kanun kapsamındaki izin belgesi ve geçerlilik tarihi ile personelin kimlik kartı geçerliliği istenmelidir; güncel şartlar için ilgili Valilik birimini teyit edin."
+      },
+      {
+        "type": "h3",
+        "text": "Ziyaretçi kayıtları kişisel verilerin korunmasına uygun tutulur mu?"
+      },
+      {
+        "type": "p",
+        "text": "Yalnızca amaç için gerekli bilgi toplanmalı, kayıtlar yetkisiz kişilerce görülemeyecek biçimde saklanmalı ve belirlenen süre sonunda silinmelidir."
+      },
+      {
+        "type": "quote",
+        "text": "Bu yazı genel bilgilendirme amaçlıdır; hukuki danışmanlık yerine geçmez."
+      }
+    ]
   }
 ];
 

@@ -806,6 +806,64 @@ export const POSTS_META: PostMeta[] = [
     "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
     "pillar": "/hizmetler/aidat-takibi",
     "tldr": "Alo Yönetim'in yönettiği sitelerde aidat süreci Apsiyon üzerinden yürür: sakinler uygulamada borçlarını ve geçmiş ödemelerini görür, aidatı kredi kartıyla online öder, duyuruları ve bildirimleri takip eder. Ekranlar Apsiyon'un sürümüne ve site ayarlarına göre değişebilir; takıldığınız yerde site yönetimine başvurun."
+  },
+  {
+    "author": "alo-yonetim",
+    "datePublished": "2026-10-22T09:00:00.000Z",
+    "dateModified": "2026-10-22T09:00:00.000Z",
+    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+    "slug": "bakirkoy-asansor-bakimi-ve-ariza-rehberi-florya-senlikkoy-basinkoy-2026",
+    "title": "Bakırköy'de Asansör Bakımı ve Arıza Rehberi: Florya, Şenlikköy ve Basınköy (2026)",
+    "description": "Bakırköy'deki site ve apartmanlar için asansör bakım sözleşmesi, yeşil etiket (periyodik kontrol), arıza ve mahsur kalma durumunda yapılacaklar ve bakım firması seçerken sorulacak sorular.",
+    "category": "teknik",
+    "tags": [
+      "bakırköy asansör bakım",
+      "florya asansör bakım",
+      "şenlikköy asansör bakım",
+      "basınköy asansör bakım",
+      "asansör arıza",
+      "yeşil etiket"
+    ],
+    "pillar": "/bolgeler/bakirkoy/teknik-bakim",
+    "tldr": "Asansör bakımında üç belge belirleyicidir: yazılı bakım sözleşmesi, periyodik kontrol (etiket) raporu ve arıza kayıtları. Yeşil etiket asansörün muayenede uygun bulunduğunu, kırmızı etiket kullanılmaması gerektiğini gösterir. Sahile yakın bölgelerde nem ve tuz nedeniyle pano ve makine dairesi kontrolünü bakım planına ayrıca yazın."
+  },
+  {
+    "author": "alo-yonetim",
+    "datePublished": "2026-10-22T09:00:00.000Z",
+    "dateModified": "2026-10-22T09:00:00.000Z",
+    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+    "slug": "pendik-site-guvenligi-ve-5188-ozel-guvenlik-rehberi-2026",
+    "title": "Pendik'te Site Güvenliği: 5188 Çerçevesi, Güvenlik Şirketi Seçimi ve Sözleşme (2026)",
+    "description": "Pendik'teki site ve yerleşkeler için özel güvenlik hizmetinde 5188 sayılı Kanun çerçevesi, izin ve kimlik kartı kontrolü, devriye ve kamera düzeni, KVKK ve sözleşmede bulunması gerekenler.",
+    "category": "guvenlik",
+    "tags": [
+      "pendik güvenlik şirketi",
+      "pendik site güvenliği",
+      "5188 özel güvenlik",
+      "kurtköy güvenlik",
+      "yenişehir güvenlik"
+    ],
+    "pillar": "/bolgeler/pendik/guvenlik-yonetimi",
+    "tldr": "Site güvenliğinde belirleyici olanlar; güvenlik şirketinin 5188 kapsamındaki izin belgesi, personelin kimlik kartı geçerliliği, yazılı görev tanımı ve olay kayıtlarıdır. Pendik'te büyük yerleşkeler ve sahil siteleri farklı ihtiyaçlar doğurur; kamera ve giriş kayıtları kişisel verilerin korunması ilkelerine uygun tutulmalıdır."
+  },
+  {
+    "author": "alo-yonetim",
+    "datePublished": "2026-10-22T09:00:00.000Z",
+    "dateModified": "2026-10-22T09:00:00.000Z",
+    "image": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop",
+    "slug": "acarkent-beykoz-site-guvenligi-ve-yonetimi-rehberi-2026",
+    "title": "Acarkent ve Beykoz'da Site Güvenliği ve Yönetimi Rehberi (2026)",
+    "description": "Acarkent ve Beykoz'daki geniş site ve villa yerleşkeleri için çevre güvenliği, giriş kontrolü, devriye düzeni, kamera ve KVKK ile site yönetimi sözleşmesinde sorulacak sorular.",
+    "category": "guvenlik",
+    "tags": [
+      "acarkent güvenlik",
+      "acarkent site yönetimi",
+      "beykoz site güvenliği",
+      "kavacık",
+      "5188"
+    ],
+    "pillar": "/bolgeler/beykoz/guvenlik-yonetimi",
+    "tldr": "Acarkent gibi geniş yerleşkelerde güvenlik; çevre sınırının ve giriş noktalarının tanımlanması, devriye rotasının yazılı olması, kamera ve kayıtların kişisel verilerin korunmasına uygun tutulması ve olay raporlamasıyla yönetilir. Güvenlik hizmeti 5188 sayılı Kanun kapsamında izinli ve lisanslı personelle verilmelidir."
   }
 ];
 

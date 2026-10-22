@@ -54,7 +54,7 @@ button.act.ghost{background:transparent;color:var(--accent)}
 <div class="wrap">
   <header>
     <h1>Yapay zekâ takip tablosu</h1>
-    <p class="lead">33 hedef sorguyu ayda bir elle arayın (gizli sekme, Google). Sonucu işaretleyin: yapay zekâ özeti çıktı mı, Alo Yönetim kaynak olarak geçti mi? Kayıtlar yalnızca bu tarayıcıda saklanır.</p>
+    <p class="lead">39 hedef sorguyu ayda bir elle arayın (gizli sekme, Google). Sonucu işaretleyin: yapay zekâ özeti çıktı mı, Alo Yönetim kaynak olarak geçti mi? Kayıtlar yalnızca bu tarayıcıda saklanır.</p>
   </header>
 
   <div class="bar">
@@ -114,7 +114,13 @@ const QUERIES = [
   ['Yerel','Beylikdüzü site yönetimi','/bolgeler/beylikduzu/site-yonetimi'],
   ['Sakin rehberi','apsiyon aidat nasıl ödenir','/blog/apsiyondan-aidat-odeme-ve-borc-goruntuleme-sakin-rehberi'],
   ['Sakin rehberi','apsiyon borç sorgulama','/blog/apsiyondan-aidat-odeme-ve-borc-goruntuleme-sakin-rehberi'],
-  ['Sakin rehberi','apsiyon ile kredi kartıyla aidat ödeme','/blog/apsiyondan-aidat-odeme-ve-borc-goruntuleme-sakin-rehberi']
+  ['Sakin rehberi','apsiyon ile kredi kartıyla aidat ödeme','/blog/apsiyondan-aidat-odeme-ve-borc-goruntuleme-sakin-rehberi'],
+  ['Yerel','pendik güvenlik şirketi','/blog/pendik-site-guvenligi-ve-5188-ozel-guvenlik-rehberi-2026'],
+  ['Yerel','acarkent güvenlik','/blog/acarkent-beykoz-site-guvenligi-ve-yonetimi-rehberi-2026'],
+  ['Yerel','bakırköy asansör bakım','/blog/bakirkoy-asansor-bakimi-ve-ariza-rehberi-florya-senlikkoy-basinkoy-2026'],
+  ['Yerel','florya asansör bakım','/blog/bakirkoy-asansor-bakimi-ve-ariza-rehberi-florya-senlikkoy-basinkoy-2026'],
+  ['Yerel','şenlikköy asansör bakım','/blog/bakirkoy-asansor-bakimi-ve-ariza-rehberi-florya-senlikkoy-basinkoy-2026'],
+  ['Yerel','basınköy asansör bakım','/blog/bakirkoy-asansor-bakimi-ve-ariza-rehberi-florya-senlikkoy-basinkoy-2026']
 ];
 const CLUSTERS = ['Tümü', ...new Set(QUERIES.map(q => q[0]))];
 const YN = [['', '—'], ['evet','Evet'], ['hayir','Hayır']];
