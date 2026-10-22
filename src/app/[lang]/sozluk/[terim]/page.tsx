@@ -106,8 +106,8 @@ export async function generateMetadata({
     title = 'Hazirun Cetveli Nedir, Nasıl Hazırlanır? Örnek Şablon | Alo Yönetim';
     description = 'Hazirun cetveli nedir, genel kurulda nasıl düzenlenir? Kopyalanabilir hazirun cetveli örneği, KMK m.29-31 katılım ve vekalet kontrolü, sayı ve arsa payı hesabı.';
   } else if (termLower.includes('ögg') || termLower.includes('ogg') || termLower.includes('özel güvenlik görevlisi') || termLower.includes('özel güvenlik kimlik')) {
-    title = 'ÖGG Kartı Nedir, Nasıl Alınır? — 5188 Özel Güvenlik Kimlik Kartı Rehberi | Alo Yönetim';
-    description = 'Özel kimlik kartı (ÖGG kartı) nedir, kimlere verilir? 5188 sayılı Kanun silahlı/silahsız güvenlik kimlik kartı alma şartları, geçici kimlik ve yenileme rehberi.';
+    title = 'ÖGG Kartı Nedir, Nasıl Alınır? Özel Kimlik Kartı (5188) Rehberi | Alo Yönetim';
+    description = 'Özel kimlik nedir, ÖGG ne demek? Özel güvenlik görevlisi kimlik kartı kimlere verilir, nasıl alınır? 5188 sayılı Kanun silahlı/silahsız kimlik şartları, geçici kimlik ve 5 yıllık yenileme rehberi.';
   } else if (termLower.includes('özel güvenlik izni') || termLower.includes('ögi')) {
     title = 'ÖGİ Ne Demek? Özel Güvenlik İzni Nedir, Nasıl Alınır? (5188 S.K.) | Alo Yönetim';
     description = 'ÖGİ (Özel Güvenlik İzni) ne demek ve nereden alınır? 5188 sayılı Kanun kapsamında site, rezidans ve tesisler için Valilik özel güvenlik komisyonu izin rehberi.';

@@ -317,6 +317,8 @@ export const TERM_DETAILS_2: Record<string, TermDetail> = {
       ['ÖGG kartı (özel kimlik kartı) nasıl alınır?', 'Yetkili özel güvenlik eğitim kurumunda temel eğitimi tamamlayıp EGM özel güvenlik sınavında başarılı olduktan sonra sağlık raporu ve güvenlik soruşturması ile Valiliğe başvurularak alınır.'],
       ['ÖGG geçici kimlik kartı kimlere verilir?', 'Sınavı kazanıp Valilik başvuru ve güvenlik soruşturması süreçleri olumlu sonuçlanan adaylara, fiziki kimlik kartı teslim edilene kadar geçici süreyle çalışma imkânı tanıyan resmi belgedir.'],
       ['Kartı olmayan kişi güvenlik görevlisi olarak çalışabilir mi?', 'Hayır. Özel güvenlik hizmeti kimlik kartı olan personelle yürütülmelidir.'],
+      ['Özel kimlik nedir, ÖGG ne demek?', "ÖGG, Özel Güvenlik Görevlisi'nin kısaltmasıdır. \"Özel kimlik\" veya \"özel kimlik kartı\" ifadesi çoğunlukla 5188 sayılı Kanun kapsamında özel güvenlik görevlisine Valilik tarafından verilen kimlik kartını anlatır."],
+      ['Özel güvenlik kimlik kartı kaç yıl geçerlidir?', 'Kartın geçerlilik süresi 5 yıldır; süre bitiminde yenileme eğitimi alınarak yenilenir. Güncel şartlar için ilgili Valilik birimini teyit edin.'],
     ],
   },
   'kmk-45-onemli-isler-oybirligi-kararlari': {
