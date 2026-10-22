@@ -162,6 +162,31 @@ export default async function Blog({ params }: { params: Promise<{ lang: string 
     })) as any;
   }
 
+  // Veritabanına henüz aktarılmamış statik yazıları (ilçe rehberleri, yeni rehberler) Türkçe listeye ekle.
+  if (lang === 'tr' && finalPosts.length > 0) {
+    const have = new Set(finalPosts.map((p: any) => p.slug));
+    const extras = POSTS_META.filter((m) => !have.has(m.slug) && !RETIRED_BLOG_SLUGS.includes(m.slug)).map((p) => {
+      const cat = CATEGORIES.find((c) => c.slug === p.category);
+      return {
+        id: `static-${p.slug}`,
+        slug: p.slug,
+        title: p.title,
+        description: p.description,
+        image: p.image,
+        published: true,
+        tags: JSON.stringify(p.tags),
+        datePublished: new Date(p.datePublished),
+        dateModified: new Date(p.dateModified || p.datePublished),
+        category: cat ? { id: cat.slug, slug: cat.slug, name: cat.name } : null,
+      };
+    });
+    if (extras.length > 0) {
+      finalPosts = [...finalPosts, ...extras].sort(
+        (a: any, b: any) => new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime(),
+      );
+    }
+  }
+
   if (finalCategories.length === 0) {
     finalCategories = CATEGORIES.map((c) => ({
       id: c.slug,

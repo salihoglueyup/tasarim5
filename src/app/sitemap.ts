@@ -48,13 +48,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.warn('sitemap.ts: Database fetch fallback triggered:', err instanceof Error ? err.message : err);
   }
 
-  // Faz 21: Minimal slug + dateModified projeksiyonu (Veritabanı offline fallback garantisi)
-  if (posts.length === 0) {
-    posts = POSTS_META.map((p) => ({
-      slug: p.slug,
-      dateModified: new Date(p.dateModified || p.datePublished),
-    }));
-    POSTS_META.forEach((p) => countTags(p.tags));
+  // Faz 21: Minimal slug + dateModified projeksiyonu (Veritabanı offline fallback garantisi).
+  // Veritabanı dolu olsa bile, henüz DB'ye aktarılmamış statik yazılar (ilçe rehberleri, yeni rehberler)
+  // sitemap'ten düşmesin diye statik kayıtlar DB'de olmayan slug'lar için eklenir.
+  const knownSlugs = new Set(posts.map((p) => p.slug));
+  for (const p of POSTS_META) {
+    if (knownSlugs.has(p.slug) || RETIRED_BLOG_SLUGS.includes(p.slug)) continue;
+    posts.push({ slug: p.slug, dateModified: new Date(p.dateModified || p.datePublished) });
+    countTags(p.tags);
   }
 
   if (categories.length === 0) {

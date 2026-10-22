@@ -101,14 +101,24 @@ export async function getHybridPostsList(): Promise<NormalizedPost[]> {
         tags: parseTags(p.tags),
       }));
 
-      redis.setex(cacheKey, CACHE_TTL.BLOG, JSON.stringify(normalized)).catch(() => {});
-      return normalized;
+      // Veritabanına henüz aktarılmamış statik yazıları (ilçe rehberleri vb.) listeye ekle.
+      const dbSlugs = new Set(normalized.map((p) => p.slug));
+      const extras = getStaticPostsList().filter((p) => !dbSlugs.has(p.slug));
+      const merged = [...normalized, ...extras].sort((a, b) => b.datePublished.getTime() - a.datePublished.getTime());
+
+      redis.setex(cacheKey, CACHE_TTL.BLOG, JSON.stringify(merged)).catch(() => {});
+      return merged;
     }
   } catch {
     // DB erişilemezse statik veriye düşülür
   }
 
   // 3. Statik veri fallback'i (POSTS_META)
+  return getStaticPostsList();
+}
+
+/** Statik yazı metaverisini NormalizedPost biçimine çevirir. */
+function getStaticPostsList(): NormalizedPost[] {
   return POSTS_META.map((p, idx) => {
     const cat = CATEGORIES.find((c) => c.slug === p.category);
     const authorObj = getAuthor(p.author);
