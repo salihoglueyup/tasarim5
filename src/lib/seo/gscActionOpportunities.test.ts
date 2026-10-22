@@ -49,7 +49,7 @@ describe('Google Search Console (GSC) High-Impact SEO Opportunities & Zero-Error
         params: Promise.resolve({ lang: 'tr', ilce: 'besiktas' }),
       });
 
-      expect(meta.title).toBe('Beşiktaş Mahalleleri (23 Mahalle Tam Liste) ve Site Yönetimi | Alo Yönetim');
+      expect(meta.title).toBe('Beşiktaş Mahalleleri (23 Mahalle Tam Liste) ve Site Yönetimi');
       expect(meta.description).toContain('Beşiktaş ilçesinde kaç mahalle var? Beşiktaş ilçesinde 23 mahalle bulunur');
     });
 

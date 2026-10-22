@@ -282,7 +282,29 @@ export function formatBrandTitle(title: string, brand: string = 'Alo Yönetim'):
   }
 
   // 4. Temizlenmiş sayfa konusunun ardına tek ve standart marka ekini yerleştir
-  return clean ? `${clean} | ${brand}` : brand;
+  if (!clean) return brand;
+  const branded = `${clean} | ${brand}`;
+  if (branded.length <= MAX_TITLE_LENGTH) return branded;
+  return limitTitleLength(clean);
+}
+
+/** Semrush/SERP için başlık üst sınırı (marka eki dahil). */
+export const MAX_TITLE_LENGTH = 70;
+
+/**
+ * Marka eki sığmayan uzun başlıkları kısaltır: önce markasız hâli kullanılır; hâlâ uzunsa yalnızca anlamlı bir
+ * parça kalacak şekilde (en az 45 karakter) son doğal ayırıcıdan (" — ", ": ", " | ") kesilir. Anahtar kelimeyi
+ * bozacak kadar kısa kalıyorsa başlık olduğu gibi bırakılır (arama motoru kendisi kısaltır).
+ */
+export function limitTitleLength(title: string, max: number = MAX_TITLE_LENGTH): string {
+  if (title.length <= max) return title;
+  const head = title.slice(0, max + 1);
+  let cut = -1;
+  for (const sep of [' — ', ' – ', ' | ', ': ']) {
+    const i = head.lastIndexOf(sep);
+    if (i > cut) cut = i;
+  }
+  return cut >= 45 ? title.slice(0, cut).trim() : title;
 }
 
 const DEFAULT_DESCRIPTIONS: Record<Locale, string> = {

@@ -5,6 +5,7 @@ import JsonLd from '@/components/seo/schema/JsonLd';
 import { generateBreadcrumbs, webPageSchema } from '@/lib/schemas';
 import { buildMetadata } from '@/lib/seo';
 import { prisma } from '@/lib/prisma';
+import { RETIRED_BLOG_SLUGS } from '@/lib/retiredBlogSlugs';
 import { SERVICES } from '@/data/services';
 import { DISTRICT_NAMES } from '@/data/districtsMetadata';
 import { POSTS_META } from '@/data/postsMetadata';
@@ -39,7 +40,7 @@ export default async function SiteHaritasiPage({
 
   // DB verilerini çek
   const dbCategories = await prisma.category.findMany().catch(() => []);
-  const dbPosts = await prisma.post.findMany({ where: { published: true }, select: { slug: true, title: true } }).catch(() => []);
+  const dbPosts = await prisma.post.findMany({ where: { published: true, slug: { notIn: RETIRED_BLOG_SLUGS } }, select: { slug: true, title: true } }).catch(() => []);
   
   const categories: Array<{ id: string; slug: string; name: string }> =
     dbCategories.length > 0

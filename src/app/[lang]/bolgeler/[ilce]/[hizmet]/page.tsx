@@ -224,7 +224,7 @@ export async function generateMetadata({
       `${district.name} ortak alan dezenfeksiyonu`,
     ];
   } else if (hizmet === 'guvenlik-sirketleri' || hizmet === 'guvenlik-firmalari' || hizmet === 'ozel-guvenlik' || isSecurity) {
-    metaTitle = `${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik & Hızlı Teklif | Alo Yönetim`;
+    metaTitle = `${district.name} Güvenlik Şirketleri — 5188 Lisanslı Özel Güvenlik | Alo Yönetim`;
     metaDesc = `${district.name} güvenlik şirketleri arasında 5188 sayılı Kanun çerçevesinde özel güvenlik, devriye ve kamera izleme koordinasyonu. Ücretsiz keşif ve net teklif.`;
     serviceKeywords = [
       `${district.name} güvenlik şirketleri`,

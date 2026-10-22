@@ -381,11 +381,11 @@ export default async function BlogDetail({
       mentions: dynamicMentions,
       author: author
         ? lang !== 'tr'
-          ? { name: author.name, url: localePath(`/blog/yazar/${author.slug}`, lang) }
+          ? { name: author.name, url: localePath(`/blog/yazar/${resolveAuthorSlug(author.slug)}`, lang) }
           : {
             name: author.name,
             jobTitle: 'Kıdemli Tesis Yönetimi Uzmanı',
-            url: `/blog/yazar/${author.slug}`,
+            url: `/blog/yazar/${resolveAuthorSlug(author.slug)}`,
             alumniOf: [{ name: 'İstanbul Üniversitesi', sameAs: 'https://tr.wikipedia.org/wiki/İstanbul_Üniversitesi' }],
             knowsAbout: ['Tesis Yönetimi', 'Bina Güvenliği', 'Aidat Hukuku', 'Site Yönetimi']
           }
@@ -426,7 +426,7 @@ export default async function BlogDetail({
               <div>
                 <div className="font-bold text-slate-900 dark:text-white">
                   {author ? (
-                    <Link href={`/blog/yazar/${author.slug}`} className="hover:underline">
+                    <Link href={`/blog/yazar/${resolveAuthorSlug(author.slug)}`} className="hover:underline">
                       {author.name}
                     </Link>
                   ) : (
@@ -613,7 +613,7 @@ export default async function BlogDetail({
           {author && (
             <div itemScope itemType="https://schema.org/Person" className="flex items-start gap-6 bg-[var(--color-surface)] dark:bg-[var(--color-surface)] border border-[var(--color-outline)]/80 dark:border-white/10 p-6 md:p-8 rounded-3xl mt-6 shadow-xs">
                <meta itemProp="jobTitle" content={t('blgx_author')} />
-               <meta itemProp="url" content={`/blog/yazar/${author.slug}`} />
+               <meta itemProp="url" content={`/blog/yazar/${resolveAuthorSlug(author.slug)}`} />
                {author.avatar ? (
                  <Image itemProp="image" src={author.avatar} alt={author.name} width={80} height={80} className="w-20 h-20 rounded-full object-cover shrink-0 border border-slate-200/80 dark:border-white/10" />
                ) : (
@@ -623,7 +623,7 @@ export default async function BlogDetail({
                )}
                <div className="flex flex-col gap-2">
                  <h4 className="text-xl font-bold text-slate-900 dark:text-white" itemProp="name">
-                   <Link href={`/blog/yazar/${author.slug}`} className="hover:text-slate-500 dark:hover:text-slate-400 transition-colors">
+                   <Link href={`/blog/yazar/${resolveAuthorSlug(author.slug)}`} className="hover:text-slate-500 dark:hover:text-slate-400 transition-colors">
                       {author.name}
                    </Link>
                  </h4>
