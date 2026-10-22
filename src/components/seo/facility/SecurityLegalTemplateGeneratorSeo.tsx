@@ -148,16 +148,10 @@ SİTE YÖNETİMİ                        GÜVENLİK AMİRİ
 
   const schemaData = {
     '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
+    '@type': 'CreativeWork',
     name: '5188 Yasal Dilekçe ve Karar Defteri Şablonu Oluşturucu',
-    operatingSystem: 'All',
-    applicationCategory: 'BusinessApplication',
+    isAccessibleForFree: true,
     description: 'Site ve apartman yöneticileri için 5188 sayılı Kanun uyumlu Valilik güvenlik izni başvuru dilekçesi, karar defteri metni ve KVKK kamera aydınlatma şablonu jeneratörü.',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'TRY'
-    }
   };
 
   return (

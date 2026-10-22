@@ -165,6 +165,8 @@ export function districtSecurityServiceSchema({
     '@context': 'https://schema.org',
     '@type': 'SecurityService',
     '@id': `${url}#security-service`,
+    address: ORG_ADDRESS,
+    telephone: ORG_PHONE,
     name: `${districtName} Güvenlik Şirketleri — 5188 Özel Güvenlik & Site Emniyet Hizmetleri`,
     description: `${districtName} genelinde 5188 sayılı kanun standartlarında Valilik ruhsatlı özel güvenlik personeli, devriye, PTS plaka tanıma ve CCTV kamera izleme hizmeti.`,
     url,
@@ -203,14 +205,14 @@ export function districtSecurityServiceSchema({
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: '5188 Sertifikalı Üniformalı Site Güvenlik Personeli'
+            name: 'Üniformalı Site Güvenlik Personeli (5188 çerçevesinde)'
           }
         },
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: 'Yapay Zeka Destekli PTS (Plaka Tanıma) ve Bariyer Otomasyonu'
+            name: 'Plaka Tanıma (PTS) ve Bariyer Sistemleriyle Koordinasyon'
           }
         },
         {
@@ -260,6 +262,8 @@ export function districtTechnicalServiceSchema(opts: {
   return {
     '@context': 'https://schema.org',
     '@type': 'EngineeringService',
+    address: ORG_ADDRESS,
+    telephone: ORG_PHONE,
     '@id': `${url}#technical-service`,
     name: `${districtName} Bina & Site Teknik Bakım, Asansör & Jeneratör Servisi`,
     description: `${districtName} genelinde asansör aylık bakımı, yeşil etiket muayenesi, jeneratör ATS yük testleri ve kompanzasyon panosu yönetimi hizmeti.`,
@@ -355,6 +359,8 @@ export function districtCleaningServiceSchema(opts: {
   return {
     '@context': 'https://schema.org',
     '@type': 'HouseCleaningService',
+    address: ORG_ADDRESS,
+    telephone: ORG_PHONE,
     '@id': `${url}#cleaning-service`,
     name: `${districtName} Profesyonel Site Temizliği, Dış Cephe Cam Silimi & İlaçlama`,
     description: `${districtName} siteleri ve tesisleri için blok kat temizliği, asansör hijyeni, dağcı dış cephe cam silimi ve Sağlık Bakanlığı onaylı biyosidal ilaçlama.`,

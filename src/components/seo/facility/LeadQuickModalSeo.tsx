@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import JsonLd from '@/components/seo/schema/JsonLd';
 
 import Icon from '@/components/ui/branding/Icon';
+import { ORG_ADDRESS } from '@/lib/schemas';
 export interface QuickQuotePayload {
   service?: string;
   district?: string;
@@ -89,9 +90,10 @@ export default function LeadQuickModalSeo() {
     name: 'Alo Yönetim Şeffaf Hizmet Teklifi',
     description: 'Site, apartman ve rezidanslar için anında ücretsiz keşif ve teklif başvuru formu.',
     mainEntity: {
-      '@type': 'FinancialService',
+      '@type': 'ProfessionalService',
       name: 'Alo Yönetim Tesis Teklifi',
-      telephone: '+90 216 550 48 48'
+      telephone: '+90 216 550 48 48',
+      address: ORG_ADDRESS,
     }
   };
 

@@ -102,7 +102,6 @@ export function generateFacilityManagementGraph(lang = 'tr'): JsonLdObject {
       telephone: ORG_PHONE,
       email: ORG_EMAIL,
       address: ORG_ADDRESS,
-      geo: ORG_GEO,
     },
     serviceOutput: {
       '@type': 'Thing',

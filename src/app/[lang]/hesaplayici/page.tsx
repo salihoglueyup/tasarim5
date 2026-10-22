@@ -50,18 +50,11 @@ export default async function HesaplayiciServer({
 
   const webAppLd = {
     '@context': 'https://schema.org',
-    '@type': 'WebApplication',
+    '@type': 'CreativeWork',
     name: t.calx_app_name,
     url: `${BASE_URL}/hesaplayici`,
-    applicationCategory: 'FinanceApplication',
-    operatingSystem: 'All',
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'TRY',
-    },
-    featureList: [t.calx_app_f1, t.calx_app_f2, t.calx_app_f3],
+    isAccessibleForFree: true,
+    abstract: [t.calx_app_f1, t.calx_app_f2, t.calx_app_f3].join(' · '),
     provider: {
       '@type': 'Organization',
       name: 'Alo Yönetim ve Organizasyon A.Ş.',

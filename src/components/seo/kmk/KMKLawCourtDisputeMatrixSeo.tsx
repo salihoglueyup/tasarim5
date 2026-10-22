@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { BASE_URL } from '@/lib/seo';
 
 import Icon from '@/components/ui/branding/Icon';
+import { ORG_ADDRESS, ORG_PHONE } from '@/lib/schemas';
 export interface KMKCourtDisputeItem {
   id: string;
   suitName: string;
@@ -95,6 +96,8 @@ export default function KMKLawCourtDisputeMatrixSeo({ className = '' }: { classN
     '@context': 'https://schema.org',
     '@type': 'LegalService',
     name: 'Alo Yönetim Kat Mülkiyeti Hukuk ve Dava Yönetim Masası',
+    address: ORG_ADDRESS,
+    telephone: ORG_PHONE,
     url: `${BASE_URL}/hizmetler/hukuk-ve-icra-danismanligi`,
     serviceType: 'Kat Mülkiyeti Hukuku Dava ve İcra Danışmanlığı',
     areaServed: 'İstanbul',
