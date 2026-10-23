@@ -548,3 +548,18 @@ textarea:focus-visible {
 @media (max-width: 767px) {
   .text-\[10px\] { font-size: 11px; line-height: 1.35; }
 }
+
+/* dokunmatik cihazlarda tıklama alanı: kart/CTA bağlantıları, altbilgi ve gezinti bağlantıları en az 32px yüksekliğe çıkar */
+@media (pointer: coarse) {
+  main a.flex,
+  main a.inline-flex,
+  footer a,
+  nav[aria-label] a {
+    min-height: 32px;
+    align-items: center;
+  }
+  footer a:not(.flex):not(.inline-flex),
+  nav[aria-label] a:not(.flex):not(.inline-flex) {
+    display: inline-flex;
+  }
+}
