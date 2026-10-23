@@ -15,13 +15,13 @@ Not: Semrush ve GSC raporlarının bir kısmı eski prod sürümünü gösteriyo
 
 ## 2. Kodu yayına alma
 - [ ] Sunucuda (`/home/halil/aloyonetim`) `git pull` (veya sizin pipeline'ınız) ardından `npm ci` ve `npx next build --webpack`
-- [ ] Uygulamayı yeniden başlatın (PM2/Docker; sizin kurulumunuza göre) ve ilk açılışta `/`, `/blog`, `/sitemap.xml` yanıtlarını kontrol edin
+- [ ] Docker kurulumunda: `docker compose -f docker/docker-compose.yml up -d --build web` (`entrypoint.sh` açılışta `prisma db push` yapar; DB doluysa seed çalışmaz). Uygulamayı yeniden başlatın ve ilk açılışta `/`, `/blog`, `/sitemap.xml` yanıtlarını kontrol edin
 
 ## 3. Veritabanı
 - [ ] `prisma/data/claims-cleanup-2026-10.sql` dosyası **gitignore'da**; sunucuya elle kopyalayıp çalıştırın (yedekten sonra).
   - Etkisi: "7/24" ifadeleri, uydurma KPI etiketleri, sahte referans/iş ortağı kayıtları ve kaldırılan şablon blog yazıları temizlenir.
   - `Reference` ve `Partner` tablolarını boşaltır; gerçek liste kodda (`src/data/realReferences.ts`).
-- [ ] Blog yazılarının DB ile eşitlenmesi gerekiyorsa seed: `npx tsx prisma/seed.ts` (DATABASE_URL gerekir). Not: sitemap ve `/blog` listesi artık DB'de olmayan statik yazıları da gösterir; seed zorunlu değil ama DB içeriği statik içerikle farklıysa tek tek yazı sayfası DB'deki eski metni gösterebilir, bu yüzden seed önerilir.
+- [ ] Blog yazılarının DB ile eşitlenmesi gerekiyorsa seed: `npx tsx prisma/seed.ts` (DATABASE_URL gerekir) ya da `FORCE_SEED=true` ile konteyner başlatma. Seed artık `RETIRED_BLOG_SLUGS` içindeki 96 kaldırılmış şablon yazıyı (ve `src/data/drafts` altındaki karşılıklarını) atlar; bunlar geri gelmez. Yine de seed'i claims-cleanup SQL'inden **sonra** çalıştırın. Not: sitemap ve `/blog` listesi artık DB'de olmayan statik yazıları da gösterir; seed zorunlu değil ama DB içeriği statik içerikle farklıysa tek tek yazı sayfası DB'deki eski metni gösterebilir, bu yüzden seed önerilir.
 - [ ] Yazı içeriğinde eski bağlantı taraması (SQL örneği):
   ```sql
   SELECT slug FROM "Post" WHERE content ILIKE '%/hizmetler/yonetim-danismanligi%' OR content ILIKE '%/hizmetler/havuz-bakimi%' OR content ILIKE '%212%';
@@ -32,6 +32,7 @@ Not: Semrush ve GSC raporlarının bir kısmı eski prod sürümünü gösteriyo
 - [ ] `https://aloyonetim.com.tr/sitemap.xml`: yaklaşık 1100 URL, ilçe rehberleri ve yeni yazılar dahil
 - [ ] `https://aloyonetim.com.tr/robots.txt`: `Content-Signal`, `Agentmap`, `Host` satırları yok; `Sitemap:` satırları var
 - [ ] Örnek sayfalar: `/hakkimizda` başlığı "2009 yılından beri…", `/blog/apsiyondan-aidat-odeme-ve-borc-goruntuleme-sakin-rehberi` (4 dil), `/guvenlik-akademisi`
+- [ ] `/app`: yeni sade metin (Apsiyon iş ortağı, özellikler siteye göre, sahte QR ve SSL/BDDK iddiaları yok), mağaza linkleri açılıyor
 - [ ] Mobilde (gerçek telefon): hero tam ekran ve beyaz bar yok, çerez bannerı ile sohbet butonu çakışmıyor, "uygulamayı indir" istemi çıkmıyor
 - [ ] Google Rich Results Test: ana sayfa, bir ilçe hizmet sayfası, `/hesaplayici`
 
@@ -45,7 +46,7 @@ Not: Semrush ve GSC raporlarının bir kısmı eski prod sürümünü gösteriyo
 - Semrush detay alanları: Course (2 alan), Carousel (1 alan), 2 hreflang çatışması, sitemap format hatası, kırık dahili görsel, 90 kırık dış link listesi
 - Avukat kontrolü: `docs/hukuk-kontrol-listesi-2026-10.md` (özellikle işletme projesi itiraz süresi)
 - RU/AR çevirilerin ana dil konuşuru tarafından okunması
-- `/app` sayfasının görünen metni için hangi ifadelerin doğru olduğu (taksit, BDDK, SSL, "ücretsiz")
+- ~~`/app` görünen metni~~ — tamamlandı (2026-10-23): doğrulanamayan güvenlik/özellik iddiaları kaldırıldı, puanlar için mağaza sayfalarına yönlendirme notu eklendi
 - Şirket şemasındaki `numberOfEmployees` (şimdilik 90, değiştirilmedi)
 
 ## Build sonucu (2026-10-23)
