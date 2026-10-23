@@ -2124,6 +2124,27 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "5. Göreve Başlamadan Önce Kontrol Listesi"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Özel güvenlik görevlisi kimlik kartının geçerliliği.",
+          "Yazılı görev tanımı ve site talimatı.",
+          "Acil durum bildirim zinciri ve iletişim bilgileri.",
+          "Kamera ve kayıtlar için kişisel veri ilkeleri hakkında bilgilendirme."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "6. Site Yönetimleri İçin Kimlik Kontrolü"
+      },
+      {
+        "type": "p",
+        "text": "Site yönetimleri, görev yapacak personelin kimlik kartı geçerliliğini göreve başlamadan önce kontrol etmeli ve tarihleri takvime işlemelidir. Güncel şartlar için ilgili Valilik birimi ve hukuk danışmanı esas alınmalıdır."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3592,6 +3613,34 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Güvenlik Planında Bulunması Gerekenler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Görev tanımı: nöbet yerleri, çalışma saatleri ve yetkiler.",
+          "Vardiya planı ve ikame personel düzeni.",
+          "Giriş kuralları ve ziyaretçi kaydı.",
+          "Acil durum bildirim zinciri.",
+          "Kamera ve kayıtlar için kişisel veri ilkeleri.",
+          "Raporlama sıklığı."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "5. Aylık Değerlendirme"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Önceki ayın olay raporlarının değerlendirilmesi.",
+          "Devriye ve kamera arıza kayıtları.",
+          "Personel değişiklikleri ve eğitim ihtiyacı.",
+          "Bir sonraki ay için riskler ve alınacak önlemler."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3609,6 +3658,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Tüm personelin SGK bildirgeleri, maaş bordroları ve devriye raporları düzenli olarak şeffaf biçimde site yönetim kuruluna sunulur."
+      },
+      {
+        "type": "h3",
+        "text": "Güvenlik sözleşmesinde nelere dikkat edilmeli?"
+      },
+      {
+        "type": "p",
+        "text": "Şirketin 5188 kapsamındaki izin belgesi, personel sayısı, ikame yükümlülüğü, ekipmanın kime ait olduğu, fiyat artış koşulları ve çıkış şartları yazılı olmalıdır."
+      },
+      {
+        "type": "h3",
+        "text": "Güvenlik personelinin kimlik kartı nasıl kontrol edilir?"
+      },
+      {
+        "type": "p",
+        "text": "Göreve başlamadan önce kimlik kartı ve geçerlilik tarihi kontrol edilir; güncel şartlar için ilgili Valilik birimi teyit edilir."
       },
       {
         "type": "cta",
@@ -3673,6 +3738,34 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "3. Tesis Yönetimi Sözleşmesinde Sorulacak Sorular"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hizmet kapsamı kalem kalem ve fiyatıyla yazılı mı?",
+          "Acil müdahale için yazılı bir hedef süre var mı?",
+          "Aylık gelir-gider ve bakım raporları kat maliklerine açık mı?",
+          "Yedek parça ve revizyon için ön onay limiti belirlenmiş mi?",
+          "Sözleşmeden çıkış ve devir teslim koşulları yazılı mı?"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "4. Geçiş Sürecinin İlk 30 Günü"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Devir teslim tutanağı hazırlanır.",
+          "Envanter, abonelik ve sözleşme kayıtları güncellenir.",
+          "Bakım takvimi ve raporlama formatı belirlenir.",
+          "Sakinlere iletişim kanalları duyurulur.",
+          "İlk aylık rapor kat maliklerine sunulur."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3690,6 +3783,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Kat Malikleri Denetim Kurulu veya bağımsız denetçiler, banka hesaplarını ve karar defterlerini düzenli aralıklarla denetleyerek rapor hazırlar."
+      },
+      {
+        "type": "h3",
+        "text": "Mevcut yönetimden yeni şirkete geçiş nasıl yapılır?"
+      },
+      {
+        "type": "p",
+        "text": "Kat malikleri kurulunda karar alınır, şirketle yazılı sözleşme yapılır ve belgeler, hesaplar ve ekipman devri tutanakla gerçekleştirilir."
+      },
+      {
+        "type": "h3",
+        "text": "Tesis yönetim şirketinden hangi raporlar istenmeli?"
+      },
+      {
+        "type": "p",
+        "text": "Aylık gelir-gider tablosu, tahsilat durumu, bakım ve arıza kayıtları ve planlanan işler düzenli olarak talep edilmelidir."
       },
       {
         "type": "cta",
@@ -3751,6 +3860,35 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "3. Temizlik Sözleşmesinde Bulunması Gerekenler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Hizmet kapsamı ve alan listesi (bloklar, otopark, sığınak, çöp odaları, dış alanlar).",
+          "Çalışma saatleri ve görevli personel sayısı.",
+          "Kullanılacak ürün ve ekipmanlar; talep üzerine ürün güvenlik bilgi formları (SDS).",
+          "Kontrol listesi ve aylık raporlama biçimi.",
+          "Eksik hizmette telafi ve yaptırım koşulları.",
+          "Personelin sigortalı çalıştırılması ve işveren yükümlülüklerinin kimde olduğu."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "4. Aylık Kontrol Listesi Örneği"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Ortak alanları gezerek temizlik kontrol formunu doldurun.",
+          "Asansör, çöp odası ve otopark gibi kritik alanların fotoğrafını tarihle kaydedin.",
+          "Sakin şikayetlerini ve çözüm sürelerini kayda alın.",
+          "Sarf malzeme stoğunu ve ekipman durumunu kontrol edin.",
+          "Sonuçları aylık raporla yönetim kuruluna sunun."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3768,6 +3906,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Kullanılan ürünler ilgili mevzuata uygun ruhsatlı ürünlerdir; ürün seçimi sitenin ihtiyaçlarına ve güvenlik bilgi formlarına (SDS) göre yapılır."
+      },
+      {
+        "type": "h3",
+        "text": "Temizlik sıklığı nasıl belirlenir?"
+      },
+      {
+        "type": "p",
+        "text": "Alanın büyüklüğüne, kullanım yoğunluğuna ve mevsime göre belirlenir; yazılı bir takvim ve kontrol listesiyle izlenmelidir."
+      },
+      {
+        "type": "h3",
+        "text": "Temizlik şirketi seçerken nelere bakılır?"
+      },
+      {
+        "type": "p",
+        "text": "Referanslara, personel ve sigorta kayıtlarına, ürün güvenlik bilgi formlarına ve yazılı kapsam ile raporlama düzenine bakılır."
       },
       {
         "type": "cta",
@@ -3832,6 +3986,33 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Bakım Sözleşmesinde Kapsam ve Kayıt"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Bakıma dahil sistemlerin tam listesi ve ziyaret sıklığı.",
+          "Arıza çağrısı için yazılı müdahale hedefi.",
+          "Yedek parça için ön onay limiti.",
+          "Her ziyaret için imzalı bakım formu.",
+          "Kayıtların kat maliklerine hangi sıklıkla sunulacağı."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "5. Arıza Anında İzlenecek Adımlar"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Arızayı bina yönetimine ve bakım firmasının acil hattına bildirin.",
+          "Güvenlik riski varsa sistemi devre dışı bırakın.",
+          "Arıza saatini, bildirim saatini ve müdahale saatini kayda alın.",
+          "Aynı arıza tekrar ediyorsa yazılı arıza analizi isteyin."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3849,6 +4030,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Asansör İşletme ve Bakım Yönetmeliği uyarınca asansörün periyodik kontrolünü yaptırmak ve yeşil etiketi almak bina yöneticisinin / asansör işletmecisinin sorumluluğundadır."
+      },
+      {
+        "type": "h3",
+        "text": "Bakım kayıtları neden saklanmalı?"
+      },
+      {
+        "type": "p",
+        "text": "Muayene, sigorta ve olası uyuşmazlıklarda yapılan bakımı kanıtlar; yönetim değişiminde süreklilik sağlar."
+      },
+      {
+        "type": "h3",
+        "text": "Jeneratör testi hangi sıklıkta yapılır?"
+      },
+      {
+        "type": "p",
+        "text": "Sıklık cihaz üreticisinin önerisine ve sözleşmeye göre belirlenir; düzenli yük testi ve yakıt seviyesi kaydı yaygın bir uygulamadır."
       },
       {
         "type": "cta",
@@ -3913,6 +4110,28 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Peyzaj Sözleşmesinde Kapsam"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sulama sistemi bakımı ve arıza müdahalesi.",
+          "Çim biçme ve gübreleme sıklığı.",
+          "Budama ve bitki atıklarının uzaklaştırılması.",
+          "Mevsimlik çiçek ve bitki yenileme.",
+          "Su faturasının ve ekipmanın kimde olduğu."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "5. Su Tüketimini İzlemek"
+      },
+      {
+        "type": "p",
+        "text": "Sulama saatlerini ve sayaç okumalarını aylık takip edin; olağan dışı artışlar çoğunlukla sulama hattı veya vana arızasına işaret eder. Sezon başında sistemin kontrolü ve sezon sonunda kışlama işlemleri bakım takvimine yazılmalıdır."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3930,6 +4149,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Yaprak döken ağaçlar için en uygun derin budama dönemi bitkinin uyku evresinde olduğu Kasım - Şubat ayları arasıdır."
+      },
+      {
+        "type": "h3",
+        "text": "Peyzaj bakım ücreti neye göre belirlenir?"
+      },
+      {
+        "type": "p",
+        "text": "Alanın büyüklüğüne, bitki çeşitliliğine, sulama sistemine ve ziyaret sıklığına göre belirlenir; kalem kalem teklif isteyin."
+      },
+      {
+        "type": "h3",
+        "text": "Peyzaj hizmetinin kalitesi nasıl izlenir?"
+      },
+      {
+        "type": "p",
+        "text": "Mevsimlik iş takvimi, aylık yapılan iş raporu ve fotoğraflı kontrol listesiyle izlenir."
       },
       {
         "type": "cta",
@@ -4000,6 +4235,33 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Sezon Açılışı ve Kapanışı"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Filtre ve pompa kontrolünü yapın.",
+          "Havuzu doldurup su analizini alın.",
+          "Güvenlik ekipmanını ve uyarı levhalarını kontrol edin.",
+          "Kimyasal stoğunu ve saklama koşullarını denetleyin.",
+          "Sezon sonunda kışlama işlemlerini yazılı plana bağlayın."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "5. Havuz Kuralları ve Sakin Bilgilendirme"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Kullanım saatlerini ve çocuklar için kuralları ilan edin.",
+          "Havuza girmeden önce hijyen duşu kuralını uygulayın.",
+          "Uyarı levhalarını görünür yerlere asın.",
+          "Olayları ve ölçüm sonuçlarını kayıt altına alın."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -4017,6 +4279,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Havuz nem alma santrali (dehumidifier) bağıl nemi uygun aralıkta tutmalı ve taze hava beslemesi sağlanmalıdır."
+      },
+      {
+        "type": "h3",
+        "text": "Havuz suyu bulanıklaşırsa ne yapılır?"
+      },
+      {
+        "type": "p",
+        "text": "Kullanıma ara verilip ölçümler alınır; filtre, pompa ve kimyasal dozajı kontrol edilir, gerekirse uzman firmadan destek alınır."
+      },
+      {
+        "type": "h3",
+        "text": "Havuz kurallarını kim belirler?"
+      },
+      {
+        "type": "p",
+        "text": "Kullanım saatleri ve kurallar yönetim planı ve kurul kararıyla belirlenir, ilgili mevzuatın şartları esas alınır."
       },
       {
         "type": "cta",
@@ -4081,6 +4359,32 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "4. Uygulama Öncesi Hazırlık ve Bilgilendirme"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Sakinlere uygulama tarihini ve saatini önceden duyurun.",
+          "Evcil hayvan, akvaryum ve gıda ile ilgili uyarıları paylaşın.",
+          "İlaçlanacak alanların listesini ve havalandırma süresini belirleyin.",
+          "Kullanılacak ürünlerin ruhsat bilgisini uygulamadan önce isteyin."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "5. Uygulama Sonrası Kayıt ve Takip"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Uygulama raporunu ve kullanılan ürün listesini saklayın.",
+          "Varsa kontrol istasyonlarının takibini yazılı yapın.",
+          "Tekrar ziyaret koşullarını sözleşmede netleştirin.",
+          "Sakin şikayetlerini kayda alın ve firmaya iletin."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -4098,6 +4402,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Periyot, sitenin risk değerlendirmesine ve uygulayıcı firmanın önerisine göre belirlenir; rögar ve çevre ilaçlaması sezon dönemlerinde, kapalı alanlar ise düzenli aralıklarla ilaçlanır."
+      },
+      {
+        "type": "h3",
+        "text": "İlaçlama firmasından hangi belgeler istenmeli?"
+      },
+      {
+        "type": "p",
+        "text": "Firmanın faaliyet ve ürün ruhsat bilgileri, uygulama raporu ve ürün etiketi ile güvenlik bilgi formu istenmelidir; güncel şartları ilgili mevzuattan teyit edin."
+      },
+      {
+        "type": "h3",
+        "text": "İlaçlama sonrası çocuklar ve evcil hayvanlar için nelere dikkat edilir?"
+      },
+      {
+        "type": "p",
+        "text": "Ürün etiketindeki bekleme ve havalandırma talimatına uyulmalı, ilaçlanan alanlara bu süre geçmeden girilmemelidir."
       },
       {
         "type": "cta",
@@ -4179,6 +4499,33 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "Aidat Alacağında İlk Adımlar"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Borç tutarını ve ilgili dönemleri kayıtlardan doğrulayın.",
+          "Yazılı hatırlatma yapın.",
+          "Ödeme olmazsa ihtar gönderin.",
+          "KMK m.20 çerçevesinde gecikme tazminatını hesaplayın.",
+          "Hukuk danışmanıyla icra takibi veya dava yolunu seçin."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Sık Yapılan Hatalar"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "İhtar ve hatırlatma yapılmadan doğrudan takibe girişmek.",
+          "Borç kayıtlarını ve dekontları düzenli tutmamak.",
+          "Süreci çok geç başlatıp alacağı büyütmek.",
+          "Usulsüz toplanan genel kurul kararlarına dayanmak."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -4188,6 +4535,22 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Soru: Genel kurul kararına karşı dava açma süresi ne kadardır?\nCevap: Sulh Hukuk Mahkemesinde iptal davası açma süreleri kısadır ve toplantıya katılıp katılmadığınıza ve kararın nasıl bildirildiğine göre değişir (KMK m.33); gecikmeden bir avukata danışın."
+      },
+      {
+        "type": "h3",
+        "text": "Aidat borçlusuna ne zaman icra takibi başlatılır?"
+      },
+      {
+        "type": "p",
+        "text": "Yazılı hatırlatma ve ihtar sonuçsuz kaldıktan sonra, KMK m.20 çerçevesinde ve hukuk danışmanı görüşüyle başlatılır."
+      },
+      {
+        "type": "h3",
+        "text": "Hukuk danışmanlığı sözleşmesinde neler yazılmalı?"
+      },
+      {
+        "type": "p",
+        "text": "Hizmet kapsamı, ücret ve ödeme koşulları, raporlama sıklığı ve süreçte kimin yetkili olduğu yazılı belirlenmelidir."
       },
       {
         "type": "cta",
@@ -4361,6 +4724,34 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "İşletme projeleri ve kat malikleri kurulu kararları, mevzuatın aradığı şartlar sağlandığında İcra ve İflas Kanunu Madde 68 kapsamında itirazların kaldırılmasına dayanak olabilir."
+      },
+      {
+        "type": "h2",
+        "text": "Dava ve İcra Süreçlerinde Belge Düzeni"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "İhtarname örnekleri ve tebliğ belgeleri.",
+          "Borç dökümü ve ilgili işletme projesi.",
+          "Karar defteri ve genel kurul çağrı belgeleri.",
+          "Banka dekontları ve ödeme kayıtları.",
+          "Yönetici seçimine ilişkin karar sureti."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Süreçte Yönetimin Yapması Gerekenler"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Borcu ve ilgili dönemi kayıtlardan tespit edin.",
+          "Yazılı hatırlatma ve ihtar adımlarını uygulayın.",
+          "Hukuk danışmanından görüş alın.",
+          "KMK m.20 çerçevesinde icra takibi veya dava yolunu seçin.",
+          "Tahsilatı ve süreci kayıt altında izleyin."
+        ]
       },
       {
         "type": "h2",
