@@ -304,7 +304,7 @@ export default function ApsiyonMobileHub() {
 
           {/* Bilgi notu */}
           <p className="text-xs text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
-            Uygulamalar Apsiyon&apos;a aittir. Hangi özelliklerin açık olduğunu ve sorularınızı site yönetiminize iletebilirsiniz.
+            Uygulamalar Apsiyon&apos;a aittir. Güncel kullanıcı puanları ve yorumlar için yukarıdaki mağaza sayfalarına bakabilirsiniz. Hangi özelliklerin açık olduğunu ve sorularınızı site yönetiminize iletebilirsiniz.
           </p>
         </div>
       </section>
