@@ -2845,6 +2845,14 @@ export const POSTS: Post[] = [
         "text": "Teklif karşılaştırması, enerji izleme ve planlı bakımla bazı giderler azaltılabilir; sonuç sitenin yapısına göre değişir."
       },
       {
+        "type": "h3",
+        "text": "Aidat artışına itiraz etmek isteyen malik ne yapmalı?"
+      },
+      {
+        "type": "p",
+        "text": "Önce artışın dayanağı olan işletme projesini ve gider kalemlerini yazılı olarak isteyin; kurulda itirazınızı karar defterine geçirtin ve gerekirse süreler için hukuk danışmanına başvurun."
+      },
+      {
         "type": "cta",
         "text": "Sitenizin aidat bütçesini optimize etmek ve şeffaf yönetim teklifi almak için bize ulaşın.",
         "href": "/teklif-al",
@@ -3641,6 +3649,37 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Giriş Kuralları ve Sakin Bilgilendirmesi"
+      },
+      {
+        "type": "p",
+        "text": "Güvenlik uygulamalarının kabul görmesi, kuralların açık ve herkes için aynı uygulanmasına bağlıdır. Ziyaretçi, kurye ve servis araçları için kurallar kurul kararıyla yazıya geçirilip sakinlere duyurulmalı; kayıt tutulurken yalnızca amaç için gerekli bilgi toplanmalı ve kayıtlar belirlenen süre sonunda silinmelidir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Ziyaretçi ve kurye girişi için yazılı kural.",
+          "Misafir bilgisinin güvenliğe önceden iletilmesi.",
+          "Servis araçları ve otopark kuralları.",
+          "Kayıtlar için saklama ve silme süresi."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "7. Olay Raporunda Bulunması Gerekenler"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Olayın tarihi, saati ve yeri.",
+          "Olayın kısa ve tarafsız tanımı.",
+          "İlgili kişiler ve görevliler.",
+          "Alınan önlemler ve bilgilendirilen kurumlar.",
+          "Varsa kamera kaydı ve fotoğraf gibi deliller."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3766,6 +3805,23 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "5. Raporlama ve Denetim Düzeni"
+      },
+      {
+        "type": "p",
+        "text": "Tesis yönetiminde güven; düzenli ve karşılaştırılabilir raporlamayla kurulur. Aylık gelir-gider tablosu, banka hesap özeti, tahsilat durumu, bakım ve arıza kayıtları aynı biçimde sunulduğunda kat malikleri ve denetçiler dönemler arasındaki değişimi kolayca izler. Denetçinin belgelere erişimi ve raporların ne sıklıkla sunulacağı sözleşmede yazılı olmalıdır."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Raporun içeriği ve sunum tarihi sözleşmede belirlenir.",
+          "Harcama belgeleri denetçinin incelemesine açık tutulur.",
+          "Önemli kararlar ve büyük harcamalar kurula yazılı sunulur.",
+          "Yıllık faaliyet özeti genel kurulda sunulur."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3799,6 +3855,14 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Aylık gelir-gider tablosu, tahsilat durumu, bakım ve arıza kayıtları ve planlanan işler düzenli olarak talep edilmelidir."
+      },
+      {
+        "type": "h3",
+        "text": "Denetçi hangi belgelere erişebilir?"
+      },
+      {
+        "type": "p",
+        "text": "Banka ekstreleri, harcama belgeleri, karar defteri ve sözleşmeler gibi yönetimin mali ve idari kayıtlarını inceleyebilir; kapsam yönetim planı ve sözleşmeyle netleştirilmelidir."
       },
       {
         "type": "cta",
@@ -3889,6 +3953,23 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "5. Dönemsel ve Özel Temizlikler"
+      },
+      {
+        "type": "p",
+        "text": "Günlük ve haftalık rutinin dışında dış cephe ve cam temizliği, otopark zemin yıkaması, sığınak ve depo temizliği, bahar ve kış öncesi derin temizlik gibi dönemsel işler planlanmalıdır. Bu işler sözleşmede ayrı kalemler olarak yazılmazsa her seferinde ek bütçe tartışması çıkar. Ayrıca iş güvenliği önlemleri ve çalışma saatleri sakinlere önceden duyurulmalıdır."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Dönemsel işlerin takvimini yıllık bütçeye işleyin.",
+          "Yüksekte çalışma gerektiren işlerde erişim yöntemini ve iş güvenliği önlemlerini yazılı belirleyin.",
+          "Her dönemsel işten önce ve sonra fotoğraflı kayıt tutun.",
+          "Çalışma saatlerini ve etkilenecek alanları sakinlere önceden bildirin."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -3922,6 +4003,14 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Referanslara, personel ve sigorta kayıtlarına, ürün güvenlik bilgi formlarına ve yazılı kapsam ile raporlama düzenine bakılır."
+      },
+      {
+        "type": "h3",
+        "text": "Dönemsel temizlik işleri aidata nasıl yansıtılır?"
+      },
+      {
+        "type": "p",
+        "text": "İşletme projesinde ayrı bir kalem olarak gösterilir; giderler yıla yayıldığında ani artış yerine düzenli avans toplanabilir."
       },
       {
         "type": "cta",
@@ -4013,6 +4102,24 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Kritik Sistemlerin Listesi ve Önceliklendirme"
+      },
+      {
+        "type": "p",
+        "text": "Her sitede kesintiye tahammülü olmayan sistemler vardır: asansörler, hidrofor, yangın algılama ve söndürme, jeneratör ve ana elektrik panosu. Bu sistemlerin listesi, sorumlu kişileri ve acil iletişim bilgileri tek bir sayfada tutulmalı; arıza halinde hangi sistemin önce ele alınacağı önceden belirlenmelidir."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Asansörler ve periyodik kontrol takvimi.",
+          "Hidrofor ve su tesisatı.",
+          "Yangın algılama ve söndürme sistemleri.",
+          "Jeneratör ve yedek güç düzeni.",
+          "Ana elektrik panosu ve kompanzasyon."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -4046,6 +4153,14 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Sıklık cihaz üreticisinin önerisine ve sözleşmeye göre belirlenir; düzenli yük testi ve yakıt seviyesi kaydı yaygın bir uygulamadır."
+      },
+      {
+        "type": "h3",
+        "text": "Hangi sistemler öncelikli bakım gerektirir?"
+      },
+      {
+        "type": "p",
+        "text": "Can güvenliğini ve yaşamsal hizmetleri ilgilendiren asansör, yangın sistemleri, hidrofor, jeneratör ve ana elektrik panosu öncelikli izlenmelidir."
       },
       {
         "type": "cta",
@@ -4132,6 +4247,23 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Mevsimsel Risklerin Yönetimi"
+      },
+      {
+        "type": "p",
+        "text": "Kuraklık, don, fırtına ve aşırı yağış peyzaj alanlarında hasara yol açabilir. Fırtına sonrası kırılan dalların ve devrilme riski taşıyan ağaçların hızla kontrol edilmesi, don öncesi hassas bitkilerin korunması ve kurak dönemde sulama planının gözden geçirilmesi bakım takviminin parçası olmalıdır."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Fırtına sonrası dal ve ağaç kontrolü için hızlı müdahale prosedürü.",
+          "Don öncesi hassas bitki ve sulama hattı koruması.",
+          "Kurak dönemde sulama saatlerinin ve miktarının gözden geçirilmesi.",
+          "Aşırı yağışta drenaj ve çim alan kontrolü."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -4165,6 +4297,14 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Mevsimlik iş takvimi, aylık yapılan iş raporu ve fotoğraflı kontrol listesiyle izlenir."
+      },
+      {
+        "type": "h3",
+        "text": "Kurak dönemde sulama nasıl planlanır?"
+      },
+      {
+        "type": "p",
+        "text": "Sulama sabah erken veya akşam saatlerine alınır, bitkinin ihtiyacına göre ayarlanır ve ilgili su idaresinin duyuruları dikkate alınır; sayaç okumaları düzenli izlenir."
       },
       {
         "type": "cta",
@@ -4262,6 +4402,23 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Güvenlik Önlemleri ve Kayıt Düzeni"
+      },
+      {
+        "type": "p",
+        "text": "Havuz işletmesinde su kalitesi kadar güvenlik de önemlidir. İlgili mevzuatın aradığı güvenlik donanımı, uyarı levhaları, kapı ve çit düzeni ile çocuklar için ayrı alanların durumu düzenli kontrol edilmelidir. Kontrol ve ölçüm kayıtları tarihli ve imzalı tutulursa, hem yönetimin özeni gösterilmiş olur hem de yönetim değişiminde süreklilik sağlanır."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Güvenlik donanımının ve uyarı levhalarının kontrolü.",
+          "Havuz çevresi, kapı ve çit durumu.",
+          "Çocuk havuzu için ayrı kural ve gözetim düzeni.",
+          "Ölçüm ve olay kayıtlarının tarihli ve imzalı tutulması."
+        ]
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -4295,6 +4452,14 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Kullanım saatleri ve kurallar yönetim planı ve kurul kararıyla belirlenir, ilgili mevzuatın şartları esas alınır."
+      },
+      {
+        "type": "h3",
+        "text": "Çocuk havuzunda ek önlem gerekir mi?"
+      },
+      {
+        "type": "p",
+        "text": "Çocuk havuzları için ayrı kullanım kuralı, yetişkin gözetimi ve sık ölçüm uygulanması önerilir; zorunlu şartlar için ilgili mevzuatı teyit edin."
       },
       {
         "type": "cta",
@@ -4385,6 +4550,28 @@ export const POSTS: Post[] = [
       },
       {
         "type": "h2",
+        "text": "6. Risk Alanlarının Belirlenmesi"
+      },
+      {
+        "type": "p",
+        "text": "İlaçlama planı, sitenin risk alanlarının yerinde incelenmesiyle başlar. Çöp odaları, otopark, sığınak, kazan dairesi, rögar ve bahçe gibi alanların her biri farklı haşere türlerine ve farklı uygulama yöntemlerine uygun olabilir. Alanların listelenmesi ve uygulama sıklığının buna göre belirlenmesi, gereksiz uygulamayı da eksik uygulamayı da önler."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Çöp odaları ve şut boruları.",
+          "Kapalı otopark ve sığınak.",
+          "Kazan ve hidrofor odaları.",
+          "Rögar ve dış alan giderleri.",
+          "Bahçe ve peyzaj alanları."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Uygulama kayıtlarının ve şikayet geçmişinin yıllık olarak değerlendirilmesi, bir sonraki dönemin programını daha doğru belirlemenizi sağlar."
+      },
+      {
+        "type": "h2",
         "text": "Sıkça Sorulan Sorular (SSS)"
       },
       {
@@ -4418,6 +4605,14 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Ürün etiketindeki bekleme ve havalandırma talimatına uyulmalı, ilaçlanan alanlara bu süre geçmeden girilmemelidir."
+      },
+      {
+        "type": "h3",
+        "text": "Kemirgen veya böcek görüldüğünde ilk adım nedir?"
+      },
+      {
+        "type": "p",
+        "text": "Durumu yönetime bildirin, görüldüğü yeri ve zamanı kaydedin; gıda ve atık kaynaklarını ve giriş noktalarını belirleyip uygulayıcı firmayla yazılı olarak değerlendirin."
       },
       {
         "type": "cta",
@@ -4551,6 +4746,14 @@ export const POSTS: Post[] = [
       {
         "type": "p",
         "text": "Hizmet kapsamı, ücret ve ödeme koşulları, raporlama sıklığı ve süreçte kimin yetkili olduğu yazılı belirlenmelidir."
+      },
+      {
+        "type": "h3",
+        "text": "Aidat borcuna itiraz edilirse ne olur?"
+      },
+      {
+        "type": "p",
+        "text": "İtiraz halinde takibin seyri değişir; alacaklının itirazın kaldırılması veya iptali için hukuki yollara başvurması gerekebilir. Somut durum için hukuk danışmanından görüş alın."
       },
       {
         "type": "cta",
@@ -4752,6 +4955,36 @@ export const POSTS: Post[] = [
           "KMK m.20 çerçevesinde icra takibi veya dava yolunu seçin.",
           "Tahsilatı ve süreci kayıt altında izleyin."
         ]
+      },
+      {
+        "type": "h2",
+        "text": "Genel Kurul Öncesi Hukuki Hazırlık"
+      },
+      {
+        "type": "p",
+        "text": "Genel kurul kararlarının geçerliliği büyük ölçüde çağrının usulüne uygun yapılmasına, toplantı ve karar nisabına ve karar defterinin doğru tutulmasına bağlıdır. Hazırlık aşamasında gündemin yazılı olarak belirlenmesi, çağrının ispatlanabilir yolla yapılması ve toplantıda hazirun cetvelinin düzenlenmesi, sonradan açılabilecek iptal davalarının riskini azaltır."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Gündem maddelerini yönetim planına ve KMK'ya göre kontrol edin.",
+          "Çağrıyı tüm kat maliklerine yazılı ve ispatlanabilir yolla yapın.",
+          "Toplantıda hazirun cetvelini düzenleyin ve imzalatın.",
+          "Kararları karar defterine eksiksiz ve zamanında yazın.",
+          "Hukuki bakımdan kritik kararlar için önceden hukuk danışmanından görüş alın."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Sözleşmelerde Dikkat Edilecek Noktalar"
+      },
+      {
+        "type": "p",
+        "text": "Yönetim, güvenlik, temizlik ve bakım gibi hizmet sözleşmelerinde kapsam, süre, fesih koşulları ve cezai şartlar yazılı ve açık olmalıdır. Yetkisiz imzalanan veya genel kurul onayı gerektiren sözleşmeler sonradan uyuşmazlık yaratabilir; bu nedenle imza yetkisi ve onay süreci önceden netleştirilmelidir."
+      },
+      {
+        "type": "p",
+        "text": "Bu rehberdeki adımlar genel bilgilendirme niteliğindedir. Somut uyuşmazlıklarda süreler ve usul kuralları kritik olduğundan, işlem yapmadan önce hukuk danışmanından görüş alınmalı ve tüm yazışmalar ispatlanabilir yolla yapılmalıdır."
       },
       {
         "type": "h2",
