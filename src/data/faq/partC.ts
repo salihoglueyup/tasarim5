@@ -178,4 +178,15 @@ export const FAQ_PART_C: FaqRow[] = [
     'هل توجد أداة لحساب حصتي من المستحقات؟',
     'نعم، فبواسطة حاسبة توزيع المستحقات على موقعنا يمكنكم توزيع إجمالي المصروف على الوحدات بحسب حصة الأرض أو بالتساوي ومشاهدة حصة تقريبية. والنتيجة للإحاطة؛ أما التوزيع الدقيق فيتم وفق خطة الإدارة وقرار الجمعية.',
   ],
+  [
+    'Tesis Yönetimi',
+    "Alo Yönetim kimdir, diğer 'Alo' adlı kuruluşlarla ilişkisi nedir?",
+    "Alo Yönetim, resmî unvanı Alo Yönetim ve Organizasyon A.Ş. olan, genel merkezi Osmanağa, Kadıköy'de bulunan ve 2009'dan beri faaliyet gösteren site, apartman ve tesis yönetim şirketidir. 'Alo' adını taşıyan her kuruluş bu şirketle aynı değildir; grup şirketlerimizden Alo Güvenlik özel güvenlik eğitimi alanında faaliyet gösterir (guvenlikkursu.com). Şirket bilgilerimizi iletişim ve kurumsal sayfalarımızdan doğrulayabilirsiniz.",
+    "Who is Alo Yönetim and how is it related to other organizations named 'Alo'?",
+    "Alo Yönetim, whose legal name is Alo Yönetim ve Organizasyon A.Ş., is a site, apartment and facility management company headquartered in Osmanağa, Kadıköy, and operating since 2009. Not every organization with the name 'Alo' is the same as this company; among our group companies, Alo Güvenlik operates in private security training (guvenlikkursu.com). You can verify our company details on our contact and corporate pages.",
+    "Кто такая Alo Yönetim и как она связана с другими организациями с названием «Alo»?",
+    "Alo Yönetim, юридическое название которой — «Alo Yönetim ve Organizasyon A.Ş.», — компания по управлению комплексами, многоквартирными домами и объектами с головным офисом в Османаа (Кадыкёй), работающая с 2009 года. Не каждая организация с названием «Alo» — это та же компания; среди наших групповых компаний «Alo Güvenlik» работает в сфере обучения частной охране (guvenlikkursu.com). Данные о компании можно проверить на страницах «Контакты» и «О компании».",
+    "من هي Alo Yönetim وما علاقتها بالجهات الأخرى التي تحمل اسم Alo؟",
+    "Alo Yönetim واسمها القانوني (Alo Yönetim ve Organizasyon A.Ş.) هي شركة لإدارة المجمعات والعمارات والمرافق، مقرها الرئيسي في أوسمان آغا بمنطقة قاضي كوي (Kadıköy)، وتعمل منذ عام 2009. وليست كل جهة تحمل اسم Alo هي هذه الشركة نفسها؛ ومن شركات مجموعتنا (Alo Güvenlik) المتخصصة في تدريب الأمن الخاص (guvenlikkursu.com). ويمكنكم التحقق من بيانات شركتنا في صفحتي الاتصال والتعريف بالشركة.",
+  ],
 ];

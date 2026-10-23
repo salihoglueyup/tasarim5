@@ -1,5 +1,5 @@
 /**
- * Özenle yazılmış SSS (46 madde, 4 dilde). Önceki ilçe×konu permütasyonu şablon soruların yerine geçer.
+ * Özenle yazılmış SSS (49 madde, 4 dilde). Önceki ilçe×konu permütasyonu şablon soruların yerine geçer.
  * Biçim, eski veritabanı kaydıyla uyumludur (FaqClient ve /api/faqs bunu doğrudan kullanır).
  */
 import { FAQ_PART_A, type FaqRow } from './faq/partA';
