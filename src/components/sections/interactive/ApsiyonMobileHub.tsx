@@ -15,62 +15,54 @@ interface FaqItem {
 
 const FAQ_ITEMS: FaqItem[] = [
   {
-    q: 'Apsiyon uygulamasını indirmek ve kullanmak kat sakinleri için ücretli mi?',
-    a: 'Hayır, kesinlikle ücretsizdir. Alo Yönetim tarafından yönetilen tüm tesis, site ve rezidanslardaki kat sakinleri, mülk sahipleri ve kiracılar Apsiyon uygulamasını App Store, Google Play ve Huawei AppGallery üzerinden hiçbir ek ücret ödemeden ücretsiz indirebilir ve kullanabilir.'
+    q: 'Apsiyon uygulamasını indirmek ve kullanmak ücretli mi?',
+    a: 'Uygulama App Store, Google Play ve Huawei AppGallery üzerinden indirilebilir. Kullanım koşulları ve olası ücretler Apsiyon\'a aittir; güncel bilgi için mağaza sayfasına ve Apsiyon\'un kendi duyurularına bakın.'
   },
   {
-    q: 'Online aidat öderken kredi kartı bilgilerim ve ödeme güvenliği nasıl sağlanır?',
-    a: 'Tüm ödemeler BDDK lisanslı ödeme kuruluşları ve banka altyapıları üzerinden 256-Bit SSL şifreleme ve 3D Secure zorunlu SMS doğrulaması ile gerçekleştirilir. Kredi kartı bilgileriniz hiçbir sunucuda saklanmaz; ödeme anında resmi dijital KMK makbuzu üretilir.'
+    q: 'Alo Yönetim ile Apsiyon arasındaki ilişki nedir?',
+    a: 'Apsiyon, site yönetimi yazılımı geliştiren bir teknoloji firmasıdır ve Alo Yönetim\'in iş ortağıdır. Aidat, tahsilat, talep ve duyuru gibi yazılımla ilgili tüm işlemler Apsiyon altyapısı üzerinden yürür; uygulamanın sahibi ve geliştiricisi Apsiyon\'dur.'
   },
   {
-    q: 'Kiracıyım; Apsiyon uygulamasında hangi yetkilere sahibim?',
-    a: 'Kiracılarımız Apsiyon üzerinden kendi bağımsız bölümlerine ait aidat borçlarını ödeyebilir, ortak alan arıza ve teknik servis taleplerini fotoğraflı olarak iletebilir, havuz/fitness gibi sosyal tesisleri rezerve edebilir ve yönetim duyurularını anlık takip edebilir. Genel kurul oy hakları ise KMK gereği mülk sahibine aittir.'
+    q: 'Online ödeme güvenliği ve kart bilgilerim konusunda kim sorumlu?',
+    a: 'Ödeme ekranları ve ödeme altyapısı Apsiyon ile onun anlaştığı ödeme kuruluşlarına aittir. Güvenlik ve veri işleme ayrıntıları için Apsiyon\'un gizlilik ve güvenlik açıklamalarına bakabilirsiniz.'
   },
   {
-    q: 'Farklı sitelerde veya aynı sitede birden fazla dairem varsa ne yapmalıyım?',
-    a: 'Apsiyon çoklu mülk desteğine sahiptir. Aynı telefon numarasıyla sisteme giriş yaptığınızda, Alo Yönetim bünyesindeki tüm bağımsız bölümleriniz tek bir hesapta birleşir. Tek dokunuşla daireleriniz arasında geçiş yaparak her birinin aidat ve yönetim durumunu ayrı ayrı kontrol edebilirsiniz.'
+    q: 'Kiracıyım; uygulamada neler yapabilirim?',
+    a: 'Görebileceğiniz ve yapabileceğiniz işlemler sitenizde Apsiyon üzerinde hangi modüllerin açık olduğuna ve yönetimin size verdiği yetkiye göre değişir. Hangi işlemlerin sitenizde aktif olduğunu site yönetiminizden öğrenebilirsiniz. Genel kurulda oy hakkı Kat Mülkiyeti Kanunu uyarınca kat malikine aittir.'
   },
   {
-    q: 'Yöneticiyim / Denetçiyim; Apsiyon Manager ile Alo Yönetim raporlarına nasıl erişirim?',
-    a: 'Sitenizin yönetim kurulu veya denetim kurulu üyesiyseniz, Alo Yönetim tarafından size tanımlanan Yönetici yetkisi ile "Apsiyon Manager" mobil uygulamasını ve web panelini kullanabilirsiniz. Anlık banka hesap mutabakatlarını, tahsilat yüzdelerini, gecikme faizlerini ve personel puantajlarını şeffaflıkla denetleyebilirsiniz.'
+    q: 'Birden fazla dairem varsa ne yapmalıyım?',
+    a: 'Birden fazla bağımsız bölümün aynı hesapta nasıl görüneceği Apsiyon\'un hesap kurgusuna bağlıdır. Daireleriniz sistemde tanımlıysa giriş yaptığınızda size bağlı bölümleri görürsünüz; göremiyorsanız site yönetiminize başvurun.'
+  },
+  {
+    q: 'Yönetici veya denetçiyim; Apsiyon Manager\'a nasıl erişirim?',
+    a: 'Yönetim kurulu veya denetim kurulu üyesiyseniz, hesabınızın yönetici yetkisiyle tanımlanması için site yönetiminize başvurun. Yetki tanımlandıktan sonra Apsiyon Manager mobil uygulamasını ve web panelini kullanabilirsiniz; erişebileceğiniz raporlar yetkinize ve sitenizin ayarlarına göre değişir.'
   }
 ];
 
 const RESIDENT_FEATURES = [
   {
     icon: 'credit_card',
-    title: 'Online Aidat & Avans Ödeme',
-    desc: 'Kredi kartı veya banka kartıyla anında 3D Secure güvenli ödeme, otomatik talimat ve anında resmi dijital makbuz.',
-    tag: 'Finansal Kolaylık'
+    title: 'Online Aidat Ödeme',
+    desc: 'Sitenizde etkinse aidat ve avans borçlarınızı uygulamadan görüntüleyip ödeyebilirsiniz.',
+    tag: 'Ödeme'
   },
   {
     icon: 'home_repair_service',
-    title: 'Fotoğraflı Arıza & Teknik Destek',
-    desc: 'Ortak alandaki arızayı fotoğraflayıp iletin; teknik servis aşamalarını ve çözüldü bildirimini canlı bildirimle takip edin.',
-    tag: 'Hızlı Müdahale'
+    title: 'Talep ve Arıza Bildirimi',
+    desc: 'Ortak alan arıza ve taleplerinizi uygulamadan iletin, durumunu takip edin.',
+    tag: 'Talep'
   },
   {
-    icon: 'event_seat',
-    title: 'Sosyal Tesis & Alan Rezervasyonu',
-    desc: 'Havuz, fitness salonu, tenis kortu ve toplantı odası gibi ortak kullanım alanlarını tek dokunuşla online rezerve edin.',
-    tag: 'Konfor'
-  },
-  {
-    icon: 'how_to_vote',
-    title: 'KMK Uyumlu Dijital Oylama & Kararlar',
-    desc: 'Genel kurul kararlarına ve site anketlerine arsa payınız oranında evinizden online olarak katılın, söz sahibi olun.',
-    tag: '634 KMK Uyumlu'
-  },
-  {
-    icon: 'local_police',
-    title: 'Nizamiye PTS & Misafir Plaka Kaydı',
-    desc: 'Misafirinizin araç plakasını önceden uygulamaya girin; güvenlik nizamiyesindeki plaka tanıma kamerası beklemeden geçiş sağlasın.',
-    tag: 'Güvenlik Entegre'
+    icon: 'notifications_active',
+    title: 'Duyurular',
+    desc: 'Yönetimin duyurularını uygulama üzerinden takip edin.',
+    tag: 'Haberleşme'
   },
   {
     icon: 'receipt_long',
-    title: 'Şeffaf Gelir-Gider & Denetim Raporları',
-    desc: 'Sitenizin tüm banka hareketlerini, aylık işletme bütçesini, fatura dökümlerini ve denetim raporlarını şeffaflıkla inceleyin.',
+    title: 'Borç ve Ödeme Geçmişi',
+    desc: 'Dairenize ait borç ve ödeme geçmişinizi görüntüleyin.',
     tag: 'Şeffaflık'
   }
 ];
@@ -78,45 +70,32 @@ const RESIDENT_FEATURES = [
 const MANAGER_FEATURES = [
   {
     icon: 'account_balance',
-    title: 'Banka Entegrasyonu & Anlık Kasa Takibi',
-    desc: 'Tüm site banka hesapları otomatik mutabakatla tek ekranda; anlık tahsilat, gider ve nakit akışı raporlaması.',
+    title: 'Tahsilat ve Kasa Takibi',
+    desc: 'Aidat tahsilatlarını ve gelir-gider hareketlerini Apsiyon Manager üzerinden izleyin.',
     tag: 'Apsiyon Manager'
   },
   {
     icon: 'balance',
-    title: 'Gecikme Takibi, Faiz & İcra Hazırlığı',
-    desc: 'Aidat borcunu geciktiren bağımsız bölümlere otomatik yasal faiz işletimi ve tek tuşla avukat icra dosya dökümü.',
-    tag: 'Hukuk Otomasyonu'
-  },
-  {
-    icon: 'badge',
-    title: 'Personel Vardiya & Taşeron Yönetimi',
-    desc: 'Temizlik, güvenlik ve teknik personelin nöbet çizelgeleri, QR devriye kontrolleri ve taşeron firma sözleşme takibi.',
-    tag: 'Saha Denetimi'
-  },
-  {
-    icon: 'menu_book',
-    title: 'Dijital Karar Defteri & Resmi Arşiv',
-    desc: 'Yönetim kurulu kararlarını dijital ortamda arşivleyin, KMK mevzuatına uygun noter kayıtlarıyla eşleştirin.',
-    tag: 'Resmi Uyum'
+    title: 'Gecikme Takibi',
+    desc: 'Geciken aidat borçlarını listeleyin ve takip edin; hukuki süreçler için hukuk danışmanından destek alın.',
+    tag: 'Takip'
   },
   {
     icon: 'notifications_active',
-    title: 'Toplu SMS, E-Posta & Anlık Bildirim',
-    desc: 'Su/elektrik kesintisi, genel kurul çağrısı veya acil duyuruları tek tıkla tüm kat maliklerinin cebine iletin.',
-    tag: 'Anlık İletişim'
+    title: 'Toplu Duyuru ve Bildirim',
+    desc: 'Kat maliklerine duyuruları Apsiyon üzerinden iletin; hangi kanalların (SMS, e-posta, bildirim) açık olduğu sitenize göre değişir.',
+    tag: 'İletişim'
   },
   {
-    icon: 'speed',
-    title: 'Otomatik Sayaç Okuma & Gider Paylaşımı',
-    desc: 'Merkezi ısıtma, payölçer ve sıcak su tüketimlerini Enerji Bakanlığı mevzuatına uygun şekilde paylaştırın.',
-    tag: 'Enerji & Adalet'
+    icon: 'menu_book',
+    title: 'Kayıt ve Raporlar',
+    desc: 'Yönetim kayıtlarını ve raporları panelden görüntüleyin; kapsam sitenizin ayarlarına bağlıdır.',
+    tag: 'Raporlama'
   }
 ];
 
 export default function ApsiyonMobileHub() {
   const [activeRole, setActiveRole] = useState<PortalRole>('resident');
-  const [showQr, setShowQr] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const features = activeRole === 'resident' ? RESIDENT_FEATURES : MANAGER_FEATURES;
@@ -139,7 +118,7 @@ export default function ApsiyonMobileHub() {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: 'Apsiyon — Alo Yönetim Sakin ve Yönetici Portalı',
-    description: 'Alo Yönetim tarafından yönetilen sitelerde sakinlerin Apsiyon uygulaması üzerinden aidat ödemesi, borç ve ödeme geçmişi görüntüleme, duyuru ve talep takibi.',
+    description: 'Alo Yönetim\'in iş ortağı Apsiyon\'un sakin ve yönetici uygulamaları: aidat ödemesi, borç ve ödeme geçmişi, duyuru ve talep takibi (kapsam sitenize göre değişir).',
     about: {
       '@type': 'Thing',
       name: 'Apsiyon mobil uygulaması',
@@ -175,15 +154,15 @@ export default function ApsiyonMobileHub() {
               <span>Alo Yönetim</span>
             </span>
             <span className="text-slate-300 dark:text-slate-600 font-light">×</span>
-            <ApsiyonLogo variant="full" width={100} height={23} fillColor="#00A5DF" title="Apsiyon Teknoloji Ortaklığı" />
+            <ApsiyonLogo variant="full" width={100} height={23} fillColor="#00A5DF" title="Apsiyon İş Ortaklığı" />
             <span className="hidden sm:inline-block text-[11px] font-semibold text-[#00A5DF] bg-[#00A5DF]/10 border border-[#00A5DF]/30 px-2.5 py-0.5 rounded-full ml-1">
-              Canlı Mobil Altyapı
+              İş Ortağımız
             </span>
           </div>
 
           {/* Sayfanın Tek ve Ana H1 Başlığı */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.15] max-w-4xl mx-auto mb-6 text-slate-900 dark:text-white">
-            Site ve Tesis Yönetiminin Tamamı{' '}
+            Site Yönetimi İşlemleriniz{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A5DF] via-[#0284C7] to-[#FF9503]">
               Cebinizde
             </span>
@@ -191,7 +170,7 @@ export default function ApsiyonMobileHub() {
 
           {/* Alt Açıklama */}
           <p className="text-base sm:text-lg md:text-xl font-normal text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10">
-            Alo Yönetim güvencesi ve Apsiyon&apos;un bulut teknolojisiyle; tüm kat sakinlerimiz, ev sahiplerimiz ve site yönetim kurullarımız için online aidat ödeme, arıza takibi, dijital oylama ve 360° şeffaf yönetim portalı.
+            İş ortağımız Apsiyon&apos;un sakin ve yönetici uygulamalarıyla aidat, talep ve duyuru işlemlerini mobilden ve web'den takip edebilirsiniz. Yazılımla ilgili tüm işlemleri Apsiyon yürütür; sunulan özellikler sitenize göre ayarlanır.
           </p>
 
           {/* Rol Değiştirici Sekmeler (Sakin vs. Yönetici) */}
@@ -321,66 +300,12 @@ export default function ApsiyonMobileHub() {
               </div>
             </a>
 
-            {/* QR Kod Aç/Kapat Butonu */}
-            <button
-              type="button"
-              onClick={() => setShowQr(!showQr)}
-              className="flex items-center gap-2 bg-white hover:bg-slate-50 dark:bg-white/5 dark:hover:bg-white/15 border border-slate-200 dark:border-white/15 px-4 py-3 rounded-2xl transition-all duration-300 transform-gpu text-xs font-semibold text-slate-700 dark:text-slate-300 shadow-sm cursor-pointer"
-            >
-              <Icon name="qr_code_2" className="text-xl text-slate-500" />
-              <span>{showQr ? 'QR Kodu Gizle' : 'Kamerayla Okut (QR)'}</span>
-            </button>
           </div>
 
-          {/* QR Kod Açılır Kartı */}
-          {showQr && (
-            <div className="bg-white text-slate-900 p-6 rounded-3xl shadow-xl border border-slate-200 inline-flex flex-col items-center gap-3 mb-8 transition-all duration-300 transform-gpu mx-auto">
-              <div className="w-40 h-40 bg-slate-950 rounded-2xl p-3 flex items-center justify-center">
-                <svg viewBox="0 0 100 100" className="w-full h-full fill-white" aria-hidden="true">
-                  <rect x="0" y="0" width="30" height="30" fill="white" />
-                  <rect x="5" y="5" width="20" height="20" fill="#0f172a" />
-                  <rect x="10" y="10" width="10" height="10" fill="white" />
-                  <rect x="70" y="0" width="30" height="30" fill="white" />
-                  <rect x="75" y="5" width="20" height="20" fill="#0f172a" />
-                  <rect x="80" y="10" width="10" height="10" fill="white" />
-                  <rect x="0" y="70" width="30" height="30" fill="white" />
-                  <rect x="5" y="75" width="20" height="20" fill="#0f172a" />
-                  <rect x="10" y="80" width="10" height="10" fill="white" />
-                  <rect x="40" y="10" width="10" height="20" fill="white" />
-                  <rect x="55" y="5" width="10" height="10" fill="white" />
-                  <rect x="40" y="40" width="20" height="20" fill="white" />
-                  <rect x="10" y="45" width="15" height="10" fill="white" />
-                  <rect x="75" y="45" width="15" height="15" fill="white" />
-                  <rect x="45" y="70" width="15" height="20" fill="white" />
-                  <rect x="70" y="75" width="20" height="10" fill="white" />
-                </svg>
-              </div>
-              <p className="text-xs font-bold text-slate-800">Telefonunuzun kamerasıyla okutun</p>
-              <p className="text-[11px] text-slate-500 text-center max-w-[220px]">
-                Cihazınız otomatik tespit edilir ve doğrudan mağazadaki Apsiyon sayfasına yönlendirilirsiniz.
-              </p>
-            </div>
-          )}
-
-          {/* Yasal Güvence ve Akreditasyon Rozetleri */}
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-2 text-xs text-slate-500 dark:text-slate-400 font-medium">
-            <div className="flex items-center gap-1.5">
-              <Icon name="gavel" className="text-base text-emerald-600 dark:text-emerald-400" />
-              <span>634 KMK Tam Uyumluluk</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Icon name="lock" className="text-base text-[#00A5DF]" />
-              <span>256-Bit SSL Şifreleme</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Icon name="shield" className="text-base text-slate-600 dark:text-slate-400" />
-              <span>KVKK Gizlilik Koruması</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <Icon name="verified_user" className="text-base text-[#FF9503]" />
-              <span>BDDK Lisanslı Sanal POS</span>
-            </div>
-          </div>
+          {/* Bilgi notu */}
+          <p className="text-xs text-slate-500 dark:text-slate-400 font-medium max-w-2xl mx-auto">
+            Uygulamalar Apsiyon&apos;a aittir. Hangi özelliklerin açık olduğunu ve sorularınızı site yönetiminize iletebilirsiniz.
+          </p>
         </div>
       </section>
 
@@ -391,17 +316,17 @@ export default function ApsiyonMobileHub() {
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#00A5DF]/10 border border-[#00A5DF]/30 text-[#00A5DF] text-xs font-bold uppercase tracking-wider mb-3">
             <Icon name="featured_play_list" className="text-sm" />
-            <span>{activeRole === 'resident' ? 'Site Sakini Deneyimi' : 'Yönetim Kurulu Gücü'}</span>
+            <span>{activeRole === 'resident' ? 'Site Sakini Deneyimi' : 'Yönetim Kurulu Araçları'}</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-3">
             {activeRole === 'resident'
-              ? 'Site Sakinlerinin Hayatını Kolaylaştıran Özellikler'
-              : 'Yönetim Kurulları İçin Güçlü Finans ve Operasyon Araçları'}
+              ? 'Site Sakinleri İçin Özellikler'
+              : 'Yönetim Kurulları İçin Finans ve Takip Araçları'}
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-normal">
             {activeRole === 'resident'
-              ? 'Telefonunuzdan çıkmadan aidatınızı ödeyin, ortak alan arızalarını bildirin, genel kurulda oyunuzu kullanın.'
-              : 'Apsiyon Manager ile aidat tahsilatlarını, banka hesaplarını, personel vardiyalarını ve noter onaylı kararları 360° denetleyin.'}
+              ? 'Aidat borcunuzu görüntüleyin, taleplerinizi iletin, duyuruları takip edin (özellikler sitenize göre değişir).'
+              : 'Apsiyon Manager ile tahsilat, kasa hareketleri ve duyuruları takip edin (kapsam sitenizin ayarlarına bağlıdır).'}
           </p>
         </div>
 
@@ -442,7 +367,7 @@ export default function ApsiyonMobileHub() {
             3 Adımda Apsiyon&apos;a Başlayın
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 font-normal">
-            Alo Yönetim tarafından yönetilen sitelerde dakikalar içinde dijital dünyaya bağlanın.
+            Alo Yönetim tarafından yönetilen sitelerde Apsiyon&apos;a başlamak için şu adımları izleyin.
           </p>
         </div>
 
@@ -454,7 +379,7 @@ export default function ApsiyonMobileHub() {
             </div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">Uygulamayı Yükleyin</h3>
             <p className="text-xs text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
-              Cihazınıza göre iOS App Store, Google Play veya Huawei AppGallery üzerinden Apsiyon uygulamasını saniyeler içinde indirin.
+              Cihazınıza göre App Store, Google Play veya Huawei AppGallery üzerinden Apsiyon uygulamasını indirin.
             </p>
           </div>
 
@@ -465,7 +390,7 @@ export default function ApsiyonMobileHub() {
             </div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">Tesis Bilginizle Giriş Yapın</h3>
             <p className="text-xs text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
-              Alo Yönetim sisteminde kayıtlı cep telefonu numaranızı girin; SMS ile gelen tek kullanımlık güvenlik koduyla dairenize bağlanın.
+              Site yönetiminde kayıtlı bilgilerinizle Apsiyon&apos;a giriş yapın; giriş yöntemi Apsiyon'un kurgusuna göre değişir.
             </p>
           </div>
 
@@ -476,7 +401,7 @@ export default function ApsiyonMobileHub() {
             </div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">Dijital Yönetim</h3>
             <p className="text-xs text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
-              Aidatlarınızı ödeyin, anlık duyuruları takip edin, teknik taleplerinizi iletin ve sitenizdeki şeffaf yönetimin keyfini çıkarın.
+              Sitenizde açık olan özelliklere göre aidat, duyuru ve talep işlemlerinizi uygulamadan yürütün.
             </p>
           </div>
         </div>
@@ -489,7 +414,7 @@ export default function ApsiyonMobileHub() {
         <div className="text-center mb-10">
           <span className="text-[#00A5DF] text-xs font-bold uppercase tracking-widest block mb-2">MERAK EDİLENLER</span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-            Apsiyon Mobil Portalı Hakkında Sıkça Sorulan Sorular
+            Apsiyon Portalı Hakkında Sıkça Sorulan Sorular
           </h2>
         </div>
 
@@ -539,7 +464,7 @@ export default function ApsiyonMobileHub() {
           </h3>
 
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
-            Apsiyon dijital altyapısı ve Alo Yönetim&apos;in 2009'dan beri saha deneyimiyle sitenizde aidat takibini düzenli yürütelim, tüm işletme bütçesini şeffaf kılalım.
+            Apsiyon yazılımı ve Alo Yönetim&apos;in 2009'dan beri saha deneyimiyle sitenizin aidat takibini ve işletme düzenini birlikte yürütelim.
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">

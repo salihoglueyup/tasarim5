@@ -22,7 +22,7 @@ export async function generateMetadata({
   return buildMetadata({
     title: 'Alo Yönetim & Apsiyon Sakin ve Yönetici Mobil Portalı',
     description:
-      'Site ve tesis yönetiminin tamamı cebinizde. Apsiyon bulut altyapısı, 256-bit SSL online aidat ödeme, anlık kasa mizanı ve teknik arıza takibi.',
+      'İş ortağımız Apsiyon’un sakin ve yönetici uygulamaları: online aidat ödeme, borç takibi, talep ve duyuru işlemleri.',
     path: '/app',
     lang,
     targetKeyword: 'site yönetimi mobil uygulama',
@@ -53,7 +53,7 @@ export default async function AppPage({
 
   const pageLd = webPageSchema({
     name: 'Alo Yönetim Sakin & Yönetici Mobil Portalı — Apsiyon Güvencesiyle',
-    description: 'Site ve tesis yönetiminin tamamı cebinizde — Apsiyon entegre canlı interaktif portal, online aidat ödeme ve talep takibi.',
+    description: 'İş ortağımız Apsiyon’un sakin ve yönetici uygulamaları — online aidat ödeme, talep ve duyuru takibi.',
     path: '/app',
     speakableSelectors: ['h1', 'p', '#app-instant-answer-text'],
   });

@@ -66,11 +66,11 @@ describe('Alo Yönetim x Apsiyon Mobil Entegrasyonu ve /app Sayfası Güvence Te
     expect(hubContent).toContain('#00A5DF');
     expect(hubContent).toContain('ApsiyonLogo');
     // QR, yasal güvenceler ve SSS
-    expect(hubContent).toContain('QR');
-    expect(hubContent).toContain('634 KMK Tam Uyumluluk');
-    expect(hubContent).toContain('256-Bit SSL Şifreleme');
-    expect(hubContent).toContain('KVKK Gizlilik Koruması');
-    expect(hubContent).toContain('BDDK Lisanslı Sanal POS');
+    expect(hubContent).not.toContain('qr_code'); // sahte QR kaldırıldı
+    expect(hubContent).not.toContain('634 KMK Tam Uyumluluk'); // doğrulanamayan uyumluluk iddiası
+    expect(hubContent).not.toContain('256-Bit');
+    expect(hubContent).not.toContain('KVKK Gizlilik Koruması');
+    expect(hubContent).not.toContain('BDDK');
     expect(hubContent).toContain('FAQPage');
     // Apsiyon uygulaması bizim değil ve puan verimiz yok: uygulama şeması yerine WebPage + about kullanılır
     expect(hubContent).toContain("'@type': 'WebPage'");

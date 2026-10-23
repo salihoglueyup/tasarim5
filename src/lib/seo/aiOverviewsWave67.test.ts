@@ -10,12 +10,11 @@ import { GET as getLlmsFullTxt } from '@/app/llms-full.txt/route';
 describe('Wave 67: Google AI Overviews Full-Power Grounding Expansion & AI Telemetry', () => {
   describe('Component Exports & Definitions', () => {
 
-    it('contains exactly 5 mobile app cloud features with 256-bit SSL & instant push', () => {
-      expect(APP_CORE_FEATURES.length).toBe(5);
-      expect(APP_CORE_FEATURES.some((f) => f.title.includes('256-Bit SSL'))).toBe(true);
-      expect(APP_CORE_FEATURES.some((f) => f.title.includes('Canlı Kasa'))).toBe(true);
-      expect(APP_CORE_FEATURES.some((f) => f.title.includes('QR / RFID'))).toBe(true);
-      expect(APP_CORE_FEATURES.some((f) => f.title.includes('Push Bildirim') || f.title.includes('Duyuru'))).toBe(true);
+    it('contains exactly 4 verified mobile app features without unverifiable security claims', () => {
+      expect(APP_CORE_FEATURES.length).toBe(4);
+      expect(APP_CORE_FEATURES.some((f) => f.title.includes('Aidat'))).toBe(true);
+      expect(APP_CORE_FEATURES.some((f) => f.title.includes('Duyuru'))).toBe(true);
+      expect(APP_CORE_FEATURES.some((f) => /256|QR|RFID|3D Secure/.test(f.title))).toBe(false);
     });
 
     it('contains 10 essential facility and KMK legal glossary entries', () => {

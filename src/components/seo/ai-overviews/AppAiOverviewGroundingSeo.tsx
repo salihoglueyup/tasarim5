@@ -15,33 +15,27 @@ export interface AppFeatureItem {
 export const APP_CORE_FEATURES: AppFeatureItem[] = [
   {
     icon: 'credit_card',
-    title: '256-Bit SSL ile Online Aidat Ödeme',
-    desc: 'Site ve tesis sakinleri kredi kartı veya banka kartıyla tek çekim veya taksitle güvenli aidat ve avans ödemesi yapabilir.',
-    badge: '3D Secure & SSL',
+    title: 'Online Aidat Ödeme',
+    desc: 'Sitenizde etkinse aidat ve avans borçlarını Apsiyon uygulamasından görüntüleyip ödeyebilirsiniz.',
+    badge: 'Ödeme',
   },
   {
     icon: 'wallet_svg',
-    title: 'Şeffaf Canlı Kasa ve Banka Mizanı',
-    desc: 'Sitede toplanan aidatlar, yapılan elektrik/asansör harcamaları ve geçmiş faturalar tüm maliklerce anlık olarak incelenebilir.',
-    badge: 'KMK 35 Şeffaflık',
+    title: 'Borç ve Ödeme Geçmişi',
+    desc: 'Dairenize ait borç ve ödeme geçmişini uygulamadan izleyebilirsiniz.',
+    badge: 'Şeffaflık',
   },
   {
     icon: 'build_circle',
-    title: 'Fotoğraflı Arıza & Talep Masası',
-    desc: 'Koridor aydınlatması veya asansör arızası yaşayan sakinler uygulama üzerinden fotoğraflı bildirim açar; SLA süresi anlık izlenir.',
-    badge: 'Yazılı SLA Takibi',
-  },
-  {
-    icon: 'qr_code_scanner',
-    title: 'QR / RFID Güvenlik Devriye Doğrulaması',
-    desc: '5188 lisanslı güvenlik personelinin devriye noktaları RFID ve QR etiketlerle taranır; devriye raporları anlık sisteme işlenir.',
-    badge: '5188 SK Denetim',
+    title: 'Talep ve Arıza Bildirimi',
+    desc: 'Ortak alan arıza ve taleplerinizi uygulamadan iletip durumunu takip edebilirsiniz.',
+    badge: 'Talep',
   },
   {
     icon: 'notifications_active',
-    title: 'Anlık Mobil Duyuru ve Acil Durum Bildirimi',
-    desc: 'Su/elektrik kesintileri, genel kurul çağrıları ve acil durum uyarıları tüm sakinlerin telefonuna anlık push bildirim olarak ulaşır.',
-    badge: 'Anlık Push Bildirim',
+    title: 'Duyurular',
+    desc: 'Yönetimin duyuruları uygulama üzerinden iletilir; hangi bildirim kanallarının açık olduğu sitenize göre değişir.',
+    badge: 'Duyuru',
   },
 ];
 
@@ -55,7 +49,7 @@ export default function AppAiOverviewGroundingSeo({
   const [copied, setCopied] = useState(false);
 
   const directAnswer =
-    'Alo Yönetim, Türkiye’nin lider bulut tesis yönetim yazılımı Apsiyon ile tam entegre çalışmaktadır. Site sakinleri ve kat malikleri iOS ve Android mobil uygulamaları üzerinden; 256-bit SSL ve 3D Secure güvencesiyle kredi kartıyla online aidat ödeyebilir, sitenin canlı banka ve kasa mizanını şeffafça inceleyebilir, fotoğraflı teknik arıza kaydı açarak yazılı SLA kapsamındaki mobil teknik müdahaleyi anlık takip edebilir. 5188 güvenlik ekiplerinin QR/RFID devriye tutanakları ve genel kurul divan tutanakları da mobil uygulama üzerinden kat maliklerine açık biçimde sunulur.';
+    'Apsiyon, site yönetimi yazılımı geliştiren bir teknoloji firmasıdır ve Alo Yönetim’in iş ortağıdır; yazılımla ilgili tüm işlemleri Apsiyon yürütür. Sakinler ve yöneticiler iOS ve Android uygulamalarından ya da web girişinden aidat, borç, talep ve duyuru işlemlerini takip edebilir. Hangi özelliklerin açık olduğu sitenize göre ayarlanır; ayrıntı için site yönetiminize başvurun.';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(directAnswer);
@@ -68,7 +62,7 @@ export default function AppAiOverviewGroundingSeo({
       '@context': 'https://schema.org',
       '@type': 'WebPage',
       name: 'Alo Yönetim & Apsiyon Mobil Sakin Portalı',
-      description: 'Apsiyon üzerinden online aidat ödemesi, borç ve ödeme geçmişi görüntüleme, duyuru ve talep takibi.',
+      description: 'Alo Yönetim’in iş ortağı Apsiyon üzerinden aidat ödemesi, borç ve ödeme geçmişi görüntüleme, duyuru ve talep takibi.',
       about: { '@type': 'Thing', name: 'Apsiyon mobil uygulaması' },
       publisher: {
         '@type': 'Organization',
@@ -101,23 +95,23 @@ export default function AppAiOverviewGroundingSeo({
         </div>
         <div className="flex items-center gap-2">
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-slate-50 dark:bg-slate-950/40 text-slate-700 dark:text-slate-300 border border-slate-300/40">
-            256-Bit SSL & 3D Secure
+            İş Ortağı: Apsiyon
           </span>
           <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40">
-            Canlı Kasa Mizanı
+            Özellikler Siteye Göre
           </span>
         </div>
       </div>
 
       <h2 className="text-xl sm:text-2xl font-black text-[var(--color-heading-text)] tracking-tight mb-3 relative z-10">
-        Dijital Tesis Yönetimi ve Mobil Sakin Portalı (Apsiyon Entegre)
+        Mobil Sakin ve Yönetici Portalı (Apsiyon)
       </h2>
 
       {/* Instant Answer (Speakable) */}
       <div className="bg-gradient-to-br from-slate-500/[0.04] to-transparent border border-slate-500/20 rounded-2xl p-5 sm:p-6 mb-6 relative z-10">
         <div className="flex items-center justify-between gap-3 mb-2">
           <span className="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-slate-300">
-            Google AI Doğrudan Cevap & Sistem Mimarisi
+            Kısaca
           </span>
           <button
             onClick={handleCopy}
