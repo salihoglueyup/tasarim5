@@ -139,7 +139,7 @@ describe('blog: indeks politikası', () => {
 
 describe('ilçe rehberleri: çevrilenler ve yalnızca Türkçe olanlar', () => {
   it('yalnızca Türkçe rehberler en/ru/ar sürümlerinde noindex kalır; çevrilenler indekslenir', () => {
-    expect(TR_ONLY_BLOG_SLUGS.length + TRANSLATED_GUIDES.length).toBe(18);
+    expect(TR_ONLY_BLOG_SLUGS.length + TRANSLATED_GUIDES.length).toBe(24);
     for (const slug of TR_ONLY_BLOG_SLUGS) {
       expect(POSTS.some((p) => p.slug === slug), slug).toBe(true);
       expect(isIndexable(`/blog/${slug}`, 'tr'), slug).toBe(true);

@@ -9,6 +9,7 @@ import { REAL_REFERENCES } from './realReferences';
 import { FACTS } from '@/lib/facts';
 import { DISTRICT_SCENARIOS as SCENARIOS_A } from './districtGuideScenarios';
 import { SPECS_BATCH2, EXTRAS_BATCH2, SCENARIOS_BATCH2 } from './districtGuidesBatch2';
+import { SPECS_BATCH3, EXTRAS_BATCH3, SCENARIOS_BATCH3 } from './districtGuidesBatch3';
 
 type Segment = { h: string; p: string };
 type Spec = {
@@ -378,9 +379,9 @@ const EXTRAS_A: Record<string, { segments: Segment[]; calendar: string[]; questi
   },
 };
 
-const SPECS: Spec[] = [...SPECS_A, ...SPECS_BATCH2];
-const EXTRAS: Record<string, { segments: Segment[]; calendar: string[]; question: string }> = { ...EXTRAS_A, ...EXTRAS_BATCH2 };
-const DISTRICT_SCENARIOS: Record<string, [string, string][]> = { ...SCENARIOS_A, ...SCENARIOS_BATCH2 };
+const SPECS: Spec[] = [...SPECS_A, ...SPECS_BATCH2, ...SPECS_BATCH3];
+const EXTRAS: Record<string, { segments: Segment[]; calendar: string[]; question: string }> = { ...EXTRAS_A, ...EXTRAS_BATCH2, ...EXTRAS_BATCH3 };
+const DISTRICT_SCENARIOS: Record<string, [string, string][]> = { ...SCENARIOS_A, ...SCENARIOS_BATCH2, ...SCENARIOS_BATCH3 };
 
 const IMAGE ='https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1200&auto=format&fit=crop';
 const EXCLUDED_REF = /Çocuk ve Gençlik Merkezi/;
@@ -465,7 +466,7 @@ function build(s: Spec): Post {
 export const DISTRICT_GUIDES: Post[] = SPECS.map(build);
 
 /** En/ru/ar çevirisi tamamlanan ilçe rehberleri (çeviri belleği: scripts/dump-guides.ts → guides.snapshot.json). */
-export const TRANSLATED_GUIDE_DISTRICTS: readonly string[] = ['besiktas', 'sisli', 'sariyer', 'kadikoy', 'atasehir', 'uskudar', 'maltepe', 'kartal', 'umraniye', 'bakirkoy', 'basaksehir', 'beylikduzu', 'pendik', 'esenyurt', 'kucukcekmece', 'kagithane', 'bahcelievler', 'cekmekoy'];
+export const TRANSLATED_GUIDE_DISTRICTS: readonly string[] = ['besiktas', 'sisli', 'sariyer', 'kadikoy', 'atasehir', 'uskudar', 'maltepe', 'kartal', 'umraniye', 'bakirkoy', 'basaksehir', 'beylikduzu', 'pendik', 'esenyurt', 'kucukcekmece', 'kagithane', 'bahcelievler', 'cekmekoy', 'buyukcekmece', 'gaziosmanpasa', 'sancaktepe', 'avcilar', 'tuzla', 'zeytinburnu'];
 
 export const TRANSLATED_GUIDES: Post[] = DISTRICT_GUIDES.filter((p) => TRANSLATED_GUIDE_DISTRICTS.some((d) => p.slug === d + "-site-yonetimi-rehberi-2026"));
 
