@@ -4,6 +4,7 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import { Pool } from 'pg';
 import { CATEGORIES, POSTS } from '../src/data/posts';
 import type { Post } from '../src/data/posts';
+import { RETIRED_BLOG_SLUGS } from '../src/lib/retiredBlogSlugs';
 import bcrypt from 'bcryptjs';
 import { randomBytes } from 'crypto';
 import fs from 'fs';
@@ -111,7 +112,7 @@ async function main() {
   for (const file of draftFiles) {
     try {
       const mod = (await import(pathToFileURL(path.join(draftsDir, file)).href)) as { draft?: Post };
-      if (mod.draft?.slug && typeof mod.draft.author === 'string') {
+      if (mod.draft?.slug && typeof mod.draft.author === 'string' && !RETIRED_BLOG_SLUGS.includes(mod.draft.slug)) {
         allDrafts.push(mod.draft);
       }
     } catch {
@@ -145,6 +146,7 @@ async function main() {
   // 4. Blog Yazıları
   console.log(`4. Blog yazıları seed ediliyor (${POSTS.length} yazı)...`);
   for (const post of POSTS) {
+    if (RETIRED_BLOG_SLUGS.includes(post.slug)) continue; // kaldırılan şablon yazılar yeniden oluşturulmaz
     await seedPost(post);
     process.stdout.write('.');
   }
